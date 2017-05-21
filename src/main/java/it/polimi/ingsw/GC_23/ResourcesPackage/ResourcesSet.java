@@ -3,7 +3,7 @@ package it.polimi.ingsw.GC_23.ResourcesPackage;
 /**
  * Created by Alessandro Tonali on 20/05/2017.
  */
-public class RescourcesSet {
+public class ResourcesSet {
     private FaithPoints faithPoints;
     private Gold gold;
     private MilitaryPoints militaryPoints;

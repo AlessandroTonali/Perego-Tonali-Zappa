@@ -7,7 +7,5 @@ public class Tower {
     private TowerSpace[] spaces;
 
     public boolean CheckfamiliarPresence(FamilyMember familyMember){
-        return true;
-
     }
 }

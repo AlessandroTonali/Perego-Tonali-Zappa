@@ -6,10 +6,6 @@ package it.polimi.ingsw.GC_23.ResourcesPackage;
 public abstract class Resources {
     private int quantity;
 
-    public abstract void add(int value,Player p){
-
-    }
-    public abstract void remove(int value,Player p){
-
-    }
+    public abstract void add();
+    public abstract void remove();
 }
