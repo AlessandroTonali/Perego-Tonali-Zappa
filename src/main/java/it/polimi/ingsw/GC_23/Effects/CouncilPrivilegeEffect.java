@@ -8,7 +8,7 @@ public class CouncilPrivilegeEffect {
     private int numberOfPrivileges;
 
     public BenefitsEffect choosePrivilege(){
-
+        //TODO
     }
 
     public BenefitsEffect[] getBenefits() {

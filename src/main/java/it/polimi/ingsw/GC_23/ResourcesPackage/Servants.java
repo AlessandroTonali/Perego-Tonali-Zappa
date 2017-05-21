@@ -1,5 +1,6 @@
 package it.polimi.ingsw.GC_23.ResourcesPackage;
 
+import it.polimi.ingsw.GC_23.Player;
 import it.polimi.ingsw.GC_23.ResourcesPackage.Resources;
 
 /**
@@ -10,6 +11,7 @@ public class Servants extends Resources {
 
     }
     public void remove(int value,Player p){
+        //TODO controlli valori non possibili
     }
 
 }

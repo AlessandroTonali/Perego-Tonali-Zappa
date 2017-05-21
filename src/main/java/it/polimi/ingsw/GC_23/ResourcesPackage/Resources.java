@@ -6,6 +6,10 @@ package it.polimi.ingsw.GC_23.ResourcesPackage;
 public abstract class Resources {
     private int quantity;
 
+    public int getQuantity() {
+        return quantity;
+    }
+
     public abstract void add();
     public abstract void remove();
 }

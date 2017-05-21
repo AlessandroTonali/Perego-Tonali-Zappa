@@ -5,5 +5,5 @@ package it.polimi.ingsw.GC_23;
  */
 public class CouncilSpace extends ActionSpace {
     private static int orderCounter;
-    private FamilyMember playerOrder;
+    private FamilyMember[] playerOrder;
 }

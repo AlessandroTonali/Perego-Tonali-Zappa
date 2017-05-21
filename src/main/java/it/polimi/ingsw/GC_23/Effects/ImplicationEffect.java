@@ -10,7 +10,7 @@ public class ImplicationEffect {
     private BenefitsEffect[] givings;
 
     public SingleCost chooseImplication(){
-
+        //TODO
     }
 
     public SingleCost[] getRequirements() {
