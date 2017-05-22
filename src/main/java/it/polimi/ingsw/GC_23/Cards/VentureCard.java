@@ -13,7 +13,7 @@ import java.util.ArrayList;
 public class VentureCard extends Card {
 
 
-    public VentureCard(Period period, CardColor cardColor, String name, ArrayList<Effect> effects) {
+    public VentureCard(int period, CardColor cardColor, String name, ArrayList<Effect> effects) {
         super(period, cardColor, name, effects);
     }
 

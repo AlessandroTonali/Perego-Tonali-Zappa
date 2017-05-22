@@ -4,7 +4,6 @@ import it.polimi.ingsw.GC_23.Effects.Effect;
 import it.polimi.ingsw.GC_23.Enumerations.CardColor;
 import it.polimi.ingsw.GC_23.Player;
 
-import java.time.Period;
 import java.util.ArrayList;
 
 /**
@@ -13,12 +12,12 @@ import java.util.ArrayList;
 
 
 public abstract class Card {
-    private Period period;
+    private int period;
     private CardColor cardColor;
     private String name;
     private ArrayList<Effect> effects;
 
-    public Card(Period period, CardColor cardColor, String name, ArrayList<Effect> effects) {
+    public Card(int period, CardColor cardColor, String name, ArrayList<Effect> effects) {
         this.period = period;
         this.cardColor = cardColor;
         this.name = name;
@@ -30,11 +29,11 @@ public abstract class Card {
     public abstract boolean checkResources(Player player);
 
 
-    public Period getPeriod() {
+    public int getPeriod() {
         return period;
     }
 
-    public void setPeriod(Period period) {
+    public void setPeriod(int period) {
         this.period = period;
     }
 

@@ -9,6 +9,7 @@ public class DiscountEffect {
     private SingleCost[] discount;
     public SingleCost chooseDiscount(){
         //TODO
+        return null;
     }
 
     public SingleCost[] getDiscount() {

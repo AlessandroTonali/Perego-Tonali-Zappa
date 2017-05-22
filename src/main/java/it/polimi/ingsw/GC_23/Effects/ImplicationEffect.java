@@ -11,6 +11,7 @@ public class ImplicationEffect {
 
     public SingleCost chooseImplication(){
         //TODO
+        return null;
     }
 
     public SingleCost[] getRequirements() {

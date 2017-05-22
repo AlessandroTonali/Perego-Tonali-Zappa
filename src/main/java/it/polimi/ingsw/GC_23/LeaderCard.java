@@ -10,7 +10,8 @@ public class LeaderCard {
     private Effect effects;
     private SingleCost requirements;
 
-    public boolean isActivable( Player p){
+    public boolean isActivable(Player p){
 
+        return false;
     }
 }

@@ -6,6 +6,10 @@ package it.polimi.ingsw.GC_23;
 public class Tower {
     private TowerSpace[] spaces;
 
+    public Tower(TowerSpace[] spaces) {
+        this.spaces = spaces;
+    }
+
     public boolean CheckfamiliarPresence(FamilyMember familyMember){
         return false;
     }
