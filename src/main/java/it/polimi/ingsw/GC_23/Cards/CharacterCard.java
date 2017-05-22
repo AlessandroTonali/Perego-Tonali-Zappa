@@ -3,6 +3,7 @@ package it.polimi.ingsw.GC_23.Cards;
 import it.polimi.ingsw.GC_23.Effects.Effect;
 import it.polimi.ingsw.GC_23.Enumerations.CardColor;
 import it.polimi.ingsw.GC_23.Player;
+import it.polimi.ingsw.GC_23.SingleCost;
 
 import java.time.Period;
 import java.util.ArrayList;
@@ -12,9 +13,11 @@ import java.util.ArrayList;
  */
 public class CharacterCard extends Card {
 
+    private SingleCost cost;
 
-    public CharacterCard(int period, CardColor cardColor, String name, ArrayList<Effect> effects) {
+    public CharacterCard(int period, CardColor cardColor, String name, ArrayList<Effect> effects, SingleCost cost) {
         super(period, cardColor, name, effects);
+        this.cost = cost;
     }
 
     @Override

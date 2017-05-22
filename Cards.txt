@@ -1,0 +1,14 @@
+{
+"VentureCard": [
+	{"name": "Alen", "cost": "molto"},
+	{"name": "Jess", "cost": "poco"}
+],
+"BuildingCard": [
+	{"name": "Battistero", "cost": [ {"stone": "3"}],"immediateEffect": "1", "permanentEffect": "2"}
+],
+"CharacterCard": [
+],
+"TerritoryCard": [
+	{"name": "Città Mercantile", "immediateEffect": "1", "permanentEffect": "2"}
+]
+}

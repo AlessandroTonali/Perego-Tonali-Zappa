@@ -1,6 +1,7 @@
 package it.polimi.ingsw.GC_23;
 
 import it.polimi.ingsw.GC_23.Cards.Card;
+import it.polimi.ingsw.GC_23.Cards.CharacterCard;
 import it.polimi.ingsw.GC_23.Effects.BenefitsEffect;
 import it.polimi.ingsw.GC_23.Enumerations.CardColor;
 

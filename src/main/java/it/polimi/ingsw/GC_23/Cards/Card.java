@@ -1,8 +1,10 @@
 package it.polimi.ingsw.GC_23.Cards;
 
+import com.sun.istack.internal.Nullable;
 import it.polimi.ingsw.GC_23.Effects.Effect;
 import it.polimi.ingsw.GC_23.Enumerations.CardColor;
 import it.polimi.ingsw.GC_23.Player;
+import it.polimi.ingsw.GC_23.SingleCost;
 
 import java.util.ArrayList;
 
@@ -23,6 +25,7 @@ public abstract class Card {
         this.name = name;
         this.effects = effects;
     }
+
 
     public abstract boolean isTakable(Player player);
 
