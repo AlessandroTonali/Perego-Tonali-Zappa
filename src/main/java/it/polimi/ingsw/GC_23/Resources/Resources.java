@@ -1,4 +1,4 @@
-package it.polimi.ingsw.GC_23.ResourcesPackage;
+package it.polimi.ingsw.GC_23.Resources;
 
 import it.polimi.ingsw.GC_23.Player;
 
@@ -7,6 +7,10 @@ import it.polimi.ingsw.GC_23.Player;
  */
 public class Resources {
     private int quantity;
+
+    public Resources(int quantity) {
+        this.quantity = quantity;
+    }
 
     public synchronized void add(int value, Player p){
         this.quantity= this.quantity + value;
@@ -23,5 +27,9 @@ public class Resources {
 
     public void setQuantity(int quantity) {
         this.quantity = quantity;
+    }
+
+    public String toString(){
+        return "" + quantity;
     }
 }

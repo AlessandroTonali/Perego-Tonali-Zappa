@@ -1,6 +1,8 @@
 package it.polimi.ingsw.GC_23;
 
 import it.polimi.ingsw.GC_23.Cards.Card;
+import it.polimi.ingsw.GC_23.Resources.FaithPoints;
+import it.polimi.ingsw.GC_23.Resources.ResourcesSet;
 import jdk.nashorn.internal.parser.JSONParser;
 import jdk.nashorn.internal.runtime.JSONFunctions;
 import org.json.JSONArray;
@@ -26,6 +28,10 @@ public class Main {
 
     public Main () {
         parseJson();
+        ResourcesSet set = new ResourcesSet(1,2,3,4,5,6,7);
+        System.out.println(set.toString());
+
+
     }
 
     public void initializeBoard() {

@@ -1,6 +1,6 @@
 package it.polimi.ingsw.GC_23;
 
-import it.polimi.ingsw.GC_23.ResourcesPackage.ResourcesSet;
+import it.polimi.ingsw.GC_23.Resources.ResourcesSet;
 
 /**
  * Created by jesss on 21/05/17.
