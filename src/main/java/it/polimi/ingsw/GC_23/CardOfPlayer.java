@@ -16,4 +16,5 @@ public class CardOfPlayer {
     private CharacterCard[] characterCards = new CharacterCard[5];
     private BuildingCard[] buildingCards = new BuildingCard[5];
     private VentureCard[] ventureCards = new VentureCard[5];
+    //dovrebero essere arraylist
 }

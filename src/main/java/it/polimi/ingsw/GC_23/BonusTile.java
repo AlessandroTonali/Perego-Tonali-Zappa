@@ -7,7 +7,7 @@ import it.polimi.ingsw.GC_23.Effects.BenefitsEffect;
  */
 public class BonusTile {
 
-    private BenefitsEffect benefitsEffect;
+    private final BenefitsEffect benefitsEffect;
 
     public BonusTile(BenefitsEffect benefitsEffect) {
         this.benefitsEffect = benefitsEffect;
