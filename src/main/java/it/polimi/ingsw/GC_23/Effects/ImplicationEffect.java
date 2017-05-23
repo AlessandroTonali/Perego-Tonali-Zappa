@@ -9,6 +9,19 @@ public class ImplicationEffect {
     private SingleCost[] requirements;
     private BenefitsEffect[] givings;
 
+    public ImplicationEffect(SingleCost[] requirements, BenefitsEffect[] givings) {
+        this.requirements = requirements;
+        this.givings = givings;
+    }
+
+    public void setRequirements(SingleCost[] requirements) {
+        this.requirements = requirements;
+    }
+
+    public void setGivings(BenefitsEffect[] givings) {
+        this.givings = givings;
+    }
+
     public SingleCost[] getRequirements() {
         return requirements;
     }

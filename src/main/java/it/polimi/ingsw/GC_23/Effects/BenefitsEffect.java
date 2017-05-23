@@ -8,8 +8,15 @@ import it.polimi.ingsw.GC_23.Resources.ResourcesSet;
 public class BenefitsEffect {
     private ResourcesSet resources;
 
+    public BenefitsEffect(ResourcesSet resources) {
+        this.resources = resources;
+    }
+
     public ResourcesSet getResources() {
         return resources;
     }
 
+    public void setResources(ResourcesSet resources) {
+        this.resources = resources;
+    }
 }
