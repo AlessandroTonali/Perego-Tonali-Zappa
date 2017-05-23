@@ -11,9 +11,4 @@ public class CouncilPrivilegeEffect {
         return benefits;
     }
 
-    public BenefitsEffect choosePrivilege(){
-        //TODO
-        return null;
-    }
-
 }

@@ -1,4 +1,4 @@
-package it.polimi.ingsw.GC_23;
+package it.polimi.ingsw.GC_23.Spaces;
 
 import it.polimi.ingsw.GC_23.Spaces.ActionSpace;
 

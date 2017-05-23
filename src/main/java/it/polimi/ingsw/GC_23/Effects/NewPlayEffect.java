@@ -14,9 +14,4 @@ public class NewPlayEffect {
     public DiscountEffect getDiscount() {
         return discount;
     }
-
-    public void play(Player p){
-        //TODO
-        return;
-    }
 }

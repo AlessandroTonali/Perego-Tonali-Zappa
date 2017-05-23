@@ -16,6 +16,7 @@ public class PlaceFamilyMember implements Controller {
 
     @Override
     public void makeAction() {
+        //chiama ActiveEffectController
 
     }
 }

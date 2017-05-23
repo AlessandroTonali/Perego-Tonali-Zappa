@@ -9,11 +9,6 @@ public class ImplicationEffect {
     private SingleCost[] requirements;
     private BenefitsEffect[] givings;
 
-    public SingleCost chooseImplication(){
-        //TODO
-        return null;
-    }
-
     public SingleCost[] getRequirements() {
         return requirements;
     }

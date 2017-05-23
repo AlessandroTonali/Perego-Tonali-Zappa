@@ -12,7 +12,7 @@ public class Player {
     private ResourcesSet resources;
     private CardOfPlayer cards;
     private BonusTile bonusTile;
-    private FamilyMembers familyMembers;
+    private FamilyMember[] familyMembers;
     private PermanentEffect permanentEffect;
 
     public void chooseMove(){
