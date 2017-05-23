@@ -14,6 +14,11 @@ public class Player {
     private FamilyMember[] familyMembers;
     private PermanentEffect permanentEffect;
 
+    public Player(PlayerColor playerColor) {
+        this.playerColor = playerColor;
+
+    }
+
     public void chooseMove(){
         //TODO
         return;

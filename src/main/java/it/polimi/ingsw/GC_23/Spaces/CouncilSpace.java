@@ -9,7 +9,7 @@ public class CouncilSpace extends ActionSpace {
     private static int orderCounter;
     private FamilyMember[] playerOrder;
     public CouncilSpace(){
-        super(0);
+        super(1);
         orderCounter = 0;
     }
 

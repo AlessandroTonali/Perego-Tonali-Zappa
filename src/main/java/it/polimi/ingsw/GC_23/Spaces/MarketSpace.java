@@ -9,7 +9,7 @@ public class MarketSpace extends ActionSpace {
     private static boolean isBusyFirst;
 
     public MarketSpace(){
-        super(0);
+        super(1);
 
     }
 
