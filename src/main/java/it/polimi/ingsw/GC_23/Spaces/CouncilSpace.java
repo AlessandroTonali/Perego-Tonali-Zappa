@@ -1,4 +1,6 @@
-package it.polimi.ingsw.GC_23;
+package it.polimi.ingsw.GC_23.Spaces;
+
+import it.polimi.ingsw.GC_23.FamilyMember;
 
 /**
  * Created by Alessandro Tonali on 20/05/2017.

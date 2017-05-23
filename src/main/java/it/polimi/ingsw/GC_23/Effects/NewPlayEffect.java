@@ -17,5 +17,6 @@ public class NewPlayEffect {
 
     public void play(Player p){
         //TODO
+        return;
     }
 }

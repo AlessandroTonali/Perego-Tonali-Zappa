@@ -7,13 +7,13 @@ public class CouncilPrivilegeEffect {
     private BenefitsEffect[] benefits;
     private int numberOfPrivileges;
 
+    public BenefitsEffect[] getBenefits() {
+        return benefits;
+    }
+
     public BenefitsEffect choosePrivilege(){
         //TODO
         return null;
-    }
-
-    public BenefitsEffect[] getBenefits() {
-        return benefits;
     }
 
 }

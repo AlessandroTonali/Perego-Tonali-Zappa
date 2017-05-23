@@ -7,6 +7,7 @@ import it.polimi.ingsw.GC_23.SingleCost;
  */
 public class DiscountEffect {
     private SingleCost[] discount;
+
     public SingleCost chooseDiscount(){
         //TODO
         return null;

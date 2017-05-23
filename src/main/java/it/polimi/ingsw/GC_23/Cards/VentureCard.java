@@ -20,13 +20,4 @@ public class VentureCard extends Card {
         this.cost = cost;
     }
 
-    @Override
-    public boolean isTakable(Player player) {
-        return false;
-    }
-
-    @Override
-    public boolean checkResources(Player player) {
-        return false;
-    }
 }

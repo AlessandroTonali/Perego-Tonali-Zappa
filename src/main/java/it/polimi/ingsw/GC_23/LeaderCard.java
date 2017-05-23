@@ -9,9 +9,4 @@ public class LeaderCard {
     private String name;
     private Effect effects;
     private SingleCost requirements;
-
-    public boolean isActivable(Player p){
-
-        return false;
-    }
 }

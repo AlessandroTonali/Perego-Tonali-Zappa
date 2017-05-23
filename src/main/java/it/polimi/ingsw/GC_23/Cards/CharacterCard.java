@@ -20,13 +20,12 @@ public class CharacterCard extends Card {
         this.cost = cost;
     }
 
-    @Override
-    public boolean isTakable(Player player) {
-        return false;
+    public SingleCost getCost() {
+        return cost;
     }
 
-    @Override
-    public boolean checkResources(Player player) {
-        return false;
+    public void setCost(SingleCost cost) {
+        this.cost = cost;
     }
+
 }

@@ -26,12 +26,6 @@ public abstract class Card {
         this.effects = effects;
     }
 
-
-    public abstract boolean isTakable(Player player);
-
-    public abstract boolean checkResources(Player player);
-
-
     public int getPeriod() {
         return period;
     }

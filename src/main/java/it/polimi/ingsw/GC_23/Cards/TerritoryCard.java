@@ -17,13 +17,4 @@ public class TerritoryCard extends Card {
         super(period, cardColor, name, effects);
     }
 
-    @Override
-    public boolean isTakable(Player player) {
-        return false;
-    }
-
-    @Override
-    public boolean checkResources(Player player) {
-        return false;
-    }
 }

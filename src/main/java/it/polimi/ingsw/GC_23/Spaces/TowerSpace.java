@@ -1,9 +1,7 @@
-package it.polimi.ingsw.GC_23;
+package it.polimi.ingsw.GC_23.Spaces;
 
 import it.polimi.ingsw.GC_23.Cards.Card;
-import it.polimi.ingsw.GC_23.Cards.CharacterCard;
 import it.polimi.ingsw.GC_23.Effects.BenefitsEffect;
-import it.polimi.ingsw.GC_23.Enumerations.CardColor;
 
 /**
  * Created by Alessandro Tonali on 20/05/2017.
