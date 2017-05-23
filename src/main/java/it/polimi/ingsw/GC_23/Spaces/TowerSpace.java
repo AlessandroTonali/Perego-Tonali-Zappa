@@ -8,12 +8,12 @@ import it.polimi.ingsw.GC_23.Effects.BenefitsEffect;
  */
 public class TowerSpace extends ActionSpace {
     private Card card;
-    private BenefitsEffect effect;
+    private BenefitsEffect benefitsEffect;
 
     public TowerSpace(Card card, BenefitsEffect effect, int value) {
         super(value);
         this.card = card;
-        this.effect = effect;
+        this.benefitsEffect = effect;
 
     }
 
@@ -21,8 +21,8 @@ public class TowerSpace extends ActionSpace {
         return card;
     }
 
-    @Override
-    public BenefitsEffect getEffect() {
-        return effect;
+
+    public BenefitsEffect getBenefitsEffect() {
+        return benefitsEffect;
     }
 }

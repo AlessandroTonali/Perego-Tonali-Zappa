@@ -25,6 +25,30 @@ public class Player {
 
     }
 
+    public PlayerColor getPlayerColor() {
+        return playerColor;
+    }
+
+    public ResourcesSet getResources() {
+        return resources;
+    }
+
+    public CardOfPlayer getCards() {
+        return cards;
+    }
+
+    public BonusTile getBonusTile() {
+        return bonusTile;
+    }
+
+    public FamilyMember[] getFamilyMembers() {
+        return familyMembers;
+    }
+
+    public PermanentEffect getPermanentEffect() {
+        return permanentEffect;
+    }
+
     public void chooseMove(){
         //TODO
         return;

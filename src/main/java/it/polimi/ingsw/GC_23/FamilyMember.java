@@ -12,4 +12,11 @@ public class FamilyMember {
     private FamilyColor familyColor;
     private int value;
     private ActionSpace position;
+
+    public FamilyMember(PlayerColor playerColor, FamilyColor familyColor) {
+        this.playerColor = playerColor;
+        this.familyColor = familyColor;
+        this.value = 0;
+        this.position = null;
+    }
 }
