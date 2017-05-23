@@ -14,4 +14,12 @@ public class DiceSpace {
         this.diceColor = diceColor;
         this.dice = dice;
     }
+
+    public DiceColor getDiceColor() {
+        return diceColor;
+    }
+
+    public Dice getDice() {
+        return dice;
+    }
 }

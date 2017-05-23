@@ -5,4 +5,13 @@ package it.polimi.ingsw.GC_23.Spaces;
  */
 public class ProductionSpace extends ActionSpace {
     private static boolean isBusyFirst;
+
+    public ProductionSpace(int value){
+        super(value);
+        this.isBusyFirst = false;
+    }
+
+    public static boolean isIsBusyFirst() {
+        return isBusyFirst;
+    }
 }

@@ -10,8 +10,19 @@ public class TowerSpace extends ActionSpace {
     private Card card;
     private BenefitsEffect effect;
 
-    public TowerSpace(Card card, BenefitsEffect effect) {
+    public TowerSpace(Card card, BenefitsEffect effect, int value) {
+        super(value);
         this.card = card;
         this.effect = effect;
+
+    }
+
+    public Card getCard() {
+        return card;
+    }
+
+    @Override
+    public BenefitsEffect getEffect() {
+        return effect;
     }
 }
