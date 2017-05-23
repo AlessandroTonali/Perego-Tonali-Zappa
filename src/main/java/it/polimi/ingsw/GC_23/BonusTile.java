@@ -7,7 +7,7 @@ import it.polimi.ingsw.GC_23.Effects.BenefitsEffect;
  */
 public class BonusTile {
 
-    private final BenefitsEffect benefitsEffect;
+    private BenefitsEffect benefitsEffect;
 
     public BonusTile(BenefitsEffect benefitsEffect) {
         this.benefitsEffect = benefitsEffect;
@@ -19,5 +19,8 @@ public class BonusTile {
 
     public void setBenefitsEffect(BenefitsEffect benefitsEffect) {
         this.benefitsEffect = benefitsEffect;
+
+        //TODO benefits effect deve essere final perche non può cambiare
+
     }
 }

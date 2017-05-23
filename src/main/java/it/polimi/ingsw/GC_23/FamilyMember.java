@@ -19,4 +19,30 @@ public class FamilyMember {
         this.value = 0;
         this.position = null;
     }
+
+    public PlayerColor getPlayerColor() {
+        return playerColor;
+    }
+
+    public FamilyColor getFamilyColor() {
+        return familyColor;
+    }
+
+    public int getValue() {
+        return value;
+    }
+
+    public ActionSpace getPosition() {
+        return position;
+    }
+
+    public void setValue(int value) {
+        this.value = value;
+    }
+
+    public void setPosition(ActionSpace position) {
+        this.position = position;
+    }
 }
+
+
