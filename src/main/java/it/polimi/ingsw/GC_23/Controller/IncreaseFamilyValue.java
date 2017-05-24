@@ -20,15 +20,15 @@ public class IncreaseFamilyValue implements Controller {
             makeAction();
             return true;
         }
-        return false;
+        else {
+            return false;
+        }
     }
 
     @Override
-
-
     public boolean isLegal() {
         if (player.getResources().getServants().getQuantity() > quantity) { return true; }
-        return false;
+        else {return false;}
     }
 
     @Override
