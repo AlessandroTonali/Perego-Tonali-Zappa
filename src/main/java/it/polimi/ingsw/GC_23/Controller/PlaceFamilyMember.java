@@ -7,7 +7,7 @@ import it.polimi.ingsw.GC_23.Spaces.ActionSpace;
 /**
  * Created by jesss on 23/05/17.
  */
-public class PlaceFamilyMember implements Controller {
+public abstract class PlaceFamilyMember implements Controller {
 
     //TODO bisogna metterla abstract pero bisoga prima implementare le altre non lo faccio senno non builda
 
@@ -24,9 +24,7 @@ public class PlaceFamilyMember implements Controller {
     }
 
     @Override
-    public boolean isLegal(){
-        return true;
-    }
+    public abstract boolean isLegal();
 
     @Override
     public void makeAction() {

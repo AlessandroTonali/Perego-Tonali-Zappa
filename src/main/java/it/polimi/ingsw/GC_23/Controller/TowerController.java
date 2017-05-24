@@ -17,6 +17,10 @@ public class TowerController extends PlaceFamilyMember {
         return true;
     }
 
+    public boolean isLegal(){
+        return true;
+    }
+
     //numero carte
     private boolean isTakeable(){
         //TODO
