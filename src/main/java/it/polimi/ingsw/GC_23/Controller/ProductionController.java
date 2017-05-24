@@ -12,10 +12,16 @@ public class ProductionController extends PlaceFamilyMember {
     private Player player;
     private ProductionSpace productionSpace;
 
+    private boolean checkBusy(){
+        if(productionSpace.isBusy())
+            return true;
+        else
+            return false;
+    }
     //Da controllare: è il suo turno, il posto non è occupato, no familiari dello stesso colore (si neutro),
     // valore maggiore di 1, se non è il primo malus di -3
     public boolean isLegal() {
-        if (!(productionSpace.isBusy())&&(familyMember.getValue()>=1)){
+        if (!(this.checkBusy())&&(familyMember.getValue()>=1)){
             return true;
         }
         else

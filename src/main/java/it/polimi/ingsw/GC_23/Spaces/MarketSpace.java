@@ -10,4 +10,5 @@ public class MarketSpace extends ActionSpace {
         super(1);
 
     }
+
 }

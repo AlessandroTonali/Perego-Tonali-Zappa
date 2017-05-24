@@ -24,6 +24,9 @@ public class CouncilSpace extends ActionSpace {
             return false;
         }
 
+    public void setPlayerOrder(FamilyMember[] playerOrder) {
+        this.playerOrder = playerOrder;
+    }
 
     public static int getOrderCounter() {
         return orderCounter;

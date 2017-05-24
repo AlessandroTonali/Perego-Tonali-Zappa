@@ -13,9 +13,16 @@ public class MarketController extends PlaceFamilyMember {
     private Player player;
     private MarketSpace marketSpace;
 
+    private boolean checkBusy(){
+        if(marketSpace.isBusy())
+            return true;
+        else
+            return false;
+    }
+
     //da controllare: is busy, (può contenere solo un familiare), familiare con valore >=1
     public boolean isLegal(){
-        if(!(marketSpace.isBusy())&&(familyMember.getValue()>=1))
+        if(!(this.checkBusy())&&(familyMember.getValue()>=1))
             return true;
         else
             return false;

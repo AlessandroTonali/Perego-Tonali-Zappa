@@ -8,13 +8,20 @@ import it.polimi.ingsw.GC_23.Effects.BenefitsEffect;
  */
 public class TowerSpace extends ActionSpace {
     private Card card;
-    private BenefitsEffect benefitsEffect;
+    private BenefitsEffect benefitsEffect; //bonus immediato
 
     public TowerSpace(Card card, BenefitsEffect effect, int value) {
         super(value);
         this.card = card;
         this.benefitsEffect = effect;
+    }
 
+    public void setCard(Card card) {
+        this.card = card;
+    }
+
+    public void setBenefitsEffect(BenefitsEffect benefitsEffect) {
+        this.benefitsEffect = benefitsEffect;
     }
 
     public Card getCard() {

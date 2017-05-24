@@ -5,4 +5,5 @@ package it.polimi.ingsw.GC_23.Controller;
  */
 public class OtherCardsController extends TowerController {
     //choosecost
+    //costo da controllare
 }
