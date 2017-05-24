@@ -34,9 +34,9 @@ public class Effect {
         this.newPlayEffect = newPlayEffect;
     }
 
-    public void setDiscountEffect(DiscountEffect discountEffect) {
-        this.discountEffect = discountEffect;
+    public void setDiscountEffect(DiscountEffect discountEffect) {this.discountEffect = discountEffect;
     }
+
 
     public CouncilPrivilegeEffect getCouncilPrivilegeEffect() {
         return councilPrivilegeEffect;

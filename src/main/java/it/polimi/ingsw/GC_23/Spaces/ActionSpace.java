@@ -23,7 +23,22 @@ public class ActionSpace {
         return effect;
     }
 
+    public boolean isBusy(){
+        if (this.familyMember == null) {
+            return false;
+        }
+        else {return true;}
+    }
+
     public int getValue() {
         return value;
+    }
+
+    public void setFamilyMember(FamilyMember familyMember) {
+        this.familyMember = familyMember;
+    }
+
+    public void setEffect(Effect effect) {
+        this.effect = effect;
     }
 }

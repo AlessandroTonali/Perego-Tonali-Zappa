@@ -26,7 +26,7 @@ public class IncreaseFamilyValue implements Controller {
     }
 
     @Override
-    public boolean isLegal() {
+     public boolean isLegal() {
         if (player.getResources().getServants().getQuantity() > quantity) { return true; }
         else {return false;}
     }
