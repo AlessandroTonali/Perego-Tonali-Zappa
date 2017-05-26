@@ -6,6 +6,8 @@ package it.polimi.ingsw.GC_23.Effects;
 public class CouncilPrivilegeEffect {
     private BenefitsEffect[] benefits;
     private int numberOfPrivileges;
+    boolean isDifferent = true;
+
 
     public CouncilPrivilegeEffect(BenefitsEffect[] benefits, int numberOfPrivileges) {
         this.benefits = benefits;
@@ -26,6 +28,15 @@ public class CouncilPrivilegeEffect {
 
     public BenefitsEffect[] getBenefits() {
         return benefits;
+    }
+
+    public BenefitsEffect[] chooseCouncilPrivilege(BenefitsEffect[] possibileBenefits){
+        if(isDifferent){
+            //TODO: se devono essere differenti più array di benefits effect, se possono essere uguali anche uno
+            //TODO: interazione con il giocatore per la scelta
+            return null;
+        }
+        return null;
     }
 
 }

@@ -19,4 +19,9 @@ public class DiscountEffect {
     public SingleCost[] getDiscount() {
         return discount;
     }
+
+    public SingleCost chooseDiscount(SingleCost[] possibileDiscounts){
+        //TODO: interazione con il giocatore per la scelta
+        return null;
+    }
 }

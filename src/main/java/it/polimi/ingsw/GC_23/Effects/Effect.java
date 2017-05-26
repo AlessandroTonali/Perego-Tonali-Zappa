@@ -3,6 +3,7 @@ package it.polimi.ingsw.GC_23.Effects;
 /**
  * Created by jesss on 21/05/17.
  */
+
 public class Effect {
     private CouncilPrivilegeEffect councilPrivilegeEffect;
     private BenefitsEffect benefitsEffect;
