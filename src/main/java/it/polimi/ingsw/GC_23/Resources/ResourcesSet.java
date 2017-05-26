@@ -1,5 +1,7 @@
 package it.polimi.ingsw.GC_23.Resources;
 
+import java.lang.reflect.Array;
+
 /**
  * Created by Alessandro Tonali on 20/05/2017.
  */
@@ -11,6 +13,7 @@ public class ResourcesSet {
     private Stone stone;
     private VictoryPoints victoryPoints;
     private Wood wood;
+    private static int resourceNumber = 7;
 
 
 
@@ -25,38 +28,93 @@ public class ResourcesSet {
         this.wood = new Wood(wood);
     }
 
-    public FaithPoints getFaithPoints() {
-        return faithPoints;
+    public void setFaithPoints(int faithPoints) {
+        this.faithPoints.setQuantity(faithPoints);
     }
 
-    public Gold getGold() {
-        return gold;
+    public void setGold(int gold) {
+        this.gold.setQuantity(gold);
     }
 
-    public MilitaryPoints getMilitaryPoints() {
-        return militaryPoints;
+    public void setMilitaryPoints(int militaryPoints) {
+        this.militaryPoints.setQuantity(militaryPoints);
     }
 
-    public Servants getServants() {
-        return servants;
+    public void setServants(int servants) {
+        this.servants.setQuantity(servants);
     }
 
-    public Stone getStone() {
-        return stone;
+    public void setStone(int stone) {
+        this.stone.setQuantity(stone);
     }
 
-    public VictoryPoints getVictoryPoints() {
-        return victoryPoints;
+    public void setVictoryPoints(int victoryPoints) {
+        this.victoryPoints.setQuantity(victoryPoints);
     }
 
-    public Wood getWood() {
-        return wood;
+    public void setWood(int wood) {
+        this.wood.setQuantity(wood);
+    }
+
+    public int getFaithPoints() {
+        return faithPoints.getQuantity();
+    }
+
+    public int getGold() {
+        return gold.getQuantity();
+    }
+
+    public int getMilitaryPoints() {
+        return militaryPoints.getQuantity();
+    }
+
+    public int getServants() {
+        return servants.getQuantity();
+    }
+
+    public int getStone() {
+        return stone.getQuantity();
+    }
+
+    public int getVictoryPoints() {return victoryPoints.getQuantity();
+    }
+
+    public int getWood() {
+        return wood.getQuantity();
     }
 
     public String toString(){
         return "faith points " + faithPoints.toString() + " military points " + militaryPoints.toString() + " gold " +
                 gold.toString() + " servants " + servants.toString() + " wood " + wood.toString() +
                 " stone " + stone.toString();
+
+    }
+
+    public int[] getArray(){
+        int[] resarray = new int[resourceNumber ];
+        resarray[0] = this.getFaithPoints();
+        resarray[1] = this.getGold();
+        resarray[2] = this.getMilitaryPoints();
+        resarray[3] = this.getServants();
+        resarray[4] = this.getStone();
+        resarray[5] = this.getVictoryPoints();
+        resarray[6] = this.getWood();
+
+        return  resarray;
+
+
+    }
+
+    public boolean checkAffordable( ResourcesSet checked) {
+        int[] playerSet = this.getArray();
+        int[] checkSet = checked.getArray();
+        for(int i = 0; i < resourceNumber; i++) {
+            if(playerSet[i] < checkSet[i]){
+                return false;
+            }
+        }
+        return true;
+
 
     }
 

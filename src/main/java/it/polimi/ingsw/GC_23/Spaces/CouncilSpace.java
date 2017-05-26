@@ -16,7 +16,7 @@ public class CouncilSpace extends ActionSpace {
 
     public boolean isPresent(PlayerColor playerColor){
         for(int i = 0; i<playerOrder.length; i++) {
-            if (playerOrder[i].getPlayerColor() == playerColor) {
+            if (playerOrder[i].getPlayer().getPlayerColor() == playerColor) {
                 return true;
             }
         }

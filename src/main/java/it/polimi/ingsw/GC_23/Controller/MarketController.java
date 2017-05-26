@@ -14,7 +14,7 @@ public class MarketController extends PlaceFamilyMember {
     private MarketSpace marketSpace;
 
     private boolean checkBusy(){
-        if(marketSpace.isBusy())
+        if(marketSpace.checkBusy())
             return true;
         else
             return false;

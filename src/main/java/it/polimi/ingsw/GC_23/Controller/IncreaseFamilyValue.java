@@ -2,36 +2,47 @@ package it.polimi.ingsw.GC_23.Controller;
 
 import it.polimi.ingsw.GC_23.FamilyMember;
 import it.polimi.ingsw.GC_23.Player;
+import it.polimi.ingsw.GC_23.Resources.ResourcesSet;
+import it.polimi.ingsw.GC_23.Resources.Servants;
 
 /**
 * Created by jesss on 23/05/17.
 */
-/**public class IncreaseFamilyValue implements Controller {
+public class IncreaseFamilyValue implements Controller {
 
-    public boolean IncreaseFamilyValue(int quantity, FamilyMember familyMember) {
-        if(!isLegal())
+    int quantity;
+    FamilyMember familyMember;
+
+    public IncreaseFamilyValue(int quantity, FamilyMember familyMember) {
+        this.quantity = quantity;
         this.familyMember = familyMember;
-        if(isLegal()) {
-               makeAction();
-              return true;
-                    }
-       else {
-                      return false;
-                   }
+        if (!this.isLegal()) {
+            System.out.println("error");
+        } else {
+            this.makeAction();
+            System.out.println("succes");
+        }
+
     }
 
-@Override
-    public boolean isLegal(int quantity, FamilyMember familyMember) {
-                if (player.getResources().getServants().getQuantity() > quantity) { return true; }
-                else {return false;}
-            }
 
-@Override
+
+    public boolean isLegal() {
+        ResourcesSet playerRes = this.familyMember.getPlayer().getResources();
+
+        if (playerRes.checkAffordable(new ResourcesSet(0, 0, 0, quantity, 0
+                , 0, 0))) {
+            return true;
+
+        } else {
+            return false;
+        }
+
+    }
+
+    @Override
     public void makeAction() {
-                int actualQuantity = player.getResources().getServants().getQuantity();
-                player.getResources().getServants().setQuantity(actualQuantity - quantity);
-                int actualValue = familyMember.getValue();
-                familyMember.setValue(actualValue + quantity);
+        familyMember.increaseFamilyValue(quantity);
+    }
 
-                          }
- }
+}

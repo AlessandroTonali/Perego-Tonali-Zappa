@@ -38,10 +38,16 @@ public class FamilyMember {
 
     public void setValue(int value) {
         this.value = value;
+        System.out.println("ciao");
     }
 
     public void setPosition(ActionSpace position) {
         this.position = position;
+    }
+
+    public void increaseFamilyValue(int quantity){
+        this.value = this.value + quantity;
+        this.player.getResources().setServants(this.player.getResources().getServants()- quantity);
     }
 }
 

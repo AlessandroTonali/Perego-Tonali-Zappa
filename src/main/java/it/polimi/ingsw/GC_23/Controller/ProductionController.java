@@ -13,7 +13,7 @@ public class ProductionController extends PlaceFamilyMember {
     private ProductionSpace productionSpace;
 
     private boolean checkBusy(){
-        if(productionSpace.isBusy())
+        if(productionSpace.checkBusy())
             return true;
         else
             return false;

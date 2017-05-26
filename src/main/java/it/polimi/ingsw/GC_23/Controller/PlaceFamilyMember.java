@@ -15,7 +15,7 @@ public abstract class PlaceFamilyMember implements Controller {
     private ActionSpace actionSpace;
 
     private boolean checkBusy(){
-        if(actionSpace.isBusy()){
+        if(actionSpace.checkBusy()){
             return true;
         }
         else {return false;}

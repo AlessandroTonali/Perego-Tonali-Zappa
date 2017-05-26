@@ -1,6 +1,10 @@
 package it.polimi.ingsw.GC_23;
 
 import it.polimi.ingsw.GC_23.Cards.Card;
+import it.polimi.ingsw.GC_23.Controller.IncreaseFamilyValue;
+import it.polimi.ingsw.GC_23.Effects.BenefitsEffect;
+import it.polimi.ingsw.GC_23.Enumerations.FamilyColor;
+import it.polimi.ingsw.GC_23.Enumerations.PlayerColor;
 import it.polimi.ingsw.GC_23.Resources.FaithPoints;
 import it.polimi.ingsw.GC_23.Resources.ResourcesSet;
 import jdk.nashorn.internal.parser.JSONParser;
@@ -23,13 +27,21 @@ public class Main {
         System.out.println( "Hello World!" );
         Main main = new Main();
 
-
     }
 
     public Main () {
         parseJson();
-        ResourcesSet set = new ResourcesSet(1,2,3,4,5,6,7);
-        System.out.println(set.toString());
+
+        ResourcesSet resset = new ResourcesSet(2,2,2,2,2,2,
+                2);
+        BenefitsEffect ben = new BenefitsEffect(resset);
+        Player player = new Player(PlayerColor.RED, ben);
+        player.setResources(resset);
+        FamilyMember familyMember = new FamilyMember(player, FamilyColor.ORANGE);
+        System.out.println(player.getResources().toString());
+        IncreaseFamilyValue increaseFamilyValue = new IncreaseFamilyValue(1, familyMember);
+        System.out.println(player.getResources().toString());
+        System.out.println(familyMember.getValue());
 
 
     }

@@ -7,4 +7,5 @@ public class Servants extends Resources {
     public Servants(int quantity) {
         super(quantity);
     }
+
 }

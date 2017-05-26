@@ -25,6 +25,10 @@ public class Player {
 
     }
 
+    public void setResources(ResourcesSet resources) {
+        this.resources = resources;
+    }
+
     public PlayerColor getPlayerColor() {
         return playerColor;
     }
