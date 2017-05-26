@@ -6,14 +6,10 @@ import it.polimi.ingsw.GC_23.Player;
 /**
 * Created by jesss on 23/05/17.
 */
-public class IncreaseFamilyValue implements Controller {
-    int quantity;
-    Player player;
-    FamilyMember familyMember;
+/**public class IncreaseFamilyValue implements Controller {
 
-    public boolean IncreaseFamilyValue(int quantity, Player player, FamilyMember familyMember) {
-        this.quantity = quantity;
-        this.player = player;
+    public boolean IncreaseFamilyValue(int quantity, FamilyMember familyMember) {
+        if(!isLegal())
         this.familyMember = familyMember;
         if(isLegal()) {
                makeAction();
@@ -25,7 +21,7 @@ public class IncreaseFamilyValue implements Controller {
     }
 
 @Override
-    public boolean isLegal() {
+    public boolean isLegal(int quantity, FamilyMember familyMember) {
                 if (player.getResources().getServants().getQuantity() > quantity) { return true; }
                 else {return false;}
             }

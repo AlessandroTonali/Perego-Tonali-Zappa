@@ -23,7 +23,7 @@ public class ActionSpace {
         return effect;
     }
 
-    public boolean isBusy(){
+    public boolean checkBusy(){
         if (this.familyMember == null) {
             return false;
         }

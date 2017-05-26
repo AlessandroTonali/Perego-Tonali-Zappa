@@ -8,20 +8,20 @@ import it.polimi.ingsw.GC_23.Spaces.ActionSpace;
  * Created by Alessandro Tonali on 20/05/2017.
  */
 public class FamilyMember {
-    private PlayerColor playerColor;
+    private Player player;
     private FamilyColor familyColor;
     private int value;
     private ActionSpace position;
 
-    public FamilyMember(PlayerColor playerColor, FamilyColor familyColor) {
-        this.playerColor = playerColor;
+    public FamilyMember(Player player, FamilyColor familyColor) {
+        this.player = player;
         this.familyColor = familyColor;
         this.value = 0;
         this.position = null;
     }
 
-    public PlayerColor getPlayerColor() {
-        return playerColor;
+    public Player getPlayer() {
+        return player;
     }
 
     public FamilyColor getFamilyColor() {
