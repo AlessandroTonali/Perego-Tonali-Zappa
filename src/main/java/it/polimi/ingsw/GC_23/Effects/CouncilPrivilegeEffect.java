@@ -7,6 +7,7 @@ public class CouncilPrivilegeEffect {
     private BenefitsEffect[] benefits;
     private int numberOfPrivileges;
 
+
     public CouncilPrivilegeEffect(BenefitsEffect[] benefits, int numberOfPrivileges) {
         this.benefits = benefits;
         this.numberOfPrivileges = numberOfPrivileges;
