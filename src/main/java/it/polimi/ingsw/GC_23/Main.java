@@ -92,6 +92,7 @@ public class Main {
 
             }
 
+
             JSONArray permanentEffects = buildingCard.getJSONObject(x).getJSONArray("permanentEffect");
             for (int y = 0; y < permanentEffects.length() ; y++) {
 
