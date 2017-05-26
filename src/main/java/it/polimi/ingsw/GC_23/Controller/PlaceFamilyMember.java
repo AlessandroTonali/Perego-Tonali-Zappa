@@ -9,7 +9,6 @@ import it.polimi.ingsw.GC_23.Spaces.ActionSpace;
  */
 public abstract class PlaceFamilyMember implements Controller {
 
-    //TODO bisogna metterla abstract pero bisoga prima implementare le altre non lo faccio senno non builda
 
     private FamilyMember familyMember;
     private Player player;
