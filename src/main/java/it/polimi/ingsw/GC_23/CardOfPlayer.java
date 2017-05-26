@@ -12,9 +12,26 @@ import java.util.ArrayList;
  */
 public class CardOfPlayer {
 
-    private TerritoryCard[] territoryCards = new TerritoryCard[5];
-    private CharacterCard[] characterCards = new CharacterCard[5];
-    private BuildingCard[] buildingCards = new BuildingCard[5];
-    private VentureCard[] ventureCards = new VentureCard[5];
-    //dovrebero essere arraylist
+
+    private ArrayList<TerritoryCard> territoryCards;
+    private ArrayList<CharacterCard> characterCards;
+    private ArrayList<BuildingCard> buildingCards;
+    private ArrayList<VentureCard> ventureCards;
+
+    public ArrayList<TerritoryCard> getTerritoryCards() {
+        return territoryCards;
+    }
+
+    public ArrayList<CharacterCard> getCharacterCards() {
+        return characterCards;
+    }
+
+    public ArrayList<BuildingCard> getBuildingCards() {
+        return buildingCards;
+    }
+
+    public ArrayList<VentureCard> getVentureCards() {
+        return ventureCards;
+    }
+
 }

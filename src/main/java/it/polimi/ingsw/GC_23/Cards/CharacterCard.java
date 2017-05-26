@@ -28,4 +28,12 @@ public class CharacterCard extends Card {
         this.cost = cost;
     }
 
+    @Override
+    boolean isTakable(Player player) {
+        if (player.getCardOfPlayer().getCharacterCards().size() < 6) {
+            return true;
+        } else {
+            return false;
+        }
+    }
 }

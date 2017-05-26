@@ -20,4 +20,12 @@ public class VentureCard extends Card {
         this.cost = cost;
     }
 
+    @Override
+    boolean isTakable(Player player) {
+        if (player.getCardOfPlayer().getVentureCards().size() < 6) {
+            return true;
+        } else {
+            return false;
+        }
+    }
 }

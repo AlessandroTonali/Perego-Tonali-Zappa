@@ -1,0 +1,25 @@
+{
+	"BenefitsEffect": [
+		{"faithPoint": "", "gold": "", "militaryPoint": "", "servant": "",  "stone": "", "victoryPoint": "", "wood": ""}
+		
+	],
+	"CouncilPrivilegeEffect": [
+	
+	],
+	"DiscountEffect": [
+	
+	],
+	"ImplicationEffect": [
+		"Requirement": [
+			{"faithPoint": "", "gold": "", "militaryPoint": "", "servant": "",  "stone": "", "victoryPoint": "", "wood": ""}
+		],
+		"Benefit": [
+			{"effect": "1"},
+			{"effect": "2"}
+		]
+	
+	],
+	"NewPlayEffect": [
+	
+	]
+}

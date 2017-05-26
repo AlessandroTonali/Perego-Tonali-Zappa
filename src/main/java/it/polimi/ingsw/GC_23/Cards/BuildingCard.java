@@ -28,4 +28,13 @@ public class BuildingCard extends Card {
     public void setCost(SingleCost cost) {
         this.cost = cost;
     }
+
+    @Override
+    boolean isTakable(Player player) {
+        if (player.getCardOfPlayer().getBuildingCards().size() < 6) {
+            return true;
+        } else {
+            return false;
+        }
+    }
 }

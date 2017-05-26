@@ -26,6 +26,8 @@ public abstract class Card {
         this.effects = effects;
     }
 
+    abstract boolean isTakable(Player player);
+
     public int getPeriod() {
         return period;
     }
@@ -33,8 +35,6 @@ public abstract class Card {
     public void setPeriod(int period) {
         this.period = period;
     }
-
-
 
     public CardColor getCardColor() {
         return cardColor;

@@ -10,7 +10,7 @@ import it.polimi.ingsw.GC_23.Resources.ResourcesSet;
 public class Player {
     private PlayerColor playerColor;
     private ResourcesSet resources;
-    private CardOfPlayer cards;
+    private CardOfPlayer cardOfPlayer;
     private BonusTile bonusTile;
     private FamilyMember[] familyMembers;
     private PermanentEffect permanentEffect;
@@ -18,7 +18,7 @@ public class Player {
     public Player(PlayerColor playerColor, BenefitsEffect bonustTile) {
         this.playerColor = playerColor;
         // bisogna usare il design pattern della fabbrica per dare le risorse giuste in base ai player
-        this.cards = new CardOfPlayer();
+        this.cardOfPlayer = new CardOfPlayer();
         this.bonusTile = new BonusTile(bonustTile);
         //bisogna decidere come istanziare i family member
         // permanent effect ancora non lo dobbiamo fare
@@ -37,8 +37,8 @@ public class Player {
         return resources;
     }
 
-    public CardOfPlayer getCards() {
-        return cards;
+    public CardOfPlayer getCardOfPlayer() {
+        return cardOfPlayer;
     }
 
     public BonusTile getBonusTile() {
