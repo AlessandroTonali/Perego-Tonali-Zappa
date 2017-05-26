@@ -23,28 +23,28 @@ public class TerritoryCard extends Card {
 
         switch (player.getCardOfPlayer().getTerritoryCards().size()) {
             case 2:
-                if(player.getResources().getMilitaryPoints().getQuantity()  == 3) {
+                if(player.getResources().getMilitaryPoints() == 3) {
                     takeble = true;
                 } else {
                     takeble = false;
                 }
                 break;
             case 3:
-                if(player.getResources().getMilitaryPoints().getQuantity()  == 7) {
+                if(player.getResources().getMilitaryPoints() == 7) {
                     takeble = true;
                 } else {
                     takeble = false;
                 }
                 break;
             case 4:
-                if(player.getResources().getMilitaryPoints().getQuantity()  == 12) {
+                if(player.getResources().getMilitaryPoints() == 12) {
                     takeble = true;
                 } else {
                     takeble = false;
                 }
                 break;
             case 5:
-                if(player.getResources().getMilitaryPoints().getQuantity()  == 18) {
+                if(player.getResources().getMilitaryPoints() == 18) {
                     takeble = true;
                 } else {
                     takeble = false;
