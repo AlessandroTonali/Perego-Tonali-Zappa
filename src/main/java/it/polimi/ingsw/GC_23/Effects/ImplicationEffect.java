@@ -29,4 +29,9 @@ public class ImplicationEffect {
     public BenefitsEffect[] getGivings() {
         return givings;
     }
+
+    public ImplicationEffect chooseImplication(ImplicationEffect[] possibileImplications){
+        //TODO: richiesta al giocatore della scelta
+        return null;
+    }
 }

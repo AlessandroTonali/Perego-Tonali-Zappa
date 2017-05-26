@@ -40,4 +40,8 @@ public class NewPlayEffect {
     public DiscountEffect getDiscount() {
         return discount;
     }
+
+    public void play(){
+        //TODO: giocata (nella tower) senza mettere il family member, chiamerà isLegal di NewPlay e il suo makeMove
+    }
 }
