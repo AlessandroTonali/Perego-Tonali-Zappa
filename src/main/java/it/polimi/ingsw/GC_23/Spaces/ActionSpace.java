@@ -30,6 +30,13 @@ public class ActionSpace {
         else {return true;}
     }
 
+    public boolean checkValue(){
+        if (this.familyMember.getValue()>= value) {
+            return true;
+        }
+        return false;
+    }
+
 
     public int getValue() {
         return value;

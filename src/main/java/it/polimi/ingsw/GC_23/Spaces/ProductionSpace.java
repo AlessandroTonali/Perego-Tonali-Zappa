@@ -26,10 +26,10 @@ public class ProductionSpace extends ActionSpace {
 
     public boolean checkValue(FamilyMember familyMember){
         if(isBusyFirst) {
-            return (familyMember.getValue() - 3) < 1;
+            return (familyMember.getValue() - 3) > 1;
         }
         else {
-            return (familyMember.getValue()) < 1;
+            return (familyMember.getValue()) > 1;
 
         }
 

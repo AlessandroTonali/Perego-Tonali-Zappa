@@ -7,20 +7,31 @@ import it.polimi.ingsw.GC_23.Effects.BenefitsEffect;
  */
 public class BonusTile {
 
-    private BenefitsEffect benefitsEffect;
+    private BenefitsEffect productionEffect;
+    private BenefitsEffect harvestEffect;
 
-    public BonusTile(BenefitsEffect benefitsEffect) {
-        this.benefitsEffect = benefitsEffect;
+    public BonusTile(BenefitsEffect productionEffect, BenefitsEffect harvestEffect) {
+        this.productionEffect = productionEffect;
+        this.harvestEffect = harvestEffect;
     }
 
-    public BenefitsEffect getBenefitsEffect() {
-        return benefitsEffect;
+    public BenefitsEffect getProductionEffect() {
+        return productionEffect;
     }
 
-    public void setBenefitsEffect(BenefitsEffect benefitsEffect) {
-        this.benefitsEffect = benefitsEffect;
-
-        //TODO benefits effect deve essere final perche non può cambiare
-
+    public void setProductionEffect(BenefitsEffect productionEffect) {
+        this.productionEffect = productionEffect;
     }
+
+    public BenefitsEffect getHarvestEffect() {
+        return harvestEffect;
+    }
+
+    public void setHarvestEffect(BenefitsEffect harvestEffect) {
+        this.harvestEffect = harvestEffect;
+    }
+
+    //TODO benefits effect deve essere final perche non può cambiare durante la partita
+
 }
+

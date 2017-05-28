@@ -15,11 +15,11 @@ public class Player {
     private FamilyMember[] familyMembers;
     private PermanentEffect permanentEffect;
 
-    public Player(PlayerColor playerColor, BenefitsEffect bonustTile) {
+    public Player(PlayerColor playerColor, BonusTile bonusTile) {
         this.playerColor = playerColor;
         // bisogna usare il design pattern della fabbrica per dare le risorse giuste in base ai player
         this.cardOfPlayer = new CardOfPlayer();
-        this.bonusTile = new BonusTile(bonustTile);
+        this.bonusTile = bonusTile;
         //bisogna decidere come istanziare i family member
         // permanent effect ancora non lo dobbiamo fare
 
