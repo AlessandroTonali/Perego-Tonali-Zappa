@@ -22,10 +22,10 @@ public class ProductionController extends PlaceFamilyMember {
     //Da controllare: è il suo turno, il posto non è occupato, no familiari dello stesso colore (si neutro),
     // valore maggiore di 1, se non è il primo malus di -3
     public boolean isLegal() {
-        /*if (!(productionSpace.checkBusy())&&(familyMember.getValue()>=1)){
+        if (!(productionSpace.checkBusy())&&(familyMember.getValue()>=1)){
             return true;
         }
-        else*/
+        else
             return false;
     }
 
@@ -33,9 +33,10 @@ public class ProductionController extends PlaceFamilyMember {
         return this.productionSpace.checkValue(familyMember);
     }
     //attiva bonus personale (bonus tile) + effetti permanenti delle carte edificio in possesso con valore <= a quello dell'azione
+    //TODO: distringuere tra bonus produzione e raccolto?
     @Override
     public void makeAction(){
+        this.familyMember.getPlayer().getBonusTile().getBenefitsEffect().activeEffect(this.familyMember.getPlayer());
         productionSpace.setFamilyMember(familyMember);
-
     }
 }
