@@ -17,8 +17,7 @@ public class BuildingCard extends Card {
 
 
     public BuildingCard(int period, CardColor cardColor, String name, ArrayList<Effect> effects, SingleCost cost) {
-        super(period, cardColor, name, effects);
-        this.cost = cost;
+        super(period, cardColor, name, effects, cost);
     }
 
     public SingleCost getCost() {

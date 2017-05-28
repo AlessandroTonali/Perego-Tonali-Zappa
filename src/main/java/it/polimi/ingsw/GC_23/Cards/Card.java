@@ -18,12 +18,14 @@ public abstract class Card {
     private CardColor cardColor;
     private String name;
     private ArrayList<Effect> effects;
+    private SingleCost cost;
 
-    public Card(int period, CardColor cardColor, String name, ArrayList<Effect> effects) {
+    public Card(int period, CardColor cardColor, String name, ArrayList<Effect> effects, SingleCost cost) {
         this.period = period;
         this.cardColor = cardColor;
         this.name = name;
         this.effects = effects;
+        this.cost = cost;
     }
 
     abstract boolean isTakable(Player player);
@@ -60,5 +62,7 @@ public abstract class Card {
         this.effects = effects;
     }
 
-
+    public SingleCost getCost() {
+        return cost;
+    }
 }

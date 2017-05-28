@@ -16,8 +16,7 @@ public class VentureCard extends Card {
     private SingleCost cost;
 
     public VentureCard(int period, CardColor cardColor, String name, ArrayList<Effect> effects, SingleCost cost) {
-        super(period, cardColor, name, effects);
-        this.cost = cost;
+        super(period, cardColor, name, effects, cost);
     }
 
     @Override

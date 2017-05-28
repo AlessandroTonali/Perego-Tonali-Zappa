@@ -17,6 +17,8 @@ public class ResourcesSet {
 
 
 
+
+
     public ResourcesSet(int faithPoints, int gold, int militaryPoints, int servants,
                         int stone, int victoryPoints, int wood) {
         this.faithPoints = new FaithPoints(faithPoints);
@@ -26,6 +28,16 @@ public class ResourcesSet {
         this.stone = new Stone(stone);
         this.victoryPoints = new VictoryPoints(victoryPoints);
         this.wood = new Wood(wood);
+    }
+
+    public ResourcesSet() {
+        this.faithPoints = new FaithPoints(0);
+        this.gold = new Gold(0);
+        this.militaryPoints = new MilitaryPoints(0);
+        this.servants = new Servants(0);
+        this.stone = new Stone(0);
+        this.victoryPoints = new VictoryPoints(0);
+        this.wood = new Wood(0);
     }
 
     public void setFaithPoints(int faithPoints) {

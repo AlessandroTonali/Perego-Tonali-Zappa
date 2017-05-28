@@ -16,8 +16,8 @@ public class CharacterCard extends Card {
     private SingleCost cost;
 
     public CharacterCard(int period, CardColor cardColor, String name, ArrayList<Effect> effects, SingleCost cost) {
-        super(period, cardColor, name, effects);
-        this.cost = cost;
+        super(period, cardColor, name, effects, cost);
+
     }
 
     public SingleCost getCost() {

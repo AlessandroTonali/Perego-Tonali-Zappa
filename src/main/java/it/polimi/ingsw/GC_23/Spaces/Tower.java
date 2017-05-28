@@ -1,5 +1,6 @@
 package it.polimi.ingsw.GC_23.Spaces;
 
+import it.polimi.ingsw.GC_23.FamilyMember;
 import it.polimi.ingsw.GC_23.Spaces.TowerSpace;
 
 /**
@@ -28,4 +29,16 @@ public class Tower {
     public Tower(TowerSpace[] spaces) {
         this.spaces = spaces;
     }
+
+    public boolean isFamiliar(FamilyMember familyMember) {
+        for(int i = 0; i<DIM; i++) {
+            if (familyMember.getPlayer() == spaces[i].getFamilyMember().getPlayer()) {
+                return true;
+            }
+        }
+
+            return  false;
+    }
+
 }
+
