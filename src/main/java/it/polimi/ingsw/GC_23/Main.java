@@ -2,7 +2,9 @@ package it.polimi.ingsw.GC_23;
 
 import it.polimi.ingsw.GC_23.Cards.Card;
 import it.polimi.ingsw.GC_23.Cards.VentureCard;
+import it.polimi.ingsw.GC_23.Effects.BenefitsEffect;
 import it.polimi.ingsw.GC_23.Enumerations.CardColor;
+import it.polimi.ingsw.GC_23.Enumerations.PlayerColor;
 import it.polimi.ingsw.GC_23.Resources.ResourcesSet;
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -31,9 +33,15 @@ public class Main {
 
     public Main () {
         parseJson();
-        ResourcesSet set = new ResourcesSet(1,2,3,4,5,6,7);
-        System.out.println(set.toString());
-
+        ResourcesSet set1 = new ResourcesSet(1,2,3,4,5,6,7);
+        ResourcesSet set2 = new ResourcesSet(5,6,7,8,9,10,11);
+        System.out.println(set1.toString());
+        System.out.println(set2.toString());
+        Player player = new Player(PlayerColor.RED, null);
+        player.setResources(set1);
+        BenefitsEffect benefitsEffect = new BenefitsEffect(set2);
+        benefitsEffect.activeEffect(player);
+        System.out.println(player.getResources().toString());
 
     }
 

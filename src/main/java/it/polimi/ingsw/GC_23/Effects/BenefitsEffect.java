@@ -1,11 +1,12 @@
 package it.polimi.ingsw.GC_23.Effects;
 
+import it.polimi.ingsw.GC_23.Player;
 import it.polimi.ingsw.GC_23.Resources.ResourcesSet;
 
 /**
  * Created by jesss on 21/05/17.
  */
-public class BenefitsEffect {
+public class BenefitsEffect extends AbsEffect{
     private ResourcesSet resources;
 
     public BenefitsEffect(ResourcesSet resources) {
@@ -18,5 +19,10 @@ public class BenefitsEffect {
 
     public void setResources(ResourcesSet resources) {
         this.resources = resources;
+    }
+
+    @Override
+    public void activeEffect(Player player) {
+        player.setResources(player.sum(this.resources));
     }
 }

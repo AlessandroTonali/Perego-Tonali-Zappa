@@ -1,9 +1,11 @@
 package it.polimi.ingsw.GC_23.Effects;
 
+import it.polimi.ingsw.GC_23.Player;
+
 /**
  * Created by jesss on 21/05/17.
  */
-public class CouncilPrivilegeEffect {
+public class CouncilPrivilegeEffect extends AbsEffect{
     private BenefitsEffect[] benefits;
     private int numberOfPrivileges;
     boolean isDifferent = true;
@@ -39,4 +41,8 @@ public class CouncilPrivilegeEffect {
         return null;
     }
 
+    @Override
+    public void activeEffect(Player player) {
+
+    }
 }

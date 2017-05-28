@@ -57,4 +57,16 @@ public class Player {
         //TODO
         return;
     }
+
+    public ResourcesSet sum(ResourcesSet set){
+        ResourcesSet result = new ResourcesSet(0,0,0,0,0,0,0);
+        result.setFaithPoints(this.getResources().getFaithPoints() + set.getFaithPoints());
+        result.setGold(this.getResources().getGold()+ set.getGold());
+        result.setMilitaryPoints(this.getResources().getMilitaryPoints()+ set.getMilitaryPoints());
+        result.setServants(this.getResources().getServants() + set.getServants());
+        result.setStone(this.getResources().getStone()+set.getStone());
+        result.setVictoryPoints(this.getResources().getVictoryPoints()+ set.getVictoryPoints());
+        result.setWood(this.getResources().getWood()+ set.getWood());
+        return result;
+    }
 }
