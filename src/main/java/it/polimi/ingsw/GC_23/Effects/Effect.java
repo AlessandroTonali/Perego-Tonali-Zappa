@@ -1,5 +1,7 @@
 package it.polimi.ingsw.GC_23.Effects;
 
+import it.polimi.ingsw.GC_23.Player;
+
 /**
  * Created by jesss on 21/05/17.
  */
@@ -59,5 +61,12 @@ public class Effect {
         return discountEffect;
     }
 
+    public void activeEffect(Player player){
+        this.councilPrivilegeEffect.activeEffect(player);
+        this.benefitsEffect.activeEffect(player);
+        this.implicationEffect.activeEffect(player);
+        this.newPlayEffect.activeEffect(player);
+        this.discountEffect.activeEffect(player);
+    }
 
 }
