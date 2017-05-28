@@ -20,7 +20,7 @@ public class TerritoryCard extends Card {
     }
 
     @Override
-    boolean isTakable(Player player) {
+    public boolean checkTakeable(Player player) {
         boolean takeble = false;
 
         switch (player.getCardOfPlayer().getTerritoryCards().size()) {

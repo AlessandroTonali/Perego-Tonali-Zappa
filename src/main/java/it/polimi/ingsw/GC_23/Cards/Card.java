@@ -28,7 +28,7 @@ public abstract class Card {
         this.cost = cost;
     }
 
-    abstract boolean isTakable(Player player);
+    public abstract boolean checkTakeable(Player player);
 
     public int getPeriod() {
         return period;

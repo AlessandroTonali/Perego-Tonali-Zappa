@@ -29,7 +29,7 @@ public class BuildingCard extends Card {
     }
 
     @Override
-    boolean isTakable(Player player) {
+    public boolean checkTakeable(Player player) {
         if (player.getCardOfPlayer().getBuildingCards().size() < 6) {
             if (player.getResources().checkAffordable(cost.getResources())){
                 return true;

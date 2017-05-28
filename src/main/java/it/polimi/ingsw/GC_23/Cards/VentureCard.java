@@ -20,7 +20,7 @@ public class VentureCard extends Card {
     }
 
     @Override
-    boolean isTakable(Player player) {
+    public boolean checkTakeable(Player player) {
         if (player.getCardOfPlayer().getVentureCards().size() < 6) {
             if (player.getResources().checkAffordable(cost.getResources())){
                 return true;
