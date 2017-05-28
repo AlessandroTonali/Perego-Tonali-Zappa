@@ -118,12 +118,27 @@ public class ResourcesSet {
 
     }
 
+
+
+    public void setArray(int[] setarray ) {
+        int[] resarray = new int[resourceNumber ];
+        this.faithPoints.setQuantity(setarray[0]);
+        this.gold.setQuantity(setarray[1]);
+        this.militaryPoints.setQuantity(setarray[2]);
+        this.servants.setQuantity(setarray[3]);
+        this.stone.setQuantity(setarray[4]);
+        this.victoryPoints.setQuantity(setarray[5]);
+        this.wood.setQuantity(setarray[6]);
+
+    }
+
     public void sum(ResourcesSet prize) {
         int[] playerset = this.getArray();
         int[] prizeset = prize.getArray();
         for(int i = 0; i < resourceNumber; i++){
             playerset[i] = playerset[i] + prizeset[i];
         }
+        this.setArray(playerset);
     }
 
     public void pay(ResourcesSet prize) {
@@ -132,6 +147,7 @@ public class ResourcesSet {
         for(int i = 0; i < resourceNumber; i++){
             playerset[i] = playerset[i] - prizeset[i];
         }
+        this.setArray(playerset);
     }
 
 
