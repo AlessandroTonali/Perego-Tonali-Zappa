@@ -9,8 +9,15 @@ import it.polimi.ingsw.GC_23.Spaces.ProductionSpace;
  */
 public class ProductionController extends PlaceFamilyMember {
     private FamilyMember familyMember;
-    private Player player;
     private ProductionSpace productionSpace;
+
+    public ProductionController(FamilyMember familyMember, ProductionSpace productionSpace){
+        this.familyMember = familyMember;
+        this.productionSpace = productionSpace;
+        if( hasSense()) {
+            makeAction();
+        }
+    }
 
     //Da controllare: è il suo turno, il posto non è occupato, no familiari dello stesso colore (si neutro),
     // valore maggiore di 1, se non è il primo malus di -3
@@ -20,6 +27,10 @@ public class ProductionController extends PlaceFamilyMember {
         }
         else*/
             return false;
+    }
+
+    public boolean hasSense() {
+        return this.productionSpace.checkValue(familyMember);
     }
     //attiva bonus personale (bonus tile) + effetti permanenti delle carte edificio in possesso con valore <= a quello dell'azione
     @Override

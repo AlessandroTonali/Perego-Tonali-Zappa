@@ -23,4 +23,15 @@ public class ProductionSpace extends ActionSpace {
     public void setPlayerOrder(FamilyMember[] playerOrder) {
         this.playerOrder = playerOrder;
     }
+
+    public boolean checkValue(FamilyMember familyMember){
+        if(isBusyFirst) {
+            return (familyMember.getValue() - 3) < 1;
+        }
+        else {
+            return (familyMember.getValue()) < 1;
+
+        }
+
+    }
 }

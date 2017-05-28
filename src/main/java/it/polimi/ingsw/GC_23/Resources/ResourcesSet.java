@@ -118,6 +118,24 @@ public class ResourcesSet {
 
     }
 
+    public void sum(ResourcesSet prize) {
+        int[] playerset = this.getArray();
+        int[] prizeset = prize.getArray();
+        for(int i = 0; i < resourceNumber; i++){
+            playerset[i] = playerset[i] + prizeset[i];
+        }
+    }
+
+    public void pay(ResourcesSet prize) {
+        int[] playerset = this.getArray();
+        int[] prizeset = prize.getArray();
+        for(int i = 0; i < resourceNumber; i++){
+            playerset[i] = playerset[i] - prizeset[i];
+        }
+    }
+
+
+
 
 
 

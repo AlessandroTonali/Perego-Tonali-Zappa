@@ -10,22 +10,27 @@ import it.polimi.ingsw.GC_23.Spaces.MarketSpace;
 public class MarketController extends PlaceFamilyMember {
 
     private FamilyMember familyMember;
-    private Player player;
     private MarketSpace marketSpace;
 
-    private boolean checkBusy(){
-        if(marketSpace.checkBusy())
-            return true;
-        else
-            return false;
+    public MarketController(FamilyMember familyMember, MarketSpace marketSpace) {
+        this.familyMember = familyMember;
+        this.marketSpace = marketSpace;
+
+        if (isLegal()) {
+            makeAction();
+            System.out.println("succes");
+        } else {
+            System.out.println("error");
+        }
     }
 
-    //da controllare: is busy, (può contenere solo un familiare), familiare con valore >=1
     public boolean isLegal(){
-        if(!(this.checkBusy())&&(familyMember.getValue()>=1))
+        if(!(this.marketSpace.checkBusy())&&(marketSpace.checkValue(familyMember))) {
             return true;
-        else
+        }
+        else {
             return false;
+        }
     }
 
     //ottieni bonus immediato

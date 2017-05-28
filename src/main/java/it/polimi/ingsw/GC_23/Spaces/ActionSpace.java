@@ -30,6 +30,7 @@ public class ActionSpace {
         else {return true;}
     }
 
+
     public int getValue() {
         return value;
     }
