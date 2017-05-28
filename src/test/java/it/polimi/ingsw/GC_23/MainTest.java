@@ -1,37 +1,23 @@
 package it.polimi.ingsw.GC_23;
 
-import junit.framework.Test;
-import junit.framework.TestCase;
-import junit.framework.TestSuite;
+import org.junit.Test;
+
+import static org.junit.Assert.*;
 
 /**
- * Unit test for simple App.
+ * Created by jesss on 28/05/17.
  */
-public class MainTest extends TestCase
-{
-    /**
-     * Create the test case
-     *
-     * @param testName name of the test case
-     */
-    public MainTest( String testName )
-    {
-        super( testName );
+public class MainTest {
+    @Test
+    public void main() throws Exception {
     }
 
-    /**
-     * @return the suite of tests being tested
-     */
-    public static Test suite()
-    {
-        return new TestSuite( MainTest.class );
+    @Test
+    public void initializeBoard() throws Exception {
     }
 
-    /**
-     * Rigourous Test :-)
-     */
-    public void testMain()
-    {
-        assertTrue( true );
+    @Test
+    public void parseCost() throws Exception {
     }
+
 }

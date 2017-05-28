@@ -3,7 +3,7 @@ package it.polimi.ingsw.GC_23.Resources;
 import static org.junit.Assert.*;
 
 /**
- * Created by Alessandro Tonali on 26/05/2017.
+ * Created by jesss on 28/05/17.
  */
 public class MilitaryPointsTest {
 

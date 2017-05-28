@@ -1,10 +1,19 @@
 package it.polimi.ingsw.GC_23;
 
+import org.junit.Test;
+
 import static org.junit.Assert.*;
 
 /**
- * Created by Alessandro Tonali on 26/05/2017.
+ * Created by jesss on 28/05/17.
  */
 public class GameplayTest {
+    @Test
+    public void makeTurnOrder() throws Exception {
+    }
+
+    @Test
+    public void makeMilitaryOrder() throws Exception {
+    }
 
 }
