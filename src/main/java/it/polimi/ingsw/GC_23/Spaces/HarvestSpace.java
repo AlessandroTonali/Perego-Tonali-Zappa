@@ -10,8 +10,8 @@ public class HarvestSpace extends ActionSpace {
     private static int orderCounter;
     private FamilyMember[] playerOrder;
 
-    public HarvestSpace(int value){
-        super(value);
+    public HarvestSpace(){
+        super(1);
         this.isBusyFirst = false;
         orderCounter = 0;
     }
