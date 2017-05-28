@@ -13,29 +13,17 @@ public class TowerController extends PlaceFamilyMember {
     private Player player;
     private Tower tower;
 
-    private boolean checkBusy(){
-        //TODO
-        return false;
-    }
 
-    private boolean checkFamiliar(TowerSpace space){
-    //TODO
-        return true;
 
-    }
 
-    private boolean checkAffordable(TowerSpace space){
-        //TODO da definire diversamente per le carte territorio
-        return true;
-    }
 
     public boolean isLegal(){
         return true;
     }
 
-    //numero carte
-    private boolean isTakeable(){
-        //TODO
-        return true;
+    public void makeAction(){
+
     }
+
+
 }

@@ -42,5 +42,9 @@ public class TerritoryController extends TowerController {
 
 
     }
+
+    public void makeAction() {
+
+    }
     //punti militari da controllare
 }
