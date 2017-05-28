@@ -25,6 +25,10 @@ public class Player {
 
     }
 
+    public void setBonusTile(BonusTile bonusTile) {
+        this.bonusTile = bonusTile;
+    }
+
     public void setResources(ResourcesSet resources) {
         this.resources = resources;
     }

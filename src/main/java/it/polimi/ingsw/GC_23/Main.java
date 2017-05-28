@@ -2,10 +2,13 @@ package it.polimi.ingsw.GC_23;
 
 import it.polimi.ingsw.GC_23.Cards.Card;
 import it.polimi.ingsw.GC_23.Cards.VentureCard;
+import it.polimi.ingsw.GC_23.Controller.ProductionController;
 import it.polimi.ingsw.GC_23.Effects.BenefitsEffect;
 import it.polimi.ingsw.GC_23.Enumerations.CardColor;
+import it.polimi.ingsw.GC_23.Enumerations.FamilyColor;
 import it.polimi.ingsw.GC_23.Enumerations.PlayerColor;
 import it.polimi.ingsw.GC_23.Resources.ResourcesSet;
+import it.polimi.ingsw.GC_23.Spaces.ProductionSpace;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
@@ -35,13 +38,22 @@ public class Main {
         parseJson();
         ResourcesSet set1 = new ResourcesSet(1,2,3,4,5,6,7);
         ResourcesSet set2 = new ResourcesSet(5,6,7,8,9,10,11);
+        BenefitsEffect prod = new BenefitsEffect(new ResourcesSet(0,5,1,1,0,0,0));
+        BenefitsEffect harv = new BenefitsEffect(new ResourcesSet(0,1,1,1,0,0,0));
+        BonusTile tile = new BonusTile(prod, harv);
         System.out.println(set1.toString());
         System.out.println(set2.toString());
         Player player = new Player(PlayerColor.RED, null);
+        player.setBonusTile(tile);
         player.setResources(set1);
         BenefitsEffect benefitsEffect = new BenefitsEffect(set2);
         benefitsEffect.activeEffect(player);
         System.out.println(player.getResources().toString());
+        FamilyMember fam = new FamilyMember(player, FamilyColor.ORANGE);
+        fam.setValue(5);
+        ProductionSpace space = new ProductionSpace(1);
+        ProductionController contr = new ProductionController(fam, space );
+        System.out.println(player.getResources());
 
     }
 

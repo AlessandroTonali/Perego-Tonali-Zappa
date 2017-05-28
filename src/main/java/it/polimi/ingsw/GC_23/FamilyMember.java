@@ -38,7 +38,6 @@ public class FamilyMember {
 
     public void setValue(int value) {
         this.value = value;
-        System.out.println("ciao");
     }
 
     public void setPosition(ActionSpace position) {

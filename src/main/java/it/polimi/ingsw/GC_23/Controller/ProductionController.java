@@ -20,6 +20,7 @@ public class ProductionController extends PlaceFamilyMember {
         this.productionSpace = productionSpace;
         if( hasSense()) {
             if(isLegal()){
+                System.out.println("success");
                 makeAction();
             }
         }

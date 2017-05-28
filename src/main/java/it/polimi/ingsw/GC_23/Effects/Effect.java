@@ -58,4 +58,6 @@ public class Effect {
     public DiscountEffect getDiscountEffect() {
         return discountEffect;
     }
+
+
 }
