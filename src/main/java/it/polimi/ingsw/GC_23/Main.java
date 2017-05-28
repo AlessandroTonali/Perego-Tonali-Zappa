@@ -4,6 +4,7 @@ import it.polimi.ingsw.GC_23.Cards.Card;
 import it.polimi.ingsw.GC_23.Cards.VentureCard;
 import it.polimi.ingsw.GC_23.Controller.HarvestController;
 import it.polimi.ingsw.GC_23.Controller.ProductionController;
+import it.polimi.ingsw.GC_23.Effects.AbsEffect;
 import it.polimi.ingsw.GC_23.Effects.BenefitsEffect;
 import it.polimi.ingsw.GC_23.Enumerations.CardColor;
 import it.polimi.ingsw.GC_23.Enumerations.FamilyColor;
@@ -17,6 +18,7 @@ import org.json.JSONObject;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Scanner;
 
 
@@ -78,6 +80,7 @@ public class Main {
 
     private void parseJson() {
         parseCard();
+        parseEffect();
 
     }
 
@@ -145,5 +148,45 @@ public class Main {
         singleCosts.add(singleCost);
 
         return singleCosts;
+    }
+
+    public void parseEffect() {
+        String jsonContent = null;
+        HashMap<Integer, AbsEffect> effectMap = new HashMap<Integer,AbsEffect>();
+        try {
+            Scanner scanner = new Scanner(new File("Effect.txt"));
+            jsonContent = scanner.useDelimiter("\\Z").next();
+            scanner.close();
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+
+        JSONObject rootObject = new JSONObject(jsonContent);
+
+        JSONArray benefitEffects = rootObject.getJSONArray("BenefitEffect");
+        for (int i = 0; i < benefitEffects.length(); i++) {
+            JSONObject jsonObject = benefitEffects.getJSONObject(i);
+            int faithPoint = jsonObject.getInt("faithPoint");
+            int gold = jsonObject.getInt("gold");
+            int militaryPoint = jsonObject.getInt("militaryPoint");
+            int servant = jsonObject.getInt("servant");
+            int stone = jsonObject.getInt("stone");
+            int victoryPoint = jsonObject.getInt("victoryPoint");
+            int wood = jsonObject.getInt("wood");
+            ResourcesSet resources = new ResourcesSet(faithPoint, gold, militaryPoint, servant, stone, victoryPoint, wood);
+            BenefitsEffect effect = new BenefitsEffect(resources);
+            effectMap.put(jsonObject.getInt("id"),effect);
+
+            //System.out.println(effect.getResources().toString());
+
+        }
+
+
+
+        JSONArray councilPrivilegeEffect = rootObject.getJSONArray("CouncilPrivilegeEffect");
+
+        JSONArray discountEffect = rootObject.getJSONArray("DiscountEffect");
+
+        JSONArray newPlayEffect = rootObject.getJSONArray("NewPlayEffect");
     }
 }
