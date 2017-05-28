@@ -4,8 +4,6 @@ import it.polimi.ingsw.GC_23.Effects.Effect;
 import it.polimi.ingsw.GC_23.Enumerations.CardColor;
 import it.polimi.ingsw.GC_23.Player;
 import it.polimi.ingsw.GC_23.SingleCost;
-
-import java.time.Period;
 import java.util.ArrayList;
 
 /**
@@ -20,6 +18,7 @@ public class BuildingCard extends Card {
         super(period, cardColor, name, effects, cost);
     }
 
+    @Override
     public SingleCost getCost() {
         return cost;
     }

@@ -26,11 +26,6 @@ public abstract class PlaceFamilyMember implements Controller {
     public abstract boolean isLegal();
 
     @Override
-    public void makeAction() {
-        actionSpace.setFamilyMember(familyMember);
+    public abstract void makeAction();
 
-        //TODO bisogna far pagare il giocatore e dargli il premio
-
-
-    }
 }

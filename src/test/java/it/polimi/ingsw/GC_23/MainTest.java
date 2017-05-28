@@ -1,5 +1,6 @@
 package it.polimi.ingsw.GC_23;
 
+import junit.framework.TestCase;
 import org.junit.Test;
 
 import static org.junit.Assert.*;
@@ -7,7 +8,7 @@ import static org.junit.Assert.*;
 /**
  * Created by jesss on 28/05/17.
  */
-public class MainTest {
+public class MainTest extends TestCase {
     @Test
     public void main() throws Exception {
     }

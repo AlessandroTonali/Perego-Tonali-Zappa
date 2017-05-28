@@ -1,9 +1,7 @@
 package it.polimi.ingsw.GC_23.Controller;
 
 import it.polimi.ingsw.GC_23.Effects.BenefitsEffect;
-import it.polimi.ingsw.GC_23.Effects.CouncilPrivilegeEffect;
 import it.polimi.ingsw.GC_23.FamilyMember;
-import it.polimi.ingsw.GC_23.Player;
 import it.polimi.ingsw.GC_23.Resources.ResourcesSet;
 import it.polimi.ingsw.GC_23.Spaces.CouncilSpace;
 
@@ -21,16 +19,16 @@ public class CouncilController extends PlaceFamilyMember {
             makeAction();
         }
     }
-
+    @Override
     public boolean isLegal(){
-        if(familyMember.getValue()>=1 && !councilSpace.isPresent(familyMember.getPlayer().getPlayerColor())){
+        if(familyMember.getValue()>=1 && !councilSpace.checkFamiliar(familyMember.getPlayer().getPlayerColor())){
             return true;
         }
         else {
             return false;
         }
     }
-
+    @Override
     public void makeAction(){
         BenefitsEffect benefits = new BenefitsEffect(new ResourcesSet(0,1,0,0,0,0,0));
         benefits.activeEffect(familyMember.getPlayer());

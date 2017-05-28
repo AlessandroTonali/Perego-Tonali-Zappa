@@ -1,5 +1,6 @@
 package it.polimi.ingsw.GC_23.Spaces;
 
+import it.polimi.ingsw.GC_23.Enumerations.PlayerColor;
 import it.polimi.ingsw.GC_23.FamilyMember;
 
 /**
@@ -14,6 +15,10 @@ public class HarvestSpace extends ActionSpace {
         super(1);
         this.isBusyFirst = false;
         orderCounter = 0;
+    }
+
+    public void setFamilyMember(FamilyMember familyMember){
+        //TODO:setta anche l'ordine
     }
 
     public FamilyMember[] getPlayerOrder() {
@@ -32,7 +37,15 @@ public class HarvestSpace extends ActionSpace {
             return (familyMember.getValue()) > 1;
 
         }
+    }
 
+    public boolean checkFamiliar(PlayerColor playerColor){
+        for(int i = 0; i<playerOrder.length; i++) {
+            if (playerOrder[i].getPlayer().getPlayerColor() == playerColor) {
+                return true;
+            }
+        }
+        return false;
     }
 }
 

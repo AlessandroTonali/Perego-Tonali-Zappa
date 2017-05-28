@@ -14,15 +14,18 @@ public class CouncilSpace extends ActionSpace {
         orderCounter = 0;
     }
 
-    public boolean isPresent(PlayerColor playerColor){
+    public void setFamilyMember(FamilyMember familyMember){
+        //TODO:setta anche l'ordine
+    }
+
+    public boolean checkFamiliar(PlayerColor playerColor){
         for(int i = 0; i<playerOrder.length; i++) {
             if (playerOrder[i].getPlayer().getPlayerColor() == playerColor) {
                 return true;
             }
         }
-        //TODO bisogna capire dove va messo questo metodo
-            return false;
-        }
+        return false;
+    }
 
     public void setPlayerOrder(FamilyMember[] playerOrder) {
         this.playerOrder = playerOrder;

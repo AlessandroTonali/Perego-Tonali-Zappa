@@ -1,6 +1,5 @@
 package it.polimi.ingsw.GC_23.Cards;
 
-import com.sun.istack.internal.Nullable;
 import it.polimi.ingsw.GC_23.Effects.Effect;
 import it.polimi.ingsw.GC_23.Enumerations.CardColor;
 import it.polimi.ingsw.GC_23.Player;

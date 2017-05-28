@@ -30,6 +30,7 @@ public class Tower {
         this.spaces = spaces;
     }
 
+    //controlla se c'è un altro familiare dello stesso colore nella tower
     public boolean isFamiliar(FamilyMember familyMember) {
         for(int i = 0; i<DIM; i++) {
             if (familyMember.getPlayer() == spaces[i].getFamilyMember().getPlayer()) {
