@@ -24,8 +24,4 @@ public class ResourcesTest {
     public void setQuantity() throws Exception {
     }
 
-    @Test
-    public void toString() throws Exception {
-    }
-
 }

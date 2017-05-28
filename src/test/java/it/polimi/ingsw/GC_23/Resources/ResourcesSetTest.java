@@ -65,10 +65,6 @@ public class ResourcesSetTest {
     }
 
     @Test
-    public void toString() throws Exception {
-    }
-
-    @Test
     public void getArray() throws Exception {
     }
 
