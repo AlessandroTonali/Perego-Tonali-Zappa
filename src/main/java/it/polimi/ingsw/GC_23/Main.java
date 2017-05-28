@@ -2,12 +2,14 @@ package it.polimi.ingsw.GC_23;
 
 import it.polimi.ingsw.GC_23.Cards.Card;
 import it.polimi.ingsw.GC_23.Cards.VentureCard;
+import it.polimi.ingsw.GC_23.Controller.HarvestController;
 import it.polimi.ingsw.GC_23.Controller.ProductionController;
 import it.polimi.ingsw.GC_23.Effects.BenefitsEffect;
 import it.polimi.ingsw.GC_23.Enumerations.CardColor;
 import it.polimi.ingsw.GC_23.Enumerations.FamilyColor;
 import it.polimi.ingsw.GC_23.Enumerations.PlayerColor;
 import it.polimi.ingsw.GC_23.Resources.ResourcesSet;
+import it.polimi.ingsw.GC_23.Spaces.HarvestSpace;
 import it.polimi.ingsw.GC_23.Spaces.ProductionSpace;
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -51,8 +53,8 @@ public class Main {
         System.out.println(player.getResources().toString());
         FamilyMember fam = new FamilyMember(player, FamilyColor.ORANGE);
         fam.setValue(5);
-        ProductionSpace space = new ProductionSpace(1);
-        ProductionController contr = new ProductionController(fam, space );
+        HarvestSpace space = new HarvestSpace();
+        HarvestController contr = new HarvestController(fam , space );
         System.out.println(player.getResources());
 
     }
