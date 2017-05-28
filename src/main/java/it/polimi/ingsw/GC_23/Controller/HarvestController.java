@@ -32,7 +32,7 @@ public class HarvestController extends PlaceFamilyMember {
         return this.harvestSpace.checkValue(familyMember);
     }
 
-    //attiva anche gli effetti permanenti delle carte terriorio in possesso con valore <= a quello dell'azione
+    //TODO: attiva anche gli effetti permanenti delle carte terriorio in possesso con valore <= a quello dell'azione
     @Override
     public void makeAction(){
         this.familyMember.getPlayer().getBonusTile().getHarvestEffect().activeEffect(this.familyMember.getPlayer());

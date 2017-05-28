@@ -33,14 +33,9 @@ public class MarketController extends PlaceFamilyMember {
         }
     }
 
-    //ottieni bonus immediato
     @Override
     public void makeAction(){
         marketSpace.getEffect().getBenefitsEffect().activeEffect(familyMember.getPlayer());
         marketSpace.setFamilyMember(familyMember);
-        /*
-        TODO: richiama ActiveEffectController usando player.getBonusTile().getBenefitsEffect()
-         */
-
     }
 }

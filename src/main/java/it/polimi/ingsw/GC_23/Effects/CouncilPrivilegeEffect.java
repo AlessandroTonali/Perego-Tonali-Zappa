@@ -1,14 +1,18 @@
 package it.polimi.ingsw.GC_23.Effects;
 
+import it.polimi.ingsw.GC_23.FamilyMember;
 import it.polimi.ingsw.GC_23.Player;
+import it.polimi.ingsw.GC_23.Resources.ResourcesSet;
 
 /**
  * Created by jesss on 21/05/17.
  */
 public class CouncilPrivilegeEffect extends AbsEffect{
+    //pergamena a scelta tra: 1 wood + 1 stone, 2 servants, 2 golds, 2 military, 1 faith
     private BenefitsEffect[] benefits;
     private int numberOfPrivileges;
     boolean isDifferent = true;
+    private FamilyMember familyMember;
 
 
     public CouncilPrivilegeEffect(BenefitsEffect[] benefits, int numberOfPrivileges) {
@@ -43,6 +47,11 @@ public class CouncilPrivilegeEffect extends AbsEffect{
 
     @Override
     public void activeEffect(Player player) {
+        BenefitsEffect[] chosenEffect = chooseCouncilPrivilege(benefits);
+        for(BenefitsEffect e: chosenEffect){
+            e.activeEffect(familyMember.getPlayer());
+        }
 
     }
+
 }

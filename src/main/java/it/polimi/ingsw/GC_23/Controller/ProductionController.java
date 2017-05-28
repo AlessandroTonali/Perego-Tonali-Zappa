@@ -1,8 +1,12 @@
 package it.polimi.ingsw.GC_23.Controller;
 
+import it.polimi.ingsw.GC_23.Cards.BuildingCard;
+import it.polimi.ingsw.GC_23.Effects.Effect;
 import it.polimi.ingsw.GC_23.FamilyMember;
 import it.polimi.ingsw.GC_23.Player;
 import it.polimi.ingsw.GC_23.Spaces.ProductionSpace;
+
+import java.util.ArrayList;
 
 /**
  * Created by jesss on 23/05/17.
@@ -34,11 +38,11 @@ public class ProductionController extends PlaceFamilyMember {
         return this.productionSpace.checkValue(familyMember);
     }
 
-    //attiva anche gli effetti permanenti delle carte edificio in possesso con valore <= a quello dell'azione
+    //TODO: attiva anche gli effetti permanenti delle carte edificio in possesso con valore <= a quello dell'azione
     @Override
     public void makeAction(){
         this.familyMember.getPlayer().getBonusTile().getProductionEffect().activeEffect(this.familyMember.getPlayer());
-        //this.familyMember.getPlayer().getCardOfPlayer().getBuildingCards() ??
         productionSpace.setFamilyMember(familyMember);
     }
+
 }
