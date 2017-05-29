@@ -13,11 +13,15 @@ public class FamilyMember {
     private int value;
     private ActionSpace position;
 
-    public FamilyMember(Player player, FamilyColor familyColor) {
+    public FamilyMember(Player player, FamilyColor familyColor, int value) {
         this.player = player;
         this.familyColor = familyColor;
-        this.value = 0;
+        this.value = value;
         this.position = null;
+    }
+
+    public void setPlayer(Player player) {
+        this.player = player;
     }
 
     public Player getPlayer() {

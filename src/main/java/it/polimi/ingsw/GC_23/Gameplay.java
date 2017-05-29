@@ -18,18 +18,20 @@ public class Gameplay {
     }
 
     public ArrayList<Player> makeTurnOrder() {
+        //TODO
         return null;
     }
 
     public ArrayList<Player> makeMilitaryOrder() {
+        //TODO
         return null;
     }
 
     private void scheduling() {
-
+        //TODO
     }
 
     private void checkEndPeriod() {
-
+        //TODO
     }
 }

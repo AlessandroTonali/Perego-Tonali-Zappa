@@ -10,9 +10,6 @@ import java.util.ArrayList;
  * Created by Alessandro on 21/05/2017.
  */
 public class VentureCard extends Card {
-
-    private SingleCost cost;
-
     public VentureCard(int period, CardColor cardColor, String name, ArrayList<Effect> effects, SingleCost cost) {
         super(period, cardColor, name, effects, cost);
     }
@@ -20,7 +17,7 @@ public class VentureCard extends Card {
     @Override
     public boolean checkTakeable(Player player) {
         if (player.getCardOfPlayer().getVentureCards().size() < 6) {
-            if (player.getResources().checkAffordable(cost.getResources())){
+            if (player.getResources().checkAffordable(this.getCost().getResources())){
                 return true;
             } else {
                 return false;

@@ -10,10 +10,12 @@ import static org.junit.Assert.*;
 public class GameplayTest {
     @Test
     public void makeTurnOrder() throws Exception {
+        //TODO
     }
 
     @Test
     public void makeMilitaryOrder() throws Exception {
+        //TODO
     }
 
 }

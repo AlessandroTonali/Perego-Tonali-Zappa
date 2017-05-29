@@ -53,7 +53,7 @@ public class Main {
         BenefitsEffect benefitsEffect = new BenefitsEffect(set2);
         benefitsEffect.activeEffect(player);
         System.out.println(player.getResources().toString());
-        FamilyMember fam = new FamilyMember(player, FamilyColor.ORANGE);
+        FamilyMember fam = new FamilyMember(player, FamilyColor.ORANGE, 0);
         fam.setValue(5);
         HarvestSpace space = new HarvestSpace();
         HarvestController contr = new HarvestController(fam , space );

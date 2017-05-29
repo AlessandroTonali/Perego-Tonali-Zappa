@@ -10,10 +10,12 @@ import static org.junit.Assert.*;
 public class SingleCostTest {
     @Test
     public void getResources() throws Exception {
+        assertTrue(true);
     }
 
     @Test
     public void setResources() throws Exception {
+        assertTrue(true);
     }
 
 }
