@@ -18,7 +18,7 @@ public class Player {
     public Player(PlayerColor playerColor, BonusTile bonusTile) {
         this.playerColor = playerColor;
         // bisogna usare il design pattern della fabbrica per dare le risorse giuste in base ai player
-        this.cardOfPlayer = new CardOfPlayer();
+        this.cardOfPlayer = new CardOfPlayer(null, null, null, null);
         this.bonusTile = bonusTile;
         //bisogna decidere come istanziare i family member
         // permanent effect ancora non lo dobbiamo fare
@@ -55,6 +55,10 @@ public class Player {
 
     public PermanentEffect getPermanentEffect() {
         return permanentEffect;
+    }
+
+    public void setCardOfPlayer(CardOfPlayer cardOfPlayer) {
+        this.cardOfPlayer = cardOfPlayer;
     }
 
     public void chooseMove(){

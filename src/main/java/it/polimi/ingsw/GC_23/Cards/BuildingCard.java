@@ -11,26 +11,15 @@ import java.util.ArrayList;
  */
 public class BuildingCard extends Card {
 
-    private SingleCost cost;
-
-
     public BuildingCard(int period, CardColor cardColor, String name, ArrayList<Effect> effects, SingleCost cost) {
         super(period, cardColor, name, effects, cost);
     }
 
-    @Override
-    public SingleCost getCost() {
-        return cost;
-    }
-
-    public void setCost(SingleCost cost) {
-        this.cost = cost;
-    }
-
+    //controlla numero carte e se ha abbastanza risorse
     @Override
     public boolean checkTakeable(Player player) {
         if (player.getCardOfPlayer().getBuildingCards().size() < 6) {
-            if (player.getResources().checkAffordable(cost.getResources())){
+            if (player.getResources().checkAffordable(this.getCost().getResources())){
                 return true;
             } else {
                 return false;

@@ -12,6 +12,12 @@ import java.util.ArrayList;
  */
 public class CardOfPlayer {
 
+    public CardOfPlayer(ArrayList<TerritoryCard> territoryCards, ArrayList<CharacterCard> characterCards, ArrayList<BuildingCard> buildingCards, ArrayList<VentureCard> ventureCards) {
+        this.territoryCards = territoryCards;
+        this.characterCards = characterCards;
+        this.buildingCards = buildingCards;
+        this.ventureCards = ventureCards;
+    }
 
     private ArrayList<TerritoryCard> territoryCards;
     private ArrayList<CharacterCard> characterCards;
