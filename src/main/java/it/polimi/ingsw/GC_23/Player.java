@@ -65,4 +65,13 @@ public class Player {
         //TODO
         return;
     }
+
+    public boolean isEquals(Player player) {
+        if(this.playerColor == player.getPlayerColor()){
+            return true;
+        } else {
+            return false;
+        }
+
+    }
 }

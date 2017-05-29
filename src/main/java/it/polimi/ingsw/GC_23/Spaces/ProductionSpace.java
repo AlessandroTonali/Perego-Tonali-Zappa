@@ -1,5 +1,6 @@
 package it.polimi.ingsw.GC_23.Spaces;
 
+import it.polimi.ingsw.GC_23.Enumerations.FamilyColor;
 import it.polimi.ingsw.GC_23.Enumerations.PlayerColor;
 import it.polimi.ingsw.GC_23.FamilyMember;
 
@@ -39,12 +40,15 @@ public class ProductionSpace extends ActionSpace {
         }
     }
 
-    public boolean checkFamiliar(PlayerColor playerColor){
-        for(int i = 0; i<playerOrder.length; i++) {
-            if (playerOrder[i].getPlayer().getPlayerColor() == playerColor) {
-                return true;
+    public boolean checkFamiliar(FamilyMember familyMember){
+        boolean familiarPresence = false;
+        if (familyMember.getFamilyColor() != FamilyColor.NEUTRAL) {
+            for (int i = 0; i < playerOrder.length; i++) {
+                if (playerOrder[i].getPlayer().isEquals(familyMember.getPlayer())) {
+                    familiarPresence = true;
+                }
             }
         }
-        return false;
+        return familiarPresence;
     }
 }

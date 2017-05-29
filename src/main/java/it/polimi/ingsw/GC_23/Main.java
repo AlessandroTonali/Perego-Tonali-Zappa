@@ -181,8 +181,6 @@ public class Main {
 
         }
 
-
-
         JSONArray councilPrivilegeEffect = rootObject.getJSONArray("CouncilPrivilegeEffect");
 
         JSONArray discountEffect = rootObject.getJSONArray("DiscountEffect");

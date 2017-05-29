@@ -1,7 +1,7 @@
 {
 	"BenefitEffect": [
-		{"id": "012", "faithPoint": "100000", "gold": "0", "militaryPoint": "0", "servant": "0",  "stone": "0", "victoryPoint": "0", "wood": "0"},
-		{"id": "013", "faithPoint": "200000", "gold": "0", "militaryPoint": "0", "servant": "0",  "stone": "0", "victoryPoint": "0", "wood": "0"}
+		{"id": "12", "faithPoint": "100000", "gold": "0", "militaryPoint": "0", "servant": "0",  "stone": "0", "victoryPoint": "0", "wood": "0"},
+		{"id": "13", "faithPoint": "200000", "gold": "0", "militaryPoint": "0", "servant": "0",  "stone": "0", "victoryPoint": "0", "wood": "0"}
 		
 	],
 	"CouncilPrivilegeEffect": [

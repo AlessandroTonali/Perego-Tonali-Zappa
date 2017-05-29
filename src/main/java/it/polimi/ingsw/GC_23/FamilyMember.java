@@ -48,6 +48,19 @@ public class FamilyMember {
         this.value = this.value + quantity;
         this.player.getResources().setServants(this.player.getResources().getServants()- quantity);
     }
+
+    public boolean isEquals(FamilyMember familyMember) {
+        boolean equal = false;
+        if (this.player.isEquals(familyMember.getPlayer())) {
+            if (this.familyColor.equals(familyMember.getFamilyColor())) {
+                if (this.value == familyMember.getValue()) {
+                    equal = true;
+                }
+            }
+        }
+
+        return equal;
+    }
 }
 
 
