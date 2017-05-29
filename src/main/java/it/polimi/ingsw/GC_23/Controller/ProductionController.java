@@ -28,7 +28,7 @@ public class ProductionController extends PlaceFamilyMember {
 
     //Da controllare: no familiari dello stesso colore (si neutro)
     public boolean isLegal() {
-        if (!(productionSpace.checkBusy())&&(familyMember.getValue()>=1)){
+        if (!(productionSpace.checkBusy())&&(familyMember.getValue()>=1) && !productionSpace.checkFamiliar(familyMember)){
             return true;
         }
         else

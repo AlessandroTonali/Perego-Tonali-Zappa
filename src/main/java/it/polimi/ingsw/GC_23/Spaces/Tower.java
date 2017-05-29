@@ -1,5 +1,6 @@
 package it.polimi.ingsw.GC_23.Spaces;
 
+import it.polimi.ingsw.GC_23.Enumerations.FamilyColor;
 import it.polimi.ingsw.GC_23.FamilyMember;
 import it.polimi.ingsw.GC_23.Spaces.TowerSpace;
 
@@ -30,15 +31,33 @@ public class Tower {
         this.spaces = spaces;
     }
 
-    //controlla se c'è un altro familiare dello stesso colore nella tower
-    public boolean isFamiliar(FamilyMember familyMember) {
-        for(int i = 0; i<DIM; i++) {
-            if (familyMember.getPlayer() == spaces[i].getFamilyMember().getPlayer()) {
-                return true;
+
+    // controlla se è presente un familiare del tuo colore nella torre
+    public boolean checkFamiliarTower(FamilyMember familyMember) {
+        boolean myFamiliarPresence = false;
+        TowerSpace[] towerSpaces = this.getSpaces();
+        if (familyMember.getFamilyColor() != FamilyColor.NEUTRAL) {
+            for (int i = 0; i < towerSpaces.length; i++) {
+                if (towerSpaces[i].getFamilyMember().getPlayer().isEquals(familyMember.getPlayer())) {
+                    if (towerSpaces[i].getFamilyMember().getFamilyColor() != FamilyColor.NEUTRAL) {
+                        myFamiliarPresence = true;
+                    }
+                }
             }
         }
+        return myFamiliarPresence;
+    }
 
-            return  false;
+    // controlla se è presente un familiare nella torre
+    public boolean checkOtherFamiliar() {
+        boolean otherFamiliarPresence  = false;
+        TowerSpace[] towerSpaces = this.getSpaces();
+        for (int i = 0; i < towerSpaces.length ; i++) {
+            if (towerSpaces[i].getFamilyMember() != null) {
+                otherFamiliarPresence = true;
+            }
+        }
+        return otherFamiliarPresence;
     }
 
 }

@@ -10,20 +10,42 @@ import it.polimi.ingsw.GC_23.Spaces.TowerSpace;
  */
 public class TowerController extends PlaceFamilyMember {
     private FamilyMember familyMember;
-    private Player player;
     private Tower tower;
+    private TowerSpace towerSpace;
 
-
-
-
+    public TowerController(FamilyMember familyMember, Tower tower, TowerSpace towerSpace) {
+        this.familyMember = familyMember;
+        this.tower = tower;
+        this.towerSpace = towerSpace;
+    }
 
     public boolean isLegal(){
-        return true;
+
+        if (checkTowerSpaceInTower() && !tower.checkFamiliarTower(familyMember) && !towerSpace.checkBusy()
+                && towerSpace.checkValue()) {
+            return true;
+        } else {
+            return false;
+        }
+
     }
 
     public void makeAction(){
 
     }
+
+    // controlla se il tower space che ci han passato appartiene alla torre
+    private boolean checkTowerSpaceInTower() {
+        boolean isMember = false;
+        TowerSpace[] towerSpaces = tower.getSpaces();
+        for (int i = 0; i < towerSpaces.length ; i++) {
+            if (towerSpaces[i].getCard().getName().equals(towerSpace.getCard().getName())) {
+                isMember = true;
+            }
+        }
+        return isMember;
+    }
+
 
 
 }
