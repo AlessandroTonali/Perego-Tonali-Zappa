@@ -1,6 +1,4 @@
 package it.polimi.ingsw.GC_23.Cards;
-
-import com.sun.tools.corba.se.idl.ValueEntry;
 import it.polimi.ingsw.GC_23.CardOfPlayer;
 import it.polimi.ingsw.GC_23.Enumerations.CardColor;
 import it.polimi.ingsw.GC_23.Player;

@@ -64,4 +64,18 @@ public abstract class Card {
     public SingleCost getCost() {
         return cost;
     }
+
+    public boolean checkchoose() {
+        return effects.size()>1;
+    }
+
+    public Effect getSingleEffect() {
+        if(effects.size()==1) {
+            return effects.get(0);
+        }
+        else{
+            System.out.println("ERROR IN CONDITIONS");
+            return null;
+        }
+    }
 }

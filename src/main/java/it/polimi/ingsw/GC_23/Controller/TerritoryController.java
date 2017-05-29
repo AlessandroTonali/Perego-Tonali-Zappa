@@ -1,7 +1,11 @@
 package it.polimi.ingsw.GC_23.Controller;
 
+import it.polimi.ingsw.GC_23.Cards.BuildingCard;
+import it.polimi.ingsw.GC_23.Cards.TerritoryCard;
+import it.polimi.ingsw.GC_23.Effects.Effect;
 import it.polimi.ingsw.GC_23.FamilyMember;
 import it.polimi.ingsw.GC_23.Resources.ResourcesSet;
+import it.polimi.ingsw.GC_23.Spaces.Tower;
 import it.polimi.ingsw.GC_23.Spaces.TowerSpace;
 
 /**
@@ -11,10 +15,11 @@ public class TerritoryController extends TowerController {
 
     private FamilyMember familyMember;
     private TowerSpace towerSpace;
+    private Tower tower;
 
-    public TerritoryController(FamilyMember familyMember, TowerSpace towerSpace) {
-        this.familyMember = familyMember;
-        this.towerSpace = towerSpace;
+    public TerritoryController(FamilyMember familyMember, Tower tower, TowerSpace towerSpace) {
+        super(familyMember,tower,towerSpace);
+
         if (isLegal()) {
             makeAction();
             System.out.println("succes");
@@ -44,6 +49,19 @@ public class TerritoryController extends TowerController {
     }
 
     public void makeAction() {
+
+        if(this.towerSpace.getCard().checkchoose()) {
+           Effect effect = this.towerSpace.getCard().getSingleEffect();
+           effect.activeEffect(familyMember.getPlayer());
+           familyMember.getPlayer().getCardOfPlayer().setCard((TerritoryCard) this.towerSpace.getCard());
+
+
+        }
+        else{
+            //TODO c e da fare la scan
+        }
+
+
 
 
     }
