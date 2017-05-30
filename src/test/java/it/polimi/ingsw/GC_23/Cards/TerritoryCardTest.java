@@ -21,17 +21,11 @@ public class TerritoryCardTest {
         ResourcesSet res1 = new ResourcesSet(0,0,2,0,0,0,0);
         player.setResources(res1);
         TerritoryCard card1 = new TerritoryCard(1, CardColor.YELLOW, null, null);
-        ArrayList<TerritoryCard> cards = new ArrayList<TerritoryCard>();
-        cards.add(0, card1);
-        cards.add(1, card1);
-        cards.add(2, card1);
-        CardOfPlayer cardOfPlayer = new CardOfPlayer(cards, null, null, null);
+        CardOfPlayer cardOfPlayer = new CardOfPlayer();
         player.setCardOfPlayer(cardOfPlayer);
-        assertEquals(true, card1.checkTakeable(player));
-        cards.add(3, card1);
         assertEquals(false, card1.checkTakeable(player));
-        //TODO: Sbagliato
-
+        player.getCardOfPlayer().setCard(card1);
+        cardOfPlayer.setCard(card1);
     }
 
 }

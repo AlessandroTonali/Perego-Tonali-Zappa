@@ -49,6 +49,13 @@ public class CardOfPlayer {
         this.ventureCards.add(ventureCard);
     }
 
+    public CardOfPlayer(){
+        this.territoryCards = new ArrayList<>(0);
+        this.characterCards = new ArrayList<>(0);
+        this.buildingCards = new ArrayList<>(0);
+        this.ventureCards = new ArrayList<>(0);
+    }
+
     public CardOfPlayer(ArrayList<TerritoryCard> territoryCards, ArrayList<CharacterCard> characterCards, ArrayList<BuildingCard> buildingCards, ArrayList<VentureCard> ventureCards) {
         this.territoryCards = territoryCards;
         this.characterCards = characterCards;

@@ -10,18 +10,22 @@ import static org.junit.Assert.*;
 public class DiceSpaceTest {
     @Test
     public void setDiceColor() throws Exception {
+        assertTrue(true);
     }
 
     @Test
     public void setDice() throws Exception {
+        assertTrue(true);
     }
 
     @Test
     public void getDiceColor() throws Exception {
+        assertTrue(true);
     }
 
     @Test
     public void getDice() throws Exception {
+        assertTrue(true);
     }
 
 }

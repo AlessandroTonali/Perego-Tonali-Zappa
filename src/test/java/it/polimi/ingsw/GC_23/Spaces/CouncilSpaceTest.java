@@ -9,11 +9,6 @@ import static org.junit.Assert.*;
  */
 public class CouncilSpaceTest {
     @Test
-    public void isPresent() throws Exception {
-        //todo: ?
-    }
-
-    @Test
     public void setPlayerOrder() throws Exception {
         assertTrue(true);
     }

@@ -10,6 +10,7 @@ import static org.junit.Assert.*;
 public class ExcommunicationSpaceTest {
     @Test
     public void getExcommunicationTile() throws Exception {
+        assertTrue(true);
     }
 
 }
