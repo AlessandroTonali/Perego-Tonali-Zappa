@@ -4,7 +4,8 @@
 		{"id": "11", "faithPoint": "0", "gold": "0", "militaryPoint": "0", "servant": "2",  "stone": "0", "victoryPoint": "0", "wood": "0"},
 		{"id": "12", "faithPoint": "0", "gold": "2", "militaryPoint": "0", "servant": "0",  "stone": "0", "victoryPoint": "0", "wood": "0"},
 		{"id": "13", "faithPoint": "0", "gold": "0", "militaryPoint": "2", "servant": "0",  "stone": "0", "victoryPoint": "0", "wood": "0"},
-		{"id": "14", "faithPoint": "1", "gold": "0", "militaryPoint": "0", "servant": "0",  "stone": "0", "victoryPoint": "0", "wood": "0"}
+		{"id": "14", "faithPoint": "1", "gold": "0", "militaryPoint": "0", "servant": "0",  "stone": "0", "victoryPoint": "0", "wood": "0"},
+		{"id": "401", "faithPoint": "0", "gold": "0", "militaryPoint": "0", "servant": "0",  "stone": "2", "victoryPoint": "0", "wood": "0"}
 		
 	],
 	"CouncilPrivilegeEffect": [

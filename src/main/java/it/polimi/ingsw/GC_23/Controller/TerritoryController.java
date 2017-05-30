@@ -56,7 +56,7 @@ public class TerritoryController extends TowerController {
 
     public void makeAction() {
 
-        if(this.towerSpace.getCard().checkchoose()) {
+        /*if(this.towerSpace.getCard().checkchoose()) {
            Effect effect = this.towerSpace.getCard().getSingleEffect();
            effect.activeEffect(familyMember.getPlayer());
            familyMember.getPlayer().getCardOfPlayer().setCard((TerritoryCard) this.towerSpace.getCard());
@@ -65,7 +65,7 @@ public class TerritoryController extends TowerController {
         }
         else{
             //TODO c e da fare la scan
-        }
+        }*/
 
 
 

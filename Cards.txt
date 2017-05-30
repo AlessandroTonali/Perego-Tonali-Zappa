@@ -9,6 +9,6 @@
 "CharacterCard": [
 ],
 "TerritoryCard": [
-	{"name": "Città Mercantile", "immediateEffect": "1", "permanentEffect": "2"}
+	{"id": "400","name": "Gravel Pit", "immediateEffect": "401", "permanentEffect": "2"}
 ]
 }

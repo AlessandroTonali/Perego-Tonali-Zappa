@@ -56,7 +56,7 @@ public class OtherCardsController extends TowerController {
 
     public void makeAction() {
 
-        if(this.towerSpace.getCard().checkchoose()) {
+        /*if(this.towerSpace.getCard().checkchoose()) {
 
             //TODO potrebbe avere più costi la situa
             SingleCost cost = this.towerSpace.getCard().getCost();
@@ -69,7 +69,7 @@ public class OtherCardsController extends TowerController {
         }
         else{
             //TODO c e da fare la scan
-        }
+        }*/
 
 
 

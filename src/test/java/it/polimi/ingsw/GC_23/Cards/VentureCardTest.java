@@ -24,10 +24,10 @@ public class VentureCardTest {
         SingleCost cost1 = new SingleCost(res1);
         SingleCost cost2 = new SingleCost(res3);
         player.setResources(res2);
-        VentureCard card1 = new VentureCard(1, CardColor.YELLOW, null, null, cost1);
-        VentureCard card2 = new VentureCard(1, CardColor.GREEN, null, null, cost1);
-        VentureCard card3 = new VentureCard(1, CardColor.PURPLE, null, null, cost1);
-        VentureCard card4 = new VentureCard(1, CardColor.PURPLE, null, null, cost2);
+        VentureCard card1 = new VentureCard(1, CardColor.YELLOW, null, null, null, cost1);
+        VentureCard card2 = new VentureCard(1, CardColor.GREEN, null, null, null, cost1);
+        VentureCard card3 = new VentureCard(1, CardColor.PURPLE, null, null, null, cost1);
+        VentureCard card4 = new VentureCard(1, CardColor.PURPLE, null, null, null,cost2);
         CardOfPlayer cardOfPlayer = new CardOfPlayer();
         player.setCardOfPlayer(cardOfPlayer);
         player.getCardOfPlayer().setCard(card1);

@@ -35,10 +35,10 @@ public class CharacterCardTest {
         SingleCost cost1 = new SingleCost(res1);
         SingleCost cost2 = new SingleCost(res3);
         player.setResources(res2);
-        CharacterCard card1 = new CharacterCard(1, CardColor.YELLOW, null, null, cost1);
-        CharacterCard card2 = new CharacterCard(1, CardColor.GREEN, null, null, cost1);
-        CharacterCard card3 = new CharacterCard(1, CardColor.PURPLE, null, null, cost1);
-        CharacterCard card4 = new CharacterCard(1, CardColor.PURPLE, null, null, cost2);
+        CharacterCard card1 = new CharacterCard(1, CardColor.YELLOW, null, null, null, cost1);
+        CharacterCard card2 = new CharacterCard(1, CardColor.GREEN, null, null, null, cost1);
+        CharacterCard card3 = new CharacterCard(1, CardColor.PURPLE, null, null, null, cost1);
+        CharacterCard card4 = new CharacterCard(1, CardColor.PURPLE, null, null, null, cost2);
         CardOfPlayer cardOfPlayer = new CardOfPlayer();
         player.setCardOfPlayer(cardOfPlayer);
         player.getCardOfPlayer().setCard(card1);

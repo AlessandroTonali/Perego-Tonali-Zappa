@@ -35,10 +35,10 @@ public class BuildingCardTest {
         player.setResources(res2);
         SingleCost cost1 = new SingleCost(res1);
         SingleCost cost2 = new SingleCost(res3);
-        BuildingCard card1 = new BuildingCard(1, CardColor.YELLOW, null, null, cost1);
-        BuildingCard card2 = new BuildingCard(1, CardColor.GREEN, null, null, cost1);
-        BuildingCard card3 = new BuildingCard(1, CardColor.PURPLE, null, null, cost1);
-        BuildingCard card4 = new BuildingCard(1, CardColor.PURPLE, null, null, cost2);
+        BuildingCard card1 = new BuildingCard(1, CardColor.YELLOW, null, null, null, cost1);
+        BuildingCard card2 = new BuildingCard(1, CardColor.GREEN, null, null, null, cost1);
+        BuildingCard card3 = new BuildingCard(1, CardColor.PURPLE, null, null, null,cost1);
+        BuildingCard card4 = new BuildingCard(1, CardColor.PURPLE, null, null, null, cost2);
         CardOfPlayer cardOfPlayer = new CardOfPlayer();
         player.setCardOfPlayer(cardOfPlayer);
         player.getCardOfPlayer().setCard(card1);
