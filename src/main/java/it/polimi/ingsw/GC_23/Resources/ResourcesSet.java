@@ -15,9 +15,33 @@ public class ResourcesSet {
     private Wood wood;
     private static int resourceNumber = 7;
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
 
+        ResourcesSet that = (ResourcesSet) o;
 
+        if (!faithPoints.equals(that.faithPoints)) return false;
+        if (!gold.equals(that.gold)) return false;
+        if (!militaryPoints.equals(that.militaryPoints)) return false;
+        if (!servants.equals(that.servants)) return false;
+        if (!stone.equals(that.stone)) return false;
+        if (!victoryPoints.equals(that.victoryPoints)) return false;
+        return wood.equals(that.wood);
+    }
 
+    @Override
+    public int hashCode() {
+        int result = faithPoints.hashCode();
+        result = 31 * result + gold.hashCode();
+        result = 31 * result + militaryPoints.hashCode();
+        result = 31 * result + servants.hashCode();
+        result = 31 * result + stone.hashCode();
+        result = 31 * result + victoryPoints.hashCode();
+        result = 31 * result + wood.hashCode();
+        return result;
+    }
 
     public ResourcesSet(int faithPoints, int gold, int militaryPoints, int servants,
                         int stone, int victoryPoints, int wood) {
@@ -89,6 +113,34 @@ public class ResourcesSet {
     }
 
     public int getVictoryPoints() {return victoryPoints.getQuantity();
+    }
+
+    public Wood getWoodObj() {
+        return wood;
+    }
+
+    public FaithPoints getFaithPointsObj() {
+        return faithPoints;
+    }
+
+    public Gold getGoldObj() {
+        return gold;
+    }
+
+    public MilitaryPoints getMilitaryPointsObj() {
+        return militaryPoints;
+    }
+
+    public Servants getServantsObj() {
+        return servants;
+    }
+
+    public Stone getStoneobj() {
+        return stone;
+    }
+
+    public VictoryPoints getVictoryPointsObj() {
+        return victoryPoints;
     }
 
     public int getWood() {

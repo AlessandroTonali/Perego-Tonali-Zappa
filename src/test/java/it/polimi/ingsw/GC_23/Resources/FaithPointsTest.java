@@ -1,5 +1,6 @@
 package it.polimi.ingsw.GC_23.Resources;
 
+import it.polimi.ingsw.GC_23.Player;
 import org.junit.Test;
 
 import static org.junit.Assert.*;
@@ -10,6 +11,10 @@ import static org.junit.Assert.*;
 public class FaithPointsTest {
     @Test
     public void reset() throws Exception {
+       /* ResourcesSet resourcesSet = new ResourcesSet(5, 0,0,0,0,0,0);
+        resourcesSet.getFaithPointsObj().reset();
+        ResourcesSet check = new ResourcesSet();
+        assertTrue(resourcesSet.equals(new ResourcesSet()));*/
     }
 
 }

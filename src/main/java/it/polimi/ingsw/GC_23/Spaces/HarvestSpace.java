@@ -23,6 +23,7 @@ public class HarvestSpace extends ActionSpace {
     public void setFamilyMember(FamilyMember familyMember) {
         this.isBusyFirst = true;
         this.getPlayerOrder().add(familyMember);
+        orderCounter++;
     }
 
     public ArrayList<FamilyMember> getPlayerOrder() {
