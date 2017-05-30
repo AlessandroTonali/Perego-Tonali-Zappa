@@ -2,13 +2,14 @@ package it.polimi.ingsw.GC_23.Controller;
 
 import it.polimi.ingsw.GC_23.FamilyMember;
 import it.polimi.ingsw.GC_23.Player;
+import it.polimi.ingsw.GC_23.Resources.ResourcesSet;
 import it.polimi.ingsw.GC_23.Spaces.Tower;
 import it.polimi.ingsw.GC_23.Spaces.TowerSpace;
 
 /**
  * Created by jesss on 23/05/17.
  */
-public class TowerController extends PlaceFamilyMember {
+public abstract class TowerController extends PlaceFamilyMember {
     private FamilyMember familyMember;
     private Tower tower;
     private TowerSpace towerSpace;
@@ -19,20 +20,12 @@ public class TowerController extends PlaceFamilyMember {
         this.towerSpace = towerSpace;
     }
 
-    public boolean isLegal(){
+    public abstract boolean isLegal();
 
-        if (checkTowerSpaceInTower() && !tower.checkFamiliarTower(familyMember) && !towerSpace.checkBusy()
-                && towerSpace.checkValue()) {
-            return true;
-        } else {
-            return false;
-        }
 
-    }
 
-    public void makeAction(){
 
-    }
+    public abstract void makeAction();
 
     // controlla se il tower space che ci han passato appartiene alla torre
     private boolean checkTowerSpaceInTower() {

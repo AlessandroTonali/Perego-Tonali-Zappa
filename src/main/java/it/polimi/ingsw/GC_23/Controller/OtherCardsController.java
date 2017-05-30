@@ -30,7 +30,11 @@ public class OtherCardsController extends TowerController {
     public boolean isLegal() {
         ResourcesSet cost = towerSpace.getCard().getCost().getResources();
 
-        //TODO capire come collegare lo spazio torre alla torre
+        if(tower.checkOtherFamiliar()) {
+            cost.sum(new ResourcesSet(0,3,0,0,0,0,0));
+        }
+
+
 
         boolean legal = true;
 
@@ -39,6 +43,10 @@ public class OtherCardsController extends TowerController {
         legal = legal && familyMember.getPlayer().getResources().checkAffordable(cost);
 
         legal = legal && (familyMember.getValue() >= towerSpace.getValue());
+
+        legal = legal && towerSpace.getCard().checkTakeable(this.familyMember.getPlayer());
+
+        legal = legal && tower.checkFamiliarTower(familyMember);
 
         return legal;
 

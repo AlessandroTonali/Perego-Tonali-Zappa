@@ -53,6 +53,8 @@ public class TerritoryCard extends Card {
             case 6:
                 takeble = false;
                 break;
+            default:
+                return true;
         }
 
         return takeble;

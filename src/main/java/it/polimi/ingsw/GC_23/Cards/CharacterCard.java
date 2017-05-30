@@ -19,12 +19,8 @@ public class CharacterCard extends Card {
     @Override
     public boolean checkTakeable(Player player) {
         if (player.getCardOfPlayer().getCharacterCards().size() < 6) {
-            if (player.getResources().checkAffordable(this.getCost().getResources())){
-                return true;
-            } else {
-                return false;
-            }
-        } else {
+            return true;
+        }  else {
             return false;
         }
     }
