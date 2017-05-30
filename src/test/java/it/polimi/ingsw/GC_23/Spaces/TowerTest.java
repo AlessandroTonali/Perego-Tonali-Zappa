@@ -10,22 +10,32 @@ import static org.junit.Assert.*;
 public class TowerTest {
     @Test
     public void getSpaces() throws Exception {
+        assertTrue(true);
     }
 
     @Test
     public void getDIM() throws Exception {
+        assertTrue(true);
     }
 
     @Test
     public void setDIM() throws Exception {
+        assertTrue(true);
     }
 
     @Test
     public void setSpaces() throws Exception {
+        assertTrue(true);
     }
 
     @Test
-    public void isFamiliar() throws Exception {
+    public void checkFamiliarTower() throws Exception {
+        //TODO
+    }
+
+    @Test
+    public void checkOtherFamiliar() throws Exception {
+        //TODO
     }
 
 }

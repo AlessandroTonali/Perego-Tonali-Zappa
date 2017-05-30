@@ -23,9 +23,12 @@ public class TerritoryCardTest {
         TerritoryCard card1 = new TerritoryCard(1, CardColor.YELLOW, null, null);
         CardOfPlayer cardOfPlayer = new CardOfPlayer();
         player.setCardOfPlayer(cardOfPlayer);
-        assertEquals(false, card1.checkTakeable(player));
+        assertEquals(true, card1.checkTakeable(player));
         player.getCardOfPlayer().setCard(card1);
         cardOfPlayer.setCard(card1);
+        cardOfPlayer.setCard(card1);
+        cardOfPlayer.setCard(card1);
+        assertEquals(false, card1.checkTakeable(player));
     }
 
 }

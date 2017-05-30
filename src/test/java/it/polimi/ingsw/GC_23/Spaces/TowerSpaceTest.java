@@ -10,18 +10,22 @@ import static org.junit.Assert.*;
 public class TowerSpaceTest {
     @Test
     public void setCard() throws Exception {
+        assertTrue(true);
     }
 
     @Test
     public void setBenefitsEffect() throws Exception {
+        assertTrue(true);
     }
 
     @Test
     public void getCard() throws Exception {
+        assertTrue(true);
     }
 
     @Test
     public void getBenefitsEffect() throws Exception {
+        assertTrue(true);
     }
 
 }

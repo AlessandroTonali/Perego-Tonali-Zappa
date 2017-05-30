@@ -4,30 +4,30 @@ import it.polimi.ingsw.GC_23.Enumerations.FamilyColor;
 import it.polimi.ingsw.GC_23.Enumerations.PlayerColor;
 import it.polimi.ingsw.GC_23.FamilyMember;
 
+import java.util.ArrayList;
+
 /**
  * Created by Alessandro Tonali on 20/05/2017.
  */
 public class ProductionSpace extends ActionSpace {
     private static boolean isBusyFirst;
     private static int orderCounter;
-    private FamilyMember[] playerOrder;
+    private ArrayList<FamilyMember> playerOrder;
 
     public ProductionSpace(int value){
-        super(value);
+        super(1);
         isBusyFirst = false;
         orderCounter = 0;
+        this.playerOrder= new ArrayList<FamilyMember>(0);
     }
 
-    public void setFamilyMember(FamilyMember familyMember){
-        //TODO:setta anche l'ordine
+    public void setFamilyMember(FamilyMember familyMember) {
+        this.isBusyFirst = true;
+        this.getPlayerOrder().add(familyMember);
     }
 
-    public FamilyMember[] getPlayerOrder() {
+    public ArrayList<FamilyMember> getPlayerOrder() {
         return playerOrder;
-    }
-
-    public void setPlayerOrder(FamilyMember[] playerOrder) {
-        this.playerOrder = playerOrder;
     }
 
     public boolean checkValue(FamilyMember familyMember){
@@ -43,8 +43,8 @@ public class ProductionSpace extends ActionSpace {
     public boolean checkFamiliar(FamilyMember familyMember){
         boolean familiarPresence = false;
         if (familyMember.getFamilyColor() != FamilyColor.NEUTRAL) {
-            for (int i = 0; i < playerOrder.length; i++) {
-                if (playerOrder[i].getPlayer().isEquals(familyMember.getPlayer())) {
+            for (int i = 0; i < playerOrder.size(); i++) {
+                if (playerOrder.get(i).getPlayer().isEquals(familyMember.getPlayer())) {
                     familiarPresence = true;
                 }
             }
