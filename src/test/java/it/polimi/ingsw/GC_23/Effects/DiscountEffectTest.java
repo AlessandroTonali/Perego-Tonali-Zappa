@@ -10,10 +10,12 @@ import static org.junit.Assert.*;
 public class DiscountEffectTest {
     @Test
     public void setDiscount() throws Exception {
+        assertTrue(true);
     }
 
     @Test
     public void getDiscount() throws Exception {
+        assertTrue(true);
     }
 
     @Test

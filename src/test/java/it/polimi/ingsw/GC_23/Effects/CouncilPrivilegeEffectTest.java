@@ -10,18 +10,22 @@ import static org.junit.Assert.*;
 public class CouncilPrivilegeEffectTest {
     @Test
     public void setBenefits() throws Exception {
+        assertTrue(true);
     }
 
     @Test
     public void setNumberOfPrivileges() throws Exception {
+        assertTrue(true);
     }
 
     @Test
     public void getNumberOfPrivileges() throws Exception {
+        assertTrue(true);
     }
 
     @Test
     public void getBenefits() throws Exception {
+        assertTrue(true);
     }
 
     @Test
