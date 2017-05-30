@@ -13,10 +13,6 @@ public class ResourcesSetTest {
     }
 
     @Test
-    public void hashCode() throws Exception {
-    }
-
-    @Test
     public void setFaithPoints() throws Exception {
         assertTrue(true);
     }
