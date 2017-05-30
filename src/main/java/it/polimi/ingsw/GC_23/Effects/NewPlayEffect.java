@@ -11,8 +11,7 @@ public class NewPlayEffect extends AbsEffect{
     private int diceValue;
     private DiscountEffect discount;
 
-    public NewPlayEffect(NewPlayColor towerColor, int diceValue, DiscountEffect discount) {
-        this.towerColor = towerColor;
+    public NewPlayEffect(int diceValue, DiscountEffect discount) {
         this.diceValue = diceValue;
         this.discount = discount;
     }

@@ -6,6 +6,8 @@ import it.polimi.ingsw.GC_23.Controller.HarvestController;
 import it.polimi.ingsw.GC_23.Controller.ProductionController;
 import it.polimi.ingsw.GC_23.Effects.AbsEffect;
 import it.polimi.ingsw.GC_23.Effects.BenefitsEffect;
+import it.polimi.ingsw.GC_23.Effects.CouncilPrivilegeEffect;
+import it.polimi.ingsw.GC_23.Effects.ImplicationEffect;
 import it.polimi.ingsw.GC_23.Enumerations.CardColor;
 import it.polimi.ingsw.GC_23.Enumerations.FamilyColor;
 import it.polimi.ingsw.GC_23.Enumerations.PlayerColor;
@@ -20,6 +22,7 @@ import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Scanner;
+import java.util.logging.Logger;
 
 
 /**
@@ -29,6 +32,9 @@ public class Main {
 
     private ArrayList<Card> cardsList;
     private int period;
+
+    private HashMap<Integer, AbsEffect> effectMap;
+    private HashMap<Integer,BenefitsEffect> benefitsEffectMap;
 
     public static void main( String[] args )
     {
@@ -126,6 +132,111 @@ public class Main {
 
     }
 
+    public void parseEffect() {
+        String jsonContent = null;
+        effectMap = new HashMap<Integer,AbsEffect>();
+        try {
+            Scanner scanner = new Scanner(new File("Effect.txt"));
+            jsonContent = scanner.useDelimiter("\\Z").next();
+            scanner.close();
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+
+        benefitsEffectMap = new HashMap<Integer,BenefitsEffect>();
+
+
+        JSONObject rootObject = new JSONObject(jsonContent);
+
+        JSONArray benefitEffects = rootObject.getJSONArray("BenefitEffect");
+        parseBenefitEffect(benefitEffects);
+
+
+
+        JSONArray councilPrivilegeEffects = rootObject.getJSONArray("CouncilPrivilegeEffect");
+        parseCouncilPrivilegeEffect(councilPrivilegeEffects);
+
+
+        JSONArray implicationEffects = rootObject.getJSONArray("ImplicationEffect");
+        parseImplicationEffect(implicationEffects);
+
+        JSONArray discountEffects = rootObject.getJSONArray("DiscountEffect");
+
+        JSONArray newPlayEffects = rootObject.getJSONArray("NewPlayEffect");
+        parseNewPlayEffect(newPlayEffects);
+    }
+
+    private void parseNewPlayEffect(JSONArray newPlayEffects) {
+
+    }
+
+    public void parseBenefitEffect(JSONArray benefitEffects) {
+        for (int i = 0; i < benefitEffects.length() ; i++) {
+            JSONObject jsonObject = benefitEffects.getJSONObject(i);
+            BenefitsEffect effect = parseBenefit(jsonObject);
+            benefitsEffectMap.put(jsonObject.getInt("id"),effect);
+            effectMap.put(jsonObject.getInt("id"),effect);
+
+            //System.out.println(effect.getResources().toString());
+        }
+    }
+
+    private void parseCouncilPrivilegeEffect(JSONArray councilPrivilegeEffects) {
+        BenefitsEffect[] councilPrivilege = new BenefitsEffect[5];
+        councilPrivilege[0] = benefitsEffectMap.get("10");
+        councilPrivilege[1] = benefitsEffectMap.get("11");
+        councilPrivilege[2] = benefitsEffectMap.get("12");
+        councilPrivilege[3] = benefitsEffectMap.get("13");
+        councilPrivilege[4] = benefitsEffectMap.get("14");
+        for (int i = 0; i < councilPrivilegeEffects.length(); i++) {
+            JSONObject jsonObject = councilPrivilegeEffects.getJSONObject(i);
+            CouncilPrivilegeEffect councilPrivilegeEffect = new CouncilPrivilegeEffect(councilPrivilege,jsonObject.getInt("number_privilege"), jsonObject.getBoolean("is_different"));
+            effectMap.put(jsonObject.getInt("id"),councilPrivilegeEffect);
+
+        }
+    }
+
+    private void parseImplicationEffect(JSONArray implicationEffects) {
+        for (int i = 0; i < implicationEffects.length() ; i++) {
+            ArrayList<SingleCost> requirments = new ArrayList<>();
+            ArrayList<BenefitsEffect> givings = new ArrayList<>();
+            JSONObject jsonObject = implicationEffects.getJSONObject(i);
+            JSONArray jsonArrayRequirment = jsonObject.getJSONArray("requirment");
+            for (int j = 0; j < jsonArrayRequirment.length(); j++) {
+                BenefitsEffect benefitsEffect = benefitsEffectMap.get(jsonArrayRequirment.getJSONObject(j).getInt("requirment_id"));
+                requirments.add(new SingleCost(benefitsEffect.getResources()));
+            }
+
+            JSONArray jsonArrayGiving = jsonObject.getJSONArray("giving");
+            for (int j = 0; j < jsonArrayGiving.length(); j++) {
+                BenefitsEffect benefitsEffect = benefitsEffectMap.get(jsonArrayGiving.getJSONObject(j).getInt("giving_id"));
+                givings.add(benefitsEffect);
+            }
+
+            ImplicationEffect implicationEffect =  new ImplicationEffect(requirments,givings);
+            effectMap.put(jsonObject.getInt("id"),implicationEffect);
+
+        }
+    }
+
+
+
+    public BenefitsEffect parseBenefit(JSONObject jsonObject) {
+            int faithPoint = jsonObject.getInt("faithPoint");
+            int gold = jsonObject.getInt("gold");
+            int militaryPoint = jsonObject.getInt("militaryPoint");
+            int servant = jsonObject.getInt("servant");
+            int stone = jsonObject.getInt("stone");
+            int victoryPoint = jsonObject.getInt("victoryPoint");
+            int wood = jsonObject.getInt("wood");
+            ResourcesSet resources = new ResourcesSet(faithPoint, gold, militaryPoint, servant, stone, victoryPoint, wood);
+            BenefitsEffect benefitsEffect = new BenefitsEffect(resources);
+
+            return benefitsEffect;
+
+
+    }
+
     public ArrayList<SingleCost> parseCost(JSONArray costs) {
         ArrayList<SingleCost> singleCosts = null;
 
@@ -148,43 +259,5 @@ public class Main {
         singleCosts.add(singleCost);
 
         return singleCosts;
-    }
-
-    public void parseEffect() {
-        String jsonContent = null;
-        HashMap<Integer, AbsEffect> effectMap = new HashMap<Integer,AbsEffect>();
-        try {
-            Scanner scanner = new Scanner(new File("Effect.txt"));
-            jsonContent = scanner.useDelimiter("\\Z").next();
-            scanner.close();
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        }
-
-        JSONObject rootObject = new JSONObject(jsonContent);
-
-        JSONArray benefitEffects = rootObject.getJSONArray("BenefitEffect");
-        for (int i = 0; i < benefitEffects.length(); i++) {
-            JSONObject jsonObject = benefitEffects.getJSONObject(i);
-            int faithPoint = jsonObject.getInt("faithPoint");
-            int gold = jsonObject.getInt("gold");
-            int militaryPoint = jsonObject.getInt("militaryPoint");
-            int servant = jsonObject.getInt("servant");
-            int stone = jsonObject.getInt("stone");
-            int victoryPoint = jsonObject.getInt("victoryPoint");
-            int wood = jsonObject.getInt("wood");
-            ResourcesSet resources = new ResourcesSet(faithPoint, gold, militaryPoint, servant, stone, victoryPoint, wood);
-            BenefitsEffect effect = new BenefitsEffect(resources);
-            effectMap.put(jsonObject.getInt("id"),effect);
-
-            //System.out.println(effect.getResources().toString());
-
-        }
-
-        JSONArray councilPrivilegeEffect = rootObject.getJSONArray("CouncilPrivilegeEffect");
-
-        JSONArray discountEffect = rootObject.getJSONArray("DiscountEffect");
-
-        JSONArray newPlayEffect = rootObject.getJSONArray("NewPlayEffect");
     }
 }

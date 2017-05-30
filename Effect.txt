@@ -1,27 +1,33 @@
 {
 	"BenefitEffect": [
-		{"id": "12", "faithPoint": "100000", "gold": "0", "militaryPoint": "0", "servant": "0",  "stone": "0", "victoryPoint": "0", "wood": "0"},
-		{"id": "13", "faithPoint": "200000", "gold": "0", "militaryPoint": "0", "servant": "0",  "stone": "0", "victoryPoint": "0", "wood": "0"}
+		{"id": "10", "faithPoint": "0", "gold": "0", "militaryPoint": "0", "servant": "0",  "stone": "1", "victoryPoint": "0", "wood": "1"},
+		{"id": "11", "faithPoint": "0", "gold": "0", "militaryPoint": "0", "servant": "2",  "stone": "0", "victoryPoint": "0", "wood": "0"},
+		{"id": "12", "faithPoint": "0", "gold": "2", "militaryPoint": "0", "servant": "0",  "stone": "0", "victoryPoint": "0", "wood": "0"},
+		{"id": "13", "faithPoint": "0", "gold": "0", "militaryPoint": "2", "servant": "0",  "stone": "0", "victoryPoint": "0", "wood": "0"},
+		{"id": "14", "faithPoint": "1", "gold": "0", "militaryPoint": "0", "servant": "0",  "stone": "0", "victoryPoint": "0", "wood": "0"}
 		
 	],
 	"CouncilPrivilegeEffect": [
+		{"id": "20", "number_privilege": "1", "is_different": "false"},
+		{"id": "21", "number_privilege": "2", "is_different": "true"}
+		
 	
 	],
 	"DiscountEffect": [
 	
 	],
-	"ImplicationEffect": [ {
-		"Requirement": [
-			{"faithPoint": "", "gold": "", "militaryPoint": "", "servant": "",  "stone": "", "victoryPoint": "", "wood": ""}
-		],
-		"Benefit": [
-			{"effect": "1"},
-			{"effect": "2"}
-		] 
-		}
+	"ImplicationEffect": [ 
+		{"id": "30", "requirment": [
+			{"requirment_id": "11"},
+			{"requirment_id": "10"}
+		], "giving":[
+			{"giving_id": "14"},
+			{"giving_id": "13"}
+		]}
 	
 	],
 	"NewPlayEffect":[
+		
 	
 	]
 }

@@ -3,32 +3,34 @@ package it.polimi.ingsw.GC_23.Effects;
 import it.polimi.ingsw.GC_23.Player;
 import it.polimi.ingsw.GC_23.SingleCost;
 
+import java.util.ArrayList;
+
 /**
  * Created by jesss on 21/05/17.
  */
 public class ImplicationEffect extends AbsEffect {
-    private SingleCost[] requirements;
-    private BenefitsEffect[] givings;
+    private ArrayList<SingleCost> requirements;
+    private ArrayList<BenefitsEffect> givings;
     private DiscountEffect discount;
 
-    public ImplicationEffect(SingleCost[] requirements, BenefitsEffect[] givings) {
+    public ImplicationEffect(ArrayList<SingleCost> requirements, ArrayList<BenefitsEffect> givings) {
         this.requirements = requirements;
         this.givings = givings;
     }
 
-    public void setRequirements(SingleCost[] requirements) {
+    public void setRequirements(ArrayList<SingleCost> requirements) {
         this.requirements = requirements;
     }
 
-    public void setGivings(BenefitsEffect[] givings) {
+    public void setGivings(ArrayList<BenefitsEffect> givings) {
         this.givings = givings;
     }
 
-    public SingleCost[] getRequirements() {
+    public ArrayList<SingleCost> getRequirements() {
         return requirements;
     }
 
-    public BenefitsEffect[] getGivings() {
+    public ArrayList<BenefitsEffect> getGivings() {
         return givings;
     }
 

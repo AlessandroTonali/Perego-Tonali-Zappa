@@ -11,13 +11,14 @@ public class CouncilPrivilegeEffect extends AbsEffect{
     //pergamena a scelta tra: 1 wood + 1 stone, 2 servants, 2 golds, 2 military, 1 faith
     private BenefitsEffect[] benefits;
     private int numberOfPrivileges;
-    boolean isDifferent = true;
+    boolean isDifferent;
     private FamilyMember familyMember;
 
 
-    public CouncilPrivilegeEffect(BenefitsEffect[] benefits, int numberOfPrivileges) {
+    public CouncilPrivilegeEffect(BenefitsEffect[] benefits, int numberOfPrivileges, boolean isDifferent) {
         this.benefits = benefits;
         this.numberOfPrivileges = numberOfPrivileges;
+        this.isDifferent = isDifferent;
     }
 
     public void setBenefits(BenefitsEffect[] benefits) {
