@@ -28,16 +28,15 @@ public class VentureCardTest {
         VentureCard card2 = new VentureCard(1, CardColor.GREEN, null, null, cost1);
         VentureCard card3 = new VentureCard(1, CardColor.PURPLE, null, null, cost1);
         VentureCard card4 = new VentureCard(1, CardColor.PURPLE, null, null, cost2);
-        ArrayList<VentureCard> cards = new ArrayList<VentureCard>();
-        cards.add(0, card1);
-        cards.add(1, card2);
-        cards.add(2, card1);
-        CardOfPlayer cardOfPlayer = new CardOfPlayer(null, null, null, cards);
+        CardOfPlayer cardOfPlayer = new CardOfPlayer();
         player.setCardOfPlayer(cardOfPlayer);
+        player.getCardOfPlayer().setCard(card1);
+        player.getCardOfPlayer().setCard(card2);
+        player.getCardOfPlayer().setCard(card1);
         assertEquals(true, card3.checkTakeable(player));
-        cards.add(3,card2);
-        cards.add(4,card1);
-        cards.add(5,card2);
+        player.getCardOfPlayer().setCard(card2);
+        player.getCardOfPlayer().setCard(card1);
+        player.getCardOfPlayer().setCard(card2);
         assertEquals(false, card3.checkTakeable(player));
         assertEquals(false, card4.checkTakeable(player));
     }
