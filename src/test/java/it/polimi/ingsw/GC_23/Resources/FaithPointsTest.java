@@ -11,10 +11,10 @@ import static org.junit.Assert.*;
 public class FaithPointsTest {
     @Test
     public void reset() throws Exception {
-       /* ResourcesSet resourcesSet = new ResourcesSet(5, 0,0,0,0,0,0);
+        ResourcesSet resourcesSet = new ResourcesSet(5, 0,0,0,0,0,0);
         resourcesSet.getFaithPointsObj().reset();
         ResourcesSet check = new ResourcesSet();
-        assertTrue(resourcesSet.equals(new ResourcesSet()));*/
+        assertTrue(resourcesSet.equals(check));
     }
 
 }

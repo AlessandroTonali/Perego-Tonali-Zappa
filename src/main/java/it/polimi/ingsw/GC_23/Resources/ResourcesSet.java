@@ -15,20 +15,16 @@ public class ResourcesSet {
     private Wood wood;
     private static int resourceNumber = 7;
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
 
-        ResourcesSet that = (ResourcesSet) o;
+    public boolean equals(ResourcesSet resset) {
 
-        if (!faithPoints.equals(that.faithPoints)) return false;
-        if (!gold.equals(that.gold)) return false;
-        if (!militaryPoints.equals(that.militaryPoints)) return false;
-        if (!servants.equals(that.servants)) return false;
-        if (!stone.equals(that.stone)) return false;
-        if (!victoryPoints.equals(that.victoryPoints)) return false;
-        return wood.equals(that.wood);
+        if (!(this.getFaithPoints() == resset.getFaithPoints())) {return false;}
+        if (! (this.getGold() == resset.getGold())) return false;
+        if (!(this.getServants() == resset.getServants())) return false;
+        if (!(this.getMilitaryPoints() == resset.getMilitaryPoints())) return false;
+        if (!(this.getStone() == resset.getStone())) return false;
+        if (!(this.getVictoryPoints() == resset.getVictoryPoints())) return false;
+        return this.getWood() == resset.getWood();
     }
 
     @Override
