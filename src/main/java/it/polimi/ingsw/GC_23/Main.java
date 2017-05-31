@@ -48,22 +48,16 @@ public class Main {
         parseJson();
         ResourcesSet set1 = new ResourcesSet(1,2,3,4,5,6,7);
         ResourcesSet set2 = new ResourcesSet(5,6,7,8,9,10,11);
-        BenefitsEffect prod = new BenefitsEffect(new ResourcesSet(0,5,1,1,0,0,0));
-        BenefitsEffect harv = new BenefitsEffect(new ResourcesSet(0,1,1,1,0,0,0));
-        BonusTile tile = new BonusTile(prod, harv);
-        System.out.println(set1.toString());
-        System.out.println(set2.toString());
         Player player = new Player(PlayerColor.RED, null);
-        player.setBonusTile(tile);
+        FamilyMember one = new FamilyMember(player,FamilyColor.ORANGE,5);
+        FamilyMember two = new FamilyMember(player,FamilyColor.BLACK,7);
+        FamilyMember[] familyMembers = new FamilyMember[2];
+        familyMembers[0] = one;
+        familyMembers[1] = two;
         player.setResources(set1);
-        BenefitsEffect benefitsEffect = new BenefitsEffect(set2);
-        benefitsEffect.activeEffect(player);
-        System.out.println(player.getResources().toString());
-        FamilyMember fam = new FamilyMember(player, FamilyColor.ORANGE, 0);
-        fam.setValue(5);
-        HarvestSpace space = new HarvestSpace();
-        HarvestController contr = new HarvestController(fam , space );
-        System.out.println(player.getResources());
+        player.setFamilyMembers(familyMembers);
+        player.chooseFamilyMember();
+        System.out.println(one.toString());
 
     }
 

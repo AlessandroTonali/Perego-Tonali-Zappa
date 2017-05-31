@@ -17,11 +17,11 @@ public abstract class Card {
     private int period;
     private CardColor cardColor;
     private String name;
-    private AbsEffect immediateEffect;
+    private Effect immediateEffect;
     private AbsEffect permanentEffect;
     private SingleCost cost;
 
-    public Card(int period, CardColor cardColor, String name, AbsEffect immediateEffect, AbsEffect permanentEffect, SingleCost cost) {
+    public Card(int period, CardColor cardColor, String name, Effect immediateEffect, AbsEffect permanentEffect, SingleCost cost) {
         this.period = period;
         this.cardColor = cardColor;
         this.name = name;
@@ -60,11 +60,11 @@ public abstract class Card {
         return cost;
     }
 
-    public AbsEffect getImmediateEffect() {
+    public Effect getImmediateEffect() {
         return immediateEffect;
     }
 
-    public void setImmediateEffect(AbsEffect immediateEffect) {
+    public void setImmediateEffect(Effect immediateEffect) {
         this.immediateEffect = immediateEffect;
     }
 
@@ -81,12 +81,12 @@ public abstract class Card {
     }
 
     /*public boolean checkchoose() {
-        return effects.size()>1;
+        return immediateEffect.size()>1;
     }
 
     public Effect getSingleEffect() {
-        if(effects.size()==1) {
-            return effects.get(0);
+        if(immediateEffect.size()==1) {
+            return immediateEffect.get(0);
         }
         else{
             System.out.println("ERROR IN CONDITIONS");

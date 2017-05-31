@@ -1,8 +1,13 @@
 package it.polimi.ingsw.GC_23;
 
+import it.polimi.ingsw.GC_23.Controller.*;
 import it.polimi.ingsw.GC_23.Effects.BenefitsEffect;
 import it.polimi.ingsw.GC_23.Enumerations.PlayerColor;
 import it.polimi.ingsw.GC_23.Resources.ResourcesSet;
+import it.polimi.ingsw.GC_23.Spaces.*;
+
+import java.io.Console;
+import java.util.Scanner;
 
 /**
  * Created by Alessandro Tonali on 20/05/2017.
@@ -61,7 +66,38 @@ public class Player {
         this.cardOfPlayer = cardOfPlayer;
     }
 
+    public void setFamilyMembers(FamilyMember[] familyMembers) {
+        this.familyMembers = familyMembers;
+    }
+
     public void chooseMove(){
+        Scanner scan = new Scanner(System.in);
+        String sw = scan.nextLine();
+
+        int i;
+        try {
+            i = Integer.parseInt(sw);
+
+        } catch  (NumberFormatException ) {
+            System.out.println("unvalid format");
+             i = -1;
+
+        }
+
+        switch (i) {
+            case -1: break;
+            case 0: new CouncilController(new CouncilSpace(),chooseFamilyMember());
+            case 1: new HarvestController(chooseFamilyMember(), new HarvestSpace());
+            case 2: new ProductionController(chooseFamilyMember(),new ProductionSpace());
+            case 3: new IncreaseFamilyValue(5,chooseFamilyMember());
+            case 4: new MarketController(chooseFamilyMember(),new MarketSpace());
+           /* case 5: new TerritoryController(chooseFamilyMember(),new T
+            case 6: new other cards controller
+           * */
+
+        }
+
+
         //TODO
         return;
     }
@@ -74,4 +110,46 @@ public class Player {
         }
 
     }
-}
+
+    public FamilyMember chooseFamilyMember() {
+
+        System.out.println("choose ur family member");
+
+        Scanner in = new Scanner(System.in);
+        String sw = in.nextLine();
+        int i ;
+
+
+
+        try {
+            i = Integer.parseInt(sw);
+            System.out.println("ciao");
+
+        } catch (NumberFormatException e) {
+            System.out.println("unvalid format");
+            return null;
+        }
+
+        FamilyMember chosen;
+
+
+
+        try {
+            chosen = this.familyMembers[i];
+        } catch (NullPointerException e) {
+            return null;
+        }
+
+
+
+
+        System.out.println("u choose the " + i + "family member");
+        System.out.println("you have " + this.getResources().toString());
+        return chosen;
+    }
+
+
+
+
+    }
+

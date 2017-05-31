@@ -16,7 +16,13 @@ public class ResourcesSet {
     private static int resourceNumber = 7;
 
 
-    public boolean equals(ResourcesSet resset) {
+    @Override
+    public boolean equals(Object o) {
+
+        if (!(o instanceof ResourcesSet))
+            return false;
+
+        ResourcesSet resset = (ResourcesSet) o;
 
         if (!(this.getFaithPoints() == resset.getFaithPoints())) {return false;}
         if (! (this.getGold() == resset.getGold())) return false;

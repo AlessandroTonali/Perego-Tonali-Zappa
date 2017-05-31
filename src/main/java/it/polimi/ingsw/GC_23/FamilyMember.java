@@ -4,6 +4,8 @@ import it.polimi.ingsw.GC_23.Enumerations.FamilyColor;
 import it.polimi.ingsw.GC_23.Enumerations.PlayerColor;
 import it.polimi.ingsw.GC_23.Spaces.ActionSpace;
 
+import java.util.Scanner;
+
 /**
  * Created by Alessandro Tonali on 20/05/2017.
  */
@@ -65,6 +67,13 @@ public class FamilyMember {
 
         return equal;
     }
+
+    public String toString(){
+        return "Player " + this.player.getPlayerColor() + " color " + this.familyColor + " value " +
+                this.value;
+    }
+
+
 }
 
 

@@ -12,7 +12,7 @@ import java.util.ArrayList;
  */
 public class CharacterCard extends Card {
 
-    public CharacterCard(int period, CardColor cardColor, String name, AbsEffect immediateEffect, AbsEffect permanentEffect, SingleCost cost) {
+    public CharacterCard(int period, CardColor cardColor, String name, Effect immediateEffect, AbsEffect permanentEffect, SingleCost cost) {
         super(period, cardColor, name, immediateEffect, permanentEffect, cost);
 
     }
