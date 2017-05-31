@@ -9,10 +9,6 @@ import static org.junit.Assert.*;
  */
 public class ResourcesSetTest {
     @Test
-    public void equals() throws Exception {
-    }
-
-    @Test
     public void setFaithPoints() throws Exception {
         assertTrue(true);
     }
@@ -124,6 +120,12 @@ public class ResourcesSetTest {
 
     @Test
     public void checkAffordable() throws Exception {
+        ResourcesSet resourcesSet = new ResourcesSet(4,5,6,7,8,9,9);
+        ResourcesSet resourcesSet2 = new ResourcesSet(1,2,3,4,5,6,7);
+        ResourcesSet resourcesSet3 = new ResourcesSet(7,8,9,10,11,12,13);
+        assertEquals(true, resourcesSet.checkAffordable(resourcesSet));
+        assertEquals(true, resourcesSet.checkAffordable(resourcesSet2));
+        assertEquals(false, resourcesSet.checkAffordable(resourcesSet3));
     }
 
     @Test
@@ -133,10 +135,20 @@ public class ResourcesSetTest {
 
     @Test
     public void sum() throws Exception {
+        ResourcesSet resourcesSet = new ResourcesSet(4,5,6,7,8,9,9);
+        ResourcesSet resourcesSet2 = new ResourcesSet(1,2,3,4,5,6,7);
+        ResourcesSet ressum = new ResourcesSet(5,7,9,11,13,15,16);
+        resourcesSet.sum(resourcesSet2);
+        assertTrue(ressum.equals(resourcesSet));
     }
 
     @Test
     public void pay() throws Exception {
+        ResourcesSet resourcesSet = new ResourcesSet(4,5,6,7,8,9,9);
+        ResourcesSet resourcesSet2 = new ResourcesSet(1,2,3,4,5,6,7);
+        ResourcesSet respay = new ResourcesSet(3,3,3,3,3,3,2);
+        resourcesSet.pay(resourcesSet2);
+        assertTrue(respay.equals(resourcesSet));
     }
 
 }

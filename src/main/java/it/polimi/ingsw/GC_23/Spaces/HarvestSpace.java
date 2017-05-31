@@ -48,5 +48,13 @@ public class HarvestSpace extends ActionSpace {
         }
         return false;
     }
+
+    public static boolean getIsBusyFirst() {
+        return isBusyFirst;
+    }
+
+    public static int getOrderCounter() {
+        return orderCounter;
+    }
 }
 

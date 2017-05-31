@@ -1,5 +1,6 @@
 package it.polimi.ingsw.GC_23.Spaces;
 
+import it.polimi.ingsw.GC_23.Enumerations.FamilyColor;
 import it.polimi.ingsw.GC_23.Enumerations.PlayerColor;
 import it.polimi.ingsw.GC_23.FamilyMember;
 import it.polimi.ingsw.GC_23.Player;
@@ -23,11 +24,12 @@ public class HarvestSpaceTest {
 
     @Test
     public void checkValue() throws Exception {
-        FamilyMember familyMember = new FamilyMember(null,null,3);
         HarvestSpace harvestSpace = new HarvestSpace();
-        assertEquals(true, harvestSpace.checkValue(familyMember));
+        FamilyMember familyMember = new FamilyMember(null, FamilyColor.NEUTRAL, 2);
+        assertFalse(harvestSpace.getIsBusyFirst());
         harvestSpace.setFamilyMember(familyMember);
-        assertEquals(false, harvestSpace.checkValue(familyMember));
+        assertTrue(harvestSpace.getIsBusyFirst());
+        assertEquals(1, harvestSpace.getOrderCounter());
     }
 
     @Test

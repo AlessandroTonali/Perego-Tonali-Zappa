@@ -46,6 +46,7 @@ public class NewPlayEffect extends AbsEffect{
 
     @Override
     public void activeEffect(Player player) {
+        //todo
 
     }
 }

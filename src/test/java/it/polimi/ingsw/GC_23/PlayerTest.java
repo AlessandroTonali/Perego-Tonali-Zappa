@@ -1,5 +1,6 @@
 package it.polimi.ingsw.GC_23;
 
+import it.polimi.ingsw.GC_23.Enumerations.PlayerColor;
 import org.junit.Test;
 
 import static org.junit.Assert.*;
@@ -51,6 +52,14 @@ public class PlayerTest {
     @Test
     public void chooseMove() throws Exception {
         //TODO
+    }
+
+    @Test
+    public void isEquals() throws Exception{
+        Player player1 = new Player(PlayerColor.RED, null);
+        Player player2 = new Player(PlayerColor.BLUE, null);
+        assertEquals(false, player1.isEquals(player2));
+        assertEquals(true, player1.isEquals(player1));
     }
 
 }

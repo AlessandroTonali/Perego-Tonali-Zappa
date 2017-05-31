@@ -40,10 +40,12 @@ public class NewPlayEffectTest {
 
     @Test
     public void play() throws Exception {
+        //todo
     }
 
     @Test
     public void activeEffect() throws Exception {
+        //todo
     }
 
 }

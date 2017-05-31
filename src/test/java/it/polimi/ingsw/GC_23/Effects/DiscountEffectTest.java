@@ -20,10 +20,12 @@ public class DiscountEffectTest {
 
     @Test
     public void chooseDiscount() throws Exception {
+        //todo
     }
 
     @Test
     public void activeEffect() throws Exception {
+        //todo
     }
 
 }

@@ -12,12 +12,11 @@ public class Resources {
         this.quantity = quantity;
     }
 
-    public synchronized void add(int value, Player p){
+    public synchronized void add(int value){
         this.quantity= this.quantity + value;
     }
 
-    public synchronized void remove(int value, Player p){
-        //i controlli per i valori non possibili sono nella classe Command
+    public synchronized void remove(int value){
         this.quantity=this.quantity - value;
     }
 

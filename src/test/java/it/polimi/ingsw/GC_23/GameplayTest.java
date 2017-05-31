@@ -18,4 +18,14 @@ public class GameplayTest {
         //TODO
     }
 
+    @Test
+    public void scheduling() throws Exception{
+        //TODO
+    }
+
+    @Test
+    public void checkEndPeriod() throws Exception{
+        //TODO
+    }
+
 }

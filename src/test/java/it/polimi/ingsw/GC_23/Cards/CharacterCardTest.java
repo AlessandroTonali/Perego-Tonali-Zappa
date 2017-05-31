@@ -17,16 +17,6 @@ import static org.junit.Assert.*;
  */
 public class CharacterCardTest {
     @Test
-    public void getCost() throws Exception {
-        assertTrue(true);
-    }
-
-    @Test
-    public void setCost() throws Exception {
-        assertTrue(true);
-    }
-
-    @Test
     public void checkTakeable() throws Exception {
         Player player = new Player(RED, null);
         ResourcesSet res1 = new ResourcesSet(1,2,3,4,5,6,7);

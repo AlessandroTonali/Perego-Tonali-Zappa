@@ -1,5 +1,6 @@
 package it.polimi.ingsw.GC_23.Spaces;
 
+import it.polimi.ingsw.GC_23.Enumerations.FamilyColor;
 import it.polimi.ingsw.GC_23.Enumerations.PlayerColor;
 import it.polimi.ingsw.GC_23.FamilyMember;
 import it.polimi.ingsw.GC_23.Player;
@@ -17,8 +18,13 @@ public class ProductionSpaceTest {
     }
 
     @Test
-    public void setPlayerOrder() throws Exception {
-        assertTrue(true);
+    public void setFamilyMember() throws Exception {
+    ProductionSpace productionSpace = new ProductionSpace();
+    FamilyMember familyMember = new FamilyMember(null, FamilyColor.NEUTRAL, 2);
+    assertFalse(productionSpace.getIsBusyFirst());
+    productionSpace.setFamilyMember(familyMember);
+    assertTrue(productionSpace.getIsBusyFirst());
+    assertEquals(1, productionSpace.getOrderCounter());
     }
 
     @Test

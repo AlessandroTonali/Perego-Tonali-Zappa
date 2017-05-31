@@ -18,17 +18,24 @@ public class TerritoryCardTest {
     @Test
     public void checkTakeable() throws Exception {
         Player player = new Player(RED, null);
-        ResourcesSet res1 = new ResourcesSet(0,0,2,0,0,0,0);
+        ResourcesSet res1 = new ResourcesSet(0,0,12,0,0,0,0);
         player.setResources(res1);
         TerritoryCard card1 = new TerritoryCard(1, CardColor.YELLOW, null, null, null);
         CardOfPlayer cardOfPlayer = new CardOfPlayer();
         player.setCardOfPlayer(cardOfPlayer);
         assertEquals(true, card1.checkTakeable(player));
-        player.getCardOfPlayer().setCard(card1);
         cardOfPlayer.setCard(card1);
         cardOfPlayer.setCard(card1);
+        assertEquals(true, card1.checkTakeable(player));
+        cardOfPlayer.setCard(card1);
+        assertEquals(true, card1.checkTakeable(player));
+        cardOfPlayer.setCard(card1);
+        assertEquals(true, card1.checkTakeable(player));
         cardOfPlayer.setCard(card1);
         assertEquals(false, card1.checkTakeable(player));
+        cardOfPlayer.setCard(card1);
+        assertEquals(false, card1.checkTakeable(player));
+
     }
 
 }

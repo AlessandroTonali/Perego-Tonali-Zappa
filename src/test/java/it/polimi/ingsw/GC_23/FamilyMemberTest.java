@@ -1,9 +1,12 @@
 package it.polimi.ingsw.GC_23;
 
+import it.polimi.ingsw.GC_23.Enumerations.FamilyColor;
 import it.polimi.ingsw.GC_23.Resources.Resources;
 import it.polimi.ingsw.GC_23.Resources.ResourcesSet;
 import org.junit.Test;
 
+import static it.polimi.ingsw.GC_23.Enumerations.PlayerColor.BLUE;
+import static it.polimi.ingsw.GC_23.Enumerations.PlayerColor.GREEN;
 import static it.polimi.ingsw.GC_23.Enumerations.PlayerColor.RED;
 import static org.junit.Assert.*;
 
@@ -13,6 +16,11 @@ import static org.junit.Assert.*;
 public class FamilyMemberTest {
     @Test
     public void getPlayer() throws Exception {
+        assertTrue(true);
+    }
+
+    @Test
+    public void setPlayer() throws Exception {
         assertTrue(true);
     }
 
@@ -53,6 +61,18 @@ public class FamilyMemberTest {
         familyMember.increaseFamilyValue(2);
         assertEquals(1, player.getResources().getServants());
         assertEquals(3, familyMember.getValue());
+    }
+
+    @Test
+    public void isEqual() throws Exception{
+    Player player1= new Player(RED, null);
+    Player player2= new Player(GREEN, null);
+    FamilyMember familyMember1 = new FamilyMember(player1, FamilyColor.ORANGE, 1);
+    FamilyMember familyMember2 = new FamilyMember(player1, FamilyColor.BLACK, 1);
+    FamilyMember familyMember3 = new FamilyMember(player2, FamilyColor.ORANGE, 1);
+    assertEquals(true, familyMember1.isEquals(familyMember1));
+    assertEquals(false, familyMember1.isEquals(familyMember2));
+    assertEquals(false, familyMember1.isEquals(familyMember3));
     }
 
 }

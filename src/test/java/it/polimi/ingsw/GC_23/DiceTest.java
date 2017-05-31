@@ -9,6 +9,11 @@ import static org.junit.Assert.*;
  */
 public class DiceTest {
     @Test
+    public void roll() throws Exception{
+        assertTrue(true);
+    }
+
+    @Test
     public void getDiceColor() throws Exception {
         assertTrue(true);
     }

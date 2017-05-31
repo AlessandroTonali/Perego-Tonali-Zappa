@@ -38,9 +38,9 @@ public class TowerTest {
         Player player = new Player(RED, null);
         Player player2 = new Player(GREEN, null);
         FamilyMember familyMember1 = new FamilyMember(player, FamilyColor.ORANGE, 1);
-        FamilyMember familyMember2 = new FamilyMember(player, FamilyColor.BLACK, 1);
+        FamilyMember familyMember2 = new FamilyMember(player2, FamilyColor.BLACK, 1);
         FamilyMember familyMember3 = new FamilyMember(player, FamilyColor.NEUTRAL, 1);
-        FamilyMember familyMember4 = new FamilyMember(player, FamilyColor.ORANGE, 1);
+        FamilyMember familyMember4 = new FamilyMember(player2, FamilyColor.ORANGE, 1);
         TowerSpace towerSpace1 = new TowerSpace(null, null,2);
         TowerSpace towerSpace2 = new TowerSpace(null, null,3);
         TowerSpace towerSpace3 = new TowerSpace(null, null,5);
@@ -53,12 +53,30 @@ public class TowerTest {
         Tower tower = new Tower(towerSpaces);
         towerSpace1.setFamilyMember(familyMember1);
         towerSpace2.setFamilyMember(familyMember2);
+        assertEquals(false, tower.checkFamiliarTower(familyMember3));
+        /*towerSpace3.setFamilyMember(familyMember3);
+        assertEquals(true, tower.checkFamiliarTower(familyMember1));*/
+        //TODO
 
     }
 
     @Test
     public void checkOtherFamiliar() throws Exception {
-        //TODO
+        Player player = new Player(RED, null);
+        Player player2 = new Player(GREEN, null);
+        FamilyMember familyMember1 = new FamilyMember(player, FamilyColor.ORANGE, 1);
+        FamilyMember familyMember2 = new FamilyMember(player2, FamilyColor.BLACK, 1);
+        TowerSpace towerSpace1 = new TowerSpace(null, null,2);
+        TowerSpace towerSpace2 = new TowerSpace(null, null,3);
+        TowerSpace[] towerSpaces = new TowerSpace[2];
+        towerSpaces[0] = towerSpace1;
+        towerSpaces[1] = towerSpace2;
+        Tower tower = new Tower(towerSpaces);
+        assertEquals(false, tower.checkOtherFamiliar());
+        towerSpace1.setFamilyMember(familyMember1);
+        assertEquals(true, tower.checkOtherFamiliar());
+        towerSpace2.setFamilyMember(familyMember2);
+        assertEquals(true, tower.checkOtherFamiliar());
     }
 
 }

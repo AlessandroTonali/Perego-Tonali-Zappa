@@ -30,10 +30,12 @@ public class ImplicationEffectTest {
 
     @Test
     public void chooseImplication() throws Exception {
+        //todo
     }
 
     @Test
     public void activeEffect() throws Exception {
+        //todo
     }
 
 }

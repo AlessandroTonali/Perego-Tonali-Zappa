@@ -30,10 +30,12 @@ public class CouncilPrivilegeEffectTest {
 
     @Test
     public void chooseCouncilPrivilege() throws Exception {
+        //TODO
     }
 
     @Test
     public void activeEffect() throws Exception {
+        //TODO
     }
 
 }

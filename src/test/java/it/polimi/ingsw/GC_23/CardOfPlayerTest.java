@@ -28,4 +28,24 @@ public class CardOfPlayerTest {
         assertTrue(true);
     }
 
+    @Test
+    public void setCharacterCards() throws Exception{
+        assertTrue(true);
+    }
+
+    @Test
+    public void setBuildingCards() throws Exception{
+        assertTrue(true);
+    }
+
+    @Test
+    public void setVentureCards() throws Exception{
+        assertTrue(true);
+    }
+
+    @Test
+    public void setTerritoryCards() throws Exception{
+        assertTrue(true);
+    }
+
 }

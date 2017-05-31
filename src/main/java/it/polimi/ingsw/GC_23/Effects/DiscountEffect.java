@@ -28,6 +28,6 @@ public class DiscountEffect extends AbsEffect {
 
     @Override
     public void activeEffect(Player player) {
-
+    //TODO
     }
 }

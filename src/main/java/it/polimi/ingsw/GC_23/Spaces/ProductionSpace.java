@@ -14,7 +14,7 @@ public class ProductionSpace extends ActionSpace {
     private static int orderCounter;
     private ArrayList<FamilyMember> playerOrder;
 
-    public ProductionSpace(int value){
+    public ProductionSpace(){
         super(1);
         isBusyFirst = false;
         orderCounter = 0;
@@ -51,5 +51,13 @@ public class ProductionSpace extends ActionSpace {
             }
         }
         return familiarPresence;
+    }
+
+    public static boolean getIsBusyFirst() {
+        return isBusyFirst;
+    }
+
+    public static int getOrderCounter() {
+        return orderCounter;
     }
 }
