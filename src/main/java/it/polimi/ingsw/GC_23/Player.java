@@ -78,7 +78,7 @@ public class Player {
         try {
             i = Integer.parseInt(sw);
 
-        } catch  (NumberFormatException ) {
+        } catch  (NumberFormatException e) {
             System.out.println("unvalid format");
              i = -1;
 

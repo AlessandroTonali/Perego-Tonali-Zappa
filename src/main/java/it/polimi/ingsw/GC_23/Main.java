@@ -58,7 +58,14 @@ public class Main {
         player.setFamilyMembers(familyMembers);
         player.chooseFamilyMember();
         System.out.println(one.toString());
-
+        System.out.println();
+        BenefitsEffect benefitsEffect1= new BenefitsEffect(set1);
+        BenefitsEffect benefitsEffect2= new BenefitsEffect(set2);
+        BenefitsEffect[] benefitsEffects = new BenefitsEffect[2];
+        benefitsEffects[0]= benefitsEffect1;
+        benefitsEffects[1]=benefitsEffect2;
+        CouncilPrivilegeEffect councilPrivilegeEffect = new CouncilPrivilegeEffect(benefitsEffects,1,false);
+        councilPrivilegeEffect.chooseCouncilPrivilege();
     }
 
     public void initializeBoard() {
