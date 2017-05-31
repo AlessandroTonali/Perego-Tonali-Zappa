@@ -6,7 +6,7 @@ import it.polimi.ingsw.GC_23.SingleCost;
 /**
  * Created by jesss on 21/05/17.
  */
-public class DiscountEffect extends AbsEffect {
+public class DiscountEffect{
     private SingleCost[] discount;
 
     public DiscountEffect(SingleCost[] discount) {
@@ -26,7 +26,7 @@ public class DiscountEffect extends AbsEffect {
         return null;
     }
 
-    @Override
+
     public void activeEffect(Player player) {
     //TODO
     }

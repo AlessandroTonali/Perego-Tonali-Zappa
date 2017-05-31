@@ -4,10 +4,7 @@ import it.polimi.ingsw.GC_23.Cards.Card;
 import it.polimi.ingsw.GC_23.Cards.VentureCard;
 import it.polimi.ingsw.GC_23.Controller.HarvestController;
 import it.polimi.ingsw.GC_23.Controller.ProductionController;
-import it.polimi.ingsw.GC_23.Effects.AbsEffect;
-import it.polimi.ingsw.GC_23.Effects.BenefitsEffect;
-import it.polimi.ingsw.GC_23.Effects.CouncilPrivilegeEffect;
-import it.polimi.ingsw.GC_23.Effects.ImplicationEffect;
+import it.polimi.ingsw.GC_23.Effects.*;
 import it.polimi.ingsw.GC_23.Enumerations.CardColor;
 import it.polimi.ingsw.GC_23.Enumerations.FamilyColor;
 import it.polimi.ingsw.GC_23.Enumerations.PlayerColor;
@@ -33,7 +30,7 @@ public class Main {
     private ArrayList<Card> cardsList;
     private int period;
 
-    private HashMap<Integer, AbsEffect> effectMap;
+    private HashMap<Integer, Effect> effectMap;
     private HashMap<Integer,BenefitsEffect> benefitsEffectMap;
 
     public static void main( String[] args )
@@ -135,7 +132,7 @@ public class Main {
 
     public void parseEffect() {
         String jsonContent = null;
-        effectMap = new HashMap<Integer,AbsEffect>();
+        effectMap = new HashMap<Integer,Effect>();
         try {
             Scanner scanner = new Scanner(new File("Effect.txt"));
             jsonContent = scanner.useDelimiter("\\Z").next();
@@ -174,8 +171,9 @@ public class Main {
     public void parseBenefitEffect(JSONArray benefitEffects) {
         for (int i = 0; i < benefitEffects.length() ; i++) {
             JSONObject jsonObject = benefitEffects.getJSONObject(i);
-            BenefitsEffect effect = parseBenefit(jsonObject);
-            benefitsEffectMap.put(jsonObject.getInt("id"),effect);
+            BenefitsEffect benefitsEffect = parseBenefit(jsonObject);
+            benefitsEffectMap.put(jsonObject.getInt("id"),benefitsEffect);
+            Effect effect = new Effect(null, benefitsEffect, null, null, null);
             effectMap.put(jsonObject.getInt("id"),effect);
 
             //System.out.println(effect.getResources().toString());
@@ -192,7 +190,8 @@ public class Main {
         for (int i = 0; i < councilPrivilegeEffects.length(); i++) {
             JSONObject jsonObject = councilPrivilegeEffects.getJSONObject(i);
             CouncilPrivilegeEffect councilPrivilegeEffect = new CouncilPrivilegeEffect(councilPrivilege,jsonObject.getInt("number_privilege"), jsonObject.getBoolean("is_different"));
-            effectMap.put(jsonObject.getInt("id"),councilPrivilegeEffect);
+            Effect effect = new Effect(councilPrivilegeEffect, null, null, null, null);
+            effectMap.put(jsonObject.getInt("id"), effect);
 
         }
     }
@@ -215,7 +214,8 @@ public class Main {
             }
 
             ImplicationEffect implicationEffect =  new ImplicationEffect(requirments,givings);
-            effectMap.put(jsonObject.getInt("id"),implicationEffect);
+            Effect effect = new Effect(null, null, implicationEffect, null, null);
+            effectMap.put(jsonObject.getInt("id"),effect);
 
         }
     }

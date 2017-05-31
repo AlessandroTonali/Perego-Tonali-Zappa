@@ -6,7 +6,7 @@ import it.polimi.ingsw.GC_23.Player;
 /**
  * Created by jesss on 21/05/17.
  */
-public class NewPlayEffect extends AbsEffect{
+public class NewPlayEffect {
     private NewPlayColor towerColor;
     private int diceValue;
     private DiscountEffect discount;
@@ -44,7 +44,7 @@ public class NewPlayEffect extends AbsEffect{
         //TODO: giocata (nella tower) senza mettere il family member, chiamerà isLegal di NewPlay e il suo makeMove
     }
 
-    @Override
+
     public void activeEffect(Player player) {
         //todo
 

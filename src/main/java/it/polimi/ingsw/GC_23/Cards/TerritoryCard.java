@@ -14,7 +14,7 @@ import java.util.ArrayList;
 public class TerritoryCard extends Card {
 
 
-    public TerritoryCard(int period, CardColor cardColor, String name, Effect immediateEffect, AbsEffect permanentEffect) {
+    public TerritoryCard(int period, CardColor cardColor, String name, Effect immediateEffect, Effect permanentEffect) {
         super(period, cardColor, name, immediateEffect, permanentEffect, new SingleCost(new ResourcesSet()));
     }
 

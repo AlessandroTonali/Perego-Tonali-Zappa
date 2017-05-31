@@ -6,7 +6,7 @@ import it.polimi.ingsw.GC_23.Resources.ResourcesSet;
 /**
  * Created by jesss on 21/05/17.
  */
-public class BenefitsEffect extends AbsEffect{
+public class BenefitsEffect{
     private ResourcesSet resources;
 
     public BenefitsEffect(ResourcesSet resources) {
@@ -21,7 +21,7 @@ public class BenefitsEffect extends AbsEffect{
         this.resources = resources;
     }
 
-    @Override
+
     public void activeEffect(Player player) {
         player.getResources().sum(this.resources);
     }

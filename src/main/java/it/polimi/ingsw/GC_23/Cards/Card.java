@@ -18,10 +18,10 @@ public abstract class Card {
     private CardColor cardColor;
     private String name;
     private Effect immediateEffect;
-    private AbsEffect permanentEffect;
+    private Effect permanentEffect;
     private SingleCost cost;
 
-    public Card(int period, CardColor cardColor, String name, Effect immediateEffect, AbsEffect permanentEffect, SingleCost cost) {
+    public Card(int period, CardColor cardColor, String name, Effect immediateEffect, Effect permanentEffect, SingleCost cost) {
         this.period = period;
         this.cardColor = cardColor;
         this.name = name;
@@ -68,11 +68,11 @@ public abstract class Card {
         this.immediateEffect = immediateEffect;
     }
 
-    public AbsEffect getPermanentEffect() {
+    public Effect getPermanentEffect() {
         return permanentEffect;
     }
 
-    public void setPermanentEffect(AbsEffect permanentEffect) {
+    public void setPermanentEffect(Effect permanentEffect) {
         this.permanentEffect = permanentEffect;
     }
 
