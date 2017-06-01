@@ -9,7 +9,7 @@ import java.util.Scanner;
 /**
  * Created by jesss on 21/05/17.
  */
-public class CouncilPrivilegeEffect{
+public class CouncilPrivilegeEffect extends AbsEffect{
     //pergamena a scelta tra: 1 wood + 1 stone, 2 servants, 2 golds, 2 military, 1 faith
     private BenefitsEffect[] benefits;
     private int numberOfPrivileges;
@@ -39,55 +39,60 @@ public class CouncilPrivilegeEffect{
         return benefits;
     }
 
-    public BenefitsEffect[] chooseCouncilPrivilege(){
-        System.out.println("Choose your council privilege");
-        BenefitsEffect chosen;
+    public BenefitsEffect[] chooseCouncilPrivilege() {
         int i;
-        System.out.println("Possibile privilege:");
-        if(!isDifferent) {
+        int l = 0;
+        Scanner sw = new Scanner(System.in);
+        String string;
+        BenefitsEffect[] chosen = new BenefitsEffect[this.getNumberOfPrivileges()];
+        while (this.getNumberOfPrivileges() > 0) {
+            System.out.println("Select possible council privilege:");
             for (int n = 0; n < benefits.length; n++) {
                 System.out.println(n + ": " + benefits[n].toString());
             }
-            Scanner in = new Scanner(System.in);
-            String string = in.nextLine();
-            try {
-                i = Integer.parseInt(string);
-                System.out.println("Chosen council privilege");
-            } catch (NumberFormatException e) {
-                System.out.println("Invalid council privilege");
-                return null;
+            if (!isDifferent) {
+                try {
+                    string= sw.nextLine();
+                    i = Integer.parseInt(string);
+                    System.out.println("Chosen council privilege");
+                } catch (NumberFormatException e) {
+                    System.out.println("Invalid council privilege");
+                    return null;
+                }
+                try {
+                    chosen[l] = this.benefits[i];
+                    l++;
+                    System.out.println("You get: " + this.benefits[i].getResources().toString());
+                    System.out.println();
+                    this.setNumberOfPrivileges(this.getNumberOfPrivileges() - 1);
+                } catch (NullPointerException ex) {
+                    return null;
+                }
+            } else {
+                //TODO: different choice
+                try {
+                    string = sw.nextLine();
+                    i = Integer.parseInt(string);
+                    System.out.println("Chosen different council privilege");
+                } catch (NumberFormatException e) {
+                    System.out.println("Invalid council privilege");
+                    return null;
+                }
+                try{
+                    chosen[l] = this.benefits[i];
+                    l++;
+                    System.out.println("You get:  " + this.benefits[i].getResources().toString());
+                    System.out.println();
+                    this.setNumberOfPrivileges(this.getNumberOfPrivileges() - 1);
+                } catch (NullPointerException ex) {
+                    return null;
+                }
             }
-            try{
-                chosen = this.benefits[i];
-            }catch(NullPointerException ex){
-                return null;
-            }
-            }
-        else {
-            /*TODO
-                for (int n = 0; n < benefits.length; n++) {
-                for(int m = 1; m <benefits.length; m++){
-                    if(!(benefits[n].equals(benefits[m]))){
-                        System.out.println(n + ": " + benefits[n].toString());
-            }*/
-            Scanner in = new Scanner(System.in);
-            String string = in.nextLine();
-            try {
-                i = Integer.parseInt(string);
-                System.out.println("Chosen different council privilege");
-            } catch (NumberFormatException e) {
-                System.out.println("Invalid council privilege");
-                return null;
-            }
-            try {
-                chosen = this.benefits[i];
-            } catch (NullPointerException ex) {
-                return null;
-            }
-            return null;
         }
-        System.out.println("You get: "+this.benefits[i].getResources().toString());
-        return this.benefits;//todo: scelta di più benefits
+        sw.close();
+        System.out.println("You have chosen all your council privilege");
+        return chosen;
+        //TODO se sbaglia a mettere il numero riesegue la chooseCouncilPrivilege
     }
 
 

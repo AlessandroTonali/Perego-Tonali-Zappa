@@ -8,7 +8,7 @@ import java.util.ArrayList;
 /**
  * Created by jesss on 21/05/17.
  */
-public class ImplicationEffect {
+public class ImplicationEffect extends AbsEffect{
     private ArrayList<SingleCost> requirements;
     private ArrayList<BenefitsEffect> givings;
     private DiscountEffect discount;
