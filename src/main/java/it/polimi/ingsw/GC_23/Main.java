@@ -1,5 +1,6 @@
 package it.polimi.ingsw.GC_23;
 
+import com.sun.istack.internal.Pool;
 import it.polimi.ingsw.GC_23.Cards.BuildingCard;
 import it.polimi.ingsw.GC_23.Cards.Card;
 import it.polimi.ingsw.GC_23.Cards.VentureCard;
@@ -37,6 +38,11 @@ public class Main {
         System.out.println( "Hello World!" );
         ResourcesSet set1 = new ResourcesSet(1,2,3,4,5,6,7);
         ResourcesSet set2 = new ResourcesSet(5,6,7,8,9,10,11);
+        BenefitsEffect benefitsEffect1= new BenefitsEffect(set1);
+        BenefitsEffect benefitsEffect2= new BenefitsEffect(set2);
+        ArrayList<BenefitsEffect> benefitsEffects = new ArrayList<BenefitsEffect>();
+        benefitsEffects.add(benefitsEffect1);
+        benefitsEffects.add(benefitsEffect2);
         Player player = new Player(PlayerColor.RED, null);
         SingleCost cost1 = new SingleCost(set1);
         SingleCost cost2 = new SingleCost(set2);
@@ -46,50 +52,12 @@ public class Main {
         BuildingCard buildingCard = new BuildingCard(1,CardColor.YELLOW,"ciao", null
         ,null,costs);
         buildingCard.getCost(player);
+        ImplicationEffect implicationEffect = new ImplicationEffect(costs,benefitsEffects);
+        implicationEffect.chooseImplication(player);
 
 
     }
 
     public Main () {
-
-        ResourcesSet set1 = new ResourcesSet(1,2,3,4,5,6,7);
-        ResourcesSet set2 = new ResourcesSet(5,6,7,8,9,10,11);
-        Player player = new Player(PlayerColor.RED, null);
-        FamilyMember one = new FamilyMember(player,FamilyColor.ORANGE,5);
-        FamilyMember two = new FamilyMember(player,FamilyColor.BLACK,7);
-        FamilyMember[] familyMembers = new FamilyMember[2];
-        familyMembers[0] = one;
-        familyMembers[1] = two;
-        player.setResources(set1);
-        player.setFamilyMembers(familyMembers);
-        player.chooseFamilyMember();
-        System.out.println(one.toString());
-        System.out.println();
-        BenefitsEffect benefitsEffect1= new BenefitsEffect(set1);
-        BenefitsEffect benefitsEffect2= new BenefitsEffect(set2);
-        BenefitsEffect[] benefitsEffects = new BenefitsEffect[2];
-        benefitsEffects[0]=benefitsEffect1;
-        benefitsEffects[1]=benefitsEffect2;
-        CouncilPrivilegeEffect councilPrivilegeEffect = new CouncilPrivilegeEffect(benefitsEffects,2,true);
-        councilPrivilegeEffect.chooseCouncilPrivilege(player);
     }
-
-    public void initializeBoard() {
-
-
-    }
-
-    private Card getCard (int period) {
-        switch (period){
-            case 1:
-                break;
-            case 2:
-                break;
-            case 3:
-                break;
-        }
-        return null;
-    }
-
-
 }

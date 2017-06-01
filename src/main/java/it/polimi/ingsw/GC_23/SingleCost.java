@@ -19,4 +19,9 @@ public class SingleCost {
     public void setResources(ResourcesSet resources) {
         this.resources = resources;
     }
+
+    @Override
+    public String toString() {
+        return "Costs: "+ resources + '|';
+    }
 }

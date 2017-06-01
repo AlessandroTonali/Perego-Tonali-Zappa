@@ -109,7 +109,6 @@ public class CouncilPrivilegeEffect extends AbsEffect{
                 }
             }
         }
-
         System.out.println("You have chosen all your council privilege");
         return chosen;
     }
@@ -118,7 +117,7 @@ public class CouncilPrivilegeEffect extends AbsEffect{
     public void activeEffect(Player player) {
         BenefitsEffect[] chosenEffect = chooseCouncilPrivilege(player);
         for(BenefitsEffect e: chosenEffect){
-            e.activeEffect(familyMember.getPlayer());
+            e.activeEffect(player);
         }
 
     }
