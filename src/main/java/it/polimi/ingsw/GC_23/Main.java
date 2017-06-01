@@ -1,6 +1,4 @@
 package it.polimi.ingsw.GC_23;
-
-import com.sun.istack.internal.Pool;
 import it.polimi.ingsw.GC_23.Cards.BuildingCard;
 import it.polimi.ingsw.GC_23.Cards.Card;
 import it.polimi.ingsw.GC_23.Cards.VentureCard;
