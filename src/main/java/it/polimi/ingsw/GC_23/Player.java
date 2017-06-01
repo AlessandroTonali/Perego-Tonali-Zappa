@@ -19,12 +19,14 @@ public class Player {
     private BonusTile bonusTile;
     private FamilyMember[] familyMembers;
     private PermanentEffect permanentEffect;
+    private Scanner scan;
 
     public Player(PlayerColor playerColor, BonusTile bonusTile) {
         this.playerColor = playerColor;
         // bisogna usare il design pattern della fabbrica per dare le risorse giuste in base ai player
         this.cardOfPlayer = new CardOfPlayer(null, null, null, null);
         this.bonusTile = bonusTile;
+        this.scan = new Scanner(System.in);
         //bisogna decidere come istanziare i family member
         // permanent effect ancora non lo dobbiamo fare
 
@@ -115,8 +117,10 @@ public class Player {
 
         System.out.println("choose ur family member");
 
-        Scanner in = new Scanner(System.in);
-        String sw = in.nextLine();
+
+        System.out.println("ciaoooo");
+        String sw = this.getNextLine();
+        System.out.println(sw);
         int i ;
 
 
@@ -144,8 +148,11 @@ public class Player {
 
         System.out.println("u choose the " + i + "family member");
         System.out.println("you have " + this.getResources().toString());
-        in.close();
         return chosen;
+    }
+
+    public String getNextLine(){
+        return scan.nextLine();
     }
 
 

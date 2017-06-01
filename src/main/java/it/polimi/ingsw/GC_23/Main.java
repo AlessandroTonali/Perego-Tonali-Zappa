@@ -37,12 +37,6 @@ public class Main {
     {
         System.out.println( "Hello World!" );
         Main main = new Main();
-
-
-    }
-
-    public Main () {
-        parseJson();
         ResourcesSet set1 = new ResourcesSet(1,2,3,4,5,6,7);
         ResourcesSet set2 = new ResourcesSet(5,6,7,8,9,10,11);
         Player player = new Player(PlayerColor.RED, null);
@@ -62,7 +56,12 @@ public class Main {
         benefitsEffects[0]=benefitsEffect1;
         benefitsEffects[1]=benefitsEffect2;
         CouncilPrivilegeEffect councilPrivilegeEffect = new CouncilPrivilegeEffect(benefitsEffects,2,false);
-        councilPrivilegeEffect.chooseCouncilPrivilege();
+        councilPrivilegeEffect.chooseCouncilPrivilege(player);
+
+    }
+
+    public Main () {
+        parseJson();
     }
 
     public void initializeBoard() {

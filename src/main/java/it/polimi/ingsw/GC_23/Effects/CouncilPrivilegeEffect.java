@@ -39,10 +39,9 @@ public class CouncilPrivilegeEffect extends AbsEffect{
         return benefits;
     }
 
-    public BenefitsEffect[] chooseCouncilPrivilege() {
+    public BenefitsEffect[] chooseCouncilPrivilege(Player player) {
         int i;
         int l = 0;
-        Scanner sw = new Scanner(System.in);
         String string;
         BenefitsEffect[] chosen = new BenefitsEffect[this.getNumberOfPrivileges()];
         while (this.getNumberOfPrivileges() > 0) {
@@ -52,7 +51,7 @@ public class CouncilPrivilegeEffect extends AbsEffect{
             }
             if (!isDifferent) {
                 try {
-                    string= sw.nextLine();
+                    string = player.getNextLine();
                     i = Integer.parseInt(string);
                     System.out.println("Chosen council privilege");
                 } catch (NumberFormatException e) {
@@ -71,7 +70,7 @@ public class CouncilPrivilegeEffect extends AbsEffect{
             } else {
                 //TODO: different choice
                 try {
-                    string = sw.nextLine();
+                    string = player.getNextLine();
                     i = Integer.parseInt(string);
                     System.out.println("Chosen different council privilege");
                 } catch (NumberFormatException e) {
@@ -89,7 +88,7 @@ public class CouncilPrivilegeEffect extends AbsEffect{
                 }
             }
         }
-        sw.close();
+
         System.out.println("You have chosen all your council privilege");
         return chosen;
         //TODO se sbaglia a mettere il numero riesegue la chooseCouncilPrivilege
@@ -97,7 +96,7 @@ public class CouncilPrivilegeEffect extends AbsEffect{
 
 
     public void activeEffect(Player player) {
-        BenefitsEffect[] chosenEffect = chooseCouncilPrivilege();
+        BenefitsEffect[] chosenEffect = chooseCouncilPrivilege(player);
         for(BenefitsEffect e: chosenEffect){
             e.activeEffect(familyMember.getPlayer());
         }
