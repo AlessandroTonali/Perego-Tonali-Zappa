@@ -6,7 +6,7 @@ import it.polimi.ingsw.GC_23.Player;
 /**
  * Created by jesss on 21/05/17.
  */
-public class NewPlayEffect {
+public class NewPlayEffect extends AbsEffect{
     private NewPlayColor towerColor;
     private int diceValue;
     private DiscountEffect discount;

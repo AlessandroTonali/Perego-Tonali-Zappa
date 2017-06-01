@@ -9,7 +9,7 @@ import java.util.Scanner;
 /**
  * Created by jesss on 21/05/17.
  */
-public class CouncilPrivilegeEffect{
+public class CouncilPrivilegeEffect extends AbsEffect{
     //pergamena a scelta tra: 1 wood + 1 stone, 2 servants, 2 golds, 2 military, 1 faith
     private BenefitsEffect[] benefits;
     private int numberOfPrivileges;
