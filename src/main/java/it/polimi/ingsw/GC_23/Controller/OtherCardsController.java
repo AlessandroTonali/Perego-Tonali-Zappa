@@ -28,7 +28,7 @@ public class OtherCardsController extends TowerController {
     }
 @Override
     public boolean isLegal() {
-        ResourcesSet cost = towerSpace.getCard().getCost().getResources();
+        ResourcesSet cost = towerSpace.getCard().getCost(this.familyMember.getPlayer()).getResources();
 
         if(tower.checkOtherFamiliar()) {
             cost.sum(new ResourcesSet(0,3,0,0,0,0,0));

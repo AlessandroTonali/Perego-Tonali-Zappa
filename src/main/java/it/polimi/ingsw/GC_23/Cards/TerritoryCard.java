@@ -7,6 +7,7 @@ import it.polimi.ingsw.GC_23.Player;
 import it.polimi.ingsw.GC_23.Resources.ResourcesSet;
 import it.polimi.ingsw.GC_23.SingleCost;
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by Alessandro on 21/05/2017.
@@ -15,7 +16,10 @@ public class TerritoryCard extends Card {
 
 
     public TerritoryCard(int period, CardColor cardColor, String name, Effect immediateEffect, Effect permanentEffect) {
-        super(period, cardColor, name, immediateEffect, permanentEffect, new SingleCost(new ResourcesSet()));
+        super(period, cardColor, name, immediateEffect, permanentEffect, null);
+        ArrayList<SingleCost> costs = new ArrayList<>();
+        costs.add(new SingleCost(new ResourcesSet()));
+        super.setCost(costs);
     }
 
     @Override

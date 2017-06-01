@@ -1,5 +1,6 @@
 package it.polimi.ingsw.GC_23;
 
+import it.polimi.ingsw.GC_23.Cards.BuildingCard;
 import it.polimi.ingsw.GC_23.Cards.Card;
 import it.polimi.ingsw.GC_23.Cards.VentureCard;
 import it.polimi.ingsw.GC_23.Controller.HarvestController;
@@ -33,7 +34,17 @@ public class Main {
     public static void main( String[] args )
     {
         System.out.println( "Hello World!" );
-        Main main = new Main();
+        ResourcesSet set1 = new ResourcesSet(1,2,3,4,5,6,7);
+        ResourcesSet set2 = new ResourcesSet(5,6,7,8,9,10,11);
+        Player player = new Player(PlayerColor.RED, null);
+        SingleCost cost1 = new SingleCost(set1);
+        SingleCost cost2 = new SingleCost(set2);
+        ArrayList<SingleCost> costs = new ArrayList<>();
+        costs.add(cost1);
+        costs.add(cost2);
+        BuildingCard buildingCard = new BuildingCard(1,CardColor.YELLOW,"ciao", null
+        ,null,costs);
+        buildingCard.getCost(player);
 
 
     }

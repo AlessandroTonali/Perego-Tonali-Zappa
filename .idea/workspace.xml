@@ -3,9 +3,17 @@
   <component name="ChangeListManager">
     <list default="true" id="12559092-ad45-4654-bd82-cde319336451" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/Cards/BuildingCard.java" afterPath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/Cards/BuildingCard.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/Cards/Card.java" afterPath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/Cards/Card.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/Player.java" afterPath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/Player.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/Spaces/MarketSpace.java" afterPath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/Spaces/MarketSpace.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/Cards/CharacterCard.java" afterPath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/Cards/CharacterCard.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/Cards/TerritoryCard.java" afterPath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/Cards/TerritoryCard.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/Cards/VentureCard.java" afterPath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/Cards/VentureCard.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/Controller/OtherCardsController.java" afterPath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/Controller/OtherCardsController.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/Controller/TerritoryController.java" afterPath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/Controller/TerritoryController.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/Main.java" afterPath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/Main.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/java/it/polimi/ingsw/GC_23/Cards/BuildingCardTest.java" afterPath="$PROJECT_DIR$/src/test/java/it/polimi/ingsw/GC_23/Cards/BuildingCardTest.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/java/it/polimi/ingsw/GC_23/Cards/CharacterCardTest.java" afterPath="$PROJECT_DIR$/src/test/java/it/polimi/ingsw/GC_23/Cards/CharacterCardTest.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/java/it/polimi/ingsw/GC_23/Cards/VentureCardTest.java" afterPath="$PROJECT_DIR$/src/test/java/it/polimi/ingsw/GC_23/Cards/VentureCardTest.java" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -26,11 +34,11 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="Player.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/Player.java">
+      <file leaf-file-name="Main.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="258">
-              <caret line="141" column="9" lean-forward="true" selection-start-line="134" selection-start-column="8" selection-end-line="141" selection-end-column="9" />
+            <state relative-caret-position="176">
+              <caret line="42" column="25" lean-forward="false" selection-start-line="42" selection-start-column="25" selection-end-line="42" selection-end-column="25" />
               <folding />
             </state>
           </provider>
@@ -39,163 +47,89 @@
       <file leaf-file-name="Card.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/Cards/Card.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="233">
-              <caret line="60" column="20" lean-forward="false" selection-start-line="60" selection-start-column="20" selection-end-line="60" selection-end-column="20" />
-              <folding>
-                <element signature="e#1473#1474#0" expanded="true" />
-                <element signature="e#1500#1501#0" expanded="true" />
-                <element signature="e#2011#2012#0" expanded="true" />
-                <element signature="e#2065#2066#0" expanded="true" />
-                <element signature="e#2192#2193#0" expanded="true" />
-                <element signature="e#2233#2234#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="SingleCost.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/SingleCost.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="250">
-              <caret line="10" column="30" lean-forward="false" selection-start-line="10" selection-start-column="30" selection-end-line="10" selection-end-column="30" />
+            <state relative-caret-position="-16">
+              <caret line="100" column="48" lean-forward="false" selection-start-line="100" selection-start-column="48" selection-end-line="100" selection-end-column="48" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="MarketSpace.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/Spaces/MarketSpace.java">
+      <file leaf-file-name="ArrayList.java" pinned="false" current-in-tab="false">
+        <entry file="jar://C:/Program Files (x86)/Java/jdk1.8.0_121/src.zip!/java/util/ArrayList.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="375">
-              <caret line="18" column="0" lean-forward="false" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
+            <state relative-caret-position="176">
+              <caret line="443" column="0" lean-forward="false" selection-start-line="443" selection-start-column="0" selection-end-line="443" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Board.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/Board.java">
+      <file leaf-file-name="CharacterCardTest.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/test/java/it/polimi/ingsw/GC_23/Cards/CharacterCardTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="350">
-              <caret line="14" column="19" lean-forward="false" selection-start-line="14" selection-start-column="19" selection-end-line="14" selection-end-column="19" />
+            <state relative-caret-position="368">
+              <caret line="45" column="0" lean-forward="false" selection-start-line="45" selection-start-column="0" selection-end-line="45" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ParseJson.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/ParseJson.java">
+      <file leaf-file-name="BuildingCardTest.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/test/java/it/polimi/ingsw/GC_23/Cards/BuildingCardTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="175">
-              <caret line="19" column="13" lean-forward="false" selection-start-line="19" selection-start-column="13" selection-end-line="19" selection-end-column="13" />
+            <state relative-caret-position="343">
+              <caret line="54" column="4" lean-forward="false" selection-start-line="54" selection-start-column="4" selection-end-line="54" selection-end-column="4" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="CouncilPrivilegeEffect.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/Effects/CouncilPrivilegeEffect.java">
+      <file leaf-file-name="VentureCardTest.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/test/java/it/polimi/ingsw/GC_23/Cards/VentureCardTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="786">
-              <caret line="122" column="0" lean-forward="false" selection-start-line="122" selection-start-column="0" selection-end-line="122" selection-end-column="0" />
-              <folding>
-                <element signature="e#853#854#0" expanded="true" />
-                <element signature="e#893#894#0" expanded="true" />
-                <element signature="e#958#959#0" expanded="true" />
-                <element signature="e#1018#1019#0" expanded="true" />
-                <element signature="e#1060#1061#0" expanded="true" />
-                <element signature="e#1101#1102#0" expanded="true" />
-                <element signature="e#1146#1147#0" expanded="true" />
-                <element signature="e#1177#1178#0" expanded="true" />
-                <element signature="e#1319#1328#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Scanner.java" pinned="false" current-in-tab="false">
-        <entry file="jar://C:/Program Files (x86)/Java/jdk1.8.0_121/src.zip!/java/util/Scanner.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="21225">
-              <caret line="895" column="21" lean-forward="false" selection-start-line="895" selection-start-column="21" selection-end-line="895" selection-end-column="21" />
-              <folding>
-                <element signature="e#0#99893#0" expanded="false" />
-                <element signature="imports" expanded="false" />
-                <element signature="e#13841#13842#0" expanded="false" />
-                <element signature="e#13890#13891#0" expanded="false" />
-                <element signature="e#13947#13948#0" expanded="false" />
-                <element signature="e#13999#14000#0" expanded="false" />
-                <element signature="e#21196#21197#0" expanded="false" />
-                <element signature="e#21278#21279#0" expanded="false" />
-                <element signature="e#21679#21680#0" expanded="false" />
-                <element signature="e#21750#21751#0" expanded="false" />
-                <element signature="e#26907#26908#0" expanded="false" />
-                <element signature="e#26973#26974#0" expanded="false" />
-                <element signature="e#28403#28404#0" expanded="false" />
-                <element signature="e#28450#28451#0" expanded="false" />
-                <element signature="e#40917#40918#0" expanded="false" />
-                <element signature="e#40953#40954#0" expanded="false" />
-                <element signature="e#41173#41174#0" expanded="false" />
-                <element signature="e#41208#41209#0" expanded="false" />
-                <element signature="e#42513#42514#0" expanded="false" />
-                <element signature="e#42547#42548#0" expanded="false" />
-                <element signature="e#44951#44952#0" expanded="false" />
-                <element signature="e#44991#44992#0" expanded="false" />
-                <element signature="e#50783#50784#0" expanded="false" />
-                <element signature="e#50840#50841#0" expanded="false" />
-                <element signature="e#51489#51490#0" expanded="false" />
-                <element signature="e#51550#51551#0" expanded="false" />
-                <element signature="e#52228#52229#0" expanded="false" />
-                <element signature="e#52286#52287#0" expanded="false" />
-                <element signature="e#57377#57378#0" expanded="false" />
-                <element signature="e#57441#57442#0" expanded="false" />
-                <element signature="e#64742#64743#0" expanded="false" />
-                <element signature="e#64800#64801#0" expanded="false" />
-                <element signature="e#65330#65331#0" expanded="false" />
-                <element signature="e#65375#65376#0" expanded="false" />
-                <element signature="e#66525#66526#0" expanded="false" />
-                <element signature="e#66573#66574#0" expanded="false" />
-                <element signature="e#68265#68266#0" expanded="false" />
-                <element signature="e#68311#68312#0" expanded="false" />
-                <element signature="e#70929#70930#0" expanded="false" />
-                <element signature="e#70978#70979#0" expanded="false" />
-                <element signature="e#72706#72707#0" expanded="false" />
-                <element signature="e#72752#72753#0" expanded="false" />
-                <element signature="e#75360#75361#0" expanded="false" />
-                <element signature="e#75407#75408#0" expanded="false" />
-                <element signature="e#78006#78007#0" expanded="false" />
-                <element signature="e#78050#78051#0" expanded="false" />
-                <element signature="e#80648#80649#0" expanded="false" />
-                <element signature="e#80696#80697#0" expanded="false" />
-                <element signature="e#82388#82389#0" expanded="false" />
-                <element signature="e#82433#82434#0" expanded="false" />
-                <element signature="e#92828#92829#0" expanded="false" />
-                <element signature="e#92882#92883#0" expanded="false" />
-                <element signature="e#94684#94685#0" expanded="false" />
-                <element signature="e#94735#94736#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Main.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/Main.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-25">
-              <caret line="57" column="37" lean-forward="true" selection-start-line="57" selection-start-column="37" selection-end-line="57" selection-end-column="37" />
+            <state relative-caret-position="608">
+              <caret line="43" column="4" lean-forward="false" selection-start-line="43" selection-start-column="4" selection-end-line="43" selection-end-column="4" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="CouncilController.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/Controller/CouncilController.java">
+      <file leaf-file-name="OtherCardsController.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/Controller/OtherCardsController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="275">
-              <caret line="14" column="31" lean-forward="false" selection-start-line="14" selection-start-column="31" selection-end-line="14" selection-end-column="31" />
-              <folding>
-                <element signature="imports" expanded="false" />
-              </folding>
+            <state relative-caret-position="176">
+              <caret line="30" column="86" lean-forward="false" selection-start-line="30" selection-start-column="86" selection-end-line="30" selection-end-column="86" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="TerritoryController.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/Controller/TerritoryController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="176">
+              <caret line="31" column="86" lean-forward="false" selection-start-line="31" selection-start-column="86" selection-end-line="31" selection-end-column="86" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="BuildingCard.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/Cards/BuildingCard.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="408">
+              <caret line="25" column="20" lean-forward="true" selection-start-line="25" selection-start-column="20" selection-end-line="25" selection-end-column="20" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="VentureCard.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/Cards/VentureCard.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="399">
+              <caret line="21" column="74" lean-forward="false" selection-start-line="21" selection-start-column="74" selection-end-line="21" selection-end-column="74" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -255,11 +189,6 @@
         <option value="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/Resources/ResourcesSet.java" />
         <option value="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/Resources/FaithPoints.java" />
         <option value="$PROJECT_DIR$/src/test/java/it/polimi/ingsw/GC_23/Resources/FaithPointsTest.java" />
-        <option value="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/Controller/OtherCardsController.java" />
-        <option value="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/Controller/TerritoryController.java" />
-        <option value="$PROJECT_DIR$/src/test/java/it/polimi/ingsw/GC_23/Cards/BuildingCardTest.java" />
-        <option value="$PROJECT_DIR$/src/test/java/it/polimi/ingsw/GC_23/Cards/VentureCardTest.java" />
-        <option value="$PROJECT_DIR$/src/test/java/it/polimi/ingsw/GC_23/Cards/CharacterCardTest.java" />
         <option value="$PROJECT_DIR$/src/test/java/it/polimi/ingsw/GC_23/Cards/TerritoryCardTest.java" />
         <option value="$PROJECT_DIR$/src/test/java/it/polimi/ingsw/GC_23/PlayerTest.java" />
         <option value="$PROJECT_DIR$/src/test/java/it/polimi/ingsw/GC_23/GameplayTest.java" />
@@ -281,20 +210,25 @@
         <option value="$PROJECT_DIR$/src/test/java/it/polimi/ingsw/GC_23/Effects/ImplicationEffectTest.java" />
         <option value="$PROJECT_DIR$/src/test/java/it/polimi/ingsw/GC_23/Effects/NewPlayEffectTest.java" />
         <option value="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/FamilyMember.java" />
-        <option value="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/Cards/BuildingCard.java" />
-        <option value="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/Cards/VentureCard.java" />
-        <option value="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/Cards/CharacterCard.java" />
-        <option value="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/Cards/TerritoryCard.java" />
         <option value="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/Effects/BenefitsEffect.java" />
         <option value="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/Effects/DiscountEffect.java" />
         <option value="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/Effects/ImplicationEffect.java" />
         <option value="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/Effects/NewPlayEffect.java" />
         <option value="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/Effects/CouncilPrivilegeEffect.java" />
-        <option value="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/Main.java" />
         <option value="$PROJECT_DIR$/src/main/java/Printer.java" />
         <option value="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/Spaces/MarketSpace.java" />
         <option value="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/Board.java" />
         <option value="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/Player.java" />
+        <option value="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/Cards/CharacterCard.java" />
+        <option value="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/Cards/TerritoryCard.java" />
+        <option value="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/Cards/VentureCard.java" />
+        <option value="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/Cards/BuildingCard.java" />
+        <option value="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/Controller/OtherCardsController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/Controller/TerritoryController.java" />
+        <option value="$PROJECT_DIR$/src/test/java/it/polimi/ingsw/GC_23/Cards/CharacterCardTest.java" />
+        <option value="$PROJECT_DIR$/src/test/java/it/polimi/ingsw/GC_23/Cards/BuildingCardTest.java" />
+        <option value="$PROJECT_DIR$/src/test/java/it/polimi/ingsw/GC_23/Cards/VentureCardTest.java" />
+        <option value="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/Main.java" />
         <option value="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/Cards/Card.java" />
       </list>
     </option>
@@ -535,36 +469,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="GC_23" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="GC_23" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Perego-Tonali-Zappa" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="GC_23" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Spaces" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -2134,7 +2038,14 @@
       <option name="project" value="LOCAL" />
       <updated>1496309461253</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="update cards">
+      <created>1496311943465</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1496311943465</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -2170,7 +2081,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="116255000" />
+    <option name="totallyTimeSpent" value="117725000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -2183,24 +2094,23 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-11" y="0" width="1934" height="1030" extended-state="0" />
-    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32876712" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Nl-Palette" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32054794" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.31966224" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32517838" sideWeight="0.5018909" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32875606" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32810616" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.27503017" sideWeight="0.49810913" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.27503017" sideWeight="0.49810913" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.27795875" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.27795875" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -2296,50 +2206,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/test/java/it/polimi/ingsw/GC_23/Spaces/DiceSpaceTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="9" column="13" lean-forward="false" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/Spaces/ProductionSpace.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="663">
-          <caret line="45" column="56" lean-forward="false" selection-start-line="45" selection-start-column="45" selection-end-line="45" selection-end-column="56" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/it/polimi/ingsw/GC_23/Spaces/ProductionSpaceTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="22" column="57" lean-forward="false" selection-start-line="22" selection-start-column="57" selection-end-line="22" selection-end-column="57" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/it/polimi/ingsw/GC_23/Spaces/HarvestSpaceTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="13" column="15" lean-forward="true" selection-start-line="13" selection-start-column="15" selection-end-line="13" selection-end-column="15" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/Spaces/HarvestSpace.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="13" column="38" lean-forward="false" selection-start-line="13" selection-start-column="38" selection-end-line="13" selection-end-column="38" />
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#793#794#0" expanded="false" />
-            <element signature="e#827#828#0" expanded="false" />
-            <element signature="e#1381#1382#0" expanded="false" />
-            <element signature="e#1415#1416#0" expanded="false" />
-            <element signature="e#1458#1459#0" expanded="false" />
-            <element signature="e#1493#1494#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/it/polimi/ingsw/GC_23/Spaces/MarketSpaceTest.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="105">
@@ -2515,20 +2381,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/it/polimi/ingsw/GC_23/Cards/BuildingCardTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="175">
-          <caret line="17" column="31" lean-forward="false" selection-start-line="17" selection-start-column="31" selection-end-line="17" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/LeaderCard.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="175">
-          <caret line="7" column="13" lean-forward="false" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/Dice.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="119">
@@ -2567,41 +2419,6 @@
           <folding>
             <element signature="imports" expanded="false" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/Controller/OtherCardsController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="952">
-          <caret line="63" column="53" lean-forward="false" selection-start-line="63" selection-start-column="53" selection-end-line="63" selection-end-column="53" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/Cards/TerritoryCard.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="16" column="95" lean-forward="false" selection-start-line="16" selection-start-column="95" selection-end-line="16" selection-end-column="95" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/Cards/VentureCard.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="13" column="93" lean-forward="false" selection-start-line="13" selection-start-column="93" selection-end-line="13" selection-end-column="93" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/Cards/CharacterCard.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="14" column="95" lean-forward="false" selection-start-line="14" selection-start-column="95" selection-end-line="14" selection-end-column="95" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/Cards/BuildingCard.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="27" column="16" lean-forward="false" selection-start-line="27" selection-start-column="16" selection-end-line="27" selection-end-column="16" />
         </state>
       </provider>
     </entry>
@@ -2682,14 +2499,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-25">
-          <caret line="57" column="37" lean-forward="true" selection-start-line="57" selection-start-column="37" selection-end-line="57" selection-end-column="37" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/ParseJson.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="175">
@@ -2730,14 +2539,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/SingleCost.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="250">
-          <caret line="10" column="30" lean-forward="false" selection-start-line="10" selection-start-column="30" selection-end-line="10" selection-end-column="30" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/Player.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="258">
@@ -2746,18 +2547,178 @@
         </state>
       </provider>
     </entry>
+    <entry file="jar://C:/Program Files (x86)/Java/jdk1.8.0_121/src.zip!/java/util/Scanner.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="21225">
+          <caret line="895" column="21" lean-forward="false" selection-start-line="895" selection-start-column="21" selection-end-line="895" selection-end-column="21" />
+          <folding>
+            <element signature="e#0#99893#0" expanded="false" />
+            <element signature="imports" expanded="false" />
+            <element signature="e#13841#13842#0" expanded="false" />
+            <element signature="e#13890#13891#0" expanded="false" />
+            <element signature="e#13947#13948#0" expanded="false" />
+            <element signature="e#13999#14000#0" expanded="false" />
+            <element signature="e#21196#21197#0" expanded="false" />
+            <element signature="e#21278#21279#0" expanded="false" />
+            <element signature="e#21679#21680#0" expanded="false" />
+            <element signature="e#21750#21751#0" expanded="false" />
+            <element signature="e#26907#26908#0" expanded="false" />
+            <element signature="e#26973#26974#0" expanded="false" />
+            <element signature="e#28403#28404#0" expanded="false" />
+            <element signature="e#28450#28451#0" expanded="false" />
+            <element signature="e#40917#40918#0" expanded="false" />
+            <element signature="e#40953#40954#0" expanded="false" />
+            <element signature="e#41173#41174#0" expanded="false" />
+            <element signature="e#41208#41209#0" expanded="false" />
+            <element signature="e#42513#42514#0" expanded="false" />
+            <element signature="e#42547#42548#0" expanded="false" />
+            <element signature="e#44951#44952#0" expanded="false" />
+            <element signature="e#44991#44992#0" expanded="false" />
+            <element signature="e#50783#50784#0" expanded="false" />
+            <element signature="e#50840#50841#0" expanded="false" />
+            <element signature="e#51489#51490#0" expanded="false" />
+            <element signature="e#51550#51551#0" expanded="false" />
+            <element signature="e#52228#52229#0" expanded="false" />
+            <element signature="e#52286#52287#0" expanded="false" />
+            <element signature="e#57377#57378#0" expanded="false" />
+            <element signature="e#57441#57442#0" expanded="false" />
+            <element signature="e#64742#64743#0" expanded="false" />
+            <element signature="e#64800#64801#0" expanded="false" />
+            <element signature="e#65330#65331#0" expanded="false" />
+            <element signature="e#65375#65376#0" expanded="false" />
+            <element signature="e#66525#66526#0" expanded="false" />
+            <element signature="e#66573#66574#0" expanded="false" />
+            <element signature="e#68265#68266#0" expanded="false" />
+            <element signature="e#68311#68312#0" expanded="false" />
+            <element signature="e#70929#70930#0" expanded="false" />
+            <element signature="e#70978#70979#0" expanded="false" />
+            <element signature="e#72706#72707#0" expanded="false" />
+            <element signature="e#72752#72753#0" expanded="false" />
+            <element signature="e#75360#75361#0" expanded="false" />
+            <element signature="e#75407#75408#0" expanded="false" />
+            <element signature="e#78006#78007#0" expanded="false" />
+            <element signature="e#78050#78051#0" expanded="false" />
+            <element signature="e#80648#80649#0" expanded="false" />
+            <element signature="e#80696#80697#0" expanded="false" />
+            <element signature="e#82388#82389#0" expanded="false" />
+            <element signature="e#82433#82434#0" expanded="false" />
+            <element signature="e#92828#92829#0" expanded="false" />
+            <element signature="e#92882#92883#0" expanded="false" />
+            <element signature="e#94684#94685#0" expanded="false" />
+            <element signature="e#94735#94736#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/LeaderCard.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="175">
+          <caret line="7" column="13" lean-forward="false" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/SingleCost.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="15" column="16" lean-forward="false" selection-start-line="15" selection-start-column="16" selection-end-line="15" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/Cards/TerritoryCard.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="87">
+          <caret line="21" column="29" lean-forward="false" selection-start-line="21" selection-start-column="29" selection-end-line="21" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/Cards/CharacterCard.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="425">
+          <caret line="22" column="52" lean-forward="false" selection-start-line="22" selection-start-column="52" selection-end-line="22" selection-end-column="52" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/Cards/VentureCard.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="399">
+          <caret line="21" column="74" lean-forward="false" selection-start-line="21" selection-start-column="74" selection-end-line="21" selection-end-column="74" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/Cards/BuildingCard.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="408">
+          <caret line="25" column="20" lean-forward="true" selection-start-line="25" selection-start-column="20" selection-end-line="25" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/Controller/OtherCardsController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="176">
+          <caret line="30" column="86" lean-forward="false" selection-start-line="30" selection-start-column="86" selection-end-line="30" selection-end-column="86" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/Controller/TerritoryController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="176">
+          <caret line="31" column="86" lean-forward="false" selection-start-line="31" selection-start-column="86" selection-end-line="31" selection-end-column="86" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/it/polimi/ingsw/GC_23/Cards/CharacterCardTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="368">
+          <caret line="45" column="0" lean-forward="false" selection-start-line="45" selection-start-column="0" selection-end-line="45" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/it/polimi/ingsw/GC_23/Cards/BuildingCardTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="343">
+          <caret line="54" column="4" lean-forward="false" selection-start-line="54" selection-start-column="4" selection-end-line="54" selection-end-column="4" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/it/polimi/ingsw/GC_23/Cards/VentureCardTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="608">
+          <caret line="43" column="4" lean-forward="false" selection-start-line="43" selection-start-column="4" selection-end-line="43" selection-end-column="4" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files (x86)/Java/jdk1.8.0_121/src.zip!/java/util/ArrayList.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="176">
+          <caret line="443" column="0" lean-forward="false" selection-start-line="443" selection-start-column="0" selection-end-line="443" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="176">
+          <caret line="42" column="25" lean-forward="false" selection-start-line="42" selection-start-column="25" selection-end-line="42" selection-end-column="25" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/Cards/Card.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="233">
-          <caret line="60" column="20" lean-forward="false" selection-start-line="60" selection-start-column="20" selection-end-line="60" selection-end-column="20" />
-          <folding>
-            <element signature="e#1473#1474#0" expanded="true" />
-            <element signature="e#1500#1501#0" expanded="true" />
-            <element signature="e#2011#2012#0" expanded="true" />
-            <element signature="e#2065#2066#0" expanded="true" />
-            <element signature="e#2192#2193#0" expanded="true" />
-            <element signature="e#2233#2234#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="-16">
+          <caret line="100" column="48" lean-forward="false" selection-start-line="100" selection-start-column="48" selection-end-line="100" selection-end-column="48" />
+          <folding />
         </state>
       </provider>
     </entry>

@@ -12,7 +12,8 @@ import java.util.ArrayList;
  */
 public class BuildingCard extends Card {
 
-    public BuildingCard(int period, CardColor cardColor, String name, Effect immediateEffect, Effect permanentEffect, SingleCost cost) {
+    public BuildingCard(int period, CardColor cardColor, String name, Effect immediateEffect, Effect permanentEffect,
+                        ArrayList<SingleCost> cost) {
         super(period, cardColor, name, immediateEffect, permanentEffect, cost);
     }
 
@@ -20,7 +21,7 @@ public class BuildingCard extends Card {
     @Override
     public boolean checkTakeable(Player player) {
         if (player.getCardOfPlayer().getBuildingCards().size() < 6) {
-            if (player.getResources().checkAffordable(this.getCost().getResources())){
+            if (player.getResources().checkAffordable(this.getCost(player).getResources())){
                 return true;
             } else {
                 return false;

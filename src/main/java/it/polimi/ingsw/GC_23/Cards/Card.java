@@ -98,7 +98,8 @@ public abstract class Card {
         int i = 0;
         int j = 0;
         for(SingleCost singlecost : this.cost) {
-            System.out.println("press" + i + "for choosing: " + singlecost.getResources().toString());
+            System.out.println("press " + i + " for choosing: " + singlecost.getResources().toString());
+            i++;
         }
 
         String sw = player.getNextLine();

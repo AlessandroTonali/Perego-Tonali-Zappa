@@ -11,14 +11,15 @@ import java.util.ArrayList;
  * Created by Alessandro on 21/05/2017.
  */
 public class VentureCard extends Card {
-    public VentureCard(int period, CardColor cardColor, String name, Effect immediateEffect, Effect permanentEffect, SingleCost cost) {
+    public VentureCard(int period, CardColor cardColor, String name, Effect immediateEffect, Effect permanentEffect,
+                       ArrayList<SingleCost> cost) {
         super(period, cardColor, name, immediateEffect, permanentEffect, cost);
     }
 
     @Override
     public boolean checkTakeable(Player player) {
         if (player.getCardOfPlayer().getVentureCards().size() < 6) {
-            if (player.getResources().checkAffordable(this.getCost().getResources())){
+            if (player.getResources().checkAffordable(super.getCost(player).getResources())){
                 return true;
             } else {
                 return false;
