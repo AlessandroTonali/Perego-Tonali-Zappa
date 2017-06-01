@@ -57,8 +57,8 @@ public class Main {
         BenefitsEffect[] benefitsEffects = new BenefitsEffect[2];
         benefitsEffects[0]=benefitsEffect1;
         benefitsEffects[1]=benefitsEffect2;
-        CouncilPrivilegeEffect councilPrivilegeEffect = new CouncilPrivilegeEffect(benefitsEffects,2,false);
-        councilPrivilegeEffect.chooseCouncilPrivilege();
+        CouncilPrivilegeEffect councilPrivilegeEffect = new CouncilPrivilegeEffect(benefitsEffects,2,true);
+        councilPrivilegeEffect.chooseCouncilPrivilege(player);
     }
 
     public void initializeBoard() {

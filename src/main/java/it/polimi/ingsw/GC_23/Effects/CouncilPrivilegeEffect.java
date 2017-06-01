@@ -42,7 +42,7 @@ public class CouncilPrivilegeEffect extends AbsEffect{
 
     public BenefitsEffect[] chooseCouncilPrivilege(Player player) {
         int i;
-        ArrayList<int> choseneffects
+        ArrayList<Integer> choseneffects = new ArrayList<Integer>();
         int l = 0;
         String string;
         BenefitsEffect[] chosen = new BenefitsEffect[this.getNumberOfPrivileges()];
@@ -70,10 +70,16 @@ public class CouncilPrivilegeEffect extends AbsEffect{
                     return null;
                 }
             } else {
-                //TODO: different choice
+
                 try {
                     string = player.getNextLine();
                     i = Integer.parseInt(string);
+                    if(!alreadyTaken(choseneffects, i)) {
+                        choseneffects.add(i);
+                    }else{
+                        System.out.println("already taken, please choose another one");
+                        continue;
+                    }
                     System.out.println("Chosen different council privilege");
                 } catch (NumberFormatException e) {
                     System.out.println("Invalid council privilege");
@@ -105,4 +111,15 @@ public class CouncilPrivilegeEffect extends AbsEffect{
 
     }
 
+    public boolean alreadyTaken(ArrayList<Integer> checkedList, int checkedNumber){
+        for(int i : checkedList) {
+            if (i == checkedNumber) {
+                return true;
+            }
+        }
+            return false;
+    }
+
 }
+
+
