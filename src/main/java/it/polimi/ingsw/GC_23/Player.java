@@ -129,7 +129,6 @@ public class Player {
             System.out.println("unvalid format");
             return null;
         }
-
         FamilyMember chosen;
 
 
@@ -145,6 +144,7 @@ public class Player {
 
         System.out.println("u choose the " + i + "family member");
         System.out.println("you have " + this.getResources().toString());
+        in.close();
         return chosen;
     }
 
