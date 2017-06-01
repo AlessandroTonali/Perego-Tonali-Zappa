@@ -4,6 +4,7 @@ import it.polimi.ingsw.GC_23.FamilyMember;
 import it.polimi.ingsw.GC_23.Player;
 import it.polimi.ingsw.GC_23.Resources.ResourcesSet;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 /**
@@ -41,6 +42,7 @@ public class CouncilPrivilegeEffect extends AbsEffect{
 
     public BenefitsEffect[] chooseCouncilPrivilege(Player player) {
         int i;
+        ArrayList<int> choseneffects
         int l = 0;
         String string;
         BenefitsEffect[] chosen = new BenefitsEffect[this.getNumberOfPrivileges()];
