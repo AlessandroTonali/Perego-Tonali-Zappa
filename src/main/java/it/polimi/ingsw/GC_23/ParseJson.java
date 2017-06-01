@@ -1,6 +1,9 @@
 package it.polimi.ingsw.GC_23;
 
 import it.polimi.ingsw.GC_23.Cards.BuildingCard;
+import it.polimi.ingsw.GC_23.Cards.CharacterCard;
+import it.polimi.ingsw.GC_23.Cards.TerritoryCard;
+import it.polimi.ingsw.GC_23.Cards.VentureCard;
 import it.polimi.ingsw.GC_23.Controller.NewPlay;
 import it.polimi.ingsw.GC_23.Effects.*;
 import it.polimi.ingsw.GC_23.Enumerations.CardColor;
@@ -20,11 +23,15 @@ import java.util.Scanner;
 public class ParseJson {
 
     private HashMap<Integer, AbsEffect> effectMap;
-    private HashMap<Integer,BenefitsEffect> benefitsEffectMap;
+    private HashMap<Integer, BenefitsEffect> benefitsEffectMap;
+    private HashMap<Integer,BuildingCard> buildingCardMap = new HashMap<>();
+    private HashMap<Integer,VentureCard> ventureCardMap = new HashMap<>();
+    private HashMap<Integer,TerritoryCard> territoryCardMap = new HashMap<>();
+    private HashMap<Integer,CharacterCard> characterCardMap = new HashMap<>();
 
     public ParseJson() {
-        parseCard();
         parseEffect();
+        parseCard();
         BenefitsEffect benefitsEffect = (BenefitsEffect) effectMap.get(401);
 
 
@@ -42,11 +49,26 @@ public class ParseJson {
 
         JSONObject rootObject = new JSONObject(jsonContent);
 
-        JSONArray ventureCard = rootObject.getJSONArray("VentureCard");
-        for (int x = 0; x < ventureCard.length(); x++) {
-            System.out.println(ventureCard.getJSONObject(x).getString("name"));
-            System.out.println(ventureCard.getJSONObject(x).getString("cost"));
-            String name = ventureCard.getJSONObject(x).getString("name");
+        JSONArray ventureCards = rootObject.getJSONArray("VentureCard");
+        for (int x = 0; x < ventureCards.length(); x++) {
+            String name = ventureCards.getJSONObject(x).getString("name");
+            int idCard = ventureCards.getJSONObject(x).getInt("id");
+            int period = ventureCards.getJSONObject(x).getInt("period");
+
+            JSONArray costsJson = ventureCards.getJSONObject(x).getJSONArray("cost");
+            ArrayList<SingleCost> costs = new ArrayList<>();
+            for (int i = 0; i < costsJson.length(); i++) {
+                costs.add(parseCost(costsJson.getJSONObject(i)));
+            }
+
+            JSONArray immediateEffectsJson = ventureCards.getJSONObject(x).getJSONArray("immediateEffect");
+            Effect immediateEffect = parseTypeEffect(immediateEffectsJson);
+
+            JSONArray permanentEffectsJson = ventureCards.getJSONObject(x).getJSONArray("permanentEffect");
+            Effect permanentEffect = parseTypeEffect(permanentEffectsJson);
+
+            VentureCard ventureCard = new VentureCard(period, CardColor.PURPLE, name, immediateEffect, permanentEffect, costs);
+            ventureCardMap.put(idCard, ventureCard);
 
 
         }
@@ -56,19 +78,15 @@ public class ParseJson {
         JSONArray buildingCards = rootObject.getJSONArray("BuildingCard");
         for (int x = 0; x < buildingCards.length(); x++) {
             System.out.println(buildingCards.getJSONObject(x).getString("name"));
+
             JSONArray costsJson = buildingCards.getJSONObject(x).getJSONArray("cost");
-
             ArrayList<SingleCost> costs = new ArrayList<>();
-            ArrayList<Integer> immediateEffectId = new ArrayList<>();
-
             for (int i = 0; i < costsJson.length(); i++) {
                 costs.add(parseCost(costsJson.getJSONObject(i)));
             }
 
             JSONArray immediateEffectsJson = buildingCards.getJSONObject(x).getJSONArray("immediateEffect");
             Effect immediateEffect = parseTypeEffect(immediateEffectsJson);
-
-
 
             JSONArray permanentEffectsJson = buildingCards.getJSONObject(x).getJSONArray("permanentEffect");
             Effect permanentEffect = parseTypeEffect(permanentEffectsJson);
@@ -77,6 +95,45 @@ public class ParseJson {
             int period = buildingCards.getJSONObject(x).getInt("period");
             int idCard = buildingCards.getJSONObject(x).getInt("id");
             BuildingCard buildingCard = new BuildingCard(period, CardColor.YELLOW, name, immediateEffect, permanentEffect, costs);
+            buildingCardMap.put(idCard,buildingCard);
+
+        }
+
+
+        JSONArray territoryCards = rootObject.getJSONArray("TerritoryCard");
+        for (int i = 0; i < territoryCards.length(); i++) {
+            String name = territoryCards.getJSONObject(i).getString("name");
+            int idCard = territoryCards.getJSONObject(i).getInt("id");
+            int period = territoryCards.getJSONObject(i).getInt("period");
+            JSONArray immediateEffectsJson = territoryCards.getJSONObject(i).getJSONArray("immediateEffect");
+            Effect immediateEffect = parseTypeEffect(immediateEffectsJson);
+            JSONArray permanentEffectsJson = territoryCards.getJSONObject(i).getJSONArray("permanentEffect");
+            Effect permanentEffect = parseTypeEffect(permanentEffectsJson);
+
+            TerritoryCard territoryCard = new TerritoryCard(period, CardColor.GREEN, name, immediateEffect,permanentEffect);
+            territoryCardMap.put(idCard,territoryCard);
+        }
+
+        JSONArray characterCards = rootObject.getJSONArray("CharacterCard");
+        for (int i = 0; i < characterCards.length(); i++) {
+            int idCard = characterCards.getJSONObject(i).getInt("id");
+            String name = characterCards.getJSONObject(i).getString("name");
+            int period = characterCards.getJSONObject(i).getInt("period");
+
+            JSONArray costsJson = buildingCards.getJSONObject(i).getJSONArray("cost");
+            ArrayList<SingleCost> costs = new ArrayList<>();
+            for (int j = 0; j < costsJson.length(); j++) {
+                costs.add(parseCost(costsJson.getJSONObject(i)));
+            }
+
+            JSONArray immediateEffectsJson = characterCards.getJSONObject(i).getJSONArray("immediateEffect");
+            Effect immediateEffect = parseTypeEffect(immediateEffectsJson);
+            JSONArray permanentEffectsJson = characterCards.getJSONObject(i).getJSONArray("permanentEffect");
+            Effect permanentEffect = parseTypeEffect(permanentEffectsJson);
+
+            CharacterCard characterCard = new CharacterCard(period, CardColor.BLUE, name, immediateEffect, permanentEffect, costs);
+            characterCardMap.put(idCard, characterCard);
+
         }
 
     }

@@ -1,14 +1,15 @@
 {
 "VentureCard": [
-	{"name": "Alen", "cost": "molto"},
-	{"name": "Jess", "cost": "poco"}
+	{"id": "730","name": "Hiring Recriuts", "cost": [ {"coin": "4"}],"immediateEffect": [{"effect": "731"}], "permanentEffect": [{"effect": "732"}], "period": "1"}
+	
 ],
 "BuildingCard": [
 	{"id": "290","name": "Carpenter's Shop", "cost": [ {"wood": "2", "coin": "1"}],"immediateEffect": [{"effect": "291"}], "permanentEffect": [{"effect": "292"}], "period": "1"}
 ],
 "CharacterCard": [
+	{"id": "640","name": "Royal Messenger", "cost": [ {"coin": "5"}], "immediateEffect": [{"effect": "641"}], "permanentEffect": [], "period": "3"}
 ],
 "TerritoryCard": [
-	{"id": "400","name": "Gravel Pit", "immediateEffect": "401", "permanentEffect": "2"}
+	{"id": "100","name": "Mountain Town", "immediateEffect": [{"effect": "101"}], "permanentEffect": [{"effect": "102"}], "period": "2"}
 ]
 }

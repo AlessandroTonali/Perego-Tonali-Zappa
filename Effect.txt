@@ -5,12 +5,18 @@
 		{"id": "12", "coin": "2"},
 		{"id": "13", "militaryPoint": "2"},
 		{"id": "14", "faithPoint": "1"},
-		{"id": "291", "victoryPoint": "3"}
+		{"id": "291", "victoryPoint": "3"},
+		{"id": "101", "servant": "1"},
+		{"id": "102", "wood": "2", "militaryPoint": "1"},
+		{"id": "731", "militaryPoint": "5"},
+		{"id": "732", "victoryPoint": "4"},
 		
 	],
 	"CouncilPrivilegeEffect": [
 		{"id": "20", "number_privilege": "1", "is_different": "false"},
-		{"id": "21", "number_privilege": "2", "is_different": "true"}
+		{"id": "21", "number_privilege": "2", "is_different": "true"},
+		{"id": "641", "number_privilege": "3", "is_different": "true"}
+		
 		
 	
 	],

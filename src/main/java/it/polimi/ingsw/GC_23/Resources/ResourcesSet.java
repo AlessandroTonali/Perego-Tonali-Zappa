@@ -152,7 +152,7 @@ public class ResourcesSet {
     public String toString(){
         return "faith points " + faithPoints.toString() + " military points " + militaryPoints.toString() + " gold " +
                 gold.toString() + " servants " + servants.toString() + " wood " + wood.toString() +
-                " stone " + stone.toString();
+                " stone " + stone.toString() + " victory points " + victoryPoints.toString();
 
     }
 
