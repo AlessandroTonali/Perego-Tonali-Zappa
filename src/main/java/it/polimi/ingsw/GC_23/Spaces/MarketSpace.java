@@ -16,4 +16,6 @@ public class MarketSpace extends ActionSpace {
         return familyMember.getValue() >= 1;
     }
 
+
+
 }

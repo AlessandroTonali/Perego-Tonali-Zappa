@@ -86,6 +86,13 @@ public class Player {
 
         }
 
+        System.out.println("press\n 0 for placing a familiar in council\n" +
+                "press 1 for getting the harvest\n" +
+                "press 2 for getting production\n" +
+                "press 3 for increasing your familiar value\n" +
+                "press for for going in the market\n" +
+                "press 5 for going in a tower");
+
         switch (i) {
             case -1: break;
             case 0: new CouncilController(new CouncilSpace(),chooseFamilyMember());
@@ -93,8 +100,8 @@ public class Player {
             case 2: new ProductionController(chooseFamilyMember(),new ProductionSpace());
             case 3: new IncreaseFamilyValue(5,chooseFamilyMember());
             case 4: new MarketController(chooseFamilyMember(),new MarketSpace());
-           /* case 5: new TerritoryController(chooseFamilyMember(),new T
-            case 6: new other cards controller
+           /* case 5: ChooseTower(choosefamil
+
            * */
 
         }

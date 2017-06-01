@@ -19,9 +19,10 @@ public abstract class Card {
     private String name;
     private Effect immediateEffect;
     private Effect permanentEffect;
-    private SingleCost cost;
+    private ArrayList<SingleCost> cost;
 
-    public Card(int period, CardColor cardColor, String name, Effect immediateEffect, Effect permanentEffect, SingleCost cost) {
+    public Card(int period, CardColor cardColor, String name, Effect immediateEffect, Effect permanentEffect, ArrayList<SingleCost>
+            cost) {
         this.period = period;
         this.cardColor = cardColor;
         this.name = name;
@@ -56,8 +57,17 @@ public abstract class Card {
         this.name = name;
     }
 
-    public SingleCost getCost() {
+    public ArrayList<SingleCost> getCost() {
         return cost;
+    }
+
+    public SingleCost getCost(Player player) {
+
+        if(!checkCostChoose()){
+            return cost.get(0);
+        }
+
+        else {return chooseCost(player); }
     }
 
     public Effect getImmediateEffect() {
@@ -76,21 +86,32 @@ public abstract class Card {
         this.permanentEffect = permanentEffect;
     }
 
-    public void setCost(SingleCost cost) {
+    public void setCost(ArrayList<SingleCost> cost) {
         this.cost = cost;
     }
 
-    /*public boolean checkchoose() {
-        return immediateEffect.size()>1;
+    public boolean checkCostChoose() {
+        return this.cost.size()>1;
     }
 
-    public Effect getSingleEffect() {
-        if(immediateEffect.size()==1) {
-            return immediateEffect.get(0);
+    public SingleCost chooseCost(Player player) {
+        int i = 0;
+        int j = 0;
+        for(SingleCost singlecost : this.cost) {
+            System.out.println("press" + i + "for choosing: " + singlecost.getResources().toString());
         }
-        else{
-            System.out.println("ERROR IN CONDITIONS");
-            return null;
+
+        String sw = player.getNextLine();
+        try {
+            j = Integer.parseInt(sw);
+            System.out.println("ciao");
+
+        } catch (NumberFormatException e) {
+            System.out.println("unvalid format");
+            chooseCost(player);
         }
-    }*/
+
+        return cost.get(j);
+
+    }
 }
