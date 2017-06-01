@@ -11,12 +11,11 @@ import java.util.Random;
 public class Dice {
     private DiceColor diceColor;
     private int value;
-    private DiceSpace position;
+    private int position;
 
-    public Dice(DiceColor diceColor, int value, DiceSpace position) {
+    public Dice(DiceColor diceColor ) {
         this.diceColor = diceColor;
-        this.value = value;
-        this.position = position;
+        this.value = this.roll();
     }
 
     private int roll() {
@@ -39,15 +38,11 @@ public class Dice {
         return value;
     }
 
-    public void setValue(int value) {
-        this.value = value;
-    }
-
-    public DiceSpace getPosition() {
+    public int getPosition() {
         return position;
     }
 
-    public void setPosition(DiceSpace position) {
+    public void setPosition(int position) {
         this.position = position;
     }
 

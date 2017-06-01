@@ -42,7 +42,7 @@ public class CouncilPrivilegeEffect extends AbsEffect{
 
     public BenefitsEffect[] chooseCouncilPrivilege(Player player) {
         int i;
-        ArrayList<Integer> choseneffects = new ArrayList<Integer>();
+        ArrayList<Integer> chosenEffects = new ArrayList<Integer>();
         int l = 0;
         String string;
         BenefitsEffect[] chosen = new BenefitsEffect[this.getNumberOfPrivileges()];
@@ -55,10 +55,16 @@ public class CouncilPrivilegeEffect extends AbsEffect{
                 try {
                     string = player.getNextLine();
                     i = Integer.parseInt(string);
-                    System.out.println("Chosen council privilege");
+                    if(i<benefits.length){
+                        System.out.println("Chosen council privilege");
+                    }
+                    else{
+                        System.out.println("Error: incorrect number, try again");
+                        continue;
+                    }
                 } catch (NumberFormatException e) {
-                    System.out.println("Invalid council privilege");
-                    return null;
+                    System.out.println("Invalid council privilege, please try again");
+                    continue;
                 }
                 try {
                     chosen[l] = this.benefits[i];
@@ -70,20 +76,26 @@ public class CouncilPrivilegeEffect extends AbsEffect{
                     return null;
                 }
             } else {
-
                 try {
                     string = player.getNextLine();
                     i = Integer.parseInt(string);
-                    if(!alreadyTaken(choseneffects, i)) {
-                        choseneffects.add(i);
+                    if(i<benefits.length){
+                        System.out.println("Chosen council privilege");
+                    }
+                    else{
+                        System.out.println("Error: incorrect number, try again");
+                        continue;
+                    }
+                    if(!alreadyTaken(chosenEffects, i)) {
+                        chosenEffects.add(i);
                     }else{
                         System.out.println("already taken, please choose another one");
                         continue;
                     }
                     System.out.println("Chosen different council privilege");
                 } catch (NumberFormatException e) {
-                    System.out.println("Invalid council privilege");
-                    return null;
+                    System.out.println("Invalid council privilege, please try again");
+                    continue;
                 }
                 try{
                     chosen[l] = this.benefits[i];
@@ -99,7 +111,6 @@ public class CouncilPrivilegeEffect extends AbsEffect{
 
         System.out.println("You have chosen all your council privilege");
         return chosen;
-        //TODO se sbaglia a mettere il numero riesegue la chooseCouncilPrivilege
     }
 
 

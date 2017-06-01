@@ -7,27 +7,22 @@ import it.polimi.ingsw.GC_23.Enumerations.DiceColor;
  * Created by Alessandro on 21/05/2017.
  */
 public class DiceSpace {
-    private DiceColor diceColor;
-    private Dice dice;
+    private Dice[] dices;
+    private static int diceCounter;
+    private int diceSpaceDim;
 
-    public DiceSpace(DiceColor diceColor, Dice dice) {
-        this.diceColor = diceColor;
-        this.dice = dice;
+    public DiceSpace() {
+        this.dices = new Dice[diceSpaceDim];
+        diceCounter=0;
     }
 
-    public void setDiceColor(DiceColor diceColor) {
-        this.diceColor = diceColor;
+    public void setDice(Dice dice){
+        this.dices[diceCounter]= dice;
+        dice.setPosition(diceCounter);
+        diceCounter++;
     }
 
-    public void setDice(Dice dice) {
-        this.dice = dice;
-    }
-
-    public DiceColor getDiceColor() {
-        return diceColor;
-    }
-
-    public Dice getDice() {
-        return dice;
+    public Dice[] getDices() {
+        return this.dices;
     }
 }
