@@ -50,6 +50,7 @@ public class Main {
     }
 
     public Main () {
+        ParseJson parseJson = new ParseJson();
         ResourcesSet set1 = new ResourcesSet(1,2,3,4,5,6,7);
         ResourcesSet set2 = new ResourcesSet(5,6,7,8,9,10,11);
         Player player = new Player(PlayerColor.RED, null);

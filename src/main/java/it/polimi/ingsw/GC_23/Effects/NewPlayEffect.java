@@ -1,5 +1,6 @@
 package it.polimi.ingsw.GC_23.Effects;
 
+import it.polimi.ingsw.GC_23.EffectType;
 import it.polimi.ingsw.GC_23.Enumerations.NewPlayColor;
 import it.polimi.ingsw.GC_23.Player;
 
@@ -48,5 +49,10 @@ public class NewPlayEffect extends AbsEffect{
     public void activeEffect(Player player) {
         //todo
 
+    }
+
+    @Override
+    public int getTyteEffect() {
+        return EffectType.NEWPLAY_EFFECT_TYPE;
     }
 }

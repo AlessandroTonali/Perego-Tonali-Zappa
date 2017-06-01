@@ -1,11 +1,11 @@
 {
 	"BenefitEffect": [
-		{"id": "10", "faithPoint": "0", "gold": "0", "militaryPoint": "0", "servant": "0",  "stone": "1", "victoryPoint": "0", "wood": "1"},
-		{"id": "11", "faithPoint": "0", "gold": "0", "militaryPoint": "0", "servant": "2",  "stone": "0", "victoryPoint": "0", "wood": "0"},
-		{"id": "12", "faithPoint": "0", "gold": "2", "militaryPoint": "0", "servant": "0",  "stone": "0", "victoryPoint": "0", "wood": "0"},
-		{"id": "13", "faithPoint": "0", "gold": "0", "militaryPoint": "2", "servant": "0",  "stone": "0", "victoryPoint": "0", "wood": "0"},
-		{"id": "14", "faithPoint": "1", "gold": "0", "militaryPoint": "0", "servant": "0",  "stone": "0", "victoryPoint": "0", "wood": "0"},
-		{"id": "401", "faithPoint": "0", "gold": "0", "militaryPoint": "0", "servant": "0",  "stone": "2", "victoryPoint": "0", "wood": "0"}
+		{"id": "10", "stone": "1","wood": "1"},
+		{"id": "11", "servant": "2"},
+		{"id": "12", "coin": "2"},
+		{"id": "13", "militaryPoint": "2"},
+		{"id": "14", "faithPoint": "1"},
+		{"id": "291", "victoryPoint": "3"}
 		
 	],
 	"CouncilPrivilegeEffect": [
@@ -18,12 +18,12 @@
 	
 	],
 	"ImplicationEffect": [ 
-		{"id": "30", "requirment": [
-			{"requirment_id": "11"},
-			{"requirment_id": "10"}
+		{"id": "292", "requirment": [
+			{"wood": "1"},
+			{"wood": "2"}
 		], "giving":[
-			{"giving_id": "14"},
-			{"giving_id": "13"}
+			{"coin": "3"},
+			{"coin": "5"}
 		]}
 	
 	],

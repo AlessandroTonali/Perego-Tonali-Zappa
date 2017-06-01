@@ -4,7 +4,7 @@
 	{"name": "Jess", "cost": "poco"}
 ],
 "BuildingCard": [
-	{"name": "Battistero", "cost": [ {"stone": "3", "coin": "5"}, {"wood": "4"}],"immediateEffect": [{"effect": "1"}], "permanentEffect": [{"effect": "2"}]}
+	{"id": "290","name": "Carpenter's Shop", "cost": [ {"wood": "2", "coin": "1"}],"immediateEffect": [{"effect": "291"}], "permanentEffect": [{"effect": "292"}], "period": "1"}
 ],
 "CharacterCard": [
 ],

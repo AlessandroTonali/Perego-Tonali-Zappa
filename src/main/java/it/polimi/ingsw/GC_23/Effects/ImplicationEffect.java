@@ -1,5 +1,6 @@
 package it.polimi.ingsw.GC_23.Effects;
 
+import it.polimi.ingsw.GC_23.EffectType;
 import it.polimi.ingsw.GC_23.Player;
 import it.polimi.ingsw.GC_23.SingleCost;
 
@@ -43,5 +44,10 @@ public class ImplicationEffect extends AbsEffect{
     public void activeEffect(Player player) {
         //todo
 
+    }
+
+    @Override
+    public int getTyteEffect() {
+        return EffectType.IMPLICATION_EFFECT_TYPE;
     }
 }

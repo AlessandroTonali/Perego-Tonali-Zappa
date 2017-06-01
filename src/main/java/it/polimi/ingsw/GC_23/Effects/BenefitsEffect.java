@@ -1,5 +1,6 @@
 package it.polimi.ingsw.GC_23.Effects;
 
+import it.polimi.ingsw.GC_23.EffectType;
 import it.polimi.ingsw.GC_23.Player;
 import it.polimi.ingsw.GC_23.Resources.ResourcesSet;
 
@@ -24,6 +25,11 @@ public class BenefitsEffect extends AbsEffect{
 
     public void activeEffect(Player player) {
         player.getResources().sum(this.resources);
+    }
+
+    @Override
+    public int getTyteEffect() {
+        return EffectType.BENEFIT_EFFECT_TYPE;
     }
 
     @Override

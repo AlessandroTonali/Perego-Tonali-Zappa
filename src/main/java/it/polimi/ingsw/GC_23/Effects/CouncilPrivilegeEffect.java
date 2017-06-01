@@ -1,5 +1,6 @@
 package it.polimi.ingsw.GC_23.Effects;
 
+import it.polimi.ingsw.GC_23.EffectType;
 import it.polimi.ingsw.GC_23.FamilyMember;
 import it.polimi.ingsw.GC_23.Player;
 import it.polimi.ingsw.GC_23.Resources.ResourcesSet;
@@ -120,6 +121,11 @@ public class CouncilPrivilegeEffect extends AbsEffect{
             e.activeEffect(familyMember.getPlayer());
         }
 
+    }
+
+    @Override
+    public int getTyteEffect() {
+        return EffectType.COUNCIL_EFFECT_TYPE;
     }
 
     public boolean alreadyTaken(ArrayList<Integer> checkedList, int checkedNumber){

@@ -1,9 +1,9 @@
 package it.polimi.ingsw.GC_23;
 
-import it.polimi.ingsw.GC_23.Effects.BenefitsEffect;
-import it.polimi.ingsw.GC_23.Effects.CouncilPrivilegeEffect;
-import it.polimi.ingsw.GC_23.Effects.Effect;
-import it.polimi.ingsw.GC_23.Effects.ImplicationEffect;
+import it.polimi.ingsw.GC_23.Cards.BuildingCard;
+import it.polimi.ingsw.GC_23.Controller.NewPlay;
+import it.polimi.ingsw.GC_23.Effects.*;
+import it.polimi.ingsw.GC_23.Enumerations.CardColor;
 import it.polimi.ingsw.GC_23.Resources.ResourcesSet;
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -19,12 +19,14 @@ import java.util.Scanner;
  */
 public class ParseJson {
 
-    private HashMap<Integer, Effect> effectMap;
+    private HashMap<Integer, AbsEffect> effectMap;
     private HashMap<Integer,BenefitsEffect> benefitsEffectMap;
 
     public ParseJson() {
         parseCard();
         parseEffect();
+        BenefitsEffect benefitsEffect = (BenefitsEffect) effectMap.get(401);
+
 
     }
 
@@ -51,28 +53,71 @@ public class ParseJson {
 
         System.out.println();
 
-        JSONArray buildingCard = rootObject.getJSONArray("BuildingCard");
-        for (int x = 0; x < buildingCard.length(); x++) {
-            System.out.println(buildingCard.getJSONObject(x).getString("name"));
-            JSONArray costs = buildingCard.getJSONObject(x).getJSONArray("cost");
+        JSONArray buildingCards = rootObject.getJSONArray("BuildingCard");
+        for (int x = 0; x < buildingCards.length(); x++) {
+            System.out.println(buildingCards.getJSONObject(x).getString("name"));
+            JSONArray costsJson = buildingCards.getJSONObject(x).getJSONArray("cost");
 
-            JSONArray immediateEffects = buildingCard.getJSONObject(x).getJSONArray("immediateEffect");
-            for (int y = 0; y < immediateEffects.length() ; y++) {
+            ArrayList<SingleCost> costs = new ArrayList<>();
+            ArrayList<Integer> immediateEffectId = new ArrayList<>();
 
+            for (int i = 0; i < costsJson.length(); i++) {
+                costs.add(parseCost(costsJson.getJSONObject(i)));
             }
 
+            JSONArray immediateEffectsJson = buildingCards.getJSONObject(x).getJSONArray("immediateEffect");
+            Effect immediateEffect = parseTypeEffect(immediateEffectsJson);
 
-            JSONArray permanentEffects = buildingCard.getJSONObject(x).getJSONArray("permanentEffect");
-            for (int y = 0; y < permanentEffects.length() ; y++) {
 
+
+            JSONArray permanentEffectsJson = buildingCards.getJSONObject(x).getJSONArray("permanentEffect");
+            Effect permanentEffect = parseTypeEffect(permanentEffectsJson);
+
+            String name = buildingCards.getJSONObject(x).getString("name");
+            int period = buildingCards.getJSONObject(x).getInt("period");
+            int idCard = buildingCards.getJSONObject(x).getInt("id");
+            BuildingCard buildingCard = new BuildingCard(period, CardColor.YELLOW, name, immediateEffect, permanentEffect, costs);
+        }
+
+    }
+
+    public Effect parseTypeEffect(JSONArray jsonArray) {
+        BenefitsEffect benefitsEffect = null;
+        CouncilPrivilegeEffect councilPrivilegeEffect = null;
+        DiscountEffect discountEffect = null;
+        ImplicationEffect implicationEffect = null;
+        NewPlayEffect newPlayEffect = null;
+        for (int y = 0; y < jsonArray.length() ; y++) {
+
+            int id = jsonArray.getJSONObject(y).getInt("effect");
+
+            switch (effectMap.get(id).getTyteEffect()) {
+                case EffectType.BENEFIT_EFFECT_TYPE:
+                    benefitsEffect = (BenefitsEffect) effectMap.get(id);
+                    break;
+                case EffectType.COUNCIL_EFFECT_TYPE:
+                    councilPrivilegeEffect = (CouncilPrivilegeEffect) effectMap.get(id);
+                    break;
+                case EffectType.DISCOUNT_EFFECT_TYPE:
+                    discountEffect = (DiscountEffect) effectMap.get(id);
+                    break;
+                case EffectType.IMPLICATION_EFFECT_TYPE:
+                    implicationEffect = (ImplicationEffect) effectMap.get(id);
+                    break;
+                case EffectType.NEWPLAY_EFFECT_TYPE:
+                    newPlayEffect = (NewPlayEffect) effectMap.get(id);
+                    break;
             }
         }
+        Effect effect = new Effect(councilPrivilegeEffect, benefitsEffect, implicationEffect, newPlayEffect, discountEffect);
+
+        return effect;
 
     }
 
     public void parseEffect() {
         String jsonContent = null;
-        effectMap = new HashMap<Integer,Effect>();
+        effectMap = new HashMap<Integer,AbsEffect>();
         try {
             Scanner scanner = new Scanner(new File("Effect.txt"));
             jsonContent = scanner.useDelimiter("\\Z").next();
@@ -111,10 +156,9 @@ public class ParseJson {
     public void parseBenefitEffect(JSONArray benefitEffects) {
         for (int i = 0; i < benefitEffects.length() ; i++) {
             JSONObject jsonObject = benefitEffects.getJSONObject(i);
-            BenefitsEffect benefitsEffect = parseBenefit(jsonObject);
-            benefitsEffectMap.put(jsonObject.getInt("id"),benefitsEffect);
-            Effect effect = new Effect(null, benefitsEffect, null, null, null);
-            effectMap.put(jsonObject.getInt("id"),effect);
+            BenefitsEffect benefitsEffect = new BenefitsEffect(parseCost(jsonObject).getResources());
+            benefitsEffectMap.put(jsonObject.getInt("id"), benefitsEffect);
+            effectMap.put(jsonObject.getInt("id"), benefitsEffect);
 
             //System.out.println(effect.getResources().toString());
         }
@@ -130,8 +174,7 @@ public class ParseJson {
         for (int i = 0; i < councilPrivilegeEffects.length(); i++) {
             JSONObject jsonObject = councilPrivilegeEffects.getJSONObject(i);
             CouncilPrivilegeEffect councilPrivilegeEffect = new CouncilPrivilegeEffect(councilPrivilege,jsonObject.getInt("number_privilege"), jsonObject.getBoolean("is_different"));
-            Effect effect = new Effect(councilPrivilegeEffect, null, null, null, null);
-            effectMap.put(jsonObject.getInt("id"), effect);
+            effectMap.put(jsonObject.getInt("id"), councilPrivilegeEffect);
 
         }
     }
@@ -143,62 +186,73 @@ public class ParseJson {
             JSONObject jsonObject = implicationEffects.getJSONObject(i);
             JSONArray jsonArrayRequirment = jsonObject.getJSONArray("requirment");
             for (int j = 0; j < jsonArrayRequirment.length(); j++) {
-                BenefitsEffect benefitsEffect = benefitsEffectMap.get(jsonArrayRequirment.getJSONObject(j).getInt("requirment_id"));
-                requirments.add(new SingleCost(benefitsEffect.getResources()));
+                requirments.add(parseCost(jsonArrayRequirment.getJSONObject(j)));
             }
 
             JSONArray jsonArrayGiving = jsonObject.getJSONArray("giving");
             for (int j = 0; j < jsonArrayGiving.length(); j++) {
-                BenefitsEffect benefitsEffect = benefitsEffectMap.get(jsonArrayGiving.getJSONObject(j).getInt("giving_id"));
+                BenefitsEffect benefitsEffect = new BenefitsEffect(parseCost(jsonArrayGiving.getJSONObject(j)).getResources());
                 givings.add(benefitsEffect);
             }
 
             ImplicationEffect implicationEffect =  new ImplicationEffect(requirments,givings);
-            Effect effect = new Effect(null, null, implicationEffect, null, null);
-            effectMap.put(jsonObject.getInt("id"),effect);
+            effectMap.put(jsonObject.getInt("id"), implicationEffect);
 
         }
     }
 
 
 
-    public BenefitsEffect parseBenefit(JSONObject jsonObject) {
+    /*public BenefitsEffect parseBenefit(JSONObject jsonObject) {
         int faithPoint = jsonObject.getInt("faithPoint");
-        int gold = jsonObject.getInt("gold");
+        int coin = jsonObject.getInt("coin");
         int militaryPoint = jsonObject.getInt("militaryPoint");
         int servant = jsonObject.getInt("servant");
         int stone = jsonObject.getInt("stone");
         int victoryPoint = jsonObject.getInt("victoryPoint");
         int wood = jsonObject.getInt("wood");
-        ResourcesSet resources = new ResourcesSet(faithPoint, gold, militaryPoint, servant, stone, victoryPoint, wood);
+        ResourcesSet resources = new ResourcesSet(faithPoint, coin, militaryPoint, servant, stone, victoryPoint, wood);
         BenefitsEffect benefitsEffect = new BenefitsEffect(resources);
 
         return benefitsEffect;
 
 
-    }
+    }*/
 
-    public ArrayList<SingleCost> parseCost(JSONArray costs) {
-        ArrayList<SingleCost> singleCosts = null;
+    public SingleCost parseCost(JSONObject jsonObject) {
+        int faithPoint = 0;
+        int coin = 0;
+        int militaryPoint = 0;
+        int servant = 0;
+        int stone = 0;
+        int victoryPoint = 0;
+        int wood = 0;
 
-        for (int y = 0; y < costs.length(); y++) {
-            if (costs.getJSONObject(y).has("stone")) {
-                System.out.println(costs.getJSONObject(y).getString("stone"));
-            }
-            if (costs.getJSONObject(y).has("wood")) {
-                System.out.println(costs.getJSONObject(y).getString("wood"));
-            }
-            if (costs.getJSONObject(y).has("coin")) {
-                System.out.println(costs.getJSONObject(y).getString("coin"));
-            }
-            if (costs.getJSONObject(y).has("servant")) {
-                System.out.println(costs.getJSONObject(y).getString("servant"));
-            }
+
+        if (jsonObject.has("stone")) {
+            stone = jsonObject.getInt("stone");
+        }
+        if (jsonObject.has("wood")) {
+            wood = jsonObject.getInt("wood");
+        }
+        if (jsonObject.has("coin")) {
+            coin = jsonObject.getInt("coin");
+        }
+        if (jsonObject.has("servant")) {
+            servant = jsonObject.getInt("servant");
+        }
+        if (jsonObject.has("faithPoint")) {
+            faithPoint = jsonObject.getInt("faithPoint");
+        }
+        if (jsonObject.has("militaryPoint")) {
+            militaryPoint = jsonObject.getInt("militaryPoint");
+        }
+        if (jsonObject.has("victoryPoint")) {
+            victoryPoint = jsonObject.getInt("victoryPoint");
         }
 
-        SingleCost singleCost = new SingleCost(new ResourcesSet(0,0,0,0,0,0,0));
-        singleCosts.add(singleCost);
+        SingleCost singleCost = new SingleCost(new ResourcesSet(faithPoint,coin,militaryPoint,servant,stone,victoryPoint,wood));
 
-        return singleCosts;
+        return singleCost;
     }
 }
