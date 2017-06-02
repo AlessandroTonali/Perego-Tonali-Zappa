@@ -11,11 +11,11 @@ public class Board {
     private static int towerDim =4;
     private static int marketDim =4;
     private static Tower[] towers;
-    private MarketSpace[] marketSpaces;
-    private CouncilSpace councilSpace;
-    private ProductionSpace productionSpace;
-    private HarvestSpace harvestSpace;
-    private DiceSpace diceSpace;
+    private static MarketSpace[] marketSpaces;
+    private static CouncilSpace councilSpace;
+    private static ProductionSpace productionSpace;
+    private static HarvestSpace harvestSpace;
+    private static DiceSpace diceSpace;
 
     private Board(){
         this.towers = new Tower[towerDim];
@@ -72,14 +72,26 @@ public class Board {
             System.out.println("number out of bound, insert again");
             return chooseTower(player);
         }
-
-
-
-
-
     }
 
     public static Tower getTower(int i){
         return towers[i];
+    }
+
+    public static Tower[] getTowers(){
+        return towers;
+    }
+
+    public static CouncilSpace getCouncilSpace() {
+        return councilSpace;
+    }
+
+    public static void resetTowers(){
+        for( Tower t: getTowers()){
+            TowerSpace[] spaces = t.getSpaces();
+            for(int i=0; i< towers.length; i++){
+                spaces[i].resetCard();
+            }
+        }
     }
 }

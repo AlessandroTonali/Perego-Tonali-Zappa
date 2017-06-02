@@ -72,12 +72,12 @@ public class Player {
         this.familyMembers = familyMembers;
     }
 
-    public void chooseMove(){
+    public void chooseMove() {
         System.out.println("press\n 0 for placing a familiar in council\n" +
                 "press 1 for getting the harvest\n" +
                 "press 2 for getting production\n" +
                 "press 3 for increasing your familiar value\n" +
-                "press for for going in the market\n" +
+                "press 4 for for going in the market\n" +
                 "press 5 for going in a tower");
         Scanner scan = new Scanner(System.in);
         String sw = scan.nextLine();
@@ -86,28 +86,42 @@ public class Player {
         try {
             i = Integer.parseInt(sw);
 
-        } catch  (NumberFormatException e) {
+        } catch (NumberFormatException e) {
             System.out.println("unvalid format");
-             i = -1;
+            i = -1;
 
         }
 
-        if (i>8) {
+        if (i > 8) {
             System.out.println("invalid number");
             chooseMove();
         }
 
 
-
         switch (i) {
-            case -1: break;
-            case 0: new CouncilController(new CouncilSpace(),chooseFamilyMember()); break;
-            case 1: new HarvestController(chooseFamilyMember(), new HarvestSpace()); break;
-            case 2: new ProductionController(chooseFamilyMember(),new ProductionSpace()); break;
-            case 3: new IncreaseFamilyValue(5,chooseFamilyMember()); break;
-            case 4: new MarketController(chooseFamilyMember(),new MarketSpace()); break;
-            case 5: new TerritoryController(chooseFamilyMember(),Board.getTower(0)); break;
-            default: new OtherCardsController(chooseFamilyMember(),Board.chooseTower(this)); break;
+            case -1:
+                break;
+            case 0:
+                new CouncilController(new CouncilSpace(), chooseFamilyMember());
+                break;
+            case 1:
+                new HarvestController(chooseFamilyMember(), new HarvestSpace());
+                break;
+            case 2:
+                new ProductionController(chooseFamilyMember(), new ProductionSpace());
+                break;
+            case 3:
+                new IncreaseFamilyValue(5, chooseFamilyMember());
+                break;
+            case 4:
+                new MarketController(chooseFamilyMember(), new MarketSpace());
+                break;
+            case 5:
+                new TerritoryController(chooseFamilyMember(), Board.getTower(0));
+                break;
+            default:
+                new OtherCardsController(chooseFamilyMember(), Board.chooseTower(this));
+                break;
 
         }
 
@@ -117,7 +131,7 @@ public class Player {
     }
 
     public boolean isEquals(Player player) {
-        if(this.playerColor == player.getPlayerColor()){
+        if (this.playerColor == player.getPlayerColor()) {
             return true;
         } else {
             return false;
@@ -133,8 +147,7 @@ public class Player {
         System.out.println("ciaoooo");
         String sw = this.getNextLine();
         System.out.println(sw);
-        int i ;
-
+        int i;
 
 
         try {
@@ -148,7 +161,6 @@ public class Player {
         FamilyMember chosen;
 
 
-
         try {
             chosen = this.familyMembers[i];
         } catch (NullPointerException e) {
@@ -156,19 +168,13 @@ public class Player {
         }
 
 
-
-
         System.out.println("u choose the " + i + "family member");
         System.out.println("you have " + this.getResources().toString());
         return chosen;
     }
 
-    public String getNextLine(){
+    public String getNextLine() {
         return scan.nextLine();
     }
-
-
-
-
-    }
+}
 

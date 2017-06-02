@@ -32,4 +32,8 @@ public class TowerSpace extends ActionSpace {
     public BenefitsEffect getBenefitsEffect() {
         return benefitsEffect;
     }
+
+    public void resetCard(){
+        this.card= null;
+    }
 }
