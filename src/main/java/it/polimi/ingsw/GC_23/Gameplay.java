@@ -125,7 +125,10 @@ public class Gameplay {
             }
             //assegna punti venture cards
             for (VentureCard v : p.getCardOfPlayer().getVentureCards()) {
-                v.getPermanentEffect().getBenefitsEffect().activeEffect(p);
+                for (int i = 0; i < v.getPermanentEffect().size(); i++) {
+                    v.getPermanentEffect().get(i).activeEffect(p);
+                }
+
             }
         }
         //assegno victory points in base all'ordine militare

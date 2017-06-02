@@ -83,10 +83,10 @@ public class ParseJson {
             }
 
             JSONArray immediateEffectsJson = ventureCards.getJSONObject(x).getJSONArray("immediateEffect");
-            Effect immediateEffect = parseTypeEffect(immediateEffectsJson);
+            ArrayList<AbsEffect> immediateEffect = parseTypeEffect(immediateEffectsJson);
 
             JSONArray permanentEffectsJson = ventureCards.getJSONObject(x).getJSONArray("permanentEffect");
-            Effect permanentEffect = parseTypeEffect(permanentEffectsJson);
+            ArrayList<AbsEffect> permanentEffect = parseTypeEffect(permanentEffectsJson);
 
             VentureCard ventureCard = new VentureCard(period, CardColor.PURPLE, name, immediateEffect, permanentEffect, costs);
             ventureCardMap.put(idCard, ventureCard);
@@ -106,10 +106,10 @@ public class ParseJson {
             }
 
             JSONArray immediateEffectsJson = buildingCards.getJSONObject(x).getJSONArray("immediateEffect");
-            Effect immediateEffect = parseTypeEffect(immediateEffectsJson);
+            ArrayList<AbsEffect> immediateEffect = parseTypeEffect(immediateEffectsJson);
 
             JSONArray permanentEffectsJson = buildingCards.getJSONObject(x).getJSONArray("permanentEffect");
-            Effect permanentEffect = parseTypeEffect(permanentEffectsJson);
+            ArrayList<AbsEffect> permanentEffect = parseTypeEffect(permanentEffectsJson);
 
             String name = buildingCards.getJSONObject(x).getString("name");
             int period = buildingCards.getJSONObject(x).getInt("period");
@@ -126,9 +126,9 @@ public class ParseJson {
             int idCard = territoryCards.getJSONObject(i).getInt("id");
             int period = territoryCards.getJSONObject(i).getInt("period");
             JSONArray immediateEffectsJson = territoryCards.getJSONObject(i).getJSONArray("immediateEffect");
-            Effect immediateEffect = parseTypeEffect(immediateEffectsJson);
+            ArrayList<AbsEffect> immediateEffect = parseTypeEffect(immediateEffectsJson);
             JSONArray permanentEffectsJson = territoryCards.getJSONObject(i).getJSONArray("permanentEffect");
-            Effect permanentEffect = parseTypeEffect(permanentEffectsJson);
+            ArrayList<AbsEffect> permanentEffect = parseTypeEffect(permanentEffectsJson);
 
             TerritoryCard territoryCard = new TerritoryCard(period, CardColor.GREEN, name, immediateEffect,permanentEffect);
             territoryCardMap.put(idCard,territoryCard);
@@ -147,9 +147,9 @@ public class ParseJson {
             }
 
             JSONArray immediateEffectsJson = characterCards.getJSONObject(i).getJSONArray("immediateEffect");
-            Effect immediateEffect = parseTypeEffect(immediateEffectsJson);
+            ArrayList<AbsEffect> immediateEffect = parseTypeEffect(immediateEffectsJson);
             JSONArray permanentEffectsJson = characterCards.getJSONObject(i).getJSONArray("permanentEffect");
-            Effect permanentEffect = parseTypeEffect(permanentEffectsJson);
+            ArrayList<AbsEffect> permanentEffect = parseTypeEffect(permanentEffectsJson);
 
             CharacterCard characterCard = new CharacterCard(period, CardColor.BLUE, name, immediateEffect, permanentEffect, costs);
             characterCardMap.put(idCard, characterCard);
@@ -158,41 +158,15 @@ public class ParseJson {
 
     }
 
-    public Effect parseTypeEffect(JSONArray jsonArray) {
-        BenefitsEffect benefitsEffect = null;
-        CouncilPrivilegeEffect councilPrivilegeEffect = null;
-        DiscountEffect discountEffect = null;
-        ImplicationEffect implicationEffect = null;
-        NewPlayEffect newPlayEffect = null;
-        ProductEffect productEffect = null;
+    public ArrayList<AbsEffect> parseTypeEffect(JSONArray jsonArray) {
+        ArrayList<AbsEffect> arrayList = new ArrayList<>();
         for (int y = 0; y < jsonArray.length() ; y++) {
 
             int id = jsonArray.getJSONObject(y).getInt("effect");
-
-            switch (effectMap.get(id).getTypeEffect()) {
-                case EffectType.BENEFIT_EFFECT_TYPE:
-                    benefitsEffect = (BenefitsEffect) effectMap.get(id);
-                    break;
-                case EffectType.COUNCIL_EFFECT_TYPE:
-                    councilPrivilegeEffect = (CouncilPrivilegeEffect) effectMap.get(id);
-                    break;
-                case EffectType.DISCOUNT_EFFECT_TYPE:
-                    discountEffect = (DiscountEffect) effectMap.get(id);
-                    break;
-                case EffectType.IMPLICATION_EFFECT_TYPE:
-                    implicationEffect = (ImplicationEffect) effectMap.get(id);
-                    break;
-                case EffectType.NEWPLAY_EFFECT_TYPE:
-                    newPlayEffect = (NewPlayEffect) effectMap.get(id);
-                    break;
-                case EffectType.PRODUCT_EFFECT_TYPE:
-                    productEffect = (ProductEffect) effectMap.get(id);
-                    break;
-            }
+            arrayList.add(effectMap.get(id));
         }
-        Effect effect = new Effect(councilPrivilegeEffect, benefitsEffect, implicationEffect, newPlayEffect, discountEffect);
 
-        return effect;
+        return arrayList;
     }
 
     public AbsEffect[] getTowerTerritoryEffect(){
