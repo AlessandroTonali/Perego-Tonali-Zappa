@@ -33,7 +33,7 @@ public class CouncilController extends PlaceFamilyMember {
     public void makeAction(){
         BenefitsEffect benefits = new BenefitsEffect(new ResourcesSet(0,1,0,0,0,0,0));
         benefits.activeEffect(familyMember.getPlayer());
-        councilSpace.getEffect().activeEffect(familyMember.getPlayer());
+        //TODO councilSpace.getEffect().activeEffect(familyMember.getPlayer());
         councilSpace.setFamilyMember(familyMember);
     }
 

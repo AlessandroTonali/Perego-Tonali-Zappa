@@ -102,7 +102,7 @@ public class Player {
             case -1:
                 break;
             case 0:
-                new CouncilController(new CouncilSpace(), chooseFamilyMember());
+                new CouncilController(new CouncilSpace(null), chooseFamilyMember());
                 break;
             case 1:
                 new HarvestController(chooseFamilyMember(), new HarvestSpace());
@@ -114,7 +114,7 @@ public class Player {
                 new IncreaseFamilyValue(5, chooseFamilyMember());
                 break;
             case 4:
-                new MarketController(chooseFamilyMember(), new MarketSpace());
+                new MarketController(chooseFamilyMember(), new MarketSpace(null));
                 break;
             case 5:
                 new TerritoryController(chooseFamilyMember(), Board.getTower(0));

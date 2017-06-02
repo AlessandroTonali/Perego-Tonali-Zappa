@@ -195,7 +195,6 @@ public class ParseJson {
         Effect effect = new Effect(councilPrivilegeEffect, benefitsEffect, implicationEffect, newPlayEffect, discountEffect);
 
         return effect;
-
     }
 
     public AbsEffect[] getTowerTerritoryEffect(){
@@ -216,7 +215,6 @@ public class ParseJson {
         towerEffect[3] = effectMap.get(34);
 
         return towerEffect;
-
     }
 
     public AbsEffect[] getTowerVentureEffect(){
@@ -227,7 +225,6 @@ public class ParseJson {
         towerEffect[3] = effectMap.get(44);
 
         return towerEffect;
-
     }
 
     public AbsEffect[] getTowerBuildingEffect(){
@@ -238,8 +235,6 @@ public class ParseJson {
         towerEffect[3] = effectMap.get(54);
 
         return towerEffect;
-
-
     }
 
     public void parseEffect() {
@@ -296,6 +291,7 @@ public class ParseJson {
         for (int i = 0; i < councilPrivilegeEffects.length(); i++) {
             JSONObject jsonObject = councilPrivilegeEffects.getJSONObject(i);
             CouncilPrivilegeEffect councilPrivilegeEffect = new CouncilPrivilegeEffect(jsonObject.getInt("number_privilege"), jsonObject.getBoolean("is_different"));
+            councilPrivilegeEffect.setBenefits(getCouncilBenefit());
             effectMap.put(jsonObject.getInt("id"), councilPrivilegeEffect);
 
         }

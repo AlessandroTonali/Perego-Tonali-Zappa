@@ -23,7 +23,6 @@ public class CouncilPrivilegeEffect extends AbsEffect{
     public CouncilPrivilegeEffect(int numberOfPrivileges, boolean isDifferent) {
         this.numberOfPrivileges = numberOfPrivileges;
         this.isDifferent = isDifferent;
-        this.benefits = ParseJson.getParseJson().getCouncilBenefit();
     }
 
     public void setBenefits(BenefitsEffect[] benefits) {
