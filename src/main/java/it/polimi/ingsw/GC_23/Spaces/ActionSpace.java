@@ -45,5 +45,7 @@ public class ActionSpace {
         this.familyMember = familyMember;
     }
 
-
+    public void resetFamilyMember(){
+        this.familyMember = new FamilyMember(this);
+    }
 }

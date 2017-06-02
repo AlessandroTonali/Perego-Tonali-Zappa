@@ -116,4 +116,16 @@ public class Board {
     public int getDiceWValue(){
         return diceW.getValue();
     }
+
+    public static MarketSpace[] getMarketSpaces() {
+        return marketSpaces;
+    }
+
+    public static ProductionSpace getProductionSpace() {
+        return productionSpace;
+    }
+
+    public static HarvestSpace getHarvestSpace() {
+        return harvestSpace;
+    }
 }

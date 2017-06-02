@@ -46,4 +46,12 @@ public class CouncilSpace extends ActionSpace {
     public ArrayList<FamilyMember> getPlayerOrder() {
         return playerOrder;
     }
+
+    @Override
+    public void resetFamilyMember(){
+        for(FamilyMember f: this.getPlayerOrder()){
+            f= new FamilyMember(this);
+            orderCounter = 0;
+        }
+    }
 }

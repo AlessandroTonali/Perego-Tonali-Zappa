@@ -57,5 +57,14 @@ public class HarvestSpace extends ActionSpace {
     public static int getOrderCounter() {
         return orderCounter;
     }
+
+    @Override
+    public void resetFamilyMember(){
+        for(FamilyMember f: this.getPlayerOrder()){
+            f= new FamilyMember(this);
+            orderCounter=0;
+            isBusyFirst=false;
+        }
+    }
 }
 

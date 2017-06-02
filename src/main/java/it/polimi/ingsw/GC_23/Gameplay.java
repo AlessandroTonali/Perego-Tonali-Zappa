@@ -1,5 +1,8 @@
 package it.polimi.ingsw.GC_23;
 
+import it.polimi.ingsw.GC_23.Spaces.Tower;
+import it.polimi.ingsw.GC_23.Spaces.TowerSpace;
+
 import java.util.ArrayList;
 
 /**
@@ -68,6 +71,13 @@ public class Gameplay {
         this.players = makeTurnOrder();
         board.setDices();
         resetFamilyMembers();
+
+        for(Tower t: board.getTowers()){
+            for(TowerSpace ts: t.getSpaces()){
+                ts.resetFamilyMember();
+            }
+        }
+
         //tolgo i familiari da tutti gli spazi
         //todo: in 1.2 2.2 e 3.2 rapporto al vaticano: scomunica
 
