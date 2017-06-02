@@ -42,7 +42,7 @@ public class ImplicationEffect extends AbsEffect{
         ArrayList<BenefitsEffect> chosenBenefit = new ArrayList<BenefitsEffect>();
         ImplicationEffect chosen = new ImplicationEffect(chosenCost, chosenBenefit);
         while (!madeChoice) {
-            System.out.println("Select possibile implication");
+            System.out.println("Select possible implication");
             for (int m = 0; m < requirements.size(); m++) {
                 System.out.println(m + "--> " + requirements.get(m).toString());
                 System.out.println("     " + givings.get(m).toString());
