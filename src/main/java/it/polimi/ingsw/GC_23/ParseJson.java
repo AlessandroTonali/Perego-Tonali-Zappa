@@ -8,6 +8,7 @@ import it.polimi.ingsw.GC_23.Controller.NewPlay;
 import it.polimi.ingsw.GC_23.Effects.*;
 import it.polimi.ingsw.GC_23.Enumerations.CardColor;
 import it.polimi.ingsw.GC_23.Resources.ResourcesSet;
+import it.polimi.ingsw.GC_23.Spaces.Tower;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
@@ -194,6 +195,24 @@ public class ParseJson {
         Effect effect = new Effect(councilPrivilegeEffect, benefitsEffect, implicationEffect, newPlayEffect, discountEffect);
 
         return effect;
+
+    }
+
+    public AbsEffect[] getTowerTerritoryEffect(){
+
+
+    }
+
+    public AbsEffect[] getTowerCharacterEffect(){
+
+    }
+
+    public AbsEffect[] getTowerVentureEffect(){
+
+    }
+
+    public AbsEffect[] getTowerBuildingEffect(){
+
 
     }
 
