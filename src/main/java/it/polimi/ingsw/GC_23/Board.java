@@ -16,6 +16,9 @@ public class Board {
     private static ProductionSpace productionSpace;
     private static HarvestSpace harvestSpace;
     private static DiceSpace diceSpace;
+    private static Dice diceB;
+    private static Dice diceO;
+    private static Dice diceW;
 
     private Board(){
         this.towers = new Tower[towerDim];
@@ -31,13 +34,17 @@ public class Board {
         this.harvestSpace = new HarvestSpace();
 
         this.diceSpace = new DiceSpace();
-        Dice diceB = new Dice(DiceColor.BLACK);
-        Dice diceO = new Dice(DiceColor.ORANGE);
-        Dice diceW = new Dice(DiceColor.WHITE);
+        setDices();
+
+    }
+
+    public static void setDices(){
+        diceB = new Dice(DiceColor.BLACK);
+        diceO = new Dice(DiceColor.ORANGE);
+        diceW = new Dice(DiceColor.WHITE);
         diceSpace.setDice(diceB);
         diceSpace.setDice(diceO);
         diceSpace.setDice(diceW);
-
     }
 
     public static void setTowers(Tower[] towers) {
@@ -86,12 +93,24 @@ public class Board {
         return councilSpace;
     }
 
-    public static void resetTowers(){
+    public static void resetCardTowers(){
         for( Tower t: getTowers()){
             TowerSpace[] spaces = t.getSpaces();
             for(int i=0; i< towers.length; i++){
                 spaces[i].resetCard();
             }
         }
+    }
+
+    public int getDiceBValue(){
+        return diceB.getValue();
+    }
+
+    public int getDiceOValue(){
+        return diceO.getValue();
+    }
+
+    public int getDiceWValue(){
+        return diceW.getValue();
     }
 }
