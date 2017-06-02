@@ -9,5 +9,6 @@ public interface EffectType {
      int DISCOUNT_EFFECT_TYPE = 3;
      int IMPLICATION_EFFECT_TYPE  = 4;
      int NEWPLAY_EFFECT_TYPE = 5;
+     int PRODUCT_EFFECT_TYPE = 6;
 
 }

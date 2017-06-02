@@ -4,7 +4,8 @@
 	
 ],
 "BuildingCard": [
-	{"id": "290","name": "Carpenter's Shop", "cost": [ {"wood": "2", "coin": "1"}],"immediateEffect": [{"effect": "291"}], "permanentEffect": [{"effect": "292"}], "period": "1"}
+	{"id": "290","name": "Carpenter's Shop", "cost": [ {"wood": "2", "coin": "1"}], "immediateEffect": [{"effect": "291"}], "permanentEffect": [{"effect": "292"}], "period": "1"},
+	{"id": "260","name": "Tax Office", "cost": [ {"wood": "3", "stone": "1"}], "immediateEffect": [{"effect": "261"}], "permanentEffect": [{"effect": "262"}], "period": "1"}
 ],
 "CharacterCard": [
 	{"id": "640","name": "Royal Messenger", "cost": [ {"coin": "5"}], "immediateEffect": [{"effect": "641"}], "permanentEffect": [], "period": "3"}

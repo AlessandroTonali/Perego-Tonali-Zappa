@@ -10,6 +10,7 @@
 		{"id": "102", "wood": "2", "militaryPoint": "1"},
 		{"id": "731", "militaryPoint": "5"},
 		{"id": "732", "victoryPoint": "4"},
+		{"id": "261", "victoryPoint": "5"}
 		
 	],
 	"CouncilPrivilegeEffect": [
@@ -35,6 +36,10 @@
 	],
 	"NewPlayEffect":[
 		
+	
+	],
+	"ProductEffect":[
+		{"id": "262", "giving_product": [{"coin": "1"}], "card_color": "green"}
 	
 	]
 }

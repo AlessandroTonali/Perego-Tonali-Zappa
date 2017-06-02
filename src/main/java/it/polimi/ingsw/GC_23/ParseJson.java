@@ -77,7 +77,6 @@ public class ParseJson {
 
         JSONArray buildingCards = rootObject.getJSONArray("BuildingCard");
         for (int x = 0; x < buildingCards.length(); x++) {
-            System.out.println(buildingCards.getJSONObject(x).getString("name"));
 
             JSONArray costsJson = buildingCards.getJSONObject(x).getJSONArray("cost");
             ArrayList<SingleCost> costs = new ArrayList<>();
@@ -144,6 +143,7 @@ public class ParseJson {
         DiscountEffect discountEffect = null;
         ImplicationEffect implicationEffect = null;
         NewPlayEffect newPlayEffect = null;
+        ProductEffect productEffect = null;
         for (int y = 0; y < jsonArray.length() ; y++) {
 
             int id = jsonArray.getJSONObject(y).getInt("effect");
@@ -163,6 +163,9 @@ public class ParseJson {
                     break;
                 case EffectType.NEWPLAY_EFFECT_TYPE:
                     newPlayEffect = (NewPlayEffect) effectMap.get(id);
+                    break;
+                case EffectType.PRODUCT_EFFECT_TYPE:
+                    productEffect = (ProductEffect) effectMap.get(id);
                     break;
             }
         }
@@ -204,6 +207,9 @@ public class ParseJson {
 
         JSONArray newPlayEffects = rootObject.getJSONArray("NewPlayEffect");
         parseNewPlayEffect(newPlayEffects);
+
+        JSONArray productEffects = rootObject.getJSONArray("ProductEffect");
+        parseProductEffect(productEffects);
     }
 
     private void parseNewPlayEffect(JSONArray newPlayEffects) {
@@ -216,8 +222,6 @@ public class ParseJson {
             BenefitsEffect benefitsEffect = new BenefitsEffect(parseCost(jsonObject).getResources());
             benefitsEffectMap.put(jsonObject.getInt("id"), benefitsEffect);
             effectMap.put(jsonObject.getInt("id"), benefitsEffect);
-
-            //System.out.println(effect.getResources().toString());
         }
     }
 
@@ -254,6 +258,37 @@ public class ParseJson {
 
             ImplicationEffect implicationEffect =  new ImplicationEffect(requirments,givings);
             effectMap.put(jsonObject.getInt("id"), implicationEffect);
+
+        }
+    }
+
+    private void parseProductEffect(JSONArray productEffects) {
+        for (int i = 0; i < productEffects.length(); i++) {
+            ProductEffect productEffect = null;
+            int idEffect = productEffects.getJSONObject(i).getInt("id");
+
+            ArrayList<SingleCost> givings = new ArrayList<>();
+            JSONObject jsonObject = productEffects.getJSONObject(i);
+            JSONArray jsonArrayGiving = jsonObject.getJSONArray("giving_product");
+            for (int j = 0; j < jsonArrayGiving.length(); j++) {
+                givings.add(parseCost(jsonArrayGiving.getJSONObject(j)));
+            }
+
+            String cardColor = productEffects.getJSONObject(i).getString("card_color");
+            if (cardColor.equals("green")) {
+                productEffect = new ProductEffect(givings.get(0), CardColor.GREEN);
+            }
+            if (cardColor.equals("yellow")) {
+                productEffect = new ProductEffect(givings.get(0), CardColor.YELLOW);
+            }
+            if (cardColor.equals("purple")) {
+                productEffect = new ProductEffect(givings.get(0), CardColor.PURPLE);
+            }
+            if (cardColor.equals("blue")) {
+                productEffect = new ProductEffect(givings.get(0), CardColor.BLUE);
+            }
+            
+            effectMap.put(idEffect, productEffect);
 
         }
     }
