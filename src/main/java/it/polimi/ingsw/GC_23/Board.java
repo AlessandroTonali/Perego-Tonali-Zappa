@@ -23,9 +23,6 @@ public class Board {
     private static Dice diceW;
 
     private Board(){
-
-
-
         this.towers = towerInstancer();
 
         this.marketSpaces = new MarketSpace[marketDim];
@@ -40,7 +37,6 @@ public class Board {
 
         this.diceSpace = new DiceSpace();
         setDices();
-
     }
 
     private void createTowerSpace() {
