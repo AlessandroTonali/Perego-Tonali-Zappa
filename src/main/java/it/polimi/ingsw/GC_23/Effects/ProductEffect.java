@@ -69,7 +69,7 @@ public class ProductEffect extends AbsEffect {
     }
 
     @Override
-    public int getTyteEffect() {
+    public int getTypeEffect() {
         return EffectType.PRODUCT_EFFECT_TYPE;
     }
 }

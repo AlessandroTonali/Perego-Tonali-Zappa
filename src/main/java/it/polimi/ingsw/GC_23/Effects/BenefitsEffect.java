@@ -28,7 +28,7 @@ public class BenefitsEffect extends AbsEffect{
     }
 
     @Override
-    public int getTyteEffect() {
+    public int getTypeEffect() {
         return EffectType.BENEFIT_EFFECT_TYPE;
     }
 

@@ -4,11 +4,9 @@ import it.polimi.ingsw.GC_23.Cards.BuildingCard;
 import it.polimi.ingsw.GC_23.Cards.CharacterCard;
 import it.polimi.ingsw.GC_23.Cards.TerritoryCard;
 import it.polimi.ingsw.GC_23.Cards.VentureCard;
-import it.polimi.ingsw.GC_23.Controller.NewPlay;
 import it.polimi.ingsw.GC_23.Effects.*;
 import it.polimi.ingsw.GC_23.Enumerations.CardColor;
 import it.polimi.ingsw.GC_23.Resources.ResourcesSet;
-import it.polimi.ingsw.GC_23.Spaces.Tower;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
@@ -171,7 +169,7 @@ public class ParseJson {
 
             int id = jsonArray.getJSONObject(y).getInt("effect");
 
-            switch (effectMap.get(id).getTyteEffect()) {
+            switch (effectMap.get(id).getTypeEffect()) {
                 case EffectType.BENEFIT_EFFECT_TYPE:
                     benefitsEffect = (BenefitsEffect) effectMap.get(id);
                     break;

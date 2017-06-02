@@ -11,7 +11,7 @@ import java.util.ArrayList;
  * Created by Alessandro on 21/05/2017.
  */
 public class VentureCard extends Card {
-    public VentureCard(int period, CardColor cardColor, String name, Effect immediateEffect, Effect permanentEffect,
+    public VentureCard(int period, CardColor cardColor, String name, ArrayList<AbsEffect> immediateEffect, ArrayList<AbsEffect> permanentEffect,
                        ArrayList<SingleCost> cost) {
         super(period, cardColor, name, immediateEffect, permanentEffect, cost);
     }

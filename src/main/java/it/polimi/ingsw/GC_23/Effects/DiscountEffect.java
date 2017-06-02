@@ -87,7 +87,7 @@ public class DiscountEffect extends AbsEffect{
     }
 
     @Override
-    public int getTyteEffect() {
+    public int getTypeEffect() {
         return EffectType.DISCOUNT_EFFECT_TYPE;
     }
 }

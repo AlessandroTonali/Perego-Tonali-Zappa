@@ -15,7 +15,7 @@ import java.util.List;
 public class TerritoryCard extends Card {
 
 
-    public TerritoryCard(int period, CardColor cardColor, String name, Effect immediateEffect, Effect permanentEffect) {
+    public TerritoryCard(int period, CardColor cardColor, String name, ArrayList<AbsEffect> immediateEffect, ArrayList<AbsEffect> permanentEffect) {
         super(period, cardColor, name, immediateEffect, permanentEffect, null);
         ArrayList<SingleCost> costs = new ArrayList<>();
         costs.add(new SingleCost(new ResourcesSet()));

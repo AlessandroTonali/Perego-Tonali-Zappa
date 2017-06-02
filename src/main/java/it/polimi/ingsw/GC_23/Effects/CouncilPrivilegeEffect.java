@@ -123,7 +123,7 @@ public class CouncilPrivilegeEffect extends AbsEffect{
     }
 
     @Override
-    public int getTyteEffect() {
+    public int getTypeEffect() {
         return EffectType.COUNCIL_EFFECT_TYPE;
     }
 

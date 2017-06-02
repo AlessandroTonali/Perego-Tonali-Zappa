@@ -7,5 +7,5 @@ import it.polimi.ingsw.GC_23.Player;
  */
 public abstract class AbsEffect {
     public abstract void activeEffect(Player player);
-    public abstract int getTyteEffect();
+    public abstract int getTypeEffect();
 }

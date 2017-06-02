@@ -85,7 +85,7 @@ public class ImplicationEffect extends AbsEffect{
     }
 
     @Override
-    public int getTyteEffect() {
+    public int getTypeEffect() {
         return EffectType.IMPLICATION_EFFECT_TYPE;
     }
 }

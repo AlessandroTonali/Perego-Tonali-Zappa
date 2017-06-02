@@ -2,11 +2,15 @@ package it.polimi.ingsw.GC_23.Controller;
 
 import it.polimi.ingsw.GC_23.Cards.BuildingCard;
 import it.polimi.ingsw.GC_23.Cards.TerritoryCard;
+import it.polimi.ingsw.GC_23.Effects.AbsEffect;
 import it.polimi.ingsw.GC_23.Effects.Effect;
 import it.polimi.ingsw.GC_23.FamilyMember;
+import it.polimi.ingsw.GC_23.Player;
 import it.polimi.ingsw.GC_23.Resources.ResourcesSet;
 import it.polimi.ingsw.GC_23.Spaces.Tower;
 import it.polimi.ingsw.GC_23.Spaces.TowerSpace;
+
+import java.util.ArrayList;
 
 /**
  * Created by jesss on 23/05/17.
@@ -78,7 +82,10 @@ public class TerritoryController extends TowerController {
             ));
         }
 
-        towerSpace.getCard().getImmediateEffect().activeEffect(familyMember.getPlayer());
+        ArrayList<AbsEffect> effects = towerSpace.getCard().getImmediateEffect();
+        for(AbsEffect i : effects){
+            i.activeEffect(familyMember.getPlayer());
+        }
         towerSpace.setFamilyMember(familyMember);
         towerSpace.getCard().addCardOfPlayer(familyMember.getPlayer());
 

@@ -3,6 +3,7 @@ package it.polimi.ingsw.GC_23.Controller;
 import it.polimi.ingsw.GC_23.Cards.Card;
 import it.polimi.ingsw.GC_23.Cards.CharacterCard;
 import it.polimi.ingsw.GC_23.Cards.TerritoryCard;
+import it.polimi.ingsw.GC_23.Effects.AbsEffect;
 import it.polimi.ingsw.GC_23.Effects.Effect;
 import it.polimi.ingsw.GC_23.FamilyMember;
 import it.polimi.ingsw.GC_23.Resources.Resources;
@@ -10,6 +11,8 @@ import it.polimi.ingsw.GC_23.Resources.ResourcesSet;
 import it.polimi.ingsw.GC_23.SingleCost;
 import it.polimi.ingsw.GC_23.Spaces.Tower;
 import it.polimi.ingsw.GC_23.Spaces.TowerSpace;
+
+import java.util.ArrayList;
 
 /**
  * Created by jesss on 23/05/17.
@@ -70,7 +73,10 @@ public class OtherCardsController extends TowerController {
 
     public void makeAction(SingleCost cost) {
         familyMember.getPlayer().getResources().pay(cost.getResources());
-        towerSpace.getCard().getImmediateEffect().activeEffect(familyMember.getPlayer());
+        ArrayList<AbsEffect> effects = towerSpace.getCard().getImmediateEffect();
+        for(AbsEffect i : effects){
+            i.activeEffect(familyMember.getPlayer());
+        }
         towerSpace.setFamilyMember(familyMember);
         towerSpace.getCard().addCardOfPlayer(familyMember.getPlayer());
 

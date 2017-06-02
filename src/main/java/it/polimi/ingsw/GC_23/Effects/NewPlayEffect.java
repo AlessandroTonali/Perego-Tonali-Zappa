@@ -52,7 +52,7 @@ public class NewPlayEffect extends AbsEffect{
     }
 
     @Override
-    public int getTyteEffect() {
+    public int getTypeEffect() {
         return EffectType.NEWPLAY_EFFECT_TYPE;
     }
 }
