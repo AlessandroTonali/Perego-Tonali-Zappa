@@ -18,8 +18,15 @@ public class TerritoryController extends TowerController {
     private Tower tower;
 
     public TerritoryController(FamilyMember familyMember, Tower tower) {
-        super(familyMember,tower,null);
-        this.tower.
+        super(familyMember,tower);
+
+
+
+    }
+
+
+    public void setTowerSpace(TowerSpace towerSpace) {
+        this.towerSpace = towerSpace;
     }
 
     public TerritoryController(FamilyMember familyMember, Tower tower, TowerSpace towerSpace) {

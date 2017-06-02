@@ -35,7 +35,7 @@ public class Main {
         ResourcesSet set1 = new ResourcesSet(1,2,3,4,5,6,7);
         ResourcesSet set2 = new ResourcesSet(5,6,7,8,9,10,11);
         Player player = new Player(PlayerColor.RED, null);
-        TowerSpace[] towerSpaces = new TowerSpace[1];
+        TowerSpace[] towerSpaces = new TowerSpace[4];
         Tower tower1 = new Tower(towerSpaces);
         Tower tower2 = new Tower(towerSpaces);
         Tower tower3 = new Tower(towerSpaces);
@@ -46,7 +46,7 @@ public class Main {
         towers[2] = tower3;
         towers[3] = tower4;
         Board.setTowers(towers);
-        Board.chooseTower(player);
+        player.chooseMove();
     }
 
 

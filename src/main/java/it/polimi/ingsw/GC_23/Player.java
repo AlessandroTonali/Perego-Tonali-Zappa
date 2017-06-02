@@ -73,6 +73,12 @@ public class Player {
     }
 
     public void chooseMove(){
+        System.out.println("press\n 0 for placing a familiar in council\n" +
+                "press 1 for getting the harvest\n" +
+                "press 2 for getting production\n" +
+                "press 3 for increasing your familiar value\n" +
+                "press for for going in the market\n" +
+                "press 5 for going in a tower");
         Scanner scan = new Scanner(System.in);
         String sw = scan.nextLine();
 
@@ -86,21 +92,22 @@ public class Player {
 
         }
 
-        System.out.println("press\n 0 for placing a familiar in council\n" +
-                "press 1 for getting the harvest\n" +
-                "press 2 for getting production\n" +
-                "press 3 for increasing your familiar value\n" +
-                "press for for going in the market\n" +
-                "press 5 for going in a tower");
+        if (i>8) {
+            System.out.println("invalid number");
+            chooseMove();
+        }
+
+
 
         switch (i) {
             case -1: break;
-            case 0: new CouncilController(new CouncilSpace(),chooseFamilyMember());
-            case 1: new HarvestController(chooseFamilyMember(), new HarvestSpace());
-            case 2: new ProductionController(chooseFamilyMember(),new ProductionSpace());
-            case 3: new IncreaseFamilyValue(5,chooseFamilyMember());
-            case 4: new MarketController(chooseFamilyMember(),new MarketSpace());
-            case 5: new TerritoryController(chooseFamilyMember(),Board.getTower(0));
+            case 0: new CouncilController(new CouncilSpace(),chooseFamilyMember()); break;
+            case 1: new HarvestController(chooseFamilyMember(), new HarvestSpace()); break;
+            case 2: new ProductionController(chooseFamilyMember(),new ProductionSpace()); break;
+            case 3: new IncreaseFamilyValue(5,chooseFamilyMember()); break;
+            case 4: new MarketController(chooseFamilyMember(),new MarketSpace()); break;
+            case 5: new TerritoryController(chooseFamilyMember(),Board.getTower(0)); break;
+            default: new OtherCardsController(chooseFamilyMember(),Board.chooseTower(this)); break;
 
         }
 

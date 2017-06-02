@@ -17,6 +17,10 @@ public class OtherCardsController extends TowerController {
     private TowerSpace towerSpace;
     private  Tower tower;
 
+    public OtherCardsController(FamilyMember familyMember, Tower tower) {
+        super(familyMember, tower);
+    }
+
     public OtherCardsController(FamilyMember familyMember, Tower tower, TowerSpace towerSpace) {
         super(familyMember, tower, towerSpace);
         if (isLegal()) {
