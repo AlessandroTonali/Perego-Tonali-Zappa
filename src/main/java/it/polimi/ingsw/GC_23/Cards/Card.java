@@ -61,6 +61,7 @@ public abstract class Card {
         return cost;
     }
 
+
     public SingleCost getCost(Player player) {
 
         if(!checkCostChoose()){
@@ -115,4 +116,6 @@ public abstract class Card {
         return cost.get(j);
 
     }
+
+    public abstract void addCardOfPlayer(Player player);
 }

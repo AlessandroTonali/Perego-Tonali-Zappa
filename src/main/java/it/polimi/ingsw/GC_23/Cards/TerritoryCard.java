@@ -65,4 +65,8 @@ public class TerritoryCard extends Card {
         return takeble;
     }
 
+    public void addCardOfPlayer(Player player) {
+        player.getCardOfPlayer().setCard(this);
+    }
+
 }

@@ -28,4 +28,8 @@ public class VentureCard extends Card {
             return false;
         }
     }
+
+    public void addCardOfPlayer(Player player) {
+        player.getCardOfPlayer().setCard(this);
+    }
 }

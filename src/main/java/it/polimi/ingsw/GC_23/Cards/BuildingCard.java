@@ -30,4 +30,8 @@ public class BuildingCard extends Card {
             return false;
         }
     }
+
+    public void addCardOfPlayer(Player player) {
+        player.getCardOfPlayer().setCard(this);
+    }
 }

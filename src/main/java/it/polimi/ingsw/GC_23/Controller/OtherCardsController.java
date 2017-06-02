@@ -1,5 +1,7 @@
 package it.polimi.ingsw.GC_23.Controller;
 
+import it.polimi.ingsw.GC_23.Cards.Card;
+import it.polimi.ingsw.GC_23.Cards.CharacterCard;
 import it.polimi.ingsw.GC_23.Cards.TerritoryCard;
 import it.polimi.ingsw.GC_23.Effects.Effect;
 import it.polimi.ingsw.GC_23.FamilyMember;
@@ -17,25 +19,34 @@ public class OtherCardsController extends TowerController {
     private TowerSpace towerSpace;
     private  Tower tower;
 
+    public void makeAction() {
+        System.out.println("FATAL ERROR,BUG DETECTED");
+    }
+    public boolean isLegal(){
+        System.out.println("FATAL ERROR, BUG DETECTED");
+        return false;
+    }
+
     public OtherCardsController(FamilyMember familyMember, Tower tower) {
         super(familyMember, tower);
     }
 
     public OtherCardsController(FamilyMember familyMember, Tower tower, TowerSpace towerSpace) {
         super(familyMember, tower, towerSpace);
-        if (isLegal()) {
-            makeAction();
+        SingleCost cost = this.towerSpace.getCard().getCost(familyMember.getPlayer());
+        if (isLegal(cost)) {
+            makeAction(cost);
             System.out.println("success");
         } else {
             System.out.println("error");
         }
     }
-@Override
-    public boolean isLegal() {
-        ResourcesSet cost = towerSpace.getCard().getCost(this.familyMember.getPlayer()).getResources();
+
+    public boolean isLegal(SingleCost cost) {
+
 
         if(tower.checkOtherFamiliar()) {
-            cost.sum(new ResourcesSet(0,3,0,0,0,0,0));
+            cost.getResources().sum(new ResourcesSet(0,3,0,0,0,0,0));
         }
 
 
@@ -44,7 +55,7 @@ public class OtherCardsController extends TowerController {
 
         legal = legal && !towerSpace.checkBusy();
 
-        legal = legal && familyMember.getPlayer().getResources().checkAffordable(cost);
+        legal = legal && familyMember.getPlayer().getResources().checkAffordable(cost.getResources());
 
         legal = legal && (familyMember.getValue() >= towerSpace.getValue());
 
@@ -56,24 +67,13 @@ public class OtherCardsController extends TowerController {
 
 
     }
-@Override
 
-    public void makeAction() {
+    public void makeAction(SingleCost cost) {
+        familyMember.getPlayer().getResources().pay(cost.getResources());
+        towerSpace.getCard().getImmediateEffect().activeEffect(familyMember.getPlayer());
+        towerSpace.setFamilyMember(familyMember);
+        towerSpace.getCard().addCardOfPlayer(familyMember.getPlayer());
 
-        /*if(this.towerSpace.getCard().checkchoose()) {
-
-            //TODO potrebbe avere più costi la situa
-            SingleCost cost = this.towerSpace.getCard().getCost();
-            familyMember.getPlayer().getResources().pay(cost.getResources());
-            Effect effect = this.towerSpace.getCard().getSingleEffect();
-            effect.activeEffect(familyMember.getPlayer());
-            familyMember.getPlayer().getCardOfPlayer().setCard((TerritoryCard) this.towerSpace.getCard());
-
-
-        }
-        else{
-            //TODO c e da fare la scan
-        }*/
 
 
 
@@ -83,6 +83,4 @@ public class OtherCardsController extends TowerController {
 
 }
 
-    //choosecost
-    //costo da controllare
 

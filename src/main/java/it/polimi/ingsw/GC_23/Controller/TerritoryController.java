@@ -19,7 +19,12 @@ public class TerritoryController extends TowerController {
 
     public TerritoryController(FamilyMember familyMember, Tower tower) {
         super(familyMember,tower);
-
+        if (isLegal()) {
+            makeAction();
+            System.out.println("succes");
+        } else {
+            System.out.println("error");
+        }
 
 
     }
@@ -67,21 +72,19 @@ public class TerritoryController extends TowerController {
     }
 
     public void makeAction() {
-
-        /*if(this.towerSpace.getCard().checkchoose()) {
-           Effect effect = this.towerSpace.getCard().getSingleEffect();
-           effect.activeEffect(familyMember.getPlayer());
-           familyMember.getPlayer().getCardOfPlayer().setCard((TerritoryCard) this.towerSpace.getCard());
-
-
+        if(tower.checkOtherFamiliar()) {
+            familyMember.getPlayer().getResources().pay(new ResourcesSet(0,3,0,
+                    0,0,0,0
+            ));
         }
-        else{
-            //TODO c e da fare la scan
-        }*/
+
+        towerSpace.getCard().getImmediateEffect().activeEffect(familyMember.getPlayer());
+        towerSpace.setFamilyMember(familyMember);
+        towerSpace.getCard().addCardOfPlayer(familyMember.getPlayer());
 
 
 
 
     }
-    //punti militari da controllare
+
 }
