@@ -1,10 +1,14 @@
 package it.polimi.ingsw.GC_23.Controller;
 
+import it.polimi.ingsw.GC_23.Effects.AbsEffect;
 import it.polimi.ingsw.GC_23.Effects.BenefitsEffect;
+import it.polimi.ingsw.GC_23.Effects.CouncilPrivilegeEffect;
 import it.polimi.ingsw.GC_23.FamilyMember;
 import it.polimi.ingsw.GC_23.Player;
 import it.polimi.ingsw.GC_23.Resources.ResourcesSet;
 import it.polimi.ingsw.GC_23.Spaces.CouncilSpace;
+
+import java.util.ArrayList;
 
 /**
  * Created by jesss on 23/05/17.
@@ -22,6 +26,7 @@ public class CouncilController extends PlaceFamilyMember {
     }
     @Override
     public boolean isLegal(){
+
         if(familyMember.getValue()>=1 && !councilSpace.checkFamiliar(familyMember.getPlayer().getPlayerColor())){
             return true;
         }
@@ -31,10 +36,25 @@ public class CouncilController extends PlaceFamilyMember {
     }
     @Override
     public void makeAction(){
-        BenefitsEffect benefits = new BenefitsEffect(new ResourcesSet(0,1,0,0,0,0,0));
-        benefits.activeEffect(familyMember.getPlayer());
-        //TODO councilSpace.getEffect().activeEffect(familyMember.getPlayer());
+
         councilSpace.setFamilyMember(familyMember);
+
+
+
+        ArrayList<AbsEffect> effects = new ArrayList<>();
+
+
+        //*ArrayList<AbsEffect> effects = councilSpace.getEffects();
+        effects.add(new CouncilPrivilegeEffect(1,true));
+
+        effects.get(0).activeEffect(familyMember.getPlayer());
+
+
+        /**todo ale fa il parsingfor(AbsEffect i : effects){
+            i.activeEffect(familyMember.getPlayer());
+        */
+
+    }
     }
 
-}
+

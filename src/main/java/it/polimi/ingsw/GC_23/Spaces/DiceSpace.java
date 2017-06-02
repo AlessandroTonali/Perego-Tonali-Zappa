@@ -9,7 +9,7 @@ import it.polimi.ingsw.GC_23.Enumerations.DiceColor;
 public class DiceSpace {
     private Dice[] dices;
     private static int diceCounter;
-    private int diceSpaceDim;
+    private static int diceSpaceDim = 3;
 
     public DiceSpace() {
         this.dices = new Dice[diceSpaceDim];

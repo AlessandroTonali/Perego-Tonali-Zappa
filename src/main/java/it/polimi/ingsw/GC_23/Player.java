@@ -102,10 +102,10 @@ public class Player {
             case -1:
                 break;
             case 0:
-                new CouncilController(new CouncilSpace(null), chooseFamilyMember());
+                new CouncilController(Board.getCouncilSpace(), chooseFamilyMember());
                 break;
             case 1:
-                new HarvestController(chooseFamilyMember(), new HarvestSpace());
+                new HarvestController(chooseFamilyMember(), Board.getHarvestSpace());
                 break;
             case 2:
                 new ProductionController(chooseFamilyMember(), new ProductionSpace());

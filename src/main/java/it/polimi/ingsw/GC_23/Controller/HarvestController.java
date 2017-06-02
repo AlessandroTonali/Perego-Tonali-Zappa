@@ -1,5 +1,6 @@
 package it.polimi.ingsw.GC_23.Controller;
 
+import it.polimi.ingsw.GC_23.Board;
 import it.polimi.ingsw.GC_23.FamilyMember;
 import it.polimi.ingsw.GC_23.Spaces.HarvestSpace;
 
@@ -22,14 +23,15 @@ public class HarvestController extends PlaceFamilyMember {
 
     //Da controllare: no familiari dello stesso colore (si neutro)
     public boolean isLegal() {
-        if (!(harvestSpace.checkBusy()) && (familyMember.getValue() >= 1)) {
+        if (!(harvestSpace.checkFamiliar(familyMember.getPlayer().getPlayerColor())) &&
+                (familyMember.getValue() >= 1)) {
             return true;
         }
         return false;
     }
 
     public boolean hasSense() {
-        return this.harvestSpace.checkValue(familyMember);
+        return Board.getHarvestSpace().checkValue(familyMember);
     }
 
     //TODO: attiva anche gli effetti permanenti delle carte terriorio in possesso con valore <= a quello dell'azione

@@ -1,6 +1,7 @@
 package it.polimi.ingsw.GC_23.Spaces;
 
 import it.polimi.ingsw.GC_23.Effects.AbsEffect;
+import it.polimi.ingsw.GC_23.Enumerations.FamilyColor;
 import it.polimi.ingsw.GC_23.Enumerations.PlayerColor;
 import it.polimi.ingsw.GC_23.FamilyMember;
 
@@ -44,7 +45,8 @@ public class HarvestSpace extends ActionSpace {
 
     public boolean checkFamiliar(PlayerColor playerColor){
         for(int i = 0; i<playerOrder.size(); i++) {
-            if (playerOrder.get(i).getPlayer().getPlayerColor() == playerColor) {
+            if (playerOrder.get(i).getPlayer().getPlayerColor() == playerColor && !(playerOrder.get(i)
+                    .getFamilyColor() == FamilyColor.NEUTRAL)) {
                 return true;
             }
         }
