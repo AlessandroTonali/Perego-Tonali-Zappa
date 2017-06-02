@@ -25,6 +25,7 @@ public class Board {
     private Board(){
         this.towers = towerInstancer();
 
+        //todo: se partita di due giocatori ho solo due spazi
         this.marketSpaces = new MarketSpace[marketDim];
         this.marketSpaces[0]= new MarketSpace(ParseJson.getParseJson().getMarketEffect().get(0));
         this.marketSpaces[1]= new MarketSpace(ParseJson.getParseJson().getMarketEffect().get(1));

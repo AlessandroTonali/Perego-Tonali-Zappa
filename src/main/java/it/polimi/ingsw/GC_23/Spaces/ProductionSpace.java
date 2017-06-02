@@ -17,6 +17,7 @@ public class ProductionSpace extends ActionSpace {
     private static boolean isBusyFirst;
     private static int orderCounter;
     private ArrayList<FamilyMember> playerOrder;
+    private boolean completePlay = false; //todo: se false partita di due giocatori: un solo spazio
 
     public ProductionSpace(){
         super(1);
