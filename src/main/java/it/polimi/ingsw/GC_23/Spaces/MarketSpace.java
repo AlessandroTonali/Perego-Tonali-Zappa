@@ -1,15 +1,28 @@
 package it.polimi.ingsw.GC_23.Spaces;
 
+import it.polimi.ingsw.GC_23.Effects.AbsEffect;
+import it.polimi.ingsw.GC_23.Effects.BenefitsEffect;
 import it.polimi.ingsw.GC_23.FamilyMember;
 import it.polimi.ingsw.GC_23.Spaces.ActionSpace;
+
+import java.util.ArrayList;
 
 /**
  * Created by Alessandro Tonali on 20/05/2017.
  */
 public class MarketSpace extends ActionSpace {
-    public MarketSpace(){
-        super(1);
+    private  final AbsEffect effect;
 
+    public MarketSpace(AbsEffect effect){
+        super(1);
+        this.effect = effect;
+
+
+
+    }
+
+    public AbsEffect getEffect() {
+        return effect;
     }
 
     public boolean checkValue(FamilyMember familyMember) {

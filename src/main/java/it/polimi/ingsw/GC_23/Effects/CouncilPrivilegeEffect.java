@@ -2,6 +2,7 @@ package it.polimi.ingsw.GC_23.Effects;
 
 import it.polimi.ingsw.GC_23.EffectType;
 import it.polimi.ingsw.GC_23.FamilyMember;
+import it.polimi.ingsw.GC_23.ParseJson;
 import it.polimi.ingsw.GC_23.Player;
 import it.polimi.ingsw.GC_23.Resources.ResourcesSet;
 
@@ -19,10 +20,10 @@ public class CouncilPrivilegeEffect extends AbsEffect{
     private FamilyMember familyMember;
 
 
-    public CouncilPrivilegeEffect(BenefitsEffect[] benefits, int numberOfPrivileges, boolean isDifferent) {
-        this.benefits = benefits;
+    public CouncilPrivilegeEffect(int numberOfPrivileges, boolean isDifferent) {
         this.numberOfPrivileges = numberOfPrivileges;
         this.isDifferent = isDifferent;
+        this.benefits = ParseJson.getParseJson().getCouncilBenefit();
     }
 
     public void setBenefits(BenefitsEffect[] benefits) {

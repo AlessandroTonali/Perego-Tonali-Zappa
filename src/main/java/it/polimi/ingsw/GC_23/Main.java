@@ -30,11 +30,17 @@ import java.util.logging.Logger;
 public class Main {
     public static void main( String[] args )
     {
-        ParseJson parseJson = new ParseJson();
+        ParseJson.getParseJson();
         System.out.println( "Hello World!" );
+
         ResourcesSet set1 = new ResourcesSet(1,2,3,4,5,6,7);
         ResourcesSet set2 = new ResourcesSet(5,6,7,8,9,10,11);
         Player player = new Player(PlayerColor.RED, null);
+        FamilyMember familyMember = new FamilyMember(player, FamilyColor.ORANGE,7);
+        FamilyMember[] members = new FamilyMember[1];
+        members[0] = familyMember;
+        player.setResources(set1);
+        player.setFamilyMembers(members);
         TowerSpace[] towerSpaces = new TowerSpace[4];
         Tower tower1 = new Tower(towerSpaces);
         Tower tower2 = new Tower(towerSpaces);

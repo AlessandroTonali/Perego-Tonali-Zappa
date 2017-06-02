@@ -1,17 +1,19 @@
 package it.polimi.ingsw.GC_23.Spaces;
 
+import it.polimi.ingsw.GC_23.Effects.AbsEffect;
 import it.polimi.ingsw.GC_23.Effects.Effect;
 import it.polimi.ingsw.GC_23.FamilyMember;
+
+import java.util.ArrayList;
 
 /**
  * Created by Alessandro Tonali on 20/05/2017.
  */
 public class ActionSpace {
     private FamilyMember familyMember;
-    private Effect effect;
     private final int value;
 
-    public ActionSpace(int value) {
+    public ActionSpace (int value) {
         this.value = value;
     }
 
@@ -19,9 +21,6 @@ public class ActionSpace {
         return familyMember;
     }
 
-    public Effect getEffect() {
-        return effect;
-    }
 
     public boolean checkBusy(){
         if (this.familyMember == null) {
@@ -46,7 +45,5 @@ public class ActionSpace {
         this.familyMember = familyMember;
     }
 
-    public void setEffect(Effect effect) {
-        this.effect = effect;
-    }
+
 }

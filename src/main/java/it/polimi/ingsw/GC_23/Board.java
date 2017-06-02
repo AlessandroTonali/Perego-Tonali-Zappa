@@ -1,6 +1,8 @@
 package it.polimi.ingsw.GC_23;
 
+import it.polimi.ingsw.GC_23.Effects.BenefitsEffect;
 import it.polimi.ingsw.GC_23.Enumerations.DiceColor;
+import it.polimi.ingsw.GC_23.Resources.ResourcesSet;
 import it.polimi.ingsw.GC_23.Spaces.*;
 
 /**
@@ -21,15 +23,16 @@ public class Board {
     private static Dice diceW;
 
     private Board(){
+
         this.towers = new Tower[towerDim];
 
         this.marketSpaces = new MarketSpace[marketDim];
-        this.marketSpaces[0]= new MarketSpace();
-        this.marketSpaces[1]= new MarketSpace();
-        this.marketSpaces[2]= new MarketSpace();
-        this.marketSpaces[3]= new MarketSpace();
+        this.marketSpaces[0]= new MarketSpace(ParseJson.getParseJson().getMarketEffect().get(0));
+        this.marketSpaces[1]= new MarketSpace(ParseJson.getParseJson().getMarketEffect().get(1));
+        this.marketSpaces[2]= new MarketSpace(ParseJson.getParseJson().getMarketEffect().get(2));
+        this.marketSpaces[3]= new MarketSpace(ParseJson.getParseJson().getMarketEffect().get(3));
 
-        this.councilSpace = new CouncilSpace();
+        this.councilSpace = new CouncilSpace(ParseJson.getParseJson().getCouncilSpaceEffect());
         this.productionSpace = new ProductionSpace();
         this.harvestSpace = new HarvestSpace();
 

@@ -2,6 +2,7 @@ package it.polimi.ingsw.GC_23.Controller;
 
 import it.polimi.ingsw.GC_23.Effects.BenefitsEffect;
 import it.polimi.ingsw.GC_23.FamilyMember;
+import it.polimi.ingsw.GC_23.Player;
 import it.polimi.ingsw.GC_23.Resources.ResourcesSet;
 import it.polimi.ingsw.GC_23.Spaces.CouncilSpace;
 
@@ -32,8 +33,7 @@ public class CouncilController extends PlaceFamilyMember {
     public void makeAction(){
         BenefitsEffect benefits = new BenefitsEffect(new ResourcesSet(0,1,0,0,0,0,0));
         benefits.activeEffect(familyMember.getPlayer());
-        /*scelta della pergamena e assegnamento effetto
-        CouncilPrivilegeEffect privilege = new CouncilPrivilegeEffect( benefits, 1);*/
+        councilSpace.getEffect().activeEffect(familyMember.getPlayer());
         councilSpace.setFamilyMember(familyMember);
     }
 

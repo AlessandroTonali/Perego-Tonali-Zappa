@@ -21,6 +21,7 @@ import java.util.Scanner;
  * Created by Alessandro on 01/06/2017.
  */
 public class ParseJson {
+    private static ParseJson parseJson;
 
     private HashMap<Integer, AbsEffect> effectMap;
     private HashMap<Integer, BenefitsEffect> benefitsEffectMap;
@@ -29,13 +30,34 @@ public class ParseJson {
     private HashMap<Integer,TerritoryCard> territoryCardMap = new HashMap<>();
     private HashMap<Integer,CharacterCard> characterCardMap = new HashMap<>();
 
-    public ParseJson() {
+    public static synchronized ParseJson getParseJson(){
+        if(parseJson == null){
+            parseJson = new ParseJson();
+        }
+        return parseJson;
+
+    }
+
+    private ParseJson() {
         parseEffect();
         parseCard();
         BenefitsEffect benefitsEffect = (BenefitsEffect) effectMap.get(401);
 
 
     }
+
+    public ArrayList<BenefitsEffect> getMarketEffect() {
+        // TODO
+        BenefitsEffect benefitsEffect = (BenefitsEffect) effectMap.get("10");
+        ArrayList<BenefitsEffect> arrayList = new ArrayList<>();
+        for (int i = 0; i < 4; i++) {
+            arrayList.add(benefitsEffect);
+        }
+        return arrayList;
+
+    }
+
+
 
     private void parseCard() {
         String jsonContent = null;
@@ -226,18 +248,32 @@ public class ParseJson {
     }
 
     private void parseCouncilPrivilegeEffect(JSONArray councilPrivilegeEffects) {
-        BenefitsEffect[] councilPrivilege = new BenefitsEffect[5];
-        councilPrivilege[0] = benefitsEffectMap.get("10");
-        councilPrivilege[1] = benefitsEffectMap.get("11");
-        councilPrivilege[2] = benefitsEffectMap.get("12");
-        councilPrivilege[3] = benefitsEffectMap.get("13");
-        councilPrivilege[4] = benefitsEffectMap.get("14");
         for (int i = 0; i < councilPrivilegeEffects.length(); i++) {
             JSONObject jsonObject = councilPrivilegeEffects.getJSONObject(i);
-            CouncilPrivilegeEffect councilPrivilegeEffect = new CouncilPrivilegeEffect(councilPrivilege,jsonObject.getInt("number_privilege"), jsonObject.getBoolean("is_different"));
+            CouncilPrivilegeEffect councilPrivilegeEffect = new CouncilPrivilegeEffect(jsonObject.getInt("number_privilege"), jsonObject.getBoolean("is_different"));
             effectMap.put(jsonObject.getInt("id"), councilPrivilegeEffect);
 
         }
+    }
+
+    public BenefitsEffect[] getCouncilBenefit() {
+        BenefitsEffect[] councilPrivilegeBenefit = new BenefitsEffect[5];
+        councilPrivilegeBenefit[0] = benefitsEffectMap.get("10");
+        councilPrivilegeBenefit[1] = benefitsEffectMap.get("11");
+        councilPrivilegeBenefit[2] = benefitsEffectMap.get("12");
+        councilPrivilegeBenefit[3] = benefitsEffectMap.get("13");
+        councilPrivilegeBenefit[4] = benefitsEffectMap.get("14");
+
+        return councilPrivilegeBenefit;
+    }
+
+    public ArrayList<AbsEffect> getCouncilSpaceEffect() {
+        //todo fare le cose giuste
+        ArrayList<AbsEffect> councilEffects  = new ArrayList<>();
+        councilEffects.add(new CouncilPrivilegeEffect(1,true));
+        councilEffects.add(effectMap.get("12"));
+
+        return councilEffects ;
     }
 
     private void parseImplicationEffect(JSONArray implicationEffects) {
