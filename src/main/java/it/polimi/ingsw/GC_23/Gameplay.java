@@ -1,5 +1,7 @@
 package it.polimi.ingsw.GC_23;
 
+import it.polimi.ingsw.GC_23.Cards.VentureCard;
+import it.polimi.ingsw.GC_23.Spaces.MarketSpace;
 import it.polimi.ingsw.GC_23.Spaces.Tower;
 import it.polimi.ingsw.GC_23.Spaces.TowerSpace;
 
@@ -64,6 +66,7 @@ public class Gameplay {
         }
         System.out.println("END");
         checkEndGame();
+        getWinner();
     }
 
     private void checkEndPeriod() {
@@ -77,14 +80,96 @@ public class Gameplay {
                 ts.resetFamilyMember();
             }
         }
-
-        //tolgo i familiari da tutti gli spazi
+        for(MarketSpace m: board.getMarketSpaces()){
+            m.resetFamilyMember();
+        }
+        board.getCouncilSpace().resetFamilyMember();
+        board.getProductionSpace().resetFamilyMember();
+        board.getHarvestSpace().resetFamilyMember();
         //todo: in 1.2 2.2 e 3.2 rapporto al vaticano: scomunica
 
     }
 
-    private void checkEndGame(){
-        //assegno victory points
+    private void checkEndGame() {
+        for (Player p : players) {
+            //assegna punti territory cards
+            switch (p.getCardOfPlayer().getTerritoryCards().size()) {
+                case 3:
+                    p.getResources().getVictoryPointsObj().add(1);
+                case 4:
+                    p.getResources().getVictoryPointsObj().add(4);
+                case 5:
+                    p.getResources().getVictoryPointsObj().add(10);
+                case 6:
+                    p.getResources().getVictoryPointsObj().add(20);
+                default:
+                    p.getResources().getVictoryPointsObj().add(0);
+            }
+
+            //assegna punti character cards
+            switch (p.getCardOfPlayer().getCharacterCards().size()) {
+                case 1:
+                    p.getResources().getVictoryPointsObj().add(1);
+                case 2:
+                    p.getResources().getVictoryPointsObj().add(3);
+                case 3:
+                    p.getResources().getVictoryPointsObj().add(6);
+                case 4:
+                    p.getResources().getVictoryPointsObj().add(10);
+                case 5:
+                    p.getResources().getVictoryPointsObj().add(15);
+                case 6:
+                    p.getResources().getVictoryPointsObj().add(21);
+                default:
+                    p.getResources().getVictoryPointsObj().add(0);
+            }
+            //assegna punti venture cards
+            for (VentureCard v : p.getCardOfPlayer().getVentureCards()) {
+                v.getPermanentEffect().getBenefitsEffect().activeEffect(p);
+            }
+        }
+        //assegno victory points in base all'ordine militare
+        ArrayList<Player> order = makeMilitaryOrder();
+        if (order.get(0).getResources().getMilitaryPoints() == order.get(1).getResources().getMilitaryPoints()) {
+            order.get(0).getResources().getVictoryPointsObj().add(5);
+            order.get(1).getResources().getVictoryPointsObj().add(5);
+            order.get(2).getResources().getVictoryPointsObj().add(2);
+        }
+        else if (order.get(1).getResources().getMilitaryPoints() == order.get(2).getResources().getMilitaryPoints()) {
+            order.get(0).getResources().getVictoryPointsObj().add(5);
+            order.get(1).getResources().getVictoryPointsObj().add(2);
+            order.get(2).getResources().getVictoryPointsObj().add(2);
+        } else {
+            order.get(0).getResources().getVictoryPointsObj().add(5);
+            order.get(1).getResources().getVictoryPointsObj().add(2);
+        }
+
+        //assegna victorypoints in base alle risorse
+        for(Player p : players){
+            int sum= (p.getResources().getGold()+p.getResources().getStone()+p.getResources().getWood()+p.getResources().getServants());
+            double number = sum/5;
+            p.getResources().getVictoryPointsObj().add((int)number);
+        }
+    }
+
+    private void getWinner(){
+        ArrayList<Player> playersOrder = new ArrayList<Player>();
+        for(int i=0; i<players.size(); i++){
+            for(int j=0; j<players.size(); j++){
+                if(players.get(i).getResources().getVictoryPoints()>=players.get(j).getResources().getVictoryPoints()){
+                }
+                else{
+                    break;
+                }
+            }
+            playersOrder.add(playersOrder.get(i));
+        }
+        System.out.println("THE WINNER IS PLAYER: "+playersOrder.get(0).getPlayerColor());
+        System.out.println("Victory order: ");
+        for (Player p: playersOrder){
+            System.out.println(p.getPlayerColor());
+            System.out.println("-----------------");
+        }
     }
 
     private void resetFamilyMembers(){

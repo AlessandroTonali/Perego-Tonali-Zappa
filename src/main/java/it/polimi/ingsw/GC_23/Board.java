@@ -213,13 +213,5 @@ public class Board {
         return towers;
 
     }
-
-
-
-
-
-
-
-
-    }
 }
+
