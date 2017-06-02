@@ -100,9 +100,7 @@ public class Player {
             case 2: new ProductionController(chooseFamilyMember(),new ProductionSpace());
             case 3: new IncreaseFamilyValue(5,chooseFamilyMember());
             case 4: new MarketController(chooseFamilyMember(),new MarketSpace());
-           /* case 5: ChooseTower(choosefamil
-
-           * */
+            case 5: new TerritoryController(chooseFamilyMember(),Board.getTower(0));
 
         }
 

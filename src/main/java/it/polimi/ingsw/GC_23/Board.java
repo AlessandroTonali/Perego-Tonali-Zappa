@@ -10,7 +10,7 @@ public class Board {
     private static Board board;
     private static int towerDim =4;
     private static int marketDim =4;
-    private Tower[] towers;
+    private static Tower[] towers;
     private MarketSpace[] marketSpaces;
     private CouncilSpace councilSpace;
     private ProductionSpace productionSpace;
@@ -40,10 +40,46 @@ public class Board {
 
     }
 
+    public static void setTowers(Tower[] towers) {
+        Board.towers = towers;
+    }
+
     synchronized static Board getBoard(){
         if(board==null){
             board = new Board();
         }
         return board;
+    }
+
+    public static Tower chooseTower(Player player) {
+        System.out.println("choose ur tower");
+        String input = player.getNextLine();
+        int i;
+
+        try {
+            i = Integer.parseInt(input);
+            System.out.println("ciao");
+            System.out.println(i);
+
+        } catch (NumberFormatException e) {
+            System.out.println("unvalid format try again");
+            return chooseTower(player);
+        }
+
+        try{
+            return towers[i];
+        }catch (NullPointerException e) {
+            System.out.println("number out of bound, insert again");
+            return chooseTower(player);
+        }
+
+
+
+
+
+    }
+
+    public static Tower getTower(int i){
+        return towers[i];
     }
 }

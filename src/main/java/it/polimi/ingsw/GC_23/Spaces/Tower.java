@@ -2,6 +2,7 @@ package it.polimi.ingsw.GC_23.Spaces;
 
 import it.polimi.ingsw.GC_23.Enumerations.FamilyColor;
 import it.polimi.ingsw.GC_23.FamilyMember;
+import it.polimi.ingsw.GC_23.Player;
 import it.polimi.ingsw.GC_23.Spaces.TowerSpace;
 
 /**
@@ -58,6 +59,30 @@ public class Tower {
             }
         }
         return otherFamiliarPresence;
+    }
+
+    public TowerSpace chooseTowerSpace(Player player) {
+        System.out.println("choose the tower space");
+        String input = player.getNextLine();
+        int i;
+        try {
+            i = Integer.parseInt(input);
+            System.out.println("ciao");
+
+        } catch (NumberFormatException e) {
+            System.out.println("unvalid format");
+            return chooseTowerSpace(player);
+        }
+
+        try {
+            System.out.println("u choosed " + i);
+            return this.spaces[i];
+
+        } catch (NullPointerException e) {
+            System.out.println("number out of bound, try again");
+            return chooseTowerSpace(player);
+        }
+
     }
 
 }

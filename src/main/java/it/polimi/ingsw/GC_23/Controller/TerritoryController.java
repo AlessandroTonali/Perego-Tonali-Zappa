@@ -17,6 +17,11 @@ public class TerritoryController extends TowerController {
     private TowerSpace towerSpace;
     private Tower tower;
 
+    public TerritoryController(FamilyMember familyMember, Tower tower) {
+        super(familyMember,tower,null);
+        this.tower.
+    }
+
     public TerritoryController(FamilyMember familyMember, Tower tower, TowerSpace towerSpace) {
         super(familyMember,tower,towerSpace);
 

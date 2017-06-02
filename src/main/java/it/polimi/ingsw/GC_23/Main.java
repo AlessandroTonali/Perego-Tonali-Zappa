@@ -11,6 +11,8 @@ import it.polimi.ingsw.GC_23.Enumerations.PlayerColor;
 import it.polimi.ingsw.GC_23.Resources.ResourcesSet;
 import it.polimi.ingsw.GC_23.Spaces.HarvestSpace;
 import it.polimi.ingsw.GC_23.Spaces.ProductionSpace;
+import it.polimi.ingsw.GC_23.Spaces.Tower;
+import it.polimi.ingsw.GC_23.Spaces.TowerSpace;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
@@ -32,8 +34,20 @@ public class Main {
         System.out.println( "Hello World!" );
         ResourcesSet set1 = new ResourcesSet(1,2,3,4,5,6,7);
         ResourcesSet set2 = new ResourcesSet(5,6,7,8,9,10,11);
+        Player player = new Player(PlayerColor.RED, null);
+        TowerSpace[] towerSpaces = new TowerSpace[1];
+        Tower tower1 = new Tower(towerSpaces);
+        Tower tower2 = new Tower(towerSpaces);
+        Tower tower3 = new Tower(towerSpaces);
+        Tower tower4 = new Tower(towerSpaces);
+        Tower[] towers = new Tower[4];
+        towers[0] = tower1;
+        towers[1] = tower2;
+        towers[2] = tower3;
+        towers[3] = tower4;
+        Board.setTowers(towers);
+        Board.chooseTower(player);
     }
 
-    public Main () {
-    }
+
 }
