@@ -1,10 +1,32 @@
 {
 	"BenefitEffect": [
+		{"id": "0"},
+		
+		{"id": "2", "coin": "1"},
+	
 		{"id": "10", "stone": "1","wood": "1"},
 		{"id": "11", "servant": "2"},
 		{"id": "12", "coin": "2"},
 		{"id": "13", "militaryPoint": "2"},
 		{"id": "14", "faithPoint": "1"},
+		
+		{"id": "23", "wood": "1"},
+		{"id": "24", "wood": "2"},
+		
+		{"id": "33", "stone": "1"},
+		{"id": "34", "stone": "2"},
+		
+		{"id": "43", "militaryPoint": "1"},
+		{"id": "44", "militaryPoint": "2"},
+		
+		{"id": "53", "coin": "1"},
+		{"id": "54", "coin": "2"},
+		
+		{"id": "61", "coin": "5"},
+		{"id": "62", "servant": "5"},
+		{"id": "63", "militaryPoint": "3", "coin": "2"},
+		
+		
 		{"id": "291", "victoryPoint": "3"},
 		{"id": "101", "servant": "1"},
 		{"id": "102", "wood": "2", "militaryPoint": "1"},
@@ -14,11 +36,9 @@
 		
 	],
 	"CouncilPrivilegeEffect": [
-		{"id": "20", "number_privilege": "1", "is_different": "false"},
-		{"id": "21", "number_privilege": "2", "is_different": "true"},
+		{"id": "1", "number_privilege": "1", "is_different": "true"},
+		{"id": "64", "number_privilege": "2", "is_different": "true"},
 		{"id": "641", "number_privilege": "3", "is_different": "true"}
-		
-		
 	
 	],
 	"DiscountEffect": [

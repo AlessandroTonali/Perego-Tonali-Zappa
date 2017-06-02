@@ -47,13 +47,13 @@ public class ParseJson {
 
     }
 
-    public ArrayList<BenefitsEffect> getMarketEffect() {
-        // TODO
-        BenefitsEffect benefitsEffect = (BenefitsEffect) effectMap.get("10");
-        ArrayList<BenefitsEffect> arrayList = new ArrayList<>();
-        for (int i = 0; i < 4; i++) {
-            arrayList.add(benefitsEffect);
-        }
+    public ArrayList<AbsEffect> getMarketEffect() {
+
+        ArrayList<AbsEffect> arrayList = new ArrayList<>();
+        arrayList.add(effectMap.get("61"));
+        arrayList.add(effectMap.get("62"));
+        arrayList.add(effectMap.get("63"));
+        arrayList.add(effectMap.get("64"));
         return arrayList;
 
     }
@@ -199,19 +199,45 @@ public class ParseJson {
     }
 
     public AbsEffect[] getTowerTerritoryEffect(){
+        AbsEffect[] towerEffect = new AbsEffect[4];
+        towerEffect[0] = effectMap.get(0);
+        towerEffect[1] = effectMap.get(0);
+        towerEffect[2] = effectMap.get(23);
+        towerEffect[3] = effectMap.get(24);
 
-
+        return towerEffect;
     }
 
     public AbsEffect[] getTowerCharacterEffect(){
+        AbsEffect[] towerEffect = new AbsEffect[4];
+        towerEffect[0] = effectMap.get(0);
+        towerEffect[1] = effectMap.get(0);
+        towerEffect[2] = effectMap.get(33);
+        towerEffect[3] = effectMap.get(34);
+
+        return towerEffect;
 
     }
 
     public AbsEffect[] getTowerVentureEffect(){
+        AbsEffect[] towerEffect = new AbsEffect[4];
+        towerEffect[0] = effectMap.get(0);
+        towerEffect[1] = effectMap.get(0);
+        towerEffect[2] = effectMap.get(43);
+        towerEffect[3] = effectMap.get(44);
+
+        return towerEffect;
 
     }
 
     public AbsEffect[] getTowerBuildingEffect(){
+        AbsEffect[] towerEffect = new AbsEffect[4];
+        towerEffect[0] = effectMap.get(0);
+        towerEffect[1] = effectMap.get(0);
+        towerEffect[2] = effectMap.get(53);
+        towerEffect[3] = effectMap.get(54);
+
+        return towerEffect;
 
 
     }
@@ -287,10 +313,9 @@ public class ParseJson {
     }
 
     public ArrayList<AbsEffect> getCouncilSpaceEffect() {
-        //todo fare le cose giuste
         ArrayList<AbsEffect> councilEffects  = new ArrayList<>();
-        councilEffects.add(new CouncilPrivilegeEffect(1,true));
-        councilEffects.add(effectMap.get("12"));
+        councilEffects.add(effectMap.get("1"));
+        councilEffects.add(effectMap.get("2"));
 
         return councilEffects ;
     }
