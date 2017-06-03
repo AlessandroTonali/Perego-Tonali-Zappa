@@ -22,6 +22,6 @@ public class SingleCost {
 
     @Override
     public String toString() {
-        return "Costs: "+ resources + '|';
+        return "Costs: {"+ resources + "}";
     }
 }

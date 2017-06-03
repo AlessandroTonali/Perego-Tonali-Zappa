@@ -29,12 +29,9 @@ public abstract class TowerController extends PlaceFamilyMember {
 
     public abstract boolean isLegal();
 
-
-
-
     public abstract void makeAction();
 
-    // controlla se il tower space che ci han passato appartiene alla torre
+    // controlla se il tower space che ci hanno passato appartiene alla torre
     private boolean checkTowerSpaceInTower() {
         boolean isMember = false;
         TowerSpace[] towerSpaces = tower.getSpaces();
@@ -45,7 +42,4 @@ public abstract class TowerController extends PlaceFamilyMember {
         }
         return isMember;
     }
-
-
-
 }

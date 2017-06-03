@@ -40,9 +40,6 @@ public class Board {
         setDices();
     }
 
-    private void createTowerSpace() {
-    }
-
     public static void setDices(){
         diceB = new Dice(DiceColor.BLACK);
         diceO = new Dice(DiceColor.ORANGE);
@@ -64,24 +61,24 @@ public class Board {
     }
 
     public static Tower chooseTower(Player player) {
-        System.out.println("choose ur tower");
+        System.out.println("Choose a tower");
         String input = player.getNextLine();
         int i;
 
         try {
             i = Integer.parseInt(input);
-            System.out.println("ciao");
+            System.out.println("Chosen tower");
             System.out.println(i);
 
         } catch (NumberFormatException e) {
-            System.out.println("unvalid format try again");
+            System.out.println("Invalid format, try again");
             return chooseTower(player);
         }
 
         try{
             return towers[i];
         }catch (NullPointerException e) {
-            System.out.println("number out of bound, insert again");
+            System.out.println("Number out of bound, insert again");
             return chooseTower(player);
         }
     }
@@ -106,8 +103,6 @@ public class Board {
             }
         }
     }
-
-
 
     public int getDiceBValue(){
         return diceB.getValue();

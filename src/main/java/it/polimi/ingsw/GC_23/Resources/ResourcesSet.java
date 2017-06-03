@@ -168,7 +168,6 @@ public class ResourcesSet {
 
         return  resarray;
 
-
     }
 
     public boolean checkAffordable( ResourcesSet checked) {
@@ -183,8 +182,6 @@ public class ResourcesSet {
 
 
     }
-
-
 
     public void setArray(int[] setarray ) {
         int[] resarray = new int[resourceNumber ];

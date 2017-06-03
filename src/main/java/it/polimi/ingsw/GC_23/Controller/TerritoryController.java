@@ -29,8 +29,6 @@ public class TerritoryController extends TowerController {
         } else {
             System.out.println("error");
         }
-
-
     }
 
 
@@ -56,8 +54,6 @@ public class TerritoryController extends TowerController {
             cost.sum(new ResourcesSet(0,3,0,0,0,0,0));
         }
 
-        //TODO capire come collegare lo spazio torre alla torre
-
         boolean legal  = true;
 
         legal = legal && !towerSpace.checkBusy();
@@ -71,15 +67,11 @@ public class TerritoryController extends TowerController {
         legal = legal && tower.checkFamiliarTower(familyMember);
 
         return legal;
-
-
     }
 
     public void makeAction() {
         if(tower.checkOtherFamiliar()) {
-            familyMember.getPlayer().getResources().pay(new ResourcesSet(0,3,0,
-                    0,0,0,0
-            ));
+            familyMember.getPlayer().getResources().pay(new ResourcesSet(0,3,0,0,0,0,0));
         }
 
         ArrayList<AbsEffect> effects = towerSpace.getCard().getImmediateEffect();
@@ -88,9 +80,6 @@ public class TerritoryController extends TowerController {
         }
         towerSpace.setFamilyMember(familyMember);
         towerSpace.getCard().addCardOfPlayer(familyMember.getPlayer());
-
-
-
 
     }
 

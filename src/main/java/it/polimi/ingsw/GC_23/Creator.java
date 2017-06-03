@@ -13,13 +13,15 @@ import java.util.Collections;
 public class Creator {
     private Board board;
     private ArrayList<Player> players;
+    private Gameplay gameplay;
 
+    //creo tutti i player che poi verranno assegnati a seconda dei giocatori presenti
     //todo:disporre tessere scomunica
     public Creator(){
         board= board.getBoard();
         //todo: settare le carte nella tower
         players = new ArrayList<Player>();
-        //todo: parsing bonus tile
+        //todo: assegno bonus tile
         players.add(new Player(PlayerColor.RED, null));
         players.add(new Player(PlayerColor.GREEN, null));
         players.add(new Player(PlayerColor.BLUE, null));
@@ -38,5 +40,7 @@ public class Creator {
         players.get(1).getResources().getGoldObj().add(6);
         players.get(2).getResources().getGoldObj().add(7);
         players.get(3).getResources().getGoldObj().add(8);
+        gameplay= new Gameplay(players);
+        gameplay.scheduling();
     }
 }

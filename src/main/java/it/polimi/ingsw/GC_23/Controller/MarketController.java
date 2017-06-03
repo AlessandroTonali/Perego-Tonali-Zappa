@@ -34,7 +34,7 @@ public class MarketController extends PlaceFamilyMember {
 
     @Override
     public void makeAction(){
-        //TODO marketSpace.getEffect().getBenefitsEffect().activeEffect(familyMember.getPlayer());
+        marketSpace.getEffect().activeEffect(familyMember.getPlayer());
         marketSpace.setFamilyMember(familyMember);
     }
 }

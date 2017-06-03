@@ -56,16 +56,28 @@ public class ProductEffect extends AbsEffect {
         }
 
         ResourcesSet resource = giving.getResources();
-        resource.setFaithPoints(resource.getFaithPoints() * numberOfCards);
-        resource.setGold(resource.getGold() * numberOfCards);
-        resource.setMilitaryPoints(resource.getMilitaryPoints() * numberOfCards);
-        resource.setServants(resource.getServants() * numberOfCards);
-        resource.setStone(resource.getStone() * numberOfCards);
-        resource.setVictoryPoints(resource.getVictoryPoints() * numberOfCards);
-        resource.setWood(resource.getWood() * numberOfCards);
-
+        if(resource.getWood()>0){
+                resource.setWood(resource.getWood() * numberOfCards);
+        }
+        if(resource.getVictoryPoints()>0){
+                resource.setVictoryPoints(resource.getVictoryPoints() * numberOfCards);
+        }
+        if(resource.getStone()>0){
+                resource.setStone(resource.getStone() * numberOfCards);
+        }
+        if(resource.getServants()>0){
+            resource.setServants(resource.getServants() * numberOfCards);
+        }
+        if(resource.getFaithPoints()>0){
+            resource.setFaithPoints(resource.getFaithPoints() * numberOfCards);
+        }
+        if(resource.getGold()>0){
+            resource.setGold(resource.getGold() * numberOfCards);
+        }
+        if(resource.getMilitaryPoints()>0) {
+            resource.setMilitaryPoints(resource.getMilitaryPoints() * numberOfCards);
+        }
         player.getResources().sum(resource);
-
     }
 
     @Override

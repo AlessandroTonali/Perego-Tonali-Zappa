@@ -100,22 +100,20 @@ public abstract class Card {
         int i = 0;
         int j = 0;
         for(SingleCost singlecost : this.cost) {
-            System.out.println("press " + i + " for choosing: " + singlecost.getResources().toString());
+            System.out.println("Press " + i + " for choosing: " + singlecost.getResources().toString());
             i++;
         }
 
         String sw = player.getNextLine();
         try {
             j = Integer.parseInt(sw);
-            System.out.println("ciao");
+            System.out.println("Chosen cost");
 
         } catch (NumberFormatException e) {
-            System.out.println("unvalid format");
+            System.out.println("Invalid format, try again");
             chooseCost(player);
         }
-
         return cost.get(j);
-
     }
 
     public abstract void addCardOfPlayer(Player player);

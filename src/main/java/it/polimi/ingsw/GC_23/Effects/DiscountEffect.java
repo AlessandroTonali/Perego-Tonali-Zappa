@@ -81,9 +81,11 @@ public class DiscountEffect extends AbsEffect{
         return chosenDiscount.get(0);
     }
 
+    //todo: sconto dei valori del familiare per effetti permanenti
     public void activeEffect(Player player) {
     SingleCost chosenResourcesDiscount = chooseResourceDiscount(player);
-    //TODO
+    //è uguale se li aggiungo e dopo li toglie come se il prezzo fosse uguale?
+    player.getResources().sum(chosenResourcesDiscount.getResources());
     }
 
     @Override

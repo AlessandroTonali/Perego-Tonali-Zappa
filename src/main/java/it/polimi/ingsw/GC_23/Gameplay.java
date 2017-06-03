@@ -12,18 +12,16 @@ import java.util.ArrayList;
  */
 public class Gameplay {
 
-    private int playerNumber;
     private ArrayList<Player> players;
     private Board board;
     private int period=1;
     private int turn=1;
 
-    public Gameplay(int playerNumber, ArrayList<Player> players) {
-        this.playerNumber = playerNumber;
+    public Gameplay(ArrayList<Player> players) {
         this.players = players;
     }
 
-    public ArrayList<Player> makeTurnOrder() {
+    private ArrayList<Player> makeTurnOrder() {
         ArrayList<FamilyMember> familyMembersOrder = board.getBoard().getCouncilSpace().getPlayerOrder();
         ArrayList<Player> playersOrder = new ArrayList<Player>();
         for(FamilyMember f: familyMembersOrder){
@@ -32,7 +30,7 @@ public class Gameplay {
         return playersOrder;
     }
 
-    public ArrayList<Player> makeMilitaryOrder() {
+    private ArrayList<Player> makeMilitaryOrder() {
         ArrayList<Player> playersOrder = new ArrayList<Player>();
         for(int i=0; i<players.size(); i++){
             for(int j=0; j<players.size(); j++){
@@ -47,7 +45,7 @@ public class Gameplay {
         return playersOrder;
     }
 
-    private void scheduling() {
+    public void scheduling() {
         for(Player p: players){
             System.out.println("Period: "+this.period+ "Turn: "+this.turn);
             System.out.println(p.getPlayerColor().toString()+": it's your turn!");
@@ -123,14 +121,15 @@ public class Gameplay {
                 default:
                     p.getResources().getVictoryPointsObj().add(0);
             }
+
             //assegna punti venture cards
             for (VentureCard v : p.getCardOfPlayer().getVentureCards()) {
                 for (int i = 0; i < v.getPermanentEffect().size(); i++) {
                     v.getPermanentEffect().get(i).activeEffect(p);
                 }
-
             }
         }
+
         //assegno victory points in base all'ordine militare
         ArrayList<Player> order = makeMilitaryOrder();
         if (order.get(0).getResources().getMilitaryPoints() == order.get(1).getResources().getMilitaryPoints()) {

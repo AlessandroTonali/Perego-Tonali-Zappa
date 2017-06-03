@@ -28,10 +28,8 @@ import java.util.logging.Logger;
 public class Main {
     public static void main( String[] args )
     {
-        ParseJson.getParseJson();
         System.out.println( "Hello World!" );
         Board.getBoard();
-
 
         ResourcesSet set1 = new ResourcesSet(1,2,3,4,5,6,7);
         ResourcesSet set2 = new ResourcesSet(5,6,7,8,9,10,11);
@@ -40,38 +38,6 @@ public class Main {
         familyMember.setPlayer(player);
         FamilyMember[] members = new FamilyMember[1];
         members[0] = familyMember;
-
-        player.setResources(set1);
-        player.setFamilyMembers(members);
-        TowerSpace[] towerSpaces = new TowerSpace[4];
-        Tower tower1 = new Tower(towerSpaces);
-        Tower tower2 = new Tower(towerSpaces);
-        Tower tower3 = new Tower(towerSpaces);
-        Tower tower4 = new Tower(towerSpaces);
-        Tower[] towers = new Tower[4];
-        towers[0] = tower1;
-        towers[1] = tower2;
-        towers[2] = tower3;
-        towers[3] = tower4;
-        Board.setTowers(towers);
-
-        BenefitsEffect benefitsEffect1 = new BenefitsEffect(new ResourcesSet(55,1,
-                1,1,1,1,1));
-        BenefitsEffect benefitsEffect2 = new BenefitsEffect(new ResourcesSet(22,2,2,2,
-                2,2,2));
-        System.out.println(player.getResources().toString());
-        BonusTile bonusTile = new BonusTile(new BenefitsEffect(set1),new BenefitsEffect( set2));
-        player.setBonusTile(bonusTile);
-        new ProductionController(familyMember,Board.getProductionSpace());
-        System.out.println(player.getResources().toString());
-
-
-        System.out.println("finish");
-
-
-        System.out.println("ciaoi");
-
-        player.chooseMove();
     }
 
 

@@ -34,7 +34,7 @@ public class BenefitsEffect extends AbsEffect{
 
     @Override
     public String toString() {
-        return "Benefits: "+ resources +'|';
+        return "Benefits: {"+ resources +"}";
     }
 
     @Override

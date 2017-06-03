@@ -87,13 +87,13 @@ public class Player {
             i = Integer.parseInt(sw);
 
         } catch (NumberFormatException e) {
-            System.out.println("unvalid format");
+            System.out.println("Invalid format");
             i = -1;
 
         }
 
         if (i > 8) {
-            System.out.println("invalid number");
+            System.out.println("Invalid number");
             chooseMove();
         }
 
@@ -141,21 +141,17 @@ public class Player {
 
     public FamilyMember chooseFamilyMember() {
 
-        System.out.println("choose ur family member");
-
-
-        System.out.println("ciaoooo");
+        System.out.println("Choose your family member");
         String sw = this.getNextLine();
         System.out.println(sw);
         int i;
 
-
         try {
             i = Integer.parseInt(sw);
-            System.out.println("ciao");
+            System.out.println("You have chosen your family member");
 
         } catch (NumberFormatException e) {
-            System.out.println("unvalid format");
+            System.out.println("Invalid format");
             return null;
         }
         FamilyMember chosen;
@@ -168,7 +164,7 @@ public class Player {
         }
 
 
-        System.out.println("u choose the " + i + "family member");
+        System.out.println("You choose the " + i + "family member");
         System.out.println("you have " + this.getResources().toString());
         return chosen;
     }

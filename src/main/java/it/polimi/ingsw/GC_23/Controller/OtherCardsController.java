@@ -23,10 +23,10 @@ public class OtherCardsController extends TowerController {
     private  Tower tower;
 
     public void makeAction() {
-        System.out.println("FATAL ERROR,BUG DETECTED");
+
     }
+
     public boolean isLegal(){
-        System.out.println("FATAL ERROR, BUG DETECTED");
         return false;
     }
 
@@ -47,12 +47,9 @@ public class OtherCardsController extends TowerController {
 
     public boolean isLegal(SingleCost cost) {
 
-
         if(tower.checkOtherFamiliar()) {
             cost.getResources().sum(new ResourcesSet(0,3,0,0,0,0,0));
         }
-
-
 
         boolean legal = true;
 
@@ -67,8 +64,6 @@ public class OtherCardsController extends TowerController {
         legal = legal && tower.checkFamiliarTower(familyMember);
 
         return legal;
-
-
     }
 
     public void makeAction(SingleCost cost) {
@@ -79,11 +74,6 @@ public class OtherCardsController extends TowerController {
         }
         towerSpace.setFamilyMember(familyMember);
         towerSpace.getCard().addCardOfPlayer(familyMember.getPlayer());
-
-
-
-
-
     }
 
 
