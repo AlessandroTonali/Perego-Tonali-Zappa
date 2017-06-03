@@ -1,8 +1,7 @@
-package it.polimi.ingsw.GC_23.Socket;
+package it.polimi.ingsw.GC_23.Connection;
 
 import java.io.*;
 import java.net.Socket;
-import java.util.Scanner;
 
 /**
  * Created by jesss on 03/06/17.

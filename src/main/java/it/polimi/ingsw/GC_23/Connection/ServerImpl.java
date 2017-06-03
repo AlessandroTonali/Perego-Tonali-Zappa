@@ -1,4 +1,4 @@
-package it.polimi.ingsw.GC_23.Socket;
+package it.polimi.ingsw.GC_23.Connection;
 
 import java.io.*;
 import java.net.ServerSocket;
@@ -61,6 +61,6 @@ public class ServerImpl extends UnicastRemoteObject implements Server {
             }
         }
         executor.shutdown();
-
+        serverSocket.close();
     }
 }

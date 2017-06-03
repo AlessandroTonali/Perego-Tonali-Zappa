@@ -11,13 +11,14 @@ import java.util.Collections;
  * Created by jesss on 02/06/17.
  */
 public class Creator {
-    private Board board;
-    private ArrayList<Player> players;
-    private Gameplay gameplay;
+    private static Creator creator;
+    private static Board board;
+    private static ArrayList<Player> players;
+    private static Gameplay gameplay;
 
     //creo tutti i player che poi verranno assegnati a seconda dei giocatori presenti
     //todo:disporre tessere scomunica
-    public Creator(){
+    private Creator(){
         board= board.getBoard();
         //todo: settare le carte nella tower
         players = new ArrayList<Player>();
@@ -42,5 +43,12 @@ public class Creator {
         players.get(3).getResources().getGoldObj().add(8);
         gameplay= new Gameplay(players);
         gameplay.scheduling();
+    }
+
+    synchronized static Creator getCreator(){
+        if(creator==null){
+            creator = new Creator();
+        }
+        return creator;
     }
 }

@@ -1,4 +1,4 @@
-package it.polimi.ingsw.GC_23.Socket;
+package it.polimi.ingsw.GC_23.Connection;
 
 import java.io.*;
 import java.net.Socket;
@@ -11,6 +11,7 @@ import java.rmi.server.UnicastRemoteObject;
 /**
  * Created by jesss on 03/06/17.
  */
+
 public class UserImpl extends UnicastRemoteObject implements User, Serializable {
     private Socket socket;
     private BufferedReader inSocket;
@@ -89,13 +90,28 @@ public class UserImpl extends UnicastRemoteObject implements User, Serializable 
 
     }
 
+    /*private void login(){
+        ?
+    }*/
 
     private void play(){
-
+        //assegno al giocatore il player
+        //gioco
     }
 
-    private void close(){
-
+    private void close() {
+        try {
+            socket.close();
+        } catch (Exception e) {
+            System.out.println("Exception: " + e);
+            e.printStackTrace();
+        } finally {
+            try {
+                socket.close();
+            } catch (IOException e) {
+                System.err.println("Socket not closed");
+            }
+        }
     }
 
     public static void main(String[] args) throws Exception {
