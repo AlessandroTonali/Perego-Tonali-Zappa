@@ -11,33 +11,16 @@ import java.util.Map;
  */
 public class PlayerController {
     //mappa playerColor con username
-    private Map<String, String> userPlayerAssociation;
+    private Map<Player, String> userPlayerAssociation;
 
     public PlayerController(ArrayList<Player> players) {
         userPlayerAssociation = new HashMap<>();
         for(Player p : players){
-            this.userPlayerAssociation.put(p.getPlayerColor().toString(), null);
+            this.userPlayerAssociation.put(p, null);
         }
     }
 
-    public Map<String, String> getAssociation() {
+    public Map<Player, String> getAssociation() {
         return userPlayerAssociation;
-    }
-
-    public boolean existsAssociation(String playerColor){
-        if(userPlayerAssociation.containsKey(playerColor)){
-            return true;
-        }
-        else {
-            return false;
-        }
-    }
-
-    public void createAssociation(String playerColor, String user) {
-        userPlayerAssociation.putIfAbsent(playerColor, user);
-    }
-
-    public void removeAssociation(String playerColor){
-        userPlayerAssociation.replace(playerColor, null);
     }
 }

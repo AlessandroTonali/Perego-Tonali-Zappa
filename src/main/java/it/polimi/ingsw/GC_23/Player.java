@@ -74,6 +74,10 @@ public class Player {
         this.familyMembers = familyMembers;
     }
 
+    public void setPlayerColor(PlayerColor playerColor) {
+        this.playerColor = playerColor;
+    }
+
     public void chooseMove() {
         System.out.println("press\n 0 for placing a familiar in council\n" +
                 "press 1 for getting the harvest\n" +

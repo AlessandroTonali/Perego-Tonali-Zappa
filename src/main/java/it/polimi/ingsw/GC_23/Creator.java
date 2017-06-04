@@ -36,13 +36,6 @@ public class Creator {
             p.setFamilyMembers(familyMembers);
             p.setResources(new ResourcesSet(0,0,0,3,2,0,2));
         }
-        Collections.shuffle(players);
-        players.get(0).getResources().getGoldObj().add(5);
-        players.get(1).getResources().getGoldObj().add(6);
-        players.get(2).getResources().getGoldObj().add(7);
-        players.get(3).getResources().getGoldObj().add(8);
-        gameplay= new Gameplay(players);
-        //gameplay.scheduling();
     }
 
     public synchronized static Creator getCreator(){
@@ -50,6 +43,16 @@ public class Creator {
             creator = new Creator();
         }
         return creator;
+    }
+
+    public static void startGame(){
+        Collections.shuffle(players);
+        players.get(0).getResources().getGoldObj().add(5);
+        players.get(1).getResources().getGoldObj().add(6);
+        players.get(2).getResources().getGoldObj().add(7);
+        players.get(3).getResources().getGoldObj().add(8);
+        gameplay= new Gameplay(players);
+        //gameplay.scheduling();
     }
 
     public static ArrayList<Player> getPlayers() {

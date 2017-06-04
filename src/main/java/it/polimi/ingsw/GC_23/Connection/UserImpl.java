@@ -1,5 +1,6 @@
 package it.polimi.ingsw.GC_23.Connection;
 
+import it.polimi.ingsw.GC_23.Enumerations.PlayerColor;
 import it.polimi.ingsw.GC_23.Player;
 
 import java.io.*;
@@ -74,10 +75,10 @@ public class UserImpl{
         //SOCKET Client
         //else if (connection.equalsIgnoreCase("SOCKET")) {
             try {
-                Socket socket = new Socket("localhost", 29999);
+                Socket socket = new Socket("127.0.0.1", 29999);
                 System.out.println("Connected: " + socket);
+                outSocket = new PrintWriter(new BufferedWriter(new OutputStreamWriter(socket.getOutputStream())),true);
                 inSocket = new BufferedReader(new InputStreamReader(socket.getInputStream()));
-                outSocket = new PrintWriter(new BufferedWriter(new OutputStreamWriter(socket.getOutputStream())));
                 inKeyboard= new BufferedReader(new InputStreamReader(System.in));
                 outVideo = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)),true);
                 System.out.println("Client connected");
@@ -92,8 +93,7 @@ public class UserImpl{
             }
     }
 
-    //todo: assegna player
-    //todo:Scelta del colore
+    //assegna username e player
     private void setup() {
         try {
             boolean logged = false;
@@ -102,6 +102,28 @@ public class UserImpl{
                 String username = inKeyboard.readLine();
                 outSocket.println("Username selected");
                 outSocket.flush();
+                outSocket.println(username);
+                outSocket.flush();
+                //mostra a video le associazioni presenti
+                int playerNumber = Integer.parseInt(inSocket.readLine());
+                for(int i=0; i<playerNumber; i++){
+                    String playerUser = inSocket.readLine();
+                    outVideo.println(playerUser);
+                }
+                outVideo.println("Select your player");
+                String selectedColor = inKeyboard.readLine();
+                outSocket.println(selectedColor);
+                outSocket.flush();
+                while(Integer.parseInt(inSocket.readLine())==0){
+                    outVideo.println("Player already selected or incorrect, try again");
+                    selectedColor = inKeyboard.readLine();
+                    outSocket.println(selectedColor);
+                    outSocket.flush();
+                    continue;
+                }
+                String playerColor = inSocket.readLine();
+                System.out.println("user qui");
+                //???????????????????????????????
             }
         } catch (Exception e) {
             System.out.println("Exception: " + e);
@@ -115,11 +137,7 @@ public class UserImpl{
     }
 
     private void play(){
-        if(isYourTurn){
-            player.chooseMove();
-        }
-        //assegno al giocatore il player
-        //gioco
+
     }
 
     private void close() {

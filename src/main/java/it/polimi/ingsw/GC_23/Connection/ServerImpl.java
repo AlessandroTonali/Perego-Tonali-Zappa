@@ -19,8 +19,8 @@ import java.util.concurrent.Executors;
  */
 public class ServerImpl{
     private ArrayList<User> users;
-    private static ArrayList<Player> players;
-    private Creator creator;
+    private ArrayList<Player> players;
+    private static Creator creator;
 
     public ServerImpl(){
         this.users = new  ArrayList<User>();
@@ -28,8 +28,13 @@ public class ServerImpl{
         this.players = creator.getPlayers();
     }
 
+    public ArrayList<Player> getPlayers() {
+        return players;
+    }
+
     public static void main(String[] args) throws Exception{
-        PlayerController playerController = new PlayerController(players);
+        ServerImpl server = new ServerImpl();
+        PlayerController playerController = new PlayerController(server.getPlayers());
 
      /*   //RMI
         LocateRegistry.createRegistry(8080);
@@ -39,7 +44,7 @@ public class ServerImpl{
         System.out.println("Server RMI is up");*/
 
         //SOCKET
-        ExecutorService executor = Executors.newFixedThreadPool(4);
+        ExecutorService executor = Executors.newCachedThreadPool();
         ServerSocket serverSocket = new ServerSocket(29999);
         System.out.println("Server is ready");
         while(true){
