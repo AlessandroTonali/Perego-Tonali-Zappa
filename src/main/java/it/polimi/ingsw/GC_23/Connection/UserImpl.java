@@ -12,18 +12,18 @@ import java.rmi.server.UnicastRemoteObject;
  * Created by jesss on 03/06/17.
  */
 
-public class UserImpl extends UnicastRemoteObject implements User, Serializable {
+public class UserImpl{
     private Socket socket;
     private BufferedReader inSocket;
     private PrintWriter outSocket;
     private BufferedReader inKeyboard;
     private PrintWriter outVideo;
 
-    protected UserImpl(String[] args) throws RemoteException {
+    protected UserImpl(){
         super();
         System.out.println("Client started");
         try{
-            execute(args);
+            execute();
         }catch (Exception e){
             System.out.println("Exception: "+e);
             e.printStackTrace();
@@ -37,9 +37,9 @@ public class UserImpl extends UnicastRemoteObject implements User, Serializable 
         }
     }
 
-    private void execute(String[] args){
+    private void execute(){
         try{
-            connect(args);
+            connect();
             //login(); ?
             play();
             close();
@@ -56,19 +56,19 @@ public class UserImpl extends UnicastRemoteObject implements User, Serializable 
         }
     }
 
-    private void connect(String[] args) throws RemoteException, NotBoundException{
-        String connection = args[0];
+    private void connect(){
+        //String connection = args[0];
 
-        //RMI Client
+        /*//RMI Client
         if (connection.equalsIgnoreCase("RMI")) {
             Registry reg = LocateRegistry.getRegistry(8080);
             ServerImpl server = (ServerImpl) reg.lookup("gameServer");
             server.join(this);
             System.out.println("Client connected");
-        }
+        }*/
 
         //SOCKET Client
-        else if (connection.equalsIgnoreCase("SOCKET")) {
+        //else if (connection.equalsIgnoreCase("SOCKET")) {
             try {
                 Socket socket = new Socket("localhost", 29999);
                 System.out.println("Connected: " + socket);
@@ -88,7 +88,6 @@ public class UserImpl extends UnicastRemoteObject implements User, Serializable 
             }
         }
 
-    }
 
     /*private void login(){
         ?
@@ -115,6 +114,6 @@ public class UserImpl extends UnicastRemoteObject implements User, Serializable 
     }
 
     public static void main(String[] args) throws Exception {
-        UserImpl user = new UserImpl(args);
+        UserImpl user = new UserImpl();
     }
 }

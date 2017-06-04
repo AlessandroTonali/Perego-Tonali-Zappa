@@ -14,38 +14,21 @@ import java.util.concurrent.Executors;
 /**
  * Created by jesss on 03/06/17.
  */
-public class ServerImpl extends UnicastRemoteObject implements Server {
+public class ServerImpl{
     private ArrayList<User> users;
 
-    public ServerImpl() throws RemoteException {
+    public ServerImpl(){
         this.users = new ArrayList<User>();
-    }
-
-    @Override
-    public void join(User c) throws RemoteException {
-        users.add(c);
-        System.out.println("User joined the game");
-    }
-
-    @Override
-    public void leave(User c) throws RemoteException {
-        users.remove(c);
-        System.out.println("User left the game");
-    }
-
-    @Override
-    public void play(User c) throws RemoteException {
-        //todo
     }
 
     public static void main(String[] args) throws Exception{
 
-        //RMI
+     /*   //RMI
         LocateRegistry.createRegistry(8080);
         Registry reg = LocateRegistry.getRegistry(8080);
         ServerImpl gameServer = new ServerImpl();
         reg.rebind("gameServer", gameServer);
-        System.out.println("Server RMI is up");
+        System.out.println("Server RMI is up");*/
 
         //SOCKET
         ExecutorService executor = Executors.newFixedThreadPool(4);
