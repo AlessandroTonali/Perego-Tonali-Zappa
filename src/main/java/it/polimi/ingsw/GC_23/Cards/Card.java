@@ -32,6 +32,8 @@ public abstract class Card {
         this.cost = cost;
     }
 
+
+
     public abstract boolean checkTakeable(Player player);
 
     public int getPeriod() {
@@ -64,8 +66,10 @@ public abstract class Card {
 
 
     public SingleCost getCost(Player player) {
+        System.out.println("qua");
 
         if(!checkCostChoose()){
+            System.out.println("ciaooooo");
             return cost.get(0);
         }
 

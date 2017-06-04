@@ -1,5 +1,6 @@
 package it.polimi.ingsw.GC_23;
 
+import it.polimi.ingsw.GC_23.Cards.*;
 import it.polimi.ingsw.GC_23.Controller.*;
 import it.polimi.ingsw.GC_23.Effects.BenefitsEffect;
 import it.polimi.ingsw.GC_23.Enumerations.PlayerColor;
@@ -7,6 +8,7 @@ import it.polimi.ingsw.GC_23.Resources.ResourcesSet;
 import it.polimi.ingsw.GC_23.Spaces.*;
 
 import java.io.Console;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 /**
@@ -24,8 +26,8 @@ public class Player {
     public Player(PlayerColor playerColor, BonusTile bonusTile) {
         this.playerColor = playerColor;
         // bisogna usare il design pattern della fabbrica per dare le risorse giuste in base ai player
-        this.cardOfPlayer = new CardOfPlayer(null, null, null, null);
         this.bonusTile = bonusTile;
+        this.cardOfPlayer = new CardOfPlayer();
         this.scan = new Scanner(System.in);
         //bisogna decidere come istanziare i family member
         // permanent effect ancora non lo dobbiamo fare

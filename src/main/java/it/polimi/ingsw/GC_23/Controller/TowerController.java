@@ -15,6 +15,8 @@ public abstract class TowerController extends PlaceFamilyMember {
     private Tower tower;
     private TowerSpace towerSpace;
 
+
+
     public TowerController(FamilyMember familyMember, Tower tower) {
         this.familyMember = familyMember;
         this.tower = tower;
@@ -25,6 +27,18 @@ public abstract class TowerController extends PlaceFamilyMember {
         this.familyMember = familyMember;
         this.tower = tower;
         this.towerSpace = towerSpace;
+    }
+
+    public FamilyMember getFamilyMember() {
+        return familyMember;
+    }
+
+    public Tower getTower() {
+        return tower;
+    }
+
+    public TowerSpace getTowerSpace() {
+        return towerSpace;
     }
 
     public abstract boolean isLegal();

@@ -1,9 +1,11 @@
 package it.polimi.ingsw.GC_23;
+import com.sun.xml.internal.bind.v2.runtime.unmarshaller.XsiNilLoader;
 import it.polimi.ingsw.GC_23.Cards.BuildingCard;
 import it.polimi.ingsw.GC_23.Cards.Card;
 import it.polimi.ingsw.GC_23.Cards.VentureCard;
 import it.polimi.ingsw.GC_23.Controller.CouncilController;
 import it.polimi.ingsw.GC_23.Controller.HarvestController;
+import it.polimi.ingsw.GC_23.Controller.OtherCardsController;
 import it.polimi.ingsw.GC_23.Controller.ProductionController;
 import it.polimi.ingsw.GC_23.Effects.*;
 import it.polimi.ingsw.GC_23.Enumerations.CardColor;
@@ -40,15 +42,43 @@ public class Main {
         ResourcesSet set2 = new ResourcesSet(5,6,7,8,9,10,11);
         Player player = new Player(PlayerColor.RED, null);
         player.setResources(set1);
+
         FamilyMember familyMember = new FamilyMember(player, FamilyColor.ORANGE,7);
         familyMember.setPlayer(player);
         FamilyMember[] members = new FamilyMember[1];
         members[0] = familyMember;
 
-        System.out.println("Risorse prima dell'effetto: " +player.getResources().toString());
+        BuildingCard buildingCard1 = parseJson.getBuildingCardArrayList().get(0);
+
         buildingCard.getImmediateEffect().get(0).activeEffect(player);
-        System.out.println("Risorse dopo l'effetto: " +player.getResources().toString());
+        System.out.println("ora qua");
+        BenefitsEffect benefitsEffect = new BenefitsEffect(set1);
+        ArrayList<AbsEffect> immediate = new ArrayList<>();
+        immediate.add(benefitsEffect);
+        SingleCost cost = new SingleCost(set2);
+        ArrayList<SingleCost> costi = new ArrayList<>();
+        costi.add(cost);
+
+
+
+        TowerSpace space = new TowerSpace(buildingCard1,null,7);
+        TowerSpace[] spaces = new TowerSpace[1];
+        spaces[0] = space;
+
+
+        Tower tower = new Tower(spaces);
+        player.setFamilyMembers(members);
+        familyMember.setPlayer(player);
+
+        familyMember.getFamilyColor();
+        System.out.println("inizio " + player.getResources().toString());
+
+
+        System.out.println("fine" + player.getResources().toString());
+
+
     }
+
 
 
 }

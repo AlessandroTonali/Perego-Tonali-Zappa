@@ -36,7 +36,9 @@ public class OtherCardsController extends TowerController {
 
     public OtherCardsController(FamilyMember familyMember, Tower tower, TowerSpace towerSpace) {
         super(familyMember, tower, towerSpace);
-        SingleCost cost = this.towerSpace.getCard().getCost(familyMember.getPlayer());
+
+        super.getTowerSpace().getCard().getCost(familyMember.getPlayer());
+        SingleCost cost = super.getTowerSpace().getCard().getCost(familyMember.getPlayer());
         if (isLegal(cost)) {
             makeAction(cost);
             System.out.println("success");
@@ -47,33 +49,33 @@ public class OtherCardsController extends TowerController {
 
     public boolean isLegal(SingleCost cost) {
 
-        if(tower.checkOtherFamiliar()) {
+        if(super.getTower().checkOtherFamiliar()) {
             cost.getResources().sum(new ResourcesSet(0,3,0,0,0,0,0));
         }
 
         boolean legal = true;
 
-        legal = legal && !towerSpace.checkBusy();
+        legal = legal && !super.getTowerSpace().checkBusy();
 
-        legal = legal && familyMember.getPlayer().getResources().checkAffordable(cost.getResources());
+        legal = legal && super.getFamilyMember().getPlayer().getResources().checkAffordable(cost.getResources());
 
-        legal = legal && (familyMember.getValue() >= towerSpace.getValue());
+        legal = legal && (super.getFamilyMember().getValue() >= super.getTowerSpace().getValue());
 
-        legal = legal && towerSpace.getCard().checkTakeable(this.familyMember.getPlayer());
+        legal = legal && super.getTowerSpace().getCard().checkTakeable(super.getFamilyMember().getPlayer());
 
-        legal = legal && tower.checkFamiliarTower(familyMember);
+      legal = legal && super.getTower().checkFamiliarTower(super.getFamilyMember());
 
         return legal;
     }
 
     public void makeAction(SingleCost cost) {
-        familyMember.getPlayer().getResources().pay(cost.getResources());
-        ArrayList<AbsEffect> effects = towerSpace.getCard().getImmediateEffect();
+        super.getFamilyMember().getPlayer().getResources().pay(cost.getResources());
+        ArrayList<AbsEffect> effects = super.getTowerSpace().getCard().getImmediateEffect();
         for(AbsEffect i : effects){
-            i.activeEffect(familyMember.getPlayer());
+            i.activeEffect(super.getFamilyMember().getPlayer());
         }
-        towerSpace.setFamilyMember(familyMember);
-        towerSpace.getCard().addCardOfPlayer(familyMember.getPlayer());
+        super.getTowerSpace().setFamilyMember(super.getFamilyMember());
+        super.getTowerSpace().getCard().addCardOfPlayer(super.getFamilyMember().getPlayer());
     }
 
 
