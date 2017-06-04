@@ -1,5 +1,7 @@
 package it.polimi.ingsw.GC_23.Connection;
 
+import it.polimi.ingsw.GC_23.Player;
+
 import java.io.*;
 import java.net.Socket;
 import java.rmi.NotBoundException;
@@ -18,9 +20,11 @@ public class UserImpl{
     private PrintWriter outSocket;
     private BufferedReader inKeyboard;
     private PrintWriter outVideo;
+    private Player player;
+    private boolean isYourTurn;
 
     protected UserImpl(){
-        super();
+        //super();
         System.out.println("Client started");
         try{
             execute();
@@ -40,7 +44,7 @@ public class UserImpl{
     private void execute(){
         try{
             connect();
-            //login(); ?
+            setup();
             play();
             close();
         }catch (Exception e){
@@ -86,14 +90,34 @@ public class UserImpl{
                     System.err.println("Socket not closed");
                 }
             }
+    }
+
+    //todo: assegna player
+    //todo:Scelta del colore
+    private void setup() {
+        try {
+            boolean logged = false;
+            while (!logged) {
+                outVideo.println("Select Username");
+                String username = inKeyboard.readLine();
+                outSocket.println("Username selected");
+                outSocket.flush();
+            }
+        } catch (Exception e) {
+            System.out.println("Exception: " + e);
+            e.printStackTrace();
+            try {
+                socket.close();
+            } catch (IOException ex) {
+                System.err.println("Socket not closed");
+            }
         }
-
-
-    /*private void login(){
-        ?
-    }*/
+    }
 
     private void play(){
+        if(isYourTurn){
+            player.chooseMove();
+        }
         //assegno al giocatore il player
         //gioco
     }

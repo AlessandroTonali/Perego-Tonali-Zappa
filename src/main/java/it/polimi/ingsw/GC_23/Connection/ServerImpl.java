@@ -1,5 +1,8 @@
 package it.polimi.ingsw.GC_23.Connection;
 
+import it.polimi.ingsw.GC_23.Creator;
+import it.polimi.ingsw.GC_23.Player;
+
 import java.io.*;
 import java.net.ServerSocket;
 import java.net.Socket;
@@ -16,12 +19,17 @@ import java.util.concurrent.Executors;
  */
 public class ServerImpl{
     private ArrayList<User> users;
+    private static ArrayList<Player> players;
+    private Creator creator;
 
     public ServerImpl(){
-        this.users = new ArrayList<User>();
+        this.users = new  ArrayList<User>();
+        this.creator = creator.getCreator();
+        this.players = creator.getPlayers();
     }
 
     public static void main(String[] args) throws Exception{
+        PlayerController playerController = new PlayerController(players);
 
      /*   //RMI
         LocateRegistry.createRegistry(8080);
@@ -37,7 +45,7 @@ public class ServerImpl{
         while(true){
             try{
                 Socket socket = serverSocket.accept();
-                executor.submit(new UserHandler(socket));
+                executor.submit(new UserHandler(socket, playerController));
                 System.out.println("Client accepted :"+ socket);
             }catch(IOException e){
                 break;

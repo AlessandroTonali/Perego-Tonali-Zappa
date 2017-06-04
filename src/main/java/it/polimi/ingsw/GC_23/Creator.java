@@ -42,13 +42,17 @@ public class Creator {
         players.get(2).getResources().getGoldObj().add(7);
         players.get(3).getResources().getGoldObj().add(8);
         gameplay= new Gameplay(players);
-        gameplay.scheduling();
+        //gameplay.scheduling();
     }
 
-    synchronized static Creator getCreator(){
+    public synchronized static Creator getCreator(){
         if(creator==null){
             creator = new Creator();
         }
         return creator;
+    }
+
+    public static ArrayList<Player> getPlayers() {
+        return players;
     }
 }
