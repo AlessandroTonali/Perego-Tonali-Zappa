@@ -28,6 +28,10 @@ public class ParseJson {
     private HashMap<Integer,VentureCard> ventureCardMap = new HashMap<>();
     private HashMap<Integer,TerritoryCard> territoryCardMap = new HashMap<>();
     private HashMap<Integer,CharacterCard> characterCardMap = new HashMap<>();
+    private ArrayList<CharacterCard> characterCardArrayList = new ArrayList<>();
+    private ArrayList<TerritoryCard> territoryCardArrayList = new ArrayList<>();
+    private ArrayList<VentureCard> ventureCardArrayList = new ArrayList<>();
+    private ArrayList<BuildingCard> buildingCardArrayList = new ArrayList<>();
 
     public static synchronized ParseJson getParseJson(){
         if(parseJson == null){
@@ -40,7 +44,6 @@ public class ParseJson {
     private ParseJson() {
         parseEffect();
         parseCard();
-        BenefitsEffect benefitsEffect = (BenefitsEffect) effectMap.get(401);
 
 
     }
@@ -90,6 +93,7 @@ public class ParseJson {
 
             VentureCard ventureCard = new VentureCard(period, CardColor.PURPLE, name, immediateEffect, permanentEffect, costs);
             ventureCardMap.put(idCard, ventureCard);
+            ventureCardArrayList.add(ventureCard);
 
 
         }
@@ -116,6 +120,7 @@ public class ParseJson {
             int idCard = buildingCards.getJSONObject(x).getInt("id");
             BuildingCard buildingCard = new BuildingCard(period, CardColor.YELLOW, name, immediateEffect, permanentEffect, costs);
             buildingCardMap.put(idCard,buildingCard);
+            buildingCardArrayList.add(buildingCard);
 
         }
 
@@ -132,6 +137,7 @@ public class ParseJson {
 
             TerritoryCard territoryCard = new TerritoryCard(period, CardColor.GREEN, name, immediateEffect,permanentEffect);
             territoryCardMap.put(idCard,territoryCard);
+            territoryCardArrayList.add(territoryCard);
         }
 
         JSONArray characterCards = rootObject.getJSONArray("CharacterCard");
@@ -153,12 +159,13 @@ public class ParseJson {
 
             CharacterCard characterCard = new CharacterCard(period, CardColor.BLUE, name, immediateEffect, permanentEffect, costs);
             characterCardMap.put(idCard, characterCard);
+            characterCardArrayList.add(characterCard);
 
         }
 
     }
 
-    public ArrayList<AbsEffect> parseTypeEffect(JSONArray jsonArray) {
+    private ArrayList<AbsEffect> parseTypeEffect(JSONArray jsonArray) {
         ArrayList<AbsEffect> arrayList = new ArrayList<>();
         for (int y = 0; y < jsonArray.length() ; y++) {
 
@@ -209,7 +216,7 @@ public class ParseJson {
         return towerEffect;
     }
 
-    public void parseEffect() {
+    private void parseEffect() {
         String jsonContent = null;
         effectMap = new HashMap<Integer,AbsEffect>();
         try {
@@ -250,7 +257,7 @@ public class ParseJson {
 
     }
 
-    public void parseBenefitEffect(JSONArray benefitEffects) {
+    private void parseBenefitEffect(JSONArray benefitEffects) {
         for (int i = 0; i < benefitEffects.length() ; i++) {
             JSONObject jsonObject = benefitEffects.getJSONObject(i);
             BenefitsEffect benefitsEffect = new BenefitsEffect(parseCost(jsonObject).getResources());
@@ -359,7 +366,7 @@ public class ParseJson {
 
     }*/
 
-    public SingleCost parseCost(JSONObject jsonObject) {
+    private SingleCost parseCost(JSONObject jsonObject) {
         int faithPoint = 0;
         int coin = 0;
         int militaryPoint = 0;
@@ -394,5 +401,21 @@ public class ParseJson {
         SingleCost singleCost = new SingleCost(new ResourcesSet(faithPoint,coin,militaryPoint,servant,stone,victoryPoint,wood));
 
         return singleCost;
+    }
+
+    public ArrayList<CharacterCard> getCharacterCardArrayList() {
+        return characterCardArrayList;
+    }
+
+    public ArrayList<TerritoryCard> getTerritoryCardArrayList() {
+        return territoryCardArrayList;
+    }
+
+    public ArrayList<VentureCard> getVentureCardArrayList() {
+        return ventureCardArrayList;
+    }
+
+    public ArrayList<BuildingCard> getBuildingCardArrayList() {
+        return buildingCardArrayList;
     }
 }

@@ -29,15 +29,25 @@ public class Main {
     public static void main( String[] args )
     {
         System.out.println( "Hello World!" );
+        ParseJson parseJson = ParseJson.getParseJson();
         Board.getBoard();
+
+        ArrayList<BuildingCard> buildingCards = parseJson.getBuildingCardArrayList();
+        BuildingCard buildingCard = buildingCards.get(0);
+
 
         ResourcesSet set1 = new ResourcesSet(1,2,3,4,5,6,7);
         ResourcesSet set2 = new ResourcesSet(5,6,7,8,9,10,11);
         Player player = new Player(PlayerColor.RED, null);
+        player.setResources(set1);
         FamilyMember familyMember = new FamilyMember(player, FamilyColor.ORANGE,7);
         familyMember.setPlayer(player);
         FamilyMember[] members = new FamilyMember[1];
         members[0] = familyMember;
+
+        System.out.println("Risorse prima dell'effetto: " +player.getResources().toString());
+        buildingCard.getImmediateEffect().get(0).activeEffect(player);
+        System.out.println("Risorse dopo l'effetto: " +player.getResources().toString());
     }
 
 
