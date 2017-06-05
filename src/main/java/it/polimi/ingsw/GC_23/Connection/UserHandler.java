@@ -53,18 +53,16 @@ public class UserHandler implements Runnable{
         boolean logged = false;
         System.out.println("Scelta del colore");
         //controlla che la stringa data corrisponda ad un player e che questo non sia già associato
-        while (!logged) {
-            try{
+        try{
+            while (!logged) {
                 System.out.println("Inserisci scelta");
                 String choice = in.readLine();
                 String selectedColor = new String();
-                for (Map.Entry<String,String> entry : association.entrySet()) {
-                    if (entry.getKey().equalsIgnoreCase((choice))){
+                for (Map.Entry<String, String> entry : association.entrySet()) {
+                    if (entry.getKey().equalsIgnoreCase((choice))) {
                         System.out.println("Scelta esistente");
                         selectedColor = entry.getKey();
-                        break;
                     }
-                    selectedColor = null;
                 }
                 System.out.println("Controllo se già associato o nullo");
                 if ((selectedColor == null) || !(association.putIfAbsent(selectedColor, currentUser) == null)) {
@@ -73,19 +71,18 @@ public class UserHandler implements Runnable{
                     continue;
                 }
                 System.out.println("Non è già associato");
-                if(association.get(selectedColor)==currentUser){
+                if (association.get(selectedColor) == currentUser) {
                     out.print(true);
                     System.out.println("User " + currentUser + " is logged");
-                    System.out.println("User "+ currentUser + " has chosen player "+ selectedColor);
+                    System.out.println("User " + currentUser + " has chosen player " + selectedColor);
                     System.out.println(association.toString());
                     currentPlayer = creator.createPlayer(selectedColor);
-                    logged=true;
+                    logged = Boolean.parseBoolean(in.readLine());
                 }
-            }catch(Exception e){
-                e.getMessage();
-                e.printStackTrace();
-                continue;
             }
+        }catch(Exception e){
+            e.getMessage();
+            e.printStackTrace();
         }
     }
 

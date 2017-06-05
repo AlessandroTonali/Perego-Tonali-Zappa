@@ -126,6 +126,7 @@ public class UserImpl{
                 continue;
             }
             outVideo.println("Setup completed");
+            outSocket.println(true);
         } catch (Exception e) {
             System.out.println("Exception: " + e);
             e.printStackTrace();
