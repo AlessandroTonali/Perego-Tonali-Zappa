@@ -45,6 +45,7 @@ public class Main {
         familyMember.setPlayer(player);
         FamilyMember[] members = new FamilyMember[1];
         members[0] = familyMember;
+        System.out.println("");
 
         BuildingCard buildingCard1 = parseJson.getBuildingCardArrayList().get(0);
 
