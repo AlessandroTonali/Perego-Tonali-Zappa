@@ -298,7 +298,7 @@ public class ParseJson {
     private void parseImplicationEffect(JSONArray implicationEffects) {
         for (int i = 0; i < implicationEffects.length() ; i++) {
             ArrayList<SingleCost> requirments = new ArrayList<>();
-            ArrayList<BenefitsEffect> givings = new ArrayList<>();
+            ArrayList<AbsEffect> givings = new ArrayList<>();
             JSONObject jsonObject = implicationEffects.getJSONObject(i);
             JSONArray jsonArrayRequirment = jsonObject.getJSONArray("requirment");
             for (int j = 0; j < jsonArrayRequirment.length(); j++) {
@@ -307,8 +307,13 @@ public class ParseJson {
 
             JSONArray jsonArrayGiving = jsonObject.getJSONArray("giving");
             for (int j = 0; j < jsonArrayGiving.length(); j++) {
-                BenefitsEffect benefitsEffect = new BenefitsEffect(parseCost(jsonArrayGiving.getJSONObject(j)).getResources());
-                givings.add(benefitsEffect);
+                AbsEffect effect;
+                if (jsonArrayGiving.getJSONObject(j).has("id_effect")) {
+                    effect = effectMap.get(jsonArrayGiving.getJSONObject(j).getInt("id_effect"));
+                } else {
+                    effect = new BenefitsEffect(parseCost(jsonArrayGiving.getJSONObject(j)).getResources());
+                }
+                givings.add(effect);
             }
 
             ImplicationEffect implicationEffect =  new ImplicationEffect(requirments,givings);
@@ -331,6 +336,7 @@ public class ParseJson {
 
             String cardColor = productEffects.getJSONObject(i).getString("card_color");
             if (cardColor.equals("green")) {
+
                 productEffect = new ProductEffect(givings.get(0), CardColor.GREEN);
             }
             if (cardColor.equals("yellow")) {

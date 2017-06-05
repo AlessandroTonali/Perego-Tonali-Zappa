@@ -26,6 +26,77 @@
 		{"id": "62", "servant": "5"},
 		{"id": "63", "militaryPoint": "3", "coin": "2"},
 		
+		{"id": "1102", "coin": "1"},
+		{"id": "1201", "wood": "1"},
+		{"id": "1202", "wood": "1"},
+		{"id": "1302", "coin": "1", "servant": "1"},
+		{"id": "1401", "stone": "2"},
+		{"id": "1402", "stone": "2"},
+		{"id": "1501", "wood": "1"},
+		{"id": "1502", "wood": "3"},
+		{"id": "1601", "militaryPoint": "2", "servant": "1"},
+		{"id": "1602", "faithPoint": "1", "stone": "1"},
+		{"id": "1702", "militaryPoint": "2", "stone": "1"},
+		{"id": "1801", "coin": "3"},
+		{"id": "1901", "coin": "1"},
+		{"id": "1902", "coin": "2"},
+		{"id": "111", "servant": "2", "stone": "1"},
+		{"id": "112", "stone": "2", "servant": "1"},
+		{"id": "121", "wood": "1"},
+		{"id": "122", "stone": "3"},
+		{"id": "131", "servant": "2", "wood": "1"},
+		{"id": "132", "coin": "1", "wood": "2"},
+		{"id": "141", "faithPoint": "1"},
+		{"id": "142", "faithPoint": "1"},
+		{"id": "152", "militaryPoint": "2", "servant": "2"},
+		{"id": "161", "coin": "4"},
+		{"id": "162", "coin": "1", "stone": "1", "wood": "1"},
+		{"id": "171", "coin": "1", "servant": "1"},
+		{"id": "172", "coin": "3"},
+		{"id": "181", "victoryPoint": "1", "wood": "1"},
+		{"id": "182", "victoryPoint": "2", "wood": "2"},
+		{"id": "191", "militaryPoint": "2"},
+		{"id": "192", "victoryPoint": "4", "wood": "1"},
+		{"id": "201", "victoryPoint": "3"},
+		{"id": "202", "victoryPoint": "1", "stone": "2"},
+		{"id": "211", "stone": "1"},
+		{"id": "212", "victoryPoint": "4", "stone": "1"},
+		{"id": "221", "faithPoint": "1"},
+		{"id": "222", "coin": "1", "faithPoint": "1"},
+		{"id": "231", "victoryPoint": "2", "coin": "2"},
+		{"id": "231", "militaryPoint": "3", "servant": "1"},
+		{"id": "241", "militaryPoint": "2", "servant": "1"},
+		{"id": "242", "militaryPoint": "1", "servant": "2"},
+		{"id": "251", "victoryPoint": "5"},
+		{"id": "271", "victoryPoint": "6"},
+		{"id": "281", "victoryPoint": "6"},
+		{"id": "301", "victoryPoint": "2"},
+		{"id": "311", "faithPoint": "1"},
+		{"id": "321", "victoryPoint": "1"},
+		{"id": "331", "victoryPoint": "3"},
+		{"id": "341", "victoryPoint": "4"},
+		{"id": "351", "victoryPoint": "5"},
+		{"id": "361", "victoryPoint": "6"},
+		{"id": "371", "victoryPoint": "4"},
+		{"id": "381", "victoryPoint": "2", "faithPoint":  "1"},
+		{"id": "391", "victoryPoint": "3"},
+		{"id": "401", "victoryPoint": "8"},
+		{"id": "402", "victoryPoint": "2", "militaryPoint": "2"},
+		{"id": "411", "victoryPoint": "7"},
+		{"id": "412", "coin": "5"},
+		{"id": "421", "victoryPoint": "8"},
+		{"id": "431", "victoryPoint": "10"},
+		{"id": "432", "victoryPoint": "3"},
+		{"id": "441", "victoryPoint": "9"},
+		{"id": "442", "victoryPoint": "2"},
+		{"id": "451", "victoryPoint": "9"},
+		{"id": "461", "victoryPoint": "5", "faithPoint": "1"},
+		{"id": "471", "victoryPoint": "7"},
+		{"id": "481", "victoryPoint": "7", "faithPoint": "3"},
+		{"id": "482", "victoryPoint": "3"},
+		{"id": "762", "victoryPoint": "4"},
+		
+		
 		
 		{"id": "291", "victoryPoint": "3"},
 		{"id": "101", "servant": "1"},
@@ -51,6 +122,85 @@
 		], "giving":[
 			{"coin": "3"},
 			{"coin": "5"}
+		]},
+		{"id": "302", "requirment": [
+			{"stone": "1"},
+			{"stone": "2"}
+		], "giving":[
+			{"coin": "3"},
+			{"coin": "5"}
+		]},
+		{"id": "312", "requirment": [
+			{"coin": "1"}
+		], "giving":[
+			{"faithPoint": "3"}
+		]},
+		{"id": "322", "requirment": [
+			{"coin": "1"}
+		], "giving":[
+			{"id_effect": "1"}
+		]},
+		{"id": "332", "requirment": [
+			{"coin": "3"}
+		], "giving":[
+			{"wood": "2", " stone":  "2"}
+		]},
+		{"id": "342", "requirment": [
+			{"coin": "1"},
+			{"coin": "2"}
+		], "giving":[
+			{"victoryPoint": "3"},
+			{"victoryPoint": "5"}
+		]},
+		{"id": "352", "requirment": [
+			{"wood": "1"},
+			{"wood": "3"}
+		], "giving":[
+			{"victoryPoint": "3"},
+			{"victoryPoint": "7"}
+		]},
+		{"id": "362", "requirment": [
+			{"stone": "1"},
+			{"stone": "3"}
+		], "giving":[
+			{"victoryPoint": "3"},
+			{"victoryPoint": "7"}
+		]},
+		{"id": "372", "requirment": [
+			{"stone": "1", "wood": "1", "servant": "1"}
+		], "giving":[
+			{"victoryPoint": "6"}
+		]},
+		{"id": "382", "requirment": [
+			{"faithPoint": "1"}
+		], "giving":[
+			{"victoryPoint": "2", "coin": "2"}
+		]},
+		{"id": "392", "requirment": [
+			{"servant": "1"}
+		], "giving":[
+			{"militaryPoint": "3"}
+		]},
+		{"id": "422", "requirment": [
+			{"coin": "4"}
+		], "giving":[
+			{"wood": "3", "stone": "3"}
+		]},
+		{"id": "452", "requirment": [
+			{"coin": "1"}
+		], "giving":[
+			{"servant": "2", "victoryPoint": "4"}
+		]},
+		{"id": "462", "requirment": [
+			{"wood": "1"},
+			{"stone": "1"}
+		], "giving":[
+			{"faithPoint": "2"}
+		]},
+		{"id": "472", "requirment": [
+			{"servant": "1"}
+		], "giving":[
+			{"militaryPoint": "3", "victoryPoint": "1"}
 		]}
 	
 	],
@@ -59,6 +209,9 @@
 	
 	],
 	"ProductEffect":[
+		{"id": "252", "giving_product": [{"coin": "1"}], "card_color": "yellow"},
+		{"id": "272", "giving_product": [{"victoryPoint": "1"}], "card_color": "purple"},
+		{"id": "282", "giving_product": [{"victoryPoint": "1"}], "card_color": "blue"},
 		{"id": "262", "giving_product": [{"coin": "1"}], "card_color": "green"}
 	
 	]

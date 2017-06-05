@@ -14,7 +14,7 @@ public class Creator {
     private Board board;
     private ArrayList<Player> players = new ArrayList<Player>();
     private Gameplay gameplay;
-    private int numberOfPlayers
+    private int numberOfPlayers;
 
     //todo:disporre tessere scomunica
     public Creator(int numberOfPlayers){
