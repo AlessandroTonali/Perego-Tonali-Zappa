@@ -32,8 +32,6 @@ public class Main {
     {
         System.out.println( "Hello World!" );
         ParseJson parseJson = ParseJson.getParseJson();
-        Board.getBoard();
-
         ArrayList<BuildingCard> buildingCards = parseJson.getBuildingCardArrayList();
         BuildingCard buildingCard = buildingCards.get(0);
 

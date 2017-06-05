@@ -1,5 +1,6 @@
 package it.polimi.ingsw.GC_23.Connection;
 
+import com.sun.org.apache.xpath.internal.operations.Bool;
 import it.polimi.ingsw.GC_23.Enumerations.PlayerColor;
 import it.polimi.ingsw.GC_23.Player;
 
@@ -94,37 +95,37 @@ public class UserImpl{
     }
 
     //assegna username e player
-    private void setup() {
+    private void setup() throws IOException {
         try {
-            boolean logged = false;
-            while (!logged) {
-                outVideo.println("Select Username");
-                String username = inKeyboard.readLine();
-                outSocket.println("Username selected");
-                outSocket.flush();
-                outSocket.println(username);
-                outSocket.flush();
-                //mostra a video le associazioni presenti
-                int playerNumber = Integer.parseInt(inSocket.readLine());
-                for(int i=0; i<playerNumber; i++){
-                    String playerUser = inSocket.readLine();
-                    outVideo.println(playerUser);
-                }
-                outVideo.println("Select your player");
+            outVideo.println("Select Username");
+            String username = inKeyboard.readLine();
+            outSocket.println("Username selected");
+            outSocket.flush();
+            outSocket.println(username);
+            outSocket.flush();
+            //mostra a video le associazioni presenti
+            outVideo.println("Select your player");
+            int playerNumber = Integer.parseInt(inSocket.readLine());
+            for(int i=0; i<playerNumber; i++){
+                String playerUser = inSocket.readLine();
+                outVideo.println(playerUser);
+            }
+            boolean sceltaGiusta = false;
+            while(!sceltaGiusta) {
                 String selectedColor = inKeyboard.readLine();
                 outSocket.println(selectedColor);
                 outSocket.flush();
-                while(Integer.parseInt(inSocket.readLine())==0){
+                System.out.println("prima");
+                sceltaGiusta = Boolean.valueOf(inSocket.readLine());
+                System.out.println("dopo");
+                if (sceltaGiusta) {
+                    outVideo.println("You have chosen a correct player");
+                    break;
+                } else
                     outVideo.println("Player already selected or incorrect, try again");
-                    selectedColor = inKeyboard.readLine();
-                    outSocket.println(selectedColor);
-                    outSocket.flush();
-                    continue;
-                }
-                String playerColor = inSocket.readLine();
-                System.out.println("user qui");
-                //???????????????????????????????
+                continue;
             }
+            outVideo.println("Setup completed");
         } catch (Exception e) {
             System.out.println("Exception: " + e);
             e.printStackTrace();

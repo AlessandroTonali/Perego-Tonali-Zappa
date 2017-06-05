@@ -22,7 +22,7 @@ public class Gameplay {
     }
 
     private ArrayList<Player> makeTurnOrder() {
-        ArrayList<FamilyMember> familyMembersOrder = board.getBoard().getCouncilSpace().getPlayerOrder();
+        ArrayList<FamilyMember> familyMembersOrder = board.getCouncilSpace().getPlayerOrder();
         ArrayList<Player> playersOrder = new ArrayList<Player>();
         for(FamilyMember f: familyMembersOrder){
             playersOrder.add(f.getPlayer());

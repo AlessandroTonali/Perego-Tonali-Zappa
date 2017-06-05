@@ -11,41 +11,17 @@ import java.util.Collections;
  * Created by jesss on 02/06/17.
  */
 public class Creator {
-    private static Creator creator;
-    private static Board board;
-    private static ArrayList<Player> players;
-    private static Gameplay gameplay;
+    private Board board;
+    private ArrayList<Player> players = new ArrayList<Player>();
+    private Gameplay gameplay;
 
-    //creo tutti i player che poi verranno assegnati a seconda dei giocatori presenti
     //todo:disporre tessere scomunica
-    private Creator(){
-        board= board.getBoard();
+    public Creator(){
+        board= new Board();
         //todo: settare le carte nella tower
-        players = new ArrayList<Player>();
-        //todo: assegno bonus tile
-        players.add(new Player(PlayerColor.RED, null));
-        players.add(new Player(PlayerColor.GREEN, null));
-        players.add(new Player(PlayerColor.BLUE, null));
-        players.add(new Player(PlayerColor.YELLOW, null));
-        for(Player p: players){
-            FamilyMember[] familyMembers = new FamilyMember[4];
-            familyMembers[0]= new FamilyMember(p, FamilyColor.ORANGE, board.getDiceOValue());
-            familyMembers[1]= new FamilyMember(p, FamilyColor.WHITE, board.getDiceWValue());
-            familyMembers[2]= new FamilyMember(p, FamilyColor.BLACK, board.getDiceBValue());
-            familyMembers[3]= new FamilyMember(p, FamilyColor.NEUTRAL, 0);
-            p.setFamilyMembers(familyMembers);
-            p.setResources(new ResourcesSet(0,0,0,3,2,0,2));
-        }
     }
 
-    public synchronized static Creator getCreator(){
-        if(creator==null){
-            creator = new Creator();
-        }
-        return creator;
-    }
-
-    public static void startGame(){
+    public void startGame(){
         Collections.shuffle(players);
         players.get(0).getResources().getGoldObj().add(5);
         players.get(1).getResources().getGoldObj().add(6);
@@ -55,7 +31,24 @@ public class Creator {
         //gameplay.scheduling();
     }
 
-    public static ArrayList<Player> getPlayers() {
+
+    public ArrayList<Player> getPlayers() {
         return players;
+    }
+
+    public Player createPlayer(String color){
+        //todo: assegno bonus tile
+        //todo: 4 player al massimo
+        PlayerColor playerColor = PlayerColor.valueOf(color);
+        Player player = new Player(playerColor, null);
+        this.players.add(player);
+        FamilyMember[] familyMembers = new FamilyMember[4];
+        familyMembers[0]= new FamilyMember(player, FamilyColor.ORANGE, board.getDiceOValue());
+        familyMembers[1]= new FamilyMember(player, FamilyColor.WHITE, board.getDiceWValue());
+        familyMembers[2]= new FamilyMember(player, FamilyColor.BLACK, board.getDiceBValue());
+        familyMembers[3]= new FamilyMember(player, FamilyColor.NEUTRAL, 0);
+        player.setFamilyMembers(familyMembers);
+        player.setResources(new ResourcesSet(0,0,0,3,2,0,2));
+        return player;
     }
 }

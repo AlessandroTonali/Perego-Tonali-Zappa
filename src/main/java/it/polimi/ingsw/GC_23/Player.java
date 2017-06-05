@@ -79,6 +79,8 @@ public class Player {
     }
 
     public void chooseMove() {
+        //momentaneo
+        Board board = new Board();
         System.out.println("press\n 0 for placing a familiar in council\n" +
                 "press 1 for getting the harvest\n" +
                 "press 2 for getting production\n" +
@@ -108,10 +110,10 @@ public class Player {
             case -1:
                 break;
             case 0:
-                new CouncilController(Board.getCouncilSpace(), chooseFamilyMember());
+                new CouncilController(board.getCouncilSpace(), chooseFamilyMember());
                 break;
             case 1:
-                new HarvestController(chooseFamilyMember(), Board.getHarvestSpace());
+                new HarvestController(chooseFamilyMember(), board.getHarvestSpace());
                 break;
             case 2:
                 new ProductionController(chooseFamilyMember(), new ProductionSpace());
@@ -123,10 +125,10 @@ public class Player {
                 new MarketController(chooseFamilyMember(), new MarketSpace(null));
                 break;
             case 5:
-                new TerritoryController(chooseFamilyMember(), Board.getTower(0));
+                new TerritoryController(chooseFamilyMember(), board.getTower(0));
                 break;
             default:
-                new OtherCardsController(chooseFamilyMember(), Board.chooseTower(this));
+                new OtherCardsController(chooseFamilyMember(), board.chooseTower(this));
                 break;
 
         }
@@ -178,5 +180,6 @@ public class Player {
     public String getNextLine() {
         return scan.nextLine();
     }
+
 }
 

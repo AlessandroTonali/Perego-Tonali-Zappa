@@ -31,7 +31,7 @@ public class HarvestController extends PlaceFamilyMember {
     }
 
     public boolean hasSense() {
-        return Board.getHarvestSpace().checkValue(familyMember);
+        return this.harvestSpace.checkValue(familyMember);
     }
 
     //TODO: attiva anche gli effetti permanenti delle carte terriorio in possesso con valore <= a quello dell'azione

@@ -20,12 +20,10 @@ import java.util.concurrent.Executors;
 public class ServerImpl{
     private ArrayList<User> users;
     private ArrayList<Player> players;
-    private static Creator creator;
+
 
     public ServerImpl(){
         this.users = new  ArrayList<User>();
-        this.creator = creator.getCreator();
-        this.players = creator.getPlayers();
     }
 
     public ArrayList<Player> getPlayers() {
@@ -33,9 +31,6 @@ public class ServerImpl{
     }
 
     public static void main(String[] args) throws Exception{
-        ServerImpl server = new ServerImpl();
-        PlayerController playerController = new PlayerController(server.getPlayers());
-
      /*   //RMI
         LocateRegistry.createRegistry(8080);
         Registry reg = LocateRegistry.getRegistry(8080);
@@ -50,7 +45,7 @@ public class ServerImpl{
         while(true){
             try{
                 Socket socket = serverSocket.accept();
-                executor.submit(new UserHandler(socket, playerController));
+                executor.submit(new UserHandler(socket));
                 System.out.println("Client accepted :"+ socket);
             }catch(IOException e){
                 break;

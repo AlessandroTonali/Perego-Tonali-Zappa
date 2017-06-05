@@ -9,20 +9,19 @@ import it.polimi.ingsw.GC_23.Spaces.*;
  * Created by jesss on 31/05/17.
  */
 public class Board {
-    private static Board board;
-    private static int towerDim =4;
-    private static int marketDim =4;
-    private static Tower[] towers;
-    private static MarketSpace[] marketSpaces;
-    private static CouncilSpace councilSpace;
-    private static ProductionSpace productionSpace;
-    private static HarvestSpace harvestSpace;
-    private static DiceSpace diceSpace;
-    private static Dice diceB;
-    private static Dice diceO;
-    private static Dice diceW;
+    private int towerDim =4;
+    private int marketDim =4;
+    private Tower[] towers;
+    private MarketSpace[] marketSpaces;
+    private CouncilSpace councilSpace;
+    private ProductionSpace productionSpace;
+    private HarvestSpace harvestSpace;
+    private DiceSpace diceSpace;
+    private Dice diceB;
+    private Dice diceO;
+    private Dice diceW;
 
-    private Board(){
+    public Board(){
         this.towers = towerInstancer();
 
         //todo: se partita di due giocatori ho solo due spazi
@@ -40,7 +39,7 @@ public class Board {
         setDices();
     }
 
-    public static void setDices(){
+    public void setDices(){
         diceB = new Dice(DiceColor.BLACK);
         diceO = new Dice(DiceColor.ORANGE);
         diceW = new Dice(DiceColor.WHITE);
@@ -49,18 +48,11 @@ public class Board {
         diceSpace.setDice(diceW);
     }
 
-    public static void setTowers(Tower[] towers) {
-        Board.towers = towers;
+    public void setTowers(Tower[] towers) {
+        this.towers = towers;
     }
 
-    synchronized static Board getBoard(){
-        if(board==null){
-            board = new Board();
-        }
-        return board;
-    }
-
-    public static Tower chooseTower(Player player) {
+    public Tower chooseTower(Player player) {
         System.out.println("Choose a tower");
         String input = player.getNextLine();
         int i;
@@ -83,19 +75,19 @@ public class Board {
         }
     }
 
-    public static Tower getTower(int i){
+    public Tower getTower(int i){
         return towers[i];
     }
 
-    public static Tower[] getTowers(){
+    public Tower[] getTowers(){
         return towers;
     }
 
-    public static CouncilSpace getCouncilSpace() {
+    public CouncilSpace getCouncilSpace() {
         return councilSpace;
     }
 
-    public static void resetCardTowers(){
+    public void resetCardTowers(){
         for( Tower t: getTowers()){
             TowerSpace[] spaces = t.getSpaces();
             for(int i=0; i< towers.length; i++){
@@ -116,15 +108,15 @@ public class Board {
         return diceW.getValue();
     }
 
-    public static MarketSpace[] getMarketSpaces() {
+    public MarketSpace[] getMarketSpaces() {
         return marketSpaces;
     }
 
-    public static ProductionSpace getProductionSpace() {
+    public ProductionSpace getProductionSpace() {
         return productionSpace;
     }
 
-    public static HarvestSpace getHarvestSpace() {
+    public HarvestSpace getHarvestSpace() {
         return harvestSpace;
     }
 
