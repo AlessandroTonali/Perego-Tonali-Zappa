@@ -1,5 +1,6 @@
 package it.polimi.ingsw.GC_23.Connection;
 
+import it.polimi.ingsw.GC_23.Board;
 import it.polimi.ingsw.GC_23.Creator;
 import it.polimi.ingsw.GC_23.Player;
 
@@ -18,12 +19,25 @@ import java.util.concurrent.Executors;
  * Created by jesss on 03/06/17.
  */
 public class ServerImpl{
-    private ArrayList<User> users;
-    private ArrayList<Player> players;
+    private static ServerImpl server;
+    private static ArrayList<User> users;
+    private static ArrayList<Player> players;
+    private static Creator creator;
+    private static Board board;
+    private static PlayerController playerController;
 
+    public static synchronized ServerImpl getServer(){
+        if(server == null){
+            server = new ServerImpl();
+        }
+        return server;
+    }
 
-    public ServerImpl(){
+    private ServerImpl(){
         this.users = new  ArrayList<User>();
+        this.creator = new Creator();
+        this.board = creator.getBoard();
+        this.playerController = new PlayerController();
     }
 
     public ArrayList<Player> getPlayers() {
@@ -45,7 +59,7 @@ public class ServerImpl{
         while(true){
             try{
                 Socket socket = serverSocket.accept();
-                executor.submit(new UserHandler(socket));
+                executor.submit(new UserHandler(socket, board, playerController));
                 System.out.println("Client accepted :"+ socket);
             }catch(IOException e){
                 break;

@@ -14,9 +14,11 @@ public class Creator {
     private Board board;
     private ArrayList<Player> players = new ArrayList<Player>();
     private Gameplay gameplay;
+    private int numberOfPlayers
 
     //todo:disporre tessere scomunica
-    public Creator(){
+    public Creator(int numberOfPlayers){
+        this.numberOfPlayers = numberOfPlayers;
         board= new Board();
         //todo: settare le carte nella tower
     }
@@ -50,5 +52,9 @@ public class Creator {
         player.setFamilyMembers(familyMembers);
         player.setResources(new ResourcesSet(0,0,0,3,2,0,2));
         return player;
+    }
+
+    public Board getBoard() {
+        return board;
     }
 }

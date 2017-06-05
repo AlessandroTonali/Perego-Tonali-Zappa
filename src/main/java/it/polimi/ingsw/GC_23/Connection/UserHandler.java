@@ -1,5 +1,6 @@
 package it.polimi.ingsw.GC_23.Connection;
 
+import it.polimi.ingsw.GC_23.Board;
 import it.polimi.ingsw.GC_23.Creator;
 import it.polimi.ingsw.GC_23.Enumerations.PlayerColor;
 import it.polimi.ingsw.GC_23.Player;
@@ -20,13 +21,15 @@ public class UserHandler implements Runnable{
     private PlayerController playerController;
     private Player currentPlayer;
     private Creator creator;
+    private Board board;
 
-    public UserHandler(Socket socket) throws IOException {
+
+    public UserHandler(Socket socket, Board board, PlayerController playerController) throws IOException {
         this.socket = socket;
         this.in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
         this.out= new PrintWriter(socket.getOutputStream(), true);
-        this.playerController = new PlayerController();
-        this.creator = new Creator();
+        this.playerController = playerController;
+        this.board = board;
     }
 
     @Override
@@ -57,26 +60,27 @@ public class UserHandler implements Runnable{
             while (!logged) {
                 System.out.println("Inserisci scelta");
                 String choice = in.readLine();
-                String selectedColor = new String();
+                String selectedColor = null;
                 for (Map.Entry<String, String> entry : association.entrySet()) {
                     if (entry.getKey().equalsIgnoreCase((choice))) {
                         System.out.println("Scelta esistente");
                         selectedColor = entry.getKey();
                     }
                 }
+
                 System.out.println("Controllo se già associato o nullo");
                 if ((selectedColor == null) || !(association.putIfAbsent(selectedColor, currentUser) == null)) {
-                    out.print(false);
+                    out.println("false");
                     System.out.println("Player già associato o nullo");
                     continue;
                 }
                 System.out.println("Non è già associato");
                 if (association.get(selectedColor) == currentUser) {
-                    out.print(true);
+                    out.println("true");
                     System.out.println("User " + currentUser + " is logged");
                     System.out.println("User " + currentUser + " has chosen player " + selectedColor);
                     System.out.println(association.toString());
-                    currentPlayer = creator.createPlayer(selectedColor);
+                    //currentPlayer = creator.createPlayer(selectedColor);
                     logged = Boolean.parseBoolean(in.readLine());
                 }
             }

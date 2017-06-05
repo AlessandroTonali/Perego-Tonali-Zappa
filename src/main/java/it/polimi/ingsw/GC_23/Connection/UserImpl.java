@@ -115,15 +115,13 @@ public class UserImpl{
                 String selectedColor = inKeyboard.readLine();
                 outSocket.println(selectedColor);
                 outSocket.flush();
-                System.out.println("prima");
-                sceltaGiusta = Boolean.valueOf(inSocket.readLine());
-                System.out.println("dopo");
+                sceltaGiusta = inSocket.readLine().equals("true");
                 if (sceltaGiusta) {
                     outVideo.println("You have chosen a correct player");
                     break;
                 } else
                     outVideo.println("Player already selected or incorrect, try again");
-                continue;
+                    continue;
             }
             outVideo.println("Setup completed");
             outSocket.println(true);

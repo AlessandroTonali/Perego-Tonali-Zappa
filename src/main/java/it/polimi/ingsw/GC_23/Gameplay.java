@@ -19,6 +19,7 @@ public class Gameplay {
 
     public Gameplay(ArrayList<Player> players) {
         this.players = players;
+
     }
 
     private ArrayList<Player> makeTurnOrder() {
