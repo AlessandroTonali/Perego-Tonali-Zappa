@@ -11,9 +11,9 @@ import java.util.ArrayList;
  */
 public class ImplicationEffect extends AbsEffect{
     private ArrayList<SingleCost> requirements;
-    private ArrayList<BenefitsEffect> givings;
+    private ArrayList<AbsEffect> givings;
 
-    public ImplicationEffect(ArrayList<SingleCost> requirements, ArrayList<BenefitsEffect> givings) {
+    public ImplicationEffect(ArrayList<SingleCost> requirements, ArrayList<AbsEffect> givings) {
         this.requirements = requirements;
         this.givings = givings;
     }
@@ -22,7 +22,7 @@ public class ImplicationEffect extends AbsEffect{
         this.requirements = requirements;
     }
 
-    public void setGivings(ArrayList<BenefitsEffect> givings) {
+    public void setGivings(ArrayList<AbsEffect> givings) {
         this.givings = givings;
     }
 
@@ -30,7 +30,7 @@ public class ImplicationEffect extends AbsEffect{
         return requirements;
     }
 
-    public ArrayList<BenefitsEffect> getGivings() {
+    public ArrayList<AbsEffect> getGivings() {
         return givings;
     }
 
@@ -39,7 +39,7 @@ public class ImplicationEffect extends AbsEffect{
         String string;
         Boolean madeChoice = false;
         ArrayList<SingleCost> chosenCost = new ArrayList<SingleCost>();
-        ArrayList<BenefitsEffect> chosenBenefit = new ArrayList<BenefitsEffect>();
+        ArrayList<AbsEffect> chosenBenefit = new ArrayList<AbsEffect>();
         ImplicationEffect chosen = new ImplicationEffect(chosenCost, chosenBenefit);
         while (!madeChoice) {
             System.out.println("Select possible implication");
@@ -79,7 +79,7 @@ public class ImplicationEffect extends AbsEffect{
     public void activeEffect(Player player) {
         ImplicationEffect implicationEffect = chooseImplication(player);
         SingleCost cost = implicationEffect.getRequirements().get(0);
-        BenefitsEffect effect = implicationEffect.getGivings().get(0);
+        AbsEffect effect = implicationEffect.getGivings().get(0);
         player.getResources().pay(cost.getResources());
         effect.activeEffect(player);
     }

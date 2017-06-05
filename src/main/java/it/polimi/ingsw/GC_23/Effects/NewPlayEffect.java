@@ -1,6 +1,7 @@
 package it.polimi.ingsw.GC_23.Effects;
 
 import it.polimi.ingsw.GC_23.EffectType;
+import it.polimi.ingsw.GC_23.Enumerations.CardColor;
 import it.polimi.ingsw.GC_23.Enumerations.NewPlayColor;
 import it.polimi.ingsw.GC_23.Player;
 
@@ -12,7 +13,7 @@ public class NewPlayEffect extends AbsEffect{
     private int diceValue;
     private DiscountEffect discount;
 
-    public NewPlayEffect(int diceValue, DiscountEffect discount) {
+    public NewPlayEffect(int diceValue, CardColor cardColor, DiscountEffect discount) {
         this.diceValue = diceValue;
         this.discount = discount;
     }
