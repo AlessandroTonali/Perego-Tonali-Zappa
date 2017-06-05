@@ -34,8 +34,9 @@ public class ServerImpl{
     }
 
     private ServerImpl(){
+        //TODO cambiare il 4
         this.users = new  ArrayList<User>();
-        this.creator = new Creator();
+        this.creator = new Creator(4);
         this.board = creator.getBoard();
         this.playerController = new PlayerController();
     }
