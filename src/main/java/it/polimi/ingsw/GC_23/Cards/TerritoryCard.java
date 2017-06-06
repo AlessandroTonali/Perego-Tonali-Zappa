@@ -1,22 +1,22 @@
 package it.polimi.ingsw.GC_23.Cards;
 
 import it.polimi.ingsw.GC_23.Effects.AbsEffect;
-import it.polimi.ingsw.GC_23.Effects.Effect;
 import it.polimi.ingsw.GC_23.Enumerations.CardColor;
 import it.polimi.ingsw.GC_23.Player;
 import it.polimi.ingsw.GC_23.Resources.ResourcesSet;
 import it.polimi.ingsw.GC_23.SingleCost;
 import java.util.ArrayList;
-import java.util.List;
 
 /**
  * Created by Alessandro on 21/05/2017.
  */
 public class TerritoryCard extends Card {
 
+    private int productionValue;
 
-    public TerritoryCard(int period, CardColor cardColor, String name, ArrayList<AbsEffect> immediateEffect, ArrayList<AbsEffect> permanentEffect) {
+    public TerritoryCard(int period, CardColor cardColor, String name, ArrayList<AbsEffect> immediateEffect, ArrayList<AbsEffect> permanentEffect, int productionValue) {
         super(period, cardColor, name, immediateEffect, permanentEffect, null);
+        this.productionValue = productionValue;
         ArrayList<SingleCost> costs = new ArrayList<>();
         costs.add(new SingleCost(new ResourcesSet()));
         super.setCost(costs);
@@ -67,6 +67,10 @@ public class TerritoryCard extends Card {
 
     public void addCardOfPlayer(Player player) {
         player.getCardOfPlayer().setCard(this);
+    }
+
+    public int getProductionValue() {
+        return productionValue;
     }
 
 }

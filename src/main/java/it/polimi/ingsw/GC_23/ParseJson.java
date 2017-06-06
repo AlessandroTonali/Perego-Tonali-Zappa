@@ -118,7 +118,8 @@ public class ParseJson {
             String name = buildingCards.getJSONObject(x).getString("name");
             int period = buildingCards.getJSONObject(x).getInt("period");
             int idCard = buildingCards.getJSONObject(x).getInt("id");
-            BuildingCard buildingCard = new BuildingCard(period, CardColor.YELLOW, name, immediateEffect, permanentEffect, costs);
+            int harvestValue = buildingCards.getJSONObject(x).getInt("harvest_value");
+            BuildingCard buildingCard = new BuildingCard(period, CardColor.YELLOW, name, immediateEffect, permanentEffect, costs, harvestValue);
             buildingCardMap.put(idCard,buildingCard);
             buildingCardArrayList.add(buildingCard);
 
@@ -130,12 +131,13 @@ public class ParseJson {
             String name = territoryCards.getJSONObject(i).getString("name");
             int idCard = territoryCards.getJSONObject(i).getInt("id");
             int period = territoryCards.getJSONObject(i).getInt("period");
+            int productionValue = territoryCards.getJSONObject(i).getInt("production_value");
             JSONArray immediateEffectsJson = territoryCards.getJSONObject(i).getJSONArray("immediateEffect");
             ArrayList<AbsEffect> immediateEffect = parseTypeEffect(immediateEffectsJson);
             JSONArray permanentEffectsJson = territoryCards.getJSONObject(i).getJSONArray("permanentEffect");
             ArrayList<AbsEffect> permanentEffect = parseTypeEffect(permanentEffectsJson);
 
-            TerritoryCard territoryCard = new TerritoryCard(period, CardColor.GREEN, name, immediateEffect,permanentEffect);
+            TerritoryCard territoryCard = new TerritoryCard(period, CardColor.GREEN, name, immediateEffect,permanentEffect, productionValue);
             territoryCardMap.put(idCard,territoryCard);
             territoryCardArrayList.add(territoryCard);
         }
@@ -246,14 +248,29 @@ public class ParseJson {
 
         JSONArray discountEffects = rootObject.getJSONArray("DiscountEffect");
 
-        JSONArray newPlayEffects = rootObject.getJSONArray("NewPlayEffect");
-        parseNewPlayEffect(newPlayEffects);
+        JSONArray newPlayCardEffects = rootObject.getJSONArray("NewPlayCardEffect");
+        parseNewPlayCardEffect(newPlayCardEffects);
+
+        JSONArray newPlayProductionEffects = rootObject.getJSONArray("NewPlayProductionEffect");
+        parseNewPlayProductionEffect(newPlayProductionEffects);
+
+        JSONArray newPlayHarvestEffects = rootObject.getJSONArray("NewPlayProductionEffect");
+        parseNewPlayHarvestEffect(newPlayHarvestEffects);
+        
+
+
 
         JSONArray productEffects = rootObject.getJSONArray("ProductEffect");
         parseProductEffect(productEffects);
     }
 
-    private void parseNewPlayEffect(JSONArray newPlayEffects) {
+    private void parseNewPlayHarvestEffect(JSONArray newPlayHarvestEffects) {
+    }
+
+    private void parseNewPlayProductionEffect(JSONArray newPlayProductionEffects) {
+    }
+
+    private void parseNewPlayCardEffect(JSONArray newPlayEffects) {
 
     }
 
@@ -407,6 +424,22 @@ public class ParseJson {
         SingleCost singleCost = new SingleCost(new ResourcesSet(faithPoint,coin,militaryPoint,servant,stone,victoryPoint,wood));
 
         return singleCost;
+    }
+
+    public BonusTile getBonusTile1() {
+        return new BonusTile((BenefitsEffect) effectMap.get("70"), (BenefitsEffect) effectMap.get("71"));
+    }
+    public BonusTile getBonusTile2() {
+        return new BonusTile((BenefitsEffect) effectMap.get("72"), (BenefitsEffect) effectMap.get("73"));
+    }
+    public BonusTile getBonusTile3() {
+        return new BonusTile((BenefitsEffect) effectMap.get("74"), (BenefitsEffect) effectMap.get("75"));
+    }
+    public BonusTile getBonusTile4() {
+        return new BonusTile((BenefitsEffect) effectMap.get("76"), (BenefitsEffect) effectMap.get("77"));
+    }
+    public BonusTile getBonusTile5() {
+        return new BonusTile((BenefitsEffect) effectMap.get("78"), (BenefitsEffect) effectMap.get("79"));
     }
 
     public ArrayList<CharacterCard> getCharacterCardArrayList() {

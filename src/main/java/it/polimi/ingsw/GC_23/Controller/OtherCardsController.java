@@ -1,12 +1,7 @@
 package it.polimi.ingsw.GC_23.Controller;
 
-import it.polimi.ingsw.GC_23.Cards.Card;
-import it.polimi.ingsw.GC_23.Cards.CharacterCard;
-import it.polimi.ingsw.GC_23.Cards.TerritoryCard;
 import it.polimi.ingsw.GC_23.Effects.AbsEffect;
-import it.polimi.ingsw.GC_23.Effects.Effect;
 import it.polimi.ingsw.GC_23.FamilyMember;
-import it.polimi.ingsw.GC_23.Resources.Resources;
 import it.polimi.ingsw.GC_23.Resources.ResourcesSet;
 import it.polimi.ingsw.GC_23.SingleCost;
 import it.polimi.ingsw.GC_23.Spaces.Tower;

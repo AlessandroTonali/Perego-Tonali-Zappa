@@ -1,7 +1,5 @@
 package it.polimi.ingsw.GC_23.Spaces;
 
-import it.polimi.ingsw.GC_23.Effects.AbsEffect;
-import it.polimi.ingsw.GC_23.Effects.Effect;
 import it.polimi.ingsw.GC_23.FamilyMember;
 
 import java.util.ArrayList;

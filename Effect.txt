@@ -26,6 +26,17 @@
 		{"id": "62", "servant": "5"},
 		{"id": "63", "militaryPoint": "3", "coin": "2"},
 		
+		{"id": "70", "militaryPoint": "1", "coin": "1"},
+		{"id": "71", "stone": "1", "wood": "1", "servant": "1"},
+		{"id": "72", "servant": "2", "coin": "1"},
+		{"id": "73", "militaryPoint": "1", "wood": "1", "stone": "1"},
+		{"id": "74", "militaryPoint": "2", "coin": "1"},
+		{"id": "75", "wood": "1", "stone": "1", "servant": "1"},
+		{"id": "76", "servant": "1", "coin": "2"},
+		{"id": "77", "militaryPoint": "1", "stone": "1", "wood": "1"},
+		{"id": "78", "militaryPoint": "2", "servant": "1"},
+		{"id": "79", "wood": "1", "coin": "1", "stone": "1"},
+		
 		{"id": "1102", "coin": "1"},
 		{"id": "1201", "wood": "1"},
 		{"id": "1202", "wood": "1"},
@@ -204,7 +215,15 @@
 		]}
 	
 	],
-	"NewPlayEffect":[
+	"NewPlayCardEffect":[
+		
+	
+	],
+	"NewPlayProductionEffect":[
+		
+	
+	],
+	"NewPlayHarvestEffect":[
 		
 	
 	],

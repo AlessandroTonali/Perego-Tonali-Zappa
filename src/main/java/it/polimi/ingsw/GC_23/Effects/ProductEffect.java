@@ -14,11 +14,19 @@ import java.util.ArrayList;
  */
 public class ProductEffect extends AbsEffect {
     private SingleCost giving;
+    private SingleCost required;
     private CardColor cardColor;
+    private boolean isProductResource = false;
 
     public ProductEffect(SingleCost giving, CardColor cardColor) {
         this.giving = giving;
         this.cardColor = cardColor;
+    }
+
+    public ProductEffect (SingleCost giving, SingleCost required) {
+        this.giving = giving;
+        this.required = required;
+        isProductResource = true;
     }
 
     public SingleCost getGiving() {
@@ -39,43 +47,48 @@ public class ProductEffect extends AbsEffect {
 
     @Override
     public void activeEffect(Player player) {
-        int numberOfCards = 0;
-        switch (cardColor) {
-            case BLUE:
-                numberOfCards = player.getCardOfPlayer().getCharacterCards().size();
-                break;
-            case GREEN:
-                numberOfCards = player.getCardOfPlayer().getTerritoryCards().size();
-                break;
-            case PURPLE:
-                numberOfCards = player.getCardOfPlayer().getVentureCards().size();
-                break;
-            case YELLOW:
-                numberOfCards = player.getCardOfPlayer().getBuildingCards().size();
-                break;
+        int productFactor = 0;
+        if (!isProductResource) {
+
+            switch (cardColor) {
+                case BLUE:
+                    productFactor = player.getCardOfPlayer().getCharacterCards().size();
+                    break;
+                case GREEN:
+                    productFactor = player.getCardOfPlayer().getTerritoryCards().size();
+                    break;
+                case PURPLE:
+                    productFactor = player.getCardOfPlayer().getVentureCards().size();
+                    break;
+                case YELLOW:
+                    productFactor = player.getCardOfPlayer().getBuildingCards().size();
+                    break;
+            }
+        } else {
+            productFactor = player.getResources().getMilitaryPoints() / 2;
         }
 
         ResourcesSet resource = giving.getResources();
         if(resource.getWood()>0){
-                resource.setWood(resource.getWood() * numberOfCards);
+                resource.setWood(resource.getWood() * productFactor);
         }
         if(resource.getVictoryPoints()>0){
-                resource.setVictoryPoints(resource.getVictoryPoints() * numberOfCards);
+                resource.setVictoryPoints(resource.getVictoryPoints() * productFactor);
         }
         if(resource.getStone()>0){
-                resource.setStone(resource.getStone() * numberOfCards);
+                resource.setStone(resource.getStone() * productFactor);
         }
         if(resource.getServants()>0){
-            resource.setServants(resource.getServants() * numberOfCards);
+            resource.setServants(resource.getServants() * productFactor);
         }
         if(resource.getFaithPoints()>0){
-            resource.setFaithPoints(resource.getFaithPoints() * numberOfCards);
+            resource.setFaithPoints(resource.getFaithPoints() * productFactor);
         }
         if(resource.getGold()>0){
-            resource.setGold(resource.getGold() * numberOfCards);
+            resource.setGold(resource.getGold() * productFactor);
         }
         if(resource.getMilitaryPoints()>0) {
-            resource.setMilitaryPoints(resource.getMilitaryPoints() * numberOfCards);
+            resource.setMilitaryPoints(resource.getMilitaryPoints() * productFactor);
         }
         player.getResources().sum(resource);
     }
