@@ -45,7 +45,8 @@ public class UserHandler implements Runnable{
     @Override
     public void run() {
         try{
-            while (!endMatch){}
+            while (!endMatch){
+            }
             System.out.println("End of Match");
         }catch (Exception e){
             System.out.println("IOException: "+e.getMessage());
@@ -55,6 +56,8 @@ public class UserHandler implements Runnable{
 
     public void setup(PlayerController playerController) throws IOException{
         Map<Player, String> association = playerController.getAssociation();
+        outWriter.println(true);
+        outWriter.flush();
         String username = inScanner.nextLine();
         currentUser = username;
         outWriter.println((association.size()));

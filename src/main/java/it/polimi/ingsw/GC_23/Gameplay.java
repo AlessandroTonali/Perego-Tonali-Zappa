@@ -67,10 +67,10 @@ public class Gameplay {
         int i = 0;
         resetFamilyMembers();
         while(true) {
-            System.out.println(period + "period");
+            System.out.println(period + " period");
             while( i < 1 ){
                 for (Player p : this.players) {
-                    System.out.println("Period: " + this.period + "Turn: " + this.turn);
+                    System.out.println("Period: " + this.period + " Turn: " + this.turn);
                     System.out.println(p.getPlayerColor().toString() + ": it's your turn!");
                     p.chooseMove(this.board);
                 }
@@ -130,32 +130,43 @@ public class Gameplay {
             switch (p.getCardOfPlayer().getTerritoryCards().size()) {
                 case 3:
                     p.getResources().getVictoryPointsObj().add(1);
+                    break;
                 case 4:
                     p.getResources().getVictoryPointsObj().add(4);
+                    break;
                 case 5:
                     p.getResources().getVictoryPointsObj().add(10);
+                    break;
                 case 6:
                     p.getResources().getVictoryPointsObj().add(20);
+                    break;
                 default:
                     p.getResources().getVictoryPointsObj().add(0);
+                    break;
             }
 
             //assegna punti character cards
             switch (p.getCardOfPlayer().getCharacterCards().size()) {
                 case 1:
                     p.getResources().getVictoryPointsObj().add(1);
+                    break;
                 case 2:
                     p.getResources().getVictoryPointsObj().add(3);
+                    break;
                 case 3:
                     p.getResources().getVictoryPointsObj().add(6);
+                    break;
                 case 4:
                     p.getResources().getVictoryPointsObj().add(10);
+                    break;
                 case 5:
                     p.getResources().getVictoryPointsObj().add(15);
                 case 6:
                     p.getResources().getVictoryPointsObj().add(21);
+                    break;
                 default:
                     p.getResources().getVictoryPointsObj().add(0);
+                    break;
             }
 
             //assegna punti venture cards

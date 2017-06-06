@@ -49,6 +49,9 @@ public class UserImpl{
     private void execute(){
         try{
             connect();
+            while(!(inScanner.hasNextLine())) {
+
+            }
             setup();
             //play();
             close();
@@ -97,6 +100,7 @@ public class UserImpl{
                     System.err.println("Socket not closed");
                 }
             }
+            outVideo.println("Wait for other players");
     }
 
     //assegna username e player

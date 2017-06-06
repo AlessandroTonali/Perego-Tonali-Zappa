@@ -64,6 +64,7 @@ public class Board {
                 break;
             default:
                 System.out.println("wrong number of players");
+                break;
         }
 
         this.councilSpace = new CouncilSpace(ParseJson.getParseJson().getCouncilSpaceEffect());

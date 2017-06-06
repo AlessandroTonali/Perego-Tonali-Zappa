@@ -13,14 +13,14 @@ import java.util.ArrayList;
 public class Match implements Runnable{
     private ArrayList<UserHandler> userHandlers;
     private PlayerController playerController;
+    private int playerCounter;
     private Creator creator;
     private Board board;
 
     public Match() {
         this.userHandlers = new ArrayList<UserHandler>();
         this.playerController = new PlayerController();
-        //this.creator = new Creator(4);
-        //this.board = creator.getBoard();
+        this.playerCounter = 0;
     }
 
     private void scheduling() throws IOException{
@@ -32,17 +32,27 @@ public class Match implements Runnable{
         }
     }
 
-    public void setUserHanlder(UserHandler userHanlder){
-        this.userHandlers.add(userHanlder);
+    public void setUserHandler(UserHandler userHandler){
+        this.userHandlers.add(userHandler);
+        playerCounter++;
+    }
+
+    public int getPlayerCounter() {
+        return playerCounter;
     }
 
     @Override
     public void run() {
-        try{
+        System.out.println("Match runned");
+        while(!(this.playerCounter == 4)) {
+        }
+        try {
+            System.out.println("Match started");
             scheduling();
-        }catch (Exception e){
+        } catch (Exception e) {
             e.getMessage();
             e.printStackTrace();
         }
     }
+
 }

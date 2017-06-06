@@ -32,7 +32,7 @@ public class Creator {
         players.get(2).getResources().getGoldObj().add(7);
         players.get(3).getResources().getGoldObj().add(8);
         gameplay= new Gameplay(players);
-        //gameplay.scheduling();
+        gameplay.scheduling();
     }
 
     public ArrayList<Player> getPlayers() {

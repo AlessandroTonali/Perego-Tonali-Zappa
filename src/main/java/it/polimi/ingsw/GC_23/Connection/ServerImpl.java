@@ -1,17 +1,11 @@
 package it.polimi.ingsw.GC_23.Connection;
 
-import it.polimi.ingsw.GC_23.Board;
-import it.polimi.ingsw.GC_23.Creator;
-import it.polimi.ingsw.GC_23.Player;
-
+import javax.management.timer.TimerNotification;
 import java.io.*;
 import java.net.ServerSocket;
 import java.net.Socket;
-import java.rmi.RemoteException;
-import java.rmi.registry.LocateRegistry;
-import java.rmi.registry.Registry;
-import java.rmi.server.UnicastRemoteObject;
 import java.util.ArrayList;
+import java.util.TimerTask;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
@@ -21,6 +15,7 @@ import java.util.concurrent.Executors;
 public class ServerImpl{
     private static ServerImpl server;
     private static ArrayList<Match> matches;
+    private static int userCounter =0;
 
     public static synchronized ServerImpl getServer(){
         if(server == null){
@@ -50,21 +45,29 @@ public class ServerImpl{
         ExecutorService executor = Executors.newCachedThreadPool();
         ServerSocket serverSocket = new ServerSocket(29999);
         System.out.println("Server is ready");
-        while(true){
+        while(true) {
+            System.out.println("Start setting a match");
             Match match = new Match();
             server.getMatches().add(match);
-            try{
-                Socket socket = serverSocket.accept();
-                UserHandler userHandler = new UserHandler(socket);
-                match.setUserHanlder(userHandler);
-                executor.submit(userHandler);
-                executor.submit(match);
-                System.out.println("Client accepted :"+ socket);
-            }catch(IOException e){
-                break;
+            executor.submit(match);
+            while (userCounter < 4) {
+                try {
+                    Socket socket = serverSocket.accept();
+                    UserHandler userHandler = new UserHandler(socket);
+                    match.setUserHandler(userHandler);
+                    userCounter++;
+                    executor.submit(userHandler);
+                    System.out.println("UserCounter: " + userCounter);
+                    System.out.println("PlayerCounter: "+match.getPlayerCounter());
+                    System.out.println("Client accepted: " + socket);
+                } catch (IOException e) {
+                    break;
+                }
             }
+            userCounter=0;
+            continue;
         }
-        executor.shutdown();
-        serverSocket.close();
+        /*executor.shutdown();
+        serverSocket.close();*/
     }
 }
