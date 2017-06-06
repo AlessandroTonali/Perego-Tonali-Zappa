@@ -2,6 +2,7 @@ package it.polimi.ingsw.GC_23.Connection;
 
 import it.polimi.ingsw.GC_23.Board;
 import it.polimi.ingsw.GC_23.Creator;
+import it.polimi.ingsw.GC_23.Player;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -25,7 +26,9 @@ public class Match implements Runnable{
     private void scheduling() throws IOException{
         for(UserHandler u : userHandlers){
             u.setup(playerController);
-            System.out.println("Eseguo setup");
+            playerController.getAssociation().putIfAbsent(u.getCurrentPlayer(), u.getCurrentUser());
+            System.out.println("Setup eseguito");
+            playerController.getAssociation().toString();
         }
     }
 

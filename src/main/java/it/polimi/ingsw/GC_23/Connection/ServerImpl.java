@@ -33,6 +33,10 @@ public class ServerImpl{
         this.matches = new ArrayList<Match>();
     }
 
+    public static ArrayList<Match> getMatches() {
+        return matches;
+    }
+
     public static void main(String[] args) throws Exception{
      /*   //RMI
         LocateRegistry.createRegistry(8080);
@@ -42,18 +46,19 @@ public class ServerImpl{
         System.out.println("Server RMI is up");*/
 
         //SOCKET
+        ServerImpl server = new ServerImpl();
         ExecutorService executor = Executors.newCachedThreadPool();
         ServerSocket serverSocket = new ServerSocket(29999);
         System.out.println("Server is ready");
         while(true){
-            //Match match = new Match();
-            //matches.add(match);
+            Match match = new Match();
+            server.getMatches().add(match);
             try{
                 Socket socket = serverSocket.accept();
-                //UserHandler userHandler = new UserHandler(socket);
-                //match.setUserHanlder(userHandler);
-                executor.submit(new UserHandler(socket));
-                //executor.submit(match);
+                UserHandler userHandler = new UserHandler(socket);
+                match.setUserHanlder(userHandler);
+                executor.submit(userHandler);
+                executor.submit(match);
                 System.out.println("Client accepted :"+ socket);
             }catch(IOException e){
                 break;
