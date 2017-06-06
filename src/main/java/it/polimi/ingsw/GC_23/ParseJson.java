@@ -52,10 +52,10 @@ public class ParseJson {
     public ArrayList<AbsEffect> getMarketEffect() {
 
         ArrayList<AbsEffect> arrayList = new ArrayList<>();
-        arrayList.add(effectMap.get("61"));
-        arrayList.add(effectMap.get("62"));
-        arrayList.add(effectMap.get("63"));
-        arrayList.add(effectMap.get("64"));
+        arrayList.add(effectMap.get(61));
+        arrayList.add(effectMap.get(62));
+        arrayList.add(effectMap.get(63));
+        arrayList.add(effectMap.get(64));
         return arrayList;
 
     }
@@ -274,8 +274,12 @@ public class ParseJson {
     private void parseNewPlayCardEffect(JSONArray newPlayEffects) {
         for (int i = 0; i < newPlayEffects.length(); i++) {
             NewPlayCardEffect newPlayCardEffect = null;
+            ArrayList<SingleCost> sale;
             int plusDiceValue = newPlayEffects.getJSONObject(i).getInt("plus_dice_value");
             String towerColor = newPlayEffects.getJSONObject(i).getString("tower_color");
+            if (newPlayEffects.getJSONObject(i).has("sale")) {
+
+            }
             if (towerColor.equals("green")) {
 
             }
@@ -314,19 +318,19 @@ public class ParseJson {
 
     public BenefitsEffect[] getCouncilBenefit() {
         BenefitsEffect[] councilPrivilegeBenefit = new BenefitsEffect[5];
-        councilPrivilegeBenefit[0] = benefitsEffectMap.get("10");
-        councilPrivilegeBenefit[1] = benefitsEffectMap.get("11");
-        councilPrivilegeBenefit[2] = benefitsEffectMap.get("12");
-        councilPrivilegeBenefit[3] = benefitsEffectMap.get("13");
-        councilPrivilegeBenefit[4] = benefitsEffectMap.get("14");
+        councilPrivilegeBenefit[0] = benefitsEffectMap.get(10);
+        councilPrivilegeBenefit[1] = benefitsEffectMap.get(11);
+        councilPrivilegeBenefit[2] = benefitsEffectMap.get(12);
+        councilPrivilegeBenefit[3] = benefitsEffectMap.get(13);
+        councilPrivilegeBenefit[4] = benefitsEffectMap.get(14);
 
         return councilPrivilegeBenefit;
     }
 
     public ArrayList<AbsEffect> getCouncilSpaceEffect() {
         ArrayList<AbsEffect> councilEffects  = new ArrayList<>();
-        councilEffects.add(effectMap.get("1"));
-        councilEffects.add(effectMap.get("2"));
+        councilEffects.add(effectMap.get(1));
+        councilEffects.add(effectMap.get(2));
 
         return councilEffects ;
     }
@@ -446,19 +450,19 @@ public class ParseJson {
     }
 
     public BonusTile getBonusTile1() {
-        return new BonusTile((BenefitsEffect) effectMap.get("70"), (BenefitsEffect) effectMap.get("71"));
+        return new BonusTile((BenefitsEffect) effectMap.get(70), (BenefitsEffect) effectMap.get(71));
     }
     public BonusTile getBonusTile2() {
-        return new BonusTile((BenefitsEffect) effectMap.get("72"), (BenefitsEffect) effectMap.get("73"));
+        return new BonusTile((BenefitsEffect) effectMap.get(72), (BenefitsEffect) effectMap.get(73));
     }
     public BonusTile getBonusTile3() {
-        return new BonusTile((BenefitsEffect) effectMap.get("74"), (BenefitsEffect) effectMap.get("75"));
+        return new BonusTile((BenefitsEffect) effectMap.get(74), (BenefitsEffect) effectMap.get(75));
     }
     public BonusTile getBonusTile4() {
-        return new BonusTile((BenefitsEffect) effectMap.get("76"), (BenefitsEffect) effectMap.get("77"));
+        return new BonusTile((BenefitsEffect) effectMap.get(76), (BenefitsEffect) effectMap.get(77));
     }
     public BonusTile getBonusTile5() {
-        return new BonusTile((BenefitsEffect) effectMap.get("78"), (BenefitsEffect) effectMap.get("79"));
+        return new BonusTile((BenefitsEffect) effectMap.get(78), (BenefitsEffect) effectMap.get(79));
     }
 
     public ArrayList<CharacterCard> getCharacterCardArrayList() {

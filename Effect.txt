@@ -219,7 +219,7 @@
 	
 	],
 	"NewPlayCardEffect":[
-		{"id": "492", "tower_color": "green", "plus_dice_value": "2", "discount": [
+		{"id": "492", "tower_color": "green", "plus_dice_value": "2", "sale": [
 			{"wood": "1"},
 			{"stone": "1"}
 		]}
