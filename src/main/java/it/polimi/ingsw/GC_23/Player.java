@@ -16,6 +16,7 @@ import java.util.Scanner;
  * Created by Alessandro Tonali on 20/05/2017.
  */
 public class Player implements Serializable {
+    private Board view;
     private PlayerColor playerColor;
     private ResourcesSet resources;
     private CardOfPlayer cardOfPlayer;
@@ -79,9 +80,9 @@ public class Player implements Serializable {
         this.playerColor = playerColor;
     }
 
-    public void chooseMove() {
+    public void chooseMove(Board board) {
         //momentaneo
-        Board board = new Board(4);
+        this.view = board;
         System.out.println("press\n 0 for placing a familiar in council\n" +
                 "press 1 for getting the harvest\n" +
                 "press 2 for getting production\n" +
@@ -103,7 +104,7 @@ public class Player implements Serializable {
 
         if (i > 8) {
             System.out.println("Invalid number");
-            chooseMove();
+            chooseMove(this.view);
         }
 
 

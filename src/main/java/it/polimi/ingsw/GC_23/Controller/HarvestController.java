@@ -39,6 +39,7 @@ public class HarvestController extends PlaceFamilyMember {
     public void makeAction(){
         this.familyMember.getPlayer().getBonusTile().getHarvestEffect().activeEffect(this.familyMember.getPlayer());
         harvestSpace.setFamilyMember(familyMember);
+        System.out.println(familyMember.getPlayer().getResources().toString());
     }
 
 }

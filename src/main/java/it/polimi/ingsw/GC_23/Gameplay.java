@@ -20,7 +20,7 @@ public class Gameplay {
 
     public Gameplay(ArrayList<Player> players) {
         this.players = players;
-        this.board = new Board();
+        this.board = new Board(4);
         scheduling();
 
 
@@ -60,17 +60,19 @@ public class Gameplay {
             playersOrder.add(playersOrder.get(i));
         }
         return playersOrder;
+
     }
 
     public void scheduling() {
         int i = 0;
+        resetFamilyMembers();
         while(true) {
             System.out.println(period + "period");
             while( i < 1 ){
                 for (Player p : this.players) {
                     System.out.println("Period: " + this.period + "Turn: " + this.turn);
                     System.out.println(p.getPlayerColor().toString() + ": it's your turn!");
-                    p.chooseMove();
+                    p.chooseMove(this.board);
                 }
                 i++;
             }
@@ -214,12 +216,17 @@ public class Gameplay {
                 switch(f.getFamilyColor()){
                     case ORANGE:
                         f.setValue(board.getDiceOValue());
+                        break;
                     case WHITE:
                         f.setValue(board.getDiceWValue());
+                        break;
                     case BLACK:
                         f.setValue(board.getDiceBValue());
+                        break;
                     case NEUTRAL:
                         f.setValue(0);
+                        break;
+
                 }
             }
         }

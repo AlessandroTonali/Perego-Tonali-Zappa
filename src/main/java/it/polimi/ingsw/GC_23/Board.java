@@ -36,6 +36,7 @@ public class Board {
         this.ventureCards = ParseJson.getParseJson().getVentureCardArrayList();
         this.buildingCards = ParseJson.getParseJson().getBuildingCardArrayList();
         this.characterCards = ParseJson.getParseJson().getCharacterCardArrayList();
+        System.out.println(territoryCards.size());
         setCard();
         switch (numberOfPlayers){
             case 2:
@@ -44,12 +45,14 @@ public class Board {
                 this.marketSpaces = new MarketSpace[2];
                 this.marketSpaces[0]= new MarketSpace(ParseJson.getParseJson().getMarketEffect().get(0));
                 this.marketSpaces[1]= new MarketSpace(ParseJson.getParseJson().getMarketEffect().get(1));
+                break;
             case 3:
                 this.productionSpace = new ProductionSpace(true);
                 this.harvestSpace = new HarvestSpace(true);
                 this.marketSpaces = new MarketSpace[2];
                 this.marketSpaces[0]= new MarketSpace(ParseJson.getParseJson().getMarketEffect().get(0));
                 this.marketSpaces[1]= new MarketSpace(ParseJson.getParseJson().getMarketEffect().get(1));
+                break;
             case 4:
                 this.productionSpace = new ProductionSpace(true);
                 this.harvestSpace = new HarvestSpace(true);
@@ -58,6 +61,7 @@ public class Board {
                 this.marketSpaces[1]= new MarketSpace(ParseJson.getParseJson().getMarketEffect().get(1));
                 this.marketSpaces[2]= new MarketSpace(ParseJson.getParseJson().getMarketEffect().get(2));
                 this.marketSpaces[3]= new MarketSpace(ParseJson.getParseJson().getMarketEffect().get(3));
+                break;
             default:
                 System.out.println("wrong number of players");
         }
@@ -72,15 +76,55 @@ public class Board {
 
     }
 
-    public void setCardInTowerSpace(Tower tower) {
-        switch (tower)
+    public void setCardInTowerSpace(int i, Tower tower ) {
+        int j = 0;
+        switch (i) {
+            case  0:
+                for (TowerSpace ts : tower.getSpaces()) {
+
+                    ts.setCard(territoryCards.get(j));
+                    territoryCards.remove(0);
+                    j++;
+
+                } break;
+            case 1:
+                for (TowerSpace ts : tower.getSpaces()) {
+
+                    ts.setCard(characterCards.get(j));
+                    characterCards.remove(0);
+                    j++;
+
+                } break;
+
+            case 2:
+                for (TowerSpace ts : tower.getSpaces()) {
+
+                    ts.setCard(buildingCards.get(j));
+                    buildingCards.remove(0);
+                    j++;
+
+                } break;
+            case 3:
+                for (TowerSpace ts : tower.getSpaces()) {
+
+                    ts.setCard(ventureCards.get(j));
+                    ventureCards.remove(0);
+                    j++;
+
+                } break;
+            default: throw new UnsupportedOperationException();
+
+        }
 
 
 
     }
 
     public void setCard() {
+        int i = 0;
         for (Tower t : towers) {
+            setCardInTowerSpace(i,t);
+
 
         }
     }

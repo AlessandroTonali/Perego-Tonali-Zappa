@@ -1,5 +1,6 @@
 package it.polimi.ingsw.GC_23;
 
+import it.polimi.ingsw.GC_23.Effects.BenefitsEffect;
 import it.polimi.ingsw.GC_23.Enumerations.FamilyColor;
 import it.polimi.ingsw.GC_23.Enumerations.PlayerColor;
 import it.polimi.ingsw.GC_23.Resources.ResourcesSet;
@@ -15,6 +16,10 @@ public class Creator {
     private ArrayList<Player> players = new ArrayList<Player>();
     private Gameplay gameplay;
     private int numberOfPlayers;
+
+    public Creator(){
+
+    }
 
     public Creator(int numberOfPlayers){
         board= new Board(numberOfPlayers);
@@ -34,17 +39,17 @@ public class Creator {
         return players;
     }
 
-    public Player createPlayer(String color){
+    public Player createPlayer(PlayerColor playerColor){
         //todo: assegno bonus tile
         //todo: 4 player al massimo
-        PlayerColor playerColor = PlayerColor.valueOf(color);
-        Player player = new Player(playerColor, null);
+        Player player = new Player(playerColor, new BonusTile(new BenefitsEffect(new ResourcesSet(1,1,1,1,
+                1,1,1)),new BenefitsEffect(new ResourcesSet(1,1,1,1,1,1,1))));
         this.players.add(player);
         FamilyMember[] familyMembers = new FamilyMember[4];
-        familyMembers[0]= new FamilyMember(player, FamilyColor.ORANGE, board.getDiceOValue());
-        familyMembers[1]= new FamilyMember(player, FamilyColor.WHITE, board.getDiceWValue());
-        familyMembers[2]= new FamilyMember(player, FamilyColor.BLACK, board.getDiceBValue());
-        familyMembers[3]= new FamilyMember(player, FamilyColor.NEUTRAL, 0);
+        familyMembers[0] = new FamilyMember(player, FamilyColor.ORANGE, 0);
+        familyMembers[1] = new FamilyMember(player, FamilyColor.WHITE, 0);
+        familyMembers[2] = new FamilyMember(player, FamilyColor.BLACK, 0);
+        familyMembers[3] = new FamilyMember(player, FamilyColor.NEUTRAL, 0);
         player.setFamilyMembers(familyMembers);
         player.setResources(new ResourcesSet(0,0,0,3,2,0,2));
         return player;

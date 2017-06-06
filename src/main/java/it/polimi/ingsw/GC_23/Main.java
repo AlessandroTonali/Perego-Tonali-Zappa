@@ -73,11 +73,12 @@ public class Main {
         familyMember.setPlayer(player1);
 
         familyMember.getFamilyColor();
+        Creator creator = new Creator();
         ArrayList<Player> players = new ArrayList<>();
-        players.add(player1);
-        players.add(player2);
-        players.add(player3);
-        players.add(player4);
+        players.add(creator.createPlayer(PlayerColor.RED));
+        players.add(creator.createPlayer(PlayerColor.BLUE));
+        players.add(creator.createPlayer(PlayerColor.GREEN));
+        players.add(creator.createPlayer(PlayerColor.YELLOW));
         new Gameplay(players);
         System.out.println("inizio " + player1.getResources().toString());
 
