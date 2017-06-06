@@ -34,11 +34,18 @@ public class UserHandler implements Runnable{
         this.endMatch = endMatch;
     }
 
+    public String getCurrentUser() {
+        return currentUser;
+    }
+
+    public Player getCurrentPlayer() {
+        return currentPlayer;
+    }
+
     @Override
     public void run() {
         try{
-            //while (!endMatch){}
-            setup(new PlayerController());
+            while (!endMatch){}
             System.out.println("End of Match");
         }catch (Exception e){
             System.out.println("IOException: "+e.getMessage());
@@ -50,7 +57,7 @@ public class UserHandler implements Runnable{
         Map<Player, String> association = playerController.getAssociation();
         String username = inScanner.nextLine();
         currentUser = username;
-        outWriter.println(association.size());
+        outWriter.println((association.size()));
         outWriter.flush();
         //mostra le associazioni presenti
         for (Map.Entry<Player, String> entry : association.entrySet()) {
@@ -64,6 +71,7 @@ public class UserHandler implements Runnable{
             while (!logged) {
                 System.out.println("Inserisci scelta");
                 String choice = inScanner.nextLine();
+                System.out.println("Hai scelto"+choice);
                 Player selectedPlayer = new Player(null,null);
                 for (Map.Entry<Player, String> entry : association.entrySet()) {
                     if (entry.getKey().getPlayerColor().toString().equalsIgnoreCase((choice))) {
