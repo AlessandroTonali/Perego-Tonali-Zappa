@@ -6,6 +6,7 @@ import it.polimi.ingsw.GC_23.Cards.TerritoryCard;
 import it.polimi.ingsw.GC_23.Cards.VentureCard;
 import it.polimi.ingsw.GC_23.Effects.*;
 import it.polimi.ingsw.GC_23.Enumerations.CardColor;
+import it.polimi.ingsw.GC_23.Enumerations.NewPlayColor;
 import it.polimi.ingsw.GC_23.Resources.ResourcesSet;
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -271,6 +272,24 @@ public class ParseJson {
     }
 
     private void parseNewPlayCardEffect(JSONArray newPlayEffects) {
+        for (int i = 0; i < newPlayEffects.length(); i++) {
+            NewPlayCardEffect newPlayCardEffect = null;
+            int plusDiceValue = newPlayEffects.getJSONObject(i).getInt("plus_dice_value");
+            String towerColor = newPlayEffects.getJSONObject(i).getString("tower_color");
+            if (towerColor.equals("green")) {
+
+            }
+            if (towerColor.equals("yellow")) {
+
+            }
+            if (towerColor.equals("purple")) {
+
+            }
+            if (towerColor.equals("blue")) {
+
+            }
+
+        }
 
     }
 

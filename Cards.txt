@@ -36,7 +36,6 @@
 	
 ],
 "CharacterCard": [
-	{"id": "490","name": "Warlord", "cost": [ {"coin": "2"}], "immediateEffect": [{"effect": "641"}], "permanentEffect": [], "period": "3"},
 	{"id": "640","name": "Royal Messenger", "cost": [ {"coin": "5"}], "immediateEffect": [{"effect": "641"}], "permanentEffect": [], "period": "3"}
 ],
 "TerritoryCard": [

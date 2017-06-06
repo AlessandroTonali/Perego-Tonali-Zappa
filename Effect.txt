@@ -105,6 +105,9 @@
 		{"id": "471", "victoryPoint": "7"},
 		{"id": "481", "victoryPoint": "7", "faithPoint": "3"},
 		{"id": "482", "victoryPoint": "3"},
+		
+		{"id": "491", "militaryPoint": "3"},
+		
 		{"id": "762", "victoryPoint": "4"},
 		
 		
@@ -216,8 +219,11 @@
 	
 	],
 	"NewPlayCardEffect":[
+		{"id": "492", "tower_color": "green", "plus_dice_value": "2", "discount": [
+			{"wood": "1"},
+			{"stone": "1"}
+		]}
 		
-	
 	],
 	"NewPlayProductionEffect":[
 		
