@@ -16,11 +16,8 @@ public class Creator {
     private Gameplay gameplay;
     private int numberOfPlayers;
 
-    //todo:disporre tessere scomunica
     public Creator(int numberOfPlayers){
-        this.numberOfPlayers = numberOfPlayers;
-        board= new Board();
-        //todo: settare le carte nella tower
+        board= new Board(numberOfPlayers);
     }
 
     public void startGame(){
@@ -32,7 +29,6 @@ public class Creator {
         gameplay= new Gameplay(players);
         //gameplay.scheduling();
     }
-
 
     public ArrayList<Player> getPlayers() {
         return players;

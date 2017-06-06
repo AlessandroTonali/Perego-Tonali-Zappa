@@ -21,10 +21,7 @@ import java.util.concurrent.Executors;
 public class ServerImpl{
     private static ServerImpl server;
     private static ArrayList<User> users;
-    private static ArrayList<Player> players;
-    private static Creator creator;
-    private static Board board;
-    private static PlayerController playerController;
+    private static ArrayList<Match> matches;
 
     public static synchronized ServerImpl getServer(){
         if(server == null){
@@ -34,15 +31,8 @@ public class ServerImpl{
     }
 
     private ServerImpl(){
-        //TODO cambiare il 4
         this.users = new  ArrayList<User>();
-        this.creator = new Creator(4);
-        this.board = creator.getBoard();
-        this.playerController = new PlayerController();
-    }
-
-    public ArrayList<Player> getPlayers() {
-        return players;
+        this.matches = new ArrayList<Match>();
     }
 
     public static void main(String[] args) throws Exception{
@@ -60,7 +50,11 @@ public class ServerImpl{
         while(true){
             try{
                 Socket socket = serverSocket.accept();
-                executor.submit(new UserHandler(socket, board, playerController));
+                Match match = new Match();
+                matches.add(match);
+                UserHandler userHandler = new UserHandler(socket);
+                match.setUserHanlder(userHandler);
+                executor.submit(userHandler);
                 System.out.println("Client accepted :"+ socket);
             }catch(IOException e){
                 break;

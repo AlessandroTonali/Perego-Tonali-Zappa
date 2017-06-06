@@ -20,16 +20,12 @@ public class UserHandler implements Runnable{
     private String currentUser;
     private PlayerController playerController;
     private Player currentPlayer;
-    private Creator creator;
-    private Board board;
 
 
-    public UserHandler(Socket socket, Board board, PlayerController playerController) throws IOException {
+    public UserHandler(Socket socket) throws IOException {
         this.socket = socket;
         this.in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
         this.out= new PrintWriter(socket.getOutputStream(), true);
-        this.playerController = playerController;
-        this.board = board;
     }
 
     @Override
@@ -43,7 +39,7 @@ public class UserHandler implements Runnable{
         }
     }
 
-    private void setup() throws IOException{
+    public void setup() throws IOException{
         Map<String, String> association = this.playerController.getAssociation();
         in.readLine();   //"Username selected" saltato
         String username = in.readLine();
@@ -90,7 +86,7 @@ public class UserHandler implements Runnable{
         }
     }
 
-    private void play() throws IOException{
+    public void play() throws IOException{
         System.out.println("arrivo al play");
         //controllo turno del player
 

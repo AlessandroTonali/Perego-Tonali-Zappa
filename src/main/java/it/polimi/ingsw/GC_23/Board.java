@@ -10,7 +10,6 @@ import it.polimi.ingsw.GC_23.Spaces.*;
  */
 public class Board {
     private int towerDim =4;
-    private int marketDim =4;
     private Tower[] towers;
     private MarketSpace[] marketSpaces;
     private CouncilSpace councilSpace;
@@ -21,22 +20,41 @@ public class Board {
     private Dice diceO;
     private Dice diceW;
 
-    public Board(){
+    public Board(int numberOfPlayers){
         this.towers = towerInstancer();
-
-        //todo: se partita di due giocatori ho solo due spazi
-        this.marketSpaces = new MarketSpace[marketDim];
-        this.marketSpaces[0]= new MarketSpace(ParseJson.getParseJson().getMarketEffect().get(0));
-        this.marketSpaces[1]= new MarketSpace(ParseJson.getParseJson().getMarketEffect().get(1));
-        this.marketSpaces[2]= new MarketSpace(ParseJson.getParseJson().getMarketEffect().get(2));
-        this.marketSpaces[3]= new MarketSpace(ParseJson.getParseJson().getMarketEffect().get(3));
+        switch (numberOfPlayers){
+            case 2:
+                this.productionSpace = new ProductionSpace(false);
+                this.harvestSpace = new HarvestSpace(false);
+                this.marketSpaces = new MarketSpace[2];
+                this.marketSpaces[0]= new MarketSpace(ParseJson.getParseJson().getMarketEffect().get(0));
+                this.marketSpaces[1]= new MarketSpace(ParseJson.getParseJson().getMarketEffect().get(1));
+            case 3:
+                this.productionSpace = new ProductionSpace(true);
+                this.harvestSpace = new HarvestSpace(true);
+                this.marketSpaces = new MarketSpace[2];
+                this.marketSpaces[0]= new MarketSpace(ParseJson.getParseJson().getMarketEffect().get(0));
+                this.marketSpaces[1]= new MarketSpace(ParseJson.getParseJson().getMarketEffect().get(1));
+            case 4:
+                this.productionSpace = new ProductionSpace(true);
+                this.harvestSpace = new HarvestSpace(true);
+                this.marketSpaces = new MarketSpace[4];
+                this.marketSpaces[0]= new MarketSpace(ParseJson.getParseJson().getMarketEffect().get(0));
+                this.marketSpaces[1]= new MarketSpace(ParseJson.getParseJson().getMarketEffect().get(1));
+                this.marketSpaces[2]= new MarketSpace(ParseJson.getParseJson().getMarketEffect().get(2));
+                this.marketSpaces[3]= new MarketSpace(ParseJson.getParseJson().getMarketEffect().get(3));
+            default:
+                System.out.println("wrong number of players");
+        }
 
         this.councilSpace = new CouncilSpace(ParseJson.getParseJson().getCouncilSpaceEffect());
-        this.productionSpace = new ProductionSpace();
-        this.harvestSpace = new HarvestSpace();
 
         this.diceSpace = new DiceSpace();
         setDices();
+
+        //todo: settare le carte nella tower
+        //todo:disporre tessere scomunica
+
     }
 
     public void setDices(){

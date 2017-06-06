@@ -14,14 +14,24 @@ public class HarvestSpace extends ActionSpace {
     private static boolean isBusyFirst;
     private static int orderCounter;
     private ArrayList<FamilyMember> playerOrder;
-    private boolean completePlay = false; //todo: se false partita di due giocatori: un solo spazio
+    private boolean completePlay = false;
 
     public HarvestSpace(){
         super(1);
         this.isBusyFirst = false;
         orderCounter = 0;
+        completePlay =true;
         this.playerOrder= new ArrayList<FamilyMember>(0);
     }
+
+    public HarvestSpace(boolean completePlay){
+        super(1);
+        this.isBusyFirst = false;
+        orderCounter = 0;
+        this.completePlay = completePlay;
+        this.playerOrder= new ArrayList<FamilyMember>(0);
+    }
+
 
     public void setFamilyMember(FamilyMember familyMember) {
         this.isBusyFirst = true;
@@ -44,6 +54,9 @@ public class HarvestSpace extends ActionSpace {
     }
 
     public boolean checkFamiliar(PlayerColor playerColor){
+        if(completePlay == false && this.isBusyFirst == true){
+            return true;
+        }
         for(int i = 0; i<playerOrder.size(); i++) {
             if (playerOrder.get(i).getPlayer().getPlayerColor() == playerColor && !(playerOrder.get(i)
                     .getFamilyColor() == FamilyColor.NEUTRAL)) {
@@ -69,5 +82,7 @@ public class HarvestSpace extends ActionSpace {
             isBusyFirst=false;
         }
     }
+
+
 }
 

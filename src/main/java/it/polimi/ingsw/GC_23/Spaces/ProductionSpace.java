@@ -17,12 +17,21 @@ public class ProductionSpace extends ActionSpace {
     private static boolean isBusyFirst;
     private static int orderCounter;
     private ArrayList<FamilyMember> playerOrder;
-    private boolean completePlay = false; //todo: se false partita di due giocatori: un solo spazio
+    private boolean completePlay = false;
 
     public ProductionSpace(){
         super(1);
         isBusyFirst = false;
         orderCounter = 0;
+        completePlay =true;
+        this.playerOrder= new ArrayList<FamilyMember>(0);
+    }
+
+    public ProductionSpace(boolean completePlay){
+        super(1);
+        isBusyFirst = false;
+        orderCounter = 0;
+        this.completePlay = completePlay;
         this.playerOrder= new ArrayList<FamilyMember>(0);
     }
 
@@ -47,6 +56,9 @@ public class ProductionSpace extends ActionSpace {
     }
 
     public boolean checkFamiliar(FamilyMember familyMember){
+        if(completePlay == false && this.isBusyFirst == true){
+            return true;
+        }
         boolean familiarPresence = false;
         if (familyMember.getFamilyColor() != FamilyColor.NEUTRAL) {
             for (int i = 0; i < playerOrder.size(); i++) {
