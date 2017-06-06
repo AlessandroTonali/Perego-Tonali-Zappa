@@ -1,9 +1,15 @@
 package it.polimi.ingsw.GC_23;
 
+import it.polimi.ingsw.GC_23.Cards.BuildingCard;
+import it.polimi.ingsw.GC_23.Cards.CharacterCard;
+import it.polimi.ingsw.GC_23.Cards.TerritoryCard;
+import it.polimi.ingsw.GC_23.Cards.VentureCard;
 import it.polimi.ingsw.GC_23.Effects.BenefitsEffect;
 import it.polimi.ingsw.GC_23.Enumerations.DiceColor;
 import it.polimi.ingsw.GC_23.Resources.ResourcesSet;
 import it.polimi.ingsw.GC_23.Spaces.*;
+
+import java.util.ArrayList;
 
 /**
  * Created by jesss on 31/05/17.
@@ -19,9 +25,18 @@ public class Board {
     private Dice diceB;
     private Dice diceO;
     private Dice diceW;
+    private ArrayList<TerritoryCard> territoryCards;
+    private ArrayList<VentureCard> ventureCards;
+    private ArrayList<BuildingCard> buildingCards;
+    private ArrayList<CharacterCard> characterCards;
 
     public Board(int numberOfPlayers){
         this.towers = towerInstancer();
+        this.territoryCards = ParseJson.getParseJson().getTerritoryCardArrayList();
+        this.ventureCards = ParseJson.getParseJson().getVentureCardArrayList();
+        this.buildingCards = ParseJson.getParseJson().getBuildingCardArrayList();
+        this.characterCards = ParseJson.getParseJson().getCharacterCardArrayList();
+        setCard();
         switch (numberOfPlayers){
             case 2:
                 this.productionSpace = new ProductionSpace(false);
@@ -55,6 +70,19 @@ public class Board {
         //todo: settare le carte nella tower
         //todo:disporre tessere scomunica
 
+    }
+
+    public void setCardInTowerSpace(Tower tower) {
+        switch (tower)
+
+
+
+    }
+
+    public void setCard() {
+        for (Tower t : towers) {
+
+        }
     }
 
     public void setDices(){

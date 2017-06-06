@@ -66,9 +66,7 @@ public class Gameplay {
         int i = 0;
         while(true) {
             System.out.println(period + "period");
-            System.out.println("i ha il valore di " + i);
             while( i < 1 ){
-                System.out.println("sono nel while perchè i è minore di 4");
                 for (Player p : this.players) {
                     System.out.println("Period: " + this.period + "Turn: " + this.turn);
                     System.out.println(p.getPlayerColor().toString() + ": it's your turn!");
@@ -84,7 +82,6 @@ public class Gameplay {
                     System.out.println(period + "period" );
                 }
                 else if(period == 3){
-                    System.out.println("sono entrato in questo if");
                     break;
                 }
                 else if (turn == 2) {
@@ -92,9 +89,7 @@ public class Gameplay {
                     period++;
                     turn = 1;
                     checkEndPeriod();
-                    System.out.println("sono qua");
                 }
-            System.out.println("ora sono alla fine di sto while");
             System.out.println("periodo " + period);
             System.out.println("turno " + turn);
             }
@@ -106,10 +101,10 @@ public class Gameplay {
 
     private void checkEndPeriod() {
         board.resetCardTowers();
-       // board.setCards();//
+       //board.setCards();//
         makeTurnOrder();
         board.setDices();
-        //resetFamilyMembers();//
+        resetFamilyMembers();
 
         for(Tower t: board.getTowers()){
             for(TowerSpace ts: t.getSpaces()){

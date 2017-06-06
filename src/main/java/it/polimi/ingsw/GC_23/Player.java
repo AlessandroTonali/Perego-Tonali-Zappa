@@ -8,13 +8,14 @@ import it.polimi.ingsw.GC_23.Resources.ResourcesSet;
 import it.polimi.ingsw.GC_23.Spaces.*;
 
 import java.io.Console;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Scanner;
 
 /**
  * Created by Alessandro Tonali on 20/05/2017.
  */
-public class Player {
+public class Player implements Serializable {
     private PlayerColor playerColor;
     private ResourcesSet resources;
     private CardOfPlayer cardOfPlayer;
