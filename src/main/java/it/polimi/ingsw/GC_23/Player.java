@@ -80,7 +80,7 @@ public class Player {
 
     public void chooseMove() {
         //momentaneo
-        Board board = new Board();
+        Board board = new Board(4);
         System.out.println("press\n 0 for placing a familiar in council\n" +
                 "press 1 for getting the harvest\n" +
                 "press 2 for getting production\n" +
@@ -127,6 +127,7 @@ public class Player {
             case 5:
                 new TerritoryController(chooseFamilyMember(), board.getTower(0));
                 break;
+            case 6: break;//todo toglilo
             default:
                 new OtherCardsController(chooseFamilyMember(), board.chooseTower(this));
                 break;

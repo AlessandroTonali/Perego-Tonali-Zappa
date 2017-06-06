@@ -5,6 +5,7 @@ import it.polimi.ingsw.GC_23.Effects.CouncilPrivilegeEffect;
 import it.polimi.ingsw.GC_23.Effects.Effect;
 import it.polimi.ingsw.GC_23.Enumerations.PlayerColor;
 import it.polimi.ingsw.GC_23.FamilyMember;
+import it.polimi.ingsw.GC_23.Player;
 
 import java.util.ArrayList;
 
@@ -13,20 +14,20 @@ import java.util.ArrayList;
  */
 public class CouncilSpace extends ActionSpace {
     private static int orderCounter;
-    private ArrayList<FamilyMember> playerOrder;
+    private ArrayList<Player> playerOrder;
     private final ArrayList<AbsEffect> effects;
 
     public CouncilSpace(ArrayList<AbsEffect> effects){
         super(1);
         this.effects = effects;
         orderCounter = 0;
-        this.playerOrder= new ArrayList<FamilyMember>(0);
+        this.playerOrder= new ArrayList<Player>();
     }
 
 
 
     public void setFamilyMember(FamilyMember familyMember){
-        this.getPlayerOrder().add(familyMember);
+        this.playerOrder.add(familyMember.getPlayer());
         orderCounter++;
     }
 
@@ -36,22 +37,20 @@ public class CouncilSpace extends ActionSpace {
 
     public boolean checkFamiliar(PlayerColor playerColor){
         for(int i = 0; i<playerOrder.size(); i++) {
-            if (playerOrder.get(i).getPlayer().getPlayerColor() == playerColor) {
+            if (playerOrder.get(i).getPlayerColor() == playerColor) {
                 return true;
             }
         }
         return false;
     }
 
-    public ArrayList<FamilyMember> getPlayerOrder() {
+    public ArrayList<Player> getPlayerOrder() {
         return playerOrder;
     }
 
     @Override
     public void resetFamilyMember(){
-        for(FamilyMember f: this.getPlayerOrder()){
-            f= new FamilyMember(this);
-            orderCounter = 0;
-        }
+
+
     }
 }

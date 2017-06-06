@@ -5,6 +5,7 @@ import it.polimi.ingsw.GC_23.Spaces.MarketSpace;
 import it.polimi.ingsw.GC_23.Spaces.Tower;
 import it.polimi.ingsw.GC_23.Spaces.TowerSpace;
 
+import java.awt.image.AreaAveragingScaleFilter;
 import java.util.ArrayList;
 
 /**
@@ -19,16 +20,31 @@ public class Gameplay {
 
     public Gameplay(ArrayList<Player> players) {
         this.players = players;
+        this.board = new Board();
+        scheduling();
+
 
     }
 
-    private ArrayList<Player> makeTurnOrder() {
-        ArrayList<FamilyMember> familyMembersOrder = board.getCouncilSpace().getPlayerOrder();
-        ArrayList<Player> playersOrder = new ArrayList<Player>();
-        for(FamilyMember f: familyMembersOrder){
-            playersOrder.add(f.getPlayer());
+    private boolean isPresent(Player player){
+        for(Player p : this.players) {
+            if(p == player){
+                return true;
+            }
         }
-        return playersOrder;
+        return false;
+    }
+
+    private void makeTurnOrder() {
+        ArrayList<Player> pastOrder = this.players;
+        this.players = board.getCouncilSpace().getPlayerOrder();
+        for(Player p : pastOrder){
+            if(!isPresent(p)){
+                players.add(p);
+            }
+        }
+
+
     }
 
     private ArrayList<Player> makeMilitaryOrder() {
@@ -47,22 +63,42 @@ public class Gameplay {
     }
 
     public void scheduling() {
-        for(Player p: players){
-            System.out.println("Period: "+this.period+ "Turn: "+this.turn);
-            System.out.println(p.getPlayerColor().toString()+": it's your turn!");
-            p.chooseMove();
-            if(turn==1){
-                turn++;
+        int i = 0;
+        while(true) {
+            System.out.println(period + "period");
+            System.out.println("i ha il valore di " + i);
+            while( i < 1 ){
+                System.out.println("sono nel while perchè i è minore di 4");
+                for (Player p : this.players) {
+                    System.out.println("Period: " + this.period + "Turn: " + this.turn);
+                    System.out.println(p.getPlayerColor().toString() + ": it's your turn!");
+                    p.chooseMove();
+                }
+                i++;
             }
-            if(turn==2){
-                period++;
-                turn=1;
-                checkEndPeriod();
+            i = 0;
+            System.out.println("fine turno");
+                if (turn == 1) {
+                    turn++;
+                    makeTurnOrder();
+                    System.out.println(period + "period" );
+                }
+                else if(period == 3){
+                    System.out.println("sono entrato in questo if");
+                    break;
+                }
+                else if (turn == 2) {
+                    System.out.println(turn + "turno");
+                    period++;
+                    turn = 1;
+                    checkEndPeriod();
+                    System.out.println("sono qua");
+                }
+            System.out.println("ora sono alla fine di sto while");
+            System.out.println("periodo " + period);
+            System.out.println("turno " + turn);
             }
-            if((period==3)&&(turn==2)&&(players.get(players.size()-1)==p)){
-                break;
-            }
-        }
+
         System.out.println("END");
         checkEndGame();
         getWinner();
@@ -70,9 +106,10 @@ public class Gameplay {
 
     private void checkEndPeriod() {
         board.resetCardTowers();
-        this.players = makeTurnOrder();
+       // board.setCards();//
+        makeTurnOrder();
         board.setDices();
-        resetFamilyMembers();
+        //resetFamilyMembers();//
 
         for(Tower t: board.getTowers()){
             for(TowerSpace ts: t.getSpaces()){
@@ -86,6 +123,7 @@ public class Gameplay {
         board.getProductionSpace().resetFamilyMember();
         board.getHarvestSpace().resetFamilyMember();
         //todo: in 1.2 2.2 e 3.2 rapporto al vaticano: scomunica
+
 
     }
 

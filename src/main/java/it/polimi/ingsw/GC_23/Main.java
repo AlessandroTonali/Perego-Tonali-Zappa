@@ -38,18 +38,21 @@ public class Main {
 
         ResourcesSet set1 = new ResourcesSet(1,2,3,4,5,6,7);
         ResourcesSet set2 = new ResourcesSet(5,6,7,8,9,10,11);
-        Player player = new Player(PlayerColor.RED, null);
-        player.setResources(set1);
+        Player player1 = new Player(PlayerColor.RED, null);
+        Player player2 = new Player(PlayerColor.BLUE,null);
+        Player player3 = new Player(PlayerColor.GREEN,null);
+        Player player4 = new Player(PlayerColor.YELLOW,null);
+        player1.setResources(set1);
 
-        FamilyMember familyMember = new FamilyMember(player, FamilyColor.ORANGE,7);
-        familyMember.setPlayer(player);
+        FamilyMember familyMember = new FamilyMember(player1, FamilyColor.ORANGE,7);
+        familyMember.setPlayer(player1);
         FamilyMember[] members = new FamilyMember[1];
         members[0] = familyMember;
         System.out.println("");
 
         BuildingCard buildingCard1 = parseJson.getBuildingCardArrayList().get(0);
 
-        buildingCard.getImmediateEffect().get(0).activeEffect(player);
+        buildingCard.getImmediateEffect().get(0).activeEffect(player1);
         System.out.println("ora qua");
         BenefitsEffect benefitsEffect = new BenefitsEffect(set1);
         ArrayList<AbsEffect> immediate = new ArrayList<>();
@@ -66,14 +69,20 @@ public class Main {
 
 
         Tower tower = new Tower(spaces);
-        player.setFamilyMembers(members);
-        familyMember.setPlayer(player);
+        player1.setFamilyMembers(members);
+        familyMember.setPlayer(player1);
 
         familyMember.getFamilyColor();
-        System.out.println("inizio " + player.getResources().toString());
+        ArrayList<Player> players = new ArrayList<>();
+        players.add(player1);
+        players.add(player2);
+        players.add(player3);
+        players.add(player4);
+        new Gameplay(players);
+        System.out.println("inizio " + player1.getResources().toString());
 
 
-        System.out.println("fine" + player.getResources().toString());
+        System.out.println("fine" + player1.getResources().toString());
 
 
     }

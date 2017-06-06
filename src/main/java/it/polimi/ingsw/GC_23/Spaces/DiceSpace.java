@@ -20,6 +20,9 @@ public class DiceSpace {
         this.dices[diceCounter]= dice;
         dice.setPosition(diceCounter);
         diceCounter++;
+        if(diceCounter == diceSpaceDim){
+            diceCounter = 0;
+        }
     }
 
     public Dice[] getDices() {
