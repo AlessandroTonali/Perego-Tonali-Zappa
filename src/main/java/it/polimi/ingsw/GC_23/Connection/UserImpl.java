@@ -11,6 +11,7 @@ import java.rmi.RemoteException;
 import java.rmi.registry.LocateRegistry;
 import java.rmi.registry.Registry;
 import java.rmi.server.UnicastRemoteObject;
+import java.util.Scanner;
 
 /**
  * Created by jesss on 03/06/17.
@@ -18,8 +19,10 @@ import java.rmi.server.UnicastRemoteObject;
 
 public class UserImpl{
     private Socket socket;
-    private BufferedReader inSocket;
-    private PrintWriter outSocket;
+    private ObjectInputStream inSocket;
+    private ObjectOutputStream outSocket;
+    private Scanner inScanner;
+    private PrintWriter outWriter;
     private BufferedReader inKeyboard;
     private PrintWriter outVideo;
     private Player player;
@@ -47,7 +50,7 @@ public class UserImpl{
         try{
             connect();
             setup();
-            play();
+            //play();
             close();
         }catch (Exception e){
             System.out.println("Exception: "+e);
@@ -78,8 +81,10 @@ public class UserImpl{
             try {
                 Socket socket = new Socket("127.0.0.1", 29999);
                 System.out.println("Connected: " + socket);
-                outSocket = new PrintWriter(new BufferedWriter(new OutputStreamWriter(socket.getOutputStream())),true);
-                inSocket = new BufferedReader(new InputStreamReader(socket.getInputStream()));
+                outSocket = new ObjectOutputStream(socket.getOutputStream());
+                inSocket = new ObjectInputStream(socket.getInputStream());
+                outWriter = new PrintWriter(socket.getOutputStream(),true);
+                inScanner = new Scanner(socket.getInputStream());
                 inKeyboard= new BufferedReader(new InputStreamReader(System.in));
                 outVideo = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)),true);
                 System.out.println("Client connected");
@@ -99,23 +104,21 @@ public class UserImpl{
         try {
             outVideo.println("Select Username");
             String username = inKeyboard.readLine();
-            outSocket.println("Username selected");
-            outSocket.flush();
-            outSocket.println(username);
-            outSocket.flush();
+            outWriter.println(username);
+            outWriter.flush();
             //mostra a video le associazioni presenti
             outVideo.println("Select your player");
-            int playerNumber = Integer.parseInt(inSocket.readLine());
+            int playerNumber = Integer.parseInt(inScanner.nextLine());
             for(int i=0; i<playerNumber; i++){
-                String playerUser = inSocket.readLine();
+                String playerUser = inScanner.nextLine();
                 outVideo.println(playerUser);
             }
             boolean sceltaGiusta = false;
             while(!sceltaGiusta) {
                 String selectedColor = inKeyboard.readLine();
-                outSocket.println(selectedColor);
-                outSocket.flush();
-                sceltaGiusta = inSocket.readLine().equals("true");
+                outWriter.println(selectedColor);
+                outWriter.flush();
+                sceltaGiusta = inScanner.nextLine().equals("true");
                 if (sceltaGiusta) {
                     outVideo.println("You have chosen a correct player");
                     break;
@@ -124,7 +127,8 @@ public class UserImpl{
                     continue;
             }
             outVideo.println("Setup completed");
-            outSocket.println(true);
+            outWriter.println("finito");
+            outWriter.flush();
         } catch (Exception e) {
             System.out.println("Exception: " + e);
             e.printStackTrace();

@@ -20,7 +20,6 @@ import java.util.concurrent.Executors;
  */
 public class ServerImpl{
     private static ServerImpl server;
-    private static ArrayList<User> users;
     private static ArrayList<Match> matches;
 
     public static synchronized ServerImpl getServer(){
@@ -31,7 +30,6 @@ public class ServerImpl{
     }
 
     private ServerImpl(){
-        this.users = new  ArrayList<User>();
         this.matches = new ArrayList<Match>();
     }
 
@@ -48,13 +46,14 @@ public class ServerImpl{
         ServerSocket serverSocket = new ServerSocket(29999);
         System.out.println("Server is ready");
         while(true){
+            //Match match = new Match();
+            //matches.add(match);
             try{
                 Socket socket = serverSocket.accept();
-                Match match = new Match();
-                matches.add(match);
-                UserHandler userHandler = new UserHandler(socket);
-                match.setUserHanlder(userHandler);
-                executor.submit(userHandler);
+                //UserHandler userHandler = new UserHandler(socket);
+                //match.setUserHanlder(userHandler);
+                executor.submit(new UserHandler(socket));
+                //executor.submit(match);
                 System.out.println("Client accepted :"+ socket);
             }catch(IOException e){
                 break;
