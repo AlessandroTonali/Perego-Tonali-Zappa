@@ -12,7 +12,7 @@ import java.util.Map;
  */
 public class PlayerController {
     //mappa playerColor con username
-    private Map<String, String> userPlayerAssociation;
+    private Map<Player, String> userPlayerAssociation;
 
     public PlayerController() {
         ArrayList<Player> players = new ArrayList<Player>();
@@ -22,11 +22,11 @@ public class PlayerController {
         players.add(new Player(PlayerColor.YELLOW, null));
         userPlayerAssociation = new HashMap<>();
         for(Player p : players){
-            this.userPlayerAssociation.put(p.getPlayerColor().toString(), null);
+            this.userPlayerAssociation.put(p, null);
         }
     }
 
-    public Map<String, String> getAssociation() {
+    public Map<Player, String> getAssociation() {
         return userPlayerAssociation;
     }
 }
