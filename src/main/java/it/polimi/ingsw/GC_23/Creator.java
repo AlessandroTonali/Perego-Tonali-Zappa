@@ -42,8 +42,7 @@ public class Creator {
     public Player createPlayer(PlayerColor playerColor){
         //todo: assegno bonus tile
         //todo: 4 player al massimo
-        Player player = new Player(playerColor, new BonusTile(new BenefitsEffect(new ResourcesSet(1,1,1,1,
-                1,1,1)),new BenefitsEffect(new ResourcesSet(1,1,1,1,1,1,1))));
+        Player player = new Player(playerColor, ParseJson.getParseJson().getBonusTile1());
         this.players.add(player);
         FamilyMember[] familyMembers = new FamilyMember[4];
         familyMembers[0] = new FamilyMember(player, FamilyColor.ORANGE, 0);

@@ -30,11 +30,7 @@ import java.util.logging.Logger;
 public class Main {
     public static void main( String[] args )
     {
-        System.out.println( "Hello World!" );
-        ParseJson parseJson = ParseJson.getParseJson();
-        BonusTile bonusTile = parseJson.getBonusTile1();
-        ArrayList<BuildingCard> buildingCards = parseJson.getBuildingCardArrayList();
-        BuildingCard buildingCard = buildingCards.get(0);
+
 
 
         ResourcesSet set1 = new ResourcesSet(1,2,3,4,5,6,7);
@@ -51,9 +47,6 @@ public class Main {
         members[0] = familyMember;
         System.out.println("");
 
-        BuildingCard buildingCard1 = parseJson.getBuildingCardArrayList().get(0);
-
-        buildingCard.getImmediateEffect().get(0).activeEffect(player1);
         System.out.println("ora qua");
         BenefitsEffect benefitsEffect = new BenefitsEffect(set1);
         ArrayList<AbsEffect> immediate = new ArrayList<>();
@@ -64,12 +57,11 @@ public class Main {
 
 
 
-        TowerSpace space = new TowerSpace(buildingCard1,null,7);
-        TowerSpace[] spaces = new TowerSpace[1];
-        spaces[0] = space;
 
 
-        Tower tower = new Tower(spaces);
+
+
+
         player1.setFamilyMembers(members);
         familyMember.setPlayer(player1);
 
