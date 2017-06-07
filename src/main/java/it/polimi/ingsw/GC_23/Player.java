@@ -60,6 +60,10 @@ public class Player implements Serializable {
         return bonusTile;
     }
 
+    public Board getView() {
+        return view;
+    }
+
     public FamilyMember[] getFamilyMembers() {
         return familyMembers;
     }
@@ -121,10 +125,21 @@ public class Player implements Serializable {
                 new ProductionController(chooseFamilyMember(), new ProductionSpace());
                 break;
             case 3:
-                new IncreaseFamilyValue(5, chooseFamilyMember());
+                String servants = this.getNextLine();
+                int j = -1;
+                try {
+                     j = Integer.parseInt(servants);
+
+                } catch (NumberFormatException e) {
+                    System.out.println("Invalid format");
+                    chooseMove(board);
+
+                }
+
+                new IncreaseFamilyValue( j , chooseFamilyMember());
                 break;
             case 4:
-                new MarketController(chooseFamilyMember(), new MarketSpace(null));
+                new MarketController(chooseFamilyMember(), board.getMarketSpaces());
                 break;
             case 5:
                 new TerritoryController(chooseFamilyMember(), board.getTower(0));

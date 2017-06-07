@@ -16,9 +16,11 @@ public class IncreaseFamilyValue implements Controller {
         this.familyMember = familyMember;
         if (!this.isLegal()) {
             System.out.println("error");
+            familyMember.getPlayer().chooseMove(familyMember.getPlayer().getView());
         } else {
             this.makeAction();
             System.out.println("succes");
+            familyMember.getPlayer().chooseMove(familyMember.getPlayer().getView());
         }
 
     }
