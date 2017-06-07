@@ -50,7 +50,7 @@ public class ServerImpl{
             Match match = new Match();
             server.getMatches().add(match);
             executor.submit(match);
-            while (userCounter < 4) {
+            while (userCounter < 2) {
                 try {
                     Socket socket = serverSocket.accept();
                     UserHandler userHandler = new UserHandler(socket);
@@ -65,7 +65,6 @@ public class ServerImpl{
                 }
             }
             userCounter=0;
-            continue;
         }
         /*executor.shutdown();
         serverSocket.close();*/

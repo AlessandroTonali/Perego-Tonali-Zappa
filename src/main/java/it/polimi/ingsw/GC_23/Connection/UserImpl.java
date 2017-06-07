@@ -25,8 +25,7 @@ public class UserImpl{
     private PrintWriter outWriter;
     private BufferedReader inKeyboard;
     private PrintWriter outVideo;
-    private Player player;
-    private boolean isYourTurn;
+    private boolean isYourTurn = false;
 
     protected UserImpl(){
         //super();
@@ -49,11 +48,22 @@ public class UserImpl{
     private void execute(){
         try{
             connect();
-            while(!(inScanner.hasNextLine())) {
-
+            outVideo.println(inScanner.nextLine());
+            outVideo.println(inScanner.nextLine());
+            while(!isYourTurn) {
+                isYourTurn = inScanner.nextLine().equals("true");
             }
+            isYourTurn = false;
             setup();
-            //play();
+            outVideo.println("Wait for your turn");
+            while(!isYourTurn){
+                isYourTurn = inScanner.nextLine().equals("true");
+            }
+            isYourTurn = false;
+            play();
+            while(!isYourTurn){
+                isYourTurn = inScanner.nextLine().equals("true");
+            }
             close();
         }catch (Exception e){
             System.out.println("Exception: "+e);

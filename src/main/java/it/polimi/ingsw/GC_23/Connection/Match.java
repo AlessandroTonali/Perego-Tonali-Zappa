@@ -24,11 +24,14 @@ public class Match implements Runnable{
     }
 
     private void scheduling() throws IOException{
+        for(UserHandler u: userHandlers){
+            u.message("MATCH STARTED");
+            u.message("Wait for your turn");
+        }
         for(UserHandler u : userHandlers){
             u.setup(playerController);
             playerController.getAssociation().putIfAbsent(u.getCurrentPlayer(), u.getCurrentUser());
-            System.out.println("Setup eseguito");
-            playerController.getAssociation().toString();
+            System.out.println("Setup di "+ u.getCurrentUser()+" eseguito");
         }
     }
 
@@ -42,9 +45,15 @@ public class Match implements Runnable{
     }
 
     @Override
-    public void run() {
+    public void run(){
         System.out.println("Match runned");
-        while(!(this.playerCounter == 4)) {
+        while(this.playerCounter < 2) {
+            System.out.println(playerCounter);
+            try{
+                Thread.sleep(5000);
+            }catch (InterruptedException ex){
+                ex.printStackTrace();
+            }
         }
         try {
             System.out.println("Match started");

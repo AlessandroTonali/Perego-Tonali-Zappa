@@ -56,7 +56,7 @@ public class UserHandler implements Runnable{
 
     public void setup(PlayerController playerController) throws IOException{
         Map<Player, String> association = playerController.getAssociation();
-        outWriter.println(true);
+        outWriter.println("true");
         outWriter.flush();
         String username = inScanner.nextLine();
         currentUser = username;
@@ -107,8 +107,14 @@ public class UserHandler implements Runnable{
         }
     }
 
+    public void message(String message){
+        outWriter.println(message);
+        outWriter.flush();
+    }
+
     public void play() throws IOException{
-        System.out.println("arrivo al play");
+        outWriter.println("true");
+        outWriter.flush();
         //controllo turno del player
 
     }
