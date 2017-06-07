@@ -19,6 +19,7 @@ public class ProductionController extends PlaceFamilyMember {
             if(isLegal()){
                 System.out.println("success");
                 makeAction();
+                System.out.println(this.familyMember.getPlayer().getResources().toString() + "in realta hai cio");
             }
         }
     }

@@ -40,6 +40,7 @@ public class CouncilController extends PlaceFamilyMember {
         for(AbsEffect i : effects) {
             i.activeEffect(familyMember.getPlayer());
         }
+        System.out.println(familyMember.getPlayer().getResources().toString());
     }
 }
 

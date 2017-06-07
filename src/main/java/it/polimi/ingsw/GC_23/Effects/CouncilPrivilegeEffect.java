@@ -47,7 +47,8 @@ public class CouncilPrivilegeEffect extends AbsEffect{
         int l = 0;
         String string;
         BenefitsEffect[] chosen = new BenefitsEffect[this.getNumberOfPrivileges()];
-        while (this.getNumberOfPrivileges() > 0) {
+        int numBen = this.getNumberOfPrivileges();
+        while (numBen > 0) {
             System.out.println("Select possible council privilege:");
             for (int n = 0; n < benefits.length; n++) {
                 System.out.println(n + ": " + benefits[n].toString());
@@ -72,7 +73,7 @@ public class CouncilPrivilegeEffect extends AbsEffect{
                     l++;
                     System.out.println("You get: " + this.benefits[i].getResources().toString());
                     System.out.println();
-                    this.setNumberOfPrivileges(this.getNumberOfPrivileges() - 1);
+                    numBen --;
                 } catch (NullPointerException ex) {
                     return null;
                 }
@@ -103,7 +104,7 @@ public class CouncilPrivilegeEffect extends AbsEffect{
                     l++;
                     System.out.println("You get:  " + this.benefits[i].getResources().toString());
                     System.out.println();
-                    this.setNumberOfPrivileges(this.getNumberOfPrivileges() - 1);
+                    numBen --;
                 } catch (NullPointerException ex) {
                     return null;
                 }
