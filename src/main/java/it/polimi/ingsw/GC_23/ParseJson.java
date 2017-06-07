@@ -1,5 +1,6 @@
 package it.polimi.ingsw.GC_23;
 
+import com.sun.org.apache.bcel.internal.generic.NEW;
 import it.polimi.ingsw.GC_23.Cards.BuildingCard;
 import it.polimi.ingsw.GC_23.Cards.CharacterCard;
 import it.polimi.ingsw.GC_23.Cards.TerritoryCard;
@@ -149,10 +150,10 @@ public class ParseJson {
             String name = characterCards.getJSONObject(i).getString("name");
             int period = characterCards.getJSONObject(i).getInt("period");
 
-            JSONArray costsJson = buildingCards.getJSONObject(i).getJSONArray("cost");
+            JSONArray costsJson = characterCards.getJSONObject(i).getJSONArray("cost");
             ArrayList<SingleCost> costs = new ArrayList<>();
             for (int j = 0; j < costsJson.length(); j++) {
-                costs.add(parseCost(costsJson.getJSONObject(i)));
+                costs.add(parseCost(costsJson.getJSONObject(j)));
             }
 
             JSONArray immediateEffectsJson = characterCards.getJSONObject(i).getJSONArray("immediateEffect");
@@ -266,33 +267,53 @@ public class ParseJson {
     }
 
     private void parseNewPlayHarvestEffect(JSONArray newPlayHarvestEffects) {
+        for (int i = 0; i < newPlayHarvestEffects.length(); i++) {
+            int idEffect = newPlayHarvestEffects.getJSONObject(i).getInt("id");
+            int diceValue = newPlayHarvestEffects.getJSONObject(i).getInt("dice_value");
+            NewPlayHarvestEffect newPlayHarvestEffect = new NewPlayHarvestEffect(diceValue);
+            effectMap.put(idEffect, newPlayHarvestEffect);
+        }
     }
 
     private void parseNewPlayProductionEffect(JSONArray newPlayProductionEffects) {
+        for (int i = 0; i < newPlayProductionEffects.length(); i++) {
+            int idEffect = newPlayProductionEffects.getJSONObject(i).getInt("id");
+            int diceValue = newPlayProductionEffects.getJSONObject(i).getInt("dice_value");
+            NewPlayProductionEffect newPlayProductionEffect = new NewPlayProductionEffect(diceValue);
+            effectMap.put(idEffect, newPlayProductionEffect);
+        }
     }
 
     private void parseNewPlayCardEffect(JSONArray newPlayEffects) {
         for (int i = 0; i < newPlayEffects.length(); i++) {
-            NewPlayCardEffect newPlayCardEffect = null;
-            ArrayList<SingleCost> sale;
-            int plusDiceValue = newPlayEffects.getJSONObject(i).getInt("plus_dice_value");
+            ArrayList<SingleCost> sale = new ArrayList<>();
+            NewPlayColor newPlayColor = null;
+            int idEffect = newPlayEffects.getJSONObject(i).getInt("id");
+            int diceValue = newPlayEffects.getJSONObject(i).getInt("dice_value");
             String towerColor = newPlayEffects.getJSONObject(i).getString("tower_color");
             if (newPlayEffects.getJSONObject(i).has("sale")) {
-
+                JSONArray sales = newPlayEffects.getJSONObject(i).getJSONArray("sale");
+                for (int j = 0; j < sales.length(); j++) {
+                    sale.add(parseCost(sales.getJSONObject(j)));
+                }
             }
             if (towerColor.equals("green")) {
-
+                newPlayColor = NewPlayColor.GREEN;
             }
             if (towerColor.equals("yellow")) {
-
+                newPlayColor = NewPlayColor.YELLOW;
             }
             if (towerColor.equals("purple")) {
-
+                newPlayColor = NewPlayColor.PURPLE;
             }
             if (towerColor.equals("blue")) {
-
+                newPlayColor = NewPlayColor.BLUE;
             }
-
+            if (towerColor.equals("rainbow")) {
+                newPlayColor = NewPlayColor.RAINBOW;
+            }
+            NewPlayCardEffect newPlayCardEffect = new NewPlayCardEffect(diceValue, newPlayColor, sale);
+            effectMap.put(idEffect, newPlayCardEffect);
         }
 
     }
@@ -374,19 +395,29 @@ public class ParseJson {
                 givings.add(parseCost(jsonArrayGiving.getJSONObject(j)));
             }
 
-            String cardColor = productEffects.getJSONObject(i).getString("card_color");
-            if (cardColor.equals("green")) {
+            if (!jsonObject.has("required_product")) {
 
-                productEffect = new ProductEffect(givings.get(0), CardColor.GREEN);
-            }
-            if (cardColor.equals("yellow")) {
-                productEffect = new ProductEffect(givings.get(0), CardColor.YELLOW);
-            }
-            if (cardColor.equals("purple")) {
-                productEffect = new ProductEffect(givings.get(0), CardColor.PURPLE);
-            }
-            if (cardColor.equals("blue")) {
-                productEffect = new ProductEffect(givings.get(0), CardColor.BLUE);
+                String cardColor = productEffects.getJSONObject(i).getString("card_color");
+                if (cardColor.equals("green")) {
+
+                    productEffect = new ProductEffect(givings.get(0), CardColor.GREEN);
+                }
+                if (cardColor.equals("yellow")) {
+                    productEffect = new ProductEffect(givings.get(0), CardColor.YELLOW);
+                }
+                if (cardColor.equals("purple")) {
+                    productEffect = new ProductEffect(givings.get(0), CardColor.PURPLE);
+                }
+                if (cardColor.equals("blue")) {
+                    productEffect = new ProductEffect(givings.get(0), CardColor.BLUE);
+                }
+            } else {
+                JSONArray jsonArrayRequired = jsonObject.getJSONArray("required_product");
+                ArrayList<SingleCost> requires = new ArrayList<>();
+                for (int j = 0; j < jsonArrayRequired.length(); j++) {
+                    requires.add(parseCost(jsonArrayRequired.getJSONObject(j)));
+                }
+                productEffect = new ProductEffect(givings.get(0), requires.get(0));
             }
             
             effectMap.put(idEffect, productEffect);

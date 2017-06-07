@@ -9,11 +9,9 @@ import it.polimi.ingsw.GC_23.SingleCost;
 public class NewPlayHarvestEffect extends AbsEffect {
 
     private int diceValue;
-    private SingleCost sale;
 
-    public NewPlayHarvestEffect(int diceValue, SingleCost sale) {
+    public NewPlayHarvestEffect(int diceValue) {
         this.diceValue = diceValue;
-        this.sale = sale;
     }
 
     @Override
@@ -28,9 +26,5 @@ public class NewPlayHarvestEffect extends AbsEffect {
 
     public int getDiceValue() {
         return diceValue;
-    }
-
-    public SingleCost getSale() {
-        return sale;
     }
 }

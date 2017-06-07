@@ -65,7 +65,28 @@ public class ProductEffect extends AbsEffect {
                     break;
             }
         } else {
-            productFactor = player.getResources().getMilitaryPoints() / 2;
+            if (required.getResources().getMilitaryPoints() != 0) {
+                productFactor = player.getResources().getMilitaryPoints() / required.getResources().getMilitaryPoints();
+            }
+            if (required.getResources().getFaithPoints() != 0) {
+                productFactor = player.getResources().getFaithPoints() / required.getResources().getFaithPoints();
+            }
+            if (required.getResources().getGold() != 0) {
+                productFactor = player.getResources().getGold() / required.getResources().getGold();
+            }
+            if (required.getResources().getServants() != 0) {
+                productFactor = player.getResources().getServants() / required.getResources().getServants();
+            }
+            if (required.getResources().getStone() != 0) {
+                productFactor = player.getResources().getStone() / required.getResources().getStone();
+            }
+            if (required.getResources().getVictoryPoints() != 0) {
+                productFactor = player.getResources().getVictoryPoints() / required.getResources().getVictoryPoints();
+            }
+            if (required.getResources().getWood() != 0) {
+                productFactor = player.getResources().getWood() / required.getResources().getWood();
+            }
+
         }
 
         ResourcesSet resource = giving.getResources();

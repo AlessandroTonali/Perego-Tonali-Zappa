@@ -3,7 +3,18 @@
 	{"id": "730","name": "Hiring Recriuts", "cost": [ {"coin": "4"}],"immediateEffect": [{"effect": "731"}], "permanentEffect": [{"effect": "732"}], "period": "1"},
 	{"id": "740","name": "Repairing the Church", "cost": [ {"coin": "1", "wood": "1", "stone": "1"}],"immediateEffect": [{"effect": "741"}], "permanentEffect": [{"effect": "742"}], "period": "1"},
 	{"id": "750","name": "Building the Walls", "cost": [ {"stone": "3"}],"immediateEffect": [{"effect": "751"}, {"effect": "1"}], "permanentEffect": [{"effect": "752"}], "period": "1"},
-	{"id": "760","name": "Raising a Statue", "cost": [ {"stone": "3", "wood": "2"}],"immediateEffect": [{"effect": "64"}], "permanentEffect": [{"effect": "762"}], "period": "1"}
+	{"id": "760","name": "Raising a Statue", "cost": [ {"stone": "3", "wood": "2"}],"immediateEffect": [{"effect": "64"}], "permanentEffect": [{"effect": "762"}], "period": "1"},
+	{"id": "780","name": "Hosting Panhandlers", "cost": [ {"wood": "3"}],"immediateEffect": [{"effect": "781"}], "permanentEffect": [{"effect": "782"}], "period": "1"},
+	{"id": "810","name": "Hiring Soldiers", "cost": [ {"coin": "6"}],"immediateEffect": [{"effect": "811"}], "permanentEffect": [{"effect": "812"}], "period": "2"},
+	{"id": "820","name": "Repairing the Abbey", "cost": [ {"coin": "2", "wood": "2", "stone": "2"}],"immediateEffect": [{"effect": "821"}], "permanentEffect": [{"effect": "822"}], "period": "2"},
+	{"id": "830","name": "Building the Bastions", "cost": [ {"stone": "4"}],"immediateEffect": [{"effect": "831"}, {"effect": "1"}], "permanentEffect": [{"effect": "832"}], "period": "2"},
+	{"id": "850","name": "Improving the Canals", "cost": [ {"servant": "2", "coin": "3"}],"immediateEffect": [{"effect": "851"}], "permanentEffect": [{"effect": "852"}], "period": "2"},
+	{"id": "860","name": "Hosting Foreigners", "cost": [ {"wood": "4"}],"immediateEffect": [{"effect": "861"}], "permanentEffect": [{"effect": "862"}], "period": "2"},
+	{"id": "890","name": "Hiring Mercenaries", "cost": [ {"coin": "8"}],"immediateEffect": [{"effect": "891"}], "permanentEffect": [{"effect": "892"}], "period": "3"},
+	{"id": "900","name": "Repairing the Cathedral", "cost": [ {"coin": "3", "wood": "3", "stone": "3"}],"immediateEffect": [{"effect": "901"}, {"effect": "9012"}], "permanentEffect": [{"effect": "902"}], "period": "3"},
+	{"id": "910","name": "Building the Towers", "cost": [ {"stone": "6"}],"immediateEffect": [{"effect": "911"}, {"effect": "1"}], "permanentEffect": [{"effect": "912"}], "period": "3"},
+	{"id": "920","name": "Promoting Sacred Art", "cost": [ {"wood": "6"}],"immediateEffect": [{"effect": "921"}], "permanentEffect": [{"effect": "922"}], "period": "3"},
+	{"id": "940","name": "Improving the Roads", "cost": [ {"servant": "3", "coin": "4"}],"immediateEffect": [{"effect": "941"}], "permanentEffect": [{"effect": "942"}], "period": "3"}
 	
 ],
 "BuildingCard": [
@@ -36,7 +47,25 @@
 	
 ],
 "CharacterCard": [
-	{"id": "640","name": "Royal Messenger", "cost": [ {"coin": "5"}], "immediateEffect": [{"effect": "641"}], "permanentEffect": [], "period": "3"}
+	{"id": "490","name": "Warlord", "cost": [ {"coin": "2"}], "immediateEffect": [{"effect": "491"}], "permanentEffect": [], "period": "1"},
+	{"id": "560","name": "Abbess", "cost": [ {"coin": "3"}], "immediateEffect": [{"effect": "561"}, {"effect": "5612"}], "permanentEffect": [], "period": "1"},
+	{"id": "570","name": "Captain", "cost": [ {"coin": "4"}], "immediateEffect": [{"effect": "571"}, {"effect": "5712"}], "permanentEffect": [], "period": "2"},
+	{"id": "580","name": "Architect", "cost": [ {"coin": "4"}], "immediateEffect": [{"effect": "581"}], "permanentEffect": [], "period": "2"},
+	{"id": "590","name": "Patron", "cost": [ {"coin": "3"}], "immediateEffect": [{"effect": "591"}], "permanentEffect": [], "period": "2"},
+	{"id": "600","name": "Hero", "cost": [ {"coin": "4"}], "immediateEffect": [{"effect": "601"}, {"effect": "1"}], "permanentEffect": [], "period": "2"},
+	{"id": "610","name": "Paesant", "cost": [ {"coin": "4"}], "immediateEffect": [], "permanentEffect": [], "period": "2"},
+	{"id": "620","name": "Scholar", "cost": [ {"coin": "4"}], "immediateEffect": [], "permanentEffect": [], "period": "2"},
+	{"id": "630","name": "Papal Messenger", "cost": [ {"coin": "5"}], "immediateEffect": [{"effect": "631"}], "permanentEffect": [], "period": "2"},
+	{"id": "640","name": "Royal Messenger", "cost": [ {"coin": "5"}], "immediateEffect": [{"effect": "641"}], "permanentEffect": [], "period": "2"},
+	{"id": "650","name": "Noble", "cost": [ {"coin": "6"}], "immediateEffect": [{"effect": "651"}], "permanentEffect": [], "period": "3"},
+	{"id": "660","name": "Governor", "cost": [ {"coin": "6"}], "immediateEffect": [{"effect": "661"}], "permanentEffect": [], "period": "3"},
+	{"id": "670","name": "Paramour", "cost": [ {"coin": "7"}], "immediateEffect": [{"effect": "671"}], "permanentEffect": [], "period": "3"},
+	{"id": "680","name": "Herald", "cost": [ {"coin": "6"}], "immediateEffect": [{"effect": "681"}], "permanentEffect": [], "period": "3"},
+	{"id": "690","name": "Cardinal", "cost": [ {"coin": "4"}], "immediateEffect": [{"effect": "691"}, {"effect": "6912"}], "permanentEffect": [], "period": "3"},
+	{"id": "700","name": "Bishop", "cost": [ {"coin": "5"}], "immediateEffect": [{"effect": "701"}, {"effect": "7012"}], "permanentEffect": [], "period": "3"},
+	{"id": "710","name": "General", "cost": [ {"coin": "5"}], "immediateEffect": [{"effect": "711"}], "permanentEffect": [], "period": "3"},
+	{"id": "720","name": "Ambassador", "cost": [ {"coin": "6"}], "immediateEffect": [{"effect": "721"}, {"effect": "1"}], "permanentEffect": [], "period": "3"}
+	
 ],
 "TerritoryCard": [
 	{"id": "1100","name": "Commercial Hub", "immediateEffect": [{"effect": "0"}], "permanentEffect": [{"effect": "1102"}], "period": "1", "production_value": "1"},

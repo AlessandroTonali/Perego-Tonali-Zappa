@@ -8,11 +8,9 @@ import it.polimi.ingsw.GC_23.SingleCost;
  */
 public class NewPlayProductionEffect extends AbsEffect {
     private int diceValue;
-    private SingleCost sale;
 
-    public NewPlayProductionEffect(int diceValue, SingleCost sale) {
+    public NewPlayProductionEffect(int diceValue) {
         this.diceValue = diceValue;
-        this.sale = sale;
     }
 
     @Override
@@ -27,9 +25,5 @@ public class NewPlayProductionEffect extends AbsEffect {
 
     public int getDiceValue() {
         return diceValue;
-    }
-
-    public SingleCost getSale() {
-        return sale;
     }
 }

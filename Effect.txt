@@ -107,8 +107,29 @@
 		{"id": "482", "victoryPoint": "3"},
 		
 		{"id": "491", "militaryPoint": "3"},
+		{"id": "5612", "faithPoint": "1"},
+		{"id": "5712", "militaryPoint": "2"},
+		{"id": "631", "faithPoint": "3"},
+		{"id": "6912", "faithPoint": "2"},
+		{"id": "7012", "faithPoint": "1"},
 		
 		{"id": "762", "victoryPoint": "4"},
+		{"id": "781", "servant": "4"},
+		{"id": "782", "victoryPoint": "4"},
+		{"id": "811", "militaryPoint": "6"},
+		{"id": "812", "victoryPoint": "5"},
+		{"id": "831", "militaryPoint": "3"},
+		{"id": "832", "victoryPoint": "2"},
+		{"id": "852", "victoryPoint": "5"},
+		{"id": "891", "militaryPoint": "7"},
+		{"id": "892", "victoryPoint": "6"},
+		{"id": "9012", "faithPoint": "1"},
+		{"id": "902", "victoryPoint": "5"},
+		{"id": "911", "militaryPoint": "4"},
+		{"id": "912", "victoryPoint": "4"},
+		{"id": "921", "faithPoint": "3"},
+		{"id": "922", "victoryPoint": "3"},
+		{"id": "942", "victoryPoint": "5"},
 		
 		
 		
@@ -219,25 +240,35 @@
 	
 	],
 	"NewPlayCardEffect":[
-		{"id": "492", "tower_color": "green", "plus_dice_value": "2", "sale": [
-			{"wood": "1"},
-			{"stone": "1"}
-		]}
+		{"id": "561", "dice_value": "4", "tower_color": "rainbow"},
+		{"id": "571", "dice_value": "6", "tower_color": "green"},
+		{"id": "581", "dice_value": "6", "tower_color": "yellow", "sale": [{"wood": "1","stone": "1"}]},
+		{"id": "591", "dice_value": "6", "tower_color": "blue", "sale": [{"coin": "2"}]},
+		{"id": "601", "dice_value": "6", "tower_color": "purple"},
+		{"id": "721", "dice_value": "7", "tower_color": "rainbow"},
+		{"id": "901", "dice_value": "7", "tower_color": "rainbow"}
+		
 		
 	],
 	"NewPlayProductionEffect":[
-		
+		{"id": "691", "dice_value": "4"},
+		{"id": "851", "dice_value": "4"}
 	
 	],
 	"NewPlayHarvestEffect":[
-		
-	
+		{"id": "701", "dice_value": "4"},
+		{"id": "941", "dice_value": "3"}
 	],
 	"ProductEffect":[
 		{"id": "252", "giving_product": [{"coin": "1"}], "card_color": "yellow"},
 		{"id": "272", "giving_product": [{"victoryPoint": "1"}], "card_color": "purple"},
 		{"id": "282", "giving_product": [{"victoryPoint": "1"}], "card_color": "blue"},
-		{"id": "262", "giving_product": [{"coin": "1"}], "card_color": "green"}
+		{"id": "262", "giving_product": [{"coin": "1"}], "card_color": "green"},
+		{"id": "651", "giving_product": [{"victoryPoint": "2"}], "card_color": "green"},
+		{"id": "661", "giving_product": [{"victoryPoint": "2"}], "card_color": "yellow"},
+		{"id": "671", "giving_product": [{"victoryPoint": "2"}], "card_color": "blue"},
+		{"id": "681", "giving_product": [{"victoryPoint": "2"}], "card_color": "purple"},
+		{"id": "711", "giving_product": [{"victoryPoint": "1"}], "required_product": [{"militaryPoint": "2"}]}
 	
 	]
 }
