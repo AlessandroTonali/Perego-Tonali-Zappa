@@ -23,6 +23,11 @@ public class CouncilController extends PlaceFamilyMember {
         if(isLegal()){
             makeAction();
         }
+        else {
+
+            System.out.println("YOU ARE NOT ALLOW TO DO THIS MOVE, DO SOMETHING ELSE!");
+            this.familyMember.getPlayer().chooseMove(familyMember.getPlayer().getView());
+        }
     }
     @Override
     public boolean isLegal(){
@@ -40,6 +45,7 @@ public class CouncilController extends PlaceFamilyMember {
         for(AbsEffect i : effects) {
             i.activeEffect(familyMember.getPlayer());
         }
+        System.out.println(familyMember.getPlayer().getResources().toString());
     }
 }
 

@@ -18,6 +18,10 @@ public class HarvestController extends PlaceFamilyMember {
             if(isLegal()){
                 makeAction();
             }
+            else{
+                System.out.println("NON VALID MOVE TRY ANOTHER ONE!");
+                familyMember.getPlayer().chooseMove(familyMember.getPlayer().getView());
+            }
         }
     }
 
