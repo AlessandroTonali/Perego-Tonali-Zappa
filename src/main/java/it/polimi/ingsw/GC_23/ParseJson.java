@@ -453,4 +453,39 @@ public class ParseJson {
     public ArrayList<BuildingCard> getBuildingCardArrayList() {
         return new ArrayList<BuildingCard>(buildingCardArrayList);
     }
+
+
+    public AbsEffect[] getTowerTerritoryEffect() {
+        AbsEffect[] absEffects = new AbsEffect[4];
+        absEffects[0] = effectMap.get(0);
+        absEffects[1] = effectMap.get(0);
+        absEffects[2] = effectMap.get(23);
+        absEffects[3] = effectMap.get(24);
+        return absEffects;
+    }
+
+    public AbsEffect[] getTowerCharacterEffect() {
+        AbsEffect[] absEffects = new AbsEffect[4];
+        absEffects[0] = effectMap.get(0);
+        absEffects[1] = effectMap.get(0);
+        absEffects[2] = effectMap.get(33);
+        absEffects[3] = effectMap.get(34);
+        return absEffects;
+    }
+    public AbsEffect[] getTowerBuildingEffect() {
+        AbsEffect[] absEffects = new AbsEffect[4];
+        absEffects[0] = effectMap.get(0);
+        absEffects[1] = effectMap.get(0);
+        absEffects[2] = effectMap.get(43);
+        absEffects[3] = effectMap.get(44);
+        return absEffects;
+    }
+    public AbsEffect[] getTowerVentureEffect() {
+        AbsEffect[] absEffects = new AbsEffect[4];
+        absEffects[0] = effectMap.get(0);
+        absEffects[1] = effectMap.get(0);
+        absEffects[2] = effectMap.get(53);
+        absEffects[3] = effectMap.get(54);
+        return absEffects;
+    }
 }

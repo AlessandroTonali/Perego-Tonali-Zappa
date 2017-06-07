@@ -36,7 +36,6 @@ public class Board {
         this.ventureCards = ParseJson.getParseJson().getVentureCardArrayList();
         this.buildingCards = ParseJson.getParseJson().getBuildingCardArrayList();
         this.characterCards = ParseJson.getParseJson().getCharacterCardArrayList();
-        System.out.println(territoryCards.size());
         setCard();
         switch (numberOfPlayers){
             case 2:
