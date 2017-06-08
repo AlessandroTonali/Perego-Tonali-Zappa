@@ -27,6 +27,14 @@ public class OtherCardsController extends TowerController {
 
     public OtherCardsController(FamilyMember familyMember, Tower tower) {
         super(familyMember, tower);
+        super.getTowerSpace().getCard().getCost(familyMember.getPlayer());
+        SingleCost cost = super.getTowerSpace().getCard().getCost(familyMember.getPlayer());
+        if (isLegal(cost)) {
+            makeAction(cost);
+            System.out.println("success");
+        } else {
+            System.out.println("error");
+        }
     }
 
     public OtherCardsController(FamilyMember familyMember, Tower tower, TowerSpace towerSpace) {
@@ -58,7 +66,7 @@ public class OtherCardsController extends TowerController {
 
         legal = legal && super.getTowerSpace().getCard().checkTakeable(super.getFamilyMember().getPlayer());
 
-      legal = legal && super.getTower().checkFamiliarTower(super.getFamilyMember());
+      legal = legal && !super.getTower().checkFamiliarTower(super.getFamilyMember());
 
         return legal;
     }

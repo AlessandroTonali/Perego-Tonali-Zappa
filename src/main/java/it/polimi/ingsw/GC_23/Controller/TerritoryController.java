@@ -63,7 +63,7 @@ public class TerritoryController extends TowerController {
 
         legal = legal && towerSpace.getCard().checkTakeable(familyMember.getPlayer());
 
-        legal = legal && tower.checkFamiliarTower(familyMember);
+        legal = legal && !tower.checkFamiliarTower(familyMember);
 
         return legal;
     }

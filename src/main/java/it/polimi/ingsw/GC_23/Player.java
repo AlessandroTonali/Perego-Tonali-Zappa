@@ -167,10 +167,16 @@ public class Player implements Serializable {
 
     public FamilyMember chooseFamilyMember() {
 
+        for(FamilyMember f: familyMembers) {
+            System.out.println(f.toString());
+        }
+
         System.out.println("Choose your family member");
         String sw = this.getNextLine();
         System.out.println(sw);
         int i;
+
+
 
         try {
             i = Integer.parseInt(sw);

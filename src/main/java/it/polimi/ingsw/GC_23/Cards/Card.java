@@ -120,4 +120,24 @@ public abstract class Card {
     }
 
     public abstract void addCardOfPlayer(Player player);
+
+    public String costString() {
+        StringBuilder stringBuilder = new StringBuilder();
+        for(SingleCost c : cost) {
+            stringBuilder.append("\ncost :" + c.getResources().toString());
+        }
+        return String.valueOf(stringBuilder);
+    }
+
+    public String effectString() {
+        StringBuilder stringBuilder = new StringBuilder();
+        for(AbsEffect i : immediateEffect) {
+            stringBuilder.append("\neffect: " + i.toString());
+        }
+        return String.valueOf(stringBuilder);
+    }
+
+    public String toString() {
+        return "name: " + this.name + costString()  + effectString() ;
+    }
 }
