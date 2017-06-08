@@ -18,6 +18,12 @@ public class Gameplay {
     private int period=1;
     private int turn=1;
 
+    public Gameplay(ArrayList<Player> players, Board board) {
+        this.players = players;
+        this.board = board;
+        scheduling();
+    }
+
     public Gameplay(ArrayList<Player> players) {
         this.players = players;
         this.board = new Board(4);

@@ -19,6 +19,9 @@ public class TerritoryController extends TowerController {
 
     public TerritoryController(FamilyMember familyMember, Tower tower) {
         super(familyMember,tower);
+        this.familyMember = super.getFamilyMember();
+        this.towerSpace = super.getTowerSpace();
+        this.tower = super.getTower();
         if (isLegal()) {
             makeAction();
             System.out.println("succes");
@@ -44,7 +47,7 @@ public class TerritoryController extends TowerController {
     }
 
     public boolean isLegal() {
-        ResourcesSet cost = towerSpace.getCard().getCost(this.familyMember.getPlayer()).getResources();
+        ResourcesSet cost = super.getTowerSpace().getCard().getCost(this.familyMember.getPlayer()).getResources();
 
         if(tower.checkOtherFamiliar()) {
             cost.sum(new ResourcesSet(0,3,0,0,0,0,0));

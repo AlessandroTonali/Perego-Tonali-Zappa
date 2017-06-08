@@ -23,11 +23,14 @@ public abstract class TowerController extends PlaceFamilyMember {
         this.towerSpace = tower.chooseTowerSpace(this.familyMember.getPlayer());
     }
 
+
     public TowerController(FamilyMember familyMember, Tower tower, TowerSpace towerSpace) {
         this.familyMember = familyMember;
         this.tower = tower;
         this.towerSpace = towerSpace;
     }
+
+
 
     public FamilyMember getFamilyMember() {
         return familyMember;

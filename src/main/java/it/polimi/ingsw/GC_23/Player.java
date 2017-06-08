@@ -144,7 +144,7 @@ public class Player implements Serializable {
             case 5:
                 new TerritoryController(chooseFamilyMember(), board.getTower(0));
                 break;
-            case 6: break;//todo toglilo
+            case 7: break;//todo toglilo
             default:
                 new OtherCardsController(chooseFamilyMember(), board.chooseTower(this));
                 break;

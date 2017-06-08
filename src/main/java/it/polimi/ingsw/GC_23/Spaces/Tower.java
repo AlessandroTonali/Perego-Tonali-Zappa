@@ -39,7 +39,7 @@ public class Tower {
         TowerSpace[] towerSpaces = this.getSpaces();
         if (familyMember.getFamilyColor() != FamilyColor.NEUTRAL) {
             for (int i = 0; i < towerSpaces.length; i++) {
-                if (towerSpaces[i].getFamilyMember().getPlayer().isEquals(familyMember.getPlayer())) {
+                if (towerSpaces[i].getFamilyMember()!= null && towerSpaces[i].getFamilyMember().getPlayer().isEquals(familyMember.getPlayer())) {
                     if (towerSpaces[i].getFamilyMember().getFamilyColor() != FamilyColor.NEUTRAL) {
                         myFamiliarPresence = true;
                     }
