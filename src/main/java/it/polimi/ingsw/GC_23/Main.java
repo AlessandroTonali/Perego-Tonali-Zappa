@@ -42,6 +42,8 @@ public class Main {
         player1.setResources(set1);
 
 
+
+
         FamilyMember familyMember = new FamilyMember(player1, FamilyColor.ORANGE,7);
         familyMember.setPlayer(player1);
         FamilyMember[] members = new FamilyMember[1];

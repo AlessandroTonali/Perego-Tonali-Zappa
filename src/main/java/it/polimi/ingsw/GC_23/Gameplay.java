@@ -54,17 +54,22 @@ public class Gameplay {
     }
 
     private ArrayList<Player> makeMilitaryOrder() {
-        ArrayList<Player> playersOrder = new ArrayList<Player>();
-        for(int i=0; i<players.size(); i++){
-            for(int j=0; j<players.size(); j++){
-                if(players.get(i).getResources().getMilitaryPoints()>=players.get(j).getResources().getMilitaryPoints()){
+        ArrayList<Player> playersOrder = players;
+
+
+        for(int i=0; i<playersOrder.size();i++){
+            for(int j = 0; j<playersOrder.size() - 1;j++){
+                if(playersOrder.get(j).getResources().getMilitaryPoints() < playersOrder.get(j+1)
+                        .getResources().getMilitaryPoints()) {
+                    Player tmp = playersOrder.get(j);
+                    playersOrder.set(j, playersOrder.get(j+1));
+                    playersOrder.set(j+1,tmp);
                 }
-                else{
-                    break;
-                }
+
             }
-            playersOrder.add(playersOrder.get(i));
+
         }
+        System.out.println("ce l ho fatta");
         return playersOrder;
 
     }
@@ -74,7 +79,7 @@ public class Gameplay {
         resetFamilyMembers();
         while(true) {
             System.out.println(period + "period");
-            while( i < 4 ){
+            while( i < 1 ){
                 for (Player p : this.players) {
                     System.out.println("Period: " + this.period + "Turn: " + this.turn);
                     System.out.println(p.getPlayerColor().toString() + ": it's your turn!");
@@ -197,23 +202,25 @@ public class Gameplay {
         }
     }
 
-    private void getWinner(){
-        ArrayList<Player> playersOrder = new ArrayList<Player>();
-        for(int i=0; i<players.size(); i++){
-            for(int j=0; j<players.size(); j++){
-                if(players.get(i).getResources().getVictoryPoints()>=players.get(j).getResources().getVictoryPoints()){
+    private void getWinner() {
+        ArrayList<Player> playersOrder = players;
+        for (int i = 0; i < playersOrder.size(); i++) {
+            for (int j = 0; j < playersOrder.size() - 1; j++) {
+                if (playersOrder.get(j).getResources().getVictoryPoints() < playersOrder.get(j + 1)
+                        .getResources().getVictoryPoints()) {
+                    Player tmp = playersOrder.get(j);
+                    playersOrder.set(j, playersOrder.get(j + 1));
+                    playersOrder.set(j + 1, tmp);
+                    System.out.println("sono nel for");
                 }
-                else{
-                    break;
-                }
+
             }
-            playersOrder.add(playersOrder.get(i));
-        }
-        System.out.println("THE WINNER IS PLAYER: "+playersOrder.get(0).getPlayerColor());
-        System.out.println("Victory order: ");
-        for (Player p: playersOrder){
-            System.out.println(p.getPlayerColor());
-            System.out.println("-----------------");
+            System.out.println("THE WINNER IS PLAYER: " + playersOrder.get(0).getPlayerColor());
+            System.out.println("Victory order: ");
+            for (Player p : playersOrder) {
+                System.out.println(p.getPlayerColor());
+                System.out.println("-----------------");
+            }
         }
     }
 
