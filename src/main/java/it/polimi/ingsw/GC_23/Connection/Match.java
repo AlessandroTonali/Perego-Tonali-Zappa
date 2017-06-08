@@ -16,6 +16,7 @@ public class Match implements Runnable{
     private int playerCounter;
     private Creator creator;
     private Board board;
+    private boolean startMatch = false;
 
     public Match() {
         this.userHandlers = new ArrayList<UserHandler>();
@@ -23,16 +24,39 @@ public class Match implements Runnable{
         this.playerCounter = 0;
     }
 
-    private void scheduling() throws IOException{
+    @Override
+    public void run(){
+        System.out.println("Match runned");
+        while(!startMatch) {
+            try{
+                Thread.sleep(1000);
+            }catch (InterruptedException ex){
+                ex.printStackTrace();
+            }
+        }
+        try {
+            System.out.println("Match started");
+            creator = new Creator(playerCounter);
+            board = creator.getBoard();
+            setting();
+        } catch (Exception e) {
+            e.getMessage();
+            e.printStackTrace();
+        }
+    }
+
+    private void setting() throws IOException{
         for(UserHandler u: userHandlers){
-            u.message("MATCH STARTED");
-            u.message("Wait for your turn");
+            u.messageToUser("MATCH STARTED");
+            u.messageToUser("Wait for your turn");
         }
         for(UserHandler u : userHandlers){
             u.setup(playerController);
             playerController.getAssociation().putIfAbsent(u.getCurrentPlayer(), u.getCurrentUser());
             System.out.println("Setup di "+ u.getCurrentUser()+" eseguito");
+            creator.createPlayer(u.getCurrentPlayer().getPlayerColor());
         }
+        //creator.startGame(); parte lo scheduling
     }
 
     public void setUserHandler(UserHandler userHandler){
@@ -40,28 +64,8 @@ public class Match implements Runnable{
         playerCounter++;
     }
 
-    public int getPlayerCounter() {
-        return playerCounter;
-    }
-
-    @Override
-    public void run(){
-        System.out.println("Match runned");
-        while(this.playerCounter < 2) {
-            System.out.println(playerCounter);
-            try{
-                Thread.sleep(5000);
-            }catch (InterruptedException ex){
-                ex.printStackTrace();
-            }
-        }
-        try {
-            System.out.println("Match started");
-            scheduling();
-        } catch (Exception e) {
-            e.getMessage();
-            e.printStackTrace();
-        }
+    public void setStartMatch(boolean value){
+        this.startMatch = value;
     }
 
 }

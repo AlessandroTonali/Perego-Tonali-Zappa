@@ -26,9 +26,12 @@ public class UserImpl{
     private BufferedReader inKeyboard;
     private PrintWriter outVideo;
     private boolean isYourTurn = false;
+    private boolean socketConnection;
 
     protected UserImpl(){
         //super();
+        inKeyboard= new BufferedReader(new InputStreamReader(System.in));
+        outVideo = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)),true);
         System.out.println("Client started");
         try{
             execute();
@@ -36,61 +39,69 @@ public class UserImpl{
             System.out.println("Exception: "+e);
             e.printStackTrace();
         }
-        finally {
-            try{
-                socket.close();
-            }catch (IOException e){
-                System.err.println("Socket not closed");
-            }
-        }
     }
 
     private void execute(){
         try{
-            connect();
-            outVideo.println(inScanner.nextLine());
-            outVideo.println(inScanner.nextLine());
-            while(!isYourTurn) {
-                isYourTurn = inScanner.nextLine().equals("true");
+            selectConnection();
+            if(socketConnection) {
+                outVideo.println(inScanner.nextLine());
+                outVideo.println(inScanner.nextLine());
+                while (!isYourTurn) {
+                    isYourTurn = inScanner.nextLine().equals("setup");
+                }
+                isYourTurn = false;
+                setup();
+                outVideo.println("Wait for your turn");
+                while (!isYourTurn) {
+                    isYourTurn = inScanner.nextLine().equals("play");
+                }
+                isYourTurn = false;
+                play();
+                while (!isYourTurn) {
+                    isYourTurn = inScanner.nextLine().equals("close");
+                }
+                close();
             }
-            isYourTurn = false;
-            setup();
-            outVideo.println("Wait for your turn");
-            while(!isYourTurn){
-                isYourTurn = inScanner.nextLine().equals("true");
+            else{
+                //gestione RMI
             }
-            isYourTurn = false;
-            play();
-            while(!isYourTurn){
-                isYourTurn = inScanner.nextLine().equals("true");
-            }
-            close();
         }catch (Exception e){
             System.out.println("Exception: "+e);
             e.printStackTrace();
         }
-        finally {
-            try{
-                socket.close();
-            }catch (IOException e){
-                System.err.println("Socket not closed");
+    }
+
+
+    private void selectConnection() throws IOException{
+        boolean selected =false;
+        try{
+            while(!selected) {
+                outVideo.println("Select type of connection");
+                outVideo.println("0 --> RMI");
+                outVideo.println("1 --> SOCKET");
+                String connection = inKeyboard.readLine();
+                if (connection.equals("0")) {
+                    outVideo.println("Connection Selected");
+                    selected =true;
+                    connectRMI();
+                }
+                if (connection.equals("1")) {
+                    outVideo.println("Connection Selected");
+                    selected = true;
+                    connectSocket();
+                } else {
+                    outVideo.println("Invalid number, try again");
+                    continue;
+                }
             }
+        }catch(Exception e){
+            e.getMessage();
+            e.printStackTrace();
         }
     }
 
-    private void connect(){
-        //String connection = args[0];
-
-        /*//RMI Client
-        if (connection.equalsIgnoreCase("RMI")) {
-            Registry reg = LocateRegistry.getRegistry(8080);
-            ServerImpl server = (ServerImpl) reg.lookup("gameServer");
-            server.join(this);
-            System.out.println("Client connected");
-        }*/
-
-        //SOCKET Client
-        //else if (connection.equalsIgnoreCase("SOCKET")) {
+    private void connectSocket(){
             try {
                 Socket socket = new Socket("127.0.0.1", 29999);
                 System.out.println("Connected: " + socket);
@@ -98,19 +109,22 @@ public class UserImpl{
                 inSocket = new ObjectInputStream(socket.getInputStream());
                 outWriter = new PrintWriter(socket.getOutputStream(),true);
                 inScanner = new Scanner(socket.getInputStream());
-                inKeyboard= new BufferedReader(new InputStreamReader(System.in));
-                outVideo = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)),true);
                 System.out.println("Client connected");
             } catch (Exception e) {
                 System.out.println("Exception: " + e);
                 e.printStackTrace();
-                try {
-                    socket.close();
-                } catch (IOException ex) {
-                    System.err.println("Socket not closed");
-                }
             }
             outVideo.println("Wait for other players");
+            socketConnection = true;
+    }
+
+    private void connectRMI() throws RemoteException, NotBoundException{
+        Registry reg = LocateRegistry.getRegistry(8080);
+        ServerImpl server = (ServerImpl) reg.lookup("gameServer");
+        //server.join(this);
+        System.out.println("Client connected");
+        outVideo.println("Wait for other players");
+        socketConnection = false;
     }
 
     //assegna username e player
@@ -146,11 +160,6 @@ public class UserImpl{
         } catch (Exception e) {
             System.out.println("Exception: " + e);
             e.printStackTrace();
-            try {
-                socket.close();
-            } catch (IOException ex) {
-                System.err.println("Socket not closed");
-            }
         }
     }
 
