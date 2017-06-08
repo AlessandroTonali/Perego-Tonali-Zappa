@@ -47,11 +47,19 @@ public class Match implements Runnable{
 
     private void setting() throws IOException{
         for(UserHandler u: userHandlers){
+            u.checkTypeOfConnection();
+        }
+        for(UserHandler u: userHandlers){
             u.messageToUser("MATCH STARTED");
             u.messageToUser("Wait for your turn");
         }
         for(UserHandler u : userHandlers){
-            u.setup(playerController);
+            if(u.isSocketConnection()) {
+                u.setupSocket(playerController);
+            }
+            else{
+                u.setupRMI(playerController);
+            }
             playerController.getAssociation().putIfAbsent(u.getCurrentPlayer(), u.getCurrentUser());
             System.out.println("Setup di "+ u.getCurrentUser()+" eseguito");
             creator.createPlayer(u.getCurrentPlayer().getPlayerColor());

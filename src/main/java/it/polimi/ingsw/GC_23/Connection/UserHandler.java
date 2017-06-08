@@ -20,6 +20,7 @@ public class UserHandler implements Runnable{
     private Player currentPlayer;
     private String currentUser;
     private boolean endMatch = false;
+    private boolean socketConnection = true;
 
     public UserHandler(Socket socket) throws IOException {
         this.socket = socket;
@@ -27,19 +28,6 @@ public class UserHandler implements Runnable{
         this.outWriter = new PrintWriter(socket.getOutputStream(), true);
         this.inSocket = new ObjectInputStream(socket.getInputStream());
         this.inScanner = new Scanner(socket.getInputStream());
-    }
-
-
-    public void setEndMatch(boolean endMatch){
-        this.endMatch = endMatch;
-    }
-
-    public String getCurrentUser() {
-        return currentUser;
-    }
-
-    public Player getCurrentPlayer() {
-        return currentPlayer;
     }
 
     @Override
@@ -54,7 +42,19 @@ public class UserHandler implements Runnable{
         }
     }
 
-    public void setup(PlayerController playerController) throws IOException{
+    public void checkTypeOfConnection() throws IOException{
+        if(inScanner.nextBoolean()){
+            socketConnection = true;
+        }
+        else if(!(inScanner.nextBoolean())){
+            socketConnection = false;
+        }
+        else{
+            System.out.println("Error connection type");
+        }
+    }
+
+    public void setupSocket(PlayerController playerController) throws IOException{
         Map<Player, String> association = playerController.getAssociation();
         outWriter.println("setup");
         String username = inScanner.nextLine();
@@ -102,6 +102,10 @@ public class UserHandler implements Runnable{
         }
     }
 
+    public void setupRMI(PlayerController playerController){
+
+    }
+
     public void messageToUser(String message){
         outWriter.println(message);
     }
@@ -111,9 +115,19 @@ public class UserHandler implements Runnable{
         return message;
     }
 
-    public void play() throws IOException{
-        outWriter.println("play");
-        //controllo turno del player
+    public void setEndMatch(boolean endMatch){
+        this.endMatch = endMatch;
+    }
 
+    public String getCurrentUser() {
+        return currentUser;
+    }
+
+    public Player getCurrentPlayer() {
+        return currentPlayer;
+    }
+
+    public boolean isSocketConnection() {
+        return socketConnection;
     }
 }

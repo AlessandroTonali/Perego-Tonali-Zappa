@@ -1,16 +1,11 @@
 package it.polimi.ingsw.GC_23.Connection;
 
-import com.sun.org.apache.xpath.internal.operations.Bool;
-import it.polimi.ingsw.GC_23.Enumerations.PlayerColor;
-import it.polimi.ingsw.GC_23.Player;
-
 import java.io.*;
 import java.net.Socket;
 import java.rmi.NotBoundException;
 import java.rmi.RemoteException;
 import java.rmi.registry.LocateRegistry;
 import java.rmi.registry.Registry;
-import java.rmi.server.UnicastRemoteObject;
 import java.util.Scanner;
 
 /**
@@ -44,6 +39,7 @@ public class UserImpl{
     private void execute(){
         try{
             selectConnection();
+            outWriter.println(socketConnection);
             if(socketConnection) {
                 outVideo.println(inScanner.nextLine());
                 outVideo.println(inScanner.nextLine());
@@ -51,13 +47,13 @@ public class UserImpl{
                     isYourTurn = inScanner.nextLine().equals("setup");
                 }
                 isYourTurn = false;
-                setup();
+                setupSocket();
                 outVideo.println("Wait for your turn");
                 while (!isYourTurn) {
                     isYourTurn = inScanner.nextLine().equals("play");
                 }
                 isYourTurn = false;
-                play();
+                playSocket();
                 while (!isYourTurn) {
                     isYourTurn = inScanner.nextLine().equals("close");
                 }
@@ -128,12 +124,11 @@ public class UserImpl{
     }
 
     //assegna username e player
-    private void setup() throws IOException {
+    private void setupSocket() throws IOException {
         try {
             outVideo.println("Select Username");
             String username = inKeyboard.readLine();
             outWriter.println(username);
-            outWriter.flush();
             //mostra a video le associazioni presenti
             outVideo.println("Select your player");
             int playerNumber = Integer.parseInt(inScanner.nextLine());
@@ -145,7 +140,6 @@ public class UserImpl{
             while(!sceltaGiusta) {
                 String selectedColor = inKeyboard.readLine();
                 outWriter.println(selectedColor);
-                outWriter.flush();
                 sceltaGiusta = inScanner.nextLine().equals("true");
                 if (sceltaGiusta) {
                     outVideo.println("You have chosen a correct player");
@@ -156,14 +150,21 @@ public class UserImpl{
             }
             outVideo.println("Setup completed");
             outWriter.println("finito");
-            outWriter.flush();
         } catch (Exception e) {
             System.out.println("Exception: " + e);
             e.printStackTrace();
         }
     }
 
-    private void play(){
+    private void setupRMI(){
+
+    }
+
+    private void playSocket(){
+
+    }
+
+    private void playRMI(){
 
     }
 
