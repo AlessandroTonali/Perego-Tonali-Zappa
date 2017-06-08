@@ -56,16 +56,13 @@ public class UserHandler implements Runnable{
 
     public void setup(PlayerController playerController) throws IOException{
         Map<Player, String> association = playerController.getAssociation();
-        outWriter.println("true");
-        outWriter.flush();
+        outWriter.println("setup");
         String username = inScanner.nextLine();
         currentUser = username;
         outWriter.println((association.size()));
-        outWriter.flush();
         //mostra le associazioni presenti
         for (Map.Entry<Player, String> entry : association.entrySet()) {
-            outWriter.println(entry.getKey().getPlayerColor().toString() + "\t\t" + entry.getValue());
-            outWriter.flush();
+            outWriter.println(entry.getKey().getPlayerColor().toString() + "\t\t\t" + entry.getValue());
         }
         boolean logged = false;
         System.out.println("Scelta del colore");
@@ -86,14 +83,12 @@ public class UserHandler implements Runnable{
                 System.out.println("Controllo se già associato o nullo");
                 if ((selectedPlayer.getPlayerColor() == null) || !(association.putIfAbsent(selectedPlayer, currentUser) == null)) {
                     outWriter.println("false");
-                    outWriter.flush();
                     System.out.println("Player già associato o nullo");
                     continue;
                 }
                 System.out.println("Non è già associato");
                 if (association.get(selectedPlayer) == currentUser) {
                     outWriter.println("true");
-                    outWriter.flush();
                     System.out.println("User " + currentUser + " is logged");
                     System.out.println("User " + currentUser + " has chosen player " + selectedPlayer.getPlayerColor().toString());
                     System.out.println(association.toString());
@@ -107,14 +102,17 @@ public class UserHandler implements Runnable{
         }
     }
 
-    public void message(String message){
+    public void messageToUser(String message){
         outWriter.println(message);
-        outWriter.flush();
+    }
+
+    public String messageFromUser(){
+        String message = inScanner.nextLine();
+        return message;
     }
 
     public void play() throws IOException{
-        outWriter.println("true");
-        outWriter.flush();
+        outWriter.println("play");
         //controllo turno del player
 
     }

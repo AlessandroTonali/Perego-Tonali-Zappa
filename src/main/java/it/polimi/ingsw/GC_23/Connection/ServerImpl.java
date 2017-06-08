@@ -17,15 +17,15 @@ public class ServerImpl{
     private static ArrayList<Match> matches;
     private static int userCounter =0;
 
+    private ServerImpl(){
+        this.matches = new ArrayList<Match>();
+    }
+
     public static synchronized ServerImpl getServer(){
         if(server == null){
             server = new ServerImpl();
         }
         return server;
-    }
-
-    private ServerImpl(){
-        this.matches = new ArrayList<Match>();
     }
 
     public static ArrayList<Match> getMatches() {
@@ -46,24 +46,28 @@ public class ServerImpl{
         ServerSocket serverSocket = new ServerSocket(29999);
         System.out.println("Server is ready");
         while(true) {
-            System.out.println("Start setting a match");
             Match match = new Match();
             server.getMatches().add(match);
-            executor.submit(match);
-            while (userCounter < 2) {
+            long startTime = 0;
+            long timeout = 10000;
+            while(userCounter<4 && ((userCounter<2)||((System.currentTimeMillis()-startTime)<timeout))){
                 try {
                     Socket socket = serverSocket.accept();
                     UserHandler userHandler = new UserHandler(socket);
                     match.setUserHandler(userHandler);
                     userCounter++;
+                    if (userCounter == 1) {
+                        executor.submit(match);
+                        startTime = System.currentTimeMillis();
+                    }
                     executor.submit(userHandler);
-                    System.out.println("UserCounter: " + userCounter);
-                    System.out.println("PlayerCounter: "+match.getPlayerCounter());
                     System.out.println("Client accepted: " + socket);
                 } catch (IOException e) {
+                    e.printStackTrace();
                     break;
                 }
             }
+            match.setStartMatch(true);
             userCounter=0;
         }
         /*executor.shutdown();

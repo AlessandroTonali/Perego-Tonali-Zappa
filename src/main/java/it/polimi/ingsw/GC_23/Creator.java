@@ -15,7 +15,6 @@ public class Creator {
     private Board board;
     private ArrayList<Player> players = new ArrayList<Player>();
     private Gameplay gameplay;
-    private int numberOfPlayers;
 
     public Creator(){
 
@@ -31,8 +30,7 @@ public class Creator {
         players.get(1).getResources().getGoldObj().add(6);
         players.get(2).getResources().getGoldObj().add(7);
         players.get(3).getResources().getGoldObj().add(8);
-        gameplay= new Gameplay(players);
-        gameplay.scheduling();
+        gameplay= new Gameplay(players, board);
     }
 
     public ArrayList<Player> getPlayers() {
@@ -56,5 +54,9 @@ public class Creator {
 
     public Board getBoard() {
         return board;
+    }
+
+    public Gameplay getGameplay(){
+        return gameplay;
     }
 }
