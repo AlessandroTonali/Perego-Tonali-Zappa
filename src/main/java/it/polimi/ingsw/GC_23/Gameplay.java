@@ -170,6 +170,7 @@ public class Gameplay {
                     v.getPermanentEffect().get(i).activeEffect(p);
                 }
             }
+
         }
 
         //assegno victory points in base all'ordine militare
