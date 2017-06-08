@@ -242,8 +242,8 @@
 	"NewPlayCardEffect":[
 		{"id": "561", "dice_value": "4", "tower_color": "rainbow"},
 		{"id": "571", "dice_value": "6", "tower_color": "green"},
-		{"id": "581", "dice_value": "6", "tower_color": "yellow", "sale": [{"wood": "1","stone": "1"}]},
-		{"id": "591", "dice_value": "6", "tower_color": "blue", "sale": [{"coin": "2"}]},
+		{"id": "581", "dice_value": "6", "tower_color": "yellow", "sale": [{"wood": "-1","stone": "-1"}]},
+		{"id": "591", "dice_value": "6", "tower_color": "blue", "sale": [{"coin": "-2"}]},
 		{"id": "601", "dice_value": "6", "tower_color": "purple"},
 		{"id": "721", "dice_value": "7", "tower_color": "rainbow"},
 		{"id": "901", "dice_value": "7", "tower_color": "rainbow"}
