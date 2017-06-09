@@ -200,7 +200,6 @@ public class Player implements Serializable {
 
         }
 
-
         System.out.println("You choose the " + i + "family member");
         System.out.println("you have " + this.getResources().toString());
         return chosen;
@@ -210,5 +209,12 @@ public class Player implements Serializable {
         return scan.nextLine();
     }
 
+    public UserHandler getUserHandler() {
+        return userHandler;
+    }
+
+    public void setUserHandler(UserHandler userHandler) {
+        this.userHandler = userHandler;
+    }
 }
 

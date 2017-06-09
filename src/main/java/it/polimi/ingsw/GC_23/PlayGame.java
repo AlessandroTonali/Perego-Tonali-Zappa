@@ -38,7 +38,7 @@ public class PlayGame {
             while( i < 1 ){
                 for (Player p : this.players) {
                     System.out.println("Period: " + this.period + "Turn: " + this.turn);
-                    System.out.println(p.getPlayerColor().toString() + ": it's your turn!");
+                    System.out.println(p. + ": it's your turn!");
                     p.chooseMove(this.board);
                 }
                 i++;

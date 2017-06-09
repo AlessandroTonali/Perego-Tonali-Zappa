@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="12559092-ad45-4654-bd82-cde319336451" name="Default" comment="fix error">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/PlayGame.java" afterPath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/PlayGame.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/Player.java" afterPath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/Player.java" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
@@ -26,55 +27,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="TowerController.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/Controller/TowerController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="175">
-              <caret line="22" column="72" lean-forward="false" selection-start-line="22" selection-start-column="72" selection-end-line="22" selection-end-column="72" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Player.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/Player.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="45">
-              <caret line="27" column="36" lean-forward="false" selection-start-line="27" selection-start-column="36" selection-end-line="27" selection-end-column="36" />
-              <folding>
-                <marker date="1496998310000" expanded="true" signature="5578:5762" ph="{...}" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Gameplay.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/Gameplay.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1779">
-              <caret line="90" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="248" selection-end-column="1" />
-              <folding>
-                <marker date="1496997859000" expanded="true" signature="7799:7815" ph="{...}" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="SingleCost.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/SingleCost.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="105">
-              <caret line="7" column="13" lean-forward="false" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="PlayGame.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="PlayGame.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/PlayGame.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="855">
-              <caret line="63" column="9" lean-forward="false" selection-start-line="63" selection-start-column="9" selection-end-line="63" selection-end-column="9" />
+            <state relative-caret-position="105">
+              <caret line="40" column="41" lean-forward="false" selection-start-line="40" selection-start-column="41" selection-end-line="40" selection-end-column="41" />
               <folding />
             </state>
           </provider>
@@ -1119,7 +1076,7 @@
       <workItem from="1496775901195" duration="5117000" />
       <workItem from="1496818557077" duration="2299000" />
       <workItem from="1496908973673" duration="134000" />
-      <workItem from="1496998003070" duration="321000" />
+      <workItem from="1496998003070" duration="426000" />
     </task>
     <task id="LOCAL-00001" summary="prova">
       <created>1494941646968</created>
@@ -1311,7 +1268,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="235111000" />
+    <option name="totallyTimeSpent" value="235216000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1802,16 +1759,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/Gameplay.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1779">
-          <caret line="90" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="248" selection-end-column="1" />
-          <folding>
-            <marker date="1496997859000" expanded="true" signature="7799:7815" ph="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/SingleCost.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="105">
@@ -1820,11 +1767,13 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/PlayGame.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/Gameplay.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="855">
-          <caret line="63" column="9" lean-forward="false" selection-start-line="63" selection-start-column="9" selection-end-line="63" selection-end-column="9" />
-          <folding />
+        <state relative-caret-position="-1779">
+          <caret line="90" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="248" selection-end-column="1" />
+          <folding>
+            <marker date="1496997859000" expanded="true" signature="7799:7815" ph="{...}" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1838,11 +1787,22 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/Player.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="27" column="36" lean-forward="false" selection-start-line="27" selection-start-column="36" selection-end-line="27" selection-end-column="36" />
+        <state relative-caret-position="456">
+          <caret line="211" column="41" lean-forward="false" selection-start-line="211" selection-start-column="41" selection-end-line="211" selection-end-column="41" />
           <folding>
-            <marker date="1496998310000" expanded="true" signature="5578:5762" ph="{...}" />
+            <element signature="e#5910#5911#0" expanded="true" />
+            <element signature="e#5969#5970#0" expanded="true" />
+            <element signature="e#6015#6016#0" expanded="true" />
+            <marker date="1496998424000" expanded="true" signature="5578:5761" ph="{...}" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/PlayGame.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="40" column="41" lean-forward="false" selection-start-line="40" selection-start-column="41" selection-end-line="40" selection-end-column="41" />
+          <folding />
         </state>
       </provider>
     </entry>
