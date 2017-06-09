@@ -1,6 +1,7 @@
 package it.polimi.ingsw.GC_23;
 
 import it.polimi.ingsw.GC_23.Cards.*;
+import it.polimi.ingsw.GC_23.Connection.UserHandler;
 import it.polimi.ingsw.GC_23.Controller.*;
 import it.polimi.ingsw.GC_23.Effects.BenefitsEffect;
 import it.polimi.ingsw.GC_23.Enumerations.PlayerColor;
@@ -24,6 +25,7 @@ public class Player implements Serializable {
     private FamilyMember[] familyMembers;
     private PermanentEffect permanentEffect;
     private Scanner scan;
+    private UserHandler userHandler;
 
     public Player(PlayerColor playerColor, BonusTile bonusTile) {
         this.playerColor = playerColor;
@@ -198,7 +200,6 @@ public class Player implements Serializable {
 
         }
 
-
         System.out.println("You choose the " + i + "family member");
         System.out.println("you have " + this.getResources().toString());
         return chosen;
@@ -208,5 +209,12 @@ public class Player implements Serializable {
         return scan.nextLine();
     }
 
+    public UserHandler getUserHandler() {
+        return userHandler;
+    }
+
+    public void setUserHandler(UserHandler userHandler) {
+        this.userHandler = userHandler;
+    }
 }
 

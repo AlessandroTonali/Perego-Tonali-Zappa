@@ -66,7 +66,7 @@ public class Match implements Runnable{
             }
             playerController.getAssociation().putIfAbsent(u.getCurrentPlayer(), u.getCurrentUser());
             System.out.println("Setup di "+ u.getCurrentUser()+" eseguito");
-            creator.createPlayer(u.getCurrentPlayer().getPlayerColor());
+            creator.createPlayer(u.getCurrentPlayer().getPlayerColor(), u);
         }
         //creator.startGame(); parte lo scheduling
     }
