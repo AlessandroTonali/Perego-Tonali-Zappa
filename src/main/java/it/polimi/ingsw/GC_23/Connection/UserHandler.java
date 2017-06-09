@@ -60,6 +60,7 @@ public class UserHandler implements Runnable{
     }
 
     public void setupSocket(PlayerController playerController) throws IOException{
+        inScanner.nextLine();
         Map<Player, String> association = playerController.getAssociation();
         outWriter.println("setup");
         String username = inScanner.nextLine();
@@ -76,7 +77,7 @@ public class UserHandler implements Runnable{
             while (!logged) {
                 System.out.println("Inserisci scelta");
                 String choice = inScanner.nextLine();
-                System.out.println("Hai scelto"+choice);
+                System.out.println("Hai scelto: "+choice);
                 Player selectedPlayer = new Player(null,null);
                 for (Map.Entry<Player, String> entry : association.entrySet()) {
                     if (entry.getKey().getPlayerColor().toString().equalsIgnoreCase((choice))) {
@@ -101,6 +102,7 @@ public class UserHandler implements Runnable{
                     logged = inScanner.nextLine().equals("finito");
                 }
             }
+            System.out.println("Socket setup completed");
         }catch(Exception e){
             logger.setLevel(Level.SEVERE);
             logger.severe(String.valueOf(e));
@@ -134,5 +136,17 @@ public class UserHandler implements Runnable{
 
     public boolean isSocketConnection() {
         return socketConnection;
+    }
+
+    public Scanner getInScanner() {
+        return inScanner;
+    }
+
+    public PrintWriter getOutWriter() {
+        return outWriter;
+    }
+
+    public Socket getSocket() {
+        return socket;
     }
 }

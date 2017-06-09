@@ -34,35 +34,31 @@ public class PlayGame {
         int i = 0;
         resetFamilyMembers();
         while(true) {
-            System.out.println(period + "period");
+            System.out.println(period + " period");
             while( i < 1 ){
                 for (Player p : this.players) {
-                    System.out.println("Period: " + this.period + "Turn: " + this.turn);
-                    System.out.println(p.getPlayerColor() + ": it's your turn!");
-                    p.chooseMove(this.board);
+                    p.getOutWriter().println(("Period: " + this.period + " Turn: " + this.turn + "\n"));
+                    p.getOutWriter().println(p.getUserHandler().getCurrentUser() + ": it's your turn!\n");
+                    p.chooseMove(this.board,0);
                 }
                 i++;
             }
             i = 0;
-            System.out.println("fine turno");
             if (turn == 1) {
                 turn++;
                 makeTurnOrder();
-                System.out.println(period + "period" );
             }
             else if(period == 3){
                 break;
             }
             else if (turn == 2) {
-                System.out.println(turn + "turno");
                 period++;
                 turn = 1;
                 checkEndPeriod();
             }
-            System.out.println("periodo " + period);
-            System.out.println("turno " + turn);
+            System.out.println("Periodo " + period);
+            System.out.println("Turno " + turn);
         }
-        System.out.println("END");
         checkEndGame();
         getWinner();
     }
@@ -98,7 +94,6 @@ public class PlayGame {
                 }
             }
         }
-        System.out.println("ce l'ho fatta");
         return playersOrder;
     }
 
@@ -120,7 +115,6 @@ public class PlayGame {
         board.getProductionSpace().resetFamilyMember();
         board.getHarvestSpace().resetFamilyMember();
         //todo: in 1.2 2.2 e 3.2 rapporto al vaticano: scomunica
-
 
     }
 
@@ -200,15 +194,19 @@ public class PlayGame {
                     Player tmp = playersOrder.get(j);
                     playersOrder.set(j, playersOrder.get(j + 1));
                     playersOrder.set(j + 1, tmp);
-                    System.out.println("sono nel for");
                 }
 
             }
-            System.out.println("THE WINNER IS PLAYER: " + playersOrder.get(0).getPlayerColor());
-            System.out.println("Victory order: ");
-            for (Player p : playersOrder) {
-                System.out.println(p.getPlayerColor());
-                System.out.println("-----------------");
+            StringBuilder stringBuilder = new StringBuilder();
+            stringBuilder.append("----------------END----------------\n");
+            stringBuilder.append("THE WINNER IS PLAYER: " + playersOrder.get(0).getPlayerColor()+"\n");
+            stringBuilder.append("Victory order: \n");
+            for (Player pl : playersOrder) {
+                stringBuilder.append(pl.getPlayerColor());
+                stringBuilder.append("-----------------\n");
+            }
+            for (Player p : this.players) {
+                p.getOutWriter().println(stringBuilder);
             }
         }
     }

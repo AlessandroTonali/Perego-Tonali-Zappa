@@ -15,7 +15,7 @@ import java.util.Collections;
 public class Creator {
     private Board board;
     private ArrayList<Player> players = new ArrayList<Player>();
-    private Gameplay gameplay;
+    private PlayGame playGame;
 
     public Creator(){
 
@@ -31,7 +31,7 @@ public class Creator {
         players.get(1).getResources().getGoldObj().add(6);
         players.get(2).getResources().getGoldObj().add(7);
         players.get(3).getResources().getGoldObj().add(8);
-        gameplay= new Gameplay(players, board);
+        playGame = new PlayGame(players, board);
     }
 
     public ArrayList<Player> getPlayers() {
@@ -62,6 +62,8 @@ public class Creator {
         player.setFamilyMembers(familyMembers);
         player.setResources(new ResourcesSet(0,0,0,0,0,0,0));
         player.setUserHandler(userHandler);
+        player.setScan();
+        player.setOutWriter();
         return player;
     }
 
@@ -69,7 +71,7 @@ public class Creator {
         return board;
     }
 
-    public Gameplay getGameplay(){
-        return gameplay;
+    public PlayGame getPlayGame(){
+        return playGame;
     }
 }

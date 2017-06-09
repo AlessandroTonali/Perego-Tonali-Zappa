@@ -2,11 +2,15 @@ package it.polimi.ingsw.GC_23.Connection;
 
 import java.io.*;
 import java.net.Socket;
+import java.rmi.NoSuchObjectException;
 import java.rmi.NotBoundException;
 import java.rmi.RemoteException;
 import java.rmi.registry.LocateRegistry;
 import java.rmi.registry.Registry;
+import java.rmi.server.UnicastRemoteObject;
 import java.util.Scanner;
+import java.util.concurrent.Executor;
+import java.util.concurrent.Executors;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -14,7 +18,7 @@ import java.util.logging.Logger;
  * Created by jesss on 03/06/17.
  */
 
-public class UserImpl{
+public class UserImpl extends  UnicastRemoteObject implements User{
     private Socket socket;
     private ObjectInputStream inSocket;
     private ObjectOutputStream outSocket;
@@ -24,10 +28,12 @@ public class UserImpl{
     private PrintWriter outVideo;
     private boolean isYourTurn = false;
     private boolean socketConnection;
+    private boolean endGame = false;
     private final Logger logger = Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
+    private ServerImpl server;
 
 
-    protected UserImpl(){
+    protected UserImpl() throws RemoteException{
         //super();
         inKeyboard= new BufferedReader(new InputStreamReader(System.in));
         outVideo = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)),true);
@@ -53,18 +59,15 @@ public class UserImpl{
                 isYourTurn = false;
                 setupSocket();
                 outVideo.println("Wait for your turn");
-                while (!isYourTurn) {
-                    isYourTurn = inScanner.nextLine().equals("play");
+                while(!isYourTurn) {
+                    play();
                 }
-                isYourTurn = false;
-                playSocket();
-                while (!isYourTurn) {
-                    isYourTurn = inScanner.nextLine().equals("close");
-                }
-                close();
+                closeSocket();
             }
             else{
-                //gestione RMI
+                //gestione RMI:
+                //setupRMI();
+                //closeRMI();
             }
         }catch (Exception e){
             logger.setLevel(Level.SEVERE);
@@ -120,9 +123,9 @@ public class UserImpl{
 
     private void connectRMI() throws RemoteException, NotBoundException{
         Registry reg = LocateRegistry.getRegistry(8080);
-        ServerImpl server = (ServerImpl) reg.lookup("gameServer");
+        server = (ServerImpl) reg.lookup("gameServer");
         //server.join(this);
-        System.out.println("Client connected");
+        outVideo.println("You are connected");
         outVideo.println("Wait for other players");
         socketConnection = false;
     }
@@ -147,33 +150,51 @@ public class UserImpl{
                 sceltaGiusta = inScanner.nextLine().equals("true");
                 if (sceltaGiusta) {
                     outVideo.println("You have chosen a correct player");
-                    break;
+                    outWriter.println("finito");
                 } else {
                     outVideo.println("Player already selected or incorrect, try again");
-                    continue;
                 }
             }
             outVideo.println("Setup completed");
-            outWriter.println("finito");
         } catch (Exception e) {
             logger.setLevel(Level.SEVERE);
             logger.severe(String.valueOf(e));
         }
     }
 
-    private void setupRMI(){
+    @Override
+    public void setupRMI(){
 
     }
 
-    private void playSocket(){
-
+    private void play() throws IOException{
+        while (true) {
+            String actualString = inScanner.nextLine();
+            while (!actualString.equals("b") && !actualString.equals("c") && !actualString.equals("quit")) {
+                outVideo.println(actualString);
+                actualString = inScanner.nextLine();
+            }
+            if (actualString.equals("b")) {
+                outWriter.println(inKeyboard.readLine());
+                actualString = inScanner.nextLine();
+                continue;
+            }
+            if (actualString.equals("c")) {
+                String string = inScanner.nextLine();
+                while (string == null) {
+                    string = inScanner.nextLine();
+                }
+                actualString = string;
+                continue;
+            }
+            if (actualString.equals("quit")) {
+                isYourTurn = true;
+            }
+        }
     }
 
-    private void playRMI(){
 
-    }
-
-    private void close() {
+    private void closeSocket() {
         try {
             socket.close();
         } catch (Exception e) {
@@ -188,6 +209,13 @@ public class UserImpl{
                 System.out.println("Socket not closed");
             }
         }
+    }
+
+    @Override
+    public void closeRMI() throws NoSuchObjectException{
+        outVideo.println("BYE BYE");
+        //server.leave(this);
+        UnicastRemoteObject.unexportObject(this, true);
     }
 
     public static void main(String[] args) throws Exception {
