@@ -41,9 +41,9 @@ public class ProductionSpaceTest {
         Player player = new Player(PlayerColor.GREEN, null);
         FamilyMember familyMember = new FamilyMember(player, null, 1);
         HarvestSpace harvestSpace = new HarvestSpace();
-        assertEquals(false, harvestSpace.checkFamiliar(PlayerColor.GREEN));
+        assertEquals(false, harvestSpace.checkFamiliar(familyMember));
         harvestSpace.setFamilyMember(familyMember);
-        assertEquals(true, harvestSpace.checkFamiliar(PlayerColor.GREEN));
+        assertEquals(true, harvestSpace.checkFamiliar(familyMember));
     }
 
 }

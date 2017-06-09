@@ -26,9 +26,9 @@ public class CouncilSpaceTest {
         Player player = new Player(PlayerColor.YELLOW, null);
         FamilyMember familyMember = new FamilyMember(player, null, 1);
         HarvestSpace harvestSpace = new HarvestSpace();
-        assertEquals(false, harvestSpace.checkFamiliar(PlayerColor.YELLOW));
+        assertEquals(false, harvestSpace.checkFamiliar(familyMember));
         harvestSpace.setFamilyMember(familyMember);
-        assertEquals(true, harvestSpace.checkFamiliar(PlayerColor.YELLOW));
+        assertEquals(true, harvestSpace.checkFamiliar(familyMember));
     }
 
 }

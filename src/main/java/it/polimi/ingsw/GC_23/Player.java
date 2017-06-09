@@ -170,6 +170,9 @@ public class Player implements Serializable {
     public FamilyMember chooseFamilyMember() {
 
         for(FamilyMember f: familyMembers) {
+            if( f == null){
+                continue;
+            }
             System.out.println(f.toString());
         }
 
@@ -192,16 +195,18 @@ public class Player implements Serializable {
 
         try {
             chosen = this.familyMembers[i];
+            if(chosen == null){
+                System.out.println("u already used this family member, choose another one");
+                return chooseFamilyMember();
+            }
             System.out.println("You have chosen your family member");
 
         } catch (ArrayIndexOutOfBoundsException e) {
             System.out.println("invalid number");
             return chooseFamilyMember();
 
-        }  catch (NullPointerException e) {
-            System.out.println("you already used this family member in this turn");
-            return chooseFamilyMember();
         }
+
 
         System.out.println("You choose the " + i + "family member");
         System.out.println("you have " + this.getResources().toString());

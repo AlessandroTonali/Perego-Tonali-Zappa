@@ -3,6 +3,7 @@ package it.polimi.ingsw.GC_23.Spaces;
 import it.polimi.ingsw.GC_23.Enumerations.FamilyColor;
 import it.polimi.ingsw.GC_23.Enumerations.PlayerColor;
 import it.polimi.ingsw.GC_23.FamilyMember;
+import it.polimi.ingsw.GC_23.Player;
 
 import java.util.ArrayList;
 
@@ -36,6 +37,16 @@ public class HarvestSpace extends ActionSpace {
         this.isBusyFirst = true;
         this.getFamilyMembersPresent().add(familyMember);
         orderCounter++;
+        Player player = familyMember.getPlayer();
+        FamilyMember[] members = familyMember.getPlayer().getFamilyMembers();
+        int i = 0;
+        for(FamilyMember m : members) {
+            if(m != null && m == familyMember) {
+                members[i] = null;
+                break;
+            }
+            i++;
+        }
     }
 
     public ArrayList<FamilyMember> getFamilyMembersPresent() {

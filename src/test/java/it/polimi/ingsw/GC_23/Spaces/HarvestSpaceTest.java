@@ -32,13 +32,13 @@ public class HarvestSpaceTest {
         assertEquals(1, harvestSpace.getOrderCounter());
     }
 
-    @Test
-    public void checkFamiliar() throws Exception{
+
+    /**public void checkFamiliar() throws Exception{
         Player player = new Player(PlayerColor.BLUE, null);
         FamilyMember familyMember = new FamilyMember(player, null, 1);
         HarvestSpace harvestSpace = new HarvestSpace();
         assertEquals(false, harvestSpace.checkFamiliar(PlayerColor.BLUE));
         harvestSpace.setFamilyMember(familyMember);
         assertEquals(true, harvestSpace.checkFamiliar(PlayerColor.BLUE));
-    }
+    }*/
 }
