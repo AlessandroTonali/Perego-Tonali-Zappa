@@ -7,6 +7,8 @@ import java.rmi.RemoteException;
 import java.rmi.registry.LocateRegistry;
 import java.rmi.registry.Registry;
 import java.util.Scanner;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  * Created by jesss on 03/06/17.
@@ -22,6 +24,8 @@ public class UserImpl{
     private PrintWriter outVideo;
     private boolean isYourTurn = false;
     private boolean socketConnection;
+    private final Logger logger = Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
+
 
     protected UserImpl(){
         //super();
@@ -31,8 +35,8 @@ public class UserImpl{
         try{
             execute();
         }catch (Exception e){
-            System.out.println("Exception: "+e);
-            e.printStackTrace();
+            logger.setLevel(Level.SEVERE);
+            logger.severe(String.valueOf(e));
         }
     }
 
@@ -63,8 +67,8 @@ public class UserImpl{
                 //gestione RMI
             }
         }catch (Exception e){
-            System.out.println("Exception: "+e);
-            e.printStackTrace();
+            logger.setLevel(Level.SEVERE);
+            logger.severe(String.valueOf(e));
         }
     }
 
@@ -92,8 +96,8 @@ public class UserImpl{
                 }
             }
         }catch(Exception e){
-            e.getMessage();
-            e.printStackTrace();
+            logger.setLevel(Level.SEVERE);
+            logger.severe(String.valueOf(e));
         }
     }
 
@@ -107,8 +111,8 @@ public class UserImpl{
                 inScanner = new Scanner(socket.getInputStream());
                 System.out.println("Client connected");
             } catch (Exception e) {
-                System.out.println("Exception: " + e);
-                e.printStackTrace();
+                logger.setLevel(Level.SEVERE);
+                logger.severe(String.valueOf(e));
             }
             outVideo.println("Wait for other players");
             socketConnection = true;
@@ -144,15 +148,16 @@ public class UserImpl{
                 if (sceltaGiusta) {
                     outVideo.println("You have chosen a correct player");
                     break;
-                } else
+                } else {
                     outVideo.println("Player already selected or incorrect, try again");
                     continue;
+                }
             }
             outVideo.println("Setup completed");
             outWriter.println("finito");
         } catch (Exception e) {
-            System.out.println("Exception: " + e);
-            e.printStackTrace();
+            logger.setLevel(Level.SEVERE);
+            logger.severe(String.valueOf(e));
         }
     }
 
@@ -172,13 +177,15 @@ public class UserImpl{
         try {
             socket.close();
         } catch (Exception e) {
-            System.out.println("Exception: " + e);
-            e.printStackTrace();
+            logger.setLevel(Level.SEVERE);
+            logger.severe(String.valueOf(e));
         } finally {
             try {
                 socket.close();
             } catch (IOException e) {
-                System.err.println("Socket not closed");
+                logger.setLevel(Level.SEVERE);
+                logger.severe(String.valueOf(e));
+                System.out.println("Socket not closed");
             }
         }
     }

@@ -7,6 +7,8 @@ import java.io.*;
 import java.net.Socket;
 import java.util.Map;
 import java.util.Scanner;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  * Created by jesss on 03/06/17.
@@ -21,6 +23,8 @@ public class UserHandler implements Runnable{
     private String currentUser;
     private boolean endMatch = false;
     private boolean socketConnection = true;
+    private final Logger logger = Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
+
 
     public UserHandler(Socket socket) throws IOException {
         this.socket = socket;
@@ -37,7 +41,8 @@ public class UserHandler implements Runnable{
             }
             System.out.println("End of Match");
         }catch (Exception e){
-            System.out.println("IOException: "+e.getMessage());
+            logger.setLevel(Level.SEVERE);
+            logger.severe(String.valueOf(e));
             System.out.println("The game is over");
         }
     }
@@ -97,8 +102,8 @@ public class UserHandler implements Runnable{
                 }
             }
         }catch(Exception e){
-            e.getMessage();
-            e.printStackTrace();
+            logger.setLevel(Level.SEVERE);
+            logger.severe(String.valueOf(e));
         }
     }
 

@@ -8,6 +8,8 @@ import java.util.ArrayList;
 import java.util.ConcurrentModificationException;
 import java.util.TimerTask;
 import java.util.concurrent.*;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  * Created by jesss on 03/06/17.
@@ -16,6 +18,8 @@ public class ServerImpl{
     private static ServerImpl server;
     private static ArrayList<Match> matches;
     private static int userCounter =0;
+    private final static Logger logger = Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
+
 
     private ServerImpl(){
         this.matches = new ArrayList<Match>();
@@ -45,33 +49,38 @@ public class ServerImpl{
         ExecutorService executor = Executors.newCachedThreadPool();
         ServerSocket serverSocket = new ServerSocket(29999);
         System.out.println("Server is ready");
-        while(true) {
-            Match match = new Match();
-            server.getMatches().add(match);
-            long startTime = 0;
-            long timeout = 10000;
-            while(userCounter<4 && ((userCounter<2)||((System.currentTimeMillis()-startTime)<timeout))){
-                try {
-                    Socket socket = serverSocket.accept();
-                    UserHandler userHandler = new UserHandler(socket);
-                    match.setUserHandler(userHandler);
-                    userCounter++;
-                    if (userCounter == 1) {
-                        executor.submit(match);
-                        startTime = System.currentTimeMillis();
+        try {
+            while (true) {
+                Match match = new Match();
+                server.getMatches().add(match);
+                long startTime = 0;
+                long timeout = 10000;
+                while (userCounter < 4 && ((userCounter < 2) || ((System.currentTimeMillis() - startTime) < timeout))) {
+                    try {
+                        Socket socket = serverSocket.accept();
+                        UserHandler userHandler = new UserHandler(socket);
+                        match.setUserHandler(userHandler);
+                        userCounter++;
+                        if (userCounter == 1) {
+                            executor.submit(match);
+                            startTime = System.currentTimeMillis();
+                        }
+                        executor.submit(userHandler);
+                        System.out.println("Client accepted: " + socket);
+                    } catch (IOException e) {
+                        logger.setLevel(Level.SEVERE);
+                        logger.severe(String.valueOf(e));
                     }
-                    executor.submit(userHandler);
-                    System.out.println("Client accepted: " + socket);
-                } catch (IOException e) {
-                    e.printStackTrace();
-                    break;
                 }
+                match.setStartMatch(true);
+                userCounter = 0;
             }
-            match.setStartMatch(true);
-            userCounter=0;
+        }catch (Exception ex){
+            logger.setLevel(Level.SEVERE);
+            logger.severe(String.valueOf(ex));
         }
-        /*executor.shutdown();
-        serverSocket.close();*/
+        executor.shutdown();
+        serverSocket.close();
     }
 
 

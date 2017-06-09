@@ -6,6 +6,8 @@ import it.polimi.ingsw.GC_23.Player;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  * Created by jesss on 06/06/17.
@@ -17,6 +19,7 @@ public class Match implements Runnable{
     private Creator creator;
     private Board board;
     private boolean startMatch = false;
+    private final Logger logger = Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
 
     public Match() {
         this.userHandlers = new ArrayList<UserHandler>();
@@ -31,7 +34,8 @@ public class Match implements Runnable{
             try{
                 Thread.sleep(1000);
             }catch (InterruptedException ex){
-                ex.printStackTrace();
+                logger.setLevel(Level.WARNING);
+                logger.warning(String.valueOf(ex));
             }
         }
         try {
@@ -40,8 +44,8 @@ public class Match implements Runnable{
             board = creator.getBoard();
             setting();
         } catch (Exception e) {
-            e.getMessage();
-            e.printStackTrace();
+            logger.setLevel(Level.SEVERE);
+            logger.severe(String.valueOf(e));
         }
     }
 

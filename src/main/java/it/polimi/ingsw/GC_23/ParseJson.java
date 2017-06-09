@@ -17,6 +17,8 @@ import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Scanner;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  * Created by Alessandro on 01/06/2017.
@@ -34,6 +36,8 @@ public class ParseJson {
     private ArrayList<TerritoryCard> territoryCardArrayList = new ArrayList<>();
     private ArrayList<VentureCard> ventureCardArrayList = new ArrayList<>();
     private ArrayList<BuildingCard> buildingCardArrayList = new ArrayList<>();
+    private final Logger logger = Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
+
 
     public static synchronized ParseJson getParseJson(){
         if(parseJson == null){
@@ -70,7 +74,8 @@ public class ParseJson {
             jsonContent = scanner.useDelimiter("\\Z").next();
             scanner.close();
         } catch (FileNotFoundException e) {
-            e.printStackTrace();
+            logger.setLevel(Level.SEVERE);
+            logger.severe(String.valueOf(e));
         }
 
         JSONObject rootObject = new JSONObject(jsonContent);
@@ -188,7 +193,8 @@ public class ParseJson {
             jsonContent = scanner.useDelimiter("\\Z").next();
             scanner.close();
         } catch (FileNotFoundException e) {
-            e.printStackTrace();
+            logger.setLevel(Level.SEVERE);
+            logger.severe(String.valueOf(e));
         }
 
         benefitsEffectMap = new HashMap<Integer,BenefitsEffect>();
