@@ -1,5 +1,6 @@
 package it.polimi.ingsw.GC_23;
 
+import it.polimi.ingsw.GC_23.Connection.UserHandler;
 import it.polimi.ingsw.GC_23.Effects.BenefitsEffect;
 import it.polimi.ingsw.GC_23.Enumerations.FamilyColor;
 import it.polimi.ingsw.GC_23.Enumerations.PlayerColor;
@@ -38,8 +39,6 @@ public class Creator {
     }
 
     public Player createPlayer(PlayerColor playerColor){
-        //todo: assegno bonus tile
-        //todo: 4 player al massimo
         Player player = new Player(playerColor, ParseJson.getParseJson().getBonusTile1());
         this.players.add(player);
         FamilyMember[] familyMembers = new FamilyMember[4];
@@ -49,6 +48,20 @@ public class Creator {
         familyMembers[3] = new FamilyMember(player, FamilyColor.NEUTRAL, 0);
         player.setFamilyMembers(familyMembers);
         player.setResources(new ResourcesSet(0,0,0,0,0,0,0));
+        return player;
+    }
+
+    public Player createPlayer(PlayerColor playerColor, UserHandler userHandler){
+        Player player = new Player(playerColor, ParseJson.getParseJson().getBonusTile1());
+        this.players.add(player);
+        FamilyMember[] familyMembers = new FamilyMember[4];
+        familyMembers[0] = new FamilyMember(player, FamilyColor.ORANGE, 0);
+        familyMembers[1] = new FamilyMember(player, FamilyColor.WHITE, 0);
+        familyMembers[2] = new FamilyMember(player, FamilyColor.BLACK, 0);
+        familyMembers[3] = new FamilyMember(player, FamilyColor.NEUTRAL, 0);
+        player.setFamilyMembers(familyMembers);
+        player.setResources(new ResourcesSet(0,0,0,0,0,0,0));
+        player.setUserHandler(userHandler);
         return player;
     }
 
