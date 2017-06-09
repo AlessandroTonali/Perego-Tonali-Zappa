@@ -1,6 +1,7 @@
 package it.polimi.ingsw.GC_23;
 
 import it.polimi.ingsw.GC_23.Cards.*;
+import it.polimi.ingsw.GC_23.Connection.UserHandler;
 import it.polimi.ingsw.GC_23.Controller.*;
 import it.polimi.ingsw.GC_23.Effects.BenefitsEffect;
 import it.polimi.ingsw.GC_23.Enumerations.PlayerColor;
@@ -24,6 +25,7 @@ public class Player implements Serializable {
     private FamilyMember[] familyMembers;
     private PermanentEffect permanentEffect;
     private Scanner scan;
+    private UserHandler userHandler;
 
     public Player(PlayerColor playerColor, BonusTile bonusTile) {
         this.playerColor = playerColor;
