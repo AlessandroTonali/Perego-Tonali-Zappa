@@ -106,10 +106,7 @@ public class Player implements Serializable {
 
         }
 
-        if (i > 8) {
-            System.out.println("Invalid number");
-            chooseMove(this.view);
-        }
+
 
 
         switch (i) {
@@ -145,9 +142,12 @@ public class Player implements Serializable {
                 new TerritoryController(chooseFamilyMember(), board.getTower(0));
                 break;
             case 7: break;//todo toglilo
-            default:
+            case 6:
                 new OtherCardsController(chooseFamilyMember(), board.chooseTower(this));
                 break;
+            default:
+                 chooseMove(view);
+                 break;
 
         }
 
@@ -180,19 +180,22 @@ public class Player implements Serializable {
 
         try {
             i = Integer.parseInt(sw);
-            System.out.println("You have chosen your family member");
 
         } catch (NumberFormatException e) {
             System.out.println("Invalid format");
-            return null;
+            return  chooseFamilyMember();
         }
         FamilyMember chosen;
 
 
         try {
             chosen = this.familyMembers[i];
-        } catch (NullPointerException e) {
-            return null;
+            System.out.println("You have chosen your family member");
+
+        } catch (ArrayIndexOutOfBoundsException e) {
+            System.out.println("invalid number");
+            return chooseFamilyMember();
+
         }
 
 
