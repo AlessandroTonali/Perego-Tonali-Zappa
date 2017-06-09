@@ -200,7 +200,12 @@ public class ResourcesSet {
         int[] playerset = this.getArray();
         int[] prizeset = prize.getArray();
         for(int i = 0; i < resourceNumber; i++){
-            playerset[i] = playerset[i] + prizeset[i];
+            int result = playerset[i] + prizeset[i];
+            if (result < 0) {
+                playerset[i] = 0;
+            } else {
+                playerset[i] = result;
+            }
         }
         this.setArray(playerset);
     }

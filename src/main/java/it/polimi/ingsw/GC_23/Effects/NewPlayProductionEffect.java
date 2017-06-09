@@ -1,5 +1,8 @@
 package it.polimi.ingsw.GC_23.Effects;
 
+import it.polimi.ingsw.GC_23.Controller.ProductionController;
+import it.polimi.ingsw.GC_23.Enumerations.FamilyColor;
+import it.polimi.ingsw.GC_23.FamilyMember;
 import it.polimi.ingsw.GC_23.Player;
 import it.polimi.ingsw.GC_23.SingleCost;
 
@@ -15,7 +18,8 @@ public class NewPlayProductionEffect extends AbsEffect {
 
     @Override
     public void activeEffect(Player player) {
-
+        FamilyMember familyMember = new FamilyMember(player, FamilyColor.NEUTRAL, diceValue);
+        new ProductionController(familyMember, player.getView().getProductionSpace());
     }
 
     @Override

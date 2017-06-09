@@ -5,9 +5,9 @@ import java.io.*;
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.util.ArrayList;
+import java.util.ConcurrentModificationException;
 import java.util.TimerTask;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
+import java.util.concurrent.*;
 
 /**
  * Created by jesss on 03/06/17.
@@ -73,4 +73,29 @@ public class ServerImpl{
         /*executor.shutdown();
         serverSocket.close();*/
     }
+
+
+    /*public void timeout() throws InterruptedException, ExecutionException{
+            ExecutorService executor = Executors.newSingleThreadExecutor();
+            Future<String> future = executor.submit(new Task());
+
+            try {
+                System.out.println("Started..");
+                System.out.println(future.get(3, TimeUnit.SECONDS));
+                System.out.println("Finished!");
+            } catch (TimeoutException e) {
+                future.cancel(true);
+                System.out.println("Terminated!");
+            }
+
+            executor.shutdownNow();
+        }*/
 }
+
+/*class Task implements Callable<String> {
+    @Override
+    public String call() throws Exception {
+        Thread.sleep(1000);
+        return "Ready!";
+    }
+}*/

@@ -1,9 +1,12 @@
 package it.polimi.ingsw.GC_23.Effects;
 
-import it.polimi.ingsw.GC_23.EffectType;
+import it.polimi.ingsw.GC_23.*;
+import it.polimi.ingsw.GC_23.Controller.NewPlay;
+import it.polimi.ingsw.GC_23.Controller.OtherCardsController;
+import it.polimi.ingsw.GC_23.Controller.TerritoryController;
+import it.polimi.ingsw.GC_23.Enumerations.FamilyColor;
 import it.polimi.ingsw.GC_23.Enumerations.NewPlayColor;
-import it.polimi.ingsw.GC_23.Player;
-import it.polimi.ingsw.GC_23.SingleCost;
+import it.polimi.ingsw.GC_23.Spaces.Tower;
 
 import java.util.ArrayList;
 
@@ -21,6 +24,7 @@ public class NewPlayCardEffect extends AbsEffect {
         this.diceValue = diceValue;
         this.resourcesDiscount = resourcesDiscount;
         this.towerColor = towerColor;
+
     }
 
     public SingleCost chooseResourceDiscount(Player player){
@@ -63,6 +67,39 @@ public class NewPlayCardEffect extends AbsEffect {
     @Override
     public void activeEffect(Player player) {
         //TODO: giocata (nella tower) senza mettere il family member, chiamerà isLegal di NewPlay e il suo makeMove
+        FamilyMember familyMember = new FamilyMember(player, FamilyColor.NEUTRAL, diceValue);
+        SingleCost sale = chooseResourceDiscount(player);
+        Tower tower = null;
+        switch (towerColor) {
+            case GREEN:
+                tower = player.getView().getTower(0);
+                break;
+            case BLUE:
+                tower = player.getView().getTower(1);
+                break;
+            case YELLOW:
+                tower = player.getView().getTower(2);
+                break;
+            case PURPLE:
+                tower = player.getView().getTower(3);
+                break;
+            case RAINBOW:
+                tower = player.getView().chooseTower(player);
+                break;
+        }
+
+        NewPlay newPlay = new NewPlay(tower, familyMember, sale);
+
+        if (newPlay.isLegal()) {
+            newPlay.makeAction();
+            System.out.println("Effetto new play card eseguito");
+        } else {
+            System.out.println("Errore effetto new play card");
+            this.activeEffect(player);
+        }
+
+
+
     }
 
     @Override
