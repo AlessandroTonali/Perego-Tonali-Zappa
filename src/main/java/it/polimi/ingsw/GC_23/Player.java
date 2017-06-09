@@ -198,6 +198,9 @@ public class Player implements Serializable {
             System.out.println("invalid number");
             return chooseFamilyMember();
 
+        }  catch (NullPointerException e) {
+            System.out.println("you already used this family member in this turn");
+            return chooseFamilyMember();
         }
 
         System.out.println("You choose the " + i + "family member");

@@ -6,6 +6,7 @@ import it.polimi.ingsw.GC_23.Effects.BenefitsEffect;
 import it.polimi.ingsw.GC_23.Enumerations.FamilyColor;
 import it.polimi.ingsw.GC_23.Enumerations.PlayerColor;
 import it.polimi.ingsw.GC_23.FamilyMember;
+import it.polimi.ingsw.GC_23.Player;
 import it.polimi.ingsw.GC_23.Resources.ResourcesSet;
 
 import java.util.ArrayList;
@@ -39,6 +40,16 @@ public class ProductionSpace extends ActionSpace {
         this.isBusyFirst = true;
         this.getPlayerOrder().add(familyMember);
         orderCounter++;
+        Player player = familyMember.getPlayer();
+        FamilyMember[] members = familyMember.getPlayer().getFamilyMembers();
+        int i = 0;
+        for(FamilyMember m : members) {
+            if(m != null && m == familyMember) {
+                members[i] = null;
+                break;
+            }
+            i++;
+        }
     }
 
     public ArrayList<FamilyMember> getPlayerOrder() {
