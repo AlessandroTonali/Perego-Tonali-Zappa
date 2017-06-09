@@ -1,6 +1,5 @@
 package it.polimi.ingsw.GC_23.Spaces;
 
-import it.polimi.ingsw.GC_23.Effects.AbsEffect;
 import it.polimi.ingsw.GC_23.Enumerations.FamilyColor;
 import it.polimi.ingsw.GC_23.Enumerations.PlayerColor;
 import it.polimi.ingsw.GC_23.FamilyMember;
@@ -13,7 +12,7 @@ import java.util.ArrayList;
 public class HarvestSpace extends ActionSpace {
     private static boolean isBusyFirst;
     private static int orderCounter;
-    private ArrayList<FamilyMember> playerOrder;
+    private ArrayList<FamilyMember> familyMembersPresent;
     private boolean completePlay = false;
 
     public HarvestSpace(){
@@ -21,7 +20,7 @@ public class HarvestSpace extends ActionSpace {
         this.isBusyFirst = false;
         orderCounter = 0;
         completePlay =true;
-        this.playerOrder= new ArrayList<FamilyMember>(0);
+        this.familyMembersPresent = new ArrayList<FamilyMember>(0);
     }
 
     public HarvestSpace(boolean completePlay){
@@ -29,18 +28,18 @@ public class HarvestSpace extends ActionSpace {
         this.isBusyFirst = false;
         orderCounter = 0;
         this.completePlay = completePlay;
-        this.playerOrder= new ArrayList<FamilyMember>(0);
+        this.familyMembersPresent = new ArrayList<FamilyMember>(0);
     }
 
 
     public void setFamilyMember(FamilyMember familyMember) {
         this.isBusyFirst = true;
-        this.getPlayerOrder().add(familyMember);
+        this.getFamilyMembersPresent().add(familyMember);
         orderCounter++;
     }
 
-    public ArrayList<FamilyMember> getPlayerOrder() {
-        return playerOrder;
+    public ArrayList<FamilyMember> getFamilyMembersPresent() {
+        return familyMembersPresent;
     }
 
     public boolean checkValue(FamilyMember familyMember){
@@ -53,17 +52,21 @@ public class HarvestSpace extends ActionSpace {
         }
     }
 
-    public boolean checkFamiliar(PlayerColor playerColor){
-        if(completePlay == false && this.isBusyFirst == true){
-            return true;
-        }
-        for(int i = 0; i<playerOrder.size(); i++) {
-            if (playerOrder.get(i).getPlayer().getPlayerColor() == playerColor && !(playerOrder.get(i)
-                    .getFamilyColor() == FamilyColor.NEUTRAL)) {
-                return true;
+    // controlla se sono presenti altri familiari dello stesso player, true --> son presenti, false --> non sono presenti
+    public boolean checkFamiliar(FamilyMember familyMember){
+        for (int i = 0; i < familyMembersPresent.size(); i++) {
+            if (familyMembersPresent.get(i).getFamilyColor() != FamilyColor.NEUTRAL) {
+                if (familyMember.getFamilyColor() != FamilyColor.NEUTRAL) {
+                    if (familyMembersPresent.get(i).getPlayer() == familyMember.getPlayer()) {
+                        return true;
+                    }
+                } else {
+                    return false;
+                }
             }
         }
         return false;
+
     }
 
     public static boolean getIsBusyFirst() {
@@ -76,7 +79,7 @@ public class HarvestSpace extends ActionSpace {
 
     @Override
     public void resetFamilyMember(){
-        for(FamilyMember f: this.getPlayerOrder()){
+        for(FamilyMember f: this.getFamilyMembersPresent()){
             f= new FamilyMember(this);
             orderCounter=0;
             isBusyFirst=false;

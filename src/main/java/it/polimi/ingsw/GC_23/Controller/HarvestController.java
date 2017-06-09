@@ -27,11 +27,13 @@ public class HarvestController extends PlaceFamilyMember {
 
     //Da controllare: no familiari dello stesso colore (si neutro)
     public boolean isLegal() {
-        if (!(harvestSpace.checkFamiliar(familyMember.getPlayer().getPlayerColor())) &&
-                (familyMember.getValue() >= 1)) {
-            return true;
-        }
-        return false;
+        boolean legal = true;
+
+        legal = legal && harvestSpace.checkValue(familyMember);
+
+        legal = legal && !harvestSpace.checkFamiliar(familyMember);
+
+        return legal;
     }
 
     public boolean hasSense() {
