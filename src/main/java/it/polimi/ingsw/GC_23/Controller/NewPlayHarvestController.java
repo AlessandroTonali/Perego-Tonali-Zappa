@@ -1,9 +1,11 @@
 package it.polimi.ingsw.GC_23.Controller;
 
 import it.polimi.ingsw.GC_23.Cards.BuildingCard;
+import it.polimi.ingsw.GC_23.Effects.AbsEffect;
 import it.polimi.ingsw.GC_23.FamilyMember;
 import it.polimi.ingsw.GC_23.Spaces.HarvestSpace;
 
+import java.awt.image.AreaAveragingScaleFilter;
 import java.util.ArrayList;
 
 /**
@@ -23,7 +25,7 @@ public class NewPlayHarvestController implements Controller {
             makeAction();
             System.out.println("Effect new play harvest done");
         } else {
-            System.out.println("Move not allow");
+            System.out.println("Impossible to do new play harvest");
         }
     }
 
@@ -44,8 +46,10 @@ public class NewPlayHarvestController implements Controller {
         ArrayList<BuildingCard> buildingCards = familyMember.getPlayer().getCardOfPlayer().getBuildingCards();
         for (int i = 0; i < buildingCards.size(); i++) {
             if (buildingCards.get(i).getHarvestValue() >= familyMember.getValue()) {
-
-
+                ArrayList<AbsEffect> permanentEffects = buildingCards.get(i).getPermanentEffect();
+                for (int j = 0; j < 0; j++) {
+                    permanentEffects.get(j).activeEffect(familyMember.getPlayer());
+                }
             }
         }
 

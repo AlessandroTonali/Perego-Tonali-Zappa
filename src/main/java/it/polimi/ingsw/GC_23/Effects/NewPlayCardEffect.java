@@ -1,5 +1,6 @@
 package it.polimi.ingsw.GC_23.Effects;
 
+import com.sun.media.sound.InvalidFormatException;
 import it.polimi.ingsw.GC_23.*;
 import it.polimi.ingsw.GC_23.Controller.NewPlay;
 import it.polimi.ingsw.GC_23.Controller.OtherCardsController;
@@ -9,6 +10,7 @@ import it.polimi.ingsw.GC_23.Enumerations.NewPlayColor;
 import it.polimi.ingsw.GC_23.Spaces.Tower;
 
 import java.util.ArrayList;
+import java.util.Scanner;
 
 /**
  * Created by Alessandro on 06/06/2017.
@@ -92,10 +94,33 @@ public class NewPlayCardEffect extends AbsEffect {
 
         if (newPlay.isLegal()) {
             newPlay.makeAction();
-            System.out.println("Effetto new play card eseguito");
+            System.out.println("New play card effect done");
         } else {
-            System.out.println("Errore effetto new play card");
-            this.activeEffect(player);
+            System.out.println("Error new play card effect");
+            boolean stayInWhile = true;
+            while (stayInWhile) {
+                System.out.println("What do you want to do? \n " +
+                        "1. Try again \n" +
+                        "2. Discard");
+                Scanner scanner = new Scanner(System.in);
+                try {
+                    int input = Integer.parseInt(scanner.nextLine());
+                    switch (input) {
+                        case 1:
+                            stayInWhile = false;
+                            this.activeEffect(player);
+                            break;
+                        case 2:
+                            stayInWhile = false;
+                            break;
+                        default:
+                            System.out.println("Invalid choise");
+                            break;
+                    }
+                } catch (NumberFormatException e) {
+                    System.out.println("Invalid input");
+                }
+            }
         }
 
 

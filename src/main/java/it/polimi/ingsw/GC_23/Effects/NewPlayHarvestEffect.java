@@ -22,6 +22,7 @@ public class NewPlayHarvestEffect extends AbsEffect {
         FamilyMember familyMember = new FamilyMember(player, FamilyColor.NEUTRAL, diceValue);
         new HarvestController(familyMember, player.getView().getHarvestSpace());
 
+
     }
 
     @Override
