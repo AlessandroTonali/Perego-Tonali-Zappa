@@ -98,7 +98,14 @@ public class ParseJson {
             JSONArray permanentEffectsJson = ventureCards.getJSONObject(x).getJSONArray("permanentEffect");
             ArrayList<AbsEffect> permanentEffect = parseTypeEffect(permanentEffectsJson);
 
-            VentureCard ventureCard = new VentureCard(period, CardColor.PURPLE, name, immediateEffect, permanentEffect, costs);
+            VentureCard ventureCard = null;
+            if (ventureCards.getJSONObject(x).has("required_military_point")) {
+                int militaryPoint = ventureCards.getJSONObject(x).getInt("required_military_point");
+                SingleCost requiredMilitaryPoint = new SingleCost(new ResourcesSet(0, 0, militaryPoint, 0, 0, 0, 0));
+                ventureCard =  new VentureCard(period, CardColor.PURPLE, name, immediateEffect, permanentEffect, costs, requiredMilitaryPoint);
+            } else {
+                ventureCard = new VentureCard(period, CardColor.PURPLE, name, immediateEffect, permanentEffect, costs);
+            }
             ventureCardMap.put(idCard, ventureCard);
             ventureCardArrayList.add(ventureCard);
 

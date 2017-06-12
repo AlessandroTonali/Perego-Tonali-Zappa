@@ -65,10 +65,8 @@ public abstract class Card {
 
 
     public SingleCost getCost(Player player) {
-        System.out.println("qua");
 
         if(!checkCostChoose()){
-            System.out.println("ciaooooo");
             return cost.get(0);
         }
 
