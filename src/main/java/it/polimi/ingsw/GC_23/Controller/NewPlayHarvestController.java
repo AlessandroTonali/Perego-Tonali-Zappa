@@ -47,7 +47,7 @@ public class NewPlayHarvestController implements Controller {
         for (int i = 0; i < buildingCards.size(); i++) {
             if (buildingCards.get(i).getHarvestValue() >= familyMember.getValue()) {
                 ArrayList<AbsEffect> permanentEffects = buildingCards.get(i).getPermanentEffect();
-                for (int j = 0; j < 0; j++) {
+                for (int j = 0; j < permanentEffects.size(); j++) {
                     permanentEffects.get(j).activeEffect(familyMember.getPlayer());
                 }
             }

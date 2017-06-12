@@ -47,7 +47,7 @@ public class NewPlayProductionController implements Controller {
         for (int i = 0; i < territoryCards.size(); i++) {
             if (territoryCards.get(i).getProductionValue() >= familyMember.getValue()) {
                 ArrayList<AbsEffect> permanentEffects = territoryCards.get(i).getPermanentEffect();
-                for (int j = 0; j < 0; j++) {
+                for (int j = 0; j < permanentEffects.size(); j++) {
                     permanentEffects.get(j).activeEffect(familyMember.getPlayer());
                 }
             }
