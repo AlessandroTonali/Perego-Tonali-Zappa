@@ -37,6 +37,7 @@ public class PlayGame {
             System.out.println(period + " period");
             while( i < 1 ){
                 for (Player p : this.players) {
+                    p.getOutWriter().println();
                     p.getOutWriter().println(("Period: " + this.period + " Turn: " + this.turn + "\n"));
                     p.getOutWriter().println(p.getUserHandler().getCurrentUser() + ": it's your turn!\n");
                     p.chooseMove(this.board,0);
@@ -59,6 +60,7 @@ public class PlayGame {
             System.out.println("Periodo " + period);
             System.out.println("Turno " + turn);
         }
+        System.out.println("END");
         checkEndGame();
         getWinner();
     }
@@ -197,16 +199,15 @@ public class PlayGame {
                 }
 
             }
-            StringBuilder stringBuilder = new StringBuilder();
-            stringBuilder.append("----------------END----------------\n");
-            stringBuilder.append("THE WINNER IS PLAYER: " + playersOrder.get(0).getPlayerColor()+"\n");
-            stringBuilder.append("Victory order: \n");
+        }
+        for (Player p : this.players) {
+            p.getOutWriter().println();
+            p.getOutWriter().println("----------------END----------------\n");
+            p.getOutWriter().println("THE WINNER IS PLAYER: " + playersOrder.get(0).getUserHandler().getCurrentUser() + "\n");
+            p.getOutWriter().println("Victory order: \n");
             for (Player pl : playersOrder) {
-                stringBuilder.append(pl.getPlayerColor());
-                stringBuilder.append("-----------------\n");
-            }
-            for (Player p : this.players) {
-                p.getOutWriter().println(stringBuilder);
+                p.getOutWriter().println(pl.getUserHandler().getCurrentUser()+"\n");
+                p.getOutWriter().println("-----------------\n");
             }
         }
     }

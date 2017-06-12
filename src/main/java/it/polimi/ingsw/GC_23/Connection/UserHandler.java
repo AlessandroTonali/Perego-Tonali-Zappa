@@ -102,7 +102,6 @@ public class UserHandler implements Runnable{
                     logged = inScanner.nextLine().equals("finito");
                 }
             }
-            System.out.println("Socket setup completed");
         }catch(Exception e){
             logger.setLevel(Level.SEVERE);
             logger.severe(String.valueOf(e));

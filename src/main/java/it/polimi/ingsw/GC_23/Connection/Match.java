@@ -70,7 +70,7 @@ public class Match implements Runnable{
         }
         creator.startGame();
         for(UserHandler u: userHandlers){
-            u.messageToUser("close");
+            u.messageToUser("quit");
         }
     }
 

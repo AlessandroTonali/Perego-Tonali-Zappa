@@ -100,8 +100,9 @@ public class Player implements Serializable {
                 "press 6 for going in the character tower\n" +
                 "press 7 for going in the building tower\n" +
                 "press 8 for going in the venture tower\n" +
-                "press 9 for watching the board" +
-                "press 10 for watching your resources ");
+                "press 9 for watching the board\n" +
+                "press 10 for watching your resources\n" +
+                "press 11 to skip");
         Scanner scan = new Scanner(System.in);
         String sw = scan.nextLine();
 
@@ -164,6 +165,8 @@ public class Player implements Serializable {
                 System.out.println(this.resources.toString());
                 chooseMove(view);
                 break;
+            case 11:
+                break;
             default:
                 System.out.println("wrong number selected, try again");
                 chooseMove(view);
@@ -186,9 +189,10 @@ public class Player implements Serializable {
                 "press 6 for going in the character tower\n" +
                 "press 7 for going in the building tower\n" +
                 "press 8 for going in the venture tower\n" +
-                "press 9 for watching the board" +
-                "press 10 for watching your resources ");
-        outWriter.println("b");
+                "press 9 for watching the board\n" +
+                "press 10 for watching your resources\n" +
+                "press 11 to skip");
+        outWriter.println("write");
         String sw = scan.nextLine();
         int i;
         try {
@@ -212,7 +216,7 @@ public class Player implements Serializable {
                 new ProductionController(chooseFamilyMember(0), new ProductionSpace());
                 break;
             case 3:
-                outWriter.println("b");
+                outWriter.println("write");
                 String servants = this.getNextLine();
                 int j = -1;
                 try {
@@ -248,15 +252,16 @@ public class Player implements Serializable {
                 outWriter.println(this.resources.toString());
                 chooseMove(view,1);
                 break;
+            case 11:
+                break;
             default:
-                outWriter.println("wrong number selected, try again");
+                outWriter.println("Wrong number selected, try again");
                 chooseMove(view,1);
 
         }
-        //TODO
         outWriter.println();
-        outWriter.println("Wait for your turn");
-        outWriter.println("c");
+        outWriter.println("Wait for your turn\n");
+        outWriter.println("wait");
         return;
     }
 
@@ -299,20 +304,20 @@ public class Player implements Serializable {
         try {
             chosen = this.familyMembers[i];
             if(chosen == null){
-                System.out.println("u already used this family member, choose another one");
+                System.out.println("You already used this family member, choose another one");
                 return chooseFamilyMember();
             }
             System.out.println("You have chosen your family member");
 
         } catch (ArrayIndexOutOfBoundsException e) {
-            System.out.println("invalid number");
+            System.out.println("Invalid number");
             return chooseFamilyMember();
 
         }
 
 
         System.out.println("You choose the " + i + "family member");
-        System.out.println("you have " + this.getResources().toString());
+        System.out.println("You have " + this.getResources().toString());
         return chosen;
     }
 
@@ -324,7 +329,7 @@ public class Player implements Serializable {
             outWriter.println(f.toString());
         }
         outWriter.println("Choose your family member");
-        outWriter.println("b");
+        outWriter.println("write");
         String sw = scan.nextLine();
         int i;
         try {
@@ -342,11 +347,11 @@ public class Player implements Serializable {
                 return chooseFamilyMember(0);
             }
         } catch (ArrayIndexOutOfBoundsException e) {
-            outWriter.println("invalid number");
+            outWriter.println("Invalid number");
             return chooseFamilyMember(0);
         }
         outWriter.println("You choose the " + i + "family member");
-        outWriter.println("you have " + this.getResources().toString());
+        outWriter.println("You have " + this.getResources().toString());
         return chosen;
     }
 

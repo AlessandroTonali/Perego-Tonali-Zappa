@@ -36,7 +36,7 @@ public class UserImpl extends  UnicastRemoteObject implements User{
 
 
     protected UserImpl() throws RemoteException{
-        //super();
+        socket = new Socket();
         inKeyboard= new BufferedReader(new InputStreamReader(System.in));
         outVideo = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)),true);
         System.out.println("Client started");
@@ -51,7 +51,7 @@ public class UserImpl extends  UnicastRemoteObject implements User{
     private void execute(){
         try{
             selectConnection();
-            //outWriter.println(socketConnection);
+            outWriter.println(socketConnection);
             if(socketConnection) {
                 outVideo.println(inScanner.nextLine());
                 outVideo.println(inScanner.nextLine());
@@ -68,7 +68,17 @@ public class UserImpl extends  UnicastRemoteObject implements User{
             }
             else{
                 //gestione RMI:
+                outVideo.println(inScanner.nextLine());
+                outVideo.println(inScanner.nextLine());
+                while (!isYourTurn) {
+                    isYourTurn = inScanner.nextLine().equals("setup");
+                }
+                isYourTurn = false;
                 setupRMI();
+                outVideo.println("Wait for your turn");
+                while(!isYourTurn) {
+                    play();
+                }
                 closeRMI();
             }
         }catch (Exception e){
@@ -180,16 +190,16 @@ public class UserImpl extends  UnicastRemoteObject implements User{
     private void play() throws IOException{
         while (true) {
             String actualString = inScanner.nextLine();
-            while (!actualString.equals("b") && !actualString.equals("c") && !actualString.equals("quit")) {
+            while (!actualString.equals("write") && !actualString.equals("wait") && !actualString.equals("quit")) {
                 outVideo.println(actualString);
                 actualString = inScanner.nextLine();
             }
-            if (actualString.equals("b")) {
+            if (actualString.equals("write")) {
                 outWriter.println(inKeyboard.readLine());
                 actualString = inScanner.nextLine();
                 continue;
             }
-            if (actualString.equals("c")) {
+            if (actualString.equals("wait")) {
                 String string = inScanner.nextLine();
                 while (string == null) {
                     string = inScanner.nextLine();
@@ -199,25 +209,21 @@ public class UserImpl extends  UnicastRemoteObject implements User{
             }
             if (actualString.equals("quit")) {
                 isYourTurn = true;
+                break;
             }
         }
     }
 
 
-    private void closeSocket() {
+    private void closeSocket() throws  IOException{
         try {
             socket.close();
+            outVideo.println("Socket closed");
         } catch (Exception e) {
             logger.setLevel(Level.SEVERE);
             logger.severe(String.valueOf(e));
-        } finally {
-            try {
-                socket.close();
-            } catch (IOException e) {
-                logger.setLevel(Level.SEVERE);
-                logger.severe(String.valueOf(e));
-                System.out.println("Socket not closed");
-            }
+            System.out.println("Socket not closed");
+            closeSocket();
         }
     }
 
