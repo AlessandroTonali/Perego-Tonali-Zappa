@@ -7,6 +7,6 @@ import java.rmi.RemoteException;
  * Created by jesss on 09/06/17.
  */
 public interface Handler extends Remote {
-        void setupRMI(String s) throws RemoteException;
+        void setupRMI(PlayerController playerController) throws RemoteException;
 }
 

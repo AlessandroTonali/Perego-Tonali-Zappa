@@ -18,7 +18,7 @@ import java.util.logging.Logger;
 /**
  * Created by jesss on 03/06/17.
  */
-public class ServerImpl extends UnicastRemoteObject implements Handler{
+public class ServerImpl extends UnicastRemoteObject implements Server{
     private static ServerImpl server;
     private static ArrayList<Match> matches;
     private static int userCounter =0;
@@ -26,8 +26,7 @@ public class ServerImpl extends UnicastRemoteObject implements Handler{
 
 
     private ServerImpl() throws RemoteException {
-        super();
-        this.matches = new ArrayList<Match>();
+        this.matches = new ArrayList<>();
     }
 
     public static synchronized ServerImpl getServer() throws RemoteException {
@@ -37,24 +36,24 @@ public class ServerImpl extends UnicastRemoteObject implements Handler{
         return server;
     }
 
-    public static ArrayList<Match> getMatches() {
+    public ArrayList<Match> getMatches() {
         return matches;
     }
 
     public static void main(String[] args) throws Exception{
-        ServerImpl server = new ServerImpl();
+        ServerImpl server = getServer();
 
         //RMI
         LocateRegistry.createRegistry(8080);
         Registry registry = LocateRegistry.getRegistry(8080);
         registry.rebind("gameServer", server);
-        System.out.println("Server RMI is up");
+        System.out.println("Server RMI is ready");
 
 
         //SOCKET
         ExecutorService executor = Executors.newCachedThreadPool();
         ServerSocket serverSocket = new ServerSocket(29999);
-        System.out.println("Server is ready");
+        System.out.println("Server Socket is ready");
         try {
             while (true) {
                 Match match = new Match();
@@ -87,11 +86,6 @@ public class ServerImpl extends UnicastRemoteObject implements Handler{
         }
         executor.shutdown();
         serverSocket.close();
-    }
-
-    @Override
-    public void setupRMI(String s) throws RemoteException {
-        System.out.println(s);
     }
 
 

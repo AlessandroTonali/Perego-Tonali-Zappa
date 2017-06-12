@@ -61,9 +61,7 @@ public class Match implements Runnable{
             if(u.isSocketConnection()) {
                 u.setupSocket(playerController);
             }
-            else{
-                u.setupRMI(playerController);
-            }
+            //setupRMI
             playerController.getAssociation().putIfAbsent(u.getCurrentPlayer(), u.getCurrentUser());
             System.out.println("Setup di "+ u.getCurrentUser().toString()+" eseguito");
             creator.createPlayer(u.getCurrentPlayer().getPlayerColor(), u);
@@ -71,7 +69,9 @@ public class Match implements Runnable{
         creator.startGame();
         for(UserHandler u: userHandlers){
             u.messageToUser("quit");
+            u.setEndMatch(true);
         }
+        System.out.println("Match ended");
     }
 
     public void setUserHandler(UserHandler userHandler){

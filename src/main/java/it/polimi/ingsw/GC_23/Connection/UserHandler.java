@@ -10,6 +10,7 @@ import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+
 /**
  * Created by jesss on 03/06/17.
  */
@@ -39,11 +40,9 @@ public class UserHandler implements Runnable{
         try{
             while (!endMatch){
             }
-            System.out.println("End of Match");
         }catch (Exception e){
             logger.setLevel(Level.SEVERE);
             logger.severe(String.valueOf(e));
-            System.out.println("The game is over");
         }
     }
 
@@ -108,17 +107,8 @@ public class UserHandler implements Runnable{
         }
     }
 
-    public void setupRMI(PlayerController playerController){
-
-    }
-
     public void messageToUser(String message){
         outWriter.println(message);
-    }
-
-    public String messageFromUser(){
-        String message = inScanner.nextLine();
-        return message;
     }
 
     public void setEndMatch(boolean endMatch){

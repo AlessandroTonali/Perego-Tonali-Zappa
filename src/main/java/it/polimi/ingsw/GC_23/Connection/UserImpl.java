@@ -30,9 +30,8 @@ public class UserImpl extends  UnicastRemoteObject implements User{
     private PrintWriter outVideo;
     private boolean isYourTurn = false;
     private boolean socketConnection;
-    private boolean endGame = false;
     private final Logger logger = Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
-    private Handler server;
+    private Server server;
 
 
     protected UserImpl() throws RemoteException{
@@ -109,7 +108,6 @@ public class UserImpl extends  UnicastRemoteObject implements User{
                         break;
                     default:
                         outVideo.println("Invalid number, try again");
-                        //continue;
                         break;
                 }
             }
@@ -139,7 +137,7 @@ public class UserImpl extends  UnicastRemoteObject implements User{
     private void connectRMI() throws RemoteException, NotBoundException, MalformedURLException {
 
         Registry reg = LocateRegistry.getRegistry(8080);
-        server = (Handler) reg.lookup("gameServer");
+        server = (Server) reg.lookup("gameServer");
         outVideo.println("You are connected");
         outVideo.println("Wait for other players");
         socketConnection = false;
@@ -178,7 +176,7 @@ public class UserImpl extends  UnicastRemoteObject implements User{
     }
 
     @Override
-    public void setupRMI() throws IOException{
+    public void setupRMI() throws IOException, RemoteException{
 
         outVideo.println("Select Username:");
         String username = inKeyboard.readLine();
@@ -228,9 +226,8 @@ public class UserImpl extends  UnicastRemoteObject implements User{
     }
 
     @Override
-    public void closeRMI() throws NoSuchObjectException{
+    public void closeRMI() throws RemoteException{
         outVideo.println("BYE BYE");
-        //server.leave(this);
         UnicastRemoteObject.unexportObject(this, true);
     }
 
