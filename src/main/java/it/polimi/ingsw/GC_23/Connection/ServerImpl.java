@@ -4,6 +4,10 @@ import javax.management.timer.TimerNotification;
 import java.io.*;
 import java.net.ServerSocket;
 import java.net.Socket;
+import java.rmi.RemoteException;
+import java.rmi.registry.LocateRegistry;
+import java.rmi.registry.Registry;
+import java.rmi.server.UnicastRemoteObject;
 import java.util.ArrayList;
 import java.util.ConcurrentModificationException;
 import java.util.TimerTask;
@@ -14,18 +18,19 @@ import java.util.logging.Logger;
 /**
  * Created by jesss on 03/06/17.
  */
-public class ServerImpl{
+public class ServerImpl extends UnicastRemoteObject implements Handler{
     private static ServerImpl server;
     private static ArrayList<Match> matches;
     private static int userCounter =0;
     private final static Logger logger = Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
 
 
-    private ServerImpl(){
+    private ServerImpl() throws RemoteException {
+        super();
         this.matches = new ArrayList<Match>();
     }
 
-    public static synchronized ServerImpl getServer(){
+    public static synchronized ServerImpl getServer() throws RemoteException {
         if(server == null){
             server = new ServerImpl();
         }
@@ -37,15 +42,16 @@ public class ServerImpl{
     }
 
     public static void main(String[] args) throws Exception{
-     /*   //RMI
+        ServerImpl server = new ServerImpl();
+
+        //RMI
         LocateRegistry.createRegistry(8080);
-        Registry reg = LocateRegistry.getRegistry(8080);
-        ServerImpl gameServer = new ServerImpl();
-        reg.rebind("gameServer", gameServer);
-        System.out.println("Server RMI is up");*/
+        Registry registry = LocateRegistry.getRegistry(8080);
+        registry.rebind("gameServer", server);
+        System.out.println("Server RMI is up");
+
 
         //SOCKET
-        ServerImpl server = new ServerImpl();
         ExecutorService executor = Executors.newCachedThreadPool();
         ServerSocket serverSocket = new ServerSocket(29999);
         System.out.println("Server is ready");
@@ -81,6 +87,11 @@ public class ServerImpl{
         }
         executor.shutdown();
         serverSocket.close();
+    }
+
+    @Override
+    public void setupRMI(String s) throws RemoteException {
+        System.out.println(s);
     }
 
 

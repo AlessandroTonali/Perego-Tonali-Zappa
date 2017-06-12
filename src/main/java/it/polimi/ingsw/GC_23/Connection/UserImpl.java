@@ -1,7 +1,9 @@
 package it.polimi.ingsw.GC_23.Connection;
 
 import java.io.*;
+import java.net.MalformedURLException;
 import java.net.Socket;
+import java.rmi.Naming;
 import java.rmi.NoSuchObjectException;
 import java.rmi.NotBoundException;
 import java.rmi.RemoteException;
@@ -30,7 +32,7 @@ public class UserImpl extends  UnicastRemoteObject implements User{
     private boolean socketConnection;
     private boolean endGame = false;
     private final Logger logger = Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
-    private ServerImpl server;
+    private Handler server;
 
 
     protected UserImpl() throws RemoteException{
@@ -49,7 +51,7 @@ public class UserImpl extends  UnicastRemoteObject implements User{
     private void execute(){
         try{
             selectConnection();
-            outWriter.println(socketConnection);
+            //outWriter.println(socketConnection);
             if(socketConnection) {
                 outVideo.println(inScanner.nextLine());
                 outVideo.println(inScanner.nextLine());
@@ -66,8 +68,8 @@ public class UserImpl extends  UnicastRemoteObject implements User{
             }
             else{
                 //gestione RMI:
-                //setupRMI();
-                //closeRMI();
+                setupRMI();
+                closeRMI();
             }
         }catch (Exception e){
             logger.setLevel(Level.SEVERE);
@@ -84,18 +86,21 @@ public class UserImpl extends  UnicastRemoteObject implements User{
                 outVideo.println("0 --> RMI");
                 outVideo.println("1 --> SOCKET");
                 String connection = inKeyboard.readLine();
-                if (connection.equals("0")) {
-                    outVideo.println("Connection Selected");
-                    selected =true;
-                    connectRMI();
-                }
-                if (connection.equals("1")) {
-                    outVideo.println("Connection Selected");
-                    selected = true;
-                    connectSocket();
-                } else {
-                    outVideo.println("Invalid number, try again");
-                    continue;
+                switch (Integer.parseInt(connection)) {
+                    case 0:
+                        outVideo.println("Connection Selected");
+                        selected =true;
+                        connectRMI();
+                        break;
+                    case 1:
+                        outVideo.println("Connection Selected");
+                        selected = true;
+                        connectSocket();
+                        break;
+                    default:
+                        outVideo.println("Invalid number, try again");
+                        //continue;
+                        break;
                 }
             }
         }catch(Exception e){
@@ -121,10 +126,10 @@ public class UserImpl extends  UnicastRemoteObject implements User{
             socketConnection = true;
     }
 
-    private void connectRMI() throws RemoteException, NotBoundException{
+    private void connectRMI() throws RemoteException, NotBoundException, MalformedURLException {
+
         Registry reg = LocateRegistry.getRegistry(8080);
-        server = (ServerImpl) reg.lookup("gameServer");
-        //server.join(this);
+        server = (Handler) reg.lookup("gameServer");
         outVideo.println("You are connected");
         outVideo.println("Wait for other players");
         socketConnection = false;
@@ -139,7 +144,7 @@ public class UserImpl extends  UnicastRemoteObject implements User{
             //mostra a video le associazioni presenti
             outVideo.println("Select your player");
             int playerNumber = Integer.parseInt(inScanner.nextLine());
-            for(int i=0; i<playerNumber; i++){
+            for(int i=0; i< playerNumber; i++){
                 String playerUser = inScanner.nextLine();
                 outVideo.println(playerUser);
             }
@@ -163,7 +168,12 @@ public class UserImpl extends  UnicastRemoteObject implements User{
     }
 
     @Override
-    public void setupRMI(){
+    public void setupRMI() throws IOException{
+
+        outVideo.println("Select Username:");
+        String username = inKeyboard.readLine();
+        outVideo.println("Select your player:");
+
 
     }
 
