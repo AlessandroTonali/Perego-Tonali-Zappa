@@ -92,4 +92,6 @@ public class DiscountEffect extends AbsEffect{
     public int getTypeEffect() {
         return EffectType.DISCOUNT_EFFECT_TYPE;
     }
+
+
 }

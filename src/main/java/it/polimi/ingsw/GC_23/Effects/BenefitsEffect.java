@@ -32,10 +32,7 @@ public class BenefitsEffect extends AbsEffect{
         return EffectType.BENEFIT_EFFECT_TYPE;
     }
 
-    @Override
-    public String toString() {
-        return "Benefits: {"+ resources +"}";
-    }
+
 
     @Override
     public boolean equals(Object o) {
@@ -45,5 +42,10 @@ public class BenefitsEffect extends AbsEffect{
         BenefitsEffect that = (BenefitsEffect) o;
 
         return resources != null ? resources.equals(that.resources) : that.resources == null;
+    }
+
+    @Override
+    public String toString() {
+        return resources.toString();
     }
 }

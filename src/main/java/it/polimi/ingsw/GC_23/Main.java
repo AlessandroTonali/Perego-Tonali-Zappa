@@ -31,12 +31,23 @@ public class Main {
     public static void main( String[] args )
     {
 
+        TowerSpace towerSpace = new TowerSpace(ParseJson.getParseJson().getBuildingCardArrayList().get(0),
+              new BenefitsEffect(new ResourcesSet()), 7  );
+        Player player2 = new Player(PlayerColor.BLUE,null);
+        FamilyMember familyMember1 = new FamilyMember(player2,FamilyColor.ORANGE,7);
+        FamilyMember[] members1 = new FamilyMember[1];
+        members1[0] = familyMember1;
+        player2.setFamilyMembers(members1);
+        familyMember1.setPosition(towerSpace);
+        System.out.println(towerSpace.toString());
+        System.out.println("ecco qua lo space");
+
 
 
         ResourcesSet set1 = new ResourcesSet(1,2,3,4,5,6,7);
         ResourcesSet set2 = new ResourcesSet(5,6,7,8,9,10,11);
         Player player1 = new Player(PlayerColor.RED, null);
-        Player player2 = new Player(PlayerColor.BLUE,null);
+
         Player player3 = new Player(PlayerColor.GREEN,null);
         Player player4 = new Player(PlayerColor.YELLOW,null);
         player1.setResources(set1);

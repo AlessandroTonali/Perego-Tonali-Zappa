@@ -44,9 +44,11 @@ public class HarvestSpace extends ActionSpace {
             if(m != null && m == familyMember) {
                 members[i] = null;
                 break;
+
             }
             i++;
         }
+        player.setFamilyMembers(members);
     }
 
     public ArrayList<FamilyMember> getFamilyMembersPresent() {
@@ -95,6 +97,16 @@ public class HarvestSpace extends ActionSpace {
             orderCounter=0;
             isBusyFirst=false;
         }
+    }
+    public String toString() {
+        StringBuilder stringBuilder = new StringBuilder();
+        int i = 1;
+        for(FamilyMember f : familyMembersPresent) {
+            if(f == null) continue;
+            stringBuilder.append( "position: " + i + "--" + f.toString() + "\n");
+
+        }
+        return String.valueOf(stringBuilder);
     }
 
 

@@ -12,7 +12,7 @@ import java.util.Scanner;
 /**
  * Created by jesss on 21/05/17.
  */
-public class CouncilPrivilegeEffect extends AbsEffect{
+public class CouncilPrivilegeEffect extends AbsEffect {
     //pergamena a scelta tra: 1 wood + 1 stone, 2 servants, 2 golds, 2 military, 1 faith
     private BenefitsEffect[] benefits;
     private int numberOfPrivileges;
@@ -57,10 +57,9 @@ public class CouncilPrivilegeEffect extends AbsEffect{
                 try {
                     string = player.getNextLine();
                     i = Integer.parseInt(string);
-                    if(i<benefits.length){
+                    if (i < benefits.length) {
                         System.out.println("Chosen council privilege");
-                    }
-                    else{
+                    } else {
                         System.out.println("Error: incorrect number, try again");
                         continue;
                     }
@@ -73,7 +72,7 @@ public class CouncilPrivilegeEffect extends AbsEffect{
                     l++;
                     System.out.println("You get: " + this.benefits[i].getResources().toString());
                     System.out.println();
-                    numBen --;
+                    numBen--;
                 } catch (NullPointerException ex) {
                     return null;
                 }
@@ -81,16 +80,15 @@ public class CouncilPrivilegeEffect extends AbsEffect{
                 try {
                     string = player.getNextLine();
                     i = Integer.parseInt(string);
-                    if(i<benefits.length){
+                    if (i < benefits.length) {
                         System.out.println("Chosen council privilege");
-                    }
-                    else{
+                    } else {
                         System.out.println("Error: incorrect number, try again");
                         continue;
                     }
-                    if(!alreadyTaken(chosenEffects, i)) {
+                    if (!alreadyTaken(chosenEffects, i)) {
                         chosenEffects.add(i);
-                    }else{
+                    } else {
                         System.out.println("already taken, please choose another one");
                         continue;
                     }
@@ -99,12 +97,12 @@ public class CouncilPrivilegeEffect extends AbsEffect{
                     System.out.println("Invalid council privilege, please try again");
                     continue;
                 }
-                try{
+                try {
                     chosen[l] = this.benefits[i];
                     l++;
                     System.out.println("You get:  " + this.benefits[i].getResources().toString());
                     System.out.println();
-                    numBen --;
+                    numBen--;
                 } catch (NullPointerException ex) {
                     return null;
                 }
@@ -117,7 +115,7 @@ public class CouncilPrivilegeEffect extends AbsEffect{
 
     public void activeEffect(Player player) {
         BenefitsEffect[] chosenEffect = chooseCouncilPrivilege(player);
-        for(BenefitsEffect e: chosenEffect){
+        for (BenefitsEffect e : chosenEffect) {
             e.activeEffect(player);
         }
     }
@@ -127,15 +125,23 @@ public class CouncilPrivilegeEffect extends AbsEffect{
         return EffectType.COUNCIL_EFFECT_TYPE;
     }
 
-    public boolean alreadyTaken(ArrayList<Integer> checkedList, int checkedNumber){
-        for(int i : checkedList) {
+    public boolean alreadyTaken(ArrayList<Integer> checkedList, int checkedNumber) {
+        for (int i : checkedList) {
             if (i == checkedNumber) {
                 return true;
             }
         }
-            return false;
+        return false;
     }
 
+    @Override
+    public String toString() {
+        if (isDifferent) {
+            return "Number of council privileges: " + numberOfPrivileges + "u should take diffirent privileges";
+        }
+        return "Number of council privileges: " + numberOfPrivileges + "u should take diffirent privileges";
+
+    }
 }
 
 

@@ -32,4 +32,17 @@ public class TowerSpace extends ActionSpace {
     public void resetCard(){
         this.card= null;
     }
+
+    @Override
+    public String toString() {
+        if(super.getFamilyMember() == null){
+            return "value: "+ super.getValue() + "\neffect: " +
+                    this.benefitsEffect.toString() + "\n" + this.card.toString()
+                    + "\n no player inside";
+        }
+        return "value: "+ super.getValue() + "\neffect: " +
+                this.benefitsEffect.toString() + "\n" + this.card.toString() + "\n family member "
+                + super.getFamilyMember().toString();
+
+    }
 }

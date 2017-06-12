@@ -1,5 +1,7 @@
 package it.polimi.ingsw.GC_23.Spaces;
 
+import it.polimi.ingsw.GC_23.Cards.Card;
+import it.polimi.ingsw.GC_23.Cards.TerritoryCard;
 import it.polimi.ingsw.GC_23.Enumerations.FamilyColor;
 import it.polimi.ingsw.GC_23.FamilyMember;
 import it.polimi.ingsw.GC_23.Player;
@@ -83,6 +85,17 @@ public class Tower {
             return chooseTowerSpace(player);
         }
 
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder stringBuilder = new StringBuilder();
+        for(TowerSpace t : spaces){
+            stringBuilder.append(t.toString() + "\n" + "_______________________________________________________" +
+                    "____________________________________________________________" + "\n");
+
+        }
+        return String.valueOf(stringBuilder);
     }
 
 }

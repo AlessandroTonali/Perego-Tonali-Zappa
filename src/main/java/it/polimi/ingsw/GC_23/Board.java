@@ -124,6 +124,7 @@ public class Board {
         int i = 0;
         for (Tower t : towers) {
             setCardInTowerSpace(i,t);
+            i++;
 
 
         }
@@ -287,5 +288,51 @@ public class Board {
         return towers;
 
     }
+
+    public String towersStringer() {
+        StringBuilder stringBuilder = new StringBuilder();
+        int i = 0;
+        for(Tower t : towers) {
+            switch (i){
+                case 0: stringBuilder.append("TERRITORY TOWER\n"); break;
+                case 1: stringBuilder.append("CHARACTER TOWER\n"); break;
+                case 2: stringBuilder.append("BUILDING TOWER\n"); break;
+                case 3: stringBuilder.append("VENTURE TOWER\n"); break;
+            }
+             stringBuilder.append(t.toString());
+            i++;
+        }
+        return String.valueOf(stringBuilder);
+    }
+
+    public String marketStringer() {
+        StringBuilder stringBuilder = new StringBuilder();
+        for (MarketSpace m : marketSpaces) {
+            stringBuilder.append(m.toString() + "\n");
+        }
+        return String.valueOf(stringBuilder);
+    }
+
+
+    public String toString() {
+        StringBuilder stringBuilder = new StringBuilder();
+        stringBuilder.append("TOWERS\n");
+        stringBuilder.append(towersStringer() + "\n");
+        stringBuilder.append("MARKET\n");
+        stringBuilder.append(marketStringer());
+        stringBuilder.append("HARVEST SPACE\n");
+        stringBuilder.append(harvestSpace.toString());
+        stringBuilder.append("PRODUCTION SPACE\n");
+        stringBuilder.append(productionSpace.toString());
+        stringBuilder.append("COUNCIL SPACE\n");
+        stringBuilder.append(councilSpace.toString());
+        stringBuilder.append("DICES\n");
+        stringBuilder.append(diceSpace.toString());
+
+        return String.valueOf(stringBuilder);
+
+    }
+
+
 }
 

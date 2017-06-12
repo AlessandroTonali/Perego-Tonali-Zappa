@@ -25,7 +25,7 @@ public class ProductionSpace extends ActionSpace {
         isBusyFirst = false;
         orderCounter = 0;
         completePlay =true;
-        this.playerOrder= new ArrayList<FamilyMember>(0);
+        this.playerOrder= new ArrayList<FamilyMember>();
     }
 
     public ProductionSpace(boolean completePlay){
@@ -33,12 +33,12 @@ public class ProductionSpace extends ActionSpace {
         isBusyFirst = false;
         orderCounter = 0;
         this.completePlay = completePlay;
-        this.playerOrder= new ArrayList<FamilyMember>(0);
+        this.playerOrder= new ArrayList<FamilyMember>();
     }
 
     public void setFamilyMember(FamilyMember familyMember) {
         this.isBusyFirst = true;
-        this.getPlayerOrder().add(familyMember);
+        this.playerOrder.add(familyMember);
         orderCounter++;
         Player player = familyMember.getPlayer();
         FamilyMember[] members = familyMember.getPlayer().getFamilyMembers();
@@ -48,9 +48,12 @@ public class ProductionSpace extends ActionSpace {
                 members[i] = null;
                 break;
             }
+            }
+        player.setFamilyMembers(members);
+
             i++;
         }
-    }
+
 
     public ArrayList<FamilyMember> getPlayerOrder() {
         return playerOrder;
@@ -96,5 +99,17 @@ public class ProductionSpace extends ActionSpace {
             orderCounter=0;
             isBusyFirst=false;
         }
+    }
+
+    public String toString() {
+        StringBuilder stringBuilder = new StringBuilder();
+        int i = 1;
+
+        for(FamilyMember f : playerOrder) {
+            if(f == null) continue;
+            stringBuilder.append( "position: " + i + "--" + f.toString());
+
+        }
+        return String.valueOf(stringBuilder);
     }
 }

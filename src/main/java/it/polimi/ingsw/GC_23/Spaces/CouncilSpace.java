@@ -61,4 +61,14 @@ public class CouncilSpace extends ActionSpace {
 
 
     }
+
+    public String toString() {
+        StringBuilder stringBuilder = new StringBuilder();
+        int i = 1;
+        for(Player p : playerOrder) {
+            stringBuilder.append( "position: " + i + "--" + p.toString());
+
+        }
+        return String.valueOf(stringBuilder);
+    }
 }

@@ -28,4 +28,15 @@ public class DiceSpace {
     public Dice[] getDices() {
         return this.dices;
     }
+
+    public String toString() {
+        StringBuilder stringBuilder = new StringBuilder();
+
+        for(Dice d : dices) {
+            stringBuilder.append(d.toString() + "\n");
+        }
+
+        return String.valueOf(stringBuilder);
+
+    }
 }

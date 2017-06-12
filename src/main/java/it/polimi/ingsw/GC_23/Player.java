@@ -91,12 +91,17 @@ public class Player implements Serializable {
     public void chooseMove(Board board) {
         //momentaneo
         this.view = board;
-        System.out.println("press\n 0 for placing a familiar in council\n" +
+        System.out.println("press 0 for placing a familiar in council\n" +
                 "press 1 for getting the harvest\n" +
                 "press 2 for getting production\n" +
                 "press 3 for increasing your familiar value\n" +
                 "press 4 for for going in the market\n" +
-                "press 5 for going in a tower");
+                "press 5 for going in the territory tower\n" +
+                "press 6 for going in the character tower\n" +
+                "press 7 for going in the building tower\n" +
+                "press 8 for going in the venture tower\n" +
+                "press 9 for watching the board" +
+                "press 10 for watching your resources ");
         Scanner scan = new Scanner(System.in);
         String sw = scan.nextLine();
 
@@ -120,7 +125,7 @@ public class Player implements Serializable {
                 new HarvestController(chooseFamilyMember(), board.getHarvestSpace());
                 break;
             case 2:
-                new ProductionController(chooseFamilyMember(), new ProductionSpace());
+                new ProductionController(chooseFamilyMember(),  board.getProductionSpace());
                 break;
             case 3:
                 String servants = this.getNextLine();
@@ -142,13 +147,27 @@ public class Player implements Serializable {
             case 5:
                 new TerritoryController(chooseFamilyMember(), board.getTower(0));
                 break;
-            case 7: break;//todo toglilo
             case 6:
                 new OtherCardsController(chooseFamilyMember(), board.chooseTower(this));
                 break;
-            default:
+            case 7:
+                new OtherCardsController(chooseFamilyMember(0), board.getTower(2));
+                break;
+            case 8:
+                new OtherCardsController(chooseFamilyMember(0), board.getTower(3));
+                break;
+            case 9:
+                System.out.println(view.toString());
                 chooseMove(view);
                 break;
+            case 10:
+                System.out.println(this.resources.toString());
+                chooseMove(view);
+                break;
+            default:
+                System.out.println("wrong number selected, try again");
+                chooseMove(view);
+
 
         }
         //TODO
@@ -163,7 +182,12 @@ public class Player implements Serializable {
                 "press 2 for getting production\n" +
                 "press 3 for increasing your familiar value\n" +
                 "press 4 for for going in the market\n" +
-                "press 5 for going in a tower");
+                "press 5 for going in the territory tower\n" +
+                "press 6 for going in the character tower\n" +
+                "press 7 for going in the building tower\n" +
+                "press 8 for going in the venture tower\n" +
+                "press 9 for watching the board" +
+                "press 10 for watching your resources ");
         outWriter.println("b");
         String sw = scan.nextLine();
         int i;
@@ -206,13 +230,27 @@ public class Player implements Serializable {
             case 5:
                 new TerritoryController(chooseFamilyMember(0), board.getTower(0));
                 break;
-            case 7: break;//todo toglilo
+
             case 6:
-                new OtherCardsController(chooseFamilyMember(0), board.chooseTower(this));
+                new OtherCardsController(chooseFamilyMember(0), board.getTower(1));
+                break;
+
+            case 7:
+                new OtherCardsController(chooseFamilyMember(0), board.getTower(2));
+                break;
+            case 8:
+                new OtherCardsController(chooseFamilyMember(0), board.getTower(3));
+                break;
+            case 9:
+                outWriter.println(view.toString());
+                chooseMove(view,1);
+            case 10:
+                outWriter.println(this.resources.toString());
+                chooseMove(view,1);
                 break;
             default:
-                chooseMove(view);
-                break;
+                outWriter.println("wrong number selected, try again");
+                chooseMove(view,1);
 
         }
         //TODO

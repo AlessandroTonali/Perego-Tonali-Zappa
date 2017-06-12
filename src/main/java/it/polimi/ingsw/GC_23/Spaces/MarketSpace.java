@@ -29,6 +29,13 @@ public class MarketSpace extends ActionSpace {
         return familyMember.getValue() >= 1;
     }
 
+    public String toString() {
+        if (super.getFamilyMember() == null){
+            return "family member: empty   effect: " + effect.toString();
+        }
+        return "family member: " + super.getFamilyMember().toString() + "   effect: " + effect.toString();
+    }
+
 
 
 }

@@ -79,8 +79,11 @@ public class Gameplay {
         resetFamilyMembers();
         while(true) {
             System.out.println(period + "period");
+
+
             while( i < 1 ){
                 for (Player p : this.players) {
+                    System.out.println(board.toString());
                     System.out.println("Period: " + this.period + "Turn: " + this.turn);
                     System.out.println(p.getPlayerColor().toString() + ": it's your turn!");
                     p.chooseMove(this.board);

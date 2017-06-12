@@ -132,6 +132,10 @@ public abstract class Card {
     public String effectString() {
         StringBuilder stringBuilder = new StringBuilder();
         for(AbsEffect i : immediateEffect) {
+            if(i == null){
+                System.out.println("eccola");
+                continue;
+            }
             stringBuilder.append("\neffect: " + i.toString());
         }
         return String.valueOf(stringBuilder);

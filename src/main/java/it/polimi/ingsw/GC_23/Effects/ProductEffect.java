@@ -18,9 +18,21 @@ public class ProductEffect extends AbsEffect {
     private CardColor cardColor;
     private boolean isProductResource = false;
 
+    @Override
+    public String toString() {
+        if(required.equals(new SingleCost(new ResourcesSet()))){
+            return "u receive one " + giving.getResources().toString() + "for every: " +
+                    cardColor.toString() + "you have";
+        }
+        return "u receive one " + giving.getResources().toString() + "for every: " +
+                required + "you have";
+    }
+
     public ProductEffect(SingleCost giving, CardColor cardColor) {
         this.giving = giving;
         this.cardColor = cardColor;
+        this.required = new SingleCost(new ResourcesSet());
+
     }
 
     public ProductEffect (SingleCost giving, SingleCost required) {

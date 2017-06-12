@@ -46,5 +46,8 @@ public class Dice {
         this.position = position;
     }
 
-
+    @Override
+    public String toString() {
+        return diceColor.toString() + " " + value;
+    }
 }

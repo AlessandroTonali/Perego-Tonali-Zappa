@@ -88,4 +88,13 @@ public class ImplicationEffect extends AbsEffect{
     public int getTypeEffect() {
         return EffectType.IMPLICATION_EFFECT_TYPE;
     }
+
+    @Override
+    public String toString() {
+        StringBuilder stringBuilder = new StringBuilder();
+        for(int i = 0; i < requirements.size(); i++) {
+            stringBuilder.append("pay: " + requirements.get(i) + " to get: " + givings.get(i));
+        }
+        return String.valueOf(stringBuilder);
+    }
 }
