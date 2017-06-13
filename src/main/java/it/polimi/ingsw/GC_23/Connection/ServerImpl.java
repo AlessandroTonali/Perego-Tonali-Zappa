@@ -1,5 +1,7 @@
 package it.polimi.ingsw.GC_23.Connection;
 
+import it.polimi.ingsw.GC_23.Player;
+
 import javax.management.timer.TimerNotification;
 import java.io.*;
 import java.net.ServerSocket;

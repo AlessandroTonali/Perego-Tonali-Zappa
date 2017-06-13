@@ -22,7 +22,7 @@ public class Match implements Runnable{
     private final Logger logger = Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
 
     public Match() {
-        this.userHandlers = new ArrayList<UserHandler>();
+        this.userHandlers = new ArrayList<>();
         this.playerController = new PlayerController();
         this.playerCounter = 0;
     }
@@ -62,6 +62,7 @@ public class Match implements Runnable{
                 u.setupSocket(playerController);
             }
             //setupRMI
+
             playerController.getAssociation().putIfAbsent(u.getCurrentPlayer(), u.getCurrentUser());
             System.out.println("Setup di "+ u.getCurrentUser().toString()+" eseguito");
             creator.createPlayer(u.getCurrentPlayer().getPlayerColor(), u);
