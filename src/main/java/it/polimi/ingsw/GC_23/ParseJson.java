@@ -1,10 +1,7 @@
 package it.polimi.ingsw.GC_23;
 
 import com.sun.org.apache.bcel.internal.generic.NEW;
-import it.polimi.ingsw.GC_23.Cards.BuildingCard;
-import it.polimi.ingsw.GC_23.Cards.CharacterCard;
-import it.polimi.ingsw.GC_23.Cards.TerritoryCard;
-import it.polimi.ingsw.GC_23.Cards.VentureCard;
+import it.polimi.ingsw.GC_23.Cards.*;
 import it.polimi.ingsw.GC_23.Effects.*;
 import it.polimi.ingsw.GC_23.Enumerations.CardColor;
 import it.polimi.ingsw.GC_23.Enumerations.NewPlayColor;
@@ -14,7 +11,9 @@ import org.json.JSONObject;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.rmi.server.UnicastRemoteObject;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.HashMap;
 import java.util.Scanner;
 import java.util.logging.Level;
@@ -32,11 +31,12 @@ public class ParseJson {
     private HashMap<Integer,VentureCard> ventureCardMap = new HashMap<>();
     private HashMap<Integer,TerritoryCard> territoryCardMap = new HashMap<>();
     private HashMap<Integer,CharacterCard> characterCardMap = new HashMap<>();
-    private ArrayList<CharacterCard> characterCardArrayList = new ArrayList<>();
-    private ArrayList<TerritoryCard> territoryCardArrayList = new ArrayList<>();
-    private ArrayList<VentureCard> ventureCardArrayList = new ArrayList<>();
-    private ArrayList<BuildingCard> buildingCardArrayList = new ArrayList<>();
+    private ArrayList<Card> characterCardArrayList = new ArrayList<>();
+    private ArrayList<Card> territoryCardArrayList = new ArrayList<>();
+    private ArrayList<Card> ventureCardArrayList = new ArrayList<>();
+    private ArrayList<Card> buildingCardArrayList = new ArrayList<>();
     private final Logger logger = Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
+    private Util util = new Util();
 
 
     public static synchronized ParseJson getParseJson(){
@@ -98,14 +98,8 @@ public class ParseJson {
             JSONArray permanentEffectsJson = ventureCards.getJSONObject(x).getJSONArray("permanentEffect");
             ArrayList<AbsEffect> permanentEffect = parseTypeEffect(permanentEffectsJson);
 
-            VentureCard ventureCard = null;
-            if (ventureCards.getJSONObject(x).has("required_military_point")) {
-                int militaryPoint = ventureCards.getJSONObject(x).getInt("required_military_point");
-                SingleCost requiredMilitaryPoint = new SingleCost(new ResourcesSet(0, 0, militaryPoint, 0, 0, 0, 0));
-                ventureCard =  new VentureCard(period, CardColor.PURPLE, name, immediateEffect, permanentEffect, costs, requiredMilitaryPoint);
-            } else {
-                ventureCard = new VentureCard(period, CardColor.PURPLE, name, immediateEffect, permanentEffect, costs);
-            }
+
+            VentureCard ventureCard = new VentureCard(period, CardColor.PURPLE, name, immediateEffect, permanentEffect, costs);
             ventureCardMap.put(idCard, ventureCard);
             ventureCardArrayList.add(ventureCard);
 
@@ -388,6 +382,13 @@ public class ParseJson {
         int victoryPoint = 0;
         int wood = 0;
 
+        if (jsonObject.has("required")) {
+            SingleCost requiredCost = parseCost(jsonObject.getJSONArray("required").getJSONObject(0));
+            SingleCost payedCost = parseCost(jsonObject.getJSONArray("payed").getJSONObject(0));
+            MilitaryCost militaryCost = new MilitaryCost(payedCost.getResources(), requiredCost.getResources());
+            return militaryCost;
+        }
+
 
         if (jsonObject.has("stone")) {
             stone = jsonObject.getInt("stone");
@@ -452,19 +453,20 @@ public class ParseJson {
     }
 
     public ArrayList<CharacterCard> getCharacterCardArrayList() {
-        return new ArrayList<CharacterCard>(characterCardArrayList);
+        return new ArrayList<CharacterCard>((ArrayList<? extends CharacterCard>) util.shuffleCard(characterCardArrayList));
     }
 
     public ArrayList<TerritoryCard> getTerritoryCardArrayList() {
-        return new ArrayList<TerritoryCard>(territoryCardArrayList);
+
+        return new ArrayList<TerritoryCard>((ArrayList<? extends TerritoryCard>) util.shuffleCard(territoryCardArrayList));
     }
 
     public ArrayList<VentureCard> getVentureCardArrayList() {
-        return new ArrayList<VentureCard>(ventureCardArrayList);
+        return new ArrayList<VentureCard>((ArrayList<? extends VentureCard>) util.shuffleCard(ventureCardArrayList));
     }
 
     public ArrayList<BuildingCard> getBuildingCardArrayList() {
-        return new ArrayList<BuildingCard>(buildingCardArrayList);
+        return new ArrayList<BuildingCard>((ArrayList<? extends BuildingCard>) util.shuffleCard(buildingCardArrayList));
     }
 
 

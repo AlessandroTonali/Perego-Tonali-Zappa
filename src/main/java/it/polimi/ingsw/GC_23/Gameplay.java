@@ -86,6 +86,7 @@ public class Gameplay {
                     System.out.println(board.toString());
                     System.out.println("Period: " + this.period + "Turn: " + this.turn);
                     System.out.println(p.getPlayerColor().toString() + ": it's your turn!");
+
                     p.chooseMove(this.board);
                 }
                 i++;

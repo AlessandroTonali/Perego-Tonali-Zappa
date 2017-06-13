@@ -69,7 +69,6 @@ public class Tower {
         int i;
         try {
             i = Integer.parseInt(input);
-            System.out.println("ciao");
 
         } catch (NumberFormatException e) {
             System.out.println("unvalid format");

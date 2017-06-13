@@ -2,6 +2,7 @@ package it.polimi.ingsw.GC_23.Cards;
 
 import it.polimi.ingsw.GC_23.Effects.AbsEffect;
 import it.polimi.ingsw.GC_23.Enumerations.CardColor;
+import it.polimi.ingsw.GC_23.MilitaryCost;
 import it.polimi.ingsw.GC_23.Player;
 import it.polimi.ingsw.GC_23.SingleCost;
 
@@ -19,6 +20,9 @@ public abstract class Card {
     private ArrayList<AbsEffect> immediateEffect;
     private ArrayList<AbsEffect> permanentEffect;
     private ArrayList<SingleCost> cost;
+    private SingleCost costSelected;
+
+
 
     public Card(int period, CardColor cardColor, String name, ArrayList<AbsEffect> immediateEffect,
                 ArrayList<AbsEffect> permanentEffect, ArrayList<SingleCost>
@@ -101,8 +105,13 @@ public abstract class Card {
         int i = 0;
         int j = 0;
         for(SingleCost singlecost : this.cost) {
-            System.out.println("Press " + i + " for choosing: " + singlecost.getResources().toString());
-            i++;
+            if (!(singlecost instanceof MilitaryCost)) {
+                System.out.println("Press " + i + " for choosing: " + singlecost.getResources().toString());
+                i++;
+            } else {
+                System.out.println("Press "+ i + " for choosing: " + singlecost.getResources().toString() +" and you required " + ((MilitaryCost) singlecost).getResourcesRequired().toString());
+                i++;
+            }
         }
 
         String sw = player.getNextLine();
@@ -114,7 +123,17 @@ public abstract class Card {
             System.out.println("Invalid format, try again");
             chooseCost(player);
         }
+
+        setCostSelected(cost.get(j));
         return cost.get(j);
+    }
+
+    public SingleCost getCostSelected() {
+        return costSelected;
+    }
+
+    public void setCostSelected(SingleCost costSelected) {
+        this.costSelected = costSelected;
     }
 
     public abstract void addCardOfPlayer(Player player);

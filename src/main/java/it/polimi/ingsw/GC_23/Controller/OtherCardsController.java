@@ -27,13 +27,13 @@ public class OtherCardsController extends TowerController {
 
     public OtherCardsController(FamilyMember familyMember, Tower tower) {
         super(familyMember, tower);
-        super.getTowerSpace().getCard().getCost(familyMember.getPlayer());
         SingleCost cost = super.getTowerSpace().getCard().getCost(familyMember.getPlayer());
         if (isLegal(cost)) {
             makeAction(cost);
             System.out.println("success");
         } else {
             System.out.println("error");
+            familyMember.getPlayer().chooseMove(familyMember.getPlayer().getView());
         }
     }
 

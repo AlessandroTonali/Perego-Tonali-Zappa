@@ -129,6 +129,7 @@ public class Player implements Serializable {
                 new ProductionController(chooseFamilyMember(),  board.getProductionSpace());
                 break;
             case 3:
+                System.out.println("Insert number of servants that you want to use:");
                 String servants = this.getNextLine();
                 int j = -1;
                 try {
@@ -152,10 +153,10 @@ public class Player implements Serializable {
                 new OtherCardsController(chooseFamilyMember(), board.chooseTower(this));
                 break;
             case 7:
-                new OtherCardsController(chooseFamilyMember(0), board.getTower(2));
+                new OtherCardsController(chooseFamilyMember(), board.getTower(2));
                 break;
             case 8:
-                new OtherCardsController(chooseFamilyMember(0), board.getTower(3));
+                new OtherCardsController(chooseFamilyMember(), board.getTower(3));
                 break;
             case 9:
                 System.out.println(view.toString());

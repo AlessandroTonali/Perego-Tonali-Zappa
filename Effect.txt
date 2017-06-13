@@ -120,6 +120,8 @@
 		{"id": "782", "victoryPoint": "4"},
 		{"id": "791", "faithPoint": "2"},
 		{"id": "792", "victoryPoint": "5"},
+		{"id": "801", "faithPoint": "3"},
+		{"id": "802", "victoryPoint": "1"},
 		{"id": "811", "militaryPoint": "6"},
 		{"id": "812", "victoryPoint": "5"},
 		{"id": "831", "militaryPoint": "3"},
@@ -131,6 +133,8 @@
 		{"id": "862", "militaryPoint": "4"},
 		{"id": "871", "coin": "5", "faithPoint": "1"},
 		{"id": "872", "victoryPoint": "5"},
+		{"id": "881", "faithPoint": "3"},
+		{"id": "882", "victoryPoint": "4"},
 		{"id": "891", "militaryPoint": "7"},
 		{"id": "892", "victoryPoint": "6"},
 		{"id": "9012", "faithPoint": "1"},
@@ -144,6 +148,8 @@
 		{"id": "942", "victoryPoint": "5"},
 		{"id": "951", "faithPoint": "4"},
 		{"id": "952", "victoryPoint": "8"},
+		{"id": "961", "faithPoint": "2"},
+		{"id": "962", "victoryPoint": "10"},
 		
 		
 		
