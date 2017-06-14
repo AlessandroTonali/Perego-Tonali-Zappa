@@ -1,6 +1,7 @@
 package it.polimi.ingsw.GC_23.Effects;
 
 import it.polimi.ingsw.GC_23.EffectType;
+import it.polimi.ingsw.GC_23.FamilyMember;
 import it.polimi.ingsw.GC_23.Player;
 import it.polimi.ingsw.GC_23.Resources.ResourcesSet;
 
@@ -28,13 +29,6 @@ public class BenefitsEffect extends AbsEffect{
     }
 
     @Override
-    public int getTypeEffect() {
-        return EffectType.BENEFIT_EFFECT_TYPE;
-    }
-
-
-
-    @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
@@ -48,4 +42,5 @@ public class BenefitsEffect extends AbsEffect{
     public String toString() {
         return resources.toString();
     }
+
 }

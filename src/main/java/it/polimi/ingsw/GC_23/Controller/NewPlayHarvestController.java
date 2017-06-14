@@ -5,7 +5,6 @@ import it.polimi.ingsw.GC_23.Effects.AbsEffect;
 import it.polimi.ingsw.GC_23.FamilyMember;
 import it.polimi.ingsw.GC_23.Spaces.HarvestSpace;
 
-import java.awt.image.AreaAveragingScaleFilter;
 import java.util.ArrayList;
 
 /**
@@ -45,7 +44,7 @@ public class NewPlayHarvestController implements Controller {
         familyMember.getPlayer().getBonusTile().getHarvestEffect().activeEffect(familyMember.getPlayer());
         ArrayList<BuildingCard> buildingCards = familyMember.getPlayer().getCardOfPlayer().getBuildingCards();
         for (int i = 0; i < buildingCards.size(); i++) {
-            if (buildingCards.get(i).getHarvestValue() >= familyMember.getValue()) {
+            if (buildingCards.get(i).getProductionValue() >= familyMember.getValue()) {
                 ArrayList<AbsEffect> permanentEffects = buildingCards.get(i).getPermanentEffect();
                 for (int j = 0; j < permanentEffects.size(); j++) {
                     permanentEffects.get(j).activeEffect(familyMember.getPlayer());

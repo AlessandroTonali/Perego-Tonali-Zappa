@@ -25,11 +25,6 @@ public class NewPlayHarvestEffect extends AbsEffect {
 
     }
 
-    @Override
-    public int getTypeEffect() {
-        return 0;
-    }
-
     public int getDiceValue() {
         return diceValue;
     }

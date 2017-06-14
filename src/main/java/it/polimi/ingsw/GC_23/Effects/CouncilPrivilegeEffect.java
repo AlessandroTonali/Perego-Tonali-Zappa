@@ -120,11 +120,6 @@ public class CouncilPrivilegeEffect extends AbsEffect {
         }
     }
 
-    @Override
-    public int getTypeEffect() {
-        return EffectType.COUNCIL_EFFECT_TYPE;
-    }
-
     public boolean alreadyTaken(ArrayList<Integer> checkedList, int checkedNumber) {
         for (int i : checkedList) {
             if (i == checkedNumber) {

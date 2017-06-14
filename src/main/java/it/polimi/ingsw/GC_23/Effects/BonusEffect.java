@@ -14,9 +14,4 @@ public class BonusEffect extends AbsEffect {
     public void activeEffect(Player player) {
 
     }
-
-    @Override
-    public int getTypeEffect() {
-        return EffectType.BONUS_EFFECT_TYPE;
-    }
 }

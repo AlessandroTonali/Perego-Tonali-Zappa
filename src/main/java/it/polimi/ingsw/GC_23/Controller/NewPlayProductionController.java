@@ -1,6 +1,5 @@
 package it.polimi.ingsw.GC_23.Controller;
 
-import it.polimi.ingsw.GC_23.Cards.BuildingCard;
 import it.polimi.ingsw.GC_23.Cards.TerritoryCard;
 import it.polimi.ingsw.GC_23.Effects.AbsEffect;
 import it.polimi.ingsw.GC_23.FamilyMember;
@@ -45,7 +44,7 @@ public class NewPlayProductionController implements Controller {
         familyMember.getPlayer().getBonusTile().getHarvestEffect().activeEffect(familyMember.getPlayer());
         ArrayList<TerritoryCard> territoryCards = familyMember.getPlayer().getCardOfPlayer().getTerritoryCards();
         for (int i = 0; i < territoryCards.size(); i++) {
-            if (territoryCards.get(i).getProductionValue() >= familyMember.getValue()) {
+            if (territoryCards.get(i).getHarvestValue() >= familyMember.getValue()) {
                 ArrayList<AbsEffect> permanentEffects = territoryCards.get(i).getPermanentEffect();
                 for (int j = 0; j < permanentEffects.size(); j++) {
                     permanentEffects.get(j).activeEffect(familyMember.getPlayer());

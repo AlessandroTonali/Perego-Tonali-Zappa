@@ -69,7 +69,6 @@ public class Gameplay {
             }
 
         }
-        System.out.println("ce l ho fatta");
         return playersOrder;
 
     }
@@ -86,7 +85,7 @@ public class Gameplay {
                     System.out.println(board.toString());
                     System.out.println("Period: " + this.period + "Turn: " + this.turn);
                     System.out.println(p.getPlayerColor().toString() + ": it's your turn!");
-
+                    System.out.println("YOUR RESOURCES: "+ p.getResources().toString());
                     p.chooseMove(this.board);
                 }
                 i++;
@@ -215,7 +214,6 @@ public class Gameplay {
                     Player tmp = playersOrder.get(j);
                     playersOrder.set(j, playersOrder.get(j + 1));
                     playersOrder.set(j + 1, tmp);
-                    System.out.println("sono nel for");
                 }
 
             }

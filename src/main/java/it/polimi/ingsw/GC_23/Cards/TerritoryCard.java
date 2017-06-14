@@ -12,11 +12,11 @@ import java.util.ArrayList;
  */
 public class TerritoryCard extends Card {
 
-    private int productionValue;
+    private int harvestValue;
 
-    public TerritoryCard(int period, CardColor cardColor, String name, ArrayList<AbsEffect> immediateEffect, ArrayList<AbsEffect> permanentEffect, int productionValue) {
+    public TerritoryCard(int period, CardColor cardColor, String name, ArrayList<AbsEffect> immediateEffect, ArrayList<AbsEffect> permanentEffect, int harvestValue) {
         super(period, cardColor, name, immediateEffect, permanentEffect, null);
-        this.productionValue = productionValue;
+        this.harvestValue = harvestValue;
         ArrayList<SingleCost> costs = new ArrayList<>();
         costs.add(new SingleCost(new ResourcesSet()));
         super.setCost(costs);
@@ -69,8 +69,8 @@ public class TerritoryCard extends Card {
         player.getCardOfPlayer().setCard(this);
     }
 
-    public int getProductionValue() {
-        return productionValue;
+    public int getHarvestValue() {
+        return harvestValue;
     }
 
 }

@@ -22,11 +22,6 @@ public class NewPlayProductionEffect extends AbsEffect {
         new ProductionController(familyMember, player.getView().getProductionSpace());
     }
 
-    @Override
-    public int getTypeEffect() {
-        return 0;
-    }
-
     public int getDiceValue() {
         return diceValue;
     }

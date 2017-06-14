@@ -3,7 +3,9 @@ package it.polimi.ingsw.GC_23;
 import it.polimi.ingsw.GC_23.Cards.*;
 import it.polimi.ingsw.GC_23.Connection.UserHandler;
 import it.polimi.ingsw.GC_23.Controller.*;
+import it.polimi.ingsw.GC_23.Effects.AbsEffect;
 import it.polimi.ingsw.GC_23.Effects.BenefitsEffect;
+import it.polimi.ingsw.GC_23.Effects.PermanentEffect;
 import it.polimi.ingsw.GC_23.Enumerations.PlayerColor;
 import it.polimi.ingsw.GC_23.Resources.ResourcesSet;
 import it.polimi.ingsw.GC_23.Spaces.*;
@@ -24,10 +26,10 @@ public class Player implements Serializable {
     private CardOfPlayer cardOfPlayer;
     private BonusTile bonusTile;
     private FamilyMember[] familyMembers;
-    private PermanentEffect permanentEffect;
     private Scanner scan;
     private UserHandler userHandler;
     private PrintWriter outWriter;
+    private ArrayList<PermanentEffect> permanentEffects;
 
     public Player(PlayerColor playerColor, BonusTile bonusTile) {
         this.playerColor = playerColor;
@@ -72,9 +74,6 @@ public class Player implements Serializable {
         return familyMembers;
     }
 
-    public PermanentEffect getPermanentEffect() {
-        return permanentEffect;
-    }
 
     public void setCardOfPlayer(CardOfPlayer cardOfPlayer) {
         this.cardOfPlayer = cardOfPlayer;
@@ -382,6 +381,10 @@ public class Player implements Serializable {
 
     public PrintWriter getOutWriter() {
         return outWriter;
+    }
+
+    public ArrayList<PermanentEffect> getPermanentEffects() {
+        return permanentEffects;
     }
 }
 

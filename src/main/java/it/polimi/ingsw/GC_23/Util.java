@@ -12,7 +12,7 @@ import java.util.Random;
  */
 public class Util {
 
-    public ArrayList<? extends Card> shuffleCard(ArrayList<Card> cards) {
+    public static ArrayList<? extends Card> shuffleCard(ArrayList<Card> cards) {
         ArrayList<Card>  cardsShuffeled= new ArrayList<>();
         ArrayList<Card> cardsFirstPeriod = new ArrayList<>();
         ArrayList<Card> cardsSecondPeriod = new ArrayList<>();

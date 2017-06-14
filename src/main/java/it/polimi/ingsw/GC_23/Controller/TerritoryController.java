@@ -26,7 +26,8 @@ public class TerritoryController extends TowerController {
             makeAction();
             System.out.println("succes");
         } else {
-            System.out.println("error");
+            System.out.println("YOU ARE NOT ALLOW TO DO THIS MOVE, DO SOMETHING ELSE!");
+            familyMember.getPlayer().chooseMove(familyMember.getPlayer().getView());
         }
     }
 

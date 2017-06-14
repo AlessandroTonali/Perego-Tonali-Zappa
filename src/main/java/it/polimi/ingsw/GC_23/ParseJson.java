@@ -36,7 +36,6 @@ public class ParseJson {
     private ArrayList<Card> ventureCardArrayList = new ArrayList<>();
     private ArrayList<Card> buildingCardArrayList = new ArrayList<>();
     private final Logger logger = Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
-    private Util util = new Util();
 
 
     public static synchronized ParseJson getParseJson(){
@@ -93,10 +92,10 @@ public class ParseJson {
             }
 
             JSONArray immediateEffectsJson = ventureCards.getJSONObject(x).getJSONArray("immediateEffect");
-            ArrayList<AbsEffect> immediateEffect = parseTypeEffect(immediateEffectsJson);
+            ArrayList<AbsEffect> immediateEffect = parseImmediateEffect(immediateEffectsJson);
 
             JSONArray permanentEffectsJson = ventureCards.getJSONObject(x).getJSONArray("permanentEffect");
-            ArrayList<AbsEffect> permanentEffect = parseTypeEffect(permanentEffectsJson);
+            ArrayList<AbsEffect> permanentEffect = parsePermanentEffect(permanentEffectsJson);
 
 
             VentureCard ventureCard = new VentureCard(period, CardColor.PURPLE, name, immediateEffect, permanentEffect, costs);
@@ -105,8 +104,6 @@ public class ParseJson {
 
 
         }
-
-        System.out.println();
 
         JSONArray buildingCards = rootObject.getJSONArray("BuildingCard");
         for (int x = 0; x < buildingCards.length(); x++) {
@@ -118,16 +115,16 @@ public class ParseJson {
             }
 
             JSONArray immediateEffectsJson = buildingCards.getJSONObject(x).getJSONArray("immediateEffect");
-            ArrayList<AbsEffect> immediateEffect = parseTypeEffect(immediateEffectsJson);
+            ArrayList<AbsEffect> immediateEffect = parseImmediateEffect(immediateEffectsJson);
 
             JSONArray permanentEffectsJson = buildingCards.getJSONObject(x).getJSONArray("permanentEffect");
-            ArrayList<AbsEffect> permanentEffect = parseTypeEffect(permanentEffectsJson);
+            ArrayList<AbsEffect> permanentEffect = parsePermanentEffect(permanentEffectsJson);
 
             String name = buildingCards.getJSONObject(x).getString("name");
             int period = buildingCards.getJSONObject(x).getInt("period");
             int idCard = buildingCards.getJSONObject(x).getInt("id");
-            int harvestValue = buildingCards.getJSONObject(x).getInt("harvest_value");
-            BuildingCard buildingCard = new BuildingCard(period, CardColor.YELLOW, name, immediateEffect, permanentEffect, costs, harvestValue);
+            int productionValue = buildingCards.getJSONObject(x).getInt("production_value");
+            BuildingCard buildingCard = new BuildingCard(period, CardColor.YELLOW, name, immediateEffect, permanentEffect, costs, productionValue);
             buildingCardMap.put(idCard,buildingCard);
             buildingCardArrayList.add(buildingCard);
 
@@ -139,13 +136,13 @@ public class ParseJson {
             String name = territoryCards.getJSONObject(i).getString("name");
             int idCard = territoryCards.getJSONObject(i).getInt("id");
             int period = territoryCards.getJSONObject(i).getInt("period");
-            int productionValue = territoryCards.getJSONObject(i).getInt("production_value");
+            int harvestValue = territoryCards.getJSONObject(i).getInt("harvest_value");
             JSONArray immediateEffectsJson = territoryCards.getJSONObject(i).getJSONArray("immediateEffect");
-            ArrayList<AbsEffect> immediateEffect = parseTypeEffect(immediateEffectsJson);
+            ArrayList<AbsEffect> immediateEffect = parseImmediateEffect(immediateEffectsJson);
             JSONArray permanentEffectsJson = territoryCards.getJSONObject(i).getJSONArray("permanentEffect");
-            ArrayList<AbsEffect> permanentEffect = parseTypeEffect(permanentEffectsJson);
+            ArrayList<AbsEffect> permanentEffect = parsePermanentEffect(permanentEffectsJson);
 
-            TerritoryCard territoryCard = new TerritoryCard(period, CardColor.GREEN, name, immediateEffect,permanentEffect, productionValue);
+            TerritoryCard territoryCard = new TerritoryCard(period, CardColor.GREEN, name, immediateEffect,permanentEffect, harvestValue);
             territoryCardMap.put(idCard,territoryCard);
             territoryCardArrayList.add(territoryCard);
         }
@@ -163,9 +160,9 @@ public class ParseJson {
             }
 
             JSONArray immediateEffectsJson = characterCards.getJSONObject(i).getJSONArray("immediateEffect");
-            ArrayList<AbsEffect> immediateEffect = parseTypeEffect(immediateEffectsJson);
+            ArrayList<AbsEffect> immediateEffect = parseImmediateEffect(immediateEffectsJson);
             JSONArray permanentEffectsJson = characterCards.getJSONObject(i).getJSONArray("permanentEffect");
-            ArrayList<AbsEffect> permanentEffect = parseTypeEffect(permanentEffectsJson);
+            ArrayList<AbsEffect> permanentEffect = parsePermanentEffect(permanentEffectsJson);
 
             CharacterCard characterCard = new CharacterCard(period, CardColor.BLUE, name, immediateEffect, permanentEffect, costs);
             characterCardMap.put(idCard, characterCard);
@@ -175,7 +172,18 @@ public class ParseJson {
 
     }
 
-    private ArrayList<AbsEffect> parseTypeEffect(JSONArray jsonArray) {
+    private ArrayList<AbsEffect> parseImmediateEffect(JSONArray jsonArray) {
+        ArrayList<AbsEffect> arrayList = new ArrayList<>();
+        for (int y = 0; y < jsonArray.length() ; y++) {
+
+            int id = jsonArray.getJSONObject(y).getInt("effect");
+            arrayList.add(effectMap.get(id));
+        }
+
+        return arrayList;
+    }
+
+    private ArrayList<AbsEffect> parsePermanentEffect(JSONArray jsonArray) {
         ArrayList<AbsEffect> arrayList = new ArrayList<>();
         for (int y = 0; y < jsonArray.length() ; y++) {
 
@@ -453,20 +461,20 @@ public class ParseJson {
     }
 
     public ArrayList<CharacterCard> getCharacterCardArrayList() {
-        return new ArrayList<CharacterCard>((ArrayList<? extends CharacterCard>) util.shuffleCard(characterCardArrayList));
+        return new ArrayList<CharacterCard>((ArrayList<? extends CharacterCard>) Util.shuffleCard(characterCardArrayList));
     }
 
     public ArrayList<TerritoryCard> getTerritoryCardArrayList() {
 
-        return new ArrayList<TerritoryCard>((ArrayList<? extends TerritoryCard>) util.shuffleCard(territoryCardArrayList));
+        return new ArrayList<TerritoryCard>((ArrayList<? extends TerritoryCard>) Util.shuffleCard(territoryCardArrayList));
     }
 
     public ArrayList<VentureCard> getVentureCardArrayList() {
-        return new ArrayList<VentureCard>((ArrayList<? extends VentureCard>) util.shuffleCard(ventureCardArrayList));
+        return new ArrayList<VentureCard>((ArrayList<? extends VentureCard>) Util.shuffleCard(ventureCardArrayList));
     }
 
     public ArrayList<BuildingCard> getBuildingCardArrayList() {
-        return new ArrayList<BuildingCard>((ArrayList<? extends BuildingCard>) util.shuffleCard(buildingCardArrayList));
+        return new ArrayList<BuildingCard>((ArrayList<? extends BuildingCard>) Util.shuffleCard(buildingCardArrayList));
     }
 
 

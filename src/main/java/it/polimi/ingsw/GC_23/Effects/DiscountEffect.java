@@ -88,10 +88,5 @@ public class DiscountEffect extends AbsEffect{
     player.getResources().sum(chosenResourcesDiscount.getResources());
     }
 
-    @Override
-    public int getTypeEffect() {
-        return EffectType.DISCOUNT_EFFECT_TYPE;
-    }
-
 
 }

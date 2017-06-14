@@ -85,11 +85,6 @@ public class ImplicationEffect extends AbsEffect{
     }
 
     @Override
-    public int getTypeEffect() {
-        return EffectType.IMPLICATION_EFFECT_TYPE;
-    }
-
-    @Override
     public String toString() {
         StringBuilder stringBuilder = new StringBuilder();
         for(int i = 0; i < requirements.size(); i++) {

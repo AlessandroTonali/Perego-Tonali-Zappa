@@ -1,6 +1,7 @@
 package it.polimi.ingsw.GC_23.Cards;
 
 import it.polimi.ingsw.GC_23.Effects.AbsEffect;
+import it.polimi.ingsw.GC_23.Effects.PermanentEffect;
 import it.polimi.ingsw.GC_23.Enumerations.CardColor;
 import it.polimi.ingsw.GC_23.Player;
 import it.polimi.ingsw.GC_23.SingleCost;
@@ -27,5 +28,8 @@ public class CharacterCard extends Card {
     }
     public void addCardOfPlayer(Player player) {
         player.getCardOfPlayer().setCard(this);
+        if ( this.getPermanentEffect().get(0) instanceof PermanentEffect) {
+        }
+        //TODO aggiungere Permanent Effect
     }
 }

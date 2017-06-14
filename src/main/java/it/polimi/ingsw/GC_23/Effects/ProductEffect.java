@@ -125,9 +125,4 @@ public class ProductEffect extends AbsEffect {
         }
         player.getResources().sum(resource);
     }
-
-    @Override
-    public int getTypeEffect() {
-        return EffectType.PRODUCT_EFFECT_TYPE;
-    }
 }

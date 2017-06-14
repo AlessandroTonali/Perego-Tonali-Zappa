@@ -11,12 +11,12 @@ import java.util.ArrayList;
  */
 public class BuildingCard extends Card {
 
-    private int harvestValue;
+    private int productionValue;
 
     public BuildingCard(int period, CardColor cardColor, String name, ArrayList<AbsEffect> immediateEffect, ArrayList<AbsEffect> permanentEffect,
-                        ArrayList<SingleCost> cost, int harvestValue) {
+                        ArrayList<SingleCost> cost, int productionValue) {
         super(period, cardColor, name, immediateEffect, permanentEffect, cost);
-        this.harvestValue = harvestValue;
+        this.productionValue = productionValue;
     }
 
     //controlla numero carte e se ha abbastanza risorse
@@ -37,7 +37,7 @@ public class BuildingCard extends Card {
         player.getCardOfPlayer().setCard(this);
     }
 
-    public int getHarvestValue() {
-        return harvestValue;
+    public int getProductionValue() {
+        return productionValue;
     }
 }

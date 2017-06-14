@@ -127,9 +127,5 @@ public class NewPlayCardEffect extends AbsEffect {
 
     }
 
-    @Override
-    public int getTypeEffect() {
-        return 0;
-    }
 }
 
