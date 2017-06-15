@@ -6,6 +6,8 @@ import it.polimi.ingsw.GC_23.Enumerations.FamilyColor;
 import it.polimi.ingsw.GC_23.Enumerations.PlayerColor;
 import it.polimi.ingsw.GC_23.Resources.ResourcesSet;
 
+import java.io.IOException;
+import java.rmi.RemoteException;
 import java.util.ArrayList;
 import java.util.Collections;
 
@@ -13,6 +15,7 @@ import java.util.Collections;
  * Created by jesss on 02/06/17.
  */
 public class Creator {
+
     private Board board;
     private ArrayList<Player> players = new ArrayList<Player>();
     private PlayGame playGame;
@@ -25,12 +28,27 @@ public class Creator {
         board= new Board(numberOfPlayers);
     }
 
-    public void startGame(){
-        Collections.shuffle(players);
-        players.get(0).getResources().getGoldObj().add(5);
-        players.get(1).getResources().getGoldObj().add(6);
-        players.get(2).getResources().getGoldObj().add(7);
-        players.get(3).getResources().getGoldObj().add(8);
+    public void startGame(int number) throws IOException {
+        switch (number){
+            case 2:
+                Collections.shuffle(players);
+                players.get(0).getResources().getGoldObj().add(5);
+                players.get(1).getResources().getGoldObj().add(6);
+                break;
+            case 3:
+                Collections.shuffle(players);
+                players.get(0).getResources().getGoldObj().add(5);
+                players.get(1).getResources().getGoldObj().add(6);
+                players.get(2).getResources().getGoldObj().add(7);
+                break;
+            case 4:
+                Collections.shuffle(players);
+                players.get(0).getResources().getGoldObj().add(5);
+                players.get(1).getResources().getGoldObj().add(6);
+                players.get(2).getResources().getGoldObj().add(7);
+                players.get(3).getResources().getGoldObj().add(8);
+                break;
+        }
         playGame = new PlayGame(players, board);
     }
 
@@ -60,10 +78,8 @@ public class Creator {
         familyMembers[2] = new FamilyMember(player, FamilyColor.BLACK, 0);
         familyMembers[3] = new FamilyMember(player, FamilyColor.NEUTRAL, 0);
         player.setFamilyMembers(familyMembers);
-        player.setResources(new ResourcesSet(0,0,0,0,0,0,0));
+        player.setResources(new ResourcesSet(0,0,0,3,2,0,2));
         player.setUserHandler(userHandler);
-        player.setScan();
-        player.setOutWriter();
         return player;
     }
 
@@ -74,4 +90,5 @@ public class Creator {
     public PlayGame getPlayGame(){
         return playGame;
     }
+
 }

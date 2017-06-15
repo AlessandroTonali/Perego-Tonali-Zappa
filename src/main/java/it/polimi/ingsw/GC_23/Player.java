@@ -3,16 +3,16 @@ package it.polimi.ingsw.GC_23;
 import it.polimi.ingsw.GC_23.Cards.*;
 import it.polimi.ingsw.GC_23.Connection.UserHandler;
 import it.polimi.ingsw.GC_23.Controller.*;
-import it.polimi.ingsw.GC_23.Effects.AbsEffect;
 import it.polimi.ingsw.GC_23.Effects.BenefitsEffect;
-import it.polimi.ingsw.GC_23.Effects.PermanentEffect;
 import it.polimi.ingsw.GC_23.Enumerations.PlayerColor;
 import it.polimi.ingsw.GC_23.Resources.ResourcesSet;
 import it.polimi.ingsw.GC_23.Spaces.*;
 
 import java.io.Console;
+import java.io.IOException;
 import java.io.PrintWriter;
 import java.io.Serializable;
+import java.rmi.RemoteException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -26,20 +26,16 @@ public class Player implements Serializable {
     private CardOfPlayer cardOfPlayer;
     private BonusTile bonusTile;
     private FamilyMember[] familyMembers;
+    private PermanentEffect permanentEffect;
     private Scanner scan;
     private UserHandler userHandler;
-    private PrintWriter outWriter;
-    private ArrayList<PermanentEffect> permanentEffects;
 
     public Player(PlayerColor playerColor, BonusTile bonusTile) {
         this.playerColor = playerColor;
-        // bisogna usare il design pattern della fabbrica per dare le risorse giuste in base ai player
         this.bonusTile = bonusTile;
         this.cardOfPlayer = new CardOfPlayer();
         this.scan = new Scanner(System.in);
-        //bisogna decidere come istanziare i family member
         // permanent effect ancora non lo dobbiamo fare
-
     }
 
     public void setBonusTile(BonusTile bonusTile) {
@@ -74,6 +70,9 @@ public class Player implements Serializable {
         return familyMembers;
     }
 
+    public PermanentEffect getPermanentEffect() {
+        return permanentEffect;
+    }
 
     public void setCardOfPlayer(CardOfPlayer cardOfPlayer) {
         this.cardOfPlayer = cardOfPlayer;
@@ -173,14 +172,13 @@ public class Player implements Serializable {
 
 
         }
-        //TODO
         return;
     }
 
-    public void chooseMove(Board board, int value) {
+    public void chooseMove(Board board, int value) throws IOException {
         //momentaneo
         this.view = board;
-        outWriter.println("press 0 for placing a familiar in council\n" +
+        getUserHandler().messageToUser("press 0 for placing a familiar in council\n" +
                 "press 1 for getting the harvest\n" +
                 "press 2 for getting production\n" +
                 "press 3 for increasing your familiar value\n" +
@@ -192,19 +190,19 @@ public class Player implements Serializable {
                 "press 9 for watching the board\n" +
                 "press 10 for watching your resources\n" +
                 "press 11 to skip");
-        outWriter.println("write");
-        String sw = scan.nextLine();
+        getUserHandler().messageToUser("write");
+        String sw = getUserHandler().messageFromUser();
         int i;
         try {
             i = Integer.parseInt(sw);
         } catch (NumberFormatException e) {
-            outWriter.println("Invalid format");
+            getUserHandler().messageToUser("Invalid format");
             i = -1;
         }
 
         switch (i) {
             case -1:
-                chooseMove(view);
+                chooseMove(view, 0);
                 break;
             case 0:
                 new CouncilController(board.getCouncilSpace(), chooseFamilyMember(0));
@@ -216,15 +214,15 @@ public class Player implements Serializable {
                 new ProductionController(chooseFamilyMember(0), new ProductionSpace());
                 break;
             case 3:
-                outWriter.println("write");
-                String servants = this.getNextLine();
+                getUserHandler().messageToUser("write");
+                String servants = getUserHandler().messageFromUser();
                 int j = -1;
                 try {
                     j = Integer.parseInt(servants);
 
                 } catch (NumberFormatException e) {
-                    outWriter.println("Invalid format");
-                    chooseMove(board);
+                    getUserHandler().messageToUser("Invalid format");
+                    chooseMove(board, 0);
                 }
                 new IncreaseFamilyValue( j , chooseFamilyMember(0));
                 break;
@@ -246,22 +244,22 @@ public class Player implements Serializable {
                 new OtherCardsController(chooseFamilyMember(0), board.getTower(3));
                 break;
             case 9:
-                outWriter.println(view.toString());
+                getUserHandler().messageToUser(view.toString());
                 chooseMove(view,1);
             case 10:
-                outWriter.println(this.resources.toString());
+                getUserHandler().messageToUser(this.resources.toString());
                 chooseMove(view,1);
                 break;
             case 11:
                 break;
             default:
-                outWriter.println("Wrong number selected, try again");
+                getUserHandler().messageToUser("Wrong number selected, try again");
                 chooseMove(view,1);
 
         }
-        outWriter.println();
-        outWriter.println("Wait for your turn\n");
-        outWriter.println("wait");
+        getUserHandler().messageToUser(" ");
+        getUserHandler().messageToUser("Wait for your turn\n");
+        getUserHandler().messageToUser("wait");
         return;
     }
 
@@ -314,44 +312,42 @@ public class Player implements Serializable {
             return chooseFamilyMember();
 
         }
-
-
         System.out.println("You choose the " + i + "family member");
         System.out.println("You have " + this.getResources().toString());
         return chosen;
     }
 
-    public FamilyMember chooseFamilyMember(int value) {
+    public FamilyMember chooseFamilyMember(int value) throws IOException {
         for(FamilyMember f: familyMembers) {
             if( f == null){
                 continue;
             }
-            outWriter.println(f.toString());
+            getUserHandler().messageToUser(f.toString());
         }
-        outWriter.println("Choose your family member");
-        outWriter.println("write");
-        String sw = scan.nextLine();
+        getUserHandler().messageToUser("Choose your family member");
+        getUserHandler().messageToUser("write");
+        String sw = getUserHandler().messageFromUser();
         int i;
         try {
             i = Integer.parseInt(sw);
 
         } catch (NumberFormatException e) {
-            outWriter.println("Invalid format");
+            getUserHandler().messageToUser("Invalid format");
             return chooseFamilyMember(0);
         }
         FamilyMember chosen;
         try {
             chosen = this.familyMembers[i];
             if(chosen == null){
-                outWriter.println("You already used this family member, choose another one");
+                getUserHandler().messageToUser("You already used this family member, choose another one");
                 return chooseFamilyMember(0);
             }
         } catch (ArrayIndexOutOfBoundsException e) {
-            outWriter.println("Invalid number");
+            getUserHandler().messageToUser("Invalid number");
             return chooseFamilyMember(0);
         }
-        outWriter.println("You choose the " + i + "family member");
-        outWriter.println("You have " + this.getResources().toString());
+        getUserHandler().messageToUser("You choose the " + i + "family member");
+        getUserHandler().messageToUser("You have " + this.getResources().toString());
         return chosen;
     }
 
@@ -365,26 +361,6 @@ public class Player implements Serializable {
 
     public void setUserHandler(UserHandler userHandler) {
         this.userHandler = userHandler;
-    }
-
-    public void setScan(){
-        this.scan =  this.getUserHandler().getInScanner();
-    }
-
-    public void setOutWriter(){
-        this.outWriter = this.getUserHandler().getOutWriter();
-    }
-
-    public Scanner getScan() {
-        return scan;
-    }
-
-    public PrintWriter getOutWriter() {
-        return outWriter;
-    }
-
-    public ArrayList<PermanentEffect> getPermanentEffects() {
-        return permanentEffects;
     }
 }
 

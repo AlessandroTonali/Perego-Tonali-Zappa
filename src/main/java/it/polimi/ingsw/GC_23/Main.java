@@ -82,10 +82,10 @@ public class Main {
         familyMember.getFamilyColor();
         Creator creator = new Creator();
         ArrayList<Player> players = new ArrayList<>();
-        players.add(creator.createPlayer(PlayerColor.RED));
+        /*players.add(creator.createPlayer(PlayerColor.RED));
         players.add(creator.createPlayer(PlayerColor.BLUE));
         players.add(creator.createPlayer(PlayerColor.GREEN));
-        players.add(creator.createPlayer(PlayerColor.YELLOW));
+        players.add(creator.createPlayer(PlayerColor.YELLOW));*/
         new Gameplay(players);
         System.out.println("inizio " + player1.getResources().toString());
 

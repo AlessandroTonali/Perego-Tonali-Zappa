@@ -1,6 +1,7 @@
 package it.polimi.ingsw.GC_23.Connection;
 
 import it.polimi.ingsw.GC_23.Player;
+import sun.security.x509.IPAddressName;
 
 import javax.management.timer.TimerNotification;
 import java.io.*;
@@ -12,10 +13,12 @@ import java.rmi.registry.Registry;
 import java.rmi.server.UnicastRemoteObject;
 import java.util.ArrayList;
 import java.util.ConcurrentModificationException;
+import java.util.Set;
 import java.util.TimerTask;
 import java.util.concurrent.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import java.util.stream.Stream;
 
 /**
  * Created by jesss on 03/06/17.
@@ -23,27 +26,60 @@ import java.util.logging.Logger;
 public class ServerImpl extends UnicastRemoteObject implements Server{
     private static ServerImpl server;
     private static ArrayList<Match> matches;
-    private static int userCounter =0;
+    private static ArrayList<UserHandler> userHandlers;
     private final static Logger logger = Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
-
+    private static ServerSocket serverSocket;
+    private static ExecutorService executor;
 
     private ServerImpl() throws RemoteException {
         this.matches = new ArrayList<>();
+        this.userHandlers = new ArrayList<>();
     }
 
-    public static synchronized ServerImpl getServer() throws RemoteException {
+    public static ServerImpl getServer() throws RemoteException {
         if(server == null){
             server = new ServerImpl();
         }
         return server;
     }
 
+    public  ServerSocket getServerSocket() {
+        return serverSocket;
+    }
+
+    public static ExecutorService getExecutor() {
+        return executor;
+    }
+
+    @Override
     public ArrayList<Match> getMatches() {
         return matches;
     }
 
-    public static void main(String[] args) throws Exception{
+
+    @Override
+    public void join(User user) throws RemoteException {
+        UserHandler userHandler = new RMIHandler(user);
+        this.userHandlers.add(userHandler);
+        addToMatch(userHandler);
+        getExecutor().submit((RMIHandler) userHandler);
+    }
+
+    public void RMIMessageToUser(String string, User user) throws RemoteException{
+        try {
+            user.printer(string);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public String RMIMessageFromUser(User user) throws IOException, RemoteException{
+        return user.reader();
+    }
+
+    public static void main(String[] args) throws RemoteException , Exception{
         ServerImpl server = getServer();
+        executor = Executors.newCachedThreadPool();
 
         //RMI
         LocateRegistry.createRegistry(8080);
@@ -51,45 +87,38 @@ public class ServerImpl extends UnicastRemoteObject implements Server{
         registry.rebind("gameServer", server);
         System.out.println("Server RMI is ready");
 
-
         //SOCKET
-        ExecutorService executor = Executors.newCachedThreadPool();
-        ServerSocket serverSocket = new ServerSocket(29999);
+        serverSocket = new ServerSocket(29999);
         System.out.println("Server Socket is ready");
-        try {
-            while (true) {
-                Match match = new Match();
-                server.getMatches().add(match);
-                long startTime = 0;
-                long timeout = 10000;
-                while (userCounter < 4 && ((userCounter < 2) || ((System.currentTimeMillis() - startTime) < timeout))) {
-                    try {
-                        Socket socket = serverSocket.accept();
-                        UserHandler userHandler = new UserHandler(socket);
-                        match.setUserHandler(userHandler);
-                        userCounter++;
-                        if (userCounter == 1) {
-                            executor.submit(match);
-                            startTime = System.currentTimeMillis();
-                        }
-                        executor.submit(userHandler);
-                        System.out.println("Client accepted: " + socket);
-                    } catch (IOException e) {
-                        logger.setLevel(Level.SEVERE);
-                        logger.severe(String.valueOf(e));
-                    }
-                }
-                match.setStartMatch(true);
-                userCounter = 0;
-            }
-        }catch (Exception ex){
-            logger.setLevel(Level.SEVERE);
-            logger.severe(String.valueOf(ex));
-        }
-        executor.shutdown();
-        serverSocket.close();
-    }
 
+            try {
+                SocketAccepter socketAccepter = new SocketAccepter();
+                executor.submit(socketAccepter);
+            } catch (Exception ex) {
+                logger.setLevel(Level.SEVERE);
+                logger.severe(String.valueOf(ex));
+            }
+            while (true){
+
+            }
+        }
+
+    public void addToMatch(UserHandler userHandler) throws RemoteException
+    {
+        if(matches.size() != 0 && matches.get(matches.size()-1).getPlayerCounter()<2) {
+            matches.get(matches.size() - 1).setUserHandler(userHandler);
+            if(matches.get(matches.size()-1).getPlayerCounter() == 2){
+                matches.get(matches.size()-1).setStartMatch(true);
+                System.out.println("Match is started");
+            }
+        }
+        else{
+            Match match = new Match();
+            server.getMatches().add(match);
+            matches.get(matches.size() - 1).setUserHandler(userHandler);
+            getExecutor().submit(match);
+        }
+    }
 
     /*public void timeout() throws InterruptedException, ExecutionException{
             ExecutorService executor = Executors.newSingleThreadExecutor();

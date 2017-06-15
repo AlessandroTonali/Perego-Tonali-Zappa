@@ -6,6 +6,8 @@ import it.polimi.ingsw.GC_23.Spaces.Tower;
 import it.polimi.ingsw.GC_23.Spaces.TowerSpace;
 
 import java.awt.image.AreaAveragingScaleFilter;
+import java.io.IOException;
+import java.rmi.RemoteException;
 import java.util.ArrayList;
 
 /**
@@ -18,28 +20,27 @@ public class PlayGame {
     private int period=1;
     private int turn=1;
 
-    public PlayGame(ArrayList<Player> players, Board board) {
+    public PlayGame(ArrayList<Player> players, Board board) throws IOException {
         this.players = players;
         this.board = board;
         scheduling();
     }
 
-    public PlayGame(ArrayList<Player> players) {
+    public PlayGame(ArrayList<Player> players) throws IOException {
         this.players = players;
         this.board = new Board(4);
         scheduling();
     }
 
-    public void scheduling() {
+    public void scheduling() throws IOException {
         int i = 0;
         resetFamilyMembers();
         while(true) {
             System.out.println(period + " period");
             while( i < 1 ){
                 for (Player p : this.players) {
-                    p.getOutWriter().println();
-                    p.getOutWriter().println(("Period: " + this.period + " Turn: " + this.turn + "\n"));
-                    p.getOutWriter().println(p.getUserHandler().getCurrentUser() + ": it's your turn!\n");
+                    p.getUserHandler().messageToUser(("Period: " + this.period + " Turn: " + this.turn + "\n"));
+                    p.getUserHandler().messageToUser(p.getUserHandler().getCurrentUser() + ": it's your turn!\n");
                     p.chooseMove(this.board,0);
                 }
                 i++;
@@ -187,7 +188,7 @@ public class PlayGame {
         }
     }
 
-    private void getWinner() {
+    private void getWinner() throws RemoteException {
         ArrayList<Player> playersOrder = players;
         for (int i = 0; i < playersOrder.size(); i++) {
             for (int j = 0; j < playersOrder.size() - 1; j++) {
@@ -197,17 +198,15 @@ public class PlayGame {
                     playersOrder.set(j, playersOrder.get(j + 1));
                     playersOrder.set(j + 1, tmp);
                 }
-
             }
         }
         for (Player p : this.players) {
-            p.getOutWriter().println();
-            p.getOutWriter().println("----------------END----------------\n");
-            p.getOutWriter().println("THE WINNER IS PLAYER: " + playersOrder.get(0).getUserHandler().getCurrentUser() + "\n");
-            p.getOutWriter().println("Victory order: \n");
+            p.getUserHandler().messageToUser(("----------------END----------------\n"));
+            p.getUserHandler().messageToUser("THE WINNER IS PLAYER: " + playersOrder.get(0).getUserHandler().getCurrentUser() + "\n");
+            p.getUserHandler().messageToUser("Victory order: \n");
             for (Player pl : playersOrder) {
-                p.getOutWriter().println(pl.getUserHandler().getCurrentUser()+"\n");
-                p.getOutWriter().println("-----------------\n");
+                p.getUserHandler().messageToUser(pl.getUserHandler().getCurrentUser()+"\n");
+                p.getUserHandler().messageToUser("-----------------\n");
             }
         }
     }
