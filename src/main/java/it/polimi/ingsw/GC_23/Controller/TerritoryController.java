@@ -6,6 +6,7 @@ import it.polimi.ingsw.GC_23.Resources.ResourcesSet;
 import it.polimi.ingsw.GC_23.Spaces.Tower;
 import it.polimi.ingsw.GC_23.Spaces.TowerSpace;
 
+import java.io.IOException;
 import java.util.ArrayList;
 
 /**
@@ -17,7 +18,7 @@ public class TerritoryController extends TowerController {
     private TowerSpace towerSpace;
     private Tower tower;
 
-    public TerritoryController(FamilyMember familyMember, Tower tower) {
+    public TerritoryController(FamilyMember familyMember, Tower tower) throws IOException {
         super(familyMember,tower);
         this.familyMember = super.getFamilyMember();
         this.towerSpace = super.getTowerSpace();
@@ -27,7 +28,7 @@ public class TerritoryController extends TowerController {
             System.out.println("succes");
         } else {
             System.out.println("YOU ARE NOT ALLOW TO DO THIS MOVE, DO SOMETHING ELSE!");
-            familyMember.getPlayer().chooseMove(familyMember.getPlayer().getView());
+            familyMember.getPlayer().chooseMove(familyMember.getPlayer().getView(),1);
         }
     }
 
@@ -36,7 +37,7 @@ public class TerritoryController extends TowerController {
         this.towerSpace = towerSpace;
     }
 
-    public TerritoryController(FamilyMember familyMember, Tower tower, TowerSpace towerSpace) {
+    public TerritoryController(FamilyMember familyMember, Tower tower, TowerSpace towerSpace) throws IOException {
         super(familyMember,tower,towerSpace);
 
         if (isLegal()) {
@@ -69,7 +70,7 @@ public class TerritoryController extends TowerController {
         return legal;
     }
 
-    public void makeAction() {
+    public void makeAction() throws IOException {
         if(tower.checkOtherFamiliar()) {
             familyMember.getPlayer().getResources().pay(new ResourcesSet(0,3,0,0,0,0,0));
         }

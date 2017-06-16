@@ -7,6 +7,8 @@ import it.polimi.ingsw.GC_23.SingleCost;
 import it.polimi.ingsw.GC_23.Spaces.Tower;
 import it.polimi.ingsw.GC_23.Spaces.TowerSpace;
 
+import java.io.IOException;
+
 /**
  * Created by jesss on 23/05/17.
  */
@@ -46,7 +48,7 @@ public abstract class TowerController extends PlaceFamilyMember {
 
     public abstract boolean isLegal();
 
-    public abstract void makeAction();
+    public abstract void makeAction() throws IOException;
 
     // controlla se il tower space che ci hanno passato appartiene alla torre
     private boolean checkTowerSpaceInTower() {

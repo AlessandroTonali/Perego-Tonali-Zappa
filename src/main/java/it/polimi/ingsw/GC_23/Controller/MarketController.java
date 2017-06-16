@@ -3,6 +3,7 @@ package it.polimi.ingsw.GC_23.Controller;
 import it.polimi.ingsw.GC_23.FamilyMember;
 import it.polimi.ingsw.GC_23.Spaces.MarketSpace;
 
+import java.io.IOException;
 import java.util.ArrayList;
 
 /**
@@ -15,7 +16,7 @@ public class MarketController extends PlaceFamilyMember {
     private static int DIM = 4;
     private MarketSpace chosenSpace;
 
-    public MarketController(FamilyMember familyMember, MarketSpace[] marketSpace) {
+    public MarketController(FamilyMember familyMember, MarketSpace[] marketSpace) throws IOException {
         this.familyMember = familyMember;
         this.marketSpace = marketSpace;
         System.out.println("choose the market place");
@@ -36,7 +37,7 @@ public class MarketController extends PlaceFamilyMember {
             System.out.println("succes");
         } else {
             System.out.println("YOU ARE NOT ALLOW TO DO THIS MOVE, DO SOMETHING ELSE!");
-            familyMember.getPlayer().chooseMove(familyMember.getPlayer().getView());
+            familyMember.getPlayer().chooseMove(familyMember.getPlayer().getView(),1);
         }
     }
 
@@ -50,7 +51,7 @@ public class MarketController extends PlaceFamilyMember {
     }
 
     @Override
-    public void makeAction(){
+    public void makeAction() throws IOException {
         chosenSpace.getEffect().activeEffect(familyMember.getPlayer());
         chosenSpace.setFamilyMember(familyMember);
     }

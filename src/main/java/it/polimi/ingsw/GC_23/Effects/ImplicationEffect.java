@@ -4,6 +4,7 @@ import it.polimi.ingsw.GC_23.EffectType;
 import it.polimi.ingsw.GC_23.Player;
 import it.polimi.ingsw.GC_23.SingleCost;
 
+import java.io.IOException;
 import java.util.ArrayList;
 
 /**
@@ -76,7 +77,7 @@ public class ImplicationEffect extends AbsEffect{
     }
 
 
-    public void activeEffect(Player player) {
+    public void activeEffect(Player player) throws IOException {
         ImplicationEffect implicationEffect = chooseImplication(player);
         SingleCost cost = implicationEffect.getRequirements().get(0);
         AbsEffect effect = implicationEffect.getGivings().get(0);

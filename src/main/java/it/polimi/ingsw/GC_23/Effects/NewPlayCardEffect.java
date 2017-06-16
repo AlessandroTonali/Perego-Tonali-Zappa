@@ -9,6 +9,7 @@ import it.polimi.ingsw.GC_23.Enumerations.FamilyColor;
 import it.polimi.ingsw.GC_23.Enumerations.NewPlayColor;
 import it.polimi.ingsw.GC_23.Spaces.Tower;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -67,7 +68,7 @@ public class NewPlayCardEffect extends AbsEffect {
 
 
     @Override
-    public void activeEffect(Player player) {
+    public void activeEffect(Player player) throws IOException {
         //TODO: giocata (nella tower) senza mettere il family member, chiamerà isLegal di NewPlay e il suo makeMove
         FamilyMember familyMember = new FamilyMember(player, FamilyColor.NEUTRAL, diceValue);
         SingleCost sale = chooseResourceDiscount(player);

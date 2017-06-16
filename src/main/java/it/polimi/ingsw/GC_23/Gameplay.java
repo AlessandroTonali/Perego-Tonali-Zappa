@@ -6,6 +6,7 @@ import it.polimi.ingsw.GC_23.Spaces.Tower;
 import it.polimi.ingsw.GC_23.Spaces.TowerSpace;
 
 import java.awt.image.AreaAveragingScaleFilter;
+import java.io.IOException;
 import java.util.ArrayList;
 
 /**
@@ -18,13 +19,13 @@ public class Gameplay {
     private int period=1;
     private int turn=1;
 
-    public Gameplay(ArrayList<Player> players, Board board) {
+    public Gameplay(ArrayList<Player> players, Board board) throws IOException {
         this.players = players;
         this.board = board;
         scheduling();
     }
 
-    public Gameplay(ArrayList<Player> players) {
+    public Gameplay(ArrayList<Player> players) throws IOException {
         this.players = players;
         this.board = new Board(4);
         scheduling();
@@ -73,7 +74,7 @@ public class Gameplay {
 
     }
 
-    public void scheduling() {
+    public void scheduling() throws IOException {
         int i = 0;
         resetFamilyMembers();
         while(true) {
@@ -86,7 +87,7 @@ public class Gameplay {
                     System.out.println("Period: " + this.period + "Turn: " + this.turn);
                     System.out.println(p.getPlayerColor().toString() + ": it's your turn!");
                     System.out.println("YOUR RESOURCES: "+ p.getResources().toString());
-                    p.chooseMove(this.board);
+                    p.chooseMove(this.board,1);
                 }
                 i++;
             }
@@ -138,7 +139,7 @@ public class Gameplay {
 
     }
 
-    private void checkEndGame() {
+    private void checkEndGame() throws IOException {
         for (Player p : players) {
             //assegna punti territory cards
             switch (p.getCardOfPlayer().getTerritoryCards().size()) {

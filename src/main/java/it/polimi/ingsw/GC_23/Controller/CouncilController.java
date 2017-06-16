@@ -8,6 +8,8 @@ import it.polimi.ingsw.GC_23.Player;
 import it.polimi.ingsw.GC_23.Resources.ResourcesSet;
 import it.polimi.ingsw.GC_23.Spaces.CouncilSpace;
 
+import java.io.IOException;
+import java.rmi.RemoteException;
 import java.util.ArrayList;
 
 /**
@@ -17,7 +19,7 @@ public class CouncilController extends PlaceFamilyMember {
     CouncilSpace councilSpace;
     FamilyMember familyMember;
 
-    public CouncilController(CouncilSpace councilSpace, FamilyMember familyMember) {
+    public CouncilController(CouncilSpace councilSpace, FamilyMember familyMember) throws IOException {
         this.councilSpace = councilSpace;
         this.familyMember = familyMember;
         if(isLegal()){
@@ -25,8 +27,9 @@ public class CouncilController extends PlaceFamilyMember {
         }
         else {
 
-            System.out.println("YOU ARE NOT ALLOW TO DO THIS MOVE, DO SOMETHING ELSE!");
-            this.familyMember.getPlayer().chooseMove(familyMember.getPlayer().getView());
+            familyMember.getPlayer().getUserHandler().messageToUser("YOU ARE NO" +
+                    "T ALLOW TO DO THIS MOVE, DO SOMETHING ELSE!");
+            this.familyMember.getPlayer().chooseMove(familyMember.getPlayer().getView(),1);
         }
     }
     @Override
@@ -39,13 +42,14 @@ public class CouncilController extends PlaceFamilyMember {
         }
     }
     @Override
-    public void makeAction(){
+    public void makeAction() throws IOException {
+        Player player = familyMember.getPlayer();
         councilSpace.setFamilyMember(familyMember);
         ArrayList<AbsEffect> effects = councilSpace.getEffects();
         for(AbsEffect i : effects) {
             i.activeEffect(familyMember.getPlayer());
         }
-        System.out.println(familyMember.getPlayer().getResources().toString());
+        player.getUserHandler().messageToUser(familyMember.getPlayer().getResources().toString());
     }
 }
 

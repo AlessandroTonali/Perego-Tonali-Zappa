@@ -3,6 +3,7 @@ package it.polimi.ingsw.GC_23.Controller;
 import it.polimi.ingsw.GC_23.FamilyMember;
 import it.polimi.ingsw.GC_23.Spaces.ProductionSpace;
 
+import java.io.IOException;
 import java.util.ArrayList;
 
 /**
@@ -12,7 +13,7 @@ public class ProductionController extends PlaceFamilyMember {
     private FamilyMember familyMember;
     private ProductionSpace productionSpace;
 
-    public ProductionController(FamilyMember familyMember, ProductionSpace productionSpace){
+    public ProductionController(FamilyMember familyMember, ProductionSpace productionSpace) throws IOException {
         this.familyMember = familyMember;
         this.productionSpace = productionSpace;
         if( hasSense()) {
@@ -23,7 +24,7 @@ public class ProductionController extends PlaceFamilyMember {
             }
             else {
                 System.out.println("NOT VALID MOVE, TRY ANOTHER ONE!");
-                familyMember.getPlayer().chooseMove(familyMember.getPlayer().getView());
+                familyMember.getPlayer().chooseMove(familyMember.getPlayer().getView(),1);
             }
         }
     }

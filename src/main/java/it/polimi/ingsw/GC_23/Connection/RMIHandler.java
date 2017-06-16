@@ -28,7 +28,12 @@ public class RMIHandler implements Runnable, UserHandler, Remote {
         if(message.equals("write") || message.equals("wait")){
             return;
         }
-        ServerImpl.getServer().RMIMessageToUser(message, user);
+        if(message.equals("quit")){
+            ServerImpl.getServer().RMIQuitter(user);
+        }
+        else {
+            ServerImpl.getServer().RMIMessageToUser(message, user);
+        }
     }
 
     @Override

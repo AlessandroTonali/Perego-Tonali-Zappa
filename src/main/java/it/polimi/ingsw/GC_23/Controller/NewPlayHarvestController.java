@@ -5,6 +5,7 @@ import it.polimi.ingsw.GC_23.Effects.AbsEffect;
 import it.polimi.ingsw.GC_23.FamilyMember;
 import it.polimi.ingsw.GC_23.Spaces.HarvestSpace;
 
+import java.io.IOException;
 import java.util.ArrayList;
 
 /**
@@ -15,7 +16,7 @@ public class NewPlayHarvestController implements Controller {
     private FamilyMember familyMember;
     private HarvestSpace harvestSpace;
 
-    public NewPlayHarvestController(FamilyMember familyMember, HarvestSpace harvestSpace) {
+    public NewPlayHarvestController(FamilyMember familyMember, HarvestSpace harvestSpace) throws IOException {
         this.familyMember = familyMember;
         this.harvestSpace = harvestSpace;
 
@@ -40,7 +41,7 @@ public class NewPlayHarvestController implements Controller {
     }
 
     @Override
-    public void makeAction() {
+    public void makeAction() throws IOException {
         familyMember.getPlayer().getBonusTile().getHarvestEffect().activeEffect(familyMember.getPlayer());
         ArrayList<BuildingCard> buildingCards = familyMember.getPlayer().getCardOfPlayer().getBuildingCards();
         for (int i = 0; i < buildingCards.size(); i++) {

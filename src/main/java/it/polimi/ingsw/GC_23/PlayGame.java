@@ -121,7 +121,7 @@ public class PlayGame {
 
     }
 
-    private void checkEndGame() {
+    private void checkEndGame() throws IOException {
         for (Player p : players) {
             //assegna punti territory cards
             switch (p.getCardOfPlayer().getTerritoryCards().size()) {
@@ -166,26 +166,41 @@ public class PlayGame {
 
         //assegno victory points in base all'ordine militare
         ArrayList<Player> order = makeMilitaryOrder();
-        if (order.get(0).getResources().getMilitaryPoints() == order.get(1).getResources().getMilitaryPoints()) {
-            order.get(0).getResources().getVictoryPointsObj().add(5);
-            order.get(1).getResources().getVictoryPointsObj().add(5);
-            order.get(2).getResources().getVictoryPointsObj().add(2);
+        if(players.size() == 2) {
+                if(order.get(0).getResources().getMilitaryPoints() == order.get(1).getResources().getMilitaryPoints()) {
+                    order.get(0).getResources().getVictoryPointsObj().add(5);
+                    order.get(1).getResources().getVictoryPointsObj().add(5);
+                }
+                else {
+                    order.get(0).getResources().getVictoryPointsObj().add(5);
+                    order.get(1).getResources().getVictoryPointsObj().add(2);
+                }
+
+
+
         }
-        else if (order.get(1).getResources().getMilitaryPoints() == order.get(2).getResources().getMilitaryPoints()) {
-            order.get(0).getResources().getVictoryPointsObj().add(5);
-            order.get(1).getResources().getVictoryPointsObj().add(2);
-            order.get(2).getResources().getVictoryPointsObj().add(2);
-        } else {
-            order.get(0).getResources().getVictoryPointsObj().add(5);
-            order.get(1).getResources().getVictoryPointsObj().add(2);
+        else {
+            if (order.get(0).getResources().getMilitaryPoints() == order.get(1).getResources().getMilitaryPoints()) {
+                order.get(0).getResources().getVictoryPointsObj().add(5);
+                order.get(1).getResources().getVictoryPointsObj().add(5);
+                order.get(2).getResources().getVictoryPointsObj().add(2);
+            } else if (order.get(1).getResources().getMilitaryPoints() == order.get(2).getResources().getMilitaryPoints()) {
+                order.get(0).getResources().getVictoryPointsObj().add(5);
+                order.get(1).getResources().getVictoryPointsObj().add(2);
+                order.get(2).getResources().getVictoryPointsObj().add(2);
+            } else {
+                order.get(0).getResources().getVictoryPointsObj().add(5);
+                order.get(1).getResources().getVictoryPointsObj().add(2);
+            }
+
+            //assegna victorypoints in base alle risorse
+            for (Player p : players) {
+                int sum = (p.getResources().getGold() + p.getResources().getStone() + p.getResources().getWood() + p.getResources().getServants());
+                double number = sum / 5;
+                p.getResources().getVictoryPointsObj().add((int) number);
+            }
         }
 
-        //assegna victorypoints in base alle risorse
-        for(Player p : players){
-            int sum= (p.getResources().getGold()+p.getResources().getStone()+p.getResources().getWood()+p.getResources().getServants());
-            double number = sum/5;
-            p.getResources().getVictoryPointsObj().add((int)number);
-        }
     }
 
     private void getWinner() throws RemoteException {

@@ -12,6 +12,7 @@ import java.rmi.RemoteException;
  */
 public interface User extends Remote{
 
+    void setYourTurn(boolean yourTurn) throws RemoteException;
     void printer(String string) throws RemoteException;
     String reader() throws IOException;
 

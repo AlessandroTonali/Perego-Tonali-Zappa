@@ -87,7 +87,15 @@ public class UserImpl extends  UnicastRemoteObject implements User,Remote{
                 outVideo.println("0 --> RMI");
                 outVideo.println("1 --> SOCKET");
                 String connection = inKeyboard.readLine();
-                switch (Integer.parseInt(connection)) {
+                int i = 3;
+                try {
+                    i = Integer.parseInt(connection);
+
+                } catch (NumberFormatException e) {
+                    System.out.println("Invalid format");
+                    selectConnection();
+                }
+                switch (i) {
                     case 0:
                         outVideo.println("Connection Selected");
                         selected =true;
@@ -134,6 +142,10 @@ public class UserImpl extends  UnicastRemoteObject implements User,Remote{
         socketConnection = false;
     }
 
+    public void setYourTurn(boolean yourTurn) throws RemoteException {
+        isYourTurn = yourTurn;
+    }
+
     private void play() throws IOException{
         while (true) {
             String actualString = inScanner.nextLine();
@@ -159,6 +171,7 @@ public class UserImpl extends  UnicastRemoteObject implements User,Remote{
                 break;
             }
         }
+
     }
 
 

@@ -4,6 +4,8 @@ import it.polimi.ingsw.GC_23.Board;
 import it.polimi.ingsw.GC_23.FamilyMember;
 import it.polimi.ingsw.GC_23.Spaces.HarvestSpace;
 
+import java.io.IOException;
+
 /**
  * Created by jesss on 23/05/17.
  */
@@ -11,7 +13,7 @@ public class HarvestController extends PlaceFamilyMember {
     private FamilyMember familyMember;
     private HarvestSpace harvestSpace;
 
-    public HarvestController(FamilyMember familyMember, HarvestSpace harvestSpace) {
+    public HarvestController(FamilyMember familyMember, HarvestSpace harvestSpace) throws IOException {
         this.familyMember = familyMember;
         this.harvestSpace = harvestSpace;
         if( hasSense()) {
@@ -20,7 +22,7 @@ public class HarvestController extends PlaceFamilyMember {
             }
             else{
                 System.out.println("NON VALID MOVE TRY ANOTHER ONE!");
-                familyMember.getPlayer().chooseMove(familyMember.getPlayer().getView());
+                familyMember.getPlayer().chooseMove(familyMember.getPlayer().getView(),1);
             }
         }
     }

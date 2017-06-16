@@ -12,5 +12,6 @@ public interface Server extends Remote {
     ArrayList<Match> getMatches() throws RemoteException;
     void join(User user) throws RemoteException;
     void RMIMessageToUser(String string, User user) throws RemoteException;
+    void RMIQuitter( User user) throws RemoteException;
     String RMIMessageFromUser(User user) throws IOException, RemoteException;
 }

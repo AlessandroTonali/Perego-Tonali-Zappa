@@ -7,6 +7,7 @@ import it.polimi.ingsw.GC_23.SingleCost;
 import it.polimi.ingsw.GC_23.Spaces.Tower;
 import it.polimi.ingsw.GC_23.Spaces.TowerSpace;
 
+import java.io.IOException;
 import java.util.ArrayList;
 
 /**
@@ -25,7 +26,7 @@ public class OtherCardsController extends TowerController {
         return false;
     }
 
-    public OtherCardsController(FamilyMember familyMember, Tower tower) {
+    public OtherCardsController(FamilyMember familyMember, Tower tower) throws IOException {
         super(familyMember, tower);
         SingleCost cost = super.getTowerSpace().getCard().getCost(familyMember.getPlayer());
         if (isLegal(cost)) {
@@ -33,11 +34,11 @@ public class OtherCardsController extends TowerController {
             System.out.println("success");
         } else {
             System.out.println("error");
-            familyMember.getPlayer().chooseMove(familyMember.getPlayer().getView());
+            familyMember.getPlayer().chooseMove(familyMember.getPlayer().getView(),1);
         }
     }
 
-    public OtherCardsController(FamilyMember familyMember, Tower tower, TowerSpace towerSpace) {
+    public OtherCardsController(FamilyMember familyMember, Tower tower, TowerSpace towerSpace) throws IOException {
         super(familyMember, tower, towerSpace);
 
         super.getTowerSpace().getCard().getCost(familyMember.getPlayer());
@@ -71,7 +72,7 @@ public class OtherCardsController extends TowerController {
         return legal;
     }
 
-    public void makeAction(SingleCost cost) {
+    public void makeAction(SingleCost cost) throws IOException {
         super.getFamilyMember().getPlayer().getResources().pay(cost.getResources());
         ArrayList<AbsEffect> effects = super.getTowerSpace().getCard().getImmediateEffect();
         for(AbsEffect i : effects){

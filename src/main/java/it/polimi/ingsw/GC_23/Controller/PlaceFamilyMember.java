@@ -4,6 +4,9 @@ import it.polimi.ingsw.GC_23.FamilyMember;
 import it.polimi.ingsw.GC_23.Player;
 import it.polimi.ingsw.GC_23.Spaces.ActionSpace;
 
+import java.io.IOException;
+import java.rmi.RemoteException;
+
 /**
  * Created by jesss on 23/05/17.
  */
@@ -26,6 +29,6 @@ public abstract class PlaceFamilyMember implements Controller {
     public abstract boolean isLegal();
 
     @Override
-    public abstract void makeAction();
+    public abstract void makeAction() throws IOException;
 
 }

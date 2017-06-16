@@ -65,11 +65,18 @@ public class ServerImpl extends UnicastRemoteObject implements Server{
         getExecutor().submit((RMIHandler) userHandler);
     }
 
+    public void RMIQuitter(User user) throws RemoteException {
+        user.setYourTurn(true);
+    }
+
     public void RMIMessageToUser(String string, User user) throws RemoteException{
-        try {
-            user.printer(string);
-        } catch (IOException e) {
-            e.printStackTrace();
+
+
+            try {
+                user.printer(string);
+            } catch (IOException e) {
+                e.printStackTrace();
+
         }
     }
 

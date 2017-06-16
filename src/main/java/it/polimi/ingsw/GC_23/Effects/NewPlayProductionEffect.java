@@ -6,6 +6,8 @@ import it.polimi.ingsw.GC_23.FamilyMember;
 import it.polimi.ingsw.GC_23.Player;
 import it.polimi.ingsw.GC_23.SingleCost;
 
+import java.io.IOException;
+
 /**
  * Created by Alessandro on 06/06/2017.
  */
@@ -17,7 +19,7 @@ public class NewPlayProductionEffect extends AbsEffect {
     }
 
     @Override
-    public void activeEffect(Player player) {
+    public void activeEffect(Player player) throws IOException {
         FamilyMember familyMember = new FamilyMember(player, FamilyColor.NEUTRAL, diceValue);
         new ProductionController(familyMember, player.getView().getProductionSpace());
     }

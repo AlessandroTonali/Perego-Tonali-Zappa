@@ -8,6 +8,7 @@ import it.polimi.ingsw.GC_23.SingleCost;
 import it.polimi.ingsw.GC_23.Spaces.Tower;
 import it.polimi.ingsw.GC_23.Spaces.TowerSpace;
 
+import java.io.IOException;
 import java.util.ArrayList;
 
 /**
@@ -55,7 +56,7 @@ public class NewPlay implements Controller {
 
     //non setta il familyMember
     @Override
-    public void makeAction() {
+    public void makeAction() throws IOException {
         familyMember.getPlayer().getResources().pay(costCard.getResources());
         ArrayList<AbsEffect> effects = towerSpace.getCard().getImmediateEffect();
         for(AbsEffect i : effects){
