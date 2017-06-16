@@ -4,6 +4,7 @@ import it.polimi.ingsw.GC_23.Cards.*;
 import it.polimi.ingsw.GC_23.Connection.UserHandler;
 import it.polimi.ingsw.GC_23.Controller.*;
 import it.polimi.ingsw.GC_23.Effects.BenefitsEffect;
+import it.polimi.ingsw.GC_23.Effects.PermanentEffect;
 import it.polimi.ingsw.GC_23.Enumerations.PlayerColor;
 import it.polimi.ingsw.GC_23.Resources.ResourcesSet;
 import it.polimi.ingsw.GC_23.Spaces.*;
@@ -26,16 +27,17 @@ public class Player implements Serializable {
     private CardOfPlayer cardOfPlayer;
     private BonusTile bonusTile;
     private FamilyMember[] familyMembers;
-    //private PermanentEffect permanentEffect;
     private Scanner scan;
     private UserHandler userHandler;
+    private ArrayList<PermanentEffect> permanentEffects;
 
     public Player(PlayerColor playerColor, BonusTile bonusTile) {
         this.playerColor = playerColor;
         this.bonusTile = bonusTile;
         this.cardOfPlayer = new CardOfPlayer();
         this.scan = new Scanner(System.in);
-        // permanent effect ancora non lo dobbiamo fare
+        permanentEffects = new ArrayList<>();
+        //permanent effect ancora non lo dobbiamo fare
     }
 
     public void setBonusTile(BonusTile bonusTile) {
@@ -70,10 +72,6 @@ public class Player implements Serializable {
         return familyMembers;
     }
 
-    /*public PermanentEffect getPermanentEffect() {
-        return permanentEffect;
-    }*/
-
     public void setCardOfPlayer(CardOfPlayer cardOfPlayer) {
         this.cardOfPlayer = cardOfPlayer;
     }
@@ -86,7 +84,94 @@ public class Player implements Serializable {
         this.playerColor = playerColor;
     }
 
+    public void chooseMove(Board board) {
+        //momentaneo
+        this.view = board;
+        System.out.println("press 0 for placing a familiar in council\n" +
+                "press 1 for getting the harvest\n" +
+                "press 2 for getting production\n" +
+                "press 3 for increasing your familiar value\n" +
+                "press 4 for for going in the market\n" +
+                "press 5 for going in the territory tower\n" +
+                "press 6 for going in the character tower\n" +
+                "press 7 for going in the building tower\n" +
+                "press 8 for going in the venture tower\n" +
+                "press 9 for watching the board\n" +
+                "press 10 for watching your resources\n" +
+                "press 11 to skip");
+        Scanner scan = new Scanner(System.in);
+        String sw = scan.nextLine();
 
+        int i;
+        try {
+            i = Integer.parseInt(sw);
+
+        } catch (NumberFormatException e) {
+            System.out.println("Invalid format");
+            i = -1;
+
+        }
+        switch (i) {
+            case -1:
+                chooseMove(view);
+                break;
+            case 0:
+                new CouncilController(board.getCouncilSpace(), chooseFamilyMember());
+                break;
+            case 1:
+                new HarvestController(chooseFamilyMember(), board.getHarvestSpace());
+                break;
+            case 2:
+                new ProductionController(chooseFamilyMember(),  board.getProductionSpace());
+                break;
+            case 3:
+                System.out.println("Insert number of servants that you want to use:");
+                String servants = this.getNextLine();
+                int j = -1;
+                try {
+                    j = Integer.parseInt(servants);
+
+                } catch (NumberFormatException e) {
+                    System.out.println("Invalid format");
+                    chooseMove(board);
+
+                }
+
+                new IncreaseFamilyValue( j , chooseFamilyMember());
+                break;
+            case 4:
+                new MarketController(chooseFamilyMember(), board.getMarketSpaces());
+                break;
+            case 5:
+                new TerritoryController(chooseFamilyMember(), board.getTower(0));
+                break;
+            case 6:
+                new OtherCardsController(chooseFamilyMember(), board.chooseTower(this));
+                break;
+            case 7:
+                new OtherCardsController(chooseFamilyMember(), board.getTower(2));
+                break;
+            case 8:
+                new OtherCardsController(chooseFamilyMember(), board.getTower(3));
+                break;
+            case 9:
+                System.out.println(view.toString());
+                chooseMove(view);
+                break;
+            case 10:
+                System.out.println(this.resources.toString());
+                chooseMove(view);
+                break;
+            case 11:
+                break;
+            default:
+                System.out.println("wrong number selected, try again");
+                chooseMove(view);
+
+
+        }
+        return;
+    }
 
     public void chooseMove(Board board, int value) throws IOException {
         //momentaneo
@@ -274,6 +359,10 @@ public class Player implements Serializable {
 
     public void setUserHandler(UserHandler userHandler) {
         this.userHandler = userHandler;
+    }
+
+    public ArrayList<PermanentEffect> getPermanentEffects() {
+        return permanentEffects;
     }
 }
 

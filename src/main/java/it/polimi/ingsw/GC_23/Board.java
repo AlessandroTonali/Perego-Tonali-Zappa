@@ -5,6 +5,7 @@ import it.polimi.ingsw.GC_23.Cards.CharacterCard;
 import it.polimi.ingsw.GC_23.Cards.TerritoryCard;
 import it.polimi.ingsw.GC_23.Cards.VentureCard;
 import it.polimi.ingsw.GC_23.Effects.BenefitsEffect;
+import it.polimi.ingsw.GC_23.Enumerations.CardColor;
 import it.polimi.ingsw.GC_23.Enumerations.DiceColor;
 import it.polimi.ingsw.GC_23.Resources.ResourcesSet;
 import it.polimi.ingsw.GC_23.Spaces.*;
@@ -273,10 +274,10 @@ public class Board {
         buildingSpaces[2] = building3;
         buildingSpaces[3] = building4;
 
-        Tower terrytoryTower = new Tower(terrytorySpaces);
-        Tower buildingTower = new Tower(buildingSpaces);
-        Tower ventureTower = new Tower(ventureSpaces);
-        Tower characterTower = new Tower(charchterSpaces);
+        Tower terrytoryTower = new Tower(terrytorySpaces, CardColor.GREEN);
+        Tower buildingTower = new Tower(buildingSpaces, CardColor.YELLOW);
+        Tower ventureTower = new Tower(ventureSpaces, CardColor.PURPLE);
+        Tower characterTower = new Tower(charchterSpaces, CardColor.BLUE);
 
         Tower[] towers = new Tower[4];
 

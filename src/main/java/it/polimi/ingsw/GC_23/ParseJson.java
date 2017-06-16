@@ -231,14 +231,47 @@ public class ParseJson {
         JSONArray newPlayProductionEffects = rootObject.getJSONArray("NewPlayProductionEffect");
         parseNewPlayProductionEffect(newPlayProductionEffects);
 
-        JSONArray newPlayHarvestEffects = rootObject.getJSONArray("NewPlayProductionEffect");
+        JSONArray newPlayHarvestEffects = rootObject.getJSONArray("NewPlayHarvestEffect");
         parseNewPlayHarvestEffect(newPlayHarvestEffects);
-        
+
+        JSONArray plusTowerEffects = rootObject.getJSONArray("PlusTowerEffect");
+        parsePlusTowerEffect(plusTowerEffects);
+
+        JSONArray plusProductionEffects = rootObject.getJSONArray("PlusProductionEffect");
+        parsePlusProductionEffect(plusProductionEffects);
+
+        JSONArray plusHarvestEffects = rootObject.getJSONArray("PlusHarvestEffect");
+        parsePlusHarvestEffect(plusHarvestEffects);
 
 
 
         JSONArray productEffects = rootObject.getJSONArray("ProductEffect");
         parseProductEffect(productEffects);
+    }
+
+    private void parsePlusHarvestEffect(JSONArray plusHarvestEffects) {
+        //TODO
+    }
+
+    private void parsePlusProductionEffect(JSONArray plusProductionEffects) {
+        //TODO
+    }
+
+    private void parsePlusTowerEffect(JSONArray plusTowerEffects) {
+        for (int i = 0; i < plusTowerEffects.length(); i++) {
+            int idEffect = plusTowerEffects.getJSONObject(i).getInt("id");
+            CardColor cardColor = Util.parseCardColor(plusTowerEffects.getJSONObject(i).getString("card_color"));
+            int plusDiceValue = plusTowerEffects.getJSONObject(i).getInt("plus_dice_value");
+            ArrayList<SingleCost> sales = new ArrayList<>();
+            if (plusTowerEffects.getJSONObject(i).has("sale")) {
+                JSONArray salesJsonArray = plusTowerEffects.getJSONObject(i).getJSONArray("sale");
+                for (int j = 0; j < salesJsonArray.length(); j++) {
+                    sales.add(parseCost(salesJsonArray.getJSONObject(j)));
+                }
+            }
+            PlusTowerEffect plusTowerEffect = new PlusTowerEffect(cardColor, plusDiceValue, sales);
+            effectMap.put(idEffect, plusTowerEffect);
+        }
     }
 
     private void parseNewPlayHarvestEffect(JSONArray newPlayHarvestEffects) {
@@ -510,5 +543,10 @@ public class ParseJson {
         absEffects[2] = effectMap.get(53);
         absEffects[3] = effectMap.get(54);
         return absEffects;
+    }
+
+    // METODO PER TESTING
+    public PermanentEffect getPermanentEffect() {
+        return (PermanentEffect) effectMap.get(492);
     }
 }

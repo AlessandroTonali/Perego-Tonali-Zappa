@@ -22,7 +22,9 @@ public abstract class TowerController extends PlaceFamilyMember {
     public TowerController(FamilyMember familyMember, Tower tower) {
         this.familyMember = familyMember;
         this.tower = tower;
+        tower.activePermanetEffect(familyMember);
         this.towerSpace = tower.chooseTowerSpace(this.familyMember.getPlayer());
+
     }
 
 

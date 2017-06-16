@@ -107,6 +107,7 @@
 		{"id": "482", "victoryPoint": "3"},
 		
 		{"id": "491", "militaryPoint": "3"},
+		{"id": "551", "faithPoint": "4"},
 		{"id": "5612", "faithPoint": "1"},
 		{"id": "5712", "militaryPoint": "2"},
 		{"id": "631", "faithPoint": "3"},
@@ -290,5 +291,19 @@
 		{"id": "681", "giving_product": [{"victoryPoint": "2"}], "card_color": "purple"},
 		{"id": "711", "giving_product": [{"victoryPoint": "1"}], "required_product": [{"militaryPoint": "2"}]}
 	
+	],
+	"PlusTowerEffect":[
+		{"id": "492", "card_color": "green", "plus_dice_value": "2"},
+		{"id": "502", "card_color": "yellow", "plus_dice_value": "2", "sale": [{"wood": "-1"}, {"stone": "-1"}]},
+		{"id": "512", "card_color": "blue", "plus_dice_value": "2", "sale": [{"coin": "-1"}]},
+		{"id": "522", "card_color": "purple", "plus_dice_value": "2"}
+	],
+	"PlusHarvestEffect": [
+		{"id": "532", "plus_dice_value": "2"},
+		{"id": "612", "plus_dice_value": "3"}
+	],
+	"PlusProductionEffect": [
+		{"id": "542", "plus_dice_value": "2"},
+		{"id": "622", "plus_dice_value": "3"}
 	]
 }

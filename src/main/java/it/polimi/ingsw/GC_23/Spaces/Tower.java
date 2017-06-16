@@ -2,10 +2,16 @@ package it.polimi.ingsw.GC_23.Spaces;
 
 import it.polimi.ingsw.GC_23.Cards.Card;
 import it.polimi.ingsw.GC_23.Cards.TerritoryCard;
+import it.polimi.ingsw.GC_23.Effects.AbsEffect;
+import it.polimi.ingsw.GC_23.Effects.PermanentEffect;
+import it.polimi.ingsw.GC_23.Effects.PlusTowerEffect;
+import it.polimi.ingsw.GC_23.Enumerations.CardColor;
 import it.polimi.ingsw.GC_23.Enumerations.FamilyColor;
 import it.polimi.ingsw.GC_23.FamilyMember;
 import it.polimi.ingsw.GC_23.Player;
 import it.polimi.ingsw.GC_23.Spaces.TowerSpace;
+
+import java.util.ArrayList;
 
 /**
  * Created by Alessandro Tonali on 20/05/2017.
@@ -13,6 +19,7 @@ import it.polimi.ingsw.GC_23.Spaces.TowerSpace;
 public class Tower {
     private int DIM=3;
     private TowerSpace[] spaces = new TowerSpace[DIM];
+    private CardColor towerColor;
 
     public TowerSpace[] getSpaces() {
         return spaces;
@@ -30,8 +37,9 @@ public class Tower {
         this.spaces = spaces;
     }
 
-    public Tower(TowerSpace[] spaces) {
+    public Tower(TowerSpace[] spaces, CardColor towerColor) {
         this.spaces = spaces;
+        this.towerColor = towerColor;
     }
 
 
@@ -97,5 +105,21 @@ public class Tower {
         return String.valueOf(stringBuilder);
     }
 
+    public void activePermanetEffect(FamilyMember familyMember) {
+        ArrayList<PermanentEffect> permanentEffects = familyMember.getPlayer().getPermanentEffects();
+        for (int i = 0; i < permanentEffects.size(); i++) {
+            if (permanentEffects.get(i) instanceof PlusTowerEffect) {
+                if (((PlusTowerEffect) permanentEffects.get(i)).getTowerColor() == towerColor) {
+                    int plusDice = ((PlusTowerEffect) permanentEffects.get(i)).getPlusDiceValue();
+                    familyMember.setValue(familyMember.getValue() + plusDice);
+                    System.out.println("Your family member value is increased to: " +familyMember.getValue());
+                }
+            }
+        }
+    }
+
+    public CardColor getTowerColor() {
+        return towerColor;
+    }
 }
 

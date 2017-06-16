@@ -1,6 +1,7 @@
 package it.polimi.ingsw.GC_23;
 
 import it.polimi.ingsw.GC_23.Cards.Card;
+import it.polimi.ingsw.GC_23.Enumerations.CardColor;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -44,5 +45,23 @@ public class Util {
         }
 
         return cardsShuffeled;
+    }
+
+    public static CardColor parseCardColor(String cardColorString) {
+        CardColor cardColor = null;
+        if (cardColorString.equals("green")) {
+            cardColor = CardColor.GREEN;
+        }
+        if (cardColorString.equals("yellow")) {
+            cardColor = CardColor.YELLOW;
+        }
+        if (cardColorString.equals("blue")) {
+            cardColor = CardColor.BLUE;
+        }
+        if (cardColorString.equals("purple")) {
+            cardColor = CardColor.PURPLE;
+        }
+
+        return cardColor;
     }
 }
