@@ -4,6 +4,7 @@ import it.polimi.ingsw.GC_23.Cards.*;
 import it.polimi.ingsw.GC_23.Connection.UserHandler;
 import it.polimi.ingsw.GC_23.Controller.*;
 import it.polimi.ingsw.GC_23.Effects.BenefitsEffect;
+import it.polimi.ingsw.GC_23.Effects.PermanentEffect;
 import it.polimi.ingsw.GC_23.Enumerations.PlayerColor;
 import it.polimi.ingsw.GC_23.Resources.ResourcesSet;
 import it.polimi.ingsw.GC_23.Spaces.*;
@@ -26,15 +27,16 @@ public class Player implements Serializable {
     private CardOfPlayer cardOfPlayer;
     private BonusTile bonusTile;
     private FamilyMember[] familyMembers;
-    private PermanentEffect permanentEffect;
     private Scanner scan;
     private UserHandler userHandler;
+    private ArrayList<PermanentEffect> permanentEffects;
 
     public Player(PlayerColor playerColor, BonusTile bonusTile) {
         this.playerColor = playerColor;
         this.bonusTile = bonusTile;
         this.cardOfPlayer = new CardOfPlayer();
         this.scan = new Scanner(System.in);
+        permanentEffects = new ArrayList<>();
         //permanent effect ancora non lo dobbiamo fare
     }
 
@@ -68,10 +70,6 @@ public class Player implements Serializable {
 
     public FamilyMember[] getFamilyMembers() {
         return familyMembers;
-    }
-
-    public PermanentEffect getPermanentEffect() {
-        return permanentEffect;
     }
 
     public void setCardOfPlayer(CardOfPlayer cardOfPlayer) {
@@ -361,6 +359,10 @@ public class Player implements Serializable {
 
     public void setUserHandler(UserHandler userHandler) {
         this.userHandler = userHandler;
+    }
+
+    public ArrayList<PermanentEffect> getPermanentEffects() {
+        return permanentEffects;
     }
 }
 

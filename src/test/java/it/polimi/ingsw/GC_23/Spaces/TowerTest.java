@@ -1,5 +1,6 @@
 package it.polimi.ingsw.GC_23.Spaces;
 
+import it.polimi.ingsw.GC_23.Enumerations.CardColor;
 import it.polimi.ingsw.GC_23.Enumerations.FamilyColor;
 import it.polimi.ingsw.GC_23.FamilyMember;
 import it.polimi.ingsw.GC_23.Player;
@@ -50,7 +51,7 @@ public class TowerTest {
         towerSpaces[1] = towerSpace2;
         towerSpaces[2] = towerSpace3;
         towerSpaces[3] = towerSpace4;
-        Tower tower = new Tower(towerSpaces);
+        Tower tower = new Tower(towerSpaces, CardColor.GREEN);
         towerSpace1.setFamilyMember(familyMember1);
         towerSpace2.setFamilyMember(familyMember2);
         assertEquals(false, tower.checkFamiliarTower(familyMember3));
@@ -71,7 +72,7 @@ public class TowerTest {
         TowerSpace[] towerSpaces = new TowerSpace[2];
         towerSpaces[0] = towerSpace1;
         towerSpaces[1] = towerSpace2;
-        Tower tower = new Tower(towerSpaces);
+        Tower tower = new Tower(towerSpaces, CardColor.YELLOW);
         assertEquals(false, tower.checkOtherFamiliar());
         towerSpace1.setFamilyMember(familyMember1);
         assertEquals(true, tower.checkOtherFamiliar());
