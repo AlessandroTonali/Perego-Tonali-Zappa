@@ -23,7 +23,7 @@ import java.util.stream.Stream;
 /**
  * Created by jesss on 03/06/17.
  */
-public class ServerImpl extends UnicastRemoteObject implements Server{
+public class ServerImpl extends UnicastRemoteObject implements Server {
     private static ServerImpl server;
     private static ArrayList<Match> matches;
     private static ArrayList<UserHandler> userHandlers;
@@ -37,13 +37,13 @@ public class ServerImpl extends UnicastRemoteObject implements Server{
     }
 
     public static ServerImpl getServer() throws RemoteException {
-        if(server == null){
+        if (server == null) {
             server = new ServerImpl();
         }
         return server;
     }
 
-    public  ServerSocket getServerSocket() {
+    public ServerSocket getServerSocket() {
         return serverSocket;
     }
 
@@ -69,22 +69,22 @@ public class ServerImpl extends UnicastRemoteObject implements Server{
         user.setYourTurn(true);
     }
 
-    public void RMIMessageToUser(String string, User user) throws RemoteException{
+    public void RMIMessageToUser(String string, User user) throws RemoteException {
 
 
-            try {
-                user.printer(string);
-            } catch (IOException e) {
-                e.printStackTrace();
+        try {
+            user.printer(string);
+        } catch (IOException e) {
+            e.printStackTrace();
 
         }
     }
 
-    public String RMIMessageFromUser(User user) throws IOException, RemoteException{
+    public String RMIMessageFromUser(User user) throws IOException, RemoteException {
         return user.reader();
     }
 
-    public static void main(String[] args) throws RemoteException , Exception{
+    public static void main(String[] args) throws RemoteException, Exception {
         ServerImpl server = getServer();
         executor = Executors.newCachedThreadPool();
 
@@ -98,57 +98,34 @@ public class ServerImpl extends UnicastRemoteObject implements Server{
         serverSocket = new ServerSocket(29999);
         System.out.println("Server Socket is ready");
 
-            try {
-                SocketAccepter socketAccepter = new SocketAccepter();
-                executor.submit(socketAccepter);
-            } catch (Exception ex) {
-                logger.setLevel(Level.SEVERE);
-                logger.severe(String.valueOf(ex));
-            }
-            while (true){
-                Thread.sleep(10000);
-
-            }
+        try {
+            SocketAccepter socketAccepter = new SocketAccepter();
+            executor.submit(socketAccepter);
+        } catch (Exception ex) {
+            logger.setLevel(Level.SEVERE);
+            logger.severe(String.valueOf(ex));
         }
+        while (true) {
+            Thread.sleep(10000);
 
-    public void addToMatch(UserHandler userHandler) throws RemoteException
-    {
-        if(matches.size() != 0 && matches.get(matches.size()-1).getPlayerCounter()<2) {
+        }
+    }
+
+    public void addToMatch(UserHandler userHandler) throws RemoteException {
+        if (matches.size() != 0 && matches.get(matches.size() - 1).getPlayerCounter() < 4) {
+            if (matches.get(matches.size() - 1).getPlayerCounter() == 1) {
+                executor.submit(new MatchTimeOut(matches.get(matches.size() - 1)));
+            }
             matches.get(matches.size() - 1).setUserHandler(userHandler);
-            if(matches.get(matches.size()-1).getPlayerCounter() == 2){
-                matches.get(matches.size()-1).setStartMatch(true);
+            if (matches.get(matches.size() - 1).getPlayerCounter() == 4) {
+                matches.get(matches.size() - 1).setStartMatch(true);
                 System.out.println("Match is started");
             }
-        }
-        else{
+        } else {
             Match match = new Match();
             server.getMatches().add(match);
             matches.get(matches.size() - 1).setUserHandler(userHandler);
             getExecutor().submit(match);
         }
     }
-
-    /*public void timeout() throws InterruptedException, ExecutionException{
-            ExecutorService executor = Executors.newSingleThreadExecutor();
-            Future<String> future = executor.submit(new Task());
-
-            try {
-                System.out.println("Started..");
-                System.out.println(future.get(3, TimeUnit.SECONDS));
-                System.out.println("Finished!");
-            } catch (TimeoutException e) {
-                future.cancel(true);
-                System.out.println("Terminated!");
-            }
-
-            executor.shutdownNow();
-        }*/
 }
-
-/*class Task implements Callable<String> {
-    @Override
-    public String call() throws Exception {
-        Thread.sleep(1000);
-        return "Ready!";
-    }
-}*/

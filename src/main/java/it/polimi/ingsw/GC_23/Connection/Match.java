@@ -22,7 +22,6 @@ public class Match implements Runnable{
     private Board board;
     private boolean startMatch = false;
     private final Logger logger = Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
-
     public Match() {
         this.userHandlers = new ArrayList<>();
         this.playerController = new PlayerController();
@@ -36,7 +35,8 @@ public class Match implements Runnable{
             try {
                 Thread.sleep(1000);
             } catch (InterruptedException e) {
-                e.printStackTrace();
+                logger.setLevel(Level.SEVERE);
+                logger.severe(String.valueOf(e));
             }
         }
         try {
@@ -126,6 +126,5 @@ public class Match implements Runnable{
             logger.severe(String.valueOf(e));
         }
     }
-
 
 }
