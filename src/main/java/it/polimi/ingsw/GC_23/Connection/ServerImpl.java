@@ -99,6 +99,7 @@ public class ServerImpl extends UnicastRemoteObject implements Server{
                 logger.severe(String.valueOf(ex));
             }
             while (true){
+                Thread.sleep(10000);
 
             }
         }

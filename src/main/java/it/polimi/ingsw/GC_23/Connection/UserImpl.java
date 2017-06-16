@@ -66,6 +66,7 @@ public class UserImpl extends  UnicastRemoteObject implements User,Remote{
             }
             else{
                 while (!isYourTurn) {
+                    Thread.sleep(10000);
 
                 }
                 isYourTurn = false;

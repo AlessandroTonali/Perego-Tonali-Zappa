@@ -33,6 +33,11 @@ public class Match implements Runnable{
     public void run(){
         System.out.println("Match runned");
         while(!startMatch) {
+            try {
+                Thread.sleep(1000);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
         }
         try {
             System.out.println("Match started");

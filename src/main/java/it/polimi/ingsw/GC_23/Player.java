@@ -35,7 +35,7 @@ public class Player implements Serializable {
         this.bonusTile = bonusTile;
         this.cardOfPlayer = new CardOfPlayer();
         this.scan = new Scanner(System.in);
-        // permanent effect ancora non lo dobbiamo fare
+        //permanent effect ancora non lo dobbiamo fare
     }
 
     public void setBonusTile(BonusTile bonusTile) {

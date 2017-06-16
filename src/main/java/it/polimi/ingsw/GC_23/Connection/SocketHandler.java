@@ -39,6 +39,8 @@ public class SocketHandler implements Runnable,UserHandler{
     public void run() {
         try{
             while (!endMatch){
+                Thread.sleep(10000);
+
             }
         }catch (Exception e){
             logger.setLevel(Level.SEVERE);

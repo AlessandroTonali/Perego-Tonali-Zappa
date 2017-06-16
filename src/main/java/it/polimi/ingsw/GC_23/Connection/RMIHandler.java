@@ -64,6 +64,8 @@ public class RMIHandler implements Runnable, UserHandler, Remote {
     public void run() {
         try{
             while (!endMatch){
+                Thread.sleep(10000);
+
             }
         }catch (Exception e){
             logger.setLevel(Level.SEVERE);
