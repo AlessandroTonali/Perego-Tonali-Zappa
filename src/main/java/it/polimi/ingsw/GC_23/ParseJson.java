@@ -1,6 +1,5 @@
 package it.polimi.ingsw.GC_23;
 
-import com.sun.org.apache.bcel.internal.generic.NEW;
 import it.polimi.ingsw.GC_23.Cards.*;
 import it.polimi.ingsw.GC_23.Effects.*;
 import it.polimi.ingsw.GC_23.Enumerations.CardColor;
@@ -11,9 +10,7 @@ import org.json.JSONObject;
 
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.rmi.server.UnicastRemoteObject;
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.HashMap;
 import java.util.Scanner;
 import java.util.logging.Level;
@@ -47,7 +44,9 @@ public class ParseJson {
     }
 
     private ParseJson() {
-        parseEffect();
+        effectMap = new HashMap<Integer,AbsEffect>();
+        parseImmediateEffect();
+        parsePermanentEffect();
         parseCard();
 
 
@@ -69,7 +68,7 @@ public class ParseJson {
     private void parseCard() {
         String jsonContent = null;
         try {
-            Scanner scanner = new Scanner(new File("Cards.txt"));
+            Scanner scanner = new Scanner(new File("Cards.json"));
             jsonContent = scanner.useDelimiter("\\Z").next();
             scanner.close();
         } catch (FileNotFoundException e) {
@@ -92,10 +91,11 @@ public class ParseJson {
             }
 
             JSONArray immediateEffectsJson = ventureCards.getJSONObject(x).getJSONArray("immediateEffect");
-            ArrayList<AbsEffect> immediateEffect = parseImmediateEffect(immediateEffectsJson);
+            ArrayList<AbsEffect> immediateEffect = parsingEffect(immediateEffectsJson);
 
             JSONArray permanentEffectsJson = ventureCards.getJSONObject(x).getJSONArray("permanentEffect");
-            ArrayList<AbsEffect> permanentEffect = parsePermanentEffect(permanentEffectsJson);
+            ArrayList<AbsEffect> permanentEffects = parsingEffect(permanentEffectsJson);
+            EndGameEffect permanentEffect = new EndGameEffect(permanentEffects);
 
 
             VentureCard ventureCard = new VentureCard(period, CardColor.PURPLE, name, immediateEffect, permanentEffect, costs);
@@ -108,6 +108,10 @@ public class ParseJson {
         JSONArray buildingCards = rootObject.getJSONArray("BuildingCard");
         for (int x = 0; x < buildingCards.length(); x++) {
 
+            String name = buildingCards.getJSONObject(x).getString("name");
+            int period = buildingCards.getJSONObject(x).getInt("period");
+            int idCard = buildingCards.getJSONObject(x).getInt("id");
+
             JSONArray costsJson = buildingCards.getJSONObject(x).getJSONArray("cost");
             ArrayList<SingleCost> costs = new ArrayList<>();
             for (int i = 0; i < costsJson.length(); i++) {
@@ -115,16 +119,13 @@ public class ParseJson {
             }
 
             JSONArray immediateEffectsJson = buildingCards.getJSONObject(x).getJSONArray("immediateEffect");
-            ArrayList<AbsEffect> immediateEffect = parseImmediateEffect(immediateEffectsJson);
+            ArrayList<AbsEffect> immediateEffect = parsingEffect(immediateEffectsJson);
 
             JSONArray permanentEffectsJson = buildingCards.getJSONObject(x).getJSONArray("permanentEffect");
-            ArrayList<AbsEffect> permanentEffect = parsePermanentEffect(permanentEffectsJson);
+            ArrayList<AbsEffect> permanentEffects = parsingEffect(permanentEffectsJson);
+            ProductionEffect permanentEffect = (ProductionEffect) permanentEffects.get(0);
 
-            String name = buildingCards.getJSONObject(x).getString("name");
-            int period = buildingCards.getJSONObject(x).getInt("period");
-            int idCard = buildingCards.getJSONObject(x).getInt("id");
-            int productionValue = buildingCards.getJSONObject(x).getInt("production_value");
-            BuildingCard buildingCard = new BuildingCard(period, CardColor.YELLOW, name, immediateEffect, permanentEffect, costs, productionValue);
+            BuildingCard buildingCard = new BuildingCard(period, CardColor.YELLOW, name, immediateEffect, permanentEffect, costs);
             buildingCardMap.put(idCard,buildingCard);
             buildingCardArrayList.add(buildingCard);
 
@@ -136,13 +137,13 @@ public class ParseJson {
             String name = territoryCards.getJSONObject(i).getString("name");
             int idCard = territoryCards.getJSONObject(i).getInt("id");
             int period = territoryCards.getJSONObject(i).getInt("period");
-            int harvestValue = territoryCards.getJSONObject(i).getInt("harvest_value");
             JSONArray immediateEffectsJson = territoryCards.getJSONObject(i).getJSONArray("immediateEffect");
-            ArrayList<AbsEffect> immediateEffect = parseImmediateEffect(immediateEffectsJson);
+            ArrayList<AbsEffect> immediateEffect = parsingEffect(immediateEffectsJson);
             JSONArray permanentEffectsJson = territoryCards.getJSONObject(i).getJSONArray("permanentEffect");
-            ArrayList<AbsEffect> permanentEffect = parsePermanentEffect(permanentEffectsJson);
+            ArrayList<AbsEffect> permanentEffects = parsingEffect(permanentEffectsJson);
+            HarvestEffect permanentEffect = (HarvestEffect) permanentEffects.get(0);
 
-            TerritoryCard territoryCard = new TerritoryCard(period, CardColor.GREEN, name, immediateEffect,permanentEffect, harvestValue);
+            TerritoryCard territoryCard = new TerritoryCard(period, CardColor.GREEN, name, immediateEffect,permanentEffect);
             territoryCardMap.put(idCard,territoryCard);
             territoryCardArrayList.add(territoryCard);
         }
@@ -160,9 +161,10 @@ public class ParseJson {
             }
 
             JSONArray immediateEffectsJson = characterCards.getJSONObject(i).getJSONArray("immediateEffect");
-            ArrayList<AbsEffect> immediateEffect = parseImmediateEffect(immediateEffectsJson);
+            ArrayList<AbsEffect> immediateEffect = parsingEffect(immediateEffectsJson);
             JSONArray permanentEffectsJson = characterCards.getJSONObject(i).getJSONArray("permanentEffect");
-            ArrayList<AbsEffect> permanentEffect = parsePermanentEffect(permanentEffectsJson);
+            ArrayList<AbsEffect> permanentEffects = parsingEffect(permanentEffectsJson);
+            EndGameEffect permanentEffect = new EndGameEffect(permanentEffects);
 
             CharacterCard characterCard = new CharacterCard(period, CardColor.BLUE, name, immediateEffect, permanentEffect, costs);
             characterCardMap.put(idCard, characterCard);
@@ -172,33 +174,10 @@ public class ParseJson {
 
     }
 
-    private ArrayList<AbsEffect> parseImmediateEffect(JSONArray jsonArray) {
-        ArrayList<AbsEffect> arrayList = new ArrayList<>();
-        for (int y = 0; y < jsonArray.length() ; y++) {
-
-            int id = jsonArray.getJSONObject(y).getInt("effect");
-            arrayList.add(effectMap.get(id));
-        }
-
-        return arrayList;
-    }
-
-    private ArrayList<AbsEffect> parsePermanentEffect(JSONArray jsonArray) {
-        ArrayList<AbsEffect> arrayList = new ArrayList<>();
-        for (int y = 0; y < jsonArray.length() ; y++) {
-
-            int id = jsonArray.getJSONObject(y).getInt("effect");
-            arrayList.add(effectMap.get(id));
-        }
-
-        return arrayList;
-    }
-
-    private void parseEffect() {
+    private void parseImmediateEffect() {
         String jsonContent = null;
-        effectMap = new HashMap<Integer,AbsEffect>();
         try {
-            Scanner scanner = new Scanner(new File("Effect.txt"));
+            Scanner scanner = new Scanner(new File("ImmediateEffect.json"));
             jsonContent = scanner.useDelimiter("\\Z").next();
             scanner.close();
         } catch (FileNotFoundException e) {
@@ -234,6 +213,24 @@ public class ParseJson {
         JSONArray newPlayHarvestEffects = rootObject.getJSONArray("NewPlayHarvestEffect");
         parseNewPlayHarvestEffect(newPlayHarvestEffects);
 
+        JSONArray productEffects = rootObject.getJSONArray("ProductEffect");
+        parseProductEffect(productEffects);
+    }
+
+    private void parsePermanentEffect() {
+        String jsonContent = null;
+        try {
+            Scanner scanner = new Scanner(new File("PermanentEffect.json"));
+            jsonContent = scanner.useDelimiter("\\Z").next();
+            scanner.close();
+        } catch (FileNotFoundException e) {
+            logger.setLevel(Level.SEVERE);
+            logger.severe(String.valueOf(e));
+        }
+
+
+        JSONObject rootObject = new JSONObject(jsonContent);
+
         JSONArray plusTowerEffects = rootObject.getJSONArray("PlusTowerEffect");
         parsePlusTowerEffect(plusTowerEffects);
 
@@ -243,10 +240,48 @@ public class ParseJson {
         JSONArray plusHarvestEffects = rootObject.getJSONArray("PlusHarvestEffect");
         parsePlusHarvestEffect(plusHarvestEffects);
 
+        JSONArray harvestEffects = rootObject.getJSONArray("HarvestEffect");
+        parseHarvestEffect(harvestEffects);
 
+        JSONArray productionEffects = rootObject.getJSONArray("ProductionEffect");
+        parseProductionEffect(productionEffects);
+    }
 
-        JSONArray productEffects = rootObject.getJSONArray("ProductEffect");
-        parseProductEffect(productEffects);
+    private ArrayList<AbsEffect> parsingEffect(JSONArray jsonArray) {
+        ArrayList<AbsEffect> arrayList = new ArrayList<>();
+        for (int y = 0; y < jsonArray.length() ; y++) {
+
+            int id = jsonArray.getJSONObject(y).getInt("effect");
+            arrayList.add(effectMap.get(id));
+        }
+
+        return arrayList;
+    }
+
+    private void parseProductionEffect(JSONArray productionEffects) {
+        for (int i = 0; i < productionEffects.length(); i++) {
+            JSONObject productionEffectObject = productionEffects.getJSONObject(i);
+            int idEffect = productionEffectObject.getInt("id");
+            int productionValue = productionEffectObject.getInt("production_value");
+            ArrayList<AbsEffect> immediateEffects = parsingEffect(productionEffectObject.getJSONArray("immediate_effect"));
+
+            ProductionEffect productionEffect = new ProductionEffect(productionValue, immediateEffects);
+            effectMap.put(idEffect, productionEffect);
+
+        }
+    }
+
+    private void parseHarvestEffect(JSONArray harvestEffects) {
+        for (int i = 0; i < harvestEffects.length(); i++) {
+            JSONObject harvestEffectObject = harvestEffects.getJSONObject(i);
+            int idEffect = harvestEffectObject.getInt("id");
+            int harvestValue = harvestEffectObject.getInt("harvest_value");
+            ArrayList<AbsEffect> immediateEffects = parsingEffect(harvestEffectObject.getJSONArray("immediate_effect"));
+
+            HarvestEffect harvestEffect = new HarvestEffect(harvestValue, immediateEffects);
+            effectMap.put(idEffect, harvestEffect);
+
+        }
     }
 
     private void parsePlusHarvestEffect(JSONArray plusHarvestEffects) {

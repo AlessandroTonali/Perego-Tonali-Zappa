@@ -1,0 +1,68 @@
+{
+	"PlusTowerEffect":[
+		{"id": "492", "card_color": "green", "plus_dice_value": "2"},
+		{"id": "502", "card_color": "yellow", "plus_dice_value": "2", "sale": [{"wood": "-1"}, {"stone": "-1"}]},
+		{"id": "512", "card_color": "blue", "plus_dice_value": "2", "sale": [{"coin": "-1"}]},
+		{"id": "522", "card_color": "purple", "plus_dice_value": "2"}
+	],
+	"PlusHarvestEffect": [
+		{"id": "532", "plus_dice_value": "2"},
+		{"id": "612", "plus_dice_value": "3"}
+	],
+	"PlusProductionEffect": [
+		{"id": "542", "plus_dice_value": "2"},
+		{"id": "622", "plus_dice_value": "3"}
+	],
+	"HarvestEffect": [
+		{"id": "1102", "harvest_value": "1", "immediate_effect": [{"effect": "1103"}]},
+		{"id": "1202", "harvest_value": "2", "immediate_effect": [{"effect": "1203"}]},
+		{"id": "1302", "harvest_value": "3", "immediate_effect": [{"effect": "1303"}]},
+		{"id": "1402", "harvest_value": "4", "immediate_effect": [{"effect": "1403"}]},
+		{"id": "1502", "harvest_value": "5", "immediate_effect": [{"effect": "1503"}]},
+		{"id": "1602", "harvest_value": "6", "immediate_effect": [{"effect": "1603"}]},
+		{"id": "1702", "harvest_value": "5", "immediate_effect": [{"effect": "1703"}]},
+		{"id": "1802", "harvest_value": "6", "immediate_effect": [{"effect": "1"}]},
+		{"id": "1902", "harvest_value": "1", "immediate_effect": [{"effect": "1903"}]},
+		{"id": "102","harvest_value": "3", "immediate_effect": [{"effect": "103"}]},
+		{"id": "112", "harvest_value": "4", "immediate_effect": [{"effect": "113"}]},
+		{"id": "122", "harvest_value": "3", "immediate_effect": [{"effect": "123"}]},
+		{"id": "132", "harvest_value": "4", "immediate_effect": [{"effect": "133"}]},
+		{"id": "142", "harvest_value": "2", "immediate_effect": [{"effect": "143"}]},
+		{"id": "152", "harvest_value": "5", "immediate_effect": [{"effect": "153"}]},
+		{"id": "162", "harvest_value": "6", "immediate_effect": [{"effect": "163"}]},
+		{"id": "172", "harvest_value": "1", "immediate_effect": [{"effect": "173"}]},
+		{"id": "182", "harvest_value": "3", "immediate_effect": [{"effect": "183"}]},
+		{"id": "192", "harvest_value": "5", "immediate_effect": [{"effect": "193"}]},
+		{"id": "202", "harvest_value": "2", "immediate_effect": [{"effect": "203"}]},
+		{"id": "212", "harvest_value": "6", "immediate_effect": [{"effect": "213"}]},
+		{"id": "222", "harvest_value": "1", "immediate_effect": [{"effect": "223"}]},
+		{"id": "232", "harvest_value": "4", "immediate_effect": [{"effect": "233"}]},
+		{"id": "242", "harvest_value": "2", "immediate_effect": [{"effect": "243"}]}
+	],
+	"ProductionEffect": [
+		{"id": "252", "production_value": "5", "immediate_effect": [{"effect": "253"}]},
+		{"id": "262", "production_value": "5", "immediate_effect": [{"effect": "263"}]},
+		{"id": "272", "production_value": "6", "immediate_effect": [{"effect": "273"}]},
+		{"id": "282", "production_value": "6", "immediate_effect": [{"effect": "283"}]},
+		{"id": "292", "production_value": "4", "immediate_effect": [{"effect": "293"}]},
+		{"id": "302", "production_value": "3", "immediate_effect": [{"effect": "303"}]},
+		{"id": "312", "production_value": "2", "immediate_effect": [{"effect": "313"}]},
+		{"id": "322", "production_value": "1", "immediate_effect": [{"effect": "323"}]},
+		{"id": "332", "production_value": "3", "immediate_effect": [{"effect": "333"}]},
+		{"id": "342", "production_value": "3", "immediate_effect": [{"effect": "343"}]},
+		{"id": "352", "production_value": "4", "immediate_effect": [{"effect": "353"}]},
+		{"id": "362", "production_value": "5", "immediate_effect": [{"effect": "363"}]},
+		{"id": "372", "production_value": "4", "immediate_effect": [{"effect": "373"}]},
+		{"id": "382", "production_value": "2", "immediate_effect": [{"effect": "383"}]},
+		{"id": "392","production_value": "1", "immediate_effect": [{"effect": "393"}]},
+		{"id": "402", "production_value": "6", "immediate_effect": [{"effect": "403"}]},
+		{"id": "412", "production_value": "2", "immediate_effect": [{"effect": "413"}]},
+		{"id": "422", "production_value": "4", "immediate_effect": [{"effect": "423"}]},
+		{"id": "432", "production_value": "1", "immediate_effect": [{"effect": "433"}]},
+		{"id": "442", "production_value": "5", "immediate_effect": [{"effect": "443"}]},
+		{"id": "452", "production_value": "6", "immediate_effect": [{"effect": "453"}]},
+		{"id": "462", "production_value": "1", "immediate_effect": [{"effect": "463"}]},
+		{"id": "472", "production_value": "3", "immediate_effect": [{"effect": "473"}]},
+		{"id": "482", "production_value": "2", "immediate_effect": [{"effect": "483"}]}
+	]
+}

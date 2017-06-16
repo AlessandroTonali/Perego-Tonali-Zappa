@@ -1,6 +1,7 @@
 package it.polimi.ingsw.GC_23.Cards;
 
 import it.polimi.ingsw.GC_23.Effects.AbsEffect;
+import it.polimi.ingsw.GC_23.Effects.PermanentEffect;
 import it.polimi.ingsw.GC_23.Enumerations.CardColor;
 import it.polimi.ingsw.GC_23.Player;
 import it.polimi.ingsw.GC_23.SingleCost;
@@ -11,12 +12,12 @@ import java.util.ArrayList;
  */
 public class BuildingCard extends Card {
 
-    private int productionValue;
 
-    public BuildingCard(int period, CardColor cardColor, String name, ArrayList<AbsEffect> immediateEffect, ArrayList<AbsEffect> permanentEffect,
-                        ArrayList<SingleCost> cost, int productionValue) {
+
+    public BuildingCard(int period, CardColor cardColor, String name, ArrayList<AbsEffect> immediateEffect, PermanentEffect permanentEffect,
+                        ArrayList<SingleCost> cost) {
         super(period, cardColor, name, immediateEffect, permanentEffect, cost);
-        this.productionValue = productionValue;
+
     }
 
     //controlla numero carte e se ha abbastanza risorse
@@ -35,9 +36,6 @@ public class BuildingCard extends Card {
 
     public void addCardOfPlayer(Player player) {
         player.getCardOfPlayer().setCard(this);
-    }
-
-    public int getProductionValue() {
-        return productionValue;
+        player.getPermanentEffects().add(getPermanentEffect());
     }
 }

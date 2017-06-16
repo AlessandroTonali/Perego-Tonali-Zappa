@@ -156,11 +156,11 @@ public class PlayGame {
             }
 
             //assegna punti venture cards
-            for (VentureCard v : p.getCardOfPlayer().getVentureCards()) {
+            /*for (VentureCard v : p.getCardOfPlayer().getVentureCards()) {
                 for (int i = 0; i < v.getPermanentEffect().size(); i++) {
                     v.getPermanentEffect().get(i).activeEffect(p);
                 }
-            }
+            }*/
 
         }
 

@@ -37,47 +37,48 @@
 		{"id": "78", "militaryPoint": "2", "servant": "1"},
 		{"id": "79", "wood": "1", "coin": "1", "stone": "1"},
 		
-		{"id": "1102", "coin": "1"},
+		{"id": "1103", "coin": "1"},
 		{"id": "1201", "wood": "1"},
-		{"id": "1202", "wood": "1"},
-		{"id": "1302", "coin": "1", "servant": "1"},
+		{"id": "1203", "wood": "1"},
+		{"id": "1303", "coin": "1", "servant": "1"},
 		{"id": "1401", "stone": "2"},
-		{"id": "1402", "stone": "2"},
+		{"id": "1403", "stone": "2"},
 		{"id": "1501", "wood": "1"},
-		{"id": "1502", "wood": "3"},
+		{"id": "1503", "wood": "3"},
 		{"id": "1601", "militaryPoint": "2", "servant": "1"},
-		{"id": "1602", "faithPoint": "1", "stone": "1"},
-		{"id": "1702", "militaryPoint": "2", "stone": "1"},
+		{"id": "1603", "faithPoint": "1", "stone": "1"},
+		{"id": "1703", "militaryPoint": "2", "stone": "1"},
 		{"id": "1801", "coin": "3"},
 		{"id": "1901", "coin": "1"},
-		{"id": "1902", "coin": "2"},
+		{"id": "1903", "coin": "2"},
 		{"id": "111", "servant": "2", "stone": "1"},
-		{"id": "112", "stone": "2", "servant": "1"},
+		{"id": "113", "stone": "2", "servant": "1"},
 		{"id": "121", "wood": "1"},
-		{"id": "122", "stone": "3"},
+		{"id": "123", "stone": "3"},
 		{"id": "131", "servant": "2", "wood": "1"},
-		{"id": "132", "coin": "1", "wood": "2"},
+		{"id": "133", "coin": "1", "wood": "2"},
 		{"id": "141", "faithPoint": "1"},
-		{"id": "142", "faithPoint": "1"},
-		{"id": "152", "militaryPoint": "2", "servant": "2"},
+		{"id": "143", "faithPoint": "1"},
+		{"id": "153", "militaryPoint": "2", "servant": "2"},
 		{"id": "161", "coin": "4"},
-		{"id": "162", "coin": "1", "stone": "1", "wood": "1"},
+		{"id": "163", "coin": "1", "stone": "1", "wood": "1"},
 		{"id": "171", "coin": "1", "servant": "1"},
-		{"id": "172", "coin": "3"},
+		{"id": "173", "coin": "3"},
 		{"id": "181", "victoryPoint": "1", "wood": "1"},
-		{"id": "182", "victoryPoint": "2", "wood": "2"},
+		{"id": "183", "victoryPoint": "2", "wood": "2"},
 		{"id": "191", "militaryPoint": "2"},
-		{"id": "192", "victoryPoint": "4", "wood": "1"},
+		{"id": "193", "victoryPoint": "4", "wood": "1"},
 		{"id": "201", "victoryPoint": "3"},
-		{"id": "202", "victoryPoint": "1", "stone": "2"},
+		{"id": "203", "victoryPoint": "1", "stone": "2"},
 		{"id": "211", "stone": "1"},
-		{"id": "212", "victoryPoint": "4", "stone": "1"},
+		{"id": "213", "victoryPoint": "4", "stone": "1"},
 		{"id": "221", "faithPoint": "1"},
-		{"id": "222", "coin": "1", "faithPoint": "1"},
+		{"id": "223", "coin": "1", "faithPoint": "1"},
 		{"id": "231", "victoryPoint": "2", "coin": "2"},
-		{"id": "231", "militaryPoint": "3", "servant": "1"},
+		{"id": "233", "militaryPoint": "3", "servant": "1"},
 		{"id": "241", "militaryPoint": "2", "servant": "1"},
-		{"id": "242", "militaryPoint": "1", "servant": "2"},
+		{"id": "243", "militaryPoint": "1", "servant": "2"},
+		
 		{"id": "251", "victoryPoint": "5"},
 		{"id": "271", "victoryPoint": "6"},
 		{"id": "281", "victoryPoint": "6"},
@@ -92,19 +93,19 @@
 		{"id": "381", "victoryPoint": "2", "faithPoint":  "1"},
 		{"id": "391", "victoryPoint": "3"},
 		{"id": "401", "victoryPoint": "8"},
-		{"id": "402", "victoryPoint": "2", "militaryPoint": "2"},
+		{"id": "403", "victoryPoint": "2", "militaryPoint": "2"},
 		{"id": "411", "victoryPoint": "7"},
-		{"id": "412", "coin": "5"},
+		{"id": "413", "coin": "5"},
 		{"id": "421", "victoryPoint": "8"},
 		{"id": "431", "victoryPoint": "10"},
-		{"id": "432", "victoryPoint": "3"},
+		{"id": "433", "victoryPoint": "3"},
 		{"id": "441", "victoryPoint": "9"},
-		{"id": "442", "victoryPoint": "2"},
+		{"id": "443", "victoryPoint": "2"},
 		{"id": "451", "victoryPoint": "9"},
 		{"id": "461", "victoryPoint": "5", "faithPoint": "1"},
 		{"id": "471", "victoryPoint": "7"},
 		{"id": "481", "victoryPoint": "7", "faithPoint": "3"},
-		{"id": "482", "victoryPoint": "3"},
+		{"id": "483", "victoryPoint": "3"},
 		
 		{"id": "491", "militaryPoint": "3"},
 		{"id": "551", "faithPoint": "4"},
@@ -156,7 +157,7 @@
 		
 		{"id": "291", "victoryPoint": "3"},
 		{"id": "101", "servant": "1"},
-		{"id": "102", "wood": "2", "militaryPoint": "1"},
+		{"id": "103", "wood": "2", "militaryPoint": "1"},
 		{"id": "731", "militaryPoint": "5"},
 		{"id": "732", "victoryPoint": "4"},
 		{"id": "261", "victoryPoint": "5"}
@@ -172,88 +173,88 @@
 	
 	],
 	"ImplicationEffect": [ 
-		{"id": "292", "requirment": [
+		{"id": "293", "requirment": [
 			{"wood": "1"},
 			{"wood": "2"}
 		], "giving":[
 			{"coin": "3"},
 			{"coin": "5"}
 		]},
-		{"id": "302", "requirment": [
+		{"id": "303", "requirment": [
 			{"stone": "1"},
 			{"stone": "2"}
 		], "giving":[
 			{"coin": "3"},
 			{"coin": "5"}
 		]},
-		{"id": "312", "requirment": [
+		{"id": "313", "requirment": [
 			{"coin": "1"}
 		], "giving":[
 			{"faithPoint": "3"}
 		]},
-		{"id": "322", "requirment": [
+		{"id": "323", "requirment": [
 			{"coin": "1"}
 		], "giving":[
 			{"id_effect": "1"}
 		]},
-		{"id": "332", "requirment": [
+		{"id": "333", "requirment": [
 			{"coin": "3"}
 		], "giving":[
 			{"wood": "2", " stone":  "2"}
 		]},
-		{"id": "342", "requirment": [
+		{"id": "343", "requirment": [
 			{"coin": "1"},
 			{"coin": "2"}
 		], "giving":[
 			{"victoryPoint": "3"},
 			{"victoryPoint": "5"}
 		]},
-		{"id": "352", "requirment": [
+		{"id": "353", "requirment": [
 			{"wood": "1"},
 			{"wood": "3"}
 		], "giving":[
 			{"victoryPoint": "3"},
 			{"victoryPoint": "7"}
 		]},
-		{"id": "362", "requirment": [
+		{"id": "363", "requirment": [
 			{"stone": "1"},
 			{"stone": "3"}
 		], "giving":[
 			{"victoryPoint": "3"},
 			{"victoryPoint": "7"}
 		]},
-		{"id": "372", "requirment": [
+		{"id": "373", "requirment": [
 			{"stone": "1", "wood": "1", "servant": "1"}
 		], "giving":[
 			{"victoryPoint": "6"}
 		]},
-		{"id": "382", "requirment": [
+		{"id": "383", "requirment": [
 			{"faithPoint": "1"}
 		], "giving":[
 			{"victoryPoint": "2", "coin": "2"}
 		]},
-		{"id": "392", "requirment": [
+		{"id": "393", "requirment": [
 			{"servant": "1"}
 		], "giving":[
 			{"militaryPoint": "3"}
 		]},
-		{"id": "422", "requirment": [
+		{"id": "423", "requirment": [
 			{"coin": "4"}
 		], "giving":[
 			{"wood": "3", "stone": "3"}
 		]},
-		{"id": "452", "requirment": [
+		{"id": "453", "requirment": [
 			{"coin": "1"}
 		], "giving":[
 			{"servant": "2", "victoryPoint": "4"}
 		]},
-		{"id": "462", "requirment": [
+		{"id": "463", "requirment": [
 			{"wood": "1"},
 			{"stone": "1"}
 		], "giving":[
 			{"faithPoint": "2"}
 		]},
-		{"id": "472", "requirment": [
+		{"id": "473", "requirment": [
 			{"servant": "1"}
 		], "giving":[
 			{"militaryPoint": "3", "victoryPoint": "1"}
@@ -281,29 +282,16 @@
 		{"id": "941", "dice_value": "3"}
 	],
 	"ProductEffect":[
-		{"id": "252", "giving_product": [{"coin": "1"}], "card_color": "yellow"},
-		{"id": "272", "giving_product": [{"victoryPoint": "1"}], "card_color": "purple"},
-		{"id": "282", "giving_product": [{"victoryPoint": "1"}], "card_color": "blue"},
-		{"id": "262", "giving_product": [{"coin": "1"}], "card_color": "green"},
+		{"id": "253", "giving_product": [{"coin": "1"}], "card_color": "yellow"},
+		{"id": "263", "giving_product": [{"coin": "1"}], "card_color": "green"},
+		{"id": "273", "giving_product": [{"victoryPoint": "1"}], "card_color": "purple"},
+		{"id": "283", "giving_product": [{"victoryPoint": "1"}], "card_color": "blue"},
 		{"id": "651", "giving_product": [{"victoryPoint": "2"}], "card_color": "green"},
 		{"id": "661", "giving_product": [{"victoryPoint": "2"}], "card_color": "yellow"},
 		{"id": "671", "giving_product": [{"victoryPoint": "2"}], "card_color": "blue"},
 		{"id": "681", "giving_product": [{"victoryPoint": "2"}], "card_color": "purple"},
 		{"id": "711", "giving_product": [{"victoryPoint": "1"}], "required_product": [{"militaryPoint": "2"}]}
 	
-	],
-	"PlusTowerEffect":[
-		{"id": "492", "card_color": "green", "plus_dice_value": "2"},
-		{"id": "502", "card_color": "yellow", "plus_dice_value": "2", "sale": [{"wood": "-1"}, {"stone": "-1"}]},
-		{"id": "512", "card_color": "blue", "plus_dice_value": "2", "sale": [{"coin": "-1"}]},
-		{"id": "522", "card_color": "purple", "plus_dice_value": "2"}
-	],
-	"PlusHarvestEffect": [
-		{"id": "532", "plus_dice_value": "2"},
-		{"id": "612", "plus_dice_value": "3"}
-	],
-	"PlusProductionEffect": [
-		{"id": "542", "plus_dice_value": "2"},
-		{"id": "622", "plus_dice_value": "3"}
 	]
+	
 }

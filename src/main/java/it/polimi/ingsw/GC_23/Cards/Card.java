@@ -1,6 +1,7 @@
 package it.polimi.ingsw.GC_23.Cards;
 
 import it.polimi.ingsw.GC_23.Effects.AbsEffect;
+import it.polimi.ingsw.GC_23.Effects.PermanentEffect;
 import it.polimi.ingsw.GC_23.Enumerations.CardColor;
 import it.polimi.ingsw.GC_23.MilitaryCost;
 import it.polimi.ingsw.GC_23.Player;
@@ -18,14 +19,14 @@ public abstract class Card {
     private CardColor cardColor;
     private String name;
     private ArrayList<AbsEffect> immediateEffect;
-    private ArrayList<AbsEffect> permanentEffect;
+    private PermanentEffect permanentEffect;
     private ArrayList<SingleCost> cost;
     private SingleCost costSelected;
 
 
 
     public Card(int period, CardColor cardColor, String name, ArrayList<AbsEffect> immediateEffect,
-                ArrayList<AbsEffect> permanentEffect, ArrayList<SingleCost>
+                PermanentEffect permanentEffect, ArrayList<SingleCost>
             cost) {
         this.period = period;
         this.cardColor = cardColor;
@@ -85,11 +86,11 @@ public abstract class Card {
         this.immediateEffect = immediateEffect;
     }
 
-    public ArrayList<AbsEffect> getPermanentEffect() {
+    public PermanentEffect getPermanentEffect() {
         return permanentEffect;
     }
 
-    public void setPermanentEffect(ArrayList<AbsEffect> permanentEffect) {
+    public void setPermanentEffect(PermanentEffect permanentEffect) {
         this.permanentEffect = permanentEffect;
     }
 

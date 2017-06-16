@@ -2,6 +2,7 @@ package it.polimi.ingsw.GC_23.Cards;
 
 import it.polimi.ingsw.GC_23.Effects.AbsEffect;
 //import it.polimi.ingsw.GC_23.Effects.PermanentEffect;
+import it.polimi.ingsw.GC_23.Effects.PermanentEffect;
 import it.polimi.ingsw.GC_23.Enumerations.CardColor;
 import it.polimi.ingsw.GC_23.Player;
 import it.polimi.ingsw.GC_23.SingleCost;
@@ -12,7 +13,7 @@ import java.util.ArrayList;
  */
 public class CharacterCard extends Card {
 
-    public CharacterCard(int period, CardColor cardColor, String name, ArrayList<AbsEffect> immediateEffect, ArrayList<AbsEffect> permanentEffect, ArrayList<SingleCost>
+    public CharacterCard(int period, CardColor cardColor, String name, ArrayList<AbsEffect> immediateEffect, PermanentEffect permanentEffect, ArrayList<SingleCost>
             cost) {
         super(period, cardColor, name, immediateEffect, permanentEffect, cost);
 
@@ -29,12 +30,7 @@ public class CharacterCard extends Card {
 
     @Override
     public void addCardOfPlayer(Player player) {
-
-    }
-    /*public void addCardOfPlayer(Player player) {
         player.getCardOfPlayer().setCard(this);
-        if ( this.getPermanentEffect().get(0) instanceof PermanentEffect) {
-        }
-        //TODO aggiungere Permanent Effect
-    }*/
+        player.getPermanentEffects().add(getPermanentEffect());
+    }
 }

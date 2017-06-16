@@ -43,15 +43,7 @@ public class NewPlayHarvestController implements Controller {
     @Override
     public void makeAction() throws IOException {
         familyMember.getPlayer().getBonusTile().getHarvestEffect().activeEffect(familyMember.getPlayer());
-        ArrayList<BuildingCard> buildingCards = familyMember.getPlayer().getCardOfPlayer().getBuildingCards();
-        for (int i = 0; i < buildingCards.size(); i++) {
-            if (buildingCards.get(i).getProductionValue() >= familyMember.getValue()) {
-                ArrayList<AbsEffect> permanentEffects = buildingCards.get(i).getPermanentEffect();
-                for (int j = 0; j < permanentEffects.size(); j++) {
-                    permanentEffects.get(j).activeEffect(familyMember.getPlayer());
-                }
-            }
-        }
+        //TODO
 
     }
 }
