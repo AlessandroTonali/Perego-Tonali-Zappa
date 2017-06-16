@@ -3,32 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="12559092-ad45-4654-bd82-cde319336451" name="Default" comment="fix error">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/Connection/RMIHandler.java" afterPath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/Connection/RMIHandler.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/Connection/Server.java" afterPath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/Connection/Server.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/Connection/ServerImpl.java" afterPath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/Connection/ServerImpl.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/Connection/User.java" afterPath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/Connection/User.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/Connection/UserImpl.java" afterPath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/Connection/UserImpl.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/Controller/Controller.java" afterPath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/Controller/Controller.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/Controller/CouncilController.java" afterPath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/Controller/CouncilController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/Controller/HarvestController.java" afterPath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/Controller/HarvestController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/Controller/IncreaseFamilyValue.java" afterPath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/Controller/IncreaseFamilyValue.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/Controller/MarketController.java" afterPath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/Controller/MarketController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/Controller/NewPlay.java" afterPath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/Controller/NewPlay.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/Controller/NewPlayHarvestController.java" afterPath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/Controller/NewPlayHarvestController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/Controller/NewPlayProductionController.java" afterPath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/Controller/NewPlayProductionController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/Controller/OtherCardsController.java" afterPath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/Controller/OtherCardsController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/Controller/PlaceFamilyMember.java" afterPath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/Controller/PlaceFamilyMember.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/Controller/ProductionController.java" afterPath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/Controller/ProductionController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/Controller/TerritoryController.java" afterPath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/Controller/TerritoryController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/Controller/TowerController.java" afterPath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/Controller/TowerController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/Effects/AbsEffect.java" afterPath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/Effects/AbsEffect.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/Effects/ImplicationEffect.java" afterPath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/Effects/ImplicationEffect.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/Effects/NewPlayCardEffect.java" afterPath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/Effects/NewPlayCardEffect.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/Effects/NewPlayHarvestEffect.java" afterPath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/Effects/NewPlayHarvestEffect.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/Effects/NewPlayProductionEffect.java" afterPath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/Effects/NewPlayProductionEffect.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/Gameplay.java" afterPath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/Gameplay.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/Main.java" afterPath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/Main.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/PlayGame.java" afterPath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/PlayGame.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/Player.java" afterPath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/Player.java" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
@@ -79,7 +53,7 @@
         <entry file="file://$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/Controller/NewPlayHarvestController.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="164">
-              <caret line="24" column="17" lean-forward="true" selection-start-line="24" selection-start-column="17" selection-end-line="24" selection-end-column="17" />
+              <caret line="24" column="17" lean-forward="false" selection-start-line="24" selection-start-column="17" selection-end-line="24" selection-end-column="17" />
               <folding />
             </state>
           </provider>
@@ -119,7 +93,7 @@
         <entry file="file://$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/Controller/NewPlayProductionController.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="189">
-              <caret line="25" column="8" lean-forward="true" selection-start-line="25" selection-start-column="8" selection-end-line="25" selection-end-column="8" />
+              <caret line="25" column="8" lean-forward="false" selection-start-line="25" selection-start-column="8" selection-end-line="25" selection-end-column="8" />
               <folding />
             </state>
           </provider>
@@ -135,22 +109,54 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="CouncilController.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="CouncilController.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/Controller/CouncilController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="470">
-              <caret line="50" column="5" lean-forward="false" selection-start-line="50" selection-start-column="5" selection-end-line="50" selection-end-column="5" />
+            <state relative-caret-position="328">
+              <caret line="55" column="0" lean-forward="false" selection-start-line="55" selection-start-column="0" selection-end-line="55" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="PlayGame.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/PlayGame.java">
+      <file leaf-file-name="Player.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/Player.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="176">
-              <caret line="160" column="62" lean-forward="false" selection-start-line="160" selection-start-column="62" selection-end-line="160" selection-end-column="62" />
-              <folding />
+            <state relative-caret-position="25">
+              <caret line="86" column="4" lean-forward="false" selection-start-line="86" selection-start-column="4" selection-end-line="86" selection-end-column="4" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#1443#1444#0" expanded="true" />
+                <element signature="e#1485#1486#0" expanded="true" />
+                <element signature="e#1541#1542#0" expanded="true" />
+                <element signature="e#1583#1584#0" expanded="true" />
+                <element signature="e#1626#1627#0" expanded="true" />
+                <element signature="e#1660#1661#0" expanded="true" />
+                <element signature="e#1702#1703#0" expanded="true" />
+                <element signature="e#1734#1735#0" expanded="true" />
+                <element signature="e#1779#1780#0" expanded="true" />
+                <element signature="e#1814#1815#0" expanded="true" />
+                <element signature="e#1853#1854#0" expanded="true" />
+                <element signature="e#1885#1886#0" expanded="true" />
+                <element signature="e#1915#1916#0" expanded="true" />
+                <element signature="e#1942#1943#0" expanded="true" />
+                <element signature="e#1990#1991#0" expanded="true" />
+                <element signature="e#2026#2027#0" expanded="true" />
+                <element signature="e#2088#2089#0" expanded="true" />
+                <element signature="e#2136#2137#0" expanded="true" />
+                <element signature="e#2202#2203#0" expanded="true" />
+                <element signature="e#2252#2253#0" expanded="true" />
+                <element signature="e#2311#2312#0" expanded="true" />
+                <element signature="e#2357#2358#0" expanded="true" />
+                <element signature="e#8584#8585#0" expanded="true" />
+                <element signature="e#8622#8623#0" expanded="true" />
+                <element signature="e#8665#8666#0" expanded="true" />
+                <element signature="e#8699#8700#0" expanded="true" />
+                <element signature="e#8758#8759#0" expanded="true" />
+                <element signature="e#8804#8805#0" expanded="true" />
+                <element signature="e#8867#8868#0" expanded="true" />
+                <element signature="e#8906#8907#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -159,7 +165,7 @@
         <entry file="file://$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/Main.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="176">
-              <caret line="88" column="14" lean-forward="true" selection-start-line="88" selection-start-column="14" selection-end-line="88" selection-end-column="14" />
+              <caret line="88" column="14" lean-forward="false" selection-start-line="88" selection-start-column="14" selection-end-line="88" selection-end-column="14" />
               <folding />
             </state>
           </provider>
@@ -266,7 +272,6 @@
         <option value="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/Connection/ServerImpl.java" />
         <option value="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/Connection/RMIHandler.java" />
         <option value="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/Connection/Server.java" />
-        <option value="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/Player.java" />
         <option value="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/Controller/IncreaseFamilyValue.java" />
         <option value="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/Controller/ProductionController.java" />
         <option value="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/Controller/HarvestController.java" />
@@ -284,6 +289,7 @@
         <option value="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/Controller/NewPlayProductionController.java" />
         <option value="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/Effects/NewPlayHarvestEffect.java" />
         <option value="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/Controller/CouncilController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/Player.java" />
       </list>
     </option>
   </component>
@@ -553,6 +559,129 @@
       <recent name="" />
     </key>
   </component>
+  <component name="RestoreUpdateTree" date="Moments ago" ActionInfo="_Update">
+    <UpdatedFiles>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Updated from server" />
+        <option name="myStatusName" value="Changed on server" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="CHANGED_ON_SERVER" />
+        <FILE-GROUP>
+          <option name="myUpdateName" value="Updated" />
+          <option name="myStatusName" value="Changed" />
+          <option name="mySupportsDeletion" value="false" />
+          <option name="myCanBeAbsent" value="false" />
+          <option name="myId" value="UPDATED" />
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/Cards.txt</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/Effect.txt</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/Board.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/Controller/TowerController.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/Main.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/ParseJson.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/Player.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/Spaces/ActionSpace.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/Spaces/Tower.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/Spaces/TowerSpace.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/Util.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/test/java/it/polimi/ingsw/GC_23/Spaces/TowerTest.java</PATH>
+        </FILE-GROUP>
+        <FILE-GROUP>
+          <option name="myUpdateName" value="Created" />
+          <option name="myStatusName" value="Created" />
+          <option name="mySupportsDeletion" value="false" />
+          <option name="myCanBeAbsent" value="false" />
+          <option name="myId" value="CREATED" />
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/Effects/PermanentEffect.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/Effects/PlusTowerEffect.java</PATH>
+        </FILE-GROUP>
+        <FILE-GROUP>
+          <option name="myUpdateName" value="Deleted" />
+          <option name="myStatusName" value="Deleted" />
+          <option name="mySupportsDeletion" value="false" />
+          <option name="myCanBeAbsent" value="true" />
+          <option name="myId" value="REMOVED_FROM_REPOSITORY" />
+        </FILE-GROUP>
+        <FILE-GROUP>
+          <option name="myUpdateName" value="Restored" />
+          <option name="myStatusName" value="Will be restored" />
+          <option name="mySupportsDeletion" value="false" />
+          <option name="myCanBeAbsent" value="false" />
+          <option name="myId" value="RESTORED" />
+        </FILE-GROUP>
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Modified" />
+        <option name="myStatusName" value="Modified" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="MODIFIED" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Skipped" />
+        <option name="myStatusName" value="Skipped" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="SKIPPED" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Merged with conflicts" />
+        <option name="myStatusName" value="Will be merged with conflicts" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="MERGED_WITH_CONFLICTS" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Merged with tree conflicts" />
+        <option name="myStatusName" value="Merged with tree conflicts" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="MERGED_WITH_TREE_CONFLICT" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Merged with property conflicts" />
+        <option name="myStatusName" value="Will be merged with property conflicts" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="MERGED_WITH_PROPERTY_CONFLICT" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Merged" />
+        <option name="myStatusName" value="Will be merged" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="MERGED" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Not in repository" />
+        <option name="myStatusName" value="Not in repository" />
+        <option name="mySupportsDeletion" value="true" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="UNKNOWN" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Locally added" />
+        <option name="myStatusName" value="Locally added" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="LOCALLY_ADDED" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Locally removed" />
+        <option name="myStatusName" value="Locally removed" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="LOCALLY_REMOVED" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Switched" />
+        <option name="myStatusName" value="Switched" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="SWITCHED" />
+      </FILE-GROUP>
+    </UpdatedFiles>
+  </component>
   <component name="RunDashboard">
     <option name="ruleStates">
       <list>
@@ -565,7 +694,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.UserImpl">
+  <component name="RunManager" selected="Application.ServerImpl">
     <configuration default="false" name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
         <pattern>
@@ -1096,8 +1225,8 @@
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="Application.UserImpl" />
-        <item index="1" class="java.lang.String" itemvalue="Application.ServerImpl" />
+        <item index="0" class="java.lang.String" itemvalue="Application.ServerImpl" />
+        <item index="1" class="java.lang.String" itemvalue="Application.UserImpl" />
         <item index="2" class="java.lang.String" itemvalue="Application.Main" />
         <item index="3" class="java.lang.String" itemvalue="JUnit.ResourcesSetTest" />
         <item index="4" class="java.lang.String" itemvalue="JUnit.ResourcesTest" />
@@ -1246,7 +1375,7 @@
       <workItem from="1497534814364" duration="812000" />
       <workItem from="1497537903108" duration="109000" />
       <workItem from="1497600618433" duration="460000" />
-      <workItem from="1497602016645" duration="3669000" />
+      <workItem from="1497602016645" duration="4058000" />
     </task>
     <task id="LOCAL-00001" summary="prova">
       <created>1494941646968</created>
@@ -1459,7 +1588,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="284907000" />
+    <option name="totallyTimeSpent" value="285296000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1472,6 +1601,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-11" y="-11" width="1942" height="1042" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32776618" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -1574,13 +1704,13 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/Spaces/Tower.java</url>
-          <line>43</line>
+          <line>51</line>
           <properties />
           <option name="timeStamp" value="48" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/Spaces/TowerSpace.java</url>
-          <line>42</line>
+          <line>47</line>
           <properties />
           <option name="timeStamp" value="55" />
         </line-breakpoint>
@@ -1886,16 +2016,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/Player.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="200">
-          <caret line="110" column="20" lean-forward="false" selection-start-line="110" selection-start-column="20" selection-end-line="110" selection-end-column="20" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/Controller/IncreaseFamilyValue.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="276">
@@ -1963,7 +2083,7 @@
     <entry file="file://$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/Main.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="176">
-          <caret line="88" column="14" lean-forward="true" selection-start-line="88" selection-start-column="14" selection-end-line="88" selection-end-column="14" />
+          <caret line="88" column="14" lean-forward="false" selection-start-line="88" selection-start-column="14" selection-end-line="88" selection-end-column="14" />
           <folding />
         </state>
       </provider>
@@ -1979,7 +2099,7 @@
     <entry file="file://$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/Controller/NewPlayHarvestController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="164">
-          <caret line="24" column="17" lean-forward="true" selection-start-line="24" selection-start-column="17" selection-end-line="24" selection-end-column="17" />
+          <caret line="24" column="17" lean-forward="false" selection-start-line="24" selection-start-column="17" selection-end-line="24" selection-end-column="17" />
           <folding />
         </state>
       </provider>
@@ -2011,7 +2131,7 @@
     <entry file="file://$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/Controller/NewPlayProductionController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="189">
-          <caret line="25" column="8" lean-forward="true" selection-start-line="25" selection-start-column="8" selection-end-line="25" selection-end-column="8" />
+          <caret line="25" column="8" lean-forward="false" selection-start-line="25" selection-start-column="8" selection-end-line="25" selection-end-column="8" />
           <folding />
         </state>
       </provider>
@@ -2026,9 +2146,49 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/Controller/CouncilController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="470">
-          <caret line="50" column="5" lean-forward="false" selection-start-line="50" selection-start-column="5" selection-end-line="50" selection-end-column="5" />
+        <state relative-caret-position="328">
+          <caret line="55" column="0" lean-forward="false" selection-start-line="55" selection-start-column="0" selection-end-line="55" selection-end-column="0" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/Player.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="25">
+          <caret line="86" column="4" lean-forward="false" selection-start-line="86" selection-start-column="4" selection-end-line="86" selection-end-column="4" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1443#1444#0" expanded="true" />
+            <element signature="e#1485#1486#0" expanded="true" />
+            <element signature="e#1541#1542#0" expanded="true" />
+            <element signature="e#1583#1584#0" expanded="true" />
+            <element signature="e#1626#1627#0" expanded="true" />
+            <element signature="e#1660#1661#0" expanded="true" />
+            <element signature="e#1702#1703#0" expanded="true" />
+            <element signature="e#1734#1735#0" expanded="true" />
+            <element signature="e#1779#1780#0" expanded="true" />
+            <element signature="e#1814#1815#0" expanded="true" />
+            <element signature="e#1853#1854#0" expanded="true" />
+            <element signature="e#1885#1886#0" expanded="true" />
+            <element signature="e#1915#1916#0" expanded="true" />
+            <element signature="e#1942#1943#0" expanded="true" />
+            <element signature="e#1990#1991#0" expanded="true" />
+            <element signature="e#2026#2027#0" expanded="true" />
+            <element signature="e#2088#2089#0" expanded="true" />
+            <element signature="e#2136#2137#0" expanded="true" />
+            <element signature="e#2202#2203#0" expanded="true" />
+            <element signature="e#2252#2253#0" expanded="true" />
+            <element signature="e#2311#2312#0" expanded="true" />
+            <element signature="e#2357#2358#0" expanded="true" />
+            <element signature="e#8584#8585#0" expanded="true" />
+            <element signature="e#8622#8623#0" expanded="true" />
+            <element signature="e#8665#8666#0" expanded="true" />
+            <element signature="e#8699#8700#0" expanded="true" />
+            <element signature="e#8758#8759#0" expanded="true" />
+            <element signature="e#8804#8805#0" expanded="true" />
+            <element signature="e#8867#8868#0" expanded="true" />
+            <element signature="e#8906#8907#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
