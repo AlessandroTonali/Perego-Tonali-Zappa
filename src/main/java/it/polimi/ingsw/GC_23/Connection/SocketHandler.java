@@ -27,12 +27,17 @@ public class SocketHandler implements Runnable,UserHandler{
     private final Logger logger = Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
 
 
-    public SocketHandler(Socket socket) throws IOException {
+    public SocketHandler(Socket socket)   {
         this.socket = socket;
-        this.outSocket= new ObjectOutputStream(socket.getOutputStream());
-        this.outWriter = new PrintWriter(socket.getOutputStream(), true);
-        this.inSocket = new ObjectInputStream(socket.getInputStream());
-        this.inScanner = new Scanner(socket.getInputStream());
+        try {
+            this.outSocket= new ObjectOutputStream(socket.getOutputStream());
+            this.outWriter = new PrintWriter(socket.getOutputStream(), true);
+            this.inSocket = new ObjectInputStream(socket.getInputStream());
+            this.inScanner = new Scanner(socket.getInputStream());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
     }
 
     @Override
@@ -49,7 +54,10 @@ public class SocketHandler implements Runnable,UserHandler{
     }
 
     public void messageToUser(String message){
-        outWriter.println(message);
+
+            outWriter.println(message);
+
+
     }
 
     public void setEndMatch(boolean endMatch){

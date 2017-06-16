@@ -277,5 +277,7 @@ public class Player implements Serializable {
     public ArrayList<PermanentEffect> getPermanentEffects() {
         return permanentEffects;
     }
+
+
 }
 

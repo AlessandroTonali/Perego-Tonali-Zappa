@@ -32,13 +32,25 @@ public class RMIHandler implements Runnable, UserHandler, Remote {
             ServerImpl.getServer().RMIQuitter(user);
         }
         else {
-            ServerImpl.getServer().RMIMessageToUser(message, user);
+
+            try{
+                ServerImpl.getServer().RMIMessageToUser(message, user);
+            } catch(IOException e){
+                e.printStackTrace();
+            }
+
         }
     }
 
     @Override
-    public String messageFromUser() throws IOException {
-        return ServerImpl.getServer().RMIMessageFromUser(user);
+    public String messageFromUser() throws RemoteException {
+
+        try {
+            return ServerImpl.getServer().RMIMessageFromUser(user);
+        } catch (IOException e) {
+            e.printStackTrace();
+            return null;
+        }
     }
 
     @Override

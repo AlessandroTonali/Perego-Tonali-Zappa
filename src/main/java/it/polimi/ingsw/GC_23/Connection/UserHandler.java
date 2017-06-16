@@ -19,7 +19,7 @@ public interface UserHandler {
 
     public void messageToUser(String message) throws RemoteException;
 
-    public String messageFromUser() throws IOException;
+    public String messageFromUser() throws RemoteException;
 
     public void setEndMatch(boolean endMatch);
 

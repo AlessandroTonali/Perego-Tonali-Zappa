@@ -6,6 +6,7 @@ import it.polimi.ingsw.GC_23.ParseJson;
 import it.polimi.ingsw.GC_23.Player;
 import it.polimi.ingsw.GC_23.Resources.ResourcesSet;
 
+import java.rmi.RemoteException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -41,7 +42,7 @@ public class CouncilPrivilegeEffect extends AbsEffect {
         return benefits;
     }
 
-    public BenefitsEffect[] chooseCouncilPrivilege(Player player) {
+    public BenefitsEffect[] chooseCouncilPrivilege(Player player) throws RemoteException {
         int i;
         ArrayList<Integer> chosenEffects = new ArrayList<Integer>();
         int l = 0;
@@ -49,28 +50,28 @@ public class CouncilPrivilegeEffect extends AbsEffect {
         BenefitsEffect[] chosen = new BenefitsEffect[this.getNumberOfPrivileges()];
         int numBen = this.getNumberOfPrivileges();
         while (numBen > 0) {
-            System.out.println("Select possible council privilege:");
+            player.getUserHandler().messageToUser("Select possible council privilege:");
             for (int n = 0; n < benefits.length; n++) {
-                System.out.println(n + ": " + benefits[n].toString());
+                player.getUserHandler().messageToUser(n + ": " + benefits[n].toString());
             }
             if (!isDifferent) {
                 try {
                     string = player.getNextLine();
                     i = Integer.parseInt(string);
                     if (i < benefits.length) {
-                        System.out.println("Chosen council privilege");
+                        player.getUserHandler().messageToUser("Chosen council privilege");
                     } else {
-                        System.out.println("Error: incorrect number, try again");
+                        player.getUserHandler().messageToUser("Error: incorrect number, try again");
                         continue;
                     }
                 } catch (NumberFormatException e) {
-                    System.out.println("Invalid council privilege, please try again");
+                    player.getUserHandler().messageToUser("Invalid council privilege, please try again");
                     continue;
                 }
                 try {
                     chosen[l] = this.benefits[i];
                     l++;
-                    System.out.println("You get: " + this.benefits[i].getResources().toString());
+                    player.getUserHandler().messageToUser("You get: " + this.benefits[i].getResources().toString());
                     System.out.println();
                     numBen--;
                 } catch (NullPointerException ex) {
@@ -78,42 +79,42 @@ public class CouncilPrivilegeEffect extends AbsEffect {
                 }
             } else {
                 try {
-                    string = player.getNextLine();
+                    player.getUserHandler().messageToUser("write");
+                    string = player.getUserHandler().messageFromUser();
                     i = Integer.parseInt(string);
                     if (i < benefits.length) {
-                        System.out.println("Chosen council privilege");
+                        player.getUserHandler().messageToUser("Chosen council privilege");
                     } else {
-                        System.out.println("Error: incorrect number, try again");
+                        player.getUserHandler().messageToUser("Error: incorrect number, try again");
                         continue;
                     }
                     if (!alreadyTaken(chosenEffects, i)) {
                         chosenEffects.add(i);
                     } else {
-                        System.out.println("already taken, please choose another one");
+                        player.getUserHandler().messageToUser("already taken, please choose another one");
                         continue;
                     }
-                    System.out.println("Chosen different council privilege");
+                    player.getUserHandler().messageToUser("Chosen different council privilege");
                 } catch (NumberFormatException e) {
-                    System.out.println("Invalid council privilege, please try again");
+                    player.getUserHandler().messageToUser("Invalid council privilege, please try again");
                     continue;
                 }
                 try {
                     chosen[l] = this.benefits[i];
                     l++;
-                    System.out.println("You get:  " + this.benefits[i].getResources().toString());
-                    System.out.println();
+                    player.getUserHandler().messageToUser("You get:  " + this.benefits[i].getResources().toString());
                     numBen--;
                 } catch (NullPointerException ex) {
                     return null;
                 }
             }
         }
-        System.out.println("You have chosen all your council privilege");
+        player.getUserHandler().messageToUser("You have chosen all your council privilege");
         return chosen;
     }
 
 
-    public void activeEffect(Player player) {
+    public void activeEffect(Player player) throws RemoteException {
         BenefitsEffect[] chosenEffect = chooseCouncilPrivilege(player);
         for (BenefitsEffect e : chosenEffect) {
             e.activeEffect(player);
