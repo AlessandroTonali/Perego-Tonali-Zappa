@@ -1,15 +1,18 @@
 package it.polimi.ingsw.GC_23.FX;
 
 import com.sun.java.swing.action.AlignCenterAction;
+import com.sun.org.apache.bcel.internal.generic.FLOAD;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
+import javafx.geometry.Insets;
+import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
 import javafx.scene.control.ToolBar;
-import javafx.scene.layout.BorderPane;
-import javafx.scene.layout.Pane;
-import javafx.scene.layout.StackPane;
+import javafx.scene.layout.*;
+import javafx.scene.text.Font;
 import javafx.stage.Stage;
 
 /**
@@ -28,11 +31,24 @@ public class Login {
 
         borderPane = new BorderPane();
         borderPane.setPrefSize(600, 400);
-        borderPane.setLayoutX(171);
-        borderPane.setLayoutY(83);
+        borderPane.setPadding(new Insets(10, 20, 10, 20));
 
-        Label label = new Label("Username:");
-        borderPane.setTop(label);
+        VBox vBox = new VBox();
+        vBox.setAlignment(Pos.TOP_CENTER);
+        Label title = new Label("Welcome to Lorenzo il Magnifico");
+        title.setFont(Font.font(20));
+        FlowPane flowPane = new FlowPane();
+        Label user = new Label("Username:");
+        user.setFont(Font.font(15));
+        TextField textField = new TextField();
+        flowPane.setAlignment(Pos.CENTER);
+        flowPane.setHgap(20);
+        flowPane.getChildren().add(user);
+        flowPane.getChildren().add(textField);
+        vBox.getChildren().add(title);
+        vBox.getChildren().add(flowPane);
+        vBox.setSpacing(30);
+        borderPane.setTop(vBox);
 
         button = new Button();
         button.setText("Confirm");
@@ -47,7 +63,6 @@ public class Login {
     public void startLogin(){
         StackPane root = new StackPane();
         root.getChildren().add(borderPane);
-        root.getChildren().add(button);
         primaryStage.setScene(new Scene(root, 600, 400));
         primaryStage.show();
     }
