@@ -56,7 +56,8 @@ public class CouncilPrivilegeEffect extends AbsEffect {
             }
             if (!isDifferent) {
                 try {
-                    string = player.getNextLine();
+                    player.getUserHandler().messageToUser("write");
+                    string = player.getUserHandler().messageFromUser();
                     i = Integer.parseInt(string);
                     if (i < benefits.length) {
                         player.getUserHandler().messageToUser("Chosen council privilege");
@@ -72,7 +73,6 @@ public class CouncilPrivilegeEffect extends AbsEffect {
                     chosen[l] = this.benefits[i];
                     l++;
                     player.getUserHandler().messageToUser("You get: " + this.benefits[i].getResources().toString());
-                    System.out.println();
                     numBen--;
                 } catch (NullPointerException ex) {
                     return null;
@@ -91,7 +91,7 @@ public class CouncilPrivilegeEffect extends AbsEffect {
                     if (!alreadyTaken(chosenEffects, i)) {
                         chosenEffects.add(i);
                     } else {
-                        player.getUserHandler().messageToUser("already taken, please choose another one");
+                        player.getUserHandler().messageToUser("Already taken, please choose another one");
                         continue;
                     }
                     player.getUserHandler().messageToUser("Chosen different council privilege");
@@ -103,6 +103,7 @@ public class CouncilPrivilegeEffect extends AbsEffect {
                     chosen[l] = this.benefits[i];
                     l++;
                     player.getUserHandler().messageToUser("You get:  " + this.benefits[i].getResources().toString());
+                    player.getUserHandler().messageToUser("");
                     numBen--;
                 } catch (NullPointerException ex) {
                     return null;
@@ -133,9 +134,9 @@ public class CouncilPrivilegeEffect extends AbsEffect {
     @Override
     public String toString() {
         if (isDifferent) {
-            return "Number of council privileges: " + numberOfPrivileges + "u should take diffirent privileges";
+            return "Number of council privileges: " + numberOfPrivileges + "You have to take different privileges";
         }
-        return "Number of council privileges: " + numberOfPrivileges + "u should take diffirent privileges";
+        return "Number of council privileges: " + numberOfPrivileges + "You have to take different privileges";
 
     }
 }

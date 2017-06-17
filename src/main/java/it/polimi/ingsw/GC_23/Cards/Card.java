@@ -7,6 +7,7 @@ import it.polimi.ingsw.GC_23.MilitaryCost;
 import it.polimi.ingsw.GC_23.Player;
 import it.polimi.ingsw.GC_23.SingleCost;
 
+import java.rmi.RemoteException;
 import java.util.ArrayList;
 
 /**
@@ -38,7 +39,7 @@ public abstract class Card {
 
 
 
-    public abstract boolean checkTakeable(Player player);
+    public abstract boolean checkTakeable(Player player) throws RemoteException;
 
     public int getPeriod() {
         return period;
@@ -69,7 +70,7 @@ public abstract class Card {
     }
 
 
-    public SingleCost getCost(Player player) {
+    public SingleCost getCost(Player player) throws RemoteException {
 
         if(!checkCostChoose()){
             return cost.get(0);
@@ -102,26 +103,26 @@ public abstract class Card {
         return this.cost.size()>1;
     }
 
-    public SingleCost chooseCost(Player player) {
+    public SingleCost chooseCost(Player player) throws RemoteException {
         int i = 0;
         int j = 0;
         for(SingleCost singlecost : this.cost) {
             if (!(singlecost instanceof MilitaryCost)) {
-                System.out.println("Press " + i + " for choosing: " + singlecost.getResources().toString());
+                player.getUserHandler().messageToUser("Press " + i + " for choosing: " + singlecost.getResources().toString());
                 i++;
             } else {
-                System.out.println("Press "+ i + " for choosing: " + singlecost.getResources().toString() +" and you required " + ((MilitaryCost) singlecost).getResourcesRequired().toString());
+                player.getUserHandler().messageToUser("Press "+ i + " for choosing: " + singlecost.getResources().toString() +" and you required " + ((MilitaryCost) singlecost).getResourcesRequired().toString());
                 i++;
             }
         }
-
-        String sw = player.getNextLine();
+        player.getUserHandler().messageToUser("write");
+        String sw = player.getUserHandler().messageFromUser();
         try {
             j = Integer.parseInt(sw);
-            System.out.println("Chosen cost");
+            player.getUserHandler().messageToUser("Chosen cost");
 
         } catch (NumberFormatException e) {
-            System.out.println("Invalid format, try again");
+            player.getUserHandler().messageToUser("Invalid format, try again");
             chooseCost(player);
         }
 
@@ -151,7 +152,6 @@ public abstract class Card {
         StringBuilder stringBuilder = new StringBuilder();
         for(AbsEffect i : immediateEffect) {
             if(i == null){
-                System.out.println("eccola");
                 continue;
             }
             stringBuilder.append("\neffect: " + i.toString());

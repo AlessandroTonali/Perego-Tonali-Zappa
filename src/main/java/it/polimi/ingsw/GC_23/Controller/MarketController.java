@@ -19,24 +19,23 @@ public class MarketController extends PlaceFamilyMember {
     public MarketController(FamilyMember familyMember, MarketSpace[] marketSpace) throws IOException {
         this.familyMember = familyMember;
         this.marketSpace = marketSpace;
-        System.out.println("choose the market place");
-        String sw = familyMember.getPlayer().getNextLine();
+        familyMember.getPlayer().getUserHandler().messageToUser("Choose the market space");
+        //todo: far vedere marketspace
+        familyMember.getPlayer().getUserHandler().messageToUser("write");
+        String sw = familyMember.getPlayer().getUserHandler().messageFromUser();
         int j = -1;
         try {
             j = Integer.parseInt(sw);
 
         } catch (NumberFormatException e) {
-            System.out.println("Invalid format");
+            familyMember.getPlayer().getUserHandler().messageToUser("Invalid format");
             isLegal();
-
         }
         this.chosenSpace = this.marketSpace[j];
-
         if (isLegal()) {
             makeAction();
-            System.out.println("succes");
         } else {
-            System.out.println("YOU ARE NOT ALLOW TO DO THIS MOVE, DO SOMETHING ELSE!");
+            familyMember.getPlayer().getUserHandler().messageToUser("YOU ARE NOT ALLOW TO DO THIS MOVE, DO SOMETHING ELSE!");
             familyMember.getPlayer().chooseMove(familyMember.getPlayer().getView(),1);
         }
     }

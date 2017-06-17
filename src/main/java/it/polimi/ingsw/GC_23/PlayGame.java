@@ -39,6 +39,7 @@ public class PlayGame {
             System.out.println(period + " period");
             while( i < 1 ){
                 for (Player p : this.players) {
+                    p.getUserHandler().messageToUser("");
                     p.getUserHandler().messageToUser(("Period: " + this.period + " Turn: " + this.turn + "\n"));
                     p.getUserHandler().messageToUser(p.getUserHandler().getCurrentUser() + ": it's your turn!\n");
                     p.chooseMove(this.board,0);

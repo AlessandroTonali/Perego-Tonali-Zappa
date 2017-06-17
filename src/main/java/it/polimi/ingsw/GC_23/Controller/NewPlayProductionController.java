@@ -23,9 +23,9 @@ public class NewPlayProductionController implements Controller {
         //TODO mettere nella newPlayProductionEffect
         if (isLegal()) {
             makeAction();
-            System.out.println("Effect new play production done");
+            familyMember.getPlayer().getUserHandler().messageToUser("Effect new play production done");
         } else {
-            System.out.println("Impossible to do new play production");
+            familyMember.getPlayer().getUserHandler().messageToUser("Impossible to do new play production");
         }
     }
 

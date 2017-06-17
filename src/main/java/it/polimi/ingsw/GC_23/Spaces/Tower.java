@@ -11,6 +11,7 @@ import it.polimi.ingsw.GC_23.FamilyMember;
 import it.polimi.ingsw.GC_23.Player;
 import it.polimi.ingsw.GC_23.Spaces.TowerSpace;
 
+import java.rmi.RemoteException;
 import java.util.ArrayList;
 
 /**
@@ -71,24 +72,26 @@ public class Tower {
         return otherFamiliarPresence;
     }
 
-    public TowerSpace chooseTowerSpace(Player player) {
-        System.out.println("choose the tower space");
-        String input = player.getNextLine();
+    public TowerSpace chooseTowerSpace(Player player) throws RemoteException {
+        player.getUserHandler().messageToUser("Choose the tower space");
+        //todo: mostrare i towerspace
+        player.getUserHandler().messageToUser("write");
+        String input = player.getUserHandler().messageFromUser();
         int i;
         try {
             i = Integer.parseInt(input);
 
         } catch (NumberFormatException e) {
-            System.out.println("unvalid format");
+            player.getUserHandler().messageToUser("Invalid format");
             return chooseTowerSpace(player);
         }
 
         try {
-            System.out.println("u choosed " + i);
+            player.getUserHandler().messageToUser("You have chosen: " + i);
             return this.spaces[i];
 
         } catch (NullPointerException e) {
-            System.out.println("number out of bound, try again");
+            player.getUserHandler().messageToUser("Number out of bound, try again");
             return chooseTowerSpace(player);
         }
 
@@ -105,14 +108,14 @@ public class Tower {
         return String.valueOf(stringBuilder);
     }
 
-    public void activePermanetEffect(FamilyMember familyMember) {
+    public void activePermanetEffect(FamilyMember familyMember) throws RemoteException {
         ArrayList<PermanentEffect> permanentEffects = familyMember.getPlayer().getPermanentEffects();
         for (int i = 0; i < permanentEffects.size(); i++) {
             if (permanentEffects.get(i) instanceof PlusTowerEffect) {
                 if (((PlusTowerEffect) permanentEffects.get(i)).getTowerColor() == towerColor) {
                     int plusDice = ((PlusTowerEffect) permanentEffects.get(i)).getPlusDiceValue();
                     familyMember.setValue(familyMember.getValue() + plusDice);
-                    System.out.println("Your family member value is increased to: " +familyMember.getValue());
+                    familyMember.getPlayer().getUserHandler().messageToUser("Your family member value is increased to: " +familyMember.getValue());
                 }
             }
         }

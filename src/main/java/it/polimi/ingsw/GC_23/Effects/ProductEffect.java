@@ -21,10 +21,10 @@ public class ProductEffect extends AbsEffect {
     @Override
     public String toString() {
         if(required.equals(new SingleCost(new ResourcesSet()))){
-            return "u receive one " + giving.getResources().toString() + "for every: " +
+            return "You receive one " + giving.getResources().toString() + "for every: " +
                     cardColor.toString() + "you have";
         }
-        return "u receive one " + giving.getResources().toString() + "for every: " +
+        return "You receive one " + giving.getResources().toString() + "for every: " +
                 required + "you have";
     }
 

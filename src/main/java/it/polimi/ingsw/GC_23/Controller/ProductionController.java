@@ -4,6 +4,7 @@ import it.polimi.ingsw.GC_23.FamilyMember;
 import it.polimi.ingsw.GC_23.Spaces.ProductionSpace;
 
 import java.io.IOException;
+import java.rmi.RemoteException;
 import java.util.ArrayList;
 
 /**
@@ -18,12 +19,10 @@ public class ProductionController extends PlaceFamilyMember {
         this.productionSpace = productionSpace;
         if( hasSense()) {
             if(isLegal()){
-                System.out.println("success");
                 makeAction();
-                System.out.println(this.familyMember.getPlayer().getResources().toString() + "in realta hai cio");
             }
             else {
-                System.out.println("NOT VALID MOVE, TRY ANOTHER ONE!");
+                familyMember.getPlayer().getUserHandler().messageToUser("NOT VALID MOVE, TRY ANOTHER ONE!");
                 familyMember.getPlayer().chooseMove(familyMember.getPlayer().getView(),1);
             }
         }
@@ -44,9 +43,10 @@ public class ProductionController extends PlaceFamilyMember {
 
     //TODO: attiva anche gli effetti permanenti delle carte edificio in possesso con valore <= a quello dell'azione
     @Override
-    public void makeAction(){
+    public void makeAction() throws RemoteException {
         this.familyMember.getPlayer().getBonusTile().getProductionEffect().activeEffect(this.familyMember.getPlayer());
         productionSpace.setFamilyMember(familyMember);
+        this.familyMember.getPlayer().getUserHandler().messageToUser(this.familyMember.getPlayer().getResources().toString());
     }
 
 }

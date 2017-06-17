@@ -17,25 +17,19 @@ public class IncreaseFamilyValue implements Controller {
         this.quantity = quantity;
         this.familyMember = familyMember;
         if (!this.isLegal()) {
-            System.out.println("YOU ARE NOT ALLOW TO DO THIS MOVE, DO SOMETHING ELSE!");
+            familyMember.getPlayer().getUserHandler().messageToUser("YOU ARE NOT ALLOW TO DO THIS MOVE, DO SOMETHING ELSE!");
             familyMember.getPlayer().chooseMove(familyMember.getPlayer().getView(),1);
         } else {
             this.makeAction();
-            System.out.println("succes");
             familyMember.getPlayer().chooseMove(familyMember.getPlayer().getView(),1);
         }
-
     }
-
-
 
     public boolean isLegal() {
         ResourcesSet playerRes = this.familyMember.getPlayer().getResources();
-
         if (playerRes.checkAffordable(new ResourcesSet(0, 0, 0, quantity, 0
                 , 0, 0))) {
             return true;
-
         } else {
             return false;
         }

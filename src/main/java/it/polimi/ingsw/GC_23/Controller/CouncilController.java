@@ -26,9 +26,7 @@ public class CouncilController extends PlaceFamilyMember {
             makeAction();
         }
         else {
-
-            familyMember.getPlayer().getUserHandler().messageToUser("YOU ARE NOT" +
-                    "T ALLOW TO DO THIS MOVE, DO SOMETHING ELSE!");
+            familyMember.getPlayer().getUserHandler().messageToUser("YOU ARE NOT ALLOW TO DO THIS MOVE, DO SOMETHING ELSE!");
             this.familyMember.getPlayer().chooseMove(familyMember.getPlayer().getView(),1);
         }
     }

@@ -5,6 +5,7 @@ import it.polimi.ingsw.GC_23.Enumerations.CardColor;
 import it.polimi.ingsw.GC_23.Player;
 import it.polimi.ingsw.GC_23.SingleCost;
 
+import java.rmi.RemoteException;
 import java.util.ArrayList;
 
 /**
@@ -45,34 +46,35 @@ public class DiscountEffect extends AbsEffect{
         this.valueDiscount = valueDiscount;
     }
 
-    public SingleCost chooseResourceDiscount(Player player){
+    public SingleCost chooseResourceDiscount(Player player) throws RemoteException {
         int i;
         String string;
         Boolean madeChoice= false;
         ArrayList<SingleCost> chosenDiscount = new ArrayList<SingleCost>();
         while(!madeChoice){
-            System.out.println("Select possible discount");
+            player.getUserHandler().messageToUser("Select possible discount");
             for(int n=0; n< resourcesDiscount.size(); n++ ){
-                System.out.println(n+"--> "+resourcesDiscount.get(n).toString());
+                player.getUserHandler().messageToUser(n+"--> "+resourcesDiscount.get(n).toString());
             }
             try {
-                string = player.getNextLine();
+                player.getUserHandler().messageToUser("write");
+                string = player.getUserHandler().messageFromUser();
                 i = Integer.parseInt(string);
                 if(i<this.getResourcesDiscount().size()){
-                    System.out.println("Chosen discount");
+                    player.getUserHandler().messageToUser("Chosen discount");
                 }
                 else{
-                    System.out.println("Error: incorrect number, try again");
+                    player.getUserHandler().messageToUser("Error: incorrect number, try again");
                     continue;
                 }
             }catch (NumberFormatException e) {
-                System.out.println("Invalid discount effect, please try again");
+                player.getUserHandler().messageToUser("Invalid discount effect, please try again");
                 continue;
             }
             try{
                 chosenDiscount.add(this.getResourcesDiscount().get(i));
-                System.out.println("You get: "+ chosenDiscount.get(i).toString());
-                System.out.println();
+                player.getUserHandler().messageToUser("You get: "+ chosenDiscount.get(i).toString());
+                player.getUserHandler().messageToUser("");
                 madeChoice =true;
             }catch (NullPointerException e){
                 return null;
@@ -82,7 +84,7 @@ public class DiscountEffect extends AbsEffect{
     }
 
     //todo: sconto dei valori del familiare per effetti permanenti
-    public void activeEffect(Player player) {
+    public void activeEffect(Player player) throws RemoteException {
     SingleCost chosenResourcesDiscount = chooseResourceDiscount(player);
     //è uguale se li aggiungo e dopo li toglie come se il prezzo fosse uguale?
     player.getResources().sum(chosenResourcesDiscount.getResources());

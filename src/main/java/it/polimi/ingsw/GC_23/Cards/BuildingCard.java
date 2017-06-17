@@ -5,6 +5,8 @@ import it.polimi.ingsw.GC_23.Effects.PermanentEffect;
 import it.polimi.ingsw.GC_23.Enumerations.CardColor;
 import it.polimi.ingsw.GC_23.Player;
 import it.polimi.ingsw.GC_23.SingleCost;
+
+import java.rmi.RemoteException;
 import java.util.ArrayList;
 
 /**
@@ -22,7 +24,7 @@ public class BuildingCard extends Card {
 
     //controlla numero carte e se ha abbastanza risorse
     @Override
-    public boolean checkTakeable(Player player) {
+    public boolean checkTakeable(Player player) throws RemoteException {
         if (player.getCardOfPlayer().getBuildingCards().size() < 6) {
             if (player.getResources().checkAffordable(this.getCost(player).getResources())){
                 return true;

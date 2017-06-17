@@ -8,6 +8,7 @@ import it.polimi.ingsw.GC_23.Spaces.Tower;
 import it.polimi.ingsw.GC_23.Spaces.TowerSpace;
 
 import java.io.IOException;
+import java.rmi.RemoteException;
 
 /**
  * Created by jesss on 23/05/17.
@@ -19,7 +20,7 @@ public abstract class TowerController extends PlaceFamilyMember {
 
 
 
-    public TowerController(FamilyMember familyMember, Tower tower) {
+    public TowerController(FamilyMember familyMember, Tower tower) throws RemoteException {
         this.familyMember = familyMember;
         this.tower = tower;
         tower.activePermanetEffect(familyMember);
@@ -48,7 +49,7 @@ public abstract class TowerController extends PlaceFamilyMember {
         return towerSpace;
     }
 
-    public abstract boolean isLegal();
+    public abstract boolean isLegal() throws RemoteException;
 
     public abstract void makeAction() throws IOException;
 

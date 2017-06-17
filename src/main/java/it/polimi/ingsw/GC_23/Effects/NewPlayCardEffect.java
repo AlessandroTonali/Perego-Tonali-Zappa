@@ -10,6 +10,7 @@ import it.polimi.ingsw.GC_23.Enumerations.NewPlayColor;
 import it.polimi.ingsw.GC_23.Spaces.Tower;
 
 import java.io.IOException;
+import java.rmi.RemoteException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -30,34 +31,35 @@ public class NewPlayCardEffect extends AbsEffect {
 
     }
 
-    public SingleCost chooseResourceDiscount(Player player){
+    public SingleCost chooseResourceDiscount(Player player) throws RemoteException {
         int i;
         String string;
         Boolean madeChoice= false;
         ArrayList<SingleCost> chosenDiscount = new ArrayList<SingleCost>();
         while(!madeChoice){
-            System.out.println("Select possible discount");
+            player.getUserHandler().messageToUser("Select possible discount");
             for(int n=0; n< resourcesDiscount.size(); n++ ){
-                System.out.println(n+"--> "+resourcesDiscount.get(n).toString());
+                player.getUserHandler().messageToUser(n+"--> "+resourcesDiscount.get(n).toString());
             }
             try {
-                string = player.getNextLine();
+                player.getUserHandler().messageToUser("write");
+                string = player.getUserHandler().messageFromUser();
                 i = Integer.parseInt(string);
                 if(i< resourcesDiscount.size()){
-                    System.out.println("Chosen discount");
+                    player.getUserHandler().messageToUser("Chosen discount");
                 }
                 else{
-                    System.out.println("Error: incorrect number, try again");
+                    player.getUserHandler().messageToUser("Error: incorrect number, try again");
                     continue;
                 }
             }catch (NumberFormatException e) {
-                System.out.println("Invalid discount effect, please try again");
+                player.getUserHandler().messageToUser("Invalid discount effect, please try again");
                 continue;
             }
             try{
                 chosenDiscount.add(resourcesDiscount.get(i));
-                System.out.println("You get: "+ chosenDiscount.get(i).toString());
-                System.out.println();
+                player.getUserHandler().messageToUser("You get: "+ chosenDiscount.get(i).toString());
+                player.getUserHandler().messageToUser("");
                 madeChoice =true;
             }catch (NullPointerException e){
                 return null;
@@ -69,7 +71,6 @@ public class NewPlayCardEffect extends AbsEffect {
 
     @Override
     public void activeEffect(Player player) throws IOException {
-        //TODO: giocata (nella tower) senza mettere il family member, chiamerà isLegal di NewPlay e il suo makeMove
         FamilyMember familyMember = new FamilyMember(player, FamilyColor.NEUTRAL, diceValue);
         SingleCost sale = chooseResourceDiscount(player);
         Tower tower = null;
@@ -95,17 +96,18 @@ public class NewPlayCardEffect extends AbsEffect {
 
         if (newPlay.isLegal()) {
             newPlay.makeAction();
-            System.out.println("New play card effect done");
+            player.getUserHandler().messageToUser("New play card effect done");
         } else {
-            System.out.println("Error new play card effect");
+            player.getUserHandler().messageToUser("Error new play card effect");
             boolean stayInWhile = true;
             while (stayInWhile) {
-                System.out.println("What do you want to do? \n " +
+                player.getUserHandler().messageToUser("What do you want to do? \n " +
                         "1. Try again \n" +
                         "2. Discard");
-                Scanner scanner = new Scanner(System.in);
                 try {
-                    int input = Integer.parseInt(scanner.nextLine());
+                    player.getUserHandler().messageToUser("write");
+                    String string = player.getUserHandler().messageFromUser();
+                    int input = Integer.parseInt(string);
                     switch (input) {
                         case 1:
                             stayInWhile = false;
@@ -115,17 +117,14 @@ public class NewPlayCardEffect extends AbsEffect {
                             stayInWhile = false;
                             break;
                         default:
-                            System.out.println("Invalid choise");
+                            player.getUserHandler().messageToUser("Invalid choise");
                             break;
                     }
                 } catch (NumberFormatException e) {
-                    System.out.println("Invalid input");
+                    player.getUserHandler().messageToUser("Invalid input");
                 }
             }
         }
-
-
-
     }
 
 }

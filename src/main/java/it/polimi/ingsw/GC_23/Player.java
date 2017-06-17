@@ -27,7 +27,6 @@ public class Player implements Serializable {
     private CardOfPlayer cardOfPlayer;
     private BonusTile bonusTile;
     private FamilyMember[] familyMembers;
-    private Scanner scan;
     private UserHandler userHandler;
     private ArrayList<PermanentEffect> permanentEffects;
 
@@ -35,7 +34,6 @@ public class Player implements Serializable {
         this.playerColor = playerColor;
         this.bonusTile = bonusTile;
         this.cardOfPlayer = new CardOfPlayer();
-        this.scan = new Scanner(System.in);
         permanentEffects = new ArrayList<>();
         //permanent effect ancora non lo dobbiamo fare
     }
@@ -87,7 +85,6 @@ public class Player implements Serializable {
 
 
     public void chooseMove(Board board, int value) throws IOException {
-        //momentaneo
         this.view = board;
         getUserHandler().messageToUser("press 0 for placing a familiar in council\n" +
                 "press 1 for getting the harvest\n" +
@@ -125,6 +122,8 @@ public class Player implements Serializable {
                 new ProductionController(chooseFamilyMember(0), new ProductionSpace());
                 break;
             case 3:
+                //todo: non funziona
+                getUserHandler().messageToUser("How much?");
                 getUserHandler().messageToUser("write");
                 String servants = getUserHandler().messageFromUser();
                 int j = -1;
@@ -158,6 +157,7 @@ public class Player implements Serializable {
                 getUserHandler().messageToUser(view.toString());
                 chooseMove(view,1);
             case 10:
+                //todo: non mostra davvero le risorse
                 getUserHandler().messageToUser(this.resources.toString());
                 chooseMove(view,1);
                 break;
@@ -182,50 +182,6 @@ public class Player implements Serializable {
             return false;
         }
 
-    }
-
-    public FamilyMember chooseFamilyMember() {
-
-        for(FamilyMember f: familyMembers) {
-            if( f == null){
-                continue;
-            }
-            System.out.println(f.toString());
-        }
-
-        System.out.println("Choose your family member");
-        String sw = this.getNextLine();
-        System.out.println(sw);
-        int i;
-
-
-
-        try {
-            i = Integer.parseInt(sw);
-
-        } catch (NumberFormatException e) {
-            System.out.println("Invalid format");
-            return  chooseFamilyMember();
-        }
-        FamilyMember chosen;
-
-
-        try {
-            chosen = this.familyMembers[i];
-            if(chosen == null){
-                System.out.println("You already used this family member, choose another one");
-                return chooseFamilyMember();
-            }
-            System.out.println("You have chosen your family member");
-
-        } catch (ArrayIndexOutOfBoundsException e) {
-            System.out.println("Invalid number");
-            return chooseFamilyMember();
-
-        }
-        System.out.println("You choose the " + i + "family member");
-        System.out.println("You have " + this.getResources().toString());
-        return chosen;
     }
 
     public FamilyMember chooseFamilyMember(int value) throws IOException {
@@ -260,10 +216,6 @@ public class Player implements Serializable {
         getUserHandler().messageToUser("You choose the " + i + "family member");
         getUserHandler().messageToUser("You have " + this.getResources().toString());
         return chosen;
-    }
-
-    public String getNextLine() {
-        return scan.nextLine();
     }
 
     public UserHandler getUserHandler() {

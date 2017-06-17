@@ -23,8 +23,6 @@ public class NewPlayHarvestEffect extends AbsEffect {
     public void activeEffect(Player player) throws IOException {
         FamilyMember familyMember = new FamilyMember(player, FamilyColor.NEUTRAL, diceValue);
         new HarvestController(familyMember, player.getView().getHarvestSpace());
-
-
     }
 
     public int getDiceValue() {

@@ -38,7 +38,7 @@ public class ProductionEffect extends PermanentEffect {
                 effects.get(i).activeEffect(player);
             }
         } else {
-            System.out.println("Permanent effect on production isn't activable");
+            player.getUserHandler().messageToUser("Permanent effect on production isn't activable");
         }
     }
 

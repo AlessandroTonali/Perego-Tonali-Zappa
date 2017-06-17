@@ -36,7 +36,7 @@ public class ImplicationEffect extends AbsEffect{
         return givings;
     }
 
-    public ImplicationEffect chooseImplication(Player player) {
+    public ImplicationEffect chooseImplication(Player player) throws RemoteException {
         int i;
         String string;
         Boolean madeChoice = false;
@@ -44,31 +44,32 @@ public class ImplicationEffect extends AbsEffect{
         ArrayList<AbsEffect> chosenBenefit = new ArrayList<AbsEffect>();
         ImplicationEffect chosen = new ImplicationEffect(chosenCost, chosenBenefit);
         while (!madeChoice) {
-            System.out.println("Select possible implication");
+            player.getUserHandler().messageToUser("Select possible implication");
             for (int m = 0; m < requirements.size(); m++) {
-                System.out.println(m + "--> " + requirements.get(m).toString());
-                System.out.println("     " + givings.get(m).toString());
+                player.getUserHandler().messageToUser(m + "--> " + requirements.get(m).toString());
+                player.getUserHandler().messageToUser("     " + givings.get(m).toString());
             }
             try {
-                string = player.getNextLine();
+                player.getUserHandler().messageToUser("write");
+                string = player.getUserHandler().messageFromUser();
                 i = Integer.parseInt(string);
                 if(i<this.getGivings().size()){
-                    System.out.println("Chosen implication");
+                    player.getUserHandler().messageToUser("Chosen implication");
                 }
                 else{
-                    System.out.println("Error: incorrect number, try again");
+                    player.getUserHandler().messageToUser("Error: incorrect number, try again");
                     continue;
                 }
             }catch (NumberFormatException e) {
-                System.out.println("Invalid implication effect, please try again");
+                player.getUserHandler().messageToUser("Invalid implication effect, please try again");
                 continue;
             }
             try{
                 chosen.getRequirements().add(this.getRequirements().get(i));
                 chosen.getGivings().add(this.getGivings().get(i));
-                System.out.println("You pay: "+ chosen.getRequirements().toString());
-                System.out.println("You get: "+ chosen.getGivings().toString());
-                System.out.println();
+                player.getUserHandler().messageToUser("You pay: "+ chosen.getRequirements().toString());
+                player.getUserHandler().messageToUser("You get: "+ chosen.getGivings().toString());
+                player.getUserHandler().messageToUser("");
                 madeChoice =true;
             }catch (NullPointerException e){
                 return null;

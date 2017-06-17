@@ -31,7 +31,5 @@ public class BonusTile {
         this.harvestEffect = harvestEffect;
     }
 
-    //TODO benefits effect deve essere final perche non può cambiare durante la partita
-
 }
 

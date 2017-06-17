@@ -5,6 +5,7 @@ import it.polimi.ingsw.GC_23.FamilyMember;
 import it.polimi.ingsw.GC_23.Spaces.HarvestSpace;
 
 import java.io.IOException;
+import java.rmi.RemoteException;
 
 /**
  * Created by jesss on 23/05/17.
@@ -21,7 +22,7 @@ public class HarvestController extends PlaceFamilyMember {
                 makeAction();
             }
             else{
-                System.out.println("NON VALID MOVE TRY ANOTHER ONE!");
+                familyMember.getPlayer().getUserHandler().messageToUser("YOU ARE NOT ALLOW TO DO THIS MOVE, DO SOMETHING ELSE!");
                 familyMember.getPlayer().chooseMove(familyMember.getPlayer().getView(),1);
             }
         }
@@ -44,10 +45,10 @@ public class HarvestController extends PlaceFamilyMember {
 
     //TODO: attiva anche gli effetti permanenti delle carte terriorio in possesso con valore <= a quello dell'azione
     @Override
-    public void makeAction(){
+    public void makeAction() throws RemoteException {
         this.familyMember.getPlayer().getBonusTile().getHarvestEffect().activeEffect(this.familyMember.getPlayer());
         harvestSpace.setFamilyMember(familyMember);
-        System.out.println(familyMember.getPlayer().getResources().toString());
+        familyMember.getPlayer().getUserHandler().messageToUser(familyMember.getPlayer().getResources().toString());
     }
 
 }

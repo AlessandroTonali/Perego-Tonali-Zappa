@@ -9,6 +9,7 @@ import it.polimi.ingsw.GC_23.Spaces.Tower;
 import it.polimi.ingsw.GC_23.Spaces.TowerSpace;
 
 import java.io.IOException;
+import java.rmi.RemoteException;
 import java.util.ArrayList;
 
 /**
@@ -22,7 +23,7 @@ public class NewPlay implements Controller {
     private SingleCost sale;
     private SingleCost costCard;
 
-    public NewPlay(Tower tower, FamilyMember familyMember, SingleCost sale) {
+    public NewPlay(Tower tower, FamilyMember familyMember, SingleCost sale) throws RemoteException {
         this.familyMember = familyMember;
         this.tower = tower;
         this.sale = sale;
@@ -35,7 +36,7 @@ public class NewPlay implements Controller {
 
     //non controlla se c'è un altro familiare dello stesso colore ma fa checkOtherFamiliar
     @Override
-    public boolean isLegal() {
+    public boolean isLegal() throws RemoteException {
         if (tower.checkOtherFamiliar()) {
             costCard.getResources().sum(new ResourcesSet(0,3,0,0,0,0,0));
         }

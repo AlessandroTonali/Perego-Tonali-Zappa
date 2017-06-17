@@ -7,6 +7,7 @@ import it.polimi.ingsw.GC_23.Spaces.Tower;
 import it.polimi.ingsw.GC_23.Spaces.TowerSpace;
 
 import java.io.IOException;
+import java.rmi.RemoteException;
 import java.util.ArrayList;
 
 /**
@@ -27,7 +28,7 @@ public class TerritoryController extends TowerController {
             makeAction();
             System.out.println("succes");
         } else {
-            System.out.println("YOU ARE NOT ALLOW TO DO THIS MOVE, DO SOMETHING ELSE!");
+            familyMember.getPlayer().getUserHandler().messageToUser("YOU ARE NOT ALLOW TO DO THIS MOVE, DO SOMETHING ELSE!");
             familyMember.getPlayer().chooseMove(familyMember.getPlayer().getView(),1);
         }
     }
@@ -48,7 +49,7 @@ public class TerritoryController extends TowerController {
         }
     }
 
-    public boolean isLegal() {
+    public boolean isLegal() throws RemoteException {
         ResourcesSet cost = super.getTowerSpace().getCard().getCost(this.familyMember.getPlayer()).getResources();
 
         if(tower.checkOtherFamiliar()) {

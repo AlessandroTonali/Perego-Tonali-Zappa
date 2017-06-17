@@ -26,7 +26,7 @@ public abstract class PlaceFamilyMember implements Controller {
     }
 
     @Override
-    public abstract boolean isLegal();
+    public abstract boolean isLegal() throws RemoteException;
 
     @Override
     public abstract void makeAction() throws IOException;

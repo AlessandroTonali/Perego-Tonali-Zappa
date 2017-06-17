@@ -56,7 +56,7 @@ public class HarvestEffect extends PermanentEffect  {
                 effects.get(i).activeEffect(player);
             }
         } else {
-            System.out.println("Permanent effect on harvest isn't activable");
+            player.getUserHandler().messageToUser("Permanent effect on harvest isn't activable");
         }
     }
 }

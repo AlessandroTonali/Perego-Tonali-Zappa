@@ -10,7 +10,7 @@ import java.rmi.RemoteException;
  */
 public interface Controller {
 
-    public boolean isLegal();
+    public boolean isLegal() throws RemoteException;
 
     public void makeAction() throws IOException;
 }

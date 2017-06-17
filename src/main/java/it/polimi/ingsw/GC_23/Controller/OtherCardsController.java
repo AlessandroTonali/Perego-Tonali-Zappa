@@ -8,6 +8,7 @@ import it.polimi.ingsw.GC_23.Spaces.Tower;
 import it.polimi.ingsw.GC_23.Spaces.TowerSpace;
 
 import java.io.IOException;
+import java.rmi.RemoteException;
 import java.util.ArrayList;
 
 /**
@@ -51,7 +52,7 @@ public class OtherCardsController extends TowerController {
         }
     }
 
-    public boolean isLegal(SingleCost cost) {
+    public boolean isLegal(SingleCost cost) throws RemoteException {
 
         if(super.getTower().checkOtherFamiliar()) {
             cost.getResources().sum(new ResourcesSet(0,3,0,0,0,0,0));

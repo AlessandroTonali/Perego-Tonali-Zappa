@@ -23,9 +23,9 @@ public class NewPlayHarvestController implements Controller {
         //TODO mettere nella newPlayHarvestEffect
         if (isLegal()) {
             makeAction();
-            System.out.println("Effect new play harvest done");
+            familyMember.getPlayer().getUserHandler().messageToUser("Effect new play harvest done");
         } else {
-            System.out.println("Impossible to do new play harvest");
+            familyMember.getPlayer().getUserHandler().messageToUser("Impossible to do new play harvest");
         }
     }
 

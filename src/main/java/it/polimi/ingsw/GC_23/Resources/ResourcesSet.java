@@ -196,7 +196,6 @@ public class ResourcesSet {
     }
 
     public void sum(ResourcesSet prize) {
-        System.out.println("ciao");
         int[] playerset = this.getArray();
         int[] prizeset = prize.getArray();
         for(int i = 0; i < resourceNumber; i++){

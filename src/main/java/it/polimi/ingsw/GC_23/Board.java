@@ -10,6 +10,7 @@ import it.polimi.ingsw.GC_23.Enumerations.DiceColor;
 import it.polimi.ingsw.GC_23.Resources.ResourcesSet;
 import it.polimi.ingsw.GC_23.Spaces.*;
 
+import java.rmi.RemoteException;
 import java.util.ArrayList;
 
 /**
@@ -72,7 +73,6 @@ public class Board {
         this.diceSpace = new DiceSpace();
         setDices();
 
-        //todo: settare le carte nella tower
         //todo:disporre tessere scomunica
 
     }
@@ -144,25 +144,24 @@ public class Board {
         this.towers = towers;
     }
 
-    public Tower chooseTower(Player player) {
-        System.out.println("Choose a tower");
-        String input = player.getNextLine();
+    public Tower chooseTower(Player player) throws RemoteException {
+        player.getUserHandler().messageToUser("Choose a tower");
+        player.getUserHandler().messageToUser("write");
+        String input = player.getUserHandler().messageFromUser();
         int i;
 
         try {
             i = Integer.parseInt(input);
-            System.out.println("Chosen tower");
-            System.out.println(i);
-
+            player.getUserHandler().messageToUser("Chosen tower");
         } catch (NumberFormatException e) {
-            System.out.println("Invalid format, try again");
+            player.getUserHandler().messageToUser("Invalid format, try again");
             return chooseTower(player);
         }
 
         try{
             return towers[i];
         }catch (NullPointerException e) {
-            System.out.println("Number out of bound, insert again");
+            player.getUserHandler().messageToUser("Number out of bound, insert again");
             return chooseTower(player);
         }
     }

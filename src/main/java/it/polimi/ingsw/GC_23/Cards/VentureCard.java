@@ -6,6 +6,8 @@ import it.polimi.ingsw.GC_23.Enumerations.CardColor;
 import it.polimi.ingsw.GC_23.MilitaryCost;
 import it.polimi.ingsw.GC_23.Player;
 import it.polimi.ingsw.GC_23.SingleCost;
+
+import java.rmi.RemoteException;
 import java.util.ArrayList;
 
 /**
@@ -20,7 +22,7 @@ public class VentureCard extends Card {
 
 
     @Override
-    public boolean checkTakeable(Player player) {
+    public boolean checkTakeable(Player player) throws RemoteException {
         if (player.getCardOfPlayer().getVentureCards().size() < 6) {
             if (getCost(player) instanceof MilitaryCost) {
                 MilitaryCost requiredMilitaryPoint = (MilitaryCost) getCostSelected();
