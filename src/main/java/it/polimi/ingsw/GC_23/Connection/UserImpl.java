@@ -1,5 +1,7 @@
 package it.polimi.ingsw.GC_23.Connection;
 
+import it.polimi.ingsw.GC_23.FX.MainFX;
+
 import java.io.*;
 import java.net.MalformedURLException;
 import java.net.Socket;
@@ -55,6 +57,7 @@ public class UserImpl extends  UnicastRemoteObject implements User,Remote{
 
     private void execute(){
         try{
+            MainFX.main(null);
             selectConnection();
             if(socketConnection) {
                 outVideo.println(inScanner.nextLine());

@@ -1,5 +1,6 @@
 package it.polimi.ingsw.GC_23.FX;
 
+import com.sun.deploy.panel.RadioPropertyGroup;
 import com.sun.java.swing.action.AlignCenterAction;
 import com.sun.org.apache.bcel.internal.generic.FLOAD;
 import javafx.event.ActionEvent;
@@ -27,7 +28,7 @@ public class Login {
     public Login() throws FileNotFoundException {
         primaryStage = new Stage();
         this.primaryStage.setTitle("Login");
-        primaryStage.setHeight(400);
+        primaryStage.setHeight(600);
         primaryStage.setWidth(600);
 
         borderPane = new BorderPane();
@@ -38,15 +39,23 @@ public class Login {
         vBoxTop.setAlignment(Pos.CENTER);
         Label title = new Label("Welcome to Lorenzo il Magnifico");
         title.setFont(Font.font(20));
+        Image logo = new Image(("logo.png"));
+        ImageView logoView = new ImageView(logo);
+        logoView.setFitHeight(200);
+        logoView.setFitWidth(200);
+        logoView.setPreserveRatio(true);
         FlowPane flowPane = new FlowPane();
         Label user = new Label("Username:");
         user.setFont(Font.font(15));
         TextField textField = new TextField();
+        textField.setPrefWidth(200);
+        textField.setPromptText("Insert your username here");
         flowPane.setAlignment(Pos.CENTER);
         flowPane.setHgap(20);
         flowPane.getChildren().add(user);
         flowPane.getChildren().add(textField);
         vBoxTop.getChildren().add(title);
+        vBoxTop.getChildren().add(logoView);
         vBoxTop.getChildren().add(flowPane);
         vBoxTop.setSpacing(30);
         borderPane.setTop(vBoxTop);
@@ -55,11 +64,15 @@ public class Login {
         vBoxLeft.setAlignment(Pos.BOTTOM_LEFT);
         Label connection = new Label("Select type of connection");
         connection.setFont(Font.font(15));
-        CheckBox rmiCheck = new CheckBox("RMI");
-        CheckBox socketCheck = new CheckBox("SOCKET");
+        RadioButton rmiButton = new RadioButton("RMI");
+        RadioButton socketButton = new RadioButton("SOCKET");
+        final ToggleGroup connectionGroup = new ToggleGroup();
+        rmiButton.setToggleGroup(connectionGroup);
+        socketButton.setToggleGroup(connectionGroup);
+        socketButton.setSelected(true);
         vBoxLeft.getChildren().add(connection);
-        vBoxLeft.getChildren().add(rmiCheck);
-        vBoxLeft.getChildren().add(socketCheck);
+        vBoxLeft.getChildren().add(socketButton);
+        vBoxLeft.getChildren().add(rmiButton);
         vBoxLeft.setSpacing(30);
         borderPane.setLeft(vBoxLeft);
 
@@ -67,21 +80,36 @@ public class Login {
         vBoxRight.setAlignment(Pos.BOTTOM_LEFT);
         Label interf = new Label("Select type of interface");
         interf.setFont(Font.font(15));
-        CheckBox cliCheck = new CheckBox("CLI");
-        CheckBox guiCheck = new CheckBox("GUI");
+        RadioButton cliButton = new RadioButton("CLI");
+        RadioButton guiButton = new RadioButton("GUI");
+        final ToggleGroup interfaceGroup = new ToggleGroup();
+        cliButton.setToggleGroup(interfaceGroup);
+        guiButton.setToggleGroup(interfaceGroup);
+        cliButton.setSelected(true);
         vBoxRight.getChildren().add(interf);
-        vBoxRight.getChildren().add(cliCheck);
-        vBoxRight.getChildren().add(guiCheck);
+        vBoxRight.getChildren().add(cliButton);
+        vBoxRight.getChildren().add(guiButton);
         vBoxRight.setSpacing(30);
         borderPane.setRight(vBoxRight);
 
         VBox vBoxBottom = new VBox();
         Button button = new Button();
-        button.setText("Confirm");
+        button.setText("Submit");
         button.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
-                System.out.println("End Login");
+                if(textField.getText().equals("")){
+                    Alert alert = new Alert(Alert.AlertType.ERROR);
+                    alert.setTitle("Error Dialog");
+                    alert.setHeaderText("Invalid username");
+                    alert.setContentText("Please insert a valid username");
+                    alert.showAndWait();
+                }
+                else{
+                    if(connectionGroup.getSelectedToggle().equals(rmiButton)){
+
+                    }
+                }
             }
         });
         vBoxBottom.setPrefSize(100,100);
