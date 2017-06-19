@@ -78,6 +78,11 @@ public class Match implements Runnable{
         this.startMatch = value;
     }
 
+
+    public boolean isStartMatch() {
+        return startMatch;
+    }
+
     public int getPlayerCounter() throws RemoteException{
         return this.playerCounter;
     }

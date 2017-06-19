@@ -57,7 +57,7 @@ public class UserImpl extends  UnicastRemoteObject implements User,Remote{
 
     private void execute(){
         try{
-            MainFX.main(null);
+            //MainFX.main(null);
             selectConnection();
             if(socketConnection) {
                 outVideo.println(inScanner.nextLine());
@@ -97,6 +97,7 @@ public class UserImpl extends  UnicastRemoteObject implements User,Remote{
                 } catch (NumberFormatException e) {
                     System.out.println("Invalid format");
                     selectConnection();
+                    return;
                 }
                 switch (i) {
                     case 0:
@@ -150,8 +151,8 @@ public class UserImpl extends  UnicastRemoteObject implements User,Remote{
     }
 
     private void play() throws IOException{
+        String actualString = inScanner.nextLine();
         while (true) {
-            String actualString = inScanner.nextLine();
             while (!actualString.equals("write") && !actualString.equals("wait") && !actualString.equals("quit")) {
                 outVideo.println(actualString);
                 actualString = inScanner.nextLine();

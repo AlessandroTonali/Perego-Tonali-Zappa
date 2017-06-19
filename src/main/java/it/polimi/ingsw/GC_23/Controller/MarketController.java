@@ -20,7 +20,13 @@ public class MarketController extends PlaceFamilyMember {
         this.familyMember = familyMember;
         this.marketSpace = marketSpace;
         familyMember.getPlayer().getUserHandler().messageToUser("Choose the market space");
-        //todo: far vedere marketspace
+        int i = 0;
+        for(MarketSpace m : marketSpace){
+            if (m.getFamilyMember() == null){
+                familyMember.getPlayer().getUserHandler().messageToUser("Press " + i + " for getting: " + m.getEffect().toString());
+            }
+            i++;
+        }
         familyMember.getPlayer().getUserHandler().messageToUser("write");
         String sw = familyMember.getPlayer().getUserHandler().messageFromUser();
         int j = -1;

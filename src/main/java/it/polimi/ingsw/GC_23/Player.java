@@ -111,7 +111,7 @@ public class Player implements Serializable {
         switch (i) {
             case -1:
                 chooseMove(view, 0);
-                break;
+                return;
             case 0:
                 new CouncilController(board.getCouncilSpace(), chooseFamilyMember(0));
                 break;
@@ -122,7 +122,6 @@ public class Player implements Serializable {
                 new ProductionController(chooseFamilyMember(0), new ProductionSpace());
                 break;
             case 3:
-                //todo: non funziona
                 getUserHandler().messageToUser("How much?");
                 getUserHandler().messageToUser("write");
                 String servants = getUserHandler().messageFromUser();
@@ -133,6 +132,7 @@ public class Player implements Serializable {
                 } catch (NumberFormatException e) {
                     getUserHandler().messageToUser("Invalid format");
                     chooseMove(board, 0);
+                    return;
                 }
                 new IncreaseFamilyValue( j , chooseFamilyMember(0));
                 break;
@@ -142,11 +142,9 @@ public class Player implements Serializable {
             case 5:
                 new TerritoryController(chooseFamilyMember(0), board.getTower(0));
                 break;
-
             case 6:
                 new OtherCardsController(chooseFamilyMember(0), board.getTower(1));
                 break;
-
             case 7:
                 new OtherCardsController(chooseFamilyMember(0), board.getTower(2));
                 break;
@@ -156,19 +154,20 @@ public class Player implements Serializable {
             case 9:
                 getUserHandler().messageToUser(view.toString());
                 chooseMove(view,1);
+                return;
             case 10:
-                //todo: non mostra davvero le risorse
                 getUserHandler().messageToUser(this.resources.toString());
+                getUserHandler().messageToUser("");
                 chooseMove(view,1);
-                break;
+                return;
             case 11:
                 break;
             default:
                 getUserHandler().messageToUser("Wrong number selected, try again");
                 chooseMove(view,1);
+                return;
 
         }
-        getUserHandler().messageToUser(" ");
         getUserHandler().messageToUser("Wait for your turn\n");
         getUserHandler().messageToUser("wait");
         return;
@@ -185,11 +184,13 @@ public class Player implements Serializable {
     }
 
     public FamilyMember chooseFamilyMember(int value) throws IOException {
+        int j = 0;
         for(FamilyMember f: familyMembers) {
             if( f == null){
                 continue;
             }
-            getUserHandler().messageToUser(f.toString());
+            getUserHandler().messageToUser("Press " + j + " for choosing: " + f.toString());
+            j++;
         }
         getUserHandler().messageToUser("Choose your family member");
         getUserHandler().messageToUser("write");
@@ -213,7 +214,7 @@ public class Player implements Serializable {
             getUserHandler().messageToUser("Invalid number");
             return chooseFamilyMember(0);
         }
-        getUserHandler().messageToUser("You choose the " + i + "family member");
+        getUserHandler().messageToUser("You choose the " + i + " family member");
         getUserHandler().messageToUser("You have " + this.getResources().toString());
         return chosen;
     }

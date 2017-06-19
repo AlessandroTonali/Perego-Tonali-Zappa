@@ -103,7 +103,7 @@ public class PlayGame {
 
     private void checkEndPeriod() {
         board.resetCardTowers();
-        //board.setCards();//
+        board.setCard();
         makeTurnOrder();
         board.setDices();
         resetFamilyMembers();

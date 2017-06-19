@@ -40,7 +40,7 @@ public class Login {
         Image logo = new Image(("logo.png"));
         ImageView logoView = new ImageView(logo);
         logoView.setFitHeight(200);
-        logoView.setFitWidth(200);
+        logoView.setFitWidth(171);
         logoView.setPreserveRatio(true);
         FlowPane flowPane = new FlowPane();
         Label user = new Label("Username:");

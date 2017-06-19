@@ -325,7 +325,7 @@ public class Board {
         stringBuilder.append("PRODUCTION SPACE\n");
         stringBuilder.append(productionSpace.toString());
         stringBuilder.append("COUNCIL SPACE\n");
-        stringBuilder.append(councilSpace.toString());
+        stringBuilder.append(councilSpace.toString()+"\n");
         stringBuilder.append("DICES\n");
         stringBuilder.append(diceSpace.toString());
 
