@@ -31,6 +31,8 @@ import java.util.logging.Logger;
 public class Main {
     public static void main( String[] args ) throws IOException {
 
+        ParseJson.getParseJson();
+
         TowerSpace towerSpace = new TowerSpace(ParseJson.getParseJson().getBuildingCardArrayList().get(0),
               new BenefitsEffect(new ResourcesSet()), 7  );
         Player player2 = new Player(PlayerColor.BLUE,null);

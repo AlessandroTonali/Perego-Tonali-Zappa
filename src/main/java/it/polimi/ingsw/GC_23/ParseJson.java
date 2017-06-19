@@ -95,7 +95,7 @@ public class ParseJson {
 
             JSONArray permanentEffectsJson = ventureCards.getJSONObject(x).getJSONArray("permanentEffect");
             ArrayList<AbsEffect> permanentEffects = parsingEffect(permanentEffectsJson);
-            EndGameEffect permanentEffect = new EndGameEffect(permanentEffects);
+            EndGameEffect permanentEffect = (EndGameEffect) permanentEffects.get(0);
 
 
             VentureCard ventureCard = new VentureCard(period, CardColor.PURPLE, name, immediateEffect, permanentEffect, costs);
@@ -164,7 +164,7 @@ public class ParseJson {
             ArrayList<AbsEffect> immediateEffect = parsingEffect(immediateEffectsJson);
             JSONArray permanentEffectsJson = characterCards.getJSONObject(i).getJSONArray("permanentEffect");
             ArrayList<AbsEffect> permanentEffects = parsingEffect(permanentEffectsJson);
-            EndGameEffect permanentEffect = new EndGameEffect(permanentEffects);
+            PermanentEffect permanentEffect = (PermanentEffect) permanentEffects.get(0);
 
             CharacterCard characterCard = new CharacterCard(period, CardColor.BLUE, name, immediateEffect, permanentEffect, costs);
             characterCardMap.put(idCard, characterCard);
@@ -245,6 +245,19 @@ public class ParseJson {
 
         JSONArray productionEffects = rootObject.getJSONArray("ProductionEffect");
         parseProductionEffect(productionEffects);
+
+        JSONArray endGameEffects = rootObject.getJSONArray("EndGameEffect");
+        parseEndGameEffect(endGameEffects);
+    }
+
+    private void parseEndGameEffect(JSONArray endGameEffects) {
+        for (int i = 0; i < endGameEffects.length(); i++) {
+            int idEffect = endGameEffects.getJSONObject(i).getInt("id");
+            ArrayList<AbsEffect> effects = parsingEffect(endGameEffects.getJSONObject(i).getJSONArray("immediate_effect"));
+
+            EndGameEffect endGameEffect = new EndGameEffect(effects);
+            effectMap.put(idEffect, endGameEffect);
+        }
     }
 
     private ArrayList<AbsEffect> parsingEffect(JSONArray jsonArray) {
@@ -285,11 +298,21 @@ public class ParseJson {
     }
 
     private void parsePlusHarvestEffect(JSONArray plusHarvestEffects) {
-        //TODO
+        for (int i = 0; i < plusHarvestEffects.length(); i++) {
+            int idEffect =  plusHarvestEffects.getJSONObject(i).getInt("id");
+            int diceValue = plusHarvestEffects.getJSONObject(i).getInt("plus_dice_value");
+            PlusHarvestEffect plusHarvestEffect = new PlusHarvestEffect(diceValue);
+            effectMap.put(idEffect, plusHarvestEffect);
+        }
     }
 
     private void parsePlusProductionEffect(JSONArray plusProductionEffects) {
-        //TODO
+        for (int i = 0; i < plusProductionEffects.length(); i++) {
+            int idEffect =  plusProductionEffects.getJSONObject(i).getInt("id");
+            int diceValue = plusProductionEffects.getJSONObject(i).getInt("plus_dice_value");
+            PlusProductionEffect plusProductionEffect = new PlusProductionEffect(diceValue);
+            effectMap.put(idEffect, plusProductionEffect);
+        }
     }
 
     private void parsePlusTowerEffect(JSONArray plusTowerEffects) {
