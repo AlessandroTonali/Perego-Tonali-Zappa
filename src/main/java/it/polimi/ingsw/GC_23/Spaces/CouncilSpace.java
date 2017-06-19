@@ -62,6 +62,16 @@ public class CouncilSpace extends ActionSpace {
 
     }
 
+    @Override
+    public void checkBeforeActivablePermanentEffect(FamilyMember familyMember) {
+
+    }
+
+    @Override
+    public void checkAfterActivablePermanentEffect(FamilyMember familyMember) {
+
+    }
+
     public String toString() {
         StringBuilder stringBuilder = new StringBuilder();
         int i = 1;

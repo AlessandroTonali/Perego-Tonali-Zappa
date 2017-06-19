@@ -17,8 +17,11 @@ public class HarvestController extends PlaceFamilyMember {
     public HarvestController(FamilyMember familyMember, HarvestSpace harvestSpace) throws IOException {
         this.familyMember = familyMember;
         this.harvestSpace = harvestSpace;
+
+        harvestSpace.checkBeforeActivablePermanentEffect(familyMember);
         if( hasSense()) {
             if(isLegal()){
+                harvestSpace.checkAfterActivablePermanentEffect(familyMember);
                 makeAction();
             }
             else{
@@ -29,6 +32,7 @@ public class HarvestController extends PlaceFamilyMember {
     }
 
     //Da controllare: no familiari dello stesso colore (si neutro)
+    @Override
     public boolean isLegal() {
         boolean legal = true;
 

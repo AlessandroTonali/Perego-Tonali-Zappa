@@ -48,6 +48,7 @@ public class ParseJson {
         parseImmediateEffect();
         parsePermanentEffect();
         parseCard();
+        parseBoardComponent();
 
 
     }
@@ -231,14 +232,20 @@ public class ParseJson {
 
         JSONObject rootObject = new JSONObject(jsonContent);
 
-        JSONArray plusTowerEffects = rootObject.getJSONArray("PlusTowerEffect");
+        /*JSONArray plusTowerEffects = rootObject.getJSONArray("PlusTowerEffect");
         parsePlusTowerEffect(plusTowerEffects);
 
         JSONArray plusProductionEffects = rootObject.getJSONArray("PlusProductionEffect");
         parsePlusProductionEffect(plusProductionEffects);
 
         JSONArray plusHarvestEffects = rootObject.getJSONArray("PlusHarvestEffect");
-        parsePlusHarvestEffect(plusHarvestEffects);
+        parsePlusHarvestEffect(plusHarvestEffects);*/
+
+        JSONArray plusDiceEffects = rootObject.getJSONArray("PlusDiceEffect");
+        parsePlusDiceEffect(plusDiceEffects);
+
+        JSONArray malusOnBenefitEffects = rootObject.getJSONArray("MalusOnBenefitEffect");
+        parseMalusOnBenefitEffect(malusOnBenefitEffects);
 
         JSONArray harvestEffects = rootObject.getJSONArray("HarvestEffect");
         parseHarvestEffect(harvestEffects);
@@ -248,6 +255,72 @@ public class ParseJson {
 
         JSONArray endGameEffects = rootObject.getJSONArray("EndGameEffect");
         parseEndGameEffect(endGameEffects);
+    }
+
+    private void parseMalusOnBenefitEffect(JSONArray malusOnBenefitEffects) {
+        for (int i = 0; i < malusOnBenefitEffects.length(); i++) {
+            JSONObject jsonObject = malusOnBenefitEffects.getJSONObject(i);
+
+            int idEffect = jsonObject.getInt("id");
+            String resourceType = jsonObject.getString("resource");
+            int malusValue = jsonObject.getInt("malus");
+
+            MalusOnBenefitEffect malusOnBenefitEffect = new MalusOnBenefitEffect(resourceType, malusValue);
+            effectMap.put(idEffect, malusOnBenefitEffect);
+        }
+
+    }
+
+    private void parseBoardComponent() {
+        String jsonContent = null;
+        try {
+            Scanner scanner = new Scanner(new File("Board.json"));
+            jsonContent = scanner.useDelimiter("\\Z").next();
+            scanner.close();
+        } catch (FileNotFoundException e) {
+            logger.setLevel(Level.SEVERE);
+            logger.severe(String.valueOf(e));
+        }
+
+
+        JSONObject rootObject = new JSONObject(jsonContent);
+
+        JSONArray excommunicationTiles = rootObject.getJSONArray("ExcommunicationTile");
+        parseExcommunicationTile(excommunicationTiles);
+    }
+
+    private void parseExcommunicationTile(JSONArray excommunicationTiles) {
+        for (int i = 0; i < excommunicationTiles.length(); i++) {
+            JSONObject jsonObject = excommunicationTiles.getJSONObject(i);
+            int idTile = jsonObject.getInt("id");
+            int period = jsonObject.getInt("period");
+            ArrayList<AbsEffect> permanentEffects = parsingEffect(jsonObject.getJSONArray("permanent_effect"));
+            ExcommunicationTile excommunicationTile = new ExcommunicationTile(period, permanentEffects);
+        }
+    }
+
+    private void parsePlusDiceEffect(JSONArray plusDiceEffects) {
+        for (int i = 0; i < plusDiceEffects.length(); i++) {
+            JSONObject jsonObject = plusDiceEffects.getJSONObject(i);
+            int idEffect = jsonObject.getInt("id");
+            CardColor cardColor = null;
+            int plusDiceValue = jsonObject.getInt("plus_dice_value");
+            String type = jsonObject.getString("position");
+            ArrayList<SingleCost> sales = new ArrayList<>();
+            if (jsonObject.has("sale")) {
+                JSONArray salesJsonArray = jsonObject.getJSONArray("sale");
+                for (int j = 0; j < salesJsonArray.length(); j++) {
+                    sales.add(parseCost(salesJsonArray.getJSONObject(j)));
+                }
+            }
+            if (jsonObject.has("card_color")) {
+                cardColor = Util.parseCardColor(jsonObject.getString("card_color"));
+            }
+
+            PlusDiceEffect plusDiceEffect =  new PlusDiceEffect(plusDiceValue, type, cardColor, sales);
+            effectMap.put(idEffect, plusDiceEffect);
+
+        }
     }
 
     private void parseEndGameEffect(JSONArray endGameEffects) {
@@ -297,7 +370,7 @@ public class ParseJson {
         }
     }
 
-    private void parsePlusHarvestEffect(JSONArray plusHarvestEffects) {
+    /*private void parsePlusHarvestEffect(JSONArray plusHarvestEffects) {
         for (int i = 0; i < plusHarvestEffects.length(); i++) {
             int idEffect =  plusHarvestEffects.getJSONObject(i).getInt("id");
             int diceValue = plusHarvestEffects.getJSONObject(i).getInt("plus_dice_value");
@@ -330,7 +403,7 @@ public class ParseJson {
             PlusTowerEffect plusTowerEffect = new PlusTowerEffect(cardColor, plusDiceValue, sales);
             effectMap.put(idEffect, plusTowerEffect);
         }
-    }
+    }*/
 
     private void parseNewPlayHarvestEffect(JSONArray newPlayHarvestEffects) {
         for (int i = 0; i < newPlayHarvestEffects.length(); i++) {

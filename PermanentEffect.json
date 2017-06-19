@@ -1,17 +1,27 @@
 {
-	"PlusTowerEffect":[
-		{"id": "492", "card_color": "green", "plus_dice_value": "2"},
-		{"id": "502", "card_color": "yellow", "plus_dice_value": "2", "sale": [{"wood": "-1"}, {"stone": "-1"}]},
-		{"id": "512", "card_color": "blue", "plus_dice_value": "2", "sale": [{"coin": "-1"}]},
-		{"id": "522", "card_color": "purple", "plus_dice_value": "2"}
+	"PlusDiceEffect": [
+		{"id": "1015", "plus_dice_value": "-3", "position": "harvest"},
+		{"id": "1016", "plus_dice_value": "-3", "position": "production"},
+		{"id": "1017", "plus_dice_value": "-1", "position": "dice"},
+		{"id": "1021", "card_color": "green", "plus_dice_value": "-4", "position": "tower"},
+		{"id": "1022", "card_color": "yellow", "plus_dice_value": "-4", "position": "tower"},
+		{"id": "1023", "card_color": "blue", "plus_dice_value": "-4", "position": "tower"},
+		{"id": "1024", "card_color": "purple", "plus_dice_value": "-4", "position": "tower"},
+		{"id": "542", "plus_dice_value": "2", "position": "production"},
+		{"id": "622", "plus_dice_value": "3", "position": "production"},
+		{"id": "532", "plus_dice_value": "2", "position": "harvest"},
+		{"id": "612", "plus_dice_value": "3", "position": "harvest"},
+		{"id": "492", "card_color": "green", "plus_dice_value": "2", "position": "tower"},
+		{"id": "502", "card_color": "yellow", "plus_dice_value": "2", "position": "tower", "sale": [{"wood": "-1"}, {"stone": "-1"}]},
+		{"id": "512", "card_color": "blue", "plus_dice_value": "2", "position": "tower", "sale": [{"coin": "-1"}]},
+		{"id": "522", "card_color": "purple", "plus_dice_value": "2", "position": "tower"}
 	],
-	"PlusHarvestEffect": [
-		{"id": "532", "plus_dice_value": "2"},
-		{"id": "612", "plus_dice_value": "3"}
-	],
-	"PlusProductionEffect": [
-		{"id": "542", "plus_dice_value": "2"},
-		{"id": "622", "plus_dice_value": "3"}
+	"MalusOnBenefitEffect": [
+		{"id": "1011", "resource": "militaryPoint", "malus": "-1"},
+		{"id": "1012", "resource": "coin", "malus": "-1"},
+		{"id": "1013", "resource": "servant", "malus": "-1"},
+		{"id": "1014", "resource": "wood", "malus": "-1"},
+		{"id": "1018", "resource": "stone", "malus": "-1"},
 	],
 	"HarvestEffect": [
 		{"id": "1102", "harvest_value": "1", "immediate_effect": [{"effect": "1103"}]},

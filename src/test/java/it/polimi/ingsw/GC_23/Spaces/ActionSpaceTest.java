@@ -10,7 +10,17 @@ import static org.junit.Assert.*;
  */
 public class ActionSpaceTest {
     FamilyMember familyMember = new FamilyMember(null, null,2);
-    ActionSpace actionSpace = new ActionSpace(1);
+    ActionSpace actionSpace = new ActionSpace(1) {
+        @Override
+        public void checkBeforeActivablePermanentEffect(FamilyMember familyMember) {
+
+        }
+
+        @Override
+        public void checkAfterActivablePermanentEffect(FamilyMember familyMember) {
+
+        }
+    };
 
     @Test
     public void getFamilyMember() throws Exception {

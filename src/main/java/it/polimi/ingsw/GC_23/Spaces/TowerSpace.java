@@ -5,6 +5,7 @@ import it.polimi.ingsw.GC_23.Effects.AbsEffect;
 import it.polimi.ingsw.GC_23.Effects.BenefitsEffect;
 import it.polimi.ingsw.GC_23.Effects.PlusTowerEffect;
 import it.polimi.ingsw.GC_23.Enumerations.NewPlayColor;
+import it.polimi.ingsw.GC_23.FamilyMember;
 
 import java.util.ArrayList;
 
@@ -48,6 +49,16 @@ public class TowerSpace extends ActionSpace {
         return "value: "+ super.getValue() + "\neffect: " +
                 this.benefitsEffect.toString() + "\n" + this.card.toString() + "\n family member "
                 + super.getFamilyMember().toString();
+
+    }
+
+    @Override
+    public void checkBeforeActivablePermanentEffect(FamilyMember familyMember) {
+
+    }
+
+    @Override
+    public void checkAfterActivablePermanentEffect(FamilyMember familyMember) {
 
     }
 }

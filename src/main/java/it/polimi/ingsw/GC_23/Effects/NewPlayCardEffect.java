@@ -2,7 +2,7 @@ package it.polimi.ingsw.GC_23.Effects;
 
 import com.sun.media.sound.InvalidFormatException;
 import it.polimi.ingsw.GC_23.*;
-import it.polimi.ingsw.GC_23.Controller.NewPlay;
+import it.polimi.ingsw.GC_23.Controller.NewPlayCardController;
 import it.polimi.ingsw.GC_23.Controller.OtherCardsController;
 import it.polimi.ingsw.GC_23.Controller.TerritoryController;
 import it.polimi.ingsw.GC_23.Enumerations.FamilyColor;
@@ -92,7 +92,7 @@ public class NewPlayCardEffect extends AbsEffect {
                 break;
         }
 
-        NewPlay newPlay = new NewPlay(tower, familyMember, sale);
+        NewPlayCardController newPlay = new NewPlayCardController(tower, familyMember, sale);
 
         if (newPlay.isLegal()) {
             newPlay.makeAction();

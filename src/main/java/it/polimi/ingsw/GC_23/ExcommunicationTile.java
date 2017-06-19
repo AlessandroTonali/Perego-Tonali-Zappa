@@ -1,18 +1,19 @@
 package it.polimi.ingsw.GC_23;
 
 import it.polimi.ingsw.GC_23.Effects.AbsEffect;
+import it.polimi.ingsw.GC_23.Effects.PermanentEffect;
+
+import java.util.ArrayList;
 
 /**
  * Created by Alessandro on 22/05/2017.
  */
 public class ExcommunicationTile {
     private int period;
-    private String name;
-    private AbsEffect effect;
+    private ArrayList<AbsEffect> effect;
 
-    public ExcommunicationTile(int period, String name, AbsEffect effect) {
+    public ExcommunicationTile(int period, ArrayList<AbsEffect> effect) {
         this.period = period;
-        this.name = name;
         this.effect = effect;
     }
 }

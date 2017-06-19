@@ -17,8 +17,11 @@ public class ProductionController extends PlaceFamilyMember {
     public ProductionController(FamilyMember familyMember, ProductionSpace productionSpace) throws IOException {
         this.familyMember = familyMember;
         this.productionSpace = productionSpace;
+
+        productionSpace.checkBeforeActivablePermanentEffect(familyMember);
         if( hasSense()) {
             if(isLegal()){
+                productionSpace.checkAfterActivablePermanentEffect(familyMember);
                 makeAction();
             }
             else {

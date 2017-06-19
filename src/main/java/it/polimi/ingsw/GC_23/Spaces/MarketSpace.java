@@ -37,5 +37,13 @@ public class MarketSpace extends ActionSpace {
     }
 
 
+    @Override
+    public void checkBeforeActivablePermanentEffect(FamilyMember familyMember) {
 
+    }
+
+    @Override
+    public void checkAfterActivablePermanentEffect(FamilyMember familyMember) {
+
+    }
 }

@@ -4,7 +4,7 @@ import it.polimi.ingsw.GC_23.Cards.Card;
 import it.polimi.ingsw.GC_23.Cards.TerritoryCard;
 import it.polimi.ingsw.GC_23.Effects.AbsEffect;
 import it.polimi.ingsw.GC_23.Effects.PermanentEffect;
-import it.polimi.ingsw.GC_23.Effects.PlusTowerEffect;
+import it.polimi.ingsw.GC_23.Effects.PlusDiceEffect;
 import it.polimi.ingsw.GC_23.Enumerations.CardColor;
 import it.polimi.ingsw.GC_23.Enumerations.FamilyColor;
 import it.polimi.ingsw.GC_23.FamilyMember;
@@ -111,9 +111,9 @@ public class Tower {
     public void activePermanetEffect(FamilyMember familyMember) throws RemoteException {
         ArrayList<PermanentEffect> permanentEffects = familyMember.getPlayer().getPermanentEffects();
         for (int i = 0; i < permanentEffects.size(); i++) {
-            if (permanentEffects.get(i) instanceof PlusTowerEffect) {
-                if (((PlusTowerEffect) permanentEffects.get(i)).getTowerColor() == towerColor) {
-                    int plusDice = ((PlusTowerEffect) permanentEffects.get(i)).getPlusDiceValue();
+            if (permanentEffects.get(i) instanceof PlusDiceEffect && ((PlusDiceEffect) permanentEffects.get(i)).getType().equals("tower")) {
+                if (((PlusDiceEffect) permanentEffects.get(i)).getCardColor() == towerColor) {
+                    int plusDice = ((PlusDiceEffect) permanentEffects.get(i)).getPlusDiceValue();
                     familyMember.setValue(familyMember.getValue() + plusDice);
                     familyMember.getPlayer().getUserHandler().messageToUser("Your family member value is increased to: " +familyMember.getValue());
                 }

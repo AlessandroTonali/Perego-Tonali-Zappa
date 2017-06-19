@@ -15,7 +15,7 @@ import java.util.ArrayList;
 /**
  * Created by jesss on 26/05/17.
  */
-public class NewPlay implements Controller {
+public class NewPlayCardController implements Controller {
 
     private FamilyMember familyMember;
     private Tower tower;
@@ -23,7 +23,7 @@ public class NewPlay implements Controller {
     private SingleCost sale;
     private SingleCost costCard;
 
-    public NewPlay(Tower tower, FamilyMember familyMember, SingleCost sale) throws RemoteException {
+    public NewPlayCardController(Tower tower, FamilyMember familyMember, SingleCost sale) throws RemoteException {
         this.familyMember = familyMember;
         this.tower = tower;
         this.sale = sale;

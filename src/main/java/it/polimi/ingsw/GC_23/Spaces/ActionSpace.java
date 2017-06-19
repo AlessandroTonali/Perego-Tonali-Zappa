@@ -9,7 +9,7 @@ import java.util.ArrayList;
 /**
  * Created by Alessandro Tonali on 20/05/2017.
  */
-public class ActionSpace {
+public abstract class ActionSpace {
     private FamilyMember familyMember;
     private final int value;
 
@@ -60,4 +60,7 @@ public class ActionSpace {
     public void resetFamilyMember(){
         this.familyMember = new FamilyMember(this);
     }
+
+    public abstract void checkBeforeActivablePermanentEffect(FamilyMember familyMember);
+    public abstract void checkAfterActivablePermanentEffect(FamilyMember familyMember);
 }

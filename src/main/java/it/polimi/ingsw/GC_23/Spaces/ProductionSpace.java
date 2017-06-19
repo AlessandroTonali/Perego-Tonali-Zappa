@@ -1,14 +1,14 @@
 package it.polimi.ingsw.GC_23.Spaces;
 
 import it.polimi.ingsw.GC_23.BonusTile;
-import it.polimi.ingsw.GC_23.Effects.AbsEffect;
-import it.polimi.ingsw.GC_23.Effects.BenefitsEffect;
+import it.polimi.ingsw.GC_23.Effects.*;
 import it.polimi.ingsw.GC_23.Enumerations.FamilyColor;
 import it.polimi.ingsw.GC_23.Enumerations.PlayerColor;
 import it.polimi.ingsw.GC_23.FamilyMember;
 import it.polimi.ingsw.GC_23.Player;
 import it.polimi.ingsw.GC_23.Resources.ResourcesSet;
 
+import java.io.IOException;
 import java.util.ArrayList;
 
 /**
@@ -98,6 +98,36 @@ public class ProductionSpace extends ActionSpace {
             f= new FamilyMember(this);
             orderCounter=0;
             isBusyFirst=false;
+        }
+    }
+
+    @Override
+    public void checkBeforeActivablePermanentEffect(FamilyMember familyMember) {
+        ArrayList<PermanentEffect> permanentEffectArrayList = familyMember.getPlayer().getPermanentEffects();
+
+        for (int i = 0; i < permanentEffectArrayList.size(); i++) {
+            PermanentEffect permanentEffect = permanentEffectArrayList.get(i);
+            if (permanentEffect instanceof PlusDiceEffect && ((PlusDiceEffect) permanentEffect).getType().equals("production")) {
+                familyMember.setValue(familyMember.getValue() + familyMember.getValue());
+            }
+        }
+    }
+
+    @Override
+    public void checkAfterActivablePermanentEffect(FamilyMember familyMember) {
+        ArrayList<PermanentEffect> permanentEffectArrayList = familyMember.getPlayer().getPermanentEffects();
+
+        for (int i = 0; i < permanentEffectArrayList.size(); i++) {
+            PermanentEffect permanentEffect = permanentEffectArrayList.get(i);
+            if (permanentEffect instanceof ProductionEffect) {
+                if (((ProductionEffect) permanentEffect).checkActivable(familyMember.getValue())) {
+                    try {
+                        permanentEffect.activeEffect(familyMember.getPlayer());
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                }
+            }
         }
     }
 

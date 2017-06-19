@@ -1,10 +1,12 @@
 package it.polimi.ingsw.GC_23.Spaces;
 
+import it.polimi.ingsw.GC_23.Effects.*;
 import it.polimi.ingsw.GC_23.Enumerations.FamilyColor;
 import it.polimi.ingsw.GC_23.Enumerations.PlayerColor;
 import it.polimi.ingsw.GC_23.FamilyMember;
 import it.polimi.ingsw.GC_23.Player;
 
+import java.io.IOException;
 import java.util.ArrayList;
 
 /**
@@ -98,6 +100,37 @@ public class HarvestSpace extends ActionSpace {
             isBusyFirst=false;
         }
     }
+
+    @Override
+    public void checkBeforeActivablePermanentEffect(FamilyMember familyMember) {
+        ArrayList<PermanentEffect> permanentEffectArrayList = familyMember.getPlayer().getPermanentEffects();
+
+        for (int i = 0; i < permanentEffectArrayList.size(); i++) {
+            PermanentEffect permanentEffect = permanentEffectArrayList.get(i);
+            if (permanentEffect instanceof PlusDiceEffect && ((PlusDiceEffect) permanentEffect).getType().equals("harvest")) {
+                familyMember.setValue(familyMember.getValue() + familyMember.getValue());
+            }
+        }
+    }
+
+    @Override
+    public void checkAfterActivablePermanentEffect(FamilyMember familyMember) {
+        ArrayList<PermanentEffect> permanentEffectArrayList = familyMember.getPlayer().getPermanentEffects();
+
+        for (int i = 0; i < permanentEffectArrayList.size(); i++) {
+            PermanentEffect permanentEffect = permanentEffectArrayList.get(i);
+            if (permanentEffect instanceof HarvestEffect) {
+                if (((HarvestEffect) permanentEffect).checkActivable(familyMember.getValue())) {
+                    try {
+                        permanentEffect.activeEffect(familyMember.getPlayer());
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                }
+            }
+        }
+    }
+
     public String toString() {
         StringBuilder stringBuilder = new StringBuilder();
         int i = 1;
