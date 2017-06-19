@@ -1,8 +1,6 @@
 package it.polimi.ingsw.GC_23.FX;
 
-import com.sun.deploy.panel.RadioPropertyGroup;
-import com.sun.java.swing.action.AlignCenterAction;
-import com.sun.org.apache.bcel.internal.generic.FLOAD;
+
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.geometry.Insets;
@@ -99,11 +97,11 @@ public class Login {
             @Override
             public void handle(ActionEvent event) {
                 if(textField.getText().equals("")){
-                    Alert alert = new Alert(Alert.AlertType.ERROR);
+                    /*Alert alert = new Alert(Alert.AlertType.ERROR);
                     alert.setTitle("Error Dialog");
                     alert.setHeaderText("Invalid username");
                     alert.setContentText("Please insert a valid username");
-                    alert.showAndWait();
+                    alert.showAndWait();*/
                 }
                 else{
                     if(connectionGroup.getSelectedToggle().equals(rmiButton)){
