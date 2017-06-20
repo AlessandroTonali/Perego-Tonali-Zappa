@@ -3,8 +3,6 @@ package it.polimi.ingsw.GC_23.Spaces;
 import it.polimi.ingsw.GC_23.Cards.Card;
 import it.polimi.ingsw.GC_23.Effects.AbsEffect;
 import it.polimi.ingsw.GC_23.Effects.BenefitsEffect;
-import it.polimi.ingsw.GC_23.Effects.PlusTowerEffect;
-import it.polimi.ingsw.GC_23.Enumerations.NewPlayColor;
 import it.polimi.ingsw.GC_23.FamilyMember;
 
 import java.util.ArrayList;
