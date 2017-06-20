@@ -29,12 +29,18 @@ public class OtherCardsController extends TowerController {
 
     public OtherCardsController(FamilyMember familyMember, Tower tower) throws IOException {
         super(familyMember, tower);
+        this.familyMember = familyMember;
+        this.towerSpace = super.getTowerSpace();
+        this.tower = super.getTower();
         SingleCost cost = super.getTowerSpace().getCard().getCost(familyMember.getPlayer());
+
+        towerSpace.checkBeforeActivablePermanentEffect(familyMember);
         if (isLegal(cost)) {
+            towerSpace.checkAfterActivablePermanentEffect(familyMember);
             makeAction(cost);
             System.out.println("success");
         } else {
-            System.out.println("error");
+            familyMember.getPlayer().getUserHandler().messageToUser("YOU ARE NOT ALLOW TO DO THIS MOVE, DO SOMETHING ELSE!");
             familyMember.getPlayer().chooseMove(familyMember.getPlayer().getView(),1);
         }
     }
@@ -53,6 +59,8 @@ public class OtherCardsController extends TowerController {
     }
 
     public boolean isLegal(SingleCost cost) throws RemoteException {
+
+        cost.getResources().sum(tower.getSale().getResources());
 
         if(super.getTower().checkOtherFamiliar()) {
             cost.getResources().sum(new ResourcesSet(0,3,0,0,0,0,0));
