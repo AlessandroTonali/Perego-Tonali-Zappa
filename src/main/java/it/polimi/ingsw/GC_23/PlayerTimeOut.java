@@ -16,6 +16,7 @@ public class PlayerTimeOut implements Runnable{
     @Override
     public void run() {
         try {
+
             player.getUserHandler().messageToUser("ciao sono il timeout");
             Thread.sleep(time);
             player.setTimeIsOver(true);
