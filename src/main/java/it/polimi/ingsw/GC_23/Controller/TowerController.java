@@ -23,7 +23,7 @@ public abstract class TowerController extends PlaceFamilyMember {
     public TowerController(FamilyMember familyMember, Tower tower) throws RemoteException {
         this.familyMember = familyMember;
         this.tower = tower;
-        tower.activePermanetEffect(familyMember);
+        tower.checkPermanentEffect(familyMember);
         this.towerSpace = tower.chooseTowerSpace(this.familyMember.getPlayer());
 
     }

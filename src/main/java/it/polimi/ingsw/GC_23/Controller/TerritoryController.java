@@ -24,7 +24,9 @@ public class TerritoryController extends TowerController {
         this.familyMember = super.getFamilyMember();
         this.towerSpace = super.getTowerSpace();
         this.tower = super.getTower();
+        towerSpace.checkBeforeActivablePermanentEffect(familyMember);
         if (isLegal()) {
+            towerSpace.checkAfterActivablePermanentEffect(familyMember);
             makeAction();
             System.out.println("succes");
         } else {
@@ -51,6 +53,7 @@ public class TerritoryController extends TowerController {
 
     public boolean isLegal() throws RemoteException {
         ResourcesSet cost = super.getTowerSpace().getCard().getCost(this.familyMember.getPlayer()).getResources();
+        cost.sum(tower.getSale().getResources());
 
         if(tower.checkOtherFamiliar()) {
             cost.sum(new ResourcesSet(0,3,0,0,0,0,0));

@@ -9,6 +9,8 @@ import it.polimi.ingsw.GC_23.Enumerations.CardColor;
 import it.polimi.ingsw.GC_23.Enumerations.FamilyColor;
 import it.polimi.ingsw.GC_23.FamilyMember;
 import it.polimi.ingsw.GC_23.Player;
+import it.polimi.ingsw.GC_23.Resources.ResourcesSet;
+import it.polimi.ingsw.GC_23.SingleCost;
 import it.polimi.ingsw.GC_23.Spaces.TowerSpace;
 
 import java.rmi.RemoteException;
@@ -21,6 +23,19 @@ public class Tower {
     private int DIM=3;
     private TowerSpace[] spaces = new TowerSpace[DIM];
     private CardColor towerColor;
+    private SingleCost sale;
+
+    public void setTowerColor(CardColor towerColor) {
+        this.towerColor = towerColor;
+    }
+
+    public SingleCost getSale() {
+        return sale;
+    }
+
+    public void setSale(SingleCost sale) {
+        this.sale = sale;
+    }
 
     public TowerSpace[] getSpaces() {
         return spaces;
@@ -41,6 +56,7 @@ public class Tower {
     public Tower(TowerSpace[] spaces, CardColor towerColor) {
         this.spaces = spaces;
         this.towerColor = towerColor;
+        sale = new SingleCost(new ResourcesSet(0, 0, 0, 0, 0, 0, 0));
     }
 
 
@@ -108,13 +124,14 @@ public class Tower {
         return String.valueOf(stringBuilder);
     }
 
-    public void activePermanetEffect(FamilyMember familyMember) throws RemoteException {
+    public void checkPermanentEffect(FamilyMember familyMember) throws RemoteException {
         ArrayList<PermanentEffect> permanentEffects = familyMember.getPlayer().getPermanentEffects();
         for (int i = 0; i < permanentEffects.size(); i++) {
             if (permanentEffects.get(i) instanceof PlusDiceEffect && ((PlusDiceEffect) permanentEffects.get(i)).getType().equals("tower")) {
                 if (((PlusDiceEffect) permanentEffects.get(i)).getCardColor() == towerColor) {
                     int plusDice = ((PlusDiceEffect) permanentEffects.get(i)).getPlusDiceValue();
                     familyMember.setValue(familyMember.getValue() + plusDice);
+                    this.setSale(((PlusDiceEffect) permanentEffects.get(i)).chooseSale(familyMember.getPlayer()));
                     familyMember.getPlayer().getUserHandler().messageToUser("Your family member value is increased to: " +familyMember.getValue());
                 }
             }

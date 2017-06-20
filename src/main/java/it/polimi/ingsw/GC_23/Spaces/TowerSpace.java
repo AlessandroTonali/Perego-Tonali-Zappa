@@ -3,6 +3,7 @@ package it.polimi.ingsw.GC_23.Spaces;
 import it.polimi.ingsw.GC_23.Cards.Card;
 import it.polimi.ingsw.GC_23.Effects.AbsEffect;
 import it.polimi.ingsw.GC_23.Effects.BenefitsEffect;
+import it.polimi.ingsw.GC_23.Effects.PermanentEffect;
 import it.polimi.ingsw.GC_23.FamilyMember;
 
 import java.util.ArrayList;
@@ -57,6 +58,10 @@ public class TowerSpace extends ActionSpace {
 
     @Override
     public void checkAfterActivablePermanentEffect(FamilyMember familyMember) {
-
+        ArrayList<PermanentEffect> permanentEffectArrayList = familyMember.getPlayer().getPermanentEffects();
+        for (int i = 0; i < permanentEffectArrayList.size(); i++) {
+            PermanentEffect permanentEffect = permanentEffectArrayList.get(i);
+            //TODO
+        }
     }
 }
