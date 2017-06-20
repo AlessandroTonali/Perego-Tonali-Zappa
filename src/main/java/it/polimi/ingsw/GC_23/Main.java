@@ -1,5 +1,4 @@
 package it.polimi.ingsw.GC_23;
-import com.sun.xml.internal.bind.v2.runtime.unmarshaller.XsiNilLoader;
 import it.polimi.ingsw.GC_23.Cards.BuildingCard;
 import it.polimi.ingsw.GC_23.Cards.Card;
 import it.polimi.ingsw.GC_23.Cards.VentureCard;

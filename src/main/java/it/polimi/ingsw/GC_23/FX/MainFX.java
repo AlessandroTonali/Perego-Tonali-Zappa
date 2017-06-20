@@ -22,12 +22,5 @@ public class MainFX extends Application {
     public void start(Stage primaryStage) throws Exception {
         Login login = new Login();
         login.startLogin();
-        //FXMLLoader loader = new FXMLLoader();
-        //loader.setLocation(getClass().getClassLoader().getResource("login.fxml"));
-        //Parent content = loader.load();
-        //Scene scene = new Scene(content, 600, 400);
-
-        //primaryStage.setScene(scene);
-        //primaryStage.show();
     }
 }
