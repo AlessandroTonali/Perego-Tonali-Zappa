@@ -43,6 +43,7 @@ public class PlayGame {
                     p.getUserHandler().messageToUser(("Period: " + this.period + " Turn: " + this.turn + "\n"));
                     p.getUserHandler().messageToUser(p.getUserHandler().getCurrentUser() + ": it's your turn!\n");
                     p.chooseMove(this.board,0);
+                    System.out.println("Cancellami");
                 }
                 i++;
             }
