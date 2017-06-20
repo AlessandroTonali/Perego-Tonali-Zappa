@@ -21,17 +21,17 @@ import java.util.logging.Logger;
  */
 
 public class UserImpl extends  UnicastRemoteObject implements User,Remote{
-    private Socket socket;
-    private ObjectInputStream inSocket;
-    private ObjectOutputStream outSocket;
-    private Scanner inScanner;
-    private PrintWriter outWriter;
-    private BufferedReader inKeyboard;
-    private PrintWriter outVideo;
+    private transient Socket socket;
+    private transient ObjectInputStream inSocket;
+    private transient ObjectOutputStream outSocket;
+    private transient Scanner inScanner;
+    private transient PrintWriter outWriter;
+    private transient BufferedReader inKeyboard;
+    private transient PrintWriter outVideo;
     private boolean isYourTurn = false;
     private boolean socketConnection;
     private final Logger logger = Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
-    private Server server;
+    private transient Server server;
 
     protected UserImpl() throws RemoteException{
         socket = new Socket();

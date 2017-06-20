@@ -24,13 +24,13 @@ import java.util.concurrent.Executors;
  * Created by Alessandro Tonali on 20/05/2017.
  */
 public class Player implements Serializable {
-    private Board view;
+    private transient Board view;
     private PlayerColor playerColor;
-    private ResourcesSet resources;
-    private CardOfPlayer cardOfPlayer;
-    private BonusTile bonusTile;
-    private FamilyMember[] familyMembers;
-    private UserHandler userHandler;
+    private transient ResourcesSet resources;
+    private transient CardOfPlayer cardOfPlayer;
+    private transient BonusTile bonusTile;
+    private transient FamilyMember[] familyMembers;
+    private transient UserHandler userHandler;
     private ArrayList<PermanentEffect> permanentEffects;
     private boolean timeIsOver = false;
     private boolean typed = false;
