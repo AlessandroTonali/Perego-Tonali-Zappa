@@ -11,6 +11,7 @@ import it.polimi.ingsw.GC_23.Resources.ResourcesSet;
 import java.io.IOException;
 import java.util.ArrayList;
 
+
 /**
  * Created by Alessandro Tonali on 20/05/2017.
  */
@@ -94,12 +95,12 @@ public class ProductionSpace extends ActionSpace {
 
     @Override
     public void resetFamilyMember(){
-        for(FamilyMember f: this.getPlayerOrder()){
-            f= new FamilyMember(this);
+            playerOrder = new ArrayList<>();
+
             orderCounter=0;
             isBusyFirst=false;
         }
-    }
+
 
     @Override
     public void checkBeforeActivablePermanentEffect(FamilyMember familyMember) {

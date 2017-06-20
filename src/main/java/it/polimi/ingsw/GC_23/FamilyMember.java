@@ -76,8 +76,13 @@ public class FamilyMember {
     }
 
     public String toString(){
-        return "Player " + this.player.getPlayerColor() + " color " + this.familyColor + " value " +
-                this.value;
+       try{
+           return "Player " + this.player.getPlayerColor() + " color " + this.familyColor + " value " +
+                   this.value;
+       } catch (NullPointerException e) {
+           return "nooooooooooo" +
+                   " family member";
+       }
     }
 
 

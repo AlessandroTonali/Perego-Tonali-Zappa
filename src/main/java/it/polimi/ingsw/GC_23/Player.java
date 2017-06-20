@@ -16,6 +16,9 @@ import java.io.Serializable;
 import java.rmi.RemoteException;
 import java.util.ArrayList;
 import java.util.Scanner;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+
 
 /**
  * Created by Alessandro Tonali on 20/05/2017.
@@ -29,6 +32,9 @@ public class Player implements Serializable {
     private FamilyMember[] familyMembers;
     private UserHandler userHandler;
     private ArrayList<PermanentEffect> permanentEffects;
+    private boolean timeIsOver = false;
+    private boolean typed = false;
+    private int typedInt;
 
     public Player(PlayerColor playerColor, BonusTile bonusTile) {
         this.playerColor = playerColor;
@@ -36,6 +42,18 @@ public class Player implements Serializable {
         this.cardOfPlayer = new CardOfPlayer();
         permanentEffects = new ArrayList<>();
         //permanent effect ancora non lo dobbiamo fare
+    }
+
+    public void setTimeIsOver(boolean timeIsOver) {
+        this.timeIsOver = timeIsOver;
+    }
+
+    public void setTyped(boolean typed) {
+        this.typed = typed;
+    }
+
+    public void setTypedInt(int typedInt) {
+        this.typedInt = typedInt;
     }
 
     public void setBonusTile(BonusTile bonusTile) {
@@ -81,7 +99,6 @@ public class Player implements Serializable {
     public void setPlayerColor(PlayerColor playerColor) {
         this.playerColor = playerColor;
     }
-
 
 
     public void chooseMove(Board board, int value) throws IOException {
@@ -170,6 +187,7 @@ public class Player implements Serializable {
         }
         getUserHandler().messageToUser("Wait for your turn\n");
         getUserHandler().messageToUser("wait");
+
         return;
     }
 

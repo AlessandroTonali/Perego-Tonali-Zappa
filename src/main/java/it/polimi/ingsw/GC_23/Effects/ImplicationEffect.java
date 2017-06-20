@@ -1,12 +1,13 @@
 package it.polimi.ingsw.GC_23.Effects;
 
-import it.polimi.ingsw.GC_23.EffectType;
+
 import it.polimi.ingsw.GC_23.Player;
 import it.polimi.ingsw.GC_23.SingleCost;
 
 import java.io.IOException;
 import java.rmi.RemoteException;
 import java.util.ArrayList;
+
 
 /**
  * Created by jesss on 21/05/17.

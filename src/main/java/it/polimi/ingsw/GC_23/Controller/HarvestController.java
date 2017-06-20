@@ -35,11 +35,8 @@ public class HarvestController extends PlaceFamilyMember {
     @Override
     public boolean isLegal() {
         boolean legal = true;
-
-        legal = legal && harvestSpace.checkValue(familyMember);
-
         legal = legal && !harvestSpace.checkFamiliar(familyMember);
-
+        System.out.println(legal);
         return legal;
     }
 

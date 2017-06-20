@@ -59,6 +59,8 @@ public class CouncilSpace extends ActionSpace {
     @Override
     public void resetFamilyMember(){
 
+        playerOrder = new ArrayList<>();
+
 
     }
 

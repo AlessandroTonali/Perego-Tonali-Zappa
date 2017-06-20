@@ -23,7 +23,7 @@ public class HarvestSpace extends ActionSpace {
         this.isBusyFirst = false;
         orderCounter = 0;
         completePlay =true;
-        this.familyMembersPresent = new ArrayList<FamilyMember>(0);
+        this.familyMembersPresent = new ArrayList<FamilyMember>();
     }
 
     public HarvestSpace(boolean completePlay){
@@ -94,12 +94,12 @@ public class HarvestSpace extends ActionSpace {
 
     @Override
     public void resetFamilyMember(){
-        for(FamilyMember f: this.getFamilyMembersPresent()){
-            f= new FamilyMember(this);
+
+            this.familyMembersPresent = new ArrayList<>();
             orderCounter=0;
             isBusyFirst=false;
         }
-    }
+
 
     @Override
     public void checkBeforeActivablePermanentEffect(FamilyMember familyMember) {

@@ -46,6 +46,7 @@ public class RMIHandler implements Runnable, UserHandler, Remote {
     public String messageFromUser() throws RemoteException {
 
         try {
+
             return ServerImpl.getServer().RMIMessageFromUser(user);
         } catch (IOException e) {
             e.printStackTrace();

@@ -81,6 +81,7 @@ public class ServerImpl extends UnicastRemoteObject implements Server {
     }
 
     public String RMIMessageFromUser(User user) throws IOException, RemoteException {
+
         return user.reader();
     }
 

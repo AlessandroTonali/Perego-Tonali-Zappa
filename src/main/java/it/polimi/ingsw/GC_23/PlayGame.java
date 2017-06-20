@@ -1,6 +1,7 @@
 package it.polimi.ingsw.GC_23;
 
 import it.polimi.ingsw.GC_23.Cards.VentureCard;
+import it.polimi.ingsw.GC_23.Enumerations.FamilyColor;
 import it.polimi.ingsw.GC_23.Spaces.MarketSpace;
 import it.polimi.ingsw.GC_23.Spaces.Tower;
 import it.polimi.ingsw.GC_23.Spaces.TowerSpace;
@@ -43,7 +44,6 @@ public class PlayGame {
                     p.getUserHandler().messageToUser(("Period: " + this.period + " Turn: " + this.turn + "\n"));
                     p.getUserHandler().messageToUser(p.getUserHandler().getCurrentUser() + ": it's your turn!\n");
                     p.chooseMove(this.board,0);
-                    System.out.println("Cancellami");
                 }
                 i++;
             }
@@ -51,6 +51,20 @@ public class PlayGame {
             if (turn == 1) {
                 turn++;
                 makeTurnOrder();
+                board.setCard();
+                board.setDices();
+                resetFamilyMembers();
+                for(Tower t: board.getTowers()){
+                    for(TowerSpace ts: t.getSpaces()){
+                        ts.resetFamilyMember();
+                    }
+                }
+                for(MarketSpace m: board.getMarketSpaces()){
+                    m.resetFamilyMember();
+                }
+                board.getCouncilSpace().resetFamilyMember();
+                board.getProductionSpace().resetFamilyMember();
+                board.getHarvestSpace().resetFamilyMember();
             }
             else if(period == 3){
                 break;
@@ -229,8 +243,16 @@ public class PlayGame {
     }
 
     private void resetFamilyMembers(){
+
+
         for(Player p: players){
-            for(FamilyMember f: p.getFamilyMembers()){
+            FamilyMember[] familyMembers = new FamilyMember[4];
+
+            familyMembers[0] = new FamilyMember(p, FamilyColor.ORANGE, 0);
+            familyMembers[1] = new FamilyMember(p, FamilyColor.WHITE, 0);
+            familyMembers[2] = new FamilyMember(p, FamilyColor.BLACK, 0);
+            familyMembers[3] = new FamilyMember(p, FamilyColor.NEUTRAL, 0);
+            for(FamilyMember f: familyMembers){
                 switch(f.getFamilyColor()){
                     case ORANGE:
                         f.setValue(board.getDiceOValue());
@@ -247,6 +269,7 @@ public class PlayGame {
 
                 }
             }
+            p.setFamilyMembers(familyMembers);
         }
     }
 
