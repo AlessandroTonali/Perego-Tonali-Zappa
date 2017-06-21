@@ -16,4 +16,10 @@ public class ExcommunicationTile {
         this.period = period;
         this.effect = effect;
     }
+
+    public void takeExcommunication(Player player) {
+        for (int i = 0; i < effect.size(); i++) {
+            player.getExcommunicationEffect().add((PermanentEffect) effect.get(i));
+        }
+    }
 }

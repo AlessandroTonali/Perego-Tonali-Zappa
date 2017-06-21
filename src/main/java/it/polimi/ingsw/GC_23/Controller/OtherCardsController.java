@@ -60,10 +60,10 @@ public class OtherCardsController extends TowerController {
 
     public boolean isLegal(SingleCost cost) throws RemoteException {
 
-        cost.getResources().sum(tower.getSale().getResources());
+        cost.getResources().sum(tower.getSale().getResources(), familyMember.getPlayer());
 
         if(super.getTower().checkOtherFamiliar()) {
-            cost.getResources().sum(new ResourcesSet(0,3,0,0,0,0,0));
+            cost.getResources().sum(new ResourcesSet(0,3,0,0,0,0,0), familyMember.getPlayer());
         }
 
         boolean legal = true;

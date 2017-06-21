@@ -66,8 +66,9 @@ public class PlusDiceEffect extends PermanentEffect {
                 chooseSale(player);
             }
         }
-
         return sales.get(j);
+
+
     }
 
     @Override

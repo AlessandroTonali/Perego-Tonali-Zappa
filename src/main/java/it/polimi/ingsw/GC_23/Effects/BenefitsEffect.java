@@ -23,7 +23,7 @@ public class BenefitsEffect extends AbsEffect{
 
 
     public void activeEffect(Player player) {
-        player.getResources().sum(this.resources);
+        player.getResources().sum(this.resources, player);
     }
 
     @Override

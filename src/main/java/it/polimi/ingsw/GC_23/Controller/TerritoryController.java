@@ -31,6 +31,7 @@ public class TerritoryController extends TowerController {
             System.out.println("succes");
         } else {
             familyMember.getPlayer().getUserHandler().messageToUser("YOU ARE NOT ALLOW TO DO THIS MOVE, DO SOMETHING ELSE!");
+            tower.disablePermanentEffect(familyMember);
             familyMember.getPlayer().chooseMove(familyMember.getPlayer().getView(),1);
         }
     }
@@ -53,10 +54,10 @@ public class TerritoryController extends TowerController {
 
     public boolean isLegal() throws RemoteException {
         ResourcesSet cost = super.getTowerSpace().getCard().getCost(this.familyMember.getPlayer()).getResources();
-        cost.sum(tower.getSale().getResources());
+        cost.sum(tower.getSale().getResources(), familyMember.getPlayer());
 
         if(tower.checkOtherFamiliar()) {
-            cost.sum(new ResourcesSet(0,3,0,0,0,0,0));
+            cost.sum(new ResourcesSet(0,3,0,0,0,0,0), familyMember.getPlayer());
         }
 
         boolean legal  = true;

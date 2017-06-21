@@ -1,6 +1,11 @@
 package it.polimi.ingsw.GC_23.Resources;
 
+import it.polimi.ingsw.GC_23.Effects.MalusOnBenefitEffect;
+import it.polimi.ingsw.GC_23.Effects.PermanentEffect;
+import it.polimi.ingsw.GC_23.Player;
+
 import java.lang.reflect.Array;
+import java.util.ArrayList;
 
 /**
  * Created by Alessandro Tonali on 20/05/2017.
@@ -195,7 +200,8 @@ public class ResourcesSet {
 
     }
 
-    public void sum(ResourcesSet prize) {
+    public void sum(ResourcesSet prize, Player player) {
+        checkPermanentEffect(player, prize);
         int[] playerset = this.getArray();
         int[] prizeset = prize.getArray();
         for(int i = 0; i < resourceNumber; i++){
@@ -216,6 +222,40 @@ public class ResourcesSet {
             playerset[i] = playerset[i] - prizeset[i];
         }
         this.setArray(playerset);
+    }
+
+    public void checkPermanentEffect(Player player, ResourcesSet prize){
+        ArrayList<PermanentEffect> permanentEffectArrayList = player.getPermanentEffects();
+        for (int i = 0; i < permanentEffectArrayList.size(); i++) {
+            PermanentEffect permanentEffect = permanentEffectArrayList.get(i);
+            if (permanentEffect instanceof MalusOnBenefitEffect) {
+                String malusType = ((MalusOnBenefitEffect) permanentEffect).getType();
+                switch (malusType){
+                    case "coin":
+                        prize.setGold(prize.getGold() + ((MalusOnBenefitEffect) permanentEffect).getMalusValue());
+                        break;
+                    case "militaryPoint":
+                        prize.setMilitaryPoints(prize.getMilitaryPoints() + ((MalusOnBenefitEffect) permanentEffect).getMalusValue());
+                        break;
+                    case "wood":
+                        prize.setWood(prize.getWood() + ((MalusOnBenefitEffect) permanentEffect).getMalusValue());
+                        break;
+                    case "victoryPoint":
+                        prize.setVictoryPoints(prize.getVictoryPoints() + ((MalusOnBenefitEffect) permanentEffect).getMalusValue());
+                        break;
+                    case "stone":
+                        prize.setStone(prize.getStone() + ((MalusOnBenefitEffect) permanentEffect).getMalusValue());
+                        break;
+                    case "servant":
+                        prize.setServants(prize.getServants() + ((MalusOnBenefitEffect) permanentEffect).getMalusValue());
+                        break;
+                    case "faithPoint":
+                        prize.setFaithPoints(prize.getFaithPoints() + ((MalusOnBenefitEffect) permanentEffect).getMalusValue());
+                        break;
+
+                }
+            }
+        }
     }
 
 

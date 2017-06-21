@@ -312,6 +312,8 @@ public class ParseJson {
                 for (int j = 0; j < salesJsonArray.length(); j++) {
                     sales.add(parseCost(salesJsonArray.getJSONObject(j)));
                 }
+            } else {
+                sales.add(new SingleCost(new ResourcesSet(0, 0, 0, 0, 0,0,0)));
             }
             if (jsonObject.has("card_color")) {
                 cardColor = Util.parseCardColor(jsonObject.getString("card_color"));

@@ -32,6 +32,7 @@ public class Player implements Serializable {
     private transient FamilyMember[] familyMembers;
     private transient UserHandler userHandler;
     private ArrayList<PermanentEffect> permanentEffects;
+    private ArrayList<PermanentEffect> excommunicationEffect;
     private boolean timeIsOver = false;
     private boolean typed = false;
     private int typedInt;
@@ -41,6 +42,7 @@ public class Player implements Serializable {
         this.bonusTile = bonusTile;
         this.cardOfPlayer = new CardOfPlayer();
         permanentEffects = new ArrayList<>();
+        excommunicationEffect = new ArrayList<>();
         //permanent effect ancora non lo dobbiamo fare
     }
 
@@ -100,6 +102,9 @@ public class Player implements Serializable {
         this.playerColor = playerColor;
     }
 
+    public ArrayList<PermanentEffect> getExcommunicationEffect() {
+        return excommunicationEffect;
+    }
 
     public void chooseMove(Board board, int value) throws IOException {
         this.view = board;

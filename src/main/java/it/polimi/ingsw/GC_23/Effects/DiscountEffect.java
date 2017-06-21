@@ -86,7 +86,7 @@ public class DiscountEffect extends AbsEffect{
     public void activeEffect(Player player) throws RemoteException {
     SingleCost chosenResourcesDiscount = chooseResourceDiscount(player);
     //è uguale se li aggiungo e dopo li toglie come se il prezzo fosse uguale?
-    player.getResources().sum(chosenResourcesDiscount.getResources());
+    player.getResources().sum(chosenResourcesDiscount.getResources(),player);
     }
 
 

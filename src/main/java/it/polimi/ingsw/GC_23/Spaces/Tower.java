@@ -131,9 +131,25 @@ public class Tower {
                 if (((PlusDiceEffect) permanentEffects.get(i)).getCardColor() == towerColor) {
                     int plusDice = ((PlusDiceEffect) permanentEffects.get(i)).getPlusDiceValue();
                     familyMember.setValue(familyMember.getValue() + plusDice);
-                    this.setSale(((PlusDiceEffect) permanentEffects.get(i)).chooseSale(familyMember.getPlayer()));
+                    SingleCost sale = ((PlusDiceEffect) permanentEffects.get(i)).chooseSale(familyMember.getPlayer());
+                    if (sale !=  null) {
+                        this.setSale(((PlusDiceEffect) permanentEffects.get(i)).chooseSale(familyMember.getPlayer()));
+                    }
                     familyMember.getPlayer().getUserHandler().messageToUser("Your family member value is increased to: " +familyMember.getValue());
                 }
+            }
+        }
+    }
+
+    public void disablePermanentEffect(FamilyMember familyMember) throws RemoteException {
+        ArrayList<PermanentEffect> permanentEffectArrayList = familyMember.getPlayer().getPermanentEffects();
+        for (int i = 0; i < permanentEffectArrayList.size(); i++) {
+            PermanentEffect permanentEffect = permanentEffectArrayList.get(i);
+            if (permanentEffect instanceof PlusDiceEffect && ((PlusDiceEffect) permanentEffect).getType().equals("tower")) {
+                int plusDice = ((PlusDiceEffect) permanentEffect).getPlusDiceValue();
+                familyMember.setValue(familyMember.getValue() - plusDice);
+                this.setSale(new SingleCost(new ResourcesSet(0,0,0,0,0,0,0)));
+                familyMember.getPlayer().getUserHandler().messageToUser("Disable permanent effect");
             }
         }
     }

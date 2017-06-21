@@ -121,6 +121,6 @@ public class ProductEffect extends AbsEffect {
         if(resource.getMilitaryPoints()>0) {
             resource.setMilitaryPoints(resource.getMilitaryPoints() * productFactor);
         }
-        player.getResources().sum(resource);
+        player.getResources().sum(resource, player);
     }
 }

@@ -30,7 +30,7 @@ public class NewPlayCardController implements Controller {
         this.towerSpace = tower.chooseTowerSpace(familyMember.getPlayer());
         costCard = towerSpace.getCard().getCost(familyMember.getPlayer());
         if (sale != null) {
-            costCard.getResources().sum(sale.getResources());
+            costCard.getResources().sum(sale.getResources(), familyMember.getPlayer());
         }
     }
 
@@ -38,7 +38,7 @@ public class NewPlayCardController implements Controller {
     @Override
     public boolean isLegal() throws RemoteException {
         if (tower.checkOtherFamiliar()) {
-            costCard.getResources().sum(new ResourcesSet(0,3,0,0,0,0,0));
+            costCard.getResources().sum(new ResourcesSet(0,3,0,0,0,0,0), familyMember.getPlayer());
         }
 
         boolean legal = true;
