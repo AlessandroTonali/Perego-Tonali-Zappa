@@ -1,0 +1,7 @@
+#gameboard{
+    -fx-background-color: antiquewhite;
+    -fx-background-image: url("gameboard.jpg");
+    -fx-background-repeat: no-repeat;
+    -fx-background-size: contain;
+    -fx-background-position: left top;
+}
