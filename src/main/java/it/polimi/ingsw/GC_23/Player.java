@@ -33,6 +33,10 @@ public class Player implements Serializable {
     private transient UserHandler userHandler;
     private ArrayList<PermanentEffect> permanentEffects;
     private ArrayList<PermanentEffect> excommunicationEffect;
+
+    private boolean notScoreTerrytory = false;
+    private boolean notScoreVenture = false;
+    private boolean notScoreCharacter = false;
     private boolean timeIsOver = false;
     private boolean typed = false;
     private int typedInt;
@@ -104,6 +108,30 @@ public class Player implements Serializable {
 
     public ArrayList<PermanentEffect> getExcommunicationEffect() {
         return excommunicationEffect;
+    }
+
+    public boolean isNotScoreTerrytory() {
+        return notScoreTerrytory;
+    }
+
+    public void setNotScoreTerrytory(boolean notScoreTerrytory) {
+        this.notScoreTerrytory = notScoreTerrytory;
+    }
+
+    public boolean isNotScoreVenture() {
+        return notScoreVenture;
+    }
+
+    public void setNotScoreVenture(boolean notScoreVenture) {
+        this.notScoreVenture = notScoreVenture;
+    }
+
+    public boolean isNotScoreCharacter() {
+        return notScoreCharacter;
+    }
+
+    public void setNotScoreCharacter(boolean notScoreCharacter) {
+        this.notScoreCharacter = notScoreCharacter;
     }
 
     public void chooseMove(Board board, int value) throws IOException {

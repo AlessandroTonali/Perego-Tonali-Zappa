@@ -13,7 +13,7 @@ import java.util.ArrayList;
  */
 public class CharacterCard extends Card {
 
-    public CharacterCard(int period, CardColor cardColor, String name, ArrayList<AbsEffect> immediateEffect, PermanentEffect permanentEffect, ArrayList<SingleCost>
+    public CharacterCard(int period, CardColor cardColor, String name, ArrayList<AbsEffect> immediateEffect, ArrayList<AbsEffect> permanentEffect, ArrayList<SingleCost>
             cost) {
         super(period, cardColor, name, immediateEffect, permanentEffect, cost);
 
@@ -31,6 +31,10 @@ public class CharacterCard extends Card {
     @Override
     public void addCardOfPlayer(Player player) {
         player.getCardOfPlayer().setCard(this);
-        player.getPermanentEffects().add(getPermanentEffect());
+        for (int i = 0; i < getPermanentEffect().size(); i++) {
+            if (getPermanentEffect().get(i) instanceof PermanentEffect){
+                player.getPermanentEffects().add((PermanentEffect) getPermanentEffect().get(i));
+            }
+        }
     }
 }

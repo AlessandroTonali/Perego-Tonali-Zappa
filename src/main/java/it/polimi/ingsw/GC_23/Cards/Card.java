@@ -20,14 +20,14 @@ public abstract class Card {
     private CardColor cardColor;
     private String name;
     private ArrayList<AbsEffect> immediateEffect;
-    private PermanentEffect permanentEffect;
+    private ArrayList<AbsEffect> permanentEffect;
     private ArrayList<SingleCost> cost;
     private SingleCost costSelected;
 
 
 
     public Card(int period, CardColor cardColor, String name, ArrayList<AbsEffect> immediateEffect,
-                PermanentEffect permanentEffect, ArrayList<SingleCost>
+                ArrayList<AbsEffect> permanentEffect, ArrayList<SingleCost>
             cost) {
         this.period = period;
         this.cardColor = cardColor;
@@ -87,11 +87,11 @@ public abstract class Card {
         this.immediateEffect = immediateEffect;
     }
 
-    public PermanentEffect getPermanentEffect() {
+    public ArrayList<AbsEffect> getPermanentEffect() {
         return permanentEffect;
     }
 
-    public void setPermanentEffect(PermanentEffect permanentEffect) {
+    public void setPermanentEffect(ArrayList<AbsEffect> permanentEffect) {
         this.permanentEffect = permanentEffect;
     }
 

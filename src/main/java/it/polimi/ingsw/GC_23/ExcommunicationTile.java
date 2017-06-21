@@ -3,6 +3,7 @@ package it.polimi.ingsw.GC_23;
 import it.polimi.ingsw.GC_23.Effects.AbsEffect;
 import it.polimi.ingsw.GC_23.Effects.PermanentEffect;
 
+import java.io.IOException;
 import java.util.ArrayList;
 
 /**
@@ -17,9 +18,13 @@ public class ExcommunicationTile {
         this.effect = effect;
     }
 
-    public void takeExcommunication(Player player) {
+    public void takeExcommunication(Player player) throws IOException {
         for (int i = 0; i < effect.size(); i++) {
-            player.getExcommunicationEffect().add((PermanentEffect) effect.get(i));
+            if (effect.get(i) instanceof AbsEffect) {
+                player.getExcommunicationEffect().add((PermanentEffect) effect.get(i));
+            } else {
+                effect.get(i).activeEffect(player);
+            }
         }
     }
 }

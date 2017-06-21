@@ -96,10 +96,10 @@ public class ParseJson {
 
             JSONArray permanentEffectsJson = ventureCards.getJSONObject(x).getJSONArray("permanentEffect");
             ArrayList<AbsEffect> permanentEffects = parsingEffect(permanentEffectsJson);
-            EndGameEffect permanentEffect = (EndGameEffect) permanentEffects.get(0);
 
 
-            VentureCard ventureCard = new VentureCard(period, CardColor.PURPLE, name, immediateEffect, permanentEffect, costs);
+
+            VentureCard ventureCard = new VentureCard(period, CardColor.PURPLE, name, immediateEffect, permanentEffects, costs);
             ventureCardMap.put(idCard, ventureCard);
             ventureCardArrayList.add(ventureCard);
 
@@ -124,9 +124,8 @@ public class ParseJson {
 
             JSONArray permanentEffectsJson = buildingCards.getJSONObject(x).getJSONArray("permanentEffect");
             ArrayList<AbsEffect> permanentEffects = parsingEffect(permanentEffectsJson);
-            ProductionEffect permanentEffect = (ProductionEffect) permanentEffects.get(0);
 
-            BuildingCard buildingCard = new BuildingCard(period, CardColor.YELLOW, name, immediateEffect, permanentEffect, costs);
+            BuildingCard buildingCard = new BuildingCard(period, CardColor.YELLOW, name, immediateEffect, permanentEffects, costs);
             buildingCardMap.put(idCard,buildingCard);
             buildingCardArrayList.add(buildingCard);
 
@@ -142,9 +141,8 @@ public class ParseJson {
             ArrayList<AbsEffect> immediateEffect = parsingEffect(immediateEffectsJson);
             JSONArray permanentEffectsJson = territoryCards.getJSONObject(i).getJSONArray("permanentEffect");
             ArrayList<AbsEffect> permanentEffects = parsingEffect(permanentEffectsJson);
-            HarvestEffect permanentEffect = (HarvestEffect) permanentEffects.get(0);
 
-            TerritoryCard territoryCard = new TerritoryCard(period, CardColor.GREEN, name, immediateEffect,permanentEffect);
+            TerritoryCard territoryCard = new TerritoryCard(period, CardColor.GREEN, name, immediateEffect, permanentEffects);
             territoryCardMap.put(idCard,territoryCard);
             territoryCardArrayList.add(territoryCard);
         }
@@ -165,9 +163,8 @@ public class ParseJson {
             ArrayList<AbsEffect> immediateEffect = parsingEffect(immediateEffectsJson);
             JSONArray permanentEffectsJson = characterCards.getJSONObject(i).getJSONArray("permanentEffect");
             ArrayList<AbsEffect> permanentEffects = parsingEffect(permanentEffectsJson);
-            PermanentEffect permanentEffect = (PermanentEffect) permanentEffects.get(0);
 
-            CharacterCard characterCard = new CharacterCard(period, CardColor.BLUE, name, immediateEffect, permanentEffect, costs);
+            CharacterCard characterCard = new CharacterCard(period, CardColor.BLUE, name, immediateEffect, permanentEffects, costs);
             characterCardMap.put(idCard, characterCard);
             characterCardArrayList.add(characterCard);
 
@@ -216,6 +213,9 @@ public class ParseJson {
 
         JSONArray productEffects = rootObject.getJSONArray("ProductEffect");
         parseProductEffect(productEffects);
+
+        JSONArray notScoreEffects = rootObject.getJSONArray("NotScoreEffect");
+        parseNotScoreEffect(notScoreEffects);
     }
 
     private void parsePermanentEffect() {
@@ -255,6 +255,18 @@ public class ParseJson {
 
         JSONArray endGameEffects = rootObject.getJSONArray("EndGameEffect");
         parseEndGameEffect(endGameEffects);
+    }
+
+    private void parseNotScoreEffect(JSONArray notScoreEffects) {
+        for (int i = 0; i < notScoreEffects.length(); i++) {
+            JSONObject jsonObject = notScoreEffects.getJSONObject(i);
+
+            int idEffect = jsonObject.getInt("id");
+            String notScore = jsonObject.getString("not_score");
+
+            NotScoreEffect notScoreEffect =  new NotScoreEffect(notScore);
+            effectMap.put(idEffect, notScoreEffect);
+        }
     }
 
     private void parseMalusOnBenefitEffect(JSONArray malusOnBenefitEffects) {

@@ -14,7 +14,7 @@ import java.util.ArrayList;
 public class TerritoryCard extends Card {
 
 
-    public TerritoryCard(int period, CardColor cardColor, String name, ArrayList<AbsEffect> immediateEffect, PermanentEffect permanentEffect) {
+    public TerritoryCard(int period, CardColor cardColor, String name, ArrayList<AbsEffect> immediateEffect, ArrayList<AbsEffect> permanentEffect) {
         super(period, cardColor, name, immediateEffect, permanentEffect, null);
         ArrayList<SingleCost> costs = new ArrayList<>();
         costs.add(new SingleCost(new ResourcesSet()));
@@ -66,7 +66,11 @@ public class TerritoryCard extends Card {
 
     public void addCardOfPlayer(Player player) {
         player.getCardOfPlayer().setCard(this);
-        player.getPermanentEffects().add(getPermanentEffect());
+        for (int i = 0; i < getPermanentEffect().size(); i++) {
+            if (getPermanentEffect().get(i) instanceof PermanentEffect){
+                player.getPermanentEffects().add((PermanentEffect) getPermanentEffect().get(i));
+            }
+        }
     }
 
 }

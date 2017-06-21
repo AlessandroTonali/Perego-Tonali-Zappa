@@ -140,43 +140,49 @@ public class PlayGame {
     private void checkEndGame() throws IOException {
         for (Player p : players) {
             //assegna punti territory cards
-            switch (p.getCardOfPlayer().getTerritoryCards().size()) {
-                case 3:
-                    p.getResources().getVictoryPointsObj().add(1);
-                case 4:
-                    p.getResources().getVictoryPointsObj().add(4);
-                case 5:
-                    p.getResources().getVictoryPointsObj().add(10);
-                case 6:
-                    p.getResources().getVictoryPointsObj().add(20);
-                default:
-                    p.getResources().getVictoryPointsObj().add(0);
+            if (!p.isNotScoreTerrytory()) {
+                switch (p.getCardOfPlayer().getTerritoryCards().size()) {
+                    case 3:
+                        p.getResources().getVictoryPointsObj().add(1);
+                    case 4:
+                        p.getResources().getVictoryPointsObj().add(4);
+                    case 5:
+                        p.getResources().getVictoryPointsObj().add(10);
+                    case 6:
+                        p.getResources().getVictoryPointsObj().add(20);
+                    default:
+                        p.getResources().getVictoryPointsObj().add(0);
+                }
             }
 
             //assegna punti character cards
-            switch (p.getCardOfPlayer().getCharacterCards().size()) {
-                case 1:
-                    p.getResources().getVictoryPointsObj().add(1);
-                case 2:
-                    p.getResources().getVictoryPointsObj().add(3);
-                case 3:
-                    p.getResources().getVictoryPointsObj().add(6);
-                case 4:
-                    p.getResources().getVictoryPointsObj().add(10);
-                case 5:
-                    p.getResources().getVictoryPointsObj().add(15);
-                case 6:
-                    p.getResources().getVictoryPointsObj().add(21);
-                default:
-                    p.getResources().getVictoryPointsObj().add(0);
+            if (!p.isNotScoreCharacter()) {
+                switch (p.getCardOfPlayer().getCharacterCards().size()) {
+                    case 1:
+                        p.getResources().getVictoryPointsObj().add(1);
+                    case 2:
+                        p.getResources().getVictoryPointsObj().add(3);
+                    case 3:
+                        p.getResources().getVictoryPointsObj().add(6);
+                    case 4:
+                        p.getResources().getVictoryPointsObj().add(10);
+                    case 5:
+                        p.getResources().getVictoryPointsObj().add(15);
+                    case 6:
+                        p.getResources().getVictoryPointsObj().add(21);
+                    default:
+                        p.getResources().getVictoryPointsObj().add(0);
+                }
             }
 
             //assegna punti venture cards
-            /*for (VentureCard v : p.getCardOfPlayer().getVentureCards()) {
-                for (int i = 0; i < v.getPermanentEffect().size(); i++) {
-                    v.getPermanentEffect().get(i).activeEffect(p);
+            if (!p.isNotScoreVenture()) {
+                for (VentureCard v : p.getCardOfPlayer().getVentureCards()) {
+                    for (int i = 0; i < v.getPermanentEffect().size(); i++) {
+                        v.getPermanentEffect().get(i).activeEffect(p);
+                    }
                 }
-            }*/
+            }
 
         }
 
@@ -272,5 +278,4 @@ public class PlayGame {
             p.setFamilyMembers(familyMembers);
         }
     }
-
 }

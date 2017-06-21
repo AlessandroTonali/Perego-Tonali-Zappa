@@ -15,7 +15,7 @@ import java.util.ArrayList;
  */
 public class VentureCard extends Card {
 
-    public VentureCard(int period, CardColor cardColor, String name, ArrayList<AbsEffect> immediateEffect, PermanentEffect permanentEffect,
+    public VentureCard(int period, CardColor cardColor, String name, ArrayList<AbsEffect> immediateEffect, ArrayList<AbsEffect> permanentEffect,
                        ArrayList<SingleCost> cost) {
         super(period, cardColor, name, immediateEffect, permanentEffect, cost);
     }
@@ -45,6 +45,10 @@ public class VentureCard extends Card {
 
     public void addCardOfPlayer(Player player) {
         player.getCardOfPlayer().setCard(this);
-        player.getPermanentEffects().add(getPermanentEffect());
+        for (int i = 0; i < getPermanentEffect().size(); i++) {
+            if (getPermanentEffect().get(i) instanceof PermanentEffect){
+                player.getPermanentEffects().add((PermanentEffect) getPermanentEffect().get(i));
+            }
+        }
     }
 }
