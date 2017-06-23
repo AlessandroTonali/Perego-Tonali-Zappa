@@ -1,0 +1,17 @@
+#rectangle {
+    -fx-border-radius: 25px;
+    -fx-background-color: transparent;
+    -fx-background-radius: 25px;
+}
+
+#rectangle:hover {
+    -fx-background-color: yellow;
+    -fx-opacity: 40%;
+    -fx-background-radius: 25px;
+}
+
+#rectangle:pressed {
+    -fx-background-color: green;
+    -fx-opacity: 60%;
+    -fx-background-radius: 25px;
+}

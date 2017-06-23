@@ -1,0 +1,13 @@
+#card{
+    -fx-background-image: url(card.png);
+    -fx-border-image-repeat: no-repeat;
+    -fx-background-size: contain;
+    -fx-min-height: 121;
+    -fx-min-width: 78;
+    -fx-max-height: 121;
+    -fx-max-width: 78;
+}
+
+#card:pressed{
+    -fx-background-image: null;
+}

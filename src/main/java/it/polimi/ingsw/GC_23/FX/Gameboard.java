@@ -14,12 +14,16 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  * Created by jesss on 19/06/17.
  */
 public class Gameboard {
     private Stage primaryStage;
+    private final Logger logger = Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
+
 
     public void startGameBoard(Stage primaryStage){
         this.primaryStage = primaryStage;
@@ -31,7 +35,8 @@ public class Gameboard {
         try {
             content = loader.load();
         } catch (IOException e) {
-            e.printStackTrace();
+            logger.setLevel(Level.SEVERE);
+            logger.severe(String.valueOf(e));
         }
         this.primaryStage.setScene(new Scene(content));
         Screen screen = Screen.getPrimary();

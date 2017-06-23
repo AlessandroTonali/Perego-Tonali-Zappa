@@ -1,0 +1,28 @@
+#button{
+    -fx-background-radius: 5em;
+    -fx-min-width: 58px;
+    -fx-min-height: 58px;
+    -fx-max-width: 58px;
+    -fx-max-height: 58px;
+    -fx-background-color: transparent;
+}
+
+#button:hover{
+    -fx-background-radius: 5em;
+    -fx-min-width: 58px;
+    -fx-min-height: 58px;
+    -fx-max-width: 58px;
+    -fx-max-height: 58px;
+    -fx-background-color: gold;
+    -fx-opacity: 40%;
+}
+
+#button:pressed{
+    -fx-background-radius: 5em;
+    -fx-min-width: 58px;
+    -fx-min-height: 58px;
+    -fx-max-width: 58px;
+    -fx-max-height: 58px;
+    -fx-background-color: green;
+    -fx-opacity: 60%;
+}

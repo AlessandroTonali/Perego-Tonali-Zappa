@@ -1,10 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.Double?>
+<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.SplitPane?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
-<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.shape.Polygon?>
 
 <AnchorPane fx:id="master" minHeight="-Infinity" minWidth="-Infinity" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1">
    <children>
@@ -16,17 +18,113 @@
                      <children>
                         <Pane fx:id="gameboard" prefHeight="1100.0" prefWidth="800.0" stylesheets="@background.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                            <children>
-                              <Circle fx:id="territory1" fill="#ffffff00" layoutX="191.0" layoutY="148.0" radius="29.0" stroke="BLACK" strokeType="INSIDE" />
-                              <Circle fx:id="territory2" fill="#ffffff00" layoutX="190.0" layoutY="276.5" radius="29.0" stroke="BLACK" strokeType="INSIDE" />
-                              <Circle fx:id="territory3" fill="#ffffff00" layoutX="190.0" layoutY="406.5" radius="29.0" stroke="BLACK" strokeType="INSIDE" />
-                              <Circle fx:id="territory4" fill="#ffffff00" layoutX="190.0" layoutY="536.0" radius="29.0" stroke="BLACK" strokeType="INSIDE" />
+                              <Pane fx:id="territorybuttons" layoutX="80.0" layoutY="80.0" prefHeight="550.0" prefWidth="140.0">
+                                 <children>
+                                     <Button id="button" fx:id="territory1" layoutX="81.0" layoutY="37.0" stylesheets="@roundbutton.css" />
+                                     <Button id="button" fx:id="territory2" layoutX="81.0" layoutY="167.0" stylesheets="@roundbutton.css" />
+                                     <Button id="button" fx:id="territory3" layoutX="81.0" layoutY="297.0" stylesheets="@roundbutton.css" />
+                                     <Button id="button" fx:id="territory4" layoutX="81.0" layoutY="427.0" stylesheets="@roundbutton.css" />
+                                    <Pane id="card" fx:id="territorycard1" layoutX="4.0" layoutY="9.0" prefHeight="200.0" prefWidth="200.0" stylesheets="@cardspace.css" />
+                                    <Pane id="card" fx:id="territorycard2" layoutX="4.0" layoutY="139.0" prefHeight="200.0" prefWidth="200.0" stylesheets="@cardspace.css" />
+                                    <Pane id="card" fx:id="territorycard3" layoutX="4.0" layoutY="269.0" prefHeight="200.0" prefWidth="200.0" stylesheets="@cardspace.css" />
+                                    <Pane id="card" fx:id="territorycard4" layoutX="4.0" layoutY="399.0" prefHeight="200.0" prefWidth="200.0" stylesheets="@cardspace.css" />
+                                 </children>
+                              </Pane>
+                              <Pane fx:id="characterbuttons" layoutX="220.0" layoutY="80.0" prefHeight="550.0" prefWidth="140.0">
+                                 <children>
+                                    <Button id="button" fx:id="character1" layoutX="81.0" layoutY="37.0" stylesheets="@roundbutton.css" />
+                                    <Button id="button" fx:id="character2" layoutX="81.0" layoutY="167.0" stylesheets="@roundbutton.css" />
+                                    <Button id="button" fx:id="character3" layoutX="81.0" layoutY="297.0" stylesheets="@roundbutton.css" />
+                                    <Button id="button" fx:id="character4" layoutX="81.0" layoutY="427.0" stylesheets="@roundbutton.css" />
+                                    <Pane id="card" fx:id="charactercard1" layoutX="4.0" layoutY="9.0" prefHeight="200.0" prefWidth="200.0" stylesheets="@cardspace.css" />
+                                    <Pane id="card" fx:id="charactercard2" layoutX="4.0" layoutY="139.0" prefHeight="200.0" prefWidth="200.0" stylesheets="@cardspace.css" />
+                                    <Pane id="card" fx:id="charactercard3" layoutX="4.0" layoutY="269.0" prefHeight="200.0" prefWidth="200.0" stylesheets="@cardspace.css" />
+                                    <Pane id="card" fx:id="charactercard4" layoutX="4.0" layoutY="399.0" prefHeight="200.0" prefWidth="200.0" stylesheets="@cardspace.css" />
+                                 </children>
+                              </Pane>
+                              <Pane fx:id="buildingbuttons" layoutX="360.0" layoutY="80.0" prefHeight="550.0" prefWidth="140.0">
+                                 <children>
+                                    <Button id="button" fx:id="building1" layoutX="81.0" layoutY="37.0" stylesheets="@roundbutton.css" />
+                                    <Button id="button" fx:id="building2" layoutX="81.0" layoutY="167.0" stylesheets="@roundbutton.css" />
+                                    <Button id="button" fx:id="building3" layoutX="81.0" layoutY="297.0" stylesheets="@roundbutton.css" />
+                                    <Button id="button" fx:id="building4" layoutX="81.0" layoutY="427.0" stylesheets="@roundbutton.css" />
+                                    <Pane id="card" fx:id="buildingcard1" layoutX="4.0" layoutY="9.0" prefHeight="200.0" prefWidth="200.0" stylesheets="@cardspace.css" />
+                                    <Pane id="card" fx:id="buildingcard2" layoutX="4.0" layoutY="139.0" prefHeight="200.0" prefWidth="200.0" stylesheets="@cardspace.css" />
+                                    <Pane id="card" fx:id="buildingcard3" layoutX="4.0" layoutY="269.0" prefHeight="200.0" prefWidth="200.0" stylesheets="@cardspace.css" />
+                                    <Pane id="card" fx:id="buildingcard4" layoutX="4.0" layoutY="399.0" prefHeight="200.0" prefWidth="200.0" stylesheets="@cardspace.css" />
+                                 </children>
+                              </Pane>
+                              <Pane fx:id="venturebuttons" layoutX="500.0" layoutY="80.0" prefHeight="550.0" prefWidth="140.0">
+                                 <children>
+                                    <Button id="button" fx:id="venture1" layoutX="81.0" layoutY="37.0" stylesheets="@roundbutton.css" />
+                                    <Button id="button" fx:id="venture2" layoutX="81.0" layoutY="167.0" stylesheets="@roundbutton.css" />
+                                    <Button id="button" fx:id="venture3" layoutX="81.0" layoutY="297.0" stylesheets="@roundbutton.css" />
+                                    <Button id="button" fx:id="venture4" layoutX="81.0" layoutY="427.0" stylesheets="@roundbutton.css" />
+                                    <Pane id="card" fx:id="venturecard1" layoutX="4.0" layoutY="9.0" prefHeight="200.0" prefWidth="200.0" stylesheets="@cardspace.css" />
+                                    <Pane id="card" fx:id="venturecard2" layoutX="4.0" layoutY="139.0" prefHeight="200.0" prefWidth="200.0" stylesheets="@cardspace.css" />
+                                    <Pane id="card" fx:id="venturecard3" layoutX="4.0" layoutY="269.0" prefHeight="200.0" prefWidth="200.0" stylesheets="@cardspace.css" />
+                                    <Pane id="card" fx:id="venturecard4" layoutX="4.0" layoutY="399.0" prefHeight="200.0" prefWidth="200.0" stylesheets="@cardspace.css" />
+                                 </children>
+                              </Pane>
+                              <Pane fx:id="councilbuttons" layoutX="350.0" layoutY="600.0" prefHeight="150.0" prefWidth="300.0">
+                                 <children>
+                                    <Button id="rectangle" fx:id="council" layoutX="19.0" layoutY="5.0" mnemonicParsing="false" prefHeight="76.0" prefWidth="188.0" stylesheets="@roundrectangle.css" />
+                                 </children>
+                              </Pane>
+                              <Pane fx:id="productionbuttons" layoutX="80.0" layoutY="850.0" prefHeight="100.0" prefWidth="320.0">
+                                 <children>
+                                    <Button id="button" fx:id="production1" layoutX="-1.0" layoutY="18.0" stylesheets="@roundbutton.css" />
+                                    <Button id="rectangle" fx:id="productionrectangle" layoutX="78.0" layoutY="20.0" mnemonicParsing="false" prefHeight="54.0" prefWidth="144.0" stylesheets="@roundrectangle.css" />
+                                 </children>
+                              </Pane>
+                              <Pane fx:id="harvestbuttons" layoutX="80.0" layoutY="930.0" prefHeight="100.0" prefWidth="320.0">
+                                 <children>
+                                    <Button id="button" fx:id="harvest1" layoutX="-1.0" layoutY="22.0" stylesheets="@roundbutton.css" />
+                                    <Button id="rectangle" fx:id="harvestrectangle" layoutX="78.0" layoutY="24.0" mnemonicParsing="false" prefHeight="54.0" prefWidth="144.0" stylesheets="@roundrectangle.css" />
+                                 </children>
+                              </Pane>
+                              <Pane fx:id="marketbuttons" layoutX="400.0" layoutY="850.0" prefHeight="110.0" prefWidth="250.0">
+                                 <children>
+                                    <Button id="button" fx:id="market1" layoutX="20.0" layoutY="2.0" stylesheets="@roundbutton.css" />
+                                    <Button id="button" fx:id="market2" layoutX="86.0" layoutY="2.0" stylesheets="@roundbutton.css" />
+                                    <Button id="button" fx:id="market3" layoutX="147.0" layoutY="19.0" stylesheets="@roundbutton.css" />
+                                    <Button id="button" fx:id="market4" layoutX="195.0" layoutY="67.0" stylesheets="@roundbutton.css" />
+                                 </children>
+                              </Pane>
+                              <Pane fx:id="dicebuttons" layoutX="400.0" layoutY="960.0" prefHeight="65.0" prefWidth="200.0" />
+                              <Pane fx:id="excommunicationspaces" layoutX="150.0" layoutY="610.0" prefHeight="159.0" prefWidth="200.0">
+                                 <children>
+                                    <Pane id="excom" prefHeight="200.0" prefWidth="200.0" stylesheets="@excommunicationspace.css" />
+                                    <Polygon fill="DODGERBLUE" layoutY="30.0" stroke="BLACK" strokeType="INSIDE">
+                                      <points>
+                                         <Double fx:value="-50.0" />
+                                         <Double fx:value="30.0" />
+
+                                         <Double fx:value="0.0" />
+                                         <Double fx:value="60.0" />
+
+                                         <Double fx:value="50.0" />
+                                         <Double fx:value="30.0" />
+
+                                         <Double fx:value="50.0" />
+                                         <Double fx:value="-30.0" />
+
+                                         <Double fx:value="0.0" />
+                                         <Double fx:value="-30.0" />
+
+                                         <Double fx:value="-50.0" />
+                                         <Double fx:value="-30.0" />
+                                      </points>
+                                    </Polygon>
+                                 </children>
+                              </Pane>
                            </children>
                         </Pane>
                      </children>
                   </AnchorPane>
               </content>
             </ScrollPane>
-            <Pane fx:id="paneright" prefHeight="200.0" prefWidth="200.0" />
+            <Pane fx:id="paneright" layoutX="10.0" layoutY="10.0" prefHeight="200.0" prefWidth="200.0" />
          </items>
       </SplitPane>
    </children>
