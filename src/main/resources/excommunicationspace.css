@@ -3,6 +3,7 @@
     -fx-min-width: 100px;
     -fx-max-height: 100px;
     -fx-min-height: 100px;
-    -fx-background-color: red;
-    -fx-position-shape: relative;
+    -fx-background-image: url(excomm_2_2.png);
+    -fx-background-size: contain;
+    -fx-background-repeat: no-repeat;
 }

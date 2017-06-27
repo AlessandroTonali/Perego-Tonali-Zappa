@@ -1,6 +1,7 @@
 package it.polimi.ingsw.GC_23.Connection;
 
 import it.polimi.ingsw.GC_23.FX.MainFX;
+import javafx.application.Application;
 
 import java.io.*;
 import java.net.MalformedURLException;
@@ -9,10 +10,7 @@ import java.rmi.*;
 import java.rmi.registry.LocateRegistry;
 import java.rmi.registry.Registry;
 import java.rmi.server.UnicastRemoteObject;
-import java.util.ArrayList;
 import java.util.Scanner;
-import java.util.concurrent.Executor;
-import java.util.concurrent.Executors;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -30,10 +28,11 @@ public class UserImpl extends  UnicastRemoteObject implements User,Remote{
     private transient PrintWriter outVideo;
     private boolean isYourTurn = false;
     private boolean socketConnection;
+    private boolean guiInterface;
     private final Logger logger = Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
     private transient Server server;
 
-    protected UserImpl() throws RemoteException{
+    public UserImpl() throws RemoteException{
         socket = new Socket();
         inKeyboard= new BufferedReader(new InputStreamReader(System.in));
         outVideo = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)),true);
@@ -57,9 +56,14 @@ public class UserImpl extends  UnicastRemoteObject implements User,Remote{
 
     private void execute(){
         try{
-            //MainFX.main(null);
-            selectConnection();
+            MainFX mainFX = new MainFX();
+            mainFX.setUser(this);
+            Application.launch(mainFX.getClass());
+            System.out.println("socket: "+ isSocketConnection());
+            System.out.println("gui: " + isGuiInterface());
+            //selectConnection();
             if(socketConnection) {
+                connectSocket();
                 outVideo.println(inScanner.nextLine());
                 outVideo.println(inScanner.nextLine());
                 while(!isYourTurn) {
@@ -68,9 +72,9 @@ public class UserImpl extends  UnicastRemoteObject implements User,Remote{
                 closeSocket();
             }
             else{
+                connectRMI();
                 while (!isYourTurn) {
                     Thread.sleep(10000);
-
                 }
                 isYourTurn = false;
                 closeRMI();
@@ -80,7 +84,6 @@ public class UserImpl extends  UnicastRemoteObject implements User,Remote{
             logger.severe(String.valueOf(e));
         }
     }
-
 
     private void selectConnection() throws IOException{
         boolean selected =false;
@@ -175,9 +178,7 @@ public class UserImpl extends  UnicastRemoteObject implements User,Remote{
                 break;
             }
         }
-
     }
-
 
     private void closeSocket() throws  IOException{
         try {
@@ -198,5 +199,21 @@ public class UserImpl extends  UnicastRemoteObject implements User,Remote{
 
     public static void main(String[] args) throws Exception {
         UserImpl user = new UserImpl();
+    }
+
+    public void setSocketConnection(boolean socketConnection) {
+        this.socketConnection = socketConnection;
+    }
+
+    public boolean isSocketConnection() {
+        return socketConnection;
+    }
+
+    public boolean isGuiInterface() {
+        return guiInterface;
+    }
+
+    public void setGuiInterface(boolean guiConnection) {
+        this.guiInterface = guiConnection;
     }
 }

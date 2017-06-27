@@ -1,6 +1,5 @@
 package it.polimi.ingsw.GC_23.FX;
 
-
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.geometry.Insets;
@@ -21,6 +20,8 @@ import java.io.FileNotFoundException;
 public class Login {
     private Stage primaryStage;
     private BorderPane borderPane;
+    private boolean socketConnection;
+    private boolean guiConnection;
 
     public Login() throws FileNotFoundException {
         primaryStage = new Stage();
@@ -96,14 +97,22 @@ public class Login {
             @Override
             public void handle(ActionEvent event) {
                 if(textField.getText().equals("")){
-                    /*Alert alert = new Alert(Alert.AlertType.ERROR);
+                    Alert alert = new Alert(Alert.AlertType.ERROR);
                     alert.setTitle("Error Dialog");
                     alert.setHeaderText("Invalid username");
                     alert.setContentText("Please insert a valid username");
-                    alert.showAndWait();*/
+                    alert.showAndWait();
                 }
                 else{
-                    new Gameboard().startGameBoard(primaryStage);
+                    setSocketConnection(connectionGroup.getSelectedToggle().equals(socketButton));
+                    if(interfaceGroup.getSelectedToggle().equals(guiButton)){
+                        setGuiConnection(true);
+                        //new Gameboard().startGameBoard(primaryStage);
+                    }
+                    else{
+                        setGuiConnection(false);
+                    }
+                    primaryStage.close();
                 }
             }
         });
@@ -118,5 +127,21 @@ public class Login {
         root.getChildren().add(borderPane);
         primaryStage.setScene(new Scene(root, 600, 400));
         primaryStage.show();
+    }
+
+    public boolean isSocketConnection() {
+        return socketConnection;
+    }
+
+    public void setSocketConnection(boolean socketConnection) {
+        this.socketConnection = socketConnection;
+    }
+
+    public boolean isGuiConnection() {
+        return guiConnection;
+    }
+
+    public void setGuiConnection(boolean guiConnection) {
+        this.guiConnection = guiConnection;
     }
 }

@@ -6,16 +6,18 @@ import java.net.Socket;
 import java.rmi.RemoteException;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  * Created by Alessandro Tonali on 13/06/2017.
  */
 public class SocketAccepter implements Runnable {
     private ServerSocket serverSocket;
+    private final Logger logger = Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
 
     @Override
     public void run() {
-
         try {
             this.serverSocket = ServerImpl.getServer().getServerSocket();
             Socket socket = serverSocket.accept();
@@ -27,9 +29,11 @@ public class SocketAccepter implements Runnable {
             System.out.println("Client accepted: " + socket);
 
         } catch (RemoteException e) {
-            e.printStackTrace();
+            logger.setLevel(Level.SEVERE);
+            logger.severe(String.valueOf(e));
         } catch (IOException e) {
-            e.printStackTrace();
+            logger.setLevel(Level.SEVERE);
+            logger.severe(String.valueOf(e));
         }
     }
 }

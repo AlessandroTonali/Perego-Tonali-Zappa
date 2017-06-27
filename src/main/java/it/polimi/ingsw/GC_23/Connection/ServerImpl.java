@@ -70,13 +70,11 @@ public class ServerImpl extends UnicastRemoteObject implements Server {
     }
 
     public void RMIMessageToUser(String string, User user) throws RemoteException {
-
-
         try {
             user.printer(string);
         } catch (IOException e) {
-            e.printStackTrace();
-
+            logger.setLevel(Level.SEVERE);
+            logger.severe(String.valueOf(e));
         }
     }
 

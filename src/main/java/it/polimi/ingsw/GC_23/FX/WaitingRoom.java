@@ -1,37 +1,28 @@
 package it.polimi.ingsw.GC_23.FX;
 
-import it.polimi.ingsw.GC_23.Connection.UserImpl;
-import it.polimi.ingsw.GC_23.Controller.Controller;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.geometry.Rectangle2D;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
-import javafx.scene.layout.*;
-import javafx.scene.paint.ImagePattern;
 import javafx.stage.Screen;
 import javafx.stage.Stage;
 
 import java.io.IOException;
-import java.net.URL;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
 /**
- * Created by jesss on 19/06/17.
+ * Created by jesss on 27/06/17.
  */
-public class Gameboard {
+public class WaitingRoom {
     private Stage primaryStage;
     private final Logger logger = Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
 
-    public void startGameBoard(Stage primaryStage){
+    public WaitingRoom(Stage primaryStage) {
         this.primaryStage = primaryStage;
-        this.primaryStage.setTitle("Lorenzo Il Magnifico");
+        this.primaryStage.setTitle("Waiting Room");
         FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(this.getClass().getClassLoader().getResource("gameboard.fxml"));
-        loader.setController(new GameboardController());
+        loader.setLocation(this.getClass().getClassLoader().getResource("waitingroom.fxml"));
         Parent content = null;
         try {
             content = loader.load();
@@ -45,5 +36,10 @@ public class Gameboard {
         this.primaryStage.setWidth(bounds.getWidth());
         this.primaryStage.setHeight(bounds.getHeight());
         this.primaryStage.show();
+    }
+
+    public void startGame(){
+        new Gameboard().startGameBoard(primaryStage);
+
     }
 }

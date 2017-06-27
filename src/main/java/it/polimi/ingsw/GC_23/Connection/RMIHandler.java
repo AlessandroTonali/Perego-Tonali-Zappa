@@ -36,7 +36,8 @@ public class RMIHandler implements Runnable, UserHandler, Remote {
             try{
                 ServerImpl.getServer().RMIMessageToUser(message, user);
             } catch(IOException e){
-                e.printStackTrace();
+                logger.setLevel(Level.SEVERE);
+                logger.severe(String.valueOf(e));
             }
 
         }
@@ -49,7 +50,8 @@ public class RMIHandler implements Runnable, UserHandler, Remote {
 
             return ServerImpl.getServer().RMIMessageFromUser(user);
         } catch (IOException e) {
-            e.printStackTrace();
+            logger.setLevel(Level.SEVERE);
+            logger.severe(String.valueOf(e));
             return null;
         }
     }
@@ -83,7 +85,6 @@ public class RMIHandler implements Runnable, UserHandler, Remote {
         try{
             while (!endMatch){
                 Thread.sleep(10000);
-
             }
         }catch (Exception e){
             logger.setLevel(Level.SEVERE);

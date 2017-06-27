@@ -35,9 +35,9 @@ public class SocketHandler implements Runnable,UserHandler{
             this.inSocket = new ObjectInputStream(socket.getInputStream());
             this.inScanner = new Scanner(socket.getInputStream());
         } catch (IOException e) {
-            e.printStackTrace();
+            logger.setLevel(Level.SEVERE);
+            logger.severe(String.valueOf(e));
         }
-
     }
 
     @Override
@@ -54,10 +54,7 @@ public class SocketHandler implements Runnable,UserHandler{
     }
 
     public void messageToUser(String message){
-
             outWriter.println(message);
-
-
     }
 
     public void setEndMatch(boolean endMatch){
@@ -89,6 +86,4 @@ public class SocketHandler implements Runnable,UserHandler{
     public Socket getSocket() {
         return socket;
     }
-
-
 }
