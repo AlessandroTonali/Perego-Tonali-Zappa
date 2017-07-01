@@ -340,10 +340,11 @@ public class ParseJson {
     private void parseEndGameEffect(JSONArray endGameEffects) {
         for (int i = 0; i < endGameEffects.length(); i++) {
             int idEffect = endGameEffects.getJSONObject(i).getInt("id");
-            ArrayList<AbsEffect> effects = parsingEffect(endGameEffects.getJSONObject(i).getJSONArray("immediate_effect"));
+            //TODO
+            /*ArrayList<AbsEffect> effects = parsingEffect(endGameEffects.getJSONObject(i).getJSONArray("immediate_effect"));
 
             EndGameEffect endGameEffect = new EndGameEffect(effects);
-            effectMap.put(idEffect, endGameEffect);
+            effectMap.put(idEffect, endGameEffect);*/
         }
     }
 
