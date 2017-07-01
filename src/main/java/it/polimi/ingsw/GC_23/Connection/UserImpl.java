@@ -1,6 +1,6 @@
 package it.polimi.ingsw.GC_23.Connection;
 
-import it.polimi.ingsw.GC_23.FX.MainFX;
+import it.polimi.ingsw.GC_23.FX.LoginFX;
 import javafx.application.Application;
 
 import java.io.*;
@@ -31,6 +31,7 @@ public class UserImpl extends  UnicastRemoteObject implements User,Remote{
     private boolean guiInterface;
     private final Logger logger = Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
     private transient Server server;
+    private String username;
 
     public UserImpl() throws RemoteException{
         socket = new Socket();
@@ -45,25 +46,18 @@ public class UserImpl extends  UnicastRemoteObject implements User,Remote{
         }
     }
 
-    public void printer(String string) throws RemoteException {
-        outVideo.println(string);
-    }
-
-    @Override
-    public String reader() throws IOException , RemoteException {
-        return inKeyboard.readLine();
+    public static void main(String[] args) throws Exception {
+        UserImpl user = new UserImpl();
     }
 
     private void execute(){
         try{
-            MainFX mainFX = new MainFX();
-            mainFX.setUser(this);
-            Application.launch(mainFX.getClass());
-            System.out.println("socket: "+ isSocketConnection());
-            System.out.println("gui: " + isGuiInterface());
-            //selectConnection();
+            //LoginFX loginFX = new LoginFX();
+            //loginFX.setUser(this);
+            //Application.launch(loginFX.getClass());
+            selectConnection();
             if(socketConnection) {
-                connectSocket();
+                //connectSocket();
                 outVideo.println(inScanner.nextLine());
                 outVideo.println(inScanner.nextLine());
                 while(!isYourTurn) {
@@ -72,7 +66,7 @@ public class UserImpl extends  UnicastRemoteObject implements User,Remote{
                 closeSocket();
             }
             else{
-                connectRMI();
+                //connectRMI();
                 while (!isYourTurn) {
                     Thread.sleep(10000);
                 }
@@ -136,6 +130,8 @@ public class UserImpl extends  UnicastRemoteObject implements User,Remote{
                 logger.setLevel(Level.SEVERE);
                 logger.severe(String.valueOf(e));
             }
+            //outWriter.println(guiInterface);
+            //outWriter.println(username);
             outVideo.println("Wait for other players");
             socketConnection = true;
     }
@@ -147,10 +143,6 @@ public class UserImpl extends  UnicastRemoteObject implements User,Remote{
         outVideo.println("Wait for other players");
         server.join(this);
         socketConnection = false;
-    }
-
-    public void setYourTurn(boolean yourTurn) throws RemoteException {
-        isYourTurn = yourTurn;
     }
 
     private void play() throws IOException{
@@ -192,28 +184,53 @@ public class UserImpl extends  UnicastRemoteObject implements User,Remote{
         }
     }
 
-    public void closeRMI() throws RemoteException{
+    private void closeRMI() throws RemoteException{
         outVideo.println("BYE BYE");
         UnicastRemoteObject.unexportObject(this, true);
     }
 
-    public static void main(String[] args) throws Exception {
-        UserImpl user = new UserImpl();
+    @Override
+    public void printer(String string) throws RemoteException {
+        outVideo.println(string);
     }
 
-    public void setSocketConnection(boolean socketConnection) {
+    @Override
+    public String reader() throws IOException , RemoteException {
+        return inKeyboard.readLine();
+    }
+
+    @Override
+    public void setYourTurn(boolean yourTurn) throws RemoteException {
+        isYourTurn = yourTurn;
+    }
+
+    @Override
+    public void setSocketConnection(boolean socketConnection) throws RemoteException {
         this.socketConnection = socketConnection;
     }
 
-    public boolean isSocketConnection() {
+    @Override
+    public boolean isSocketConnection() throws RemoteException {
         return socketConnection;
     }
 
-    public boolean isGuiInterface() {
+    @Override
+    public boolean isGuiInterface() throws RemoteException {
         return guiInterface;
     }
 
-    public void setGuiInterface(boolean guiConnection) {
+    @Override
+    public void setGuiInterface(boolean guiConnection) throws RemoteException {
         this.guiInterface = guiConnection;
+    }
+
+    @Override
+    public String getUsername() throws RemoteException {
+        return username;
+    }
+
+    @Override
+    public void setUsername(String username) throws RemoteException {
+        this.username = username;
     }
 }

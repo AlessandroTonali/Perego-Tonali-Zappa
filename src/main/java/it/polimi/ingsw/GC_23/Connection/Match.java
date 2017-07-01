@@ -2,6 +2,7 @@ package it.polimi.ingsw.GC_23.Connection;
 
 import it.polimi.ingsw.GC_23.Board;
 import it.polimi.ingsw.GC_23.Creator;
+import it.polimi.ingsw.GC_23.FX.MatchFX;
 import it.polimi.ingsw.GC_23.Player;
 
 import java.io.IOException;
@@ -51,16 +52,26 @@ public class Match implements Runnable{
     }
 
     private void setting() throws IOException, RemoteException{
+        /*MatchFX matchFX = new MatchFX();
+        for(UserHandler u : userHandlers){
+            if(u.isGuiInterface()){
+                matchFX.addUserHanlder(u);
+            }
+        }*/
         for(UserHandler u: userHandlers){
             u.messageToUser("MATCH STARTED");
             u.messageToUser("Wait for your turn");
         }
+        //ServerImpl.getExecutor().submit(new MatchFX());
         for(UserHandler u : userHandlers){
-            setup(playerController, u);
-            playerController.getAssociation().putIfAbsent(u.getCurrentPlayer(), u.getCurrentUser());
-            System.out.println("Setup di "+ u.getCurrentUser().toString()+" eseguito");
-            creator.createPlayer(u.getCurrentPlayer().getPlayerColor(), u);
+            if(!u.isGuiInterface()) {
+                setup(playerController, u);
+                playerController.getAssociation().putIfAbsent(u.getCurrentPlayer(), u.getCurrentUser());
+                System.out.println("Setup di " + u.getCurrentUser() + " eseguito");
+                creator.createPlayer(u.getCurrentPlayer().getPlayerColor(), u);
+            }
         }
+        //matchFX.setup();
         creator.startGame(userHandlers.size());
         for(UserHandler u: userHandlers){
             u.messageToUser("quit");

@@ -16,6 +16,7 @@ import java.util.logging.Logger;
  * Created by jesss on 03/06/17.
  */
 public interface UserHandler {
+    public boolean isGuiInterface() throws RemoteException;
 
     public void messageToUser(String message) throws RemoteException;
 
@@ -23,7 +24,7 @@ public interface UserHandler {
 
     public void setEndMatch(boolean endMatch);
 
-    public String getCurrentUser();
+    public String getCurrentUser() throws RemoteException;
 
     public Player getCurrentPlayer();
 

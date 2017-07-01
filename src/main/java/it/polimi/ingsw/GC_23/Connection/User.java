@@ -11,9 +11,13 @@ import java.rmi.RemoteException;
  * Created by jesss on 03/06/17.
  */
 public interface User extends Remote{
-
+    boolean isGuiInterface() throws RemoteException;
     void setYourTurn(boolean yourTurn) throws RemoteException;
     void printer(String string) throws RemoteException;
     String reader() throws IOException;
-
+    String getUsername() throws RemoteException;
+    void setUsername(String username) throws RemoteException;
+    void setGuiInterface(boolean guiConnection) throws RemoteException;
+    boolean isSocketConnection() throws RemoteException;
+    void setSocketConnection(boolean socketConnection) throws RemoteException;
 }

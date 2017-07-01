@@ -22,6 +22,7 @@ public class Login {
     private BorderPane borderPane;
     private boolean socketConnection;
     private boolean guiConnection;
+    private String username;
 
     public Login() throws FileNotFoundException {
         primaryStage = new Stage();
@@ -104,10 +105,10 @@ public class Login {
                     alert.showAndWait();*/
                 }
                 else{
+                    setUsername(textField.getText());
                     setSocketConnection(connectionGroup.getSelectedToggle().equals(socketButton));
                     if(interfaceGroup.getSelectedToggle().equals(guiButton)){
                         setGuiConnection(true);
-                        //new Gameboard().startGameBoard(primaryStage);
                     }
                     else{
                         setGuiConnection(false);
@@ -143,5 +144,13 @@ public class Login {
 
     public void setGuiConnection(boolean guiConnection) {
         this.guiConnection = guiConnection;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
     }
 }

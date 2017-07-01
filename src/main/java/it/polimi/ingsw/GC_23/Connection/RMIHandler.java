@@ -24,6 +24,11 @@ public class RMIHandler implements Runnable, UserHandler, Remote {
     }
 
     @Override
+    public boolean isGuiInterface() throws RemoteException {
+        return user.isGuiInterface();
+    }
+
+    @Override
     public void messageToUser(String message) throws RemoteException {
         if(message.equals("write") || message.equals("wait")){
             return;
@@ -45,7 +50,6 @@ public class RMIHandler implements Runnable, UserHandler, Remote {
 
     @Override
     public String messageFromUser() throws RemoteException {
-
         try {
 
             return ServerImpl.getServer().RMIMessageFromUser(user);
@@ -62,8 +66,8 @@ public class RMIHandler implements Runnable, UserHandler, Remote {
     }
 
     @Override
-    public String getCurrentUser() {
-        return currentUser;
+    public String getCurrentUser() throws RemoteException {
+        return user.getUsername();
     }
 
     @Override

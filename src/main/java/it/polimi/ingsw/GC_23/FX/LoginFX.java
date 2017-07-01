@@ -7,7 +7,7 @@ import javafx.stage.Stage;
 /**
  * Created by jesss on 16/06/17.
  */
-public class MainFX extends Application{
+public class LoginFX extends Application{
     private boolean socket;
     private boolean gui;
     private Login login;
@@ -25,7 +25,8 @@ public class MainFX extends Application{
         setGui(login.isGuiConnection());
         user.setSocketConnection(isSocketConnection());
         user.setGuiInterface(isGui());
-        System.out.println("JavaFX stopped");
+        user.setUsername(login.getUsername());
+        System.out.println("LoginFX stopped");
     }
 
     public boolean isSocketConnection() {
@@ -45,6 +46,6 @@ public class MainFX extends Application{
     }
 
     public static void setUser(UserImpl user) {
-        MainFX.user = user;
+        LoginFX.user = user;
     }
 }

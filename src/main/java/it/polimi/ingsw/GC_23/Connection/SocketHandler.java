@@ -7,6 +7,7 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.PrintWriter;
 import java.net.Socket;
+import java.rmi.RemoteException;
 import java.util.Map;
 import java.util.Scanner;
 import java.util.logging.Level;
@@ -24,6 +25,7 @@ public class SocketHandler implements Runnable,UserHandler{
     private Player currentPlayer;
     private String currentUser;
     private boolean endMatch = false;
+    private boolean guiInterface;
     private final Logger logger = Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
 
 
@@ -53,6 +55,15 @@ public class SocketHandler implements Runnable,UserHandler{
         }
     }
 
+    public void setGuiInterface(boolean guiInterface) throws RemoteException {
+        this.guiInterface = guiInterface;
+    }
+
+    @Override
+    public boolean isGuiInterface() throws RemoteException {
+        return guiInterface;
+    }
+
     public void messageToUser(String message){
             outWriter.println(message);
     }
@@ -61,7 +72,7 @@ public class SocketHandler implements Runnable,UserHandler{
         this.endMatch = endMatch;
     }
 
-    public String getCurrentUser() {
+    public String getCurrentUser() throws RemoteException {
         return currentUser;
     }
 
