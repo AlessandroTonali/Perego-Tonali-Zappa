@@ -34,6 +34,7 @@
 	{"id": "300","name": "Stonemason's Shop", "cost": [ {"stone": "2", "coin": "1"}], "immediateEffect": [{"effect": "301"}], "permanentEffect": [{"effect": "302"}], "period": "1"},
 	{"id": "310","name": "Chapel", "cost": [ {"wood": "2"}], "immediateEffect": [{"effect": "311"}], "permanentEffect": [{"effect": "312"}], "period": "1"},
 	{"id": "320","name": "Residence", "cost": [ {"stone": "2"}], "immediateEffect": [{"effect": "321"}], "permanentEffect": [{"effect": "322"}], "period": "1"},
+	{"id": "340","name": "Marketplace", "cost": [ {"wood": "2", "stone": "1"}], "immediateEffect": [{"effect": "331"}], "permanentEffect": [{"effect": "332"}], "period": "2"},
 	{"id": "340","name": "Treasury", "cost": [ {"wood": "3"}], "immediateEffect": [{"effect": "341"}], "permanentEffect": [{"effect": "342"}], "period": "2"},
 	{"id": "350","name": "Painters' Guild", "cost": [ {"wood": "4"}], "immediateEffect": [{"effect": "351"}], "permanentEffect": [{"effect": "352"}], "period": "2"},
 	{"id": "360","name": "Sculptors' Guild", "cost": [ {"stone": "4"}], "immediateEffect": [{"effect": "361"}], "permanentEffect": [{"effect": "362"}], "period": "2"},

@@ -44,14 +44,12 @@ public class RMIHandler implements Runnable, UserHandler, Remote {
                 logger.setLevel(Level.SEVERE);
                 logger.severe(String.valueOf(e));
             }
-
         }
     }
 
     @Override
     public String messageFromUser() throws RemoteException {
         try {
-
             return ServerImpl.getServer().RMIMessageFromUser(user);
         } catch (IOException e) {
             logger.setLevel(Level.SEVERE);
@@ -67,7 +65,7 @@ public class RMIHandler implements Runnable, UserHandler, Remote {
 
     @Override
     public String getCurrentUser() throws RemoteException {
-        return user.getUsername();
+        return this.currentUser;
     }
 
     @Override

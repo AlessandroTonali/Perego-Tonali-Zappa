@@ -92,10 +92,10 @@ public class Match implements Runnable{
     public void setup(PlayerController playerController, UserHandler userHandler) throws IOException, RemoteException{
         StringBuilder stringBuilder = new StringBuilder();
         Map<Player, String> association = playerController.getAssociation();
-        //userHandler.messageToUser("Select your username");
-        //userHandler.messageToUser("write");
-        //String username = userHandler.messageFromUser();
-        //userHandler.setCurrentUser(username);
+        userHandler.messageToUser("Select your username");
+        userHandler.messageToUser("write");
+        String username = userHandler.messageFromUser();
+        userHandler.setCurrentUser(username);
         userHandler.messageToUser(String.valueOf(stringBuilder.append(association.size())));
         //mostra le associazioni presenti
         for (Map.Entry<Player, String> entry : association.entrySet()) {

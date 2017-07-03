@@ -68,7 +68,7 @@ public class PlayGame {
                 board.getProductionSpace().resetFamilyMember();
                 board.getHarvestSpace().resetFamilyMember();
             }
-            else if(period == 3){
+            else if(period == 3 ){
                 break;
             }
             else if (turn == 2) {

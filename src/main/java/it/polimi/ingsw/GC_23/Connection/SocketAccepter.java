@@ -26,7 +26,6 @@ public class SocketAccepter implements Runnable {
             SocketHandler userHandler = new SocketHandler(socket);
             ServerImpl.getServer().addToMatch(userHandler);
             ServerImpl.getExecutor().submit(userHandler);
-            //userHandler.setGuiInterface(Boolean.parseBoolean(userHandler.messageFromUser()));
             //userHandler.setCurrentUser(userHandler.messageFromUser());
             System.out.println("Client accepted: " + socket);
 

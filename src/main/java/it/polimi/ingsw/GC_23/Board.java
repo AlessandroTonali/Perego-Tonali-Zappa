@@ -90,7 +90,7 @@ public class Board {
 
                     ts.setCard(territoryCards.get(j));
                     territoryCards.remove(0);
-                    j++;
+
 
                 } break;
             case 1:
@@ -98,7 +98,7 @@ public class Board {
 
                     ts.setCard(characterCards.get(j));
                     characterCards.remove(0);
-                    j++;
+
 
                 } break;
 
@@ -107,7 +107,7 @@ public class Board {
 
                     ts.setCard(buildingCards.get(j));
                     buildingCards.remove(0);
-                    j++;
+
 
                 } break;
             case 3:
@@ -115,7 +115,7 @@ public class Board {
 
                     ts.setCard(ventureCards.get(j));
                     ventureCards.remove(0);
-                    j++;
+
 
                 } break;
             default: throw new UnsupportedOperationException();

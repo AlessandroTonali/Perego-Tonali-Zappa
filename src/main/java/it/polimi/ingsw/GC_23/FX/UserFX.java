@@ -34,7 +34,7 @@ public class UserFX extends Application implements Runnable{
         setGui(login.isGuiConnection());
         this.users.get(personalCounter).setSocketConnection(isSocketConnection());
         this.users.get(personalCounter).setGuiInterface(isGui());
-        this.users.get(personalCounter).setUsername(login.getUsername());
+        //this.users.get(personalCounter).setUsername(login.getUsername());
         this.users.get(personalCounter).setYourTurn(true);
     }
 

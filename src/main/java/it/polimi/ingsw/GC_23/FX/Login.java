@@ -130,7 +130,7 @@ public class Login {
                         } catch (RemoteException e) {
                             e.printStackTrace();
                         }
-                        primaryStage.setTitle("Color");
+                        /*primaryStage.setTitle("Color");
                         FXMLLoader loader = new FXMLLoader();
                         loader.setLocation(this.getClass().getClassLoader().getResource("colorchoice.fxml"));
                         loader.setController(new ColorController());
@@ -142,7 +142,7 @@ public class Login {
                             logger.severe(String.valueOf(e));
                         }
                         primaryStage.setScene(new Scene(content));
-                        primaryStage.show();
+                        primaryStage.show();*/
                     }
                     else{
                         setGuiConnection(false);

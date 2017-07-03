@@ -7,7 +7,12 @@ import java.rmi.RemoteException;
  */
 public class PlayerTimeOut implements Runnable{
     private Player player;
-    private int time = 10000;
+    private int time = 3000;
+    private boolean isNeeded = true;
+
+    public void setNeeded(boolean needed) {
+        isNeeded = needed;
+    }
 
     public PlayerTimeOut(Player player) {
         this.player = player;
@@ -16,11 +21,12 @@ public class PlayerTimeOut implements Runnable{
     @Override
     public void run() {
         try {
-
             player.getUserHandler().messageToUser("ciao sono il timeout");
             Thread.sleep(time);
-            player.setTimeIsOver(true);
-            player.getUserHandler().messageToUser("timeout finito u re gonna die1");
+            if(isNeeded) {
+                player.setTimeIsOver(true);
+                player.getUserHandler().messageToUser("timeout finito u re gonna die1");
+            }
         } catch (InterruptedException e) {
             e.printStackTrace();
         } catch (RemoteException e) {

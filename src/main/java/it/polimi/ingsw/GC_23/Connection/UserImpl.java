@@ -31,6 +31,7 @@ public class UserImpl extends UnicastRemoteObject implements User,Remote{
     private boolean isYourTurn = false;
     private boolean socketConnection;
     private boolean guiInterface;
+    private boolean typed;
     private final Logger logger = Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
     private transient Server server;
     private String username;
@@ -54,7 +55,7 @@ public class UserImpl extends UnicastRemoteObject implements User,Remote{
 
     private void execute(){
         try{
-            UserFX userFX = new UserFX();
+            /*UserFX userFX = new UserFX();
             ExecutorService executorService = Executors.newCachedThreadPool();
             userFX.setUserImpl(this);
             executorService.submit(userFX);
@@ -64,10 +65,10 @@ public class UserImpl extends UnicastRemoteObject implements User,Remote{
             }
             setYourTurn(false);
             System.out.println(userFX.isGui());
-            System.out.println(userFX.isSocketConnection());
-            //selectConnection();
+            System.out.println(userFX.isSocketConnection());*/
+            selectConnection();
             if(socketConnection) {
-                connectSocket();
+                //connectSocket();
                 outVideo.println(inScanner.nextLine());
                 outVideo.println(inScanner.nextLine());
                 while(!isYourTurn) {
@@ -76,7 +77,7 @@ public class UserImpl extends UnicastRemoteObject implements User,Remote{
                 closeSocket();
             }
             else{
-                connectRMI();
+                //connectRMI();
                 while (!isYourTurn) {
                     Thread.sleep(10000);
                 }
@@ -160,13 +161,18 @@ public class UserImpl extends UnicastRemoteObject implements User,Remote{
     private void play() throws IOException{
         String actualString = inScanner.nextLine();
         while (true) {
-            while (!actualString.equals("write") && !actualString.equals("wait") && !actualString.equals("quit")) {
+            while (!actualString.equals("write") && !actualString.equals("wait") && !actualString.equals("quit") && !actualString.equals("read")) {
                 outVideo.println(actualString);
                 actualString = inScanner.nextLine();
             }
             if (actualString.equals("write")) {
-                outWriter.println(inKeyboard.readLine());
-                actualString = inScanner.nextLine();
+                ExecutorService executorService = Executors.newCachedThreadPool();
+                WriteThread writeThread = new WriteThread(this);
+                executorService.submit(writeThread);
+                while (!actualString.equals("read") && !typed) {
+                    actualString = inScanner.nextLine();
+                }
+                typed = false;
                 continue;
             }
             if (actualString.equals("wait")) {
@@ -244,5 +250,17 @@ public class UserImpl extends UnicastRemoteObject implements User,Remote{
     @Override
     public void setUsername(String username) throws RemoteException {
         this.username = username;
+    }
+
+    public PrintWriter getOutWriter() {
+        return outWriter;
+    }
+
+    public BufferedReader getInKeyboard() {
+        return inKeyboard;
+    }
+
+    public void setTyped(boolean typed) {
+        this.typed = typed;
     }
 }

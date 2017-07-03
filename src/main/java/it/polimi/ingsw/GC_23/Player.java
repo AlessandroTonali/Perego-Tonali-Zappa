@@ -166,16 +166,28 @@ public class Player implements Serializable {
                 "press 9 for watching the board\n" +
                 "press 10 for watching your resources\n" +
                 "press 11 to skip");
-        getUserHandler().messageToUser("write");
-        String sw = getUserHandler().messageFromUser();
-        int i;
-        try {
-            i = Integer.parseInt(sw);
-        } catch (NumberFormatException e) {
-            getUserHandler().messageToUser("Invalid format");
-            i = -1;
+        int i = -1;
+        PlayerTimeOut playerTimeOut = new PlayerTimeOut(this);
+        StringTyper stringTyper = new StringTyper(this.getUserHandler(),this);
+        ExecutorService executorService = Executors.newCachedThreadPool();
+        executorService.submit(playerTimeOut);
+        executorService.submit(stringTyper);
+        while (!typed && !timeIsOver){
+            try {
+                Thread.sleep(1000);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
         }
-
+        if(timeIsOver){
+            getUserHandler().messageToUser("read");
+            timeIsOver = false;
+            return;
+        }
+        if(typed){
+            typed = false;
+            i = typedInt;
+        }
         switch (i) {
             case -1:
                 chooseMove(view, 0);
@@ -236,6 +248,7 @@ public class Player implements Serializable {
                 return;
 
         }
+        playerTimeOut.setNeeded(false);
         getUserHandler().messageToUser("Wait for your turn\n");
         getUserHandler().messageToUser("wait");
 

@@ -4,6 +4,7 @@ import it.polimi.ingsw.GC_23.Connection.PlayerController;
 import it.polimi.ingsw.GC_23.Player;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -18,15 +19,10 @@ import java.util.ResourceBundle;
  */
 public class ColorController implements Initializable {
     @FXML
-    private TableView table;
-
-    @FXML
-    private TableColumn<String, String> Color;
-    private TableColumn<String, String> User;
+    private Label greenlable;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        PlayerController playerController = new PlayerController();
-
+        greenlable.setText("ciao");
     }
 }

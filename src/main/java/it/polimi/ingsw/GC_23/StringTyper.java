@@ -22,10 +22,8 @@ public class StringTyper implements Runnable {
         try {
             this.userHandler.messageToUser("ciao sono il thread");
             this.userHandler.messageToUser("write");
-            //String input = userHandler.messageFromUser();
             String sw = player.getUserHandler().messageFromUser();
-            int i = 0
-                    ;
+            int i = 0;
 
             try {
                 i = Integer.parseInt(sw);
@@ -43,4 +41,5 @@ public class StringTyper implements Runnable {
             e.printStackTrace();
         }
     }
+
 }
