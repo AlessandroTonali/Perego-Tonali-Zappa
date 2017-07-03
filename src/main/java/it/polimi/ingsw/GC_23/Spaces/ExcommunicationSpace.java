@@ -40,6 +40,7 @@ public class ExcommunicationSpace {
                 chooseExcommunication(player);
                 break;
         }
+
     }
 
     public ExcommunicationTile getExcommunicationTile() {
