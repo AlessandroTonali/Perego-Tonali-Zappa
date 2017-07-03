@@ -1,22 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="12559092-ad45-4654-bd82-cde319336451" name="Default" comment="inseriti nuovi effetti permanenti">
+    <list default="true" id="12559092-ad45-4654-bd82-cde319336451" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Cards.json" afterPath="$PROJECT_DIR$/Cards.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/Board.java" afterPath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/Board.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/Connection/Match.java" afterPath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/Connection/Match.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/Connection/RMIHandler.java" afterPath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/Connection/RMIHandler.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/Connection/SocketAccepter.java" afterPath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/Connection/SocketAccepter.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/Connection/UserImpl.java" afterPath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/Connection/UserImpl.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/FX/ColorController.java" afterPath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/FX/ColorController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/FX/Login.java" afterPath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/FX/Login.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/FX/UserFX.java" afterPath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/FX/UserFX.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/PlayGame.java" afterPath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/PlayGame.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/Player.java" afterPath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/Player.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/PlayerTimeOut.java" afterPath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/PlayerTimeOut.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/StringTyper.java" afterPath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/StringTyper.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/colorchoice.fxml" afterPath="$PROJECT_DIR$/src/main/resources/colorchoice.fxml" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -1388,7 +1374,7 @@
       <workItem from="1499070693881" duration="5418000" />
       <workItem from="1499077026500" duration="643000" />
       <workItem from="1499078186415" duration="210000" />
-      <workItem from="1499082633807" duration="10022000" />
+      <workItem from="1499082633807" duration="10082000" />
     </task>
     <task id="LOCAL-00001" summary="prova">
       <created>1494941646968</created>
@@ -1586,7 +1572,14 @@
       <option name="project" value="LOCAL" />
       <updated>1498053816371</updated>
     </task>
-    <option name="localTasksCounter" value="29" />
+    <task id="LOCAL-00029" summary="finito timeout">
+      <created>1499094470633</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1499094470633</updated>
+    </task>
+    <option name="localTasksCounter" value="30" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -1622,7 +1615,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="401145000" />
+    <option name="totallyTimeSpent" value="401205000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1733,7 +1726,8 @@
     <MESSAGE value="fix error" />
     <MESSAGE value="modifiche" />
     <MESSAGE value="inseriti nuovi effetti permanenti" />
-    <option name="LAST_COMMIT_MESSAGE" value="inseriti nuovi effetti permanenti" />
+    <MESSAGE value="finito timeout" />
+    <option name="LAST_COMMIT_MESSAGE" value="finito timeout" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
