@@ -106,5 +106,29 @@
 	{"id": "220","name": "Sanctuary", "immediateEffect": [{"effect": "221"}], "permanentEffect": [{"effect": "222"}], "period": "3"},
 	{"id": "230","name": "Castle", "immediateEffect": [{"effect": "231"}], "permanentEffect": [{"effect": "232"}], "period": "3"},
 	{"id": "240","name": "Fortified Town", "immediateEffect": [{"effect": "241"}], "permanentEffect": [{"effect": "242"}], "period": "3"}
+],
+"LeaderCard": [
+	{"id": "1050", "name": "Francesco Sforza", "requirement": {"venture": "5"}, "effect": [{"effect": "1070"}]},
+	{"id": "1051", "name": "Ludovico Ariosto", "requirement": {"character": "5"}, "effect": [{"effect": "1071"}]},
+	{"id": "1052", "name": "Filippo Brunelleschi", "requirement": {"building": "5"}, "effect": [{"effect": "1072"}]},
+	{"id": "1053", "name": "Sigismondo Malatesta", "requirement": {"cost": {"militaryPoint": "7", "faithPoint": "3"}}, "effect": [{"effect": "1073"}]},
+	{"id": "1054", "name": "Girolamo Savonarola", "requirement": {"cost": {"coin": "18"}}, "effect": [{"effect": "1074"}]},
+	{"id": "1055", "name": "Michelangelo Buonarroti", "requirement": {"cost": {"stone": "10"}}, "effect": [{"effect": "1075"}]},
+	{"id": "1056", "name": "Giovanni dalle Bande Nere", "requirement": {"cost": {"militaryPoint": "12"}}, "effect": [{"effect": "1076"}]},
+	{"id": "1057", "name": "Leonardo da Vinci", "requirement": {"character": "4", "territory": "2"}, "effect": [{"effect": "1077"}]},
+	{"id": "1058", "name": "Sandro Botticelli", "requirement": {"cost": {"wood": "10"}}, "effect": [{"effect": "1078"}]},
+	{"id": "1059", "name": "Ludovico il Moro", "requirement": {"character": "2", "venture": "2", "building": "2", "territory": "2"}, "effect": [{"effect": "1079"}]},
+	
+	{"id": "1060", "name": "Lucrezia Borgia", "requirement": {}, "effect": [{"effect": "1080"}]},
+	
+	{"id": "1061", "name": "Federico da Montefeltro", "requirement": {"territory": "5"}, "effect": [{"effect": "1081"}]},
+	{"id": "1062", "name": "Lorenzo de' Medici", "requirement": {"cost": {"victoryPoint": "35"}}, "effect": [{"effect": "1082"}]},
+	{"id": "1063", "name": "Sisto IV", "requirement": {"cost": {"coin": "6", "servant": "6", "stone": "6", "wood": "6"}}, "effect": [{"effect": "1083"}]},
+	{"id": "1064", "name": "Cesare Borgia", "requirement": {"building": "3", "cost": {"coin": "12", "faithPoint": "2"}}, "effect": [{"effect": "1084"}]},
+	{"id": "1065", "name": "Santa Rita", "requirement": {"cost": {"faithPoint": "8"}}, "effect": [{"effect": "1085"}]},
+	{"id": "1066", "name": "Cosimo de' Medici", "requirement": {"character": "2", "building":  "4"}, "effect": [{"effect": "1086"}]},
+	{"id": "1067", "name": "Bartolomeo Colleoni", "requirement": {"venture": "2", "territory": "4"}, "effect": [{"effect": "1087"}]},
+	{"id": "1068", "name": "Ludovico III Gonzaga", "requirement": {"servant": "15"}, "effect": [{"effect": "1"}]},
+	{"id": "1069", "name": "Pico della Mirandola", "requirement": {"venture": "4", "building": "2"}, "effect": [{"effect": "1089"}]}
 ]
 }

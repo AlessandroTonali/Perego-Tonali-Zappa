@@ -76,6 +76,9 @@
 		{"id": "482", "production_value": "2", "immediate_effect": [{"effect": "483"}]}
 	],
 	"EndGameEffect": [
-		
+		{"id": "1034", "type": "1"},
+		{"id": "1035", "type": "2"},
+		{"id": "1036", "type": "3"},
+		{"id": "1037", "type": "4"}
 	]
 }

@@ -24,6 +24,9 @@ public class Board {
     private ProductionSpace productionSpace;
     private HarvestSpace harvestSpace;
     private DiceSpace diceSpace;
+    private ExcommunicationSpace excommunicationSpaceFirstPeriod;
+    private ExcommunicationSpace excommunicationSpaceSecondPeriod;
+    private ExcommunicationSpace excommunicationSpaceThirdPeriod;
     private Dice diceB;
     private Dice diceO;
     private Dice diceW;
@@ -73,7 +76,9 @@ public class Board {
         this.diceSpace = new DiceSpace();
         setDices();
 
-        //todo:disporre tessere scomunica
+        excommunicationSpaceFirstPeriod = new ExcommunicationSpace(ParseJson.getParseJson().getExcommunicationTileFirstPeriod());
+        excommunicationSpaceSecondPeriod = new ExcommunicationSpace(ParseJson.getParseJson().getExcommunicationTileSecondPeriod());
+        excommunicationSpaceThirdPeriod = new ExcommunicationSpace(ParseJson.getParseJson().getExcommunicationTileThirdPeriod());
 
     }
 
@@ -333,6 +338,16 @@ public class Board {
 
     }
 
+    public ExcommunicationSpace getExcommunicationSpaceFirstPeriod() {
+        return excommunicationSpaceFirstPeriod;
+    }
 
+    public ExcommunicationSpace getExcommunicationSpaceSecondPeriod() {
+        return excommunicationSpaceSecondPeriod;
+    }
+
+    public ExcommunicationSpace getExcommunicationSpaceThirdPeriod() {
+        return excommunicationSpaceThirdPeriod;
+    }
 }
 

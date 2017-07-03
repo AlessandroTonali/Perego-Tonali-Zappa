@@ -38,6 +38,13 @@ public class IncreaseFamilyValue implements Controller {
 
     @Override
     public void makeAction() {
+        if (familyMember.getPlayer().isDoubleServantToIncrease()) {
+            if  (quantity % 2 == 1) {
+                quantity = (quantity - 1) / 2;
+            } else {
+                quantity = quantity / 2;
+            }
+        }
         familyMember.increaseFamilyValue(quantity);
     }
 

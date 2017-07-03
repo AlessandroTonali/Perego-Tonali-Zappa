@@ -27,6 +27,13 @@ public class NotScoreEffect extends AbsEffect {
             case "territory":
                 player.setNotScoreTerrytory(true);
                 break;
+            case "market":
+                player.setNotPlayInMarket(true);
+                break;
+            case "doubleServant":
+                player.setDoubleServantToIncrease(true);
+                break;
+
         }
     }
 }

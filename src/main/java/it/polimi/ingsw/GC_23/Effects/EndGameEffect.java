@@ -20,16 +20,16 @@ public class EndGameEffect extends PermanentEffect {
 
     @Override
     public void activeEffect(Player player) throws IOException {
+        int playerVictoryPoint = player.getResources().getVictoryPoints();
         switch (type) {
             case 1:
-                int playerVictoryPoint = player.getResources().getVictoryPoints();
                 int victoryPointLost = playerVictoryPoint % 5;
                 playerVictoryPoint = playerVictoryPoint - victoryPointLost;
                 player.getResources().setVictoryPoints(playerVictoryPoint);
                 break;
             case 2:
                 int playerMilitaryPoint = player.getResources().getMilitaryPoints();
-                player.getResources().setVictoryPoints(player.getResources().getVictoryPoints() - playerMilitaryPoint);
+                player.getResources().setVictoryPoints(playerVictoryPoint - playerMilitaryPoint);
                 break;
             case 3:
                 int totStone = 0, totWood = 0;
@@ -41,9 +41,15 @@ public class EndGameEffect extends PermanentEffect {
                     totStone = totStone + stone;
                     totWood = totWood + wood;
                 }
+                player.getResources().setVictoryPoints(playerVictoryPoint - (totStone + totWood));
                 break;
             case 4:
-                //TODO
+                int stone = player.getResources().getStone();
+                int wood = player.getResources().getWood();
+                int coin = player.getResources().getGold();
+                int servant = player.getResources().getServants();
+                int tot = stone + wood + coin + servant;
+                player.getResources().setVictoryPoints(playerVictoryPoint - tot);
                 break;
         }
     }

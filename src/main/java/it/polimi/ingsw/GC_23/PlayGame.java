@@ -1,6 +1,8 @@
 package it.polimi.ingsw.GC_23;
 
 import it.polimi.ingsw.GC_23.Cards.VentureCard;
+import it.polimi.ingsw.GC_23.Effects.EndGameEffect;
+import it.polimi.ingsw.GC_23.Effects.PermanentEffect;
 import it.polimi.ingsw.GC_23.Enumerations.FamilyColor;
 import it.polimi.ingsw.GC_23.Spaces.MarketSpace;
 import it.polimi.ingsw.GC_23.Spaces.Tower;
@@ -116,7 +118,7 @@ public class PlayGame {
         return playersOrder;
     }
 
-    private void checkEndPeriod() {
+    private void checkEndPeriod() throws IOException {
         board.resetCardTowers();
         board.setCard();
         makeTurnOrder();
@@ -133,7 +135,36 @@ public class PlayGame {
         board.getCouncilSpace().resetFamilyMember();
         board.getProductionSpace().resetFamilyMember();
         board.getHarvestSpace().resetFamilyMember();
-        //todo: in 1.2 2.2 e 3.2 rapporto al vaticano: scomunica
+
+        for (Player p : players){
+            switch (period) {
+                case 1:
+                    if (p.getResources().getFaithPoints() < 3) {
+                        board.getExcommunicationSpaceFirstPeriod().getExcommunicationTile().takeExcommunication(p);
+                        p.getUserHandler().messageToUser("You receive the excommunication");
+                    } else {
+                        //TODO SCELTA
+                        board.getExcommunicationSpaceFirstPeriod().chooseExcommunication(p);
+
+                    }
+                    break;
+                case 2:
+                    if (p.getResources().getFaithPoints() < 4) {
+                        board.getExcommunicationSpaceFirstPeriod().getExcommunicationTile().takeExcommunication(p);
+                    } else {
+                        //TODO SCELTA
+                    }
+                    break;
+                case 3:
+                    if (p.getResources().getFaithPoints() < 4) {
+                        board.getExcommunicationSpaceFirstPeriod().getExcommunicationTile().takeExcommunication(p);
+                    } else {
+                        //TODO SCELTA
+                    }
+                    break;
+
+            }
+        }
 
     }
 
@@ -200,8 +231,7 @@ public class PlayGame {
 
 
 
-        }
-        else {
+        } else {
             if (order.get(0).getResources().getMilitaryPoints() == order.get(1).getResources().getMilitaryPoints()) {
                 order.get(0).getResources().getVictoryPointsObj().add(5);
                 order.get(1).getResources().getVictoryPointsObj().add(5);
@@ -220,6 +250,15 @@ public class PlayGame {
                 int sum = (p.getResources().getGold() + p.getResources().getStone() + p.getResources().getWood() + p.getResources().getServants());
                 double number = sum / 5;
                 p.getResources().getVictoryPointsObj().add((int) number);
+            }
+        }
+
+        for (Player p : players) {
+            for (int i = 0; i < p.getPermanentEffects().size(); i++) {
+                PermanentEffect effect = p.getPermanentEffects().get(i);
+                if (effect instanceof EndGameEffect) {
+                    effect.activeEffect(p);
+                }
             }
         }
 

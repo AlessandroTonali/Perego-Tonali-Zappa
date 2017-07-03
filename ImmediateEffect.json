@@ -156,13 +156,19 @@
 		{"id": "962", "victoryPoint": "10"},
 		
 		
-		
 		{"id": "291", "victoryPoint": "3"},
 		{"id": "101", "servant": "1"},
 		{"id": "103", "wood": "2", "militaryPoint": "1"},
 		{"id": "731", "militaryPoint": "5"},
 		{"id": "732", "victoryPoint": "4"},
-		{"id": "261", "victoryPoint": "5"}
+		{"id": "261", "victoryPoint": "5"},
+		
+		{"id": "1074", "faithPoint": "1"},
+		{"id": "1075", "coin": "3"},
+		{"id": "1076", "wood": "1", "stone": "1", "coin": "1"},
+		{"id": "1078", "militaryPoint": "2", "victoryPoint": "1"},
+		{"id": "1086", "servant": "3", "victoryPoint": "1"},
+		{"id": "1087", "victoryPoint": "4"}
 		
 	],
 	"CouncilPrivilegeEffect": [
@@ -276,12 +282,14 @@
 	],
 	"NewPlayProductionEffect":[
 		{"id": "691", "dice_value": "4"},
-		{"id": "851", "dice_value": "4"}
+		{"id": "851", "dice_value": "4"},
+		{"id": "1077", "dice_value": "0"}
 	
 	],
 	"NewPlayHarvestEffect":[
 		{"id": "701", "dice_value": "4"},
-		{"id": "941", "dice_value": "3"}
+		{"id": "941", "dice_value": "3"},
+		{"id": "1070", "dice_value": "1"}
 	],
 	"ProductEffect":[
 		{"id": "253", "giving_product": [{"coin": "1"}], "card_color": "yellow"},
@@ -299,6 +307,7 @@
 	{"id": "1031", "not_score": "character"},
 	{"id": "1032", "not_score": "venture"},
 	{"id": "1033", "not_score": "territory"},
+	{"id": "1025", "not_score": "market"}
 	]
 	
 }

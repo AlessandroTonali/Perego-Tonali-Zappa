@@ -37,6 +37,8 @@ public class Player implements Serializable {
     private boolean notScoreTerrytory = false;
     private boolean notScoreVenture = false;
     private boolean notScoreCharacter = false;
+    private boolean notPlayInMarket = false;
+    private boolean doubleServantToIncrease = false;
     private boolean timeIsOver = false;
     private boolean typed = false;
     private int typedInt;
@@ -132,6 +134,22 @@ public class Player implements Serializable {
 
     public void setNotScoreCharacter(boolean notScoreCharacter) {
         this.notScoreCharacter = notScoreCharacter;
+    }
+
+    public boolean isNotPlayInMarket() {
+        return notPlayInMarket;
+    }
+
+    public void setNotPlayInMarket(boolean notPlayInMarket) {
+        this.notPlayInMarket = notPlayInMarket;
+    }
+
+    public boolean isDoubleServantToIncrease() {
+        return doubleServantToIncrease;
+    }
+
+    public void setDoubleServantToIncrease(boolean doubleServantToIncrease) {
+        this.doubleServantToIncrease = doubleServantToIncrease;
     }
 
     public void chooseMove(Board board, int value) throws IOException {

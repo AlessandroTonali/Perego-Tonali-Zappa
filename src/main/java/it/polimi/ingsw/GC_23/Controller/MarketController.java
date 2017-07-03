@@ -47,7 +47,7 @@ public class MarketController extends PlaceFamilyMember {
     }
 
     public boolean isLegal(){
-        if(!(chosenSpace.checkBusy())&&(chosenSpace.checkValue(familyMember))) {
+        if(!(chosenSpace.checkBusy())&&(chosenSpace.checkValue(familyMember)) && !familyMember.getPlayer().isNotPlayInMarket()) {
             return true;
         }
         else {

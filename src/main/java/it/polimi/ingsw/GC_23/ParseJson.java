@@ -10,9 +10,7 @@ import org.json.JSONObject;
 
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Scanner;
+import java.util.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -28,10 +26,14 @@ public class ParseJson {
     private HashMap<Integer,VentureCard> ventureCardMap = new HashMap<>();
     private HashMap<Integer,TerritoryCard> territoryCardMap = new HashMap<>();
     private HashMap<Integer,CharacterCard> characterCardMap = new HashMap<>();
+    private HashMap<Integer, LeaderCard> leaderCardMap = new HashMap<>();
     private ArrayList<Card> characterCardArrayList = new ArrayList<>();
     private ArrayList<Card> territoryCardArrayList = new ArrayList<>();
     private ArrayList<Card> ventureCardArrayList = new ArrayList<>();
     private ArrayList<Card> buildingCardArrayList = new ArrayList<>();
+    private ArrayList<ExcommunicationTile> excommunicationTileFirstPeriod = new ArrayList<>();
+    private ArrayList<ExcommunicationTile> excommunicationTileSecondPeriod = new ArrayList<>();
+    private ArrayList<ExcommunicationTile> excommunicationTileThirdPeriod = new ArrayList<>();
     private final Logger logger = Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
 
 
@@ -170,6 +172,51 @@ public class ParseJson {
 
         }
 
+        JSONArray leaderCards = rootObject.getJSONArray("LeaderCard");
+        for (int i = 0; i < leaderCards.length(); i++) {
+            JSONObject jsonObject = leaderCards.getJSONObject(i);
+
+            int idCard =  jsonObject.getInt("id");
+            String name = jsonObject.getString("name");
+            Requirement requirement = parseRequirement(jsonObject.getJSONObject("requirement"));
+            ArrayList<AbsEffect> effects = parsingEffect(jsonObject.getJSONArray("effect"));
+
+            LeaderCard leaderCard = new LeaderCard(name, requirement, effects);
+            leaderCardMap.put(idCard, leaderCard);
+        }
+
+    }
+
+    private Requirement parseRequirement(JSONObject requirementJsonObject) {
+        int numberVenture = 0;
+        int numberCharacter = 0;
+        int numberBuilding = 0;
+        int numberTerritory = 0;
+        ResourcesSet resources = new ResourcesSet(0, 0, 0, 0, 0, 0, 0);
+
+        if (requirementJsonObject.has("venture")) {
+            numberVenture = requirementJsonObject.getInt("venture");
+        }
+
+        if (requirementJsonObject.has("character")) {
+            numberCharacter = requirementJsonObject.getInt("character");
+        }
+
+        if (requirementJsonObject.has("building")) {
+            numberBuilding = requirementJsonObject.getInt("building");
+        }
+
+        if (requirementJsonObject.has("territory")) {
+            numberTerritory = requirementJsonObject.getInt("territory");
+        }
+
+        if (requirementJsonObject.has("cost")) {
+            SingleCost singleCost = parseCost(requirementJsonObject.getJSONObject("cost"));
+            resources = singleCost.getResources();
+        }
+
+        Requirement requirement = new Requirement(numberVenture, numberCharacter, numberBuilding, numberTerritory, resources);
+        return requirement;
     }
 
     private void parseImmediateEffect() {
@@ -308,6 +355,17 @@ public class ParseJson {
             int period = jsonObject.getInt("period");
             ArrayList<AbsEffect> permanentEffects = parsingEffect(jsonObject.getJSONArray("permanent_effect"));
             ExcommunicationTile excommunicationTile = new ExcommunicationTile(period, permanentEffects);
+            switch (period) {
+                case 1:
+                    excommunicationTileFirstPeriod.add(excommunicationTile);
+                    break;
+                case 2:
+                    excommunicationTileSecondPeriod.add(excommunicationTile);
+                    break;
+                case 3:
+                    excommunicationTileThirdPeriod.add(excommunicationTile);
+                    break;
+            }
         }
     }
 
@@ -656,6 +714,20 @@ public class ParseJson {
         return new ArrayList<BuildingCard>((ArrayList<? extends BuildingCard>) Util.shuffleCard(buildingCardArrayList));
     }
 
+    public ExcommunicationTile getExcommunicationTileFirstPeriod() {
+        Collections.shuffle(excommunicationTileFirstPeriod, new Random());
+        return excommunicationTileFirstPeriod.get(0);
+    }
+
+    public ExcommunicationTile getExcommunicationTileSecondPeriod() {
+        Collections.shuffle(excommunicationTileSecondPeriod, new Random());
+        return excommunicationTileSecondPeriod.get(0);
+    }
+
+    public ExcommunicationTile getExcommunicationTileThirdPeriod() {
+        Collections.shuffle(excommunicationTileThirdPeriod, new Random());
+        return excommunicationTileThirdPeriod.get(0);
+    }
 
     public AbsEffect[] getTowerTerritoryEffect() {
         AbsEffect[] absEffects = new AbsEffect[4];
