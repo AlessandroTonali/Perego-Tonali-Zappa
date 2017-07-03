@@ -2,17 +2,25 @@ package it.polimi.ingsw.GC_23.FX;
 
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
+import javafx.fxml.FXMLLoader;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
+import javafx.geometry.Rectangle2D;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.*;
 import javafx.scene.text.Font;
+import javafx.stage.Screen;
 import javafx.stage.Stage;
 
 import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.rmi.RemoteException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  * Created by jesss on 16/06/17.
@@ -23,8 +31,12 @@ public class Login {
     private boolean socketConnection;
     private boolean guiConnection;
     private String username;
+    private UserFX userFX;
+    private final Logger logger = Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
 
-    public Login() throws FileNotFoundException {
+
+    public Login(UserFX userFX) throws FileNotFoundException, RemoteException {
+        this.userFX = userFX;
         primaryStage = new Stage();
         this.primaryStage.setTitle("Login");
         primaryStage.setHeight(600);
@@ -98,22 +110,45 @@ public class Login {
             @Override
             public void handle(ActionEvent event) {
                 if(textField.getText().equals("")){
-                    /*Alert alert = new Alert(Alert.AlertType.ERROR);
+                    Alert alert = new Alert(Alert.AlertType.ERROR);
                     alert.setTitle("Error Dialog");
                     alert.setHeaderText("Invalid username");
                     alert.setContentText("Please insert a valid username");
-                    alert.showAndWait();*/
+                    alert.showAndWait();
                 }
                 else{
                     setUsername(textField.getText());
                     setSocketConnection(connectionGroup.getSelectedToggle().equals(socketButton));
                     if(interfaceGroup.getSelectedToggle().equals(guiButton)){
                         setGuiConnection(true);
+                        try {
+                            userFX.set();
+                        } catch (RemoteException e) {
+                            e.printStackTrace();
+                        }
+                        primaryStage.setTitle("Color");
+                        FXMLLoader loader = new FXMLLoader();
+                        loader.setLocation(this.getClass().getClassLoader().getResource("colorchoice.fxml"));
+                        loader.setController(new ColorController());
+                        Parent content = null;
+                        try {
+                            content = loader.load();
+                        } catch (IOException e) {
+                            logger.setLevel(Level.SEVERE);
+                            logger.severe(String.valueOf(e));
+                        }
+                        primaryStage.setScene(new Scene(content));
+                        primaryStage.show();
                     }
                     else{
                         setGuiConnection(false);
+                        try {
+                            userFX.set();
+                        } catch (RemoteException e) {
+                            e.printStackTrace();
+                        }
+                        primaryStage.close();
                     }
-                    primaryStage.close();
                 }
             }
         });

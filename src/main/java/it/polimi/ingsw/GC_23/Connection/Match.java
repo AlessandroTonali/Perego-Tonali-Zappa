@@ -2,7 +2,6 @@ package it.polimi.ingsw.GC_23.Connection;
 
 import it.polimi.ingsw.GC_23.Board;
 import it.polimi.ingsw.GC_23.Creator;
-import it.polimi.ingsw.GC_23.FX.MatchFX;
 import it.polimi.ingsw.GC_23.Player;
 
 import java.io.IOException;
@@ -52,17 +51,10 @@ public class Match implements Runnable{
     }
 
     private void setting() throws IOException, RemoteException{
-        /*MatchFX matchFX = new MatchFX();
-        for(UserHandler u : userHandlers){
-            if(u.isGuiInterface()){
-                matchFX.addUserHanlder(u);
-            }
-        }*/
         for(UserHandler u: userHandlers){
             u.messageToUser("MATCH STARTED");
             u.messageToUser("Wait for your turn");
         }
-        //ServerImpl.getExecutor().submit(new MatchFX());
         for(UserHandler u : userHandlers){
             if(!u.isGuiInterface()) {
                 setup(playerController, u);
@@ -71,7 +63,6 @@ public class Match implements Runnable{
                 creator.createPlayer(u.getCurrentPlayer().getPlayerColor(), u);
             }
         }
-        //matchFX.setup();
         creator.startGame(userHandlers.size());
         for(UserHandler u: userHandlers){
             u.messageToUser("quit");
@@ -101,10 +92,10 @@ public class Match implements Runnable{
     public void setup(PlayerController playerController, UserHandler userHandler) throws IOException, RemoteException{
         StringBuilder stringBuilder = new StringBuilder();
         Map<Player, String> association = playerController.getAssociation();
-        userHandler.messageToUser("Select your username");
-        userHandler.messageToUser("write");
-        String username = userHandler.messageFromUser();
-        userHandler.setCurrentUser(username);
+        //userHandler.messageToUser("Select your username");
+        //userHandler.messageToUser("write");
+        //String username = userHandler.messageFromUser();
+        //userHandler.setCurrentUser(username);
         userHandler.messageToUser(String.valueOf(stringBuilder.append(association.size())));
         //mostra le associazioni presenti
         for (Map.Entry<Player, String> entry : association.entrySet()) {

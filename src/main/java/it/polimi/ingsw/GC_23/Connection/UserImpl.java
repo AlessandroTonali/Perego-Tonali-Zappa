@@ -1,6 +1,6 @@
 package it.polimi.ingsw.GC_23.Connection;
 
-import it.polimi.ingsw.GC_23.FX.LoginFX;
+import it.polimi.ingsw.GC_23.FX.UserFX;
 import javafx.application.Application;
 
 import java.io.*;
@@ -11,6 +11,8 @@ import java.rmi.registry.LocateRegistry;
 import java.rmi.registry.Registry;
 import java.rmi.server.UnicastRemoteObject;
 import java.util.Scanner;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -18,7 +20,7 @@ import java.util.logging.Logger;
  * Created by jesss on 03/06/17.
  */
 
-public class UserImpl extends  UnicastRemoteObject implements User,Remote{
+public class UserImpl extends UnicastRemoteObject implements User,Remote{
     private transient Socket socket;
     private transient ObjectInputStream inSocket;
     private transient ObjectOutputStream outSocket;
@@ -52,12 +54,20 @@ public class UserImpl extends  UnicastRemoteObject implements User,Remote{
 
     private void execute(){
         try{
-            //LoginFX loginFX = new LoginFX();
-            //loginFX.setUser(this);
-            //Application.launch(loginFX.getClass());
-            selectConnection();
+            UserFX userFX = new UserFX();
+            ExecutorService executorService = Executors.newCachedThreadPool();
+            userFX.setUserImpl(this);
+            executorService.submit(userFX);
+            //Application.launch(userFX.getClass());
+            while (!isYourTurn){
+                Thread.sleep(3000);
+            }
+            setYourTurn(false);
+            System.out.println(userFX.isGui());
+            System.out.println(userFX.isSocketConnection());
+            //selectConnection();
             if(socketConnection) {
-                //connectSocket();
+                connectSocket();
                 outVideo.println(inScanner.nextLine());
                 outVideo.println(inScanner.nextLine());
                 while(!isYourTurn) {
@@ -66,7 +76,7 @@ public class UserImpl extends  UnicastRemoteObject implements User,Remote{
                 closeSocket();
             }
             else{
-                //connectRMI();
+                connectRMI();
                 while (!isYourTurn) {
                     Thread.sleep(10000);
                 }
@@ -74,7 +84,9 @@ public class UserImpl extends  UnicastRemoteObject implements User,Remote{
                 closeRMI();
             }
         }catch (Exception e){
+            e.printStackTrace();
             logger.setLevel(Level.SEVERE);
+
             logger.severe(String.valueOf(e));
         }
     }
