@@ -7,7 +7,7 @@ import java.rmi.RemoteException;
  */
 public class PlayerTimeOut implements Runnable{
     private Player player;
-    private int time = 3000;
+    private int time = 10000;
     private boolean isNeeded = true;
 
     public void setNeeded(boolean needed) {

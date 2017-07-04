@@ -1,12 +1,10 @@
 package it.polimi.ingsw.GC_23.FX;
 
-import javafx.collections.ObservableMap;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
-import javafx.geometry.Rectangle2D;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
@@ -14,15 +12,10 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.*;
 import javafx.scene.text.Font;
-import javafx.stage.Screen;
 import javafx.stage.Stage;
-
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.rmi.RemoteException;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Observable;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -114,11 +107,11 @@ public class Login {
             @Override
             public void handle(ActionEvent event) {
                 if(textField.getText().equals("")){
-                    Alert alert = new Alert(Alert.AlertType.ERROR);
+                    /*Alert alert = new Alert(Alert.AlertType.ERROR);
                     alert.setTitle("Error Dialog");
                     alert.setHeaderText("Invalid username");
                     alert.setContentText("Please insert a valid username");
-                    alert.showAndWait();
+                    alert.showAndWait();*/
                 }
                 else{
                     setUsername(textField.getText());

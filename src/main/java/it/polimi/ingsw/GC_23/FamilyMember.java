@@ -1,9 +1,13 @@
 package it.polimi.ingsw.GC_23;
 
+import it.polimi.ingsw.GC_23.Effects.PermanentEffect;
+import it.polimi.ingsw.GC_23.Effects.PlusDiceEffect;
+import it.polimi.ingsw.GC_23.Enumerations.DiceColor;
 import it.polimi.ingsw.GC_23.Enumerations.FamilyColor;
 import it.polimi.ingsw.GC_23.Enumerations.PlayerColor;
 import it.polimi.ingsw.GC_23.Spaces.ActionSpace;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 /**
@@ -50,7 +54,21 @@ public class FamilyMember {
     }
 
     public void setValue(int value) {
-        this.value = value;
+        this.value = checkPermanentEffect(value);
+    }
+
+    private int checkPermanentEffect(int value) {
+        ArrayList<PermanentEffect> permanentEffectArrayList = player.getPermanentEffects();
+        for (int i = 0; i < permanentEffectArrayList.size(); i++) {
+            PermanentEffect permanentEffect = permanentEffectArrayList.get(i);
+            if (permanentEffect instanceof PlusDiceEffect && ((PlusDiceEffect) permanentEffectArrayList.get(i)).getType().equals("dice")) {
+                if (((PlusDiceEffect) permanentEffect).getFamilyColor() == familyColor)
+                {
+                    value = value + ((PlusDiceEffect) permanentEffect).getPlusDiceValue();
+                }
+            }
+        }
+        return value;
     }
 
     public void setPosition(ActionSpace position) {

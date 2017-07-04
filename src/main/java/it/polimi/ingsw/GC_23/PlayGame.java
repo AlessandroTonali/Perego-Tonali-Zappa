@@ -72,9 +72,9 @@ public class PlayGame {
                 break;
             }
             else if (turn == 2) {
+                checkEndPeriod();
                 period++;
                 turn = 1;
-                checkEndPeriod();
             }
             System.out.println("Periodo " + period);
             System.out.println("Turno " + turn);

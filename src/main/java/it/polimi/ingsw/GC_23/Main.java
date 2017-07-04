@@ -41,7 +41,6 @@ public class Main {
         player2.setFamilyMembers(members1);
         familyMember1.setPosition(towerSpace);
         System.out.println(towerSpace.toString());
-        System.out.println("ecco qua lo space");
     }
 
 

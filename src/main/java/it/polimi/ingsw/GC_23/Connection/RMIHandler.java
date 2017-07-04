@@ -30,7 +30,7 @@ public class RMIHandler implements Runnable, UserHandler, Remote {
 
     @Override
     public void messageToUser(String message) throws RemoteException {
-        if(message.equals("write") || message.equals("wait")){
+        if(message.equals("write") || message.equals("wait") || message.equals("read")){
             return;
         }
         if(message.equals("quit")){
