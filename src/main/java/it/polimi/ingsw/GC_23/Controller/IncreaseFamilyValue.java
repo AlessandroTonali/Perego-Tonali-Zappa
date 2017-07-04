@@ -21,7 +21,7 @@ public class IncreaseFamilyValue implements Controller {
             familyMember.getPlayer().chooseMove(familyMember.getPlayer().getView(),1);
         } else {
             this.makeAction();
-            familyMember.getPlayer().chooseMove(familyMember.getPlayer().getView(),1);
+
         }
     }
 

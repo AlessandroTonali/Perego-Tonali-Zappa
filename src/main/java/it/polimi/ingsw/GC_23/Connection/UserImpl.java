@@ -165,6 +165,10 @@ public class UserImpl extends UnicastRemoteObject implements User,Remote{
                 outVideo.println(actualString);
                 actualString = inScanner.nextLine();
             }
+            if(actualString.equals("read")){
+                actualString = inScanner.nextLine();
+                continue;
+            }
             if (actualString.equals("write")) {
                 ExecutorService executorService = Executors.newCachedThreadPool();
                 WriteThread writeThread = new WriteThread(this);

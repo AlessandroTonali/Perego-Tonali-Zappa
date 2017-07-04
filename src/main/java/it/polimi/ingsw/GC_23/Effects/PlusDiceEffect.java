@@ -1,16 +1,15 @@
 package it.polimi.ingsw.GC_23.Effects;
 
+import it.polimi.ingsw.GC_23.*;
 import it.polimi.ingsw.GC_23.Enumerations.CardColor;
 import it.polimi.ingsw.GC_23.Enumerations.DiceColor;
 import it.polimi.ingsw.GC_23.Enumerations.FamilyColor;
-import it.polimi.ingsw.GC_23.FamilyMember;
-import it.polimi.ingsw.GC_23.MilitaryCost;
-import it.polimi.ingsw.GC_23.Player;
-import it.polimi.ingsw.GC_23.SingleCost;
 
 import java.io.IOException;
 import java.rmi.RemoteException;
 import java.util.ArrayList;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 /**
  * Created by Alessandro on 19/06/2017.
@@ -73,16 +72,26 @@ public class PlusDiceEffect extends PermanentEffect {
                     i++;
                 }
             }
-            player.getUserHandler().messageToUser("write");
-            String sw = player.getUserHandler().messageFromUser();
-            try {
-                j = Integer.parseInt(sw);
-                player.getUserHandler().messageToUser("Chosen sale");
-
-            } catch (NumberFormatException e) {
-                player.getUserHandler().messageToUser("Invalid format, try again");
-                chooseSale(player);
+            ExecutorService executorService = Executors.newCachedThreadPool();
+            StringTyper stringTyper = new StringTyper(player);
+            executorService.submit(stringTyper);
+            while (!player.isTimeIsOver() && !player.isTyped()){
+                try {
+                    Thread.sleep(1000);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
             }
+            if(player.isTimeIsOver()){
+                player.setTimeIsOver(false);
+                player.getUserHandler().messageToUser("read");
+                return  null;
+            }
+            if(player.isTyped()){
+                player.setTyped(false);
+                j = player.getTypedInt();
+            }
+            player.getUserHandler().messageToUser("Chosen sale");
         }
         return sales.get(j);
 

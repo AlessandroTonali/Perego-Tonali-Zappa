@@ -2,9 +2,12 @@ package it.polimi.ingsw.GC_23.Controller;
 
 import it.polimi.ingsw.GC_23.FamilyMember;
 import it.polimi.ingsw.GC_23.Spaces.MarketSpace;
+import it.polimi.ingsw.GC_23.StringTyper;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 /**
  * Created by jesss on 23/05/17.
@@ -27,15 +30,25 @@ public class MarketController extends PlaceFamilyMember {
             }
             i++;
         }
-        familyMember.getPlayer().getUserHandler().messageToUser("write");
-        String sw = familyMember.getPlayer().getUserHandler().messageFromUser();
-        int j = -1;
-        try {
-            j = Integer.parseInt(sw);
+        ExecutorService executorService = Executors.newCachedThreadPool();
+        StringTyper stringTyper = new StringTyper(familyMember.getPlayer());
 
-        } catch (NumberFormatException e) {
-            familyMember.getPlayer().getUserHandler().messageToUser("Invalid format");
-            isLegal();
+        int j = -1;
+        while (!familyMember.getPlayer().isTimeIsOver() && !familyMember.getPlayer().isTyped()){
+            try {
+                Thread.sleep(1000);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
+        if(familyMember.getPlayer().isTimeIsOver()){
+            familyMember.getPlayer().setTimeIsOver(false);
+            familyMember.getPlayer().getUserHandler().messageToUser("read");
+            return;
+        }
+        if(familyMember.getPlayer().isTyped()){
+            familyMember.getPlayer().setTyped(false);
+            j = familyMember.getPlayer().getTypedInt();
         }
         this.chosenSpace = this.marketSpace[j];
         if (isLegal()) {

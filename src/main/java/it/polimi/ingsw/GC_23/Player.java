@@ -154,6 +154,7 @@ public class Player implements Serializable {
 
     public void chooseMove(Board board, int value) throws IOException {
         this.view = board;
+        getUserHandler().messageToUser("read");
         getUserHandler().messageToUser("press 0 for placing a familiar in council\n" +
                 "press 1 for getting the harvest\n" +
                 "press 2 for getting production\n" +
@@ -168,7 +169,7 @@ public class Player implements Serializable {
                 "press 11 to skip");
         int i = -1;
         PlayerTimeOut playerTimeOut = new PlayerTimeOut(this);
-        StringTyper stringTyper = new StringTyper(this.getUserHandler(),this);
+        StringTyper stringTyper = new StringTyper(this);
         ExecutorService executorService = Executors.newCachedThreadPool();
         executorService.submit(playerTimeOut);
         executorService.submit(stringTyper);
@@ -188,70 +189,88 @@ public class Player implements Serializable {
             typed = false;
             i = typedInt;
         }
-        switch (i) {
-            case -1:
-                chooseMove(view, 0);
-                return;
-            case 0:
-                new CouncilController(board.getCouncilSpace(), chooseFamilyMember(0));
-                break;
-            case 1:
-                new HarvestController(chooseFamilyMember(0), board.getHarvestSpace());
-                break;
-            case 2:
-                new ProductionController(chooseFamilyMember(0), new ProductionSpace());
-                break;
-            case 3:
-                getUserHandler().messageToUser("How much?");
-                getUserHandler().messageToUser("write");
-                String servants = getUserHandler().messageFromUser();
-                int j = -1;
-                try {
-                    j = Integer.parseInt(servants);
-
-                } catch (NumberFormatException e) {
-                    getUserHandler().messageToUser("Invalid format");
-                    chooseMove(board, 0);
+        try {
+            switch (i) {
+                case -1:
+                    chooseMove(view, 0);
+                    playerTimeOut.setNeeded(false);
                     return;
-                }
-                new IncreaseFamilyValue( j , chooseFamilyMember(0));
-                break;
-            case 4:
-                new MarketController(chooseFamilyMember(0), board.getMarketSpaces());
-                break;
-            case 5:
-                new TerritoryController(chooseFamilyMember(0), board.getTower(0));
-                break;
-            case 6:
-                new OtherCardsController(chooseFamilyMember(0), board.getTower(1));
-                break;
-            case 7:
-                new OtherCardsController(chooseFamilyMember(0), board.getTower(2));
-                break;
-            case 8:
-                new OtherCardsController(chooseFamilyMember(0), board.getTower(3));
-                break;
-            case 9:
-                getUserHandler().messageToUser(view.toString());
-                chooseMove(view,1);
-                return;
-            case 10:
-                getUserHandler().messageToUser(this.resources.toString());
-                getUserHandler().messageToUser("");
-                chooseMove(view,1);
-                return;
-            case 11:
-                break;
-            default:
-                getUserHandler().messageToUser("Wrong number selected, try again");
-                chooseMove(view,1);
-                return;
+                case 0:
+                    new CouncilController(board.getCouncilSpace(), chooseFamilyMember(0));
+                    break;
+                case 1:
+                    new HarvestController(chooseFamilyMember(0), board.getHarvestSpace());
+                    break;
+                case 2:
+                    new ProductionController(chooseFamilyMember(0), new ProductionSpace());
+                    break;
+                case 3:
+                    getUserHandler().messageToUser("read");
+                    getUserHandler().messageToUser("How much?");
+                    int j = -1;
+                    StringTyper stringTyper1 = new StringTyper(this);
+                    executorService.submit(stringTyper1);
+                    while (!typed && !timeIsOver) {
+                        try {
+                            Thread.sleep(1000);
+                        } catch (InterruptedException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                    if (timeIsOver) {
+                        timeIsOver = false;
+                        getUserHandler().messageToUser("read");
+                        return;
+                    }
+                    if (typed) {
+                        typed = false;
+                        j = typedInt;
+                    }
+                    new IncreaseFamilyValue(j, chooseFamilyMember(0));
+                    playerTimeOut.setNeeded(false);
+                    chooseMove(this.view,0);
+                    return;
+                case 4:
+                    new MarketController(chooseFamilyMember(0), board.getMarketSpaces());
+                    break;
+                case 5:
+                    new TerritoryController(chooseFamilyMember(0), board.getTower(0));
+                    break;
+                case 6:
+                    new OtherCardsController(chooseFamilyMember(0), board.getTower(1));
+                    break;
+                case 7:
+                    new OtherCardsController(chooseFamilyMember(0), board.getTower(2));
+                    break;
+                case 8:
+                    new OtherCardsController(chooseFamilyMember(0), board.getTower(3));
+                    break;
+                case 9:
+                    getUserHandler().messageToUser(view.toString());
+                    chooseMove(view, 1);
+                    playerTimeOut.setNeeded(false);
+                    return;
+                case 10:
+                    getUserHandler().messageToUser(this.resources.toString());
+                    getUserHandler().messageToUser("");
+                    chooseMove(view, 1);
+                    playerTimeOut.setNeeded(false);
+                    return;
+                case 11:
+                    break;
+                default:
+                    getUserHandler().messageToUser("Wrong number selected, try again");
+                    chooseMove(view, 1);
+                    playerTimeOut.setNeeded(false);
+                    return;
 
+            }
+        }catch (NullPointerException e){
+            return;
         }
         playerTimeOut.setNeeded(false);
         getUserHandler().messageToUser("Wait for your turn\n");
         getUserHandler().messageToUser("wait");
-
         return;
     }
 
@@ -274,16 +293,27 @@ public class Player implements Serializable {
             getUserHandler().messageToUser("Press " + j + " for choosing: " + f.toString());
             j++;
         }
+        getUserHandler().messageToUser("read");
         getUserHandler().messageToUser("Choose your family member");
-        getUserHandler().messageToUser("write");
-        String sw = getUserHandler().messageFromUser();
-        int i;
-        try {
-            i = Integer.parseInt(sw);
-
-        } catch (NumberFormatException e) {
-            getUserHandler().messageToUser("Invalid format");
-            return chooseFamilyMember(0);
+        StringTyper stringTyper2 = new StringTyper(this);
+        ExecutorService executorService = Executors.newCachedThreadPool();
+        executorService.submit(stringTyper2);
+        int i = -1;
+        while(!typed && !timeIsOver){
+            try {
+                Thread.sleep(1000);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
+        if(timeIsOver){
+            timeIsOver = false;
+            getUserHandler().messageToUser("read");
+            return null;
+        }
+        if(typed){
+            typed = false;
+            i = typedInt;
         }
         FamilyMember chosen;
         try {
@@ -313,6 +343,16 @@ public class Player implements Serializable {
         return permanentEffects;
     }
 
+    public boolean isTimeIsOver() {
+        return timeIsOver;
+    }
 
+    public boolean isTyped() {
+        return typed;
+    }
+
+    public int getTypedInt() {
+        return typedInt;
+    }
 }
 

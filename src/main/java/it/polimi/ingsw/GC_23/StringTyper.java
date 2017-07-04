@@ -8,20 +8,17 @@ import java.rmi.RemoteException;
  * Created by Alessandro Tonali on 19/06/2017.
  */
 public class StringTyper implements Runnable {
-    private UserHandler userHandler;
     private Player player;
 
-    public StringTyper(UserHandler userHandler, Player pl) {
-
-        this.userHandler = userHandler;
+    public StringTyper(Player pl) {
         this.player = pl;
     }
 
     @Override
     public void run() {
         try {
-            this.userHandler.messageToUser("ciao sono il thread");
-            this.userHandler.messageToUser("write");
+            this.player.getUserHandler().messageToUser("ciao sono il thread");
+            this.player.getUserHandler().messageToUser("write");
             String sw = player.getUserHandler().messageFromUser();
             int i = 0;
 
@@ -29,7 +26,7 @@ public class StringTyper implements Runnable {
                 i = Integer.parseInt(sw);
 
             } catch (NumberFormatException e) {
-                userHandler.messageToUser("Invalid format");
+                this.player.getUserHandler().messageToUser("Invalid format");
 
             }
             player.setTypedInt(i);
