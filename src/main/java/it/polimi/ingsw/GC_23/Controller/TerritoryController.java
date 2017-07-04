@@ -22,6 +22,7 @@ public class TerritoryController extends TowerController {
     public TerritoryController(FamilyMember familyMember, Tower tower) throws IOException {
         super(familyMember,tower);
         this.familyMember = super.getFamilyMember();
+        familyMember = this.familyMember;
         this.towerSpace = super.getTowerSpace();
         this.tower = super.getTower();
         towerSpace.checkBeforeActivablePermanentEffect(familyMember);
@@ -32,7 +33,7 @@ public class TerritoryController extends TowerController {
         } else {
             familyMember.getPlayer().getUserHandler().messageToUser("YOU ARE NOT ALLOW TO DO THIS MOVE, DO SOMETHING ELSE!");
             tower.disablePermanentEffect(familyMember);
-            familyMember.getPlayer().chooseMove(familyMember.getPlayer().getView(),1);
+            familyMember.getPlayer().chooseMove(familyMember.getPlayer().getView());
         }
     }
 

@@ -152,7 +152,7 @@ public class Player implements Serializable {
         this.doubleServantToIncrease = doubleServantToIncrease;
     }
 
-    public void chooseMove(Board board, int value) throws IOException {
+    public void chooseMove(Board board) throws IOException {
         this.view = board;
         getUserHandler().messageToUser("read");
         getUserHandler().messageToUser("press 0 for placing a familiar in council\n" +
@@ -166,7 +166,8 @@ public class Player implements Serializable {
                 "press 8 for going in the venture tower\n" +
                 "press 9 for watching the board\n" +
                 "press 10 for watching your resources\n" +
-                "press 11 to skip");
+                "press 11 to skip\n" +
+                "press 12 to active leader card");
         int i = -1;
         PlayerTimeOut playerTimeOut = new PlayerTimeOut(this);
         StringTyper stringTyper = new StringTyper(this);
@@ -192,7 +193,7 @@ public class Player implements Serializable {
         try {
             switch (i) {
                 case -1:
-                    chooseMove(view, 0);
+                    chooseMove(view);
                     playerTimeOut.setNeeded(false);
                     return;
                 case 0:
@@ -228,7 +229,7 @@ public class Player implements Serializable {
                     }
                     new IncreaseFamilyValue(j, chooseFamilyMember(0));
                     playerTimeOut.setNeeded(false);
-                    chooseMove(this.view,0);
+                    chooseMove(this.view);
                     return;
                 case 4:
                     new MarketController(chooseFamilyMember(0), board.getMarketSpaces());
@@ -247,20 +248,20 @@ public class Player implements Serializable {
                     break;
                 case 9:
                     getUserHandler().messageToUser(view.toString());
-                    chooseMove(view, 1);
+                    chooseMove(view);
                     playerTimeOut.setNeeded(false);
                     return;
                 case 10:
                     getUserHandler().messageToUser(this.resources.toString());
                     getUserHandler().messageToUser("");
-                    chooseMove(view, 1);
+                    chooseMove(view);
                     playerTimeOut.setNeeded(false);
                     return;
                 case 11:
                     break;
                 default:
                     getUserHandler().messageToUser("Wrong number selected, try again");
-                    chooseMove(view, 1);
+                    chooseMove(view);
                     playerTimeOut.setNeeded(false);
                     return;
 

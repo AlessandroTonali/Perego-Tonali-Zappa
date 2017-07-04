@@ -124,14 +124,14 @@ public class Tower {
         return String.valueOf(stringBuilder);
     }
 
-    public void checkPermanentEffect(FamilyMember familyMember) throws RemoteException {
+    public FamilyMember checkPermanentEffect(FamilyMember familyMember) throws RemoteException {
         ArrayList<PermanentEffect> permanentEffects = familyMember.getPlayer().getPermanentEffects();
         for (int i = 0; i < permanentEffects.size(); i++) {
             if (permanentEffects.get(i) instanceof PlusDiceEffect && ((PlusDiceEffect) permanentEffects.get(i)).getType().equals("tower")) {
                 if (((PlusDiceEffect) permanentEffects.get(i)).getCardColor() == towerColor) {
                     int plusDice = ((PlusDiceEffect) permanentEffects.get(i)).getPlusDiceValue();
                     familyMember.setValue(familyMember.getValue() + plusDice);
-                    SingleCost sale = ((PlusDiceEffect) permanentEffects.get(i)).chooseSale(familyMember.getPlayer());
+                    //SingleCost sale = ((PlusDiceEffect) permanentEffects.get(i)).chooseSale(familyMember.getPlayer());
                     if (sale !=  null) {
                         this.setSale(((PlusDiceEffect) permanentEffects.get(i)).chooseSale(familyMember.getPlayer()));
                     }
@@ -139,9 +139,11 @@ public class Tower {
                 }
             }
         }
+
+        return familyMember;
     }
 
-    public void disablePermanentEffect(FamilyMember familyMember) throws RemoteException {
+    public FamilyMember disablePermanentEffect(FamilyMember familyMember) throws RemoteException {
         ArrayList<PermanentEffect> permanentEffectArrayList = familyMember.getPlayer().getPermanentEffects();
         for (int i = 0; i < permanentEffectArrayList.size(); i++) {
             PermanentEffect permanentEffect = permanentEffectArrayList.get(i);
@@ -152,6 +154,8 @@ public class Tower {
                 familyMember.getPlayer().getUserHandler().messageToUser("Disable permanent effect");
             }
         }
+
+        return familyMember;
     }
 
     public CardColor getTowerColor() {

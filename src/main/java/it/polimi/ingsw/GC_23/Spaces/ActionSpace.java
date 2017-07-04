@@ -4,6 +4,7 @@ import it.polimi.ingsw.GC_23.Effects.AbsEffect;
 import it.polimi.ingsw.GC_23.FamilyMember;
 import it.polimi.ingsw.GC_23.Player;
 
+import java.rmi.RemoteException;
 import java.util.ArrayList;
 
 /**
@@ -58,9 +59,9 @@ public abstract class ActionSpace {
     }
 
     public void resetFamilyMember(){
-        this.familyMember = new FamilyMember(this);
+        this.familyMember = null;
     }
 
-    public abstract void checkBeforeActivablePermanentEffect(FamilyMember familyMember);
+    public abstract void checkBeforeActivablePermanentEffect(FamilyMember familyMember) throws RemoteException;
     public abstract void checkAfterActivablePermanentEffect(FamilyMember familyMember);
 }

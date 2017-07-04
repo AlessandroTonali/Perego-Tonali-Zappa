@@ -29,19 +29,20 @@ public class OtherCardsController extends TowerController {
 
     public OtherCardsController(FamilyMember familyMember, Tower tower) throws IOException {
         super(familyMember, tower);
-        this.familyMember = familyMember;
+        this.familyMember = super.getFamilyMember();
+        familyMember = this.familyMember;
         this.towerSpace = super.getTowerSpace();
         this.tower = super.getTower();
-        SingleCost cost = super.getTowerSpace().getCard().getCost(familyMember.getPlayer());
+        SingleCost cost = super.getTowerSpace().getCard().getCost(this.familyMember.getPlayer());
 
-        towerSpace.checkBeforeActivablePermanentEffect(familyMember);
+        towerSpace.checkBeforeActivablePermanentEffect(this.familyMember);
         if (isLegal(cost)) {
             towerSpace.checkAfterActivablePermanentEffect(familyMember);
             makeAction(cost);
             System.out.println("success");
         } else {
             familyMember.getPlayer().getUserHandler().messageToUser("YOU ARE NOT ALLOW TO DO THIS MOVE, DO SOMETHING ELSE!");
-            familyMember.getPlayer().chooseMove(familyMember.getPlayer().getView(),1);
+            familyMember.getPlayer().chooseMove(familyMember.getPlayer().getView());
         }
     }
 

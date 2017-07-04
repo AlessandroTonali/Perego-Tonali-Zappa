@@ -1,11 +1,16 @@
 package it.polimi.ingsw.GC_23.Spaces;
 
+import com.sun.xml.internal.bind.v2.runtime.unmarshaller.XsiNilLoader;
 import it.polimi.ingsw.GC_23.Cards.Card;
 import it.polimi.ingsw.GC_23.Effects.AbsEffect;
 import it.polimi.ingsw.GC_23.Effects.BenefitsEffect;
 import it.polimi.ingsw.GC_23.Effects.PermanentEffect;
+import it.polimi.ingsw.GC_23.Effects.PlusDiceEffect;
 import it.polimi.ingsw.GC_23.FamilyMember;
+import it.polimi.ingsw.GC_23.Resources.ResourcesSet;
+import it.polimi.ingsw.GC_23.SingleCost;
 
+import java.rmi.RemoteException;
 import java.util.ArrayList;
 
 /**
@@ -52,8 +57,17 @@ public class TowerSpace extends ActionSpace {
     }
 
     @Override
-    public void checkBeforeActivablePermanentEffect(FamilyMember familyMember) {
-
+    public void checkBeforeActivablePermanentEffect(FamilyMember familyMember) throws RemoteException {
+        ArrayList<PermanentEffect> permanentEffectArrayList = familyMember.getPlayer().getPermanentEffects();
+        for (int i = 0; i < permanentEffectArrayList.size(); i++) {
+            PermanentEffect permanentEffect = permanentEffectArrayList.get(i);
+            if (permanentEffect instanceof PlusDiceEffect && ((PlusDiceEffect) permanentEffect).getType().equals("tower")) {
+                ResourcesSet sale = ((PlusDiceEffect) permanentEffect).chooseSale(familyMember.getPlayer()).getResources();
+                ResourcesSet costSelected = card.chooseCost(familyMember.getPlayer()).getResources();
+                costSelected.sum(sale, familyMember.getPlayer());
+                card.setCostSelected(new SingleCost(costSelected));
+            }
+        }
     }
 
     @Override

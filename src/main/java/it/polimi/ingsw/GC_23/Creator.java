@@ -78,7 +78,9 @@ public class Creator {
         familyMembers[2] = new FamilyMember(player, FamilyColor.BLACK, 0);
         familyMembers[3] = new FamilyMember(player, FamilyColor.NEUTRAL, 0);
         player.setFamilyMembers(familyMembers);
-        player.setResources(new ResourcesSet(0,0,0,3,2,0,2));
+        //player.setResources(new ResourcesSet(0,0,0,3,2,0,2));
+        //TODO TOGLIERE COMMENTO
+        player.setResources(new ResourcesSet(50,50,50,50,50,50,50));
         player.setUserHandler(userHandler);
         return player;
     }

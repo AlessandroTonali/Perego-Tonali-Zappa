@@ -508,6 +508,8 @@ public class ParseJson {
                 for (int j = 0; j < sales.length(); j++) {
                     sale.add(parseCost(sales.getJSONObject(j)));
                 }
+            } else {
+                sale.add(new SingleCost(new ResourcesSet(0,0,0,0,0,0,0)));
             }
             if (towerColor.equals("green")) {
                 newPlayColor = NewPlayColor.GREEN;

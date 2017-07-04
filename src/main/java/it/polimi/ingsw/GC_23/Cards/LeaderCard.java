@@ -13,6 +13,7 @@ public class LeaderCard {
     private String name;
     private Requirement requirement;
     private ArrayList<AbsEffect> effect;
+    private boolean activatedInThisTurn = false;
 
     public LeaderCard(String name, Requirement requirement, ArrayList<AbsEffect> effect) {
         this.name = name;
@@ -30,5 +31,13 @@ public class LeaderCard {
 
     public ArrayList<AbsEffect> getEffect() {
         return effect;
+    }
+
+    public boolean isActivatedInThisTurn() {
+        return activatedInThisTurn;
+    }
+
+    public void setActivatedInThisTurn(boolean activatedInThisTurn) {
+        this.activatedInThisTurn = activatedInThisTurn;
     }
 }

@@ -13,8 +13,6 @@ import java.io.IOException;
 import java.rmi.RemoteException;
 import java.util.ArrayList;
 import java.util.Scanner;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
 
 
 /**
@@ -34,51 +32,32 @@ public class NewPlayCardEffect extends AbsEffect {
 
     }
 
-    public SingleCost chooseResourceDiscount(Player player) throws RemoteException {
-        ExecutorService executorService = Executors.newCachedThreadPool();
-        StringTyper stringTyper = new StringTyper(player);
-        String string;
-        Boolean madeChoice= false;
+    public SingleCost chooseResourceDiscount(Player player) throws IOException {
+        SingleCost sale;
         ArrayList<SingleCost> chosenDiscount = new ArrayList<SingleCost>();
-        while(!madeChoice){
+        if (chosenDiscount.size() == 1) {
+            sale =  resourcesDiscount.get(0);
+        } else {
             player.getUserHandler().messageToUser("Select possible discount");
-            for(int n=0; n< resourcesDiscount.size(); n++ ){
-                player.getUserHandler().messageToUser(n+"--> "+resourcesDiscount.get(n).toString());
+            for (int j = 0; j < resourcesDiscount.size(); j++) {
+                player.getUserHandler().messageToUser(j + "--> " + resourcesDiscount.get(j).toString());
             }
-            int i = -1;
-            while (!player.isTimeIsOver() && !player.isTyped()){
-                try {
-                    Thread.sleep(1000);
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
+            player.getUserHandler().messageToUser("write");
+            String answer = player.getUserHandler().messageFromUser();
+            int i;
+            try {
+                i = Integer.parseInt(answer);
+            } catch (NumberFormatException e) {
+                player.getUserHandler().messageToUser("Invalid format");
+                i = -1;
             }
-            if(player.isTimeIsOver()){
-                player.setTimeIsOver(false);
-                player.getUserHandler().messageToUser("read");
-                return  null;
-            }
-            if(player.isTyped()){
-                player.setTyped(false);
-                i = player.getTypedInt();
-            }
-            if(i< resourcesDiscount.size()){
-                player.getUserHandler().messageToUser("Chosen discount");
-            }
-            else{
-                player.getUserHandler().messageToUser("Error: incorrect number, try again");
-                continue;
-            }
-            try{
-                chosenDiscount.add(resourcesDiscount.get(i));
-                player.getUserHandler().messageToUser("You get: "+ chosenDiscount.get(i).toString());
-                player.getUserHandler().messageToUser("");
-                madeChoice =true;
-            }catch (NullPointerException e){
-                return null;
+            if (i >= 0 && i < resourcesDiscount.size()) {
+                sale = resourcesDiscount.get(i);
+            } else {
+                sale = chooseResourceDiscount(player);
             }
         }
-        return chosenDiscount.get(0);
+        return sale;
     }
 
 
@@ -106,8 +85,7 @@ public class NewPlayCardEffect extends AbsEffect {
         }
 
         NewPlayCardController newPlay = new NewPlayCardController(tower, familyMember, sale);
-        ExecutorService executorService = Executors.newCachedThreadPool();
-        StringTyper stringTyper = new StringTyper(player);
+
         if (newPlay.isLegal()) {
             newPlay.makeAction();
             player.getUserHandler().messageToUser("New play card effect done");
@@ -118,23 +96,10 @@ public class NewPlayCardEffect extends AbsEffect {
                 player.getUserHandler().messageToUser("What do you want to do? \n " +
                         "1. Try again \n" +
                         "2. Discard");
-               int input = -1;
-                while (!player.isTimeIsOver() && !player.isTyped()){
-                    try {
-                        Thread.sleep(1000);
-                    } catch (InterruptedException e) {
-                        e.printStackTrace();
-                    }
-                }
-                if(player.isTimeIsOver()){
-                    player.setTimeIsOver(false);
-                    player.getUserHandler().messageToUser("read");
-                    return;
-                }
-                if(player.isTyped()){
-                    player.setTyped(false);
-                    input = player.getTypedInt();
-                }
+                try {
+                    player.getUserHandler().messageToUser("write");
+                    String string = player.getUserHandler().messageFromUser();
+                    int input = Integer.parseInt(string);
                     switch (input) {
                         case 1:
                             stayInWhile = false;
@@ -147,6 +112,9 @@ public class NewPlayCardEffect extends AbsEffect {
                             player.getUserHandler().messageToUser("Invalid choise");
                             break;
                     }
+                } catch (NumberFormatException e) {
+                    player.getUserHandler().messageToUser("Invalid input");
+                }
             }
         }
     }

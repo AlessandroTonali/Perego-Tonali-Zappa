@@ -20,6 +20,27 @@ public class Requirement {
         this.resources = resources;
     }
 
+    public boolean checkRequirement(Player player) {
+        boolean isRequirementSatisfied = true;
+        if (player.getCardOfPlayer().getVentureCards().size() < numberVenture) {
+            isRequirementSatisfied = false;
+        }
+        if (player.getCardOfPlayer().getCharacterCards().size() < numberCharacter) {
+            isRequirementSatisfied = false;
+        }
+        if (player.getCardOfPlayer().getBuildingCards().size() < numberBuilding) {
+            isRequirementSatisfied = false;
+        }
+        if (player.getCardOfPlayer().getTerritoryCards().size() < numberTerritory) {
+            isRequirementSatisfied = false;
+        }
+        if (!player.getResources().checkAffordable(resources)) {
+            isRequirementSatisfied = false;
+        }
+
+        return isRequirementSatisfied;
+    }
+
     public int getNumberVenture() {
         return numberVenture;
     }
