@@ -1,6 +1,8 @@
 package it.polimi.ingsw.GC_23.Connection;
 
 
+import com.sun.xml.internal.ws.encoding.soap.SerializationException;
+import it.polimi.ingsw.GC_23.FX.UserFX;
 import it.polimi.ingsw.GC_23.Player;
 
 import java.io.*;
@@ -16,20 +18,24 @@ import java.util.logging.Logger;
  * Created by jesss on 03/06/17.
  */
 public interface UserHandler {
-    public boolean isGuiInterface() throws RemoteException;
+    boolean isGuiInterface() throws RemoteException;
 
-    public void messageToUser(String message) throws RemoteException;
+    void messageToUser(String message) throws RemoteException;
 
-    public String messageFromUser() throws RemoteException;
+    String messageFromUser() throws RemoteException;
 
-    public void setEndMatch(boolean endMatch);
+    void setEndMatch(boolean endMatch) throws RemoteException;
 
-    public String getCurrentUser() throws RemoteException;
+    String getCurrentUser() throws RemoteException;
 
-    public Player getCurrentPlayer();
+    Player getCurrentPlayer() throws RemoteException;
 
-    public void setCurrentPlayer(Player player);
+    void setCurrentPlayer(Player player) throws RemoteException;
 
-    public void setCurrentUser(String string);
+    void setCurrentUser(String string) throws RemoteException;
+
+    void setUserFX(UserFX userFX) throws RemoteException;
+
+    UserFX getUserFX() throws RemoteException;
 
 }

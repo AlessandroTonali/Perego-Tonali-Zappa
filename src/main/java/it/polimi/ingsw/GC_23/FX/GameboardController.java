@@ -15,12 +15,13 @@ import javafx.scene.paint.Color;
 import javafx.scene.paint.Paint;
 import javafx.scene.shape.Circle;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
 /**
  * Created by jesss on 21/06/17.
  */
-public class GameboardController {
+public class GameboardController implements Serializable {
 
     @FXML
     private AnchorPane master;

@@ -15,6 +15,7 @@ import javafx.stage.Screen;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.io.Serializable;
 import java.net.URL;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -22,7 +23,7 @@ import java.util.logging.Logger;
 /**
  * Created by jesss on 19/06/17.
  */
-public class Gameboard {
+public class Gameboard implements Serializable {
     private Stage primaryStage;
     private final Logger logger = Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
 

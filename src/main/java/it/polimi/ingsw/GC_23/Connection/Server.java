@@ -1,5 +1,7 @@
 package it.polimi.ingsw.GC_23.Connection;
 
+import it.polimi.ingsw.GC_23.FX.UserFX;
+
 import java.io.IOException;
 import java.rmi.Remote;
 import java.rmi.RemoteException;

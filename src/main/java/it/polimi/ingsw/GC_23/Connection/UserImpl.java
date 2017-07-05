@@ -10,6 +10,7 @@ import java.rmi.*;
 import java.rmi.registry.LocateRegistry;
 import java.rmi.registry.Registry;
 import java.rmi.server.UnicastRemoteObject;
+import java.util.ArrayList;
 import java.util.Scanner;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
@@ -20,7 +21,7 @@ import java.util.logging.Logger;
  * Created by jesss on 03/06/17.
  */
 
-public class UserImpl extends UnicastRemoteObject implements User,Remote{
+public class UserImpl extends UnicastRemoteObject implements User,Remote, Serializable{
     private transient Socket socket;
     private transient ObjectInputStream inSocket;
     private transient ObjectOutputStream outSocket;
@@ -32,11 +33,16 @@ public class UserImpl extends UnicastRemoteObject implements User,Remote{
     private boolean socketConnection;
     private boolean guiInterface;
     private boolean typed;
-    private final Logger logger = Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
+    private boolean matchStarted;
     private transient Server server;
     private String username;
+    private UserFX userFX;
+    private ArrayList<String> receivedFromGui;
+    private ArrayList<String> sentToGui;
 
     public UserImpl() throws RemoteException{
+        this.receivedFromGui = new ArrayList<>();
+        this.sentToGui = new ArrayList<>();
         socket = new Socket();
         inKeyboard= new BufferedReader(new InputStreamReader(System.in));
         outVideo = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)),true);
@@ -44,8 +50,7 @@ public class UserImpl extends UnicastRemoteObject implements User,Remote{
         try{
             execute();
         }catch (Exception e){
-            logger.setLevel(Level.SEVERE);
-            logger.severe(String.valueOf(e));
+            e.printStackTrace();
         }
     }
 
@@ -55,7 +60,7 @@ public class UserImpl extends UnicastRemoteObject implements User,Remote{
 
     private void execute(){
         try{
-            /*UserFX userFX = new UserFX();
+            this.userFX = new UserFX();
             ExecutorService executorService = Executors.newCachedThreadPool();
             userFX.setUserImpl(this);
             executorService.submit(userFX);
@@ -64,31 +69,46 @@ public class UserImpl extends UnicastRemoteObject implements User,Remote{
                 Thread.sleep(3000);
             }
             setYourTurn(false);
-            System.out.println(userFX.isGui());
-            System.out.println(userFX.isSocketConnection());*/
-            selectConnection();
-            if(socketConnection) {
-                //connectSocket();
-                outVideo.println(inScanner.nextLine());
-                outVideo.println(inScanner.nextLine());
-                while(!isYourTurn) {
-                    play();
+            //selectConnection();
+            if(!guiInterface) {
+                if (socketConnection) {
+                    connectSocket();
+                    outVideo.println(inScanner.nextLine());
+                    outVideo.println(inScanner.nextLine());
+                    while (!isYourTurn) {
+                        play();
+                    }
+                    closeSocket();
+                } else {
+                    connectRMI();
+                    while (!isYourTurn) {
+                        Thread.sleep(10000);
+                    }
+                    isYourTurn = false;
+                    closeRMI();
                 }
-                closeSocket();
             }
             else{
-                //connectRMI();
-                while (!isYourTurn) {
-                    Thread.sleep(10000);
+                if(socketConnection){
+                    connectSocket();
+                    while (!inScanner.nextLine().equals("start")){
+                        Thread.sleep(2000);
+                    }
+                    this.matchStarted = true;
                 }
-                isYourTurn = false;
-                closeRMI();
+                else{
+                    connectRMI();
+                    while (!isMatchStarted()){
+                        Thread.sleep(2000);
+                    }
+                }
+                System.out.println("finito");
+                while(!isYourTurn){
+                    Thread.sleep(2000);
+                }
             }
         }catch (Exception e){
             e.printStackTrace();
-            logger.setLevel(Level.SEVERE);
-
-            logger.severe(String.valueOf(e));
         }
     }
 
@@ -126,27 +146,30 @@ public class UserImpl extends UnicastRemoteObject implements User,Remote{
                 }
             }
         }catch(Exception e){
-            logger.setLevel(Level.SEVERE);
-            logger.severe(String.valueOf(e));
+            e.printStackTrace();
         }
     }
 
     private void connectSocket(){
-            try {
-                Socket socket = new Socket("127.0.0.1", 29999);
-                System.out.println("Connected: " + socket);
-                outSocket = new ObjectOutputStream(socket.getOutputStream());
-                inSocket = new ObjectInputStream(socket.getInputStream());
-                outWriter = new PrintWriter(socket.getOutputStream(),true);
-                inScanner = new Scanner(socket.getInputStream());
-            } catch (Exception e) {
-                logger.setLevel(Level.SEVERE);
-                logger.severe(String.valueOf(e));
-            }
-            //outWriter.println(guiInterface);
-            //outWriter.println(username);
-            outVideo.println("Wait for other players");
-            socketConnection = true;
+        try {
+            Socket socket = new Socket("127.0.0.1", 29999);
+            System.out.println("Connected: " + socket);
+            outSocket = new ObjectOutputStream(socket.getOutputStream());
+            inSocket = new ObjectInputStream(socket.getInputStream());
+            outWriter = new PrintWriter(socket.getOutputStream(),true);
+            inScanner = new Scanner(socket.getInputStream());
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        outWriter.println(guiInterface);
+        outWriter.println(username);
+        /*try {
+            outSocket.writeChar('a');
+        } catch (IOException e) {
+            e.printStackTrace();
+        }*/
+        outVideo.println("Wait for other players");
+        socketConnection = true;
     }
 
     private void connectRMI() throws RemoteException, NotBoundException, MalformedURLException {
@@ -199,8 +222,7 @@ public class UserImpl extends UnicastRemoteObject implements User,Remote{
             socket.close();
             outVideo.println("Socket closed");
         } catch (Exception e) {
-            logger.setLevel(Level.SEVERE);
-            logger.severe(String.valueOf(e));
+            e.printStackTrace();
             System.out.println("Socket not closed");
             closeSocket();
         }
@@ -213,7 +235,7 @@ public class UserImpl extends UnicastRemoteObject implements User,Remote{
 
     @Override
     public void printer(String string) throws RemoteException {
-        outVideo.println(string);
+            outVideo.println(string);
     }
 
     @Override
@@ -256,7 +278,7 @@ public class UserImpl extends UnicastRemoteObject implements User,Remote{
         this.username = username;
     }
 
-    public PrintWriter getOutWriter() {
+    public PrintWriter getOutWriter() throws RemoteException {
         return outWriter;
     }
 
@@ -266,5 +288,59 @@ public class UserImpl extends UnicastRemoteObject implements User,Remote{
 
     public void setTyped(boolean typed) {
         this.typed = typed;
+    }
+
+    public Scanner getInScanner() throws RemoteException{
+        return inScanner;
+    }
+
+    public boolean isMatchStarted() throws RemoteException {
+        return matchStarted;
+    }
+
+    public void setMatchStarted(boolean matchStarted) throws RemoteException {
+        this.matchStarted = matchStarted;
+    }
+
+    public UserFX getUserFX() throws RemoteException{
+        return this.userFX;
+    }
+
+    public void setUserFX(UserFX userFX) throws RemoteException{
+        this.userFX = userFX;
+    }
+
+    public void addSentToGui(String string) throws RemoteException{
+        this.sentToGui.add(string);
+    }
+
+    public void addReceivedFromGui(String string) throws RemoteException{
+        this.receivedFromGui.add(string);
+    }
+
+    public String getReceivedFromGui() throws RemoteException{
+        while (this.receivedFromGui.size() == 0){
+            try {
+                Thread.sleep(2000);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
+        String string = this.receivedFromGui.get(0);
+        this.receivedFromGui.remove(0);
+        return string;
+    }
+
+    public String getSentToGui() throws RemoteException{
+        while (this.sentToGui.size() == 0){
+            try {
+                Thread.sleep(2000);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
+        String string = this.sentToGui.get(0);
+        this.sentToGui.remove(0);
+        return string;
     }
 }

@@ -1,5 +1,6 @@
 package it.polimi.ingsw.GC_23.Connection;
 
+import it.polimi.ingsw.GC_23.FX.UserFX;
 import it.polimi.ingsw.GC_23.Player;
 
 import java.io.IOException;
@@ -26,6 +27,7 @@ public class SocketHandler implements Runnable,UserHandler{
     private String currentUser;
     private boolean endMatch = false;
     private boolean guiInterface;
+    private UserFX userFX;
     private final Logger logger = Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
 
 
@@ -47,7 +49,6 @@ public class SocketHandler implements Runnable,UserHandler{
         try{
             while (!endMatch){
                 Thread.sleep(10000);
-
             }
         }catch (Exception e){
             logger.setLevel(Level.SEVERE);
@@ -90,11 +91,29 @@ public class SocketHandler implements Runnable,UserHandler{
     }
 
     @Override
+    public void setUserFX(UserFX userFX) throws RemoteException {
+        this.userFX = userFX;
+    }
+
+    @Override
+    public UserFX getUserFX() throws RemoteException {
+        return userFX;
+    }
+
+    @Override
     public String messageFromUser() {
         return inScanner.nextLine();
     }
 
     public Socket getSocket() {
         return socket;
+    }
+
+    public ObjectInputStream getInSocket() {
+        return inSocket;
+    }
+
+    public ObjectOutputStream getOutSocket() {
+        return outSocket;
     }
 }

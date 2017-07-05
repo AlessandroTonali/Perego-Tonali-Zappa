@@ -1,5 +1,6 @@
 package it.polimi.ingsw.GC_23.Connection;
 
+import it.polimi.ingsw.GC_23.FX.UserFX;
 import it.polimi.ingsw.GC_23.Player;
 
 import java.io.IOException;
@@ -17,6 +18,7 @@ public class RMIHandler implements Runnable, UserHandler, Remote {
     private String currentUser;
     private boolean endMatch = false;
     private User user;
+    private UserFX userFX;
     private final Logger logger = Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
 
     public RMIHandler(User user) {
@@ -33,11 +35,14 @@ public class RMIHandler implements Runnable, UserHandler, Remote {
         if(message.equals("write") || message.equals("wait") || message.equals("read")){
             return;
         }
+        if(message.equals("start")){
+            user.setMatchStarted(true);
+            return;
+        }
         if(message.equals("quit")){
             ServerImpl.getServer().RMIQuitter(user);
         }
         else {
-
             try{
                 ServerImpl.getServer().RMIMessageToUser(message, user);
             } catch(IOException e){
@@ -59,7 +64,7 @@ public class RMIHandler implements Runnable, UserHandler, Remote {
     }
 
     @Override
-    public void setEndMatch(boolean endMatch) {
+    public void setEndMatch(boolean endMatch) throws RemoteException{
         this.endMatch = endMatch;
     }
 
@@ -69,17 +74,27 @@ public class RMIHandler implements Runnable, UserHandler, Remote {
     }
 
     @Override
-    public Player getCurrentPlayer() {
+    public Player getCurrentPlayer() throws RemoteException {
         return currentPlayer;
     }
 
     @Override
-    public void setCurrentPlayer(Player player) {
+    public void setCurrentPlayer(Player player) throws RemoteException {
         this.currentPlayer = player;
     }
 
-    public void setCurrentUser(String string){
+    public void setCurrentUser(String string) throws RemoteException{
         this.currentUser = string;
+    }
+
+    @Override
+    public void setUserFX(UserFX userFX) throws RemoteException {
+        this.userFX = userFX;
+    }
+
+    @Override
+    public UserFX getUserFX() throws RemoteException {
+        return userFX;
     }
 
     @Override

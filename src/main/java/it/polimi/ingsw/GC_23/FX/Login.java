@@ -15,6 +15,7 @@ import javafx.scene.text.Font;
 import javafx.stage.Stage;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.io.Serializable;
 import java.rmi.RemoteException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -22,14 +23,14 @@ import java.util.logging.Logger;
 /**
  * Created by jesss on 16/06/17.
  */
-public class Login {
-    private Stage primaryStage;
-    private BorderPane borderPane;
+public class Login implements Serializable{
+    private transient Stage primaryStage;
+    private transient BorderPane borderPane;
     private boolean socketConnection;
     private boolean guiConnection;
     private String username;
     private UserFX userFX;
-    private final Logger logger = Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
+    private transient final Logger logger = Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
 
 
     public Login(UserFX userFX) throws FileNotFoundException, RemoteException {
@@ -38,7 +39,6 @@ public class Login {
         this.primaryStage.setTitle("Login");
         primaryStage.setHeight(600);
         primaryStage.setWidth(600);
-
         borderPane = new BorderPane();
         borderPane.setPrefSize(600, 400);
         borderPane.setPadding(new Insets(20, 40, 20, 40));
@@ -107,11 +107,11 @@ public class Login {
             @Override
             public void handle(ActionEvent event) {
                 if(textField.getText().equals("")){
-                    /*Alert alert = new Alert(Alert.AlertType.ERROR);
+                    Alert alert = new Alert(Alert.AlertType.ERROR);
                     alert.setTitle("Error Dialog");
                     alert.setHeaderText("Invalid username");
                     alert.setContentText("Please insert a valid username");
-                    alert.showAndWait();*/
+                    alert.showAndWait();
                 }
                 else{
                     setUsername(textField.getText());
@@ -123,19 +123,12 @@ public class Login {
                         } catch (RemoteException e) {
                             e.printStackTrace();
                         }
-                        /*primaryStage.setTitle("Color");
-                        FXMLLoader loader = new FXMLLoader();
-                        loader.setLocation(this.getClass().getClassLoader().getResource("colorchoice.fxml"));
-                        loader.setController(new ColorController());
-                        Parent content = null;
+                        ColorSelection colorSelection = null;
                         try {
-                            content = loader.load();
-                        } catch (IOException e) {
-                            logger.setLevel(Level.SEVERE);
-                            logger.severe(String.valueOf(e));
+                           startColorSelection();
+                        } catch (RemoteException e) {
+                            e.printStackTrace();
                         }
-                        primaryStage.setScene(new Scene(content));
-                        primaryStage.show();*/
                     }
                     else{
                         setGuiConnection(false);
@@ -155,14 +148,19 @@ public class Login {
         borderPane.setBottom(vBoxBottom);
     }
 
-    public void startLogin(){
+    public void startLogin() throws RemoteException{
         StackPane root = new StackPane();
         root.getChildren().add(borderPane);
         primaryStage.setScene(new Scene(root, 600, 400));
         primaryStage.show();
     }
 
-    public boolean isSocketConnection() {
+    public void startColorSelection() throws RemoteException{
+        ColorSelection colorSelection = new ColorSelection(primaryStage, this);
+        colorSelection.startColorSelection();
+    }
+
+    public boolean isSocketConnection() throws RemoteException {
         return socketConnection;
     }
 
@@ -170,7 +168,7 @@ public class Login {
         this.socketConnection = socketConnection;
     }
 
-    public boolean isGuiConnection() {
+    public boolean isGuiConnection() throws RemoteException {
         return guiConnection;
     }
 
@@ -178,11 +176,15 @@ public class Login {
         this.guiConnection = guiConnection;
     }
 
-    public String getUsername() {
+    public String getUsername() throws RemoteException {
         return username;
     }
 
-    public void setUsername(String username) {
+    public void setUsername(String username){
         this.username = username;
+    }
+
+    public UserFX getUserFX() {
+        return this.userFX;
     }
 }

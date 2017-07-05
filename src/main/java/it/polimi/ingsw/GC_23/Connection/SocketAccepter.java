@@ -1,5 +1,7 @@
 package it.polimi.ingsw.GC_23.Connection;
 
+import it.polimi.ingsw.GC_23.FX.UserFX;
+
 import java.io.IOException;
 import java.net.ServerSocket;
 import java.net.Socket;
@@ -26,7 +28,9 @@ public class SocketAccepter implements Runnable {
             SocketHandler userHandler = new SocketHandler(socket);
             ServerImpl.getServer().addToMatch(userHandler);
             ServerImpl.getExecutor().submit(userHandler);
-            //userHandler.setCurrentUser(userHandler.messageFromUser());
+            userHandler.setGuiInterface(Boolean.parseBoolean(userHandler.messageFromUser()));
+            userHandler.setCurrentUser(userHandler.messageFromUser());
+            //System.out.println(userHandler.getInSocket().readChar());
             System.out.println("Client accepted: " + socket);
 
         } catch (RemoteException e) {

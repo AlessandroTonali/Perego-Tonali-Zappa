@@ -56,16 +56,21 @@ public class Match implements Runnable{
 
     private void setting() throws IOException, RemoteException{
         for(UserHandler u: userHandlers){
-            u.messageToUser("MATCH STARTED");
-            u.messageToUser("Wait for your turn");
+            if(!u.isGuiInterface()) {
+                u.messageToUser("MATCH STARTED");
+                u.messageToUser("Wait for your turn");
+            }
         }
         for(UserHandler u : userHandlers){
             if(!u.isGuiInterface()) {
                 setup(playerController, u);
-                playerController.getAssociation().putIfAbsent(u.getCurrentPlayer(), u.getCurrentUser());
-                System.out.println("Setup di " + u.getCurrentUser() + " eseguito");
-                creator.createPlayer(u.getCurrentPlayer().getPlayerColor(), u);
             }
+            else{
+                guiSetup(u);
+            }
+            playerController.getAssociation().putIfAbsent(u.getCurrentPlayer(), u.getCurrentUser());
+            System.out.println("Setup di " + u.getCurrentUser() + " eseguito");
+            creator.createPlayer(u.getCurrentPlayer().getPlayerColor(), u);
         }
         creator.startGame(userHandlers.size(), this.isAdvanced);
         for(UserHandler u: userHandlers){
@@ -93,7 +98,7 @@ public class Match implements Runnable{
         return this.playerCounter;
     }
 
-    public void setup(PlayerController playerController, UserHandler userHandler) throws IOException, RemoteException{
+    public void setup(PlayerController playerController, UserHandler userHandler) throws IOException, RemoteException {
         StringBuilder stringBuilder = new StringBuilder();
         Map<Player, String> association = playerController.getAssociation();
         while(true) {
@@ -125,10 +130,10 @@ public class Match implements Runnable{
             }
             break;
         }
-        userHandler.messageToUser("Select your username");
-        userHandler.messageToUser("write");
-        String username = userHandler.messageFromUser();
-        userHandler.setCurrentUser(username);
+        //userHandler.messageToUser("Select your username");
+        //userHandler.messageToUser("write");
+        //String username = userHandler.messageFromUser();
+        //userHandler.setCurrentUser(username);
         userHandler.messageToUser(String.valueOf(stringBuilder.append(association.size())));
         //mostra le associazioni presenti
         for (Map.Entry<Player, String> entry : association.entrySet()) {
@@ -161,10 +166,31 @@ public class Match implements Runnable{
                     logged = true;
                 }
             }
-        }catch(Exception e){
+        } catch (Exception e) {
             logger.setLevel(Level.SEVERE);
             logger.severe(String.valueOf(e));
         }
     }
 
+        public void guiSetup(UserHandler userHandler) throws RemoteException{
+        userHandler.messageToUser("start");
+        for (Map.Entry<Player, String> entry : playerController.getAssociation().entrySet()) {
+            try {
+                userHandler.messageToUser(entry.getKey().getPlayerColor().toString());
+                userHandler.messageToUser(entry.getValue());
+            }catch(NullPointerException e){
+                userHandler.messageToUser("null");
+            }
+        }
+        String choice = userHandler.messageFromUser();
+        Player selectedPlayer = new Player(null, null);
+        for (Map.Entry<Player, String> entry : playerController.getAssociation().entrySet()) {
+            if (entry.getKey().getPlayerColor().toString().equalsIgnoreCase((choice))) {
+                selectedPlayer = entry.getKey();
+            }
+        }
+        userHandler.setCurrentPlayer(selectedPlayer);
+    }
 }
+
+

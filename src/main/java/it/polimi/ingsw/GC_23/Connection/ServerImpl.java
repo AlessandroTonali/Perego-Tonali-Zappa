@@ -1,24 +1,17 @@
 package it.polimi.ingsw.GC_23.Connection;
 
-import it.polimi.ingsw.GC_23.Player;
-import sun.security.x509.IPAddressName;
+import it.polimi.ingsw.GC_23.FX.UserFX;
 
-import javax.management.timer.TimerNotification;
 import java.io.*;
 import java.net.ServerSocket;
-import java.net.Socket;
 import java.rmi.RemoteException;
 import java.rmi.registry.LocateRegistry;
 import java.rmi.registry.Registry;
 import java.rmi.server.UnicastRemoteObject;
 import java.util.ArrayList;
-import java.util.ConcurrentModificationException;
-import java.util.Set;
-import java.util.TimerTask;
 import java.util.concurrent.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import java.util.stream.Stream;
 
 /**
  * Created by jesss on 03/06/17.
@@ -60,8 +53,11 @@ public class ServerImpl extends UnicastRemoteObject implements Server {
     @Override
     public void join(User user) throws RemoteException {
         UserHandler userHandler = new RMIHandler(user);
+        userHandler.setCurrentUser(user.getUsername());
+        userHandler.setUserFX(user.getUserFX());
         this.userHandlers.add(userHandler);
         addToMatch(userHandler);
+        System.out.println("Client accepted: " + user.getUsername());
         getExecutor().submit((RMIHandler) userHandler);
     }
 
@@ -71,7 +67,12 @@ public class ServerImpl extends UnicastRemoteObject implements Server {
 
     public void RMIMessageToUser(String string, User user) throws RemoteException {
         try {
-            user.printer(string);
+            if(!user.isGuiInterface()) {
+                user.printer(string);
+            }
+            else {
+                user.addSentToGui(string);
+            }
         } catch (IOException e) {
             logger.setLevel(Level.SEVERE);
             logger.severe(String.valueOf(e));
@@ -79,8 +80,12 @@ public class ServerImpl extends UnicastRemoteObject implements Server {
     }
 
     public String RMIMessageFromUser(User user) throws IOException, RemoteException {
-
-        return user.reader();
+        if(!user.isGuiInterface()) {
+            return user.reader();
+        }
+        else {
+            return user.getReceivedFromGui();
+        }
     }
 
     public static void main(String[] args) throws RemoteException, Exception {
@@ -106,7 +111,6 @@ public class ServerImpl extends UnicastRemoteObject implements Server {
         }
         while (true) {
             Thread.sleep(10000);
-
         }
     }
 
