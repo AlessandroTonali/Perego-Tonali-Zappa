@@ -153,9 +153,6 @@ public class Board {
 
     public Tower chooseTower(Player player) throws RemoteException {
         player.getUserHandler().messageToUser("Choose a tower");
-        player.getUserHandler().messageToUser("write");
-
-        String input = player.getUserHandler().messageFromUser();
         int i = -1;
         ExecutorService executorService = Executors.newCachedThreadPool();
         StringTyper stringTyper  = new StringTyper(player);

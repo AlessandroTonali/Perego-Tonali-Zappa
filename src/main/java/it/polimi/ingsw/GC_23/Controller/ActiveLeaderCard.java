@@ -4,6 +4,7 @@ import it.polimi.ingsw.GC_23.Cards.LeaderCard;
 import it.polimi.ingsw.GC_23.Effects.AbsEffect;
 import it.polimi.ingsw.GC_23.Effects.PermanentEffect;
 import it.polimi.ingsw.GC_23.Player;
+import it.polimi.ingsw.GC_23.PlayerTimeOut;
 
 import java.io.IOException;
 import java.rmi.RemoteException;
@@ -17,16 +18,18 @@ public class ActiveLeaderCard implements Controller {
     LeaderCard leaderCard;
     Player player;
 
-    public ActiveLeaderCard(LeaderCard leaderCard, Player player) throws IOException {
+    public ActiveLeaderCard(LeaderCard leaderCard, Player player, PlayerTimeOut playerTimeOut) throws IOException {
         this.leaderCard = leaderCard;
         this.player = player;
 
         if (isLegal()) {
             makeAction();
-            player.chooseMove(player.getView());
+            player.setTimeIsOver(false);
+            player.chooseMove(player.getView(), true);
         } else {
             player.getUserHandler().messageToUser("YOU CAN'T ACTIVE THE LEADER CARD");
-            player.chooseMove(player.getView());
+            playerTimeOut.setNeeded(false);
+            player.chooseMove(player.getView(), true);
         }
     }
 

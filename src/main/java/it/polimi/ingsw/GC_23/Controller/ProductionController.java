@@ -26,7 +26,7 @@ public class ProductionController extends PlaceFamilyMember {
             }
             else {
                 familyMember.getPlayer().getUserHandler().messageToUser("NOT VALID MOVE, TRY ANOTHER ONE!");
-                familyMember.getPlayer().chooseMove(familyMember.getPlayer().getView());
+                throw new IllegalArgumentException();
             }
         }
     }

@@ -24,7 +24,7 @@ public class Creator {
         board= new Board(numberOfPlayers);
     }
 
-    public void startGame(int number) throws IOException {
+    public void startGame(int number, boolean isAdvanced) throws IOException {
         switch (number){
             case 2:
                 Collections.shuffle(players);
@@ -45,7 +45,7 @@ public class Creator {
                 players.get(3).getResources().getGoldObj().add(8);
                 break;
         }
-        playGame = new PlayGame(players, board);
+        playGame = new PlayGame(players, board, isAdvanced);
     }
 
     public ArrayList<Player> getPlayers() {

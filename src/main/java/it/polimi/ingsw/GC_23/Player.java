@@ -151,7 +151,7 @@ public class Player implements Serializable {
         return leaderCards;
     }
 
-    public void chooseMove(Board board) throws IOException {
+    public void chooseMove(Board board, boolean isAdvanced) throws IOException {
         this.view = board;
         getUserHandler().messageToUser("read");
         getUserHandler().messageToUser("press 0 for placing a familiar in council\n" +
@@ -168,6 +168,18 @@ public class Player implements Serializable {
                 "press 11 to skip\n" +
                 "press 12 to active leader card\n" +
                 "press 13 to discard a leader card");
+        getUserHandler().messageToUser("press 0 for placing a familiar in council\n" +
+                "press 1 for getting the harvest\n" +
+                "press 2 for getting production\n" +
+                "press 3 for increasing your familiar value\n" +
+                "press 4 for for going in the market\n" +
+                "press 5 for going in the territory tower\n" +
+                "press 6 for going in the character tower\n" +
+                "press 7 for going in the building tower\n" +
+                "press 8 for going in the venture tower\n" +
+                "press 9 for watching the board\n" +
+                "press 10 for watching your resources\n" +
+                "press 11 to skip\n");
         int i = -1;
         PlayerTimeOut playerTimeOut = new PlayerTimeOut(this);
         StringTyper stringTyper = new StringTyper(this);
@@ -193,7 +205,7 @@ public class Player implements Serializable {
         try {
             switch (i) {
                 case -1:
-                    chooseMove(view);
+                    chooseMove(view, isAdvanced);
                     playerTimeOut.setNeeded(false);
                     return;
                 case 0:
@@ -229,7 +241,7 @@ public class Player implements Serializable {
                     }
                     new IncreaseFamilyValue(j, chooseFamilyMember(0));
                     playerTimeOut.setNeeded(false);
-                    chooseMove(this.view);
+                    chooseMove(this.view, isAdvanced);
                     return;
                 case 4:
                     new MarketController(chooseFamilyMember(0), board.getMarketSpaces());
@@ -248,14 +260,16 @@ public class Player implements Serializable {
                     break;
                 case 9:
                     getUserHandler().messageToUser(view.toString());
-                    chooseMove(view);
                     playerTimeOut.setNeeded(false);
+                    chooseMove(view, isAdvanced);
+
                     return;
                 case 10:
                     getUserHandler().messageToUser(this.resources.toString());
                     getUserHandler().messageToUser("");
-                    chooseMove(view);
                     playerTimeOut.setNeeded(false);
+                    chooseMove(view, isAdvanced);
+
                     return;
                 case 11:
                     break;
@@ -267,13 +281,15 @@ public class Player implements Serializable {
                     break;
                 default:
                     getUserHandler().messageToUser("Wrong number selected, try again");
-                    chooseMove(view);
+                    chooseMove(view, isAdvanced);
                     playerTimeOut.setNeeded(false);
                     return;
 
             }
         }catch (NullPointerException e){
             return;
+        } catch (IllegalArgumentException e){
+            chooseMove(view, isAdvanced);
         }
         playerTimeOut.setNeeded(false);
         getUserHandler().messageToUser("Wait for your turn\n");

@@ -33,7 +33,7 @@ public class TerritoryController extends TowerController {
         } else {
             familyMember.getPlayer().getUserHandler().messageToUser("YOU ARE NOT ALLOW TO DO THIS MOVE, DO SOMETHING ELSE!");
             tower.disablePermanentEffect(familyMember);
-            familyMember.getPlayer().chooseMove(familyMember.getPlayer().getView());
+            throw new IllegalArgumentException();
         }
     }
 

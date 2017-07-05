@@ -23,10 +23,12 @@ public class PlayGame {
     private Board board;
     private int period=1;
     private int turn=1;
+    private boolean isAdvanced;
 
-    public PlayGame(ArrayList<Player> players, Board board) throws IOException {
+    public PlayGame(ArrayList<Player> players, Board board, boolean isAdvanced) throws IOException {
         this.players = players;
         this.board = board;
+        this.isAdvanced = isAdvanced;
         scheduling();
     }
 
@@ -46,7 +48,7 @@ public class PlayGame {
                     p.getUserHandler().messageToUser("");
                     p.getUserHandler().messageToUser(("Period: " + this.period + " Turn: " + this.turn + "\n"));
                     p.getUserHandler().messageToUser(p.getUserHandler().getCurrentUser() + ": it's your turn!\n");
-                    p.chooseMove(this.board);
+                    p.chooseMove(this.board, this.isAdvanced);
                 }
                 i++;
             }
@@ -66,9 +68,13 @@ public class PlayGame {
                     m.resetFamilyMember();
                 }
                 for (Player p : players) {
-                    for (LeaderCard leaderCard : p.getLeaderCards()) {
-                        leaderCard.setActivatedInThisTurn(false);
-                    }
+                   try {
+                       for (LeaderCard leaderCard : p.getLeaderCards()) {
+                           leaderCard.setActivatedInThisTurn(false);
+                       }
+                   }catch (NullPointerException e){
+
+                   }
                 }
                 board.getCouncilSpace().resetFamilyMember();
                 board.getProductionSpace().resetFamilyMember();
@@ -139,8 +145,12 @@ public class PlayGame {
             m.resetFamilyMember();
         }
         for (Player p : players) {
-            for (LeaderCard leaderCard : p.getLeaderCards()) {
-                leaderCard.setActivatedInThisTurn(false);
+            try {
+                for (LeaderCard leaderCard : p.getLeaderCards()) {
+                    leaderCard.setActivatedInThisTurn(false);
+                }
+            }catch (NullPointerException e){
+
             }
         }
         board.getCouncilSpace().resetFamilyMember();

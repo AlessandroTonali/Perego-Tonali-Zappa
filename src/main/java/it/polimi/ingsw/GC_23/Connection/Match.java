@@ -3,6 +3,7 @@ package it.polimi.ingsw.GC_23.Connection;
 import it.polimi.ingsw.GC_23.Board;
 import it.polimi.ingsw.GC_23.Creator;
 import it.polimi.ingsw.GC_23.Player;
+import it.polimi.ingsw.GC_23.StringTyper;
 
 import java.io.IOException;
 import java.rmi.RemoteException;
@@ -21,6 +22,8 @@ public class Match implements Runnable{
     private Creator creator;
     private Board board;
     private boolean startMatch = false;
+    private int votation;
+    private boolean isAdvanced = votation>0;
     private final Logger logger = Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
     public Match() {
         this.userHandlers = new ArrayList<>();
@@ -45,6 +48,7 @@ public class Match implements Runnable{
             board = creator.getBoard();
             setting();
         } catch (Exception e) {
+
             logger.setLevel(Level.SEVERE);
             logger.severe(String.valueOf(e));
         }
@@ -63,7 +67,7 @@ public class Match implements Runnable{
                 creator.createPlayer(u.getCurrentPlayer().getPlayerColor(), u);
             }
         }
-        creator.startGame(userHandlers.size());
+        creator.startGame(userHandlers.size(), this.isAdvanced);
         for(UserHandler u: userHandlers){
             u.messageToUser("quit");
             u.setEndMatch(true);
@@ -92,6 +96,35 @@ public class Match implements Runnable{
     public void setup(PlayerController playerController, UserHandler userHandler) throws IOException, RemoteException{
         StringBuilder stringBuilder = new StringBuilder();
         Map<Player, String> association = playerController.getAssociation();
+        while(true) {
+            int z = -1;
+            userHandler.messageToUser("IF YOU WOULD LIKE TO PLAY WITH ADVANCED RULES PRESS 0\n" +
+                    "IF YOU WOULD LIKE TO PLAY WITH BASIC RULES PRESS 1\n" +
+                    "MAJORITY WILL DECIDE");
+            userHandler.messageToUser("write");
+            String in = userHandler.messageFromUser();
+            try {
+                z = Integer.parseInt(in);
+            } catch (NumberFormatException e) {
+                userHandler.messageToUser("invalid input");
+                continue;
+
+            }
+            switch (z){
+                case 0:
+                    votation++;
+                    break;
+                case 1:
+                    votation--;
+                    break;
+
+                default:
+                    continue;
+
+
+            }
+            break;
+        }
         userHandler.messageToUser("Select your username");
         userHandler.messageToUser("write");
         String username = userHandler.messageFromUser();

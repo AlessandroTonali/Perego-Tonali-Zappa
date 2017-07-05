@@ -26,7 +26,7 @@ public class HarvestController extends PlaceFamilyMember {
             }
             else{
                 familyMember.getPlayer().getUserHandler().messageToUser("YOU ARE NOT ALLOW TO DO THIS MOVE, DO SOMETHING ELSE!");
-                familyMember.getPlayer().chooseMove(familyMember.getPlayer().getView());
+                throw new IllegalArgumentException();
             }
         }
     }

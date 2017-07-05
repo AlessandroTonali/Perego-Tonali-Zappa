@@ -12,9 +12,12 @@ import it.polimi.ingsw.GC_23.Player;
 import it.polimi.ingsw.GC_23.Resources.ResourcesSet;
 import it.polimi.ingsw.GC_23.SingleCost;
 import it.polimi.ingsw.GC_23.Spaces.TowerSpace;
+import it.polimi.ingsw.GC_23.StringTyper;
 
 import java.rmi.RemoteException;
 import java.util.ArrayList;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 /**
  * Created by Alessandro Tonali on 20/05/2017.
@@ -91,16 +94,27 @@ public class Tower {
     public TowerSpace chooseTowerSpace(Player player) throws RemoteException {
         player.getUserHandler().messageToUser("Choose the tower space");
         //todo: mostrare i towerspace
-        player.getUserHandler().messageToUser("write");
-        String input = player.getUserHandler().messageFromUser();
-        int i;
-        try {
-            i = Integer.parseInt(input);
 
-        } catch (NumberFormatException e) {
-            player.getUserHandler().messageToUser("Invalid format");
-            return chooseTowerSpace(player);
+        ExecutorService executorService = Executors.newCachedThreadPool();
+        StringTyper stringTyper  = new StringTyper(player);
+        executorService.submit(stringTyper);
+        while(!player.isTyped() && !player.isTimeIsOver()){
+            try {
+                Thread.sleep(1000);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
         }
+        int i = -1;
+        if(player.isTimeIsOver()){
+            i = 0;
+        }
+        if(player.isTyped()){
+            player.setTyped(false);
+            i = player.getTypedInt();
+        }
+
+
 
         try {
             player.getUserHandler().messageToUser("You have chosen: " + i);
