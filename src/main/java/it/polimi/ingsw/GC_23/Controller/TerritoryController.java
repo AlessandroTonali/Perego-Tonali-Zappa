@@ -58,7 +58,9 @@ public class TerritoryController extends TowerController {
         cost.sum(tower.getSale().getResources(), familyMember.getPlayer());
 
         if(tower.checkOtherFamiliar()) {
-            cost.sum(new ResourcesSet(0,3,0,0,0,0,0), familyMember.getPlayer());
+            if (!familyMember.getPlayer().isNotSpendOnOccupiedTower()) {
+                cost.sum(new ResourcesSet(0, 3, 0, 0, 0, 0, 0), familyMember.getPlayer());
+            }
         }
 
         boolean legal  = true;

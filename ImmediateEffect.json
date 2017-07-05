@@ -310,7 +310,8 @@
 	{"id": "1025", "type": "market"},
 	{"id": "1026", "type": "double_servant"},
 	{"id": "1084", "type": "military_territory"},
-	{"id": "1083", "type": "point_vatican"}
+	{"id": "1083", "type": "point_vatican"},
+	{"id": "1072", "type": "spend_tower"}
 	]
 	
 }

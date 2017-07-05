@@ -43,6 +43,9 @@ public class FlagEffect extends AbsEffect {
             case "point_vatican":
                 player.setPointOnVatican(true);
                 break;
+            case "spend_tower":
+                player.setNotSpendOnOccupiedTower(true);
+                break;
 
         }
     }

@@ -64,7 +64,9 @@ public class OtherCardsController extends TowerController {
         cost.getResources().sum(tower.getSale().getResources(), familyMember.getPlayer());
 
         if(super.getTower().checkOtherFamiliar()) {
-            cost.getResources().sum(new ResourcesSet(0,3,0,0,0,0,0), familyMember.getPlayer());
+            if (!familyMember.getPlayer().isNotSpendOnOccupiedTower()) {
+                cost.getResources().sum(new ResourcesSet(0, 3, 0, 0, 0, 0, 0), familyMember.getPlayer());
+            }
         }
 
         boolean legal = true;
