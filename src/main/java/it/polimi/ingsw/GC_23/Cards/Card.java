@@ -6,9 +6,12 @@ import it.polimi.ingsw.GC_23.Enumerations.CardColor;
 import it.polimi.ingsw.GC_23.MilitaryCost;
 import it.polimi.ingsw.GC_23.Player;
 import it.polimi.ingsw.GC_23.SingleCost;
+import it.polimi.ingsw.GC_23.StringTyper;
 
 import java.rmi.RemoteException;
 import java.util.ArrayList;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 /**
  * Created by Alessandro on 21/05/2017.
@@ -115,15 +118,24 @@ public abstract class Card {
                 i++;
             }
         }
-        player.getUserHandler().messageToUser("write");
-        String sw = player.getUserHandler().messageFromUser();
-        try {
-            j = Integer.parseInt(sw);
-            player.getUserHandler().messageToUser("Chosen cost");
 
-        } catch (NumberFormatException e) {
-            player.getUserHandler().messageToUser("Invalid format, try again");
-            chooseCost(player);
+        ExecutorService executorService = Executors.newCachedThreadPool();
+        StringTyper stringTyper  = new StringTyper(player);
+        executorService.submit(stringTyper);
+        while(!player.isTyped() && !player.isTimeIsOver()){
+            try {
+                Thread.sleep(1000);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
+        if(player.isTimeIsOver()){
+            player.getUserHandler().messageToUser("read");
+            return cost.get(0);
+        }
+        if(player.isTyped()){
+            player.setTyped(false);
+            j = player.getTypedInt();
         }
 
         setCostSelected(cost.get(j));

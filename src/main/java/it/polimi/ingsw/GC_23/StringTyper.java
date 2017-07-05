@@ -26,7 +26,10 @@ public class StringTyper implements Runnable {
                 i = Integer.parseInt(sw);
 
             } catch (NumberFormatException e) {
+                this.player.getUserHandler().messageToUser("read");
                 this.player.getUserHandler().messageToUser("Invalid format");
+                run();
+                return;
 
             }
             player.setTypedInt(i);

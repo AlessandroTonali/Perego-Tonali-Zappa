@@ -32,6 +32,7 @@ public class MarketController extends PlaceFamilyMember {
         }
         ExecutorService executorService = Executors.newCachedThreadPool();
         StringTyper stringTyper = new StringTyper(familyMember.getPlayer());
+        executorService.submit(stringTyper);
 
         int j = -1;
         while (!familyMember.getPlayer().isTimeIsOver() && !familyMember.getPlayer().isTyped()){

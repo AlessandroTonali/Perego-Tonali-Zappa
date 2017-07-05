@@ -12,6 +12,8 @@ import it.polimi.ingsw.GC_23.Spaces.*;
 
 import java.rmi.RemoteException;
 import java.util.ArrayList;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 /**
  * Created by jesss on 31/05/17.
@@ -152,16 +154,27 @@ public class Board {
     public Tower chooseTower(Player player) throws RemoteException {
         player.getUserHandler().messageToUser("Choose a tower");
         player.getUserHandler().messageToUser("write");
-        String input = player.getUserHandler().messageFromUser();
-        int i;
 
-        try {
-            i = Integer.parseInt(input);
-            player.getUserHandler().messageToUser("Chosen tower");
-        } catch (NumberFormatException e) {
-            player.getUserHandler().messageToUser("Invalid format, try again");
-            return chooseTower(player);
+        String input = player.getUserHandler().messageFromUser();
+        int i = -1;
+        ExecutorService executorService = Executors.newCachedThreadPool();
+        StringTyper stringTyper  = new StringTyper(player);
+        executorService.submit(stringTyper);
+        while(!player.isTyped() && !player.isTimeIsOver()){
+            try {
+                Thread.sleep(1000);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
         }
+        if(player.isTimeIsOver()){
+            i = 0;
+        }
+        if(player.isTyped()){
+            player.setTyped(false);
+            i = player.getTypedInt();
+        }
+
 
         try{
             return towers[i];
