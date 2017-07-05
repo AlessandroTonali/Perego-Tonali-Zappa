@@ -20,15 +20,19 @@ public class NotScoreEffect extends AbsEffect {
         switch (notScore) {
             case "venture":
                 player.setNotScoreVenture(true);
+                player.getUserHandler().messageToUser("Effect activated! At the end of the game you haven't scored the venture card");
                 break;
             case "character":
                 player.setNotScoreCharacter(true);
+                player.getUserHandler().messageToUser("Effect activated! At the end of the game you haven't scored the character card");
                 break;
             case "territory":
                 player.setNotScoreTerrytory(true);
+                player.getUserHandler().messageToUser("Effect activated! At the end of the game you haven't scored the territory card");
                 break;
             case "market":
                 player.setNotPlayInMarket(true);
+                player.getUserHandler().messageToUser("Effect activated! Now you cannot use the market");
                 break;
             case "doubleServant":
                 player.setDoubleServantToIncrease(true);

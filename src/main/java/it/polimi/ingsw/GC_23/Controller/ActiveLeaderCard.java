@@ -51,8 +51,15 @@ public class ActiveLeaderCard implements Controller {
         for (int i = 0; i < leaderCardEffects.size(); i++) {
             AbsEffect effect = leaderCardEffects.get(i);
             if (effect instanceof PermanentEffect) {
-                player.getPermanentEffects().add((PermanentEffect) effect);
+                if (leaderCard.isActivatedPermanentEffect()) {
+                    player.getUserHandler().messageToUser("Permanent effect of card is already active");
+                } else {
+                    player.getUserHandler().messageToUser("Leader card activeted correctly");
+                    player.getPermanentEffects().add((PermanentEffect) effect);
+                    leaderCard.setActivatedPermanentEffect(true);
+                }
             } else {
+                player.getUserHandler().messageToUser("Leader card activeted correctly");
                 effect.activeEffect(player);
             }
         }

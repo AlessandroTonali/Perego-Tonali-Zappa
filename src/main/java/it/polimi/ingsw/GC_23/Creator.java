@@ -20,10 +20,6 @@ public class Creator {
     private ArrayList<Player> players = new ArrayList<Player>();
     private PlayGame playGame;
 
-    public Creator(){
-
-    }
-
     public Creator(int numberOfPlayers){
         board= new Board(numberOfPlayers);
     }

@@ -97,6 +97,7 @@ public class ImplicationEffect extends AbsEffect{
         SingleCost cost = implicationEffect.getRequirements().get(0);
         AbsEffect effect = implicationEffect.getGivings().get(0);
         player.getResources().pay(cost.getResources());
+        player.getUserHandler().messageToUser("You lost:"+ cost.toString());
         effect.activeEffect(player);
     }
 

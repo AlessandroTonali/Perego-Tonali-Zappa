@@ -51,6 +51,7 @@ public class ExcommunicationSpace {
                 break;
             case 2:
                 player.getResources().setFaithPoints(0);
+                player.getUserHandler().messageToUser("You've support the vatican and your faith points have been resetted");
                 break;
             default:
                 player.getUserHandler().messageToUser("Wrong number selected, try again");

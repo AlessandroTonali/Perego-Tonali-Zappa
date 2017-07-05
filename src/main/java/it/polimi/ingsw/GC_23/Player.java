@@ -32,7 +32,7 @@ public class Player implements Serializable {
     private transient FamilyMember[] familyMembers;
     private transient UserHandler userHandler;
     private ArrayList<PermanentEffect> permanentEffects;
-    private ArrayList<PermanentEffect> excommunicationEffect;
+    private ArrayList<LeaderCard> leaderCards;
 
     private boolean notScoreTerrytory = false;
     private boolean notScoreVenture = false;
@@ -48,7 +48,6 @@ public class Player implements Serializable {
         this.bonusTile = bonusTile;
         this.cardOfPlayer = new CardOfPlayer();
         permanentEffects = new ArrayList<>();
-        excommunicationEffect = new ArrayList<>();
         //permanent effect ancora non lo dobbiamo fare
     }
 
@@ -108,10 +107,6 @@ public class Player implements Serializable {
         this.playerColor = playerColor;
     }
 
-    public ArrayList<PermanentEffect> getExcommunicationEffect() {
-        return excommunicationEffect;
-    }
-
     public boolean isNotScoreTerrytory() {
         return notScoreTerrytory;
     }
@@ -152,6 +147,10 @@ public class Player implements Serializable {
         this.doubleServantToIncrease = doubleServantToIncrease;
     }
 
+    public ArrayList<LeaderCard> getLeaderCards() {
+        return leaderCards;
+    }
+
     public void chooseMove(Board board) throws IOException {
         this.view = board;
         getUserHandler().messageToUser("read");
@@ -167,7 +166,8 @@ public class Player implements Serializable {
                 "press 9 for watching the board\n" +
                 "press 10 for watching your resources\n" +
                 "press 11 to skip\n" +
-                "press 12 to active leader card");
+                "press 12 to active leader card\n" +
+                "press 13 to discard a leader card");
         int i = -1;
         PlayerTimeOut playerTimeOut = new PlayerTimeOut(this);
         StringTyper stringTyper = new StringTyper(this);
@@ -258,6 +258,12 @@ public class Player implements Serializable {
                     playerTimeOut.setNeeded(false);
                     return;
                 case 11:
+                    break;
+                case 12:
+                    //TODO PLAY LEADER CARD
+                    break;
+                case 13:
+                    //TODO DISCARD LEADER CARD
                     break;
                 default:
                     getUserHandler().messageToUser("Wrong number selected, try again");

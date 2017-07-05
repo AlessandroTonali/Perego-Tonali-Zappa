@@ -21,7 +21,7 @@ public class ExcommunicationTile {
     public void takeExcommunication(Player player) throws IOException {
         for (int i = 0; i < effect.size(); i++) {
             if (effect.get(i) instanceof PermanentEffect) {
-                player.getExcommunicationEffect().add((PermanentEffect) effect.get(i));
+                player.getPermanentEffects().add((PermanentEffect) effect.get(i));
             } else {
                 effect.get(i).activeEffect(player);
             }

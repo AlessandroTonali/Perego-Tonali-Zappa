@@ -1,5 +1,6 @@
 package it.polimi.ingsw.GC_23;
 
+import it.polimi.ingsw.GC_23.Cards.LeaderCard;
 import it.polimi.ingsw.GC_23.Cards.VentureCard;
 import it.polimi.ingsw.GC_23.Effects.EndGameEffect;
 import it.polimi.ingsw.GC_23.Effects.PermanentEffect;
@@ -63,6 +64,11 @@ public class PlayGame {
                 }
                 for(MarketSpace m: board.getMarketSpaces()){
                     m.resetFamilyMember();
+                }
+                for (Player p : players) {
+                    for (LeaderCard leaderCard : p.getLeaderCards()) {
+                        leaderCard.setActivatedInThisTurn(false);
+                    }
                 }
                 board.getCouncilSpace().resetFamilyMember();
                 board.getProductionSpace().resetFamilyMember();
@@ -132,6 +138,11 @@ public class PlayGame {
         for(MarketSpace m: board.getMarketSpaces()){
             m.resetFamilyMember();
         }
+        for (Player p : players) {
+            for (LeaderCard leaderCard : p.getLeaderCards()) {
+                leaderCard.setActivatedInThisTurn(false);
+            }
+        }
         board.getCouncilSpace().resetFamilyMember();
         board.getProductionSpace().resetFamilyMember();
         board.getHarvestSpace().resetFamilyMember();
@@ -143,23 +154,24 @@ public class PlayGame {
                         board.getExcommunicationSpaceFirstPeriod().getExcommunicationTile().takeExcommunication(p);
                         p.getUserHandler().messageToUser("You receive the excommunication");
                     } else {
-                        //TODO SCELTA
                         board.getExcommunicationSpaceFirstPeriod().chooseExcommunication(p);
 
                     }
                     break;
                 case 2:
                     if (p.getResources().getFaithPoints() < 4) {
-                        board.getExcommunicationSpaceFirstPeriod().getExcommunicationTile().takeExcommunication(p);
+                        board.getExcommunicationSpaceSecondPeriod().getExcommunicationTile().takeExcommunication(p);
+                        p.getUserHandler().messageToUser("You receive the excommunication");
                     } else {
-                        //TODO SCELTA
+                        board.getExcommunicationSpaceSecondPeriod().chooseExcommunication(p);
                     }
                     break;
                 case 3:
                     if (p.getResources().getFaithPoints() < 4) {
-                        board.getExcommunicationSpaceFirstPeriod().getExcommunicationTile().takeExcommunication(p);
+                        board.getExcommunicationSpaceThirdPeriod().getExcommunicationTile().takeExcommunication(p);
+                        p.getUserHandler().messageToUser("You receive the excommunication");
                     } else {
-                        //TODO SCELTA
+                        board.getExcommunicationSpaceThirdPeriod().chooseExcommunication(p);
                     }
                     break;
 

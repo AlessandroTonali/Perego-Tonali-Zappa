@@ -26,7 +26,7 @@ public class ParseJson {
     private HashMap<Integer,VentureCard> ventureCardMap = new HashMap<>();
     private HashMap<Integer,TerritoryCard> territoryCardMap = new HashMap<>();
     private HashMap<Integer,CharacterCard> characterCardMap = new HashMap<>();
-    private HashMap<Integer, LeaderCard> leaderCardMap = new HashMap<>();
+    private ArrayList<LeaderCard> leaderCardArrayList = new ArrayList<>();
     private ArrayList<Card> characterCardArrayList = new ArrayList<>();
     private ArrayList<Card> territoryCardArrayList = new ArrayList<>();
     private ArrayList<Card> ventureCardArrayList = new ArrayList<>();
@@ -182,8 +182,10 @@ public class ParseJson {
             ArrayList<AbsEffect> effects = parsingEffect(jsonObject.getJSONArray("effect"));
 
             LeaderCard leaderCard = new LeaderCard(name, requirement, effects);
-            leaderCardMap.put(idCard, leaderCard);
+            leaderCardArrayList.add(leaderCard);
         }
+
+        Collections.shuffle(leaderCardArrayList);
 
     }
 
@@ -763,6 +765,10 @@ public class ParseJson {
         absEffects[2] = effectMap.get(53);
         absEffects[3] = effectMap.get(54);
         return absEffects;
+    }
+
+    public ArrayList<LeaderCard> getLeaderCardArrayList() {
+        return leaderCardArrayList;
     }
 
     // METODO PER TESTING
