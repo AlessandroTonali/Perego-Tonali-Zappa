@@ -5,19 +5,19 @@ import it.polimi.ingsw.GC_23.Player;
 import java.io.IOException;
 
 /**
- * Created by Alessandro on 21/06/2017.
+ * Created by Alessandro on 05/07/2017.
  */
-public class NotScoreEffect extends AbsEffect {
+public class FlagEffect extends AbsEffect {
 
-    private String notScore;
+    private String type;
 
-    public NotScoreEffect(String notScore) {
-        this.notScore = notScore;
+    public FlagEffect(String type) {
+        this.type = type;
     }
 
     @Override
     public void activeEffect(Player player) throws IOException {
-        switch (notScore) {
+        switch (type) {
             case "venture":
                 player.setNotScoreVenture(true);
                 player.getUserHandler().messageToUser("Effect activated! At the end of the game you haven't scored the venture card");
@@ -34,8 +34,11 @@ public class NotScoreEffect extends AbsEffect {
                 player.setNotPlayInMarket(true);
                 player.getUserHandler().messageToUser("Effect activated! Now you cannot use the market");
                 break;
-            case "doubleServant":
+            case "double_servant":
                 player.setDoubleServantToIncrease(true);
+                break;
+            case "military_territory":
+                player.setNotCheckMilitaryOnTerritory(true);
                 break;
 
         }

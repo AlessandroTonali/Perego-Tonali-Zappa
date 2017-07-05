@@ -5,9 +5,7 @@ import it.polimi.ingsw.GC_23.Effects.AbsEffect;
 import it.polimi.ingsw.GC_23.Effects.PermanentEffect;
 import it.polimi.ingsw.GC_23.Player;
 import it.polimi.ingsw.GC_23.PlayerTimeOut;
-
 import java.io.IOException;
-import java.rmi.RemoteException;
 import java.util.ArrayList;
 
 /**
@@ -31,11 +29,6 @@ public class ActiveLeaderCard implements Controller {
             playerTimeOut.setNeeded(false);
             player.chooseMove(player.getView(), true);
         }
-    }
-
-    private boolean isActivable(){
-        //TODO
-        return true;
     }
 
     @Override

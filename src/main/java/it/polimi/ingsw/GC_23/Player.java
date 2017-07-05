@@ -3,19 +3,15 @@ package it.polimi.ingsw.GC_23;
 import it.polimi.ingsw.GC_23.Cards.*;
 import it.polimi.ingsw.GC_23.Connection.UserHandler;
 import it.polimi.ingsw.GC_23.Controller.*;
-import it.polimi.ingsw.GC_23.Effects.BenefitsEffect;
 import it.polimi.ingsw.GC_23.Effects.PermanentEffect;
 import it.polimi.ingsw.GC_23.Enumerations.PlayerColor;
 import it.polimi.ingsw.GC_23.Resources.ResourcesSet;
 import it.polimi.ingsw.GC_23.Spaces.*;
 
-import java.io.Console;
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.io.Serializable;
 import java.rmi.RemoteException;
 import java.util.ArrayList;
-import java.util.Scanner;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
@@ -39,6 +35,7 @@ public class Player implements Serializable {
     private boolean notScoreCharacter = false;
     private boolean notPlayInMarket = false;
     private boolean doubleServantToIncrease = false;
+    private boolean notCheckMilitaryOnTerritory = false;
     private boolean timeIsOver = false;
     private boolean typed = false;
     private int typedInt;
@@ -145,6 +142,14 @@ public class Player implements Serializable {
 
     public void setDoubleServantToIncrease(boolean doubleServantToIncrease) {
         this.doubleServantToIncrease = doubleServantToIncrease;
+    }
+
+    public boolean isNotCheckMilitaryOnTerritory() {
+        return notCheckMilitaryOnTerritory;
+    }
+
+    public void setNotCheckMilitaryOnTerritory(boolean notCheckMilitaryOnTerritory) {
+        this.notCheckMilitaryOnTerritory = notCheckMilitaryOnTerritory;
     }
 
     public ArrayList<LeaderCard> getLeaderCards() {
@@ -274,7 +279,7 @@ public class Player implements Serializable {
                 case 11:
                     break;
                 case 12:
-                    //TODO PLAY LEADER CARD
+                    new ActiveLeaderCard(chooseLeaderCard(), this, playerTimeOut);
                     break;
                 case 13:
                     //TODO DISCARD LEADER CARD
@@ -352,6 +357,33 @@ public class Player implements Serializable {
         getUserHandler().messageToUser("You choose the " + i + " family member");
         getUserHandler().messageToUser("You have " + this.getResources().toString());
         return chosen;
+    }
+
+    public LeaderCard chooseLeaderCard() throws RemoteException {
+        LeaderCard leaderCard = null;
+        userHandler.messageToUser("Chooose the leader card:");
+        for (int i = 0; i < leaderCards.size(); i++) {
+            userHandler.messageToUser(i+". "+ leaderCards.get(i).toString());
+        }
+        userHandler.messageToUser("write");
+        String answer = userHandler.messageFromUser();
+        int i = -1;
+        try {
+            i = Integer.parseInt(answer);
+        } catch (NumberFormatException e) {
+            userHandler.messageToUser("Is not a number, try again");
+            chooseLeaderCard();
+        }
+        if (i < leaderCards.size()) {
+            leaderCard = leaderCards.get(i);
+        } else {
+            userHandler.messageToUser("Invalid number, try again");
+            chooseLeaderCard();
+        }
+
+        return leaderCard;
+
+
     }
 
     public UserHandler getUserHandler() {

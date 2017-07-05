@@ -2,13 +2,11 @@ package it.polimi.ingsw.GC_23;
 
 import it.polimi.ingsw.GC_23.Effects.PermanentEffect;
 import it.polimi.ingsw.GC_23.Effects.PlusDiceEffect;
-import it.polimi.ingsw.GC_23.Enumerations.DiceColor;
+import it.polimi.ingsw.GC_23.Effects.SetDiceEffect;
 import it.polimi.ingsw.GC_23.Enumerations.FamilyColor;
-import it.polimi.ingsw.GC_23.Enumerations.PlayerColor;
 import it.polimi.ingsw.GC_23.Spaces.ActionSpace;
-
+import java.rmi.RemoteException;
 import java.util.ArrayList;
-import java.util.Scanner;
 
 /**
  * Created by Alessandro Tonali on 20/05/2017.
@@ -54,15 +52,32 @@ public class FamilyMember {
     }
 
     public void setValue(int value) {
-        this.value = checkPermanentEffect(value);
+        this.value = value;
     }
 
-    private int checkPermanentEffect(int value) {
+    public int checkPermanentEffect(int value) throws RemoteException {
         ArrayList<PermanentEffect> permanentEffectArrayList = player.getPermanentEffects();
+
         for (int i = 0; i < permanentEffectArrayList.size(); i++) {
             PermanentEffect permanentEffect = permanentEffectArrayList.get(i);
-            if (permanentEffect instanceof PlusDiceEffect && ((PlusDiceEffect) permanentEffectArrayList.get(i)).getType().equals("dice")) {
-                if (((PlusDiceEffect) permanentEffect).getFamilyColor() == familyColor)
+
+            if (permanentEffect instanceof SetDiceEffect && ((SetDiceEffect) permanentEffectArrayList.get(i)).getType().equals("dice_color")) {
+                if (familyColor != FamilyColor.NEUTRAL) {
+                    value = ((SetDiceEffect) permanentEffect).getValue();
+                }
+            }
+        }
+
+        for (int i = 0; i < permanentEffectArrayList.size(); i++) {
+            PermanentEffect permanentEffect = permanentEffectArrayList.get(i);
+            if (permanentEffect instanceof PlusDiceEffect && ((PlusDiceEffect) permanentEffectArrayList.get(i)).getType().equals("dice_color")) {
+                if (familyColor != FamilyColor.NEUTRAL)
+                {
+                    value = value + ((PlusDiceEffect) permanentEffect).getPlusDiceValue();
+                }
+            }
+            if (permanentEffect instanceof PlusDiceEffect && ((PlusDiceEffect) permanentEffectArrayList.get(i)).getType().equals("dice_neutral")) {
+                if (familyColor == FamilyColor.NEUTRAL)
                 {
                     value = value + ((PlusDiceEffect) permanentEffect).getPlusDiceValue();
                 }

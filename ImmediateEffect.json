@@ -303,11 +303,13 @@
 		{"id": "711", "giving_product": [{"victoryPoint": "1"}], "required_product": [{"militaryPoint": "2"}]}
 	
 	],
-	"NotScoreEffect":[
-	{"id": "1031", "not_score": "character"},
-	{"id": "1032", "not_score": "venture"},
-	{"id": "1033", "not_score": "territory"},
-	{"id": "1025", "not_score": "market"}
+	"FlagEffect":[
+	{"id": "1031", "type": "character"},
+	{"id": "1032", "type": "venture"},
+	{"id": "1033", "type": "territory"},
+	{"id": "1025", "type": "market"},
+	{"id": "1026", "type": "double_servant"},
+	{"id": "1084", "type": "military_territory"}
 	]
 	
 }

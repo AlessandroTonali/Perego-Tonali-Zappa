@@ -20,19 +20,13 @@ public class PlusDiceEffect extends PermanentEffect {
     private String type;
     private CardColor cardColor;
     private ArrayList<SingleCost> sales;
-    private FamilyColor familyColor;
+
 
     public PlusDiceEffect(int plusDiceValue, String type, CardColor cardColor, ArrayList<SingleCost> sales) {
         this.plusDiceValue = plusDiceValue;
         this.type = type;
         this.cardColor = cardColor;
         this.sales = sales;
-    }
-
-    public PlusDiceEffect(int plusDiceValue, String type, FamilyColor familyColor) {
-        this.plusDiceValue = plusDiceValue;
-        this.type = type;
-        this.familyColor = familyColor;
     }
 
     public int getPlusDiceValue() {
@@ -49,14 +43,6 @@ public class PlusDiceEffect extends PermanentEffect {
 
     public ArrayList<SingleCost> getSales() {
         return sales;
-    }
-
-    public FamilyColor getFamilyColor() {
-        return familyColor;
-    }
-
-    public void setFamilyColor(FamilyColor familyColor) {
-        this.familyColor = familyColor;
     }
 
     public SingleCost chooseSale(Player player) throws RemoteException {

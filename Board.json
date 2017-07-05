@@ -3,7 +3,7 @@
 		{"id": "11", "period": "1", "permanent_effect": [{"effect": "1011"}]},
 		{"id": "12", "period": "1", "permanent_effect": [{"effect": "1012"}]},
 		{"id": "13", "period": "1", "permanent_effect": [{"effect": "1013"}]},
-		{"id": "14", "period": "1", "permanent_effect": [{"effect": "1014"}, {"effect": "18"}]},
+		{"id": "14", "period": "1", "permanent_effect": [{"effect": "1014"}, {"effect": "1018"}]},
 		{"id": "15", "period": "1", "permanent_effect": [{"effect": "1015"}]},
 		{"id": "16", "period": "1", "permanent_effect": [{"effect": "1016"}]},
 		{"id": "17", "period": "1", "permanent_effect": [{"effect": "1017"}]},

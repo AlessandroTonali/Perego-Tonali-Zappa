@@ -309,7 +309,7 @@ public class PlayGame {
         }
     }
 
-    private void resetFamilyMembers(){
+    private void resetFamilyMembers() throws RemoteException {
 
 
         for(Player p: players){
@@ -322,16 +322,16 @@ public class PlayGame {
             for(FamilyMember f: familyMembers){
                 switch(f.getFamilyColor()){
                     case ORANGE:
-                        f.setValue(board.getDiceOValue());
+                        f.setValue(f.checkPermanentEffect(board.getDiceOValue()));
                         break;
                     case WHITE:
-                        f.setValue(board.getDiceWValue());
+                        f.setValue(f.checkPermanentEffect(board.getDiceWValue()));
                         break;
                     case BLACK:
-                        f.setValue(board.getDiceBValue());
+                        f.setValue(f.checkPermanentEffect(board.getDiceBValue()));
                         break;
                     case NEUTRAL:
-                        f.setValue(0);
+                        f.setValue(f.checkPermanentEffect(0));
                         break;
 
                 }

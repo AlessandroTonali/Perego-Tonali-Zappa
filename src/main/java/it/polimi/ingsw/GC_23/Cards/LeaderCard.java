@@ -49,4 +49,9 @@ public class LeaderCard {
     public void setActivatedPermanentEffect(boolean activatedPermanentEffect) {
         this.activatedPermanentEffect = activatedPermanentEffect;
     }
+
+    @Override
+    public String toString() {
+        return name;
+    }
 }

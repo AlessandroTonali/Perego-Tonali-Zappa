@@ -263,8 +263,8 @@ public class ParseJson {
         JSONArray productEffects = rootObject.getJSONArray("ProductEffect");
         parseProductEffect(productEffects);
 
-        JSONArray notScoreEffects = rootObject.getJSONArray("NotScoreEffect");
-        parseNotScoreEffect(notScoreEffects);
+        JSONArray flagEffects = rootObject.getJSONArray("FlagEffect");
+        parseFlagEffect(flagEffects);
     }
 
     private void parsePermanentEffect() {
@@ -304,17 +304,32 @@ public class ParseJson {
 
         JSONArray endGameEffects = rootObject.getJSONArray("EndGameEffect");
         parseEndGameEffect(endGameEffects);
+
+        JSONArray setDiceEffects = rootObject.getJSONArray("SetDiceEffect");
+        parseSetDiceEffect(setDiceEffects);
     }
 
-    private void parseNotScoreEffect(JSONArray notScoreEffects) {
-        for (int i = 0; i < notScoreEffects.length(); i++) {
-            JSONObject jsonObject = notScoreEffects.getJSONObject(i);
+    private void parseSetDiceEffect(JSONArray setDiceEffects) {
+        for (int i = 0; i < setDiceEffects.length(); i++) {
+            JSONObject jsonObject = setDiceEffects.getJSONObject(i);
 
             int idEffect = jsonObject.getInt("id");
-            String notScore = jsonObject.getString("not_score");
+            String type = jsonObject.getString("type");
+            int value = jsonObject.getInt("value");
+            SetDiceEffect setDiceEffect = new SetDiceEffect(value, type);
+            effectMap.put(idEffect, setDiceEffect);
+        }
+    }
 
-            NotScoreEffect notScoreEffect =  new NotScoreEffect(notScore);
-            effectMap.put(idEffect, notScoreEffect);
+    private void parseFlagEffect(JSONArray flagEffects) {
+        for (int i = 0; i < flagEffects.length(); i++) {
+            JSONObject jsonObject = flagEffects.getJSONObject(i);
+
+            int idEffect = jsonObject.getInt("id");
+            String type = jsonObject.getString("type");
+
+            FlagEffect flagEffect =  new FlagEffect(type);
+            effectMap.put(idEffect, flagEffect);
         }
     }
 
