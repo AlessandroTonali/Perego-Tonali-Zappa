@@ -100,6 +100,9 @@ public class ExcommunicationSpace {
                         victoryPointsGained = 30;
                         break;
                 }
+                if (player.isPointOnVatican()) {
+                    victoryPointsGained = victoryPointsGained + 5;
+                }
                 player.getResources().setFaithPoints(0);
                 player.getResources().sum(new ResourcesSet(0,0,0,0,0,victoryPointsGained,0),player);
                 player.getUserHandler().messageToUser("You've support the vatican, you receive "+victoryPointsGained+" victory points and your faith points have been resetted");

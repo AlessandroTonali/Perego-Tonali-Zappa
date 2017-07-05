@@ -40,6 +40,9 @@ public class FlagEffect extends AbsEffect {
             case "military_territory":
                 player.setNotCheckMilitaryOnTerritory(true);
                 break;
+            case "point_vatican":
+                player.setPointOnVatican(true);
+                break;
 
         }
     }

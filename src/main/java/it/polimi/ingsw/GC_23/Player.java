@@ -36,6 +36,7 @@ public class Player implements Serializable {
     private boolean notPlayInMarket = false;
     private boolean doubleServantToIncrease = false;
     private boolean notCheckMilitaryOnTerritory = false;
+    private boolean pointOnVatican = false;
     private boolean timeIsOver = false;
     private boolean typed = false;
     private int typedInt;
@@ -150,6 +151,14 @@ public class Player implements Serializable {
 
     public void setNotCheckMilitaryOnTerritory(boolean notCheckMilitaryOnTerritory) {
         this.notCheckMilitaryOnTerritory = notCheckMilitaryOnTerritory;
+    }
+
+    public boolean isPointOnVatican() {
+        return pointOnVatican;
+    }
+
+    public void setPointOnVatican(boolean pointOnVatican) {
+        this.pointOnVatican = pointOnVatican;
     }
 
     public ArrayList<LeaderCard> getLeaderCards() {
