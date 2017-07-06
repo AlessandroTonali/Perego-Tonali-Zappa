@@ -22,6 +22,7 @@ import java.util.ResourceBundle;
  */
 public class ColorController implements Serializable{
     private UserFX userFX;
+    private int votation = 0;
 
     public ColorController(UserFX userFX) {
         this.userFX = userFX;
@@ -57,6 +58,14 @@ public class ColorController implements Serializable{
     @FXML
     private RadioButton yellow;
 
+    @FXML
+    private RadioButton basic;
+
+    @FXML
+    private RadioButton advanced;
+
+    @FXML
+    private ToggleGroup rules;
 
     public void setLabel() throws RemoteException{
         try{
@@ -92,6 +101,13 @@ public class ColorController implements Serializable{
         button.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
+                Toggle selectedRules = rules.getSelectedToggle();
+                if(selectedRules.equals(basic)){
+                    votation--;
+                }
+                else{
+                    votation++;
+                }
                 Toggle selectedToggle = toggles.getSelectedToggle();
                 if(selectedToggle.equals(red) && redlabel.getText().equals("null")) {
                     try {
@@ -127,6 +143,11 @@ public class ColorController implements Serializable{
                     alert.setHeaderText("Invalid choice: color already chosen!");
                     alert.setContentText("Please select a valid choice");
                     alert.showAndWait();
+                }
+                try {
+                    userFX.send(Integer.toString(votation));
+                } catch (RemoteException e) {
+                    e.printStackTrace();
                 }
             }
         });

@@ -35,7 +35,6 @@ public class ColorSelection implements Serializable {
             content = loader.load();
         } catch (IOException e) {
             e.printStackTrace();
-            System.out.println("stronzo");
         }
         primaryStage.setScene(new Scene(content));
         primaryStage.show();

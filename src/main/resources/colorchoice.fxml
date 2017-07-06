@@ -13,11 +13,11 @@
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <Pane />
-      <Label layoutX="231.0" layoutY="50.0" text="Select your color">
+      <Label layoutX="231.0" layoutY="35.0" text="Select your color">
          <font>
             <Font size="18.0" />
          </font></Label>
-      <HBox layoutX="115.0" layoutY="137.0" prefHeight="126.0" prefWidth="310.0" style="-fx-border-color: BLACK;">
+      <HBox layoutX="109.0" layoutY="81.0" prefHeight="126.0" prefWidth="310.0" style="-fx-border-color: BLACK;">
          <children>
             <Pane prefHeight="200.0" prefWidth="200.0">
                <children>
@@ -90,7 +90,7 @@
             </Pane>
          </children>
       </HBox>
-      <VBox layoutX="423.0" layoutY="137.0" prefHeight="126.0" prefWidth="62.0" style="-fx-border-color: BLACK;">
+      <VBox layoutX="417.0" layoutY="81.0" prefHeight="126.0" prefWidth="62.0" style="-fx-border-color: BLACK;">
          <children>
             <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: BLACK;">
                <children>
@@ -127,6 +127,17 @@
             </Pane>
          </children>
       </VBox>
-      <Button layoutX="268.0" layoutY="315.0" mnemonicParsing="false" text="Confirm" fx:id="button"/>
+      <Button fx:id="button" layoutX="261.0" layoutY="328.0" mnemonicParsing="false" text="Confirm" />
+      <RadioButton fx:id="basic" layoutX="152.0" layoutY="271.0" mnemonicParsing="false" selected="true" text="Basic Rules">
+         <toggleGroup>
+            <ToggleGroup fx:id="rules" />
+         </toggleGroup>
+      </RadioButton>
+      <RadioButton fx:id="advanced" layoutX="310.0" layoutY="271.0" mnemonicParsing="false" text="Advanced Rules" toggleGroup="$rules" />
+      <Label layoutX="213.0" layoutY="227.0" text="Select game difficulty">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>

@@ -23,7 +23,7 @@ public class Match implements Runnable{
     private Board board;
     private boolean startMatch = false;
     private int votation;
-    private boolean isAdvanced = votation>0;
+    private boolean isAdvanced;
     private final Logger logger = Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
     public Match() {
         this.userHandlers = new ArrayList<>();
@@ -72,6 +72,8 @@ public class Match implements Runnable{
             System.out.println("Setup di " + u.getCurrentUser() + " eseguito");
             creator.createPlayer(u.getCurrentPlayer().getPlayerColor(), u);
         }
+        setAdvanced();
+        System.out.println(isAdvanced());
         creator.startGame(userHandlers.size(), this.isAdvanced);
         for(UserHandler u: userHandlers){
             u.messageToUser("quit");
@@ -125,15 +127,9 @@ public class Match implements Runnable{
 
                 default:
                     continue;
-
-
             }
             break;
         }
-        //userHandler.messageToUser("Select your username");
-        //userHandler.messageToUser("write");
-        //String username = userHandler.messageFromUser();
-        //userHandler.setCurrentUser(username);
         userHandler.messageToUser(String.valueOf(stringBuilder.append(association.size())));
         //mostra le associazioni presenti
         for (Map.Entry<Player, String> entry : association.entrySet()) {
@@ -190,6 +186,15 @@ public class Match implements Runnable{
             }
         }
         userHandler.setCurrentPlayer(selectedPlayer);
+        this.votation = this.votation + Integer.parseInt(userHandler.messageFromUser());
+    }
+
+    public boolean isAdvanced() {
+        return isAdvanced;
+    }
+
+    public void setAdvanced() {
+        isAdvanced = votation>0;
     }
 }
 
