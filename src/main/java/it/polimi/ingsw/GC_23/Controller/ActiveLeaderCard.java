@@ -3,6 +3,8 @@ package it.polimi.ingsw.GC_23.Controller;
 import it.polimi.ingsw.GC_23.Cards.LeaderCard;
 import it.polimi.ingsw.GC_23.Effects.AbsEffect;
 import it.polimi.ingsw.GC_23.Effects.PermanentEffect;
+import it.polimi.ingsw.GC_23.Effects.PlusDiceEffect;
+import it.polimi.ingsw.GC_23.Effects.SetDiceEffect;
 import it.polimi.ingsw.GC_23.Player;
 import it.polimi.ingsw.GC_23.PlayerTimeOut;
 import java.io.IOException;
@@ -23,6 +25,8 @@ public class ActiveLeaderCard implements Controller {
         if (isLegal()) {
             makeAction();
             player.setTimeIsOver(false);
+            playerTimeOut.setNeeded(false);
+            player.getUserHandler().messageToUser("YOU HAVE ACTIVATED THE LEADER CARD");
             player.chooseMove(player.getView(), true);
         } else {
             player.getUserHandler().messageToUser("YOU CAN'T ACTIVE THE LEADER CARD");
@@ -50,13 +54,18 @@ public class ActiveLeaderCard implements Controller {
                 if (leaderCard.isActivatedPermanentEffect()) {
                     player.getUserHandler().messageToUser("Permanent effect of card is already active");
                 } else {
+                    if ((effect instanceof PlusDiceEffect) || (effect instanceof SetDiceEffect)) {
+                        effect.activeEffect(player);
+                    }
                     player.getUserHandler().messageToUser("Leader card activeted correctly");
                     player.getPermanentEffects().add((PermanentEffect) effect);
                     leaderCard.setActivatedPermanentEffect(true);
+                    leaderCard.setActivatedInThisRound(true);
                 }
             } else {
                 player.getUserHandler().messageToUser("Leader card activeted correctly");
                 effect.activeEffect(player);
+                leaderCard.setActivatedInThisRound(true);
             }
         }
     }

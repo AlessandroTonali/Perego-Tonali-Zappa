@@ -23,7 +23,8 @@ public class DiscardLeaderCard implements Controller {
         if (isLegal()) {
             makeAction();
             player.setTimeIsOver(false);
-            player.getUserHandler().messageToUser("YOU HAVE ACTIVED THE LEADER CARD");
+            playerTimeOut.setNeeded(false);
+            player.getUserHandler().messageToUser("YOU HAVE DISCARDED THE LEADER CARD");
             player.chooseMove(player.getView(), true);
         } else {
             player.getUserHandler().messageToUser("YOU CAN'T DISCARD THE LEADER CARD");

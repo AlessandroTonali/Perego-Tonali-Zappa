@@ -1,6 +1,6 @@
 package it.polimi.ingsw.GC_23;
 
-import it.polimi.ingsw.GC_23.Cards.LeaderCard;
+import it.polimi.ingsw.GC_23.Cards.*;
 import it.polimi.ingsw.GC_23.Connection.UserHandler;
 import it.polimi.ingsw.GC_23.Effects.BenefitsEffect;
 import it.polimi.ingsw.GC_23.Enumerations.FamilyColor;
@@ -80,6 +80,20 @@ public class Creator {
         player.setResources(new ResourcesSet(50,50,50,50,50,50,50));
         player.setUserHandler(userHandler);
 
+        // ---INIZIO TEST---
+            ArrayList<TerritoryCard> territoryCards = ParseJson.getParseJson().getTerritoryCardArrayList();
+            ArrayList<CharacterCard> characterCards = ParseJson.getParseJson().getCharacterCardArrayList();
+            ArrayList<BuildingCard> buildingCards = ParseJson.getParseJson().getBuildingCardArrayList();
+            ArrayList<VentureCard> ventureCards = ParseJson.getParseJson().getVentureCardArrayList();
+
+        for (int i = 0; i < 5; i++) {
+            player.getCardOfPlayer().setCard(territoryCards.get(i));
+            player.getCardOfPlayer().setCard(characterCards.get(i));
+            player.getCardOfPlayer().setCard(buildingCards.get(i));
+            player.getCardOfPlayer().setCard(ventureCards.get(i));
+        }
+
+        // ---FINE TEST---
         ArrayList<LeaderCard> leaderCards = ParseJson.getParseJson().getLeaderCardArrayList();
         int startIndex = (players.size()-1)*4;
         ArrayList<LeaderCard> playerLeaderCard = new ArrayList<>();

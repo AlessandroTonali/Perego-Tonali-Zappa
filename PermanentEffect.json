@@ -83,6 +83,7 @@
 		{"id": "1037", "type": "4"}
 	],
 	"SetDiceEffect": [
-		{"id": "1079", "value": "5" ,"type": "dice_color"}
+		{"id": "1079", "value": "5" ,"type": "dice_color"},
+		{"id": "1081", "value": "6" ,"type": "dice_color"}
 	]
 }
