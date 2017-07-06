@@ -56,5 +56,6 @@ public class Gameboard implements Serializable {
         this.primaryStage.setHeight(bounds.getHeight());
         this.primaryStage.show();
         gameboardController.boardTranslator();
+        //gameboardController.dataTranslator();
     }
 }

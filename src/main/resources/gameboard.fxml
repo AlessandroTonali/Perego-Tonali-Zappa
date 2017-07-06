@@ -1,14 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.shape.Rectangle?>
 
 <AnchorPane fx:id="master" minHeight="-Infinity" minWidth="-Infinity" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <SplitPane fx:id="splitpane" dividerPositions="0.5" style="-fx-background-color: #FAEBD7;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <SplitPane fx:id="splitpane" dividerPositions="0.6" style="-fx-background-color: #FAEBD7;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <items>
             <ScrollPane fx:id="scroll" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #FAEBD7;">
               <content>
@@ -101,7 +108,122 @@
                   </AnchorPane>
               </content>
             </ScrollPane>
-            <Pane fx:id="paneright" layoutX="10.0" layoutY="10.0" prefHeight="200.0" prefWidth="200.0" />
+            <SplitPane dividerPositions="0.42" orientation="VERTICAL" prefHeight="200.0" prefWidth="160.0" style="-fx-background-color: FAEBD7;">
+              <items>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
+                     <children>
+                        <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: FAEBD7;">
+                           <children>
+                              <HBox layoutX="65.0" layoutY="40.0" prefHeight="180.0" prefWidth="400.0" style="-fx-border-color: BLACK;">
+                                 <children>
+                                    <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: BLACK;" />
+                                    <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: BLACK;" />
+                                    <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: BLACK;" />
+                                    <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: BLACK;" />
+                                    <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: BLACK;" />
+                                    <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: BLACK;" />
+                                    <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: BLACK;" />
+                                 </children>
+                              </HBox>
+                              <VBox layoutX="65.0" layoutY="40.0" prefHeight="180.0" prefWidth="400.0" style="-fx-border-color: BLACK;">
+                                 <children>
+                                    <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: BLACK;" />
+                                    <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: BLACK;" />
+                                    <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: BLACK;" />
+                                    <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: BLACK;" />
+                                 </children>
+                              </VBox>
+                              <ImageView fitHeight="35.0" fitWidth="35.0" layoutX="305.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@stuff/faith.png" />
+                                 </image></ImageView>
+                              <ImageView fitHeight="35.0" fitWidth="35.0" layoutX="420.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@stuff/victory.png" />
+                                 </image>
+                              </ImageView>
+                              <ImageView fitHeight="35.0" fitWidth="35.0" layoutX="190.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@stuff/wood.png" />
+                                 </image>
+                              </ImageView>
+                              <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="130.0" layoutY="5.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@stuff/stone.png" />
+                                 </image>
+                              </ImageView>
+                              <ImageView fitHeight="35.0" fitWidth="35.0" layoutX="80.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@stuff/gold.png" />
+                                 </image>
+                              </ImageView>
+                              <ImageView fitHeight="35.0" fitWidth="35.0" layoutX="260.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@stuff/servant.png" />
+                                 </image>
+                              </ImageView>
+                              <ImageView fitHeight="35.0" fitWidth="35.0" layoutX="360.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@stuff/military.png" />
+                                 </image>
+                              </ImageView>
+                              <Circle fx:id="circle1" fill="#ffffff00" layoutX="35.0" layoutY="65.0" radius="16.0" stroke="#ffffff00" strokeType="INSIDE" />
+                              <Circle fx:id="circle2" fill="#ffffff00" layoutX="35.0" layoutY="110.0" radius="16.0" smooth="false" stroke="TRANSPARENT" strokeType="INSIDE" />
+                              <Circle fx:id="circle3" fill="#ffffff00" layoutX="35.0" layoutY="155.0" radius="16.0" smooth="false" stroke="TRANSPARENT" strokeType="INSIDE" />
+                              <Circle fx:id="circle4" fill="#ffff0000" layoutX="35.0" layoutY="200.0" radius="16.0" smooth="false" stroke="#ff000000" strokeType="INSIDE" />
+                              <Pane layoutX="65.0" layoutY="40.0" prefHeight="180.0" prefWidth="400.0">
+                                 <children>
+                                    <Label fx:id="coin1" layoutX="25.0" layoutY="15.0" text="0" />
+                                    <Label fx:id="stone1" layoutX="80.0" layoutY="15.0" text="0" />
+                                    <Label fx:id="wood1" layoutX="140.0" layoutY="15.0" text="0" />
+                                    <Label fx:id="servant1" layoutX="195.0" layoutY="15.0" text="0" />
+                                    <Label fx:id="faith1" layoutX="255.0" layoutY="15.0" text="0" />
+                                    <Label fx:id="military1" layoutX="310.0" layoutY="15.0" text="0" />
+                                    <Label fx:id="victory1" layoutX="365.0" layoutY="15.0" text="0" />
+                                    <Label fx:id="coin2" layoutX="25.0" layoutY="60.0" text="0" />
+                                    <Label fx:id="stone2" layoutX="80.0" layoutY="60.0" text="0" />
+                                    <Label fx:id="wood2" layoutX="140.0" layoutY="60.0" text="0" />
+                                    <Label fx:id="servant2" layoutX="195.0" layoutY="60.0" text="0" />
+                                    <Label fx:id="faith2" layoutX="255.0" layoutY="60.0" text="0" />
+                                    <Label fx:id="military2" layoutX="310.0" layoutY="60.0" text="0" />
+                                    <Label fx:id="victory2" layoutX="365.0" layoutY="60.0" text="0" />
+                                    <Label fx:id="coin3" layoutX="25.0" layoutY="105.0" text="0" />
+                                    <Label fx:id="stone3" layoutX="80.0" layoutY="105.0" text="0" />
+                                    <Label fx:id="wood3" layoutX="140.0" layoutY="105.0" text="0" />
+                                    <Label fx:id="servant3" layoutX="195.0" layoutY="105.0" text="0" />
+                                    <Label fx:id="faith3" layoutX="255.0" layoutY="105.0" text="0" />
+                                    <Label fx:id="military3" layoutX="310.0" layoutY="105.0" text="0" />
+                                    <Label fx:id="victory3" layoutX="365.0" layoutY="105.0" text="0" />
+                                    <Label fx:id="coin4" layoutX="25.0" layoutY="150.0" text="0" />
+                                    <Label fx:id="stone4" layoutX="80.0" layoutY="150.0" text="0" />
+                                    <Label fx:id="wood4" layoutX="140.0" layoutY="150.0" text="0" />
+                                    <Label fx:id="servant4" layoutX="195.0" layoutY="150.0" text="0" />
+                                    <Label fx:id="faith4" layoutX="255.0" layoutY="150.0" text="0" />
+                                    <Label fx:id="military4" layoutX="310.0" layoutY="150.0" text="0" />
+                                    <Label fx:id="victory4" layoutX="365.0" layoutY="150.0" text="0" />
+                                 </children>
+                              </Pane>
+                              <Rectangle arcHeight="5.0" arcWidth="5.0" height="25.0" layoutX="100.0" layoutY="240.0" stroke="BLACK" strokeType="INSIDE" width="25.0" />
+                              <Label fx:id="black" layoutX="145.0" layoutY="245.0" text="0" />
+                              <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="25.0" layoutX="230.0" layoutY="240.0" stroke="BLACK" strokeType="INSIDE" width="25.0" />
+                              <Label fx:id="white" layoutX="275.0" layoutY="245.0" text="0" />
+                              <Rectangle arcHeight="5.0" arcWidth="5.0" fill="ORANGE" height="25.0" layoutX="360.0" layoutY="240.0" stroke="BLACK" strokeType="INSIDE" width="25.0" />
+                              <Label fx:id="orange" layoutX="405.0" layoutY="245.0" text="0" />
+                           </children>
+                        </Pane>
+                     </children>
+                  </AnchorPane>
+                  <ScrollPane fx:id="scroll1" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #FAEBD7;">
+                     <content>
+                        <AnchorPane fx:id="insidescroll1" style="-fx-background-color: #FAEBD7;">
+                           <children>
+                              <Pane fx:id="gameboard1" prefHeight="1100.0" prefWidth="800.0" stylesheets="@background.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                           </children>
+                        </AnchorPane>
+                     </content>
+                  </ScrollPane>
+              </items>
+            </SplitPane>
          </items>
       </SplitPane>
    </children>

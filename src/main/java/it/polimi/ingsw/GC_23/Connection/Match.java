@@ -74,6 +74,7 @@ public class Match implements Runnable{
         }
         setAdvanced();
         sendBoard();
+        //sendData();
         creator.startGame(userHandlers.size(), this.isAdvanced);
         for(UserHandler u: userHandlers){
             u.messageToUser("quit");
@@ -204,6 +205,32 @@ public class Match implements Runnable{
             }
     }
 
+    public String dataStringer() throws RemoteException{
+        StringBuilder dataString = new StringBuilder();
+        for(UserHandler u : userHandlers){
+            dataString.append(u.getCurrentPlayer().getPlayerColor().toString()+"\n");
+            dataString.append(u.getCurrentPlayer().getResources().getGold()+"\n");
+            dataString.append(u.getCurrentPlayer().getResources().getStone()+"\n");
+            dataString.append(u.getCurrentPlayer().getResources().getWood()+"\n");
+            dataString.append(u.getCurrentPlayer().getResources().getServants()+"\n");
+            dataString.append(u.getCurrentPlayer().getResources().getFaithPointsObj()+"\n");
+            dataString.append(u.getCurrentPlayer().getResources().getMilitaryPoints()+"\n");
+            dataString.append(u.getCurrentPlayer().getResources().getVictoryPoints()+"\n");
+        }
+        dataString.append("endResources");
+        dataString.append(board.getDiceBValue()+"\n");
+        dataString.append(board.getDiceWValue()+"\n");
+        dataString.append(board.getDiceOValue()+"\n");
+        dataString.append("end"+"\n");
+        return String.valueOf(dataString);
+    }
+
+    public void sendData() throws RemoteException{
+        String dataStringer = dataStringer();
+        for(UserHandler u : userHandlers){
+            u.messageToUser(dataStringer);
+        }
+    }
 }
 
 
