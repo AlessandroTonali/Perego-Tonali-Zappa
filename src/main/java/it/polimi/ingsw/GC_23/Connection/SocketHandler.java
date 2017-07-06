@@ -27,7 +27,6 @@ public class SocketHandler implements Runnable,UserHandler{
     private String currentUser;
     private boolean endMatch = false;
     private boolean guiInterface;
-    private UserFX userFX;
     private final Logger logger = Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
 
 
@@ -88,16 +87,6 @@ public class SocketHandler implements Runnable,UserHandler{
 
     public void setCurrentUser(String string){
         this.currentUser = string;
-    }
-
-    @Override
-    public void setUserFX(UserFX userFX) throws RemoteException {
-        this.userFX = userFX;
-    }
-
-    @Override
-    public UserFX getUserFX() throws RemoteException {
-        return userFX;
     }
 
     @Override

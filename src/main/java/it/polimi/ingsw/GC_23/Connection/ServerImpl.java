@@ -54,7 +54,6 @@ public class ServerImpl extends UnicastRemoteObject implements Server {
     public void join(User user) throws RemoteException {
         UserHandler userHandler = new RMIHandler(user);
         userHandler.setCurrentUser(user.getUsername());
-        userHandler.setUserFX(user.getUserFX());
         this.userHandlers.add(userHandler);
         addToMatch(userHandler);
         System.out.println("Client accepted: " + user.getUsername());

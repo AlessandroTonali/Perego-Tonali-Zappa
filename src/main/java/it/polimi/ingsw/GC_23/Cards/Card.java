@@ -26,7 +26,7 @@ public abstract class Card {
     private ArrayList<AbsEffect> permanentEffect;
     private ArrayList<SingleCost> cost;
     private SingleCost costSelected;
-
+    private int idCard;
 
 
     public Card(int period, CardColor cardColor, String name, ArrayList<AbsEffect> immediateEffect,
@@ -173,5 +173,13 @@ public abstract class Card {
 
     public String toString() {
         return "name: " + this.name + costString()  + effectString() ;
+    }
+
+    public int getIdCard() {
+        return idCard;
+    }
+
+    public void setIdCard(int idCard) {
+        this.idCard = idCard;
     }
 }

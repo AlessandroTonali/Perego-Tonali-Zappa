@@ -102,6 +102,7 @@ public class ParseJson {
 
 
             VentureCard ventureCard = new VentureCard(period, CardColor.PURPLE, name, immediateEffect, permanentEffects, costs);
+            ventureCard.setIdCard(idCard);
             ventureCardMap.put(idCard, ventureCard);
             ventureCardArrayList.add(ventureCard);
 
@@ -128,6 +129,7 @@ public class ParseJson {
             ArrayList<AbsEffect> permanentEffects = parsingEffect(permanentEffectsJson);
 
             BuildingCard buildingCard = new BuildingCard(period, CardColor.YELLOW, name, immediateEffect, permanentEffects, costs);
+            buildingCard.setIdCard(idCard);
             buildingCardMap.put(idCard,buildingCard);
             buildingCardArrayList.add(buildingCard);
 
@@ -145,6 +147,7 @@ public class ParseJson {
             ArrayList<AbsEffect> permanentEffects = parsingEffect(permanentEffectsJson);
 
             TerritoryCard territoryCard = new TerritoryCard(period, CardColor.GREEN, name, immediateEffect, permanentEffects);
+            territoryCard.setIdCard(idCard);
             territoryCardMap.put(idCard,territoryCard);
             territoryCardArrayList.add(territoryCard);
         }
@@ -167,6 +170,7 @@ public class ParseJson {
             ArrayList<AbsEffect> permanentEffects = parsingEffect(permanentEffectsJson);
 
             CharacterCard characterCard = new CharacterCard(period, CardColor.BLUE, name, immediateEffect, permanentEffects, costs);
+            characterCard.setIdCard(idCard);
             characterCardMap.put(idCard, characterCard);
             characterCardArrayList.add(characterCard);
 
@@ -182,6 +186,7 @@ public class ParseJson {
             ArrayList<AbsEffect> effects = parsingEffect(jsonObject.getJSONArray("effect"));
 
             LeaderCard leaderCard = new LeaderCard(name, requirement, effects);
+            leaderCard.setIdCard(idCard);
             leaderCardArrayList.add(leaderCard);
         }
 

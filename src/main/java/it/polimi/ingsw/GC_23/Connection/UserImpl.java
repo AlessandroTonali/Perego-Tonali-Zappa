@@ -1,5 +1,6 @@
 package it.polimi.ingsw.GC_23.Connection;
 
+import com.sun.jmx.snmp.Timestamp;
 import it.polimi.ingsw.GC_23.FX.UserFX;
 import javafx.application.Application;
 
@@ -10,6 +11,7 @@ import java.rmi.*;
 import java.rmi.registry.LocateRegistry;
 import java.rmi.registry.Registry;
 import java.rmi.server.UnicastRemoteObject;
+import java.sql.Time;
 import java.util.ArrayList;
 import java.util.Scanner;
 import java.util.concurrent.ExecutorService;
@@ -163,11 +165,6 @@ public class UserImpl extends UnicastRemoteObject implements User,Remote, Serial
         }
         outWriter.println(guiInterface);
         outWriter.println(username);
-        /*try {
-            outSocket.writeChar('a');
-        } catch (IOException e) {
-            e.printStackTrace();
-        }*/
         outVideo.println("Wait for other players");
         socketConnection = true;
     }

@@ -12,6 +12,8 @@ import it.polimi.ingsw.GC_23.Spaces.*;
 
 import java.rmi.RemoteException;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
@@ -358,6 +360,62 @@ public class Board {
 
     public ExcommunicationSpace getExcommunicationSpaceThirdPeriod() {
         return excommunicationSpaceThirdPeriod;
+    }
+
+    public String boardStringer() throws RemoteException{
+       StringBuilder boardString = new StringBuilder();
+        for(int i = 0; i<4; i++){
+            for(int j = 0; j<4; j++) {
+                boardString.append("tower" + i + j+"\n"+String.valueOf(getTower(i).getSpaces()[j].getCard().getIdCard())+"\n");
+                try {
+                    boardString.append("towerspace" + i + j+"\n"+ getTower(i).getSpaces()[j].getFamilyMember().getPlayer().getPlayerColor().toString() + getTower(i).getSpaces()[j].getFamilyMember().getFamilyColor().toString()+"\n");
+                } catch (NullPointerException e) {
+                    boardString.append("towerspace" + i + j+"\n"+ "null"+"\n");
+                }
+            }
+        }
+        for(int i = 0; i<4; i++){
+            try {
+                boardString.append("market" + i+"\n"+ getMarketSpaces()[i].getFamilyMember().getPlayer().getPlayerColor().toString() + getTower(i).getSpaces()[i].getFamilyMember().getFamilyColor().toString()+"\n");
+            }catch (NullPointerException e){
+                boardString.append("market"+i+"\n"+ "null"+"\n");
+            }catch (ArrayIndexOutOfBoundsException e){
+                boardString.append("market"+i+"\n"+ "not"+"\n");
+            }
+        }
+        for(int i = 0; i<16; i++){
+            try{
+                boardString.append("harvest"+i+"\n"+ getHarvestSpace().getFamilyMembersPresent().get(i).getPlayer().getPlayerColor().toString() + getHarvestSpace().getFamilyMembersPresent().get(i).getFamilyColor().toString()+"\n");
+            }catch (NullPointerException e){
+                break;
+            }
+            catch (IndexOutOfBoundsException ex){
+                boardString.append("harvestend"+"\n");
+                break;
+            }
+        }
+        for(int i = 0; i<16; i++){
+            try{
+                boardString.append("production"+i +"\n"+ getProductionSpace().getPlayerOrder().get(i).getPlayer().getPlayerColor().toString() + getProductionSpace().getPlayerOrder().get(i).getFamilyColor().toString()+"\n");
+            }catch (NullPointerException e){
+                break;
+            }catch (IndexOutOfBoundsException e){
+                boardString.append("productionend"+"\n");
+                break;
+            }
+        }
+        for(int i = 0; i<4; i++){
+            try {
+                boardString.append("council"+i +"\n"+ getCouncilSpace().getPlayerOrder().get(i).getPlayerColor().toString()+"\n");
+            }catch (NullPointerException e){
+                break;
+            }catch (IndexOutOfBoundsException e){
+                boardString.append("councilend"+"\n");
+                break;
+            }
+        }
+        boardString.append("end"+"\n");
+        return String.valueOf(boardString);
     }
 }
 

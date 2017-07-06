@@ -18,7 +18,6 @@ public class RMIHandler implements Runnable, UserHandler, Remote {
     private String currentUser;
     private boolean endMatch = false;
     private User user;
-    private UserFX userFX;
     private final Logger logger = Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
 
     public RMIHandler(User user) {
@@ -85,16 +84,6 @@ public class RMIHandler implements Runnable, UserHandler, Remote {
 
     public void setCurrentUser(String string) throws RemoteException{
         this.currentUser = string;
-    }
-
-    @Override
-    public void setUserFX(UserFX userFX) throws RemoteException {
-        this.userFX = userFX;
-    }
-
-    @Override
-    public UserFX getUserFX() throws RemoteException {
-        return userFX;
     }
 
     @Override

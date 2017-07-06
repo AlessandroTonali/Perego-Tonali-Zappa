@@ -34,8 +34,4 @@ public interface UserHandler {
 
     void setCurrentUser(String string) throws RemoteException;
 
-    void setUserFX(UserFX userFX) throws RemoteException;
-
-    UserFX getUserFX() throws RemoteException;
-
 }

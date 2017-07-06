@@ -17,7 +17,7 @@ import java.util.logging.Logger;
 public class SocketAccepter implements Runnable {
     private ServerSocket serverSocket;
     private final Logger logger = Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
-
+    private  char c;
     @Override
     public void run() {
         try {
@@ -30,7 +30,6 @@ public class SocketAccepter implements Runnable {
             ServerImpl.getExecutor().submit(userHandler);
             userHandler.setGuiInterface(Boolean.parseBoolean(userHandler.messageFromUser()));
             userHandler.setCurrentUser(userHandler.messageFromUser());
-            //System.out.println(userHandler.getInSocket().readChar());
             System.out.println("Client accepted: " + socket);
 
         } catch (RemoteException e) {

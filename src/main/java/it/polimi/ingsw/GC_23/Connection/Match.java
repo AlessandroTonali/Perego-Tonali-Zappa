@@ -73,7 +73,6 @@ public class Match implements Runnable{
             creator.createPlayer(u.getCurrentPlayer().getPlayerColor(), u);
         }
         setAdvanced();
-        System.out.println(isAdvanced());
         creator.startGame(userHandlers.size(), this.isAdvanced);
         for(UserHandler u: userHandlers){
             u.messageToUser("quit");
@@ -196,6 +195,15 @@ public class Match implements Runnable{
     public void setAdvanced() {
         isAdvanced = votation>0;
     }
+
+    public void sendBoard() throws RemoteException{
+        String boardStringer = this.board.boardStringer();
+        for(UserHandler u : userHandlers) {
+            u.messageToUser(boardStringer);
+            }
+    }
+
 }
+
 
 

@@ -15,6 +15,7 @@ public class LeaderCard {
     private ArrayList<AbsEffect> effect;
     private boolean activatedInThisTurn = false;
     private boolean activatedPermanentEffect = false;
+    private int idCard;
 
     public LeaderCard(String name, Requirement requirement, ArrayList<AbsEffect> effect) {
         this.name = name;
@@ -48,6 +49,14 @@ public class LeaderCard {
 
     public void setActivatedPermanentEffect(boolean activatedPermanentEffect) {
         this.activatedPermanentEffect = activatedPermanentEffect;
+    }
+
+    public int getIdCard() {
+        return idCard;
+    }
+
+    public void setIdCard(int idCard) {
+        this.idCard = idCard;
     }
 
     @Override
