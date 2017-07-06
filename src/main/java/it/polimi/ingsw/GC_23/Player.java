@@ -297,11 +297,16 @@ public class Player implements Serializable {
                 case 11:
                     break;
                 case 12:
-                    new ActiveLeaderCard(chooseLeaderCard(), this, playerTimeOut);
-                    break;
+
+                    if (isAdvanced) {
+                        new ActiveLeaderCard(chooseLeaderCard(), this, playerTimeOut);
+                        break;
+                    }
                 case 13:
+                    if(isAdvanced){
                     new DiscardLeaderCard(chooseLeaderCard(), this, playerTimeOut);
                     break;
+                }
                 default:
                     getUserHandler().messageToUser("Wrong number selected, try again");
                     chooseMove(view, isAdvanced);
