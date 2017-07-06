@@ -74,6 +74,37 @@ public class NewPlayCardEffect extends AbsEffect {
         return sale;
     }
 
+    public Tower chooseTower(Player player) throws RemoteException {
+        Tower[] towers = player.getView().getTowers();
+        player.getUserHandler().messageToUser("Choose a tower");
+        int i = -1;
+        ExecutorService executorService = Executors.newCachedThreadPool();
+        StringTyper stringTyper  = new StringTyper(player);
+        executorService.submit(stringTyper);
+        while(!player.isTyped() && !player.isTimeIsOver()){
+            try {
+                Thread.sleep(1000);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
+        if(player.isTimeIsOver()){
+            i = 0;
+        }
+        if(player.isTyped()){
+            player.setTyped(false);
+            i = player.getTypedInt();
+        }
+
+
+        try{
+            return towers[i];
+        }catch (NullPointerException e) {
+            player.getUserHandler().messageToUser("Number out of bound, insert again");
+            return chooseTower(player);
+        }
+    }
+
 
     @Override
     public void activeEffect(Player player) throws IOException {
@@ -94,7 +125,7 @@ public class NewPlayCardEffect extends AbsEffect {
                 tower = player.getView().getTower(3);
                 break;
             case RAINBOW:
-                tower = player.getView().chooseTower(player);
+                tower = chooseTower(player);
                 break;
         }
 

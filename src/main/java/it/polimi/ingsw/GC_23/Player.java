@@ -300,7 +300,7 @@ public class Player implements Serializable {
                     new ActiveLeaderCard(chooseLeaderCard(), this, playerTimeOut);
                     break;
                 case 13:
-                    //TODO DISCARD LEADER CARD
+                    new DiscardLeaderCard(chooseLeaderCard(), this, playerTimeOut);
                     break;
                 default:
                     getUserHandler().messageToUser("Wrong number selected, try again");
@@ -426,6 +426,10 @@ public class Player implements Serializable {
 
     public int getTypedInt() {
         return typedInt;
+    }
+
+    public void setLeaderCards(ArrayList<LeaderCard> leaderCards) {
+        this.leaderCards = leaderCards;
     }
 }
 

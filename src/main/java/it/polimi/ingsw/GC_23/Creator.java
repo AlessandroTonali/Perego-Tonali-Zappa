@@ -1,5 +1,6 @@
 package it.polimi.ingsw.GC_23;
 
+import it.polimi.ingsw.GC_23.Cards.LeaderCard;
 import it.polimi.ingsw.GC_23.Connection.UserHandler;
 import it.polimi.ingsw.GC_23.Effects.BenefitsEffect;
 import it.polimi.ingsw.GC_23.Enumerations.FamilyColor;
@@ -78,6 +79,16 @@ public class Creator {
         //TODO TOGLIERE COMMENTO
         player.setResources(new ResourcesSet(50,50,50,50,50,50,50));
         player.setUserHandler(userHandler);
+
+        ArrayList<LeaderCard> leaderCards = ParseJson.getParseJson().getLeaderCardArrayList();
+        int startIndex = (players.size()-1)*4;
+        ArrayList<LeaderCard> playerLeaderCard = new ArrayList<>();
+        int finalIndex = (players.size())*4;
+        for (int j = startIndex; j < finalIndex; j++) {
+            playerLeaderCard.add(leaderCards.get(j));
+        }
+        player.setLeaderCards(playerLeaderCard);
+
         return player;
     }
 

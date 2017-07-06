@@ -12,6 +12,7 @@ import java.util.ArrayList;
 public class ExcommunicationTile {
     private int period;
     private ArrayList<AbsEffect> effect;
+    private int idTile;
 
     public ExcommunicationTile(int period, ArrayList<AbsEffect> effect) {
         this.period = period;
@@ -26,5 +27,13 @@ public class ExcommunicationTile {
                 effect.get(i).activeEffect(player);
             }
         }
+    }
+
+    public int getIdTile() {
+        return idTile;
+    }
+
+    public void setIdTile(int idTile) {
+        this.idTile = idTile;
     }
 }

@@ -9,7 +9,6 @@ import it.polimi.ingsw.GC_23.Spaces.MarketSpace;
 import it.polimi.ingsw.GC_23.Spaces.Tower;
 import it.polimi.ingsw.GC_23.Spaces.TowerSpace;
 
-import java.awt.image.AreaAveragingScaleFilter;
 import java.io.IOException;
 import java.rmi.RemoteException;
 import java.util.ArrayList;
@@ -49,6 +48,10 @@ public class PlayGame {
                     p.getUserHandler().messageToUser(("Period: " + this.period + " Turn: " + this.turn + "\n"));
                     p.getUserHandler().messageToUser(p.getUserHandler().getCurrentUser() + ": it's your turn!\n");
                     p.chooseMove(this.board, this.isAdvanced);
+
+                    for (LeaderCard leaderCard : p.getLeaderCards()){
+                        leaderCard.setDiscardedInThisTurn(false);
+                    }
                 }
                 i++;
             }
@@ -70,7 +73,7 @@ public class PlayGame {
                 for (Player p : players) {
                    try {
                        for (LeaderCard leaderCard : p.getLeaderCards()) {
-                           leaderCard.setActivatedInThisTurn(false);
+                           leaderCard.setActivatedInThisRound(false);
                        }
                    }catch (NullPointerException e){
 
@@ -147,7 +150,7 @@ public class PlayGame {
         for (Player p : players) {
             try {
                 for (LeaderCard leaderCard : p.getLeaderCards()) {
-                    leaderCard.setActivatedInThisTurn(false);
+                    leaderCard.setActivatedInThisRound(false);
                 }
             }catch (NullPointerException e){
 

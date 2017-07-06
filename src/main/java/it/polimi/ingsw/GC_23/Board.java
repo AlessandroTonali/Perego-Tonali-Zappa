@@ -153,36 +153,6 @@ public class Board {
         this.towers = towers;
     }
 
-    public Tower chooseTower(Player player) throws RemoteException {
-        player.getUserHandler().messageToUser("Choose a tower");
-        int i = -1;
-        ExecutorService executorService = Executors.newCachedThreadPool();
-        StringTyper stringTyper  = new StringTyper(player);
-        executorService.submit(stringTyper);
-        while(!player.isTyped() && !player.isTimeIsOver()){
-            try {
-                Thread.sleep(1000);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
-        }
-        if(player.isTimeIsOver()){
-            i = 0;
-        }
-        if(player.isTyped()){
-            player.setTyped(false);
-            i = player.getTypedInt();
-        }
-
-
-        try{
-            return towers[i];
-        }catch (NullPointerException e) {
-            player.getUserHandler().messageToUser("Number out of bound, insert again");
-            return chooseTower(player);
-        }
-    }
-
     public Tower getTower(int i){
         return towers[i];
     }

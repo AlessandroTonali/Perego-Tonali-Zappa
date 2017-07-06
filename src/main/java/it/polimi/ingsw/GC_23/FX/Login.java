@@ -107,11 +107,11 @@ public class Login implements Serializable{
             @Override
             public void handle(ActionEvent event) {
                 if(textField.getText().equals("")){
-                    Alert alert = new Alert(Alert.AlertType.ERROR);
+                    /*Alert alert = new Alert(Alert.AlertType.ERROR);
                     alert.setTitle("Error Dialog");
                     alert.setHeaderText("Invalid username");
                     alert.setContentText("Please insert a valid username");
-                    alert.showAndWait();
+                    alert.showAndWait();*/
                 }
                 else{
                     setUsername(textField.getText());

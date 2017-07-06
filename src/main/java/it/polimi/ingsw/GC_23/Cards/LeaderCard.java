@@ -13,8 +13,9 @@ public class LeaderCard {
     private String name;
     private Requirement requirement;
     private ArrayList<AbsEffect> effect;
-    private boolean activatedInThisTurn = false;
+    private boolean activatedInThisRound = false;
     private boolean activatedPermanentEffect = false;
+    private boolean discardedInThisTurn = false;
     private int idCard;
 
     public LeaderCard(String name, Requirement requirement, ArrayList<AbsEffect> effect) {
@@ -35,12 +36,12 @@ public class LeaderCard {
         return effect;
     }
 
-    public boolean isActivatedInThisTurn() {
-        return activatedInThisTurn;
+    public boolean isActivatedInThisRound() {
+        return activatedInThisRound;
     }
 
-    public void setActivatedInThisTurn(boolean activatedInThisTurn) {
-        this.activatedInThisTurn = activatedInThisTurn;
+    public void setActivatedInThisRound(boolean activatedInThisRound) {
+        this.activatedInThisRound = activatedInThisRound;
     }
 
     public boolean isActivatedPermanentEffect() {
@@ -49,6 +50,14 @@ public class LeaderCard {
 
     public void setActivatedPermanentEffect(boolean activatedPermanentEffect) {
         this.activatedPermanentEffect = activatedPermanentEffect;
+    }
+
+    public boolean isDiscardedInThisTurn() {
+        return discardedInThisTurn;
+    }
+
+    public void setDiscardedInThisTurn(boolean discardedInThisTurn) {
+        this.discardedInThisTurn = discardedInThisTurn;
     }
 
     public int getIdCard() {

@@ -377,6 +377,7 @@ public class ParseJson {
             int period = jsonObject.getInt("period");
             ArrayList<AbsEffect> permanentEffects = parsingEffect(jsonObject.getJSONArray("permanent_effect"));
             ExcommunicationTile excommunicationTile = new ExcommunicationTile(period, permanentEffects);
+            excommunicationTile.setIdTile(idTile);
             switch (period) {
                 case 1:
                     excommunicationTileFirstPeriod.add(excommunicationTile);
@@ -789,6 +790,10 @@ public class ParseJson {
 
     public ArrayList<LeaderCard> getLeaderCardArrayList() {
         return leaderCardArrayList;
+    }
+
+    public HashMap<Integer, AbsEffect> getEffectMap() {
+        return effectMap;
     }
 
     // METODO PER TESTING

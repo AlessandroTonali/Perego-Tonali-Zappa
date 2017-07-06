@@ -36,7 +36,7 @@ public class ActiveLeaderCard implements Controller {
         boolean legal = true;
         legal = legal && leaderCard.getRequirement().checkRequirement(player);
 
-        legal = legal && !leaderCard.isActivatedInThisTurn();
+        legal = legal && !leaderCard.isActivatedInThisRound();
 
         return legal;
     }
