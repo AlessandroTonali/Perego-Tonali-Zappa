@@ -1,5 +1,4 @@
 #card{
-    -fx-background-image: url(card.png);
     -fx-border-image-repeat: no-repeat;
     -fx-background-size: contain;
     -fx-min-height: 121;

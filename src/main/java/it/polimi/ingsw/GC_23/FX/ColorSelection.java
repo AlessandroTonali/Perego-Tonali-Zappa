@@ -28,7 +28,7 @@ public class ColorSelection implements Serializable {
         primaryStage.setTitle("Color selection");
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(this.getClass().getClassLoader().getResource("colorchoice.fxml"));
-        colorController = new ColorController(userFX);
+        colorController = new ColorController(userFX, primaryStage);
         loader.setController(colorController);
         Parent content = null;
         try {
@@ -40,8 +40,6 @@ public class ColorSelection implements Serializable {
         primaryStage.show();
         fill();
         colorController.handle();
-        //Gameboard gameboard = new Gameboard();
-        //gameboard.startGameBoard(primaryStage);
     }
 
     public void fill() throws RemoteException{
@@ -53,5 +51,9 @@ public class ColorSelection implements Serializable {
             }
         }
         colorController.setLabel();
+    }
+
+    public UserFX getUserFX() {
+        return userFX;
     }
 }

@@ -104,7 +104,7 @@ public class UserImpl extends UnicastRemoteObject implements User,Remote, Serial
                         Thread.sleep(2000);
                     }
                 }
-                System.out.println("finito");
+
                 while(!isYourTurn){
                     Thread.sleep(2000);
                 }

@@ -73,6 +73,7 @@ public class Match implements Runnable{
             creator.createPlayer(u.getCurrentPlayer().getPlayerColor(), u);
         }
         setAdvanced();
+        sendBoard();
         creator.startGame(userHandlers.size(), this.isAdvanced);
         for(UserHandler u: userHandlers){
             u.messageToUser("quit");

@@ -9,6 +9,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.stage.Stage;
 
 import javax.swing.text.TabableView;
 import java.io.Serializable;
@@ -22,10 +23,12 @@ import java.util.ResourceBundle;
  */
 public class ColorController implements Serializable{
     private UserFX userFX;
+    private Stage primaryStage;
     private int votation = 0;
 
-    public ColorController(UserFX userFX) {
+    public ColorController(UserFX userFX, Stage primaryStage) {
         this.userFX = userFX;
+        this.primaryStage = primaryStage;
     }
 
     @FXML
@@ -149,7 +152,17 @@ public class ColorController implements Serializable{
                 } catch (RemoteException e) {
                     e.printStackTrace();
                 }
+                try {
+                    startGameboard();
+                } catch (RemoteException e) {
+                    e.printStackTrace();
+                }
             }
         });
+    }
+
+    public void startGameboard() throws RemoteException{
+        Gameboard gameboard = new Gameboard(primaryStage, userFX);
+        gameboard.startGameBoard(primaryStage);
     }
 }

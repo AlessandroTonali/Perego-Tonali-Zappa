@@ -1,5 +1,6 @@
 package it.polimi.ingsw.GC_23.FX;
 
+import it.polimi.ingsw.GC_23.Connection.User;
 import it.polimi.ingsw.GC_23.Connection.UserImpl;
 import it.polimi.ingsw.GC_23.Controller.Controller;
 import javafx.event.ActionEvent;
@@ -17,6 +18,7 @@ import javafx.stage.Stage;
 import java.io.IOException;
 import java.io.Serializable;
 import java.net.URL;
+import java.rmi.RemoteException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -25,14 +27,21 @@ import java.util.logging.Logger;
  */
 public class Gameboard implements Serializable {
     private Stage primaryStage;
+    private UserFX userFX;
     private final Logger logger = Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
 
-    public void startGameBoard(Stage primaryStage){
+    public Gameboard(Stage primaryStage, UserFX userFX) {
+        this.primaryStage = primaryStage;
+        this.userFX = userFX;
+    }
+
+    public void startGameBoard(Stage primaryStage) throws RemoteException{
         this.primaryStage = primaryStage;
         this.primaryStage.setTitle("Lorenzo Il Magnifico");
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(this.getClass().getClassLoader().getResource("gameboard.fxml"));
-        loader.setController(new GameboardController());
+        GameboardController gameboardController =new GameboardController(userFX);
+        loader.setController(gameboardController);
         Parent content = null;
         try {
             content = loader.load();
@@ -46,5 +55,6 @@ public class Gameboard implements Serializable {
         this.primaryStage.setWidth(bounds.getWidth());
         this.primaryStage.setHeight(bounds.getHeight());
         this.primaryStage.show();
+        gameboardController.boardTranslator();
     }
 }
