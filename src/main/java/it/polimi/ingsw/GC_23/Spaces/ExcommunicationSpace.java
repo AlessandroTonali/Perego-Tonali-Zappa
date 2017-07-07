@@ -11,13 +11,15 @@ import java.io.IOException;
 import java.rmi.RemoteException;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  * Created by Alessandro on 22/05/2017.
  */
 public class ExcommunicationSpace {
-
     ExcommunicationTile excommunicationTile;
+    private final Logger logger = Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
 
     public ExcommunicationSpace(ExcommunicationTile excommunicationTile) {
         this.excommunicationTile = excommunicationTile;
@@ -33,7 +35,8 @@ public class ExcommunicationSpace {
             try {
                 Thread.sleep(1000);
             } catch (InterruptedException e) {
-                e.printStackTrace();
+                logger.setLevel(Level.SEVERE);
+                logger.severe(String.valueOf(e));
             }
         }
         if(player.isTimeIsOver()){

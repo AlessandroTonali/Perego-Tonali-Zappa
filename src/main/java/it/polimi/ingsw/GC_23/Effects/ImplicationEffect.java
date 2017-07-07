@@ -2,13 +2,12 @@ package it.polimi.ingsw.GC_23.Effects;
 
 import it.polimi.ingsw.GC_23.Player;
 import it.polimi.ingsw.GC_23.SingleCost;
-import it.polimi.ingsw.GC_23.StringTyper;
 
 import java.io.IOException;
 import java.rmi.RemoteException;
 import java.util.ArrayList;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  * Created by jesss on 21/05/17.
@@ -16,6 +15,7 @@ import java.util.concurrent.Executors;
 public class ImplicationEffect extends AbsEffect{
     private ArrayList<SingleCost> requirements;
     private ArrayList<AbsEffect> givings;
+    private final Logger logger = Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
 
     public ImplicationEffect(ArrayList<SingleCost> requirements, ArrayList<AbsEffect> givings) {
         this.requirements = requirements;
@@ -39,9 +39,6 @@ public class ImplicationEffect extends AbsEffect{
     }
 
     public ImplicationEffect chooseImplication(Player player) throws RemoteException {
-        ExecutorService executorService = Executors.newCachedThreadPool();
-        StringTyper stringTyper = new StringTyper(player);
-        String string;
         Boolean madeChoice = false;
         ArrayList<SingleCost> chosenCost = new ArrayList<SingleCost>();
         ArrayList<AbsEffect> chosenBenefit = new ArrayList<AbsEffect>();
@@ -57,7 +54,8 @@ public class ImplicationEffect extends AbsEffect{
                 try {
                     Thread.sleep(1000);
                 } catch (InterruptedException e) {
-                    e.printStackTrace();
+                    logger.setLevel(Level.SEVERE);
+                    logger.severe(String.valueOf(e));
                 }
             }
             if(player.isTimeIsOver()){

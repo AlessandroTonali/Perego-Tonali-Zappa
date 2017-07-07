@@ -18,6 +18,8 @@ import java.rmi.RemoteException;
 import java.util.ArrayList;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  * Created by Alessandro Tonali on 20/05/2017.
@@ -27,6 +29,7 @@ public class Tower {
     private TowerSpace[] spaces = new TowerSpace[DIM];
     private CardColor towerColor;
     private SingleCost sale;
+    private final Logger logger = Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
 
     public void setTowerColor(CardColor towerColor) {
         this.towerColor = towerColor;
@@ -102,7 +105,8 @@ public class Tower {
             try {
                 Thread.sleep(1000);
             } catch (InterruptedException e) {
-                e.printStackTrace();
+                logger.setLevel(Level.SEVERE);
+                logger.severe(String.valueOf(e));
             }
         }
         int i = -1;

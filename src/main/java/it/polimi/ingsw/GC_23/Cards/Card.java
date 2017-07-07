@@ -12,6 +12,8 @@ import java.rmi.RemoteException;
 import java.util.ArrayList;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  * Created by Alessandro on 21/05/2017.
@@ -27,6 +29,7 @@ public abstract class Card {
     private ArrayList<SingleCost> cost;
     private SingleCost costSelected;
     private int idCard;
+    private final Logger logger = Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
 
 
     /**
@@ -146,7 +149,8 @@ public abstract class Card {
             try {
                 Thread.sleep(1000);
             } catch (InterruptedException e) {
-                e.printStackTrace();
+                logger.setLevel(Level.SEVERE);
+                logger.severe(String.valueOf(e));
             }
         }
         if(player.isTimeIsOver()){

@@ -3,12 +3,15 @@ package it.polimi.ingsw.GC_23;
 import it.polimi.ingsw.GC_23.Connection.UserHandler;
 
 import java.rmi.RemoteException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  * Created by Alessandro Tonali on 19/06/2017.
  */
 public class StringTyper implements Runnable {
     private Player player;
+    private final Logger logger = Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
 
     public StringTyper(Player pl) {
         this.player = pl;
@@ -36,11 +39,10 @@ public class StringTyper implements Runnable {
 
                 }
                 player.setTypedInt(i);
-
                 player.setTyped(true);
         } catch (RemoteException e) {
-            e.printStackTrace();
-        }
+            logger.setLevel(Level.SEVERE);
+            logger.severe(String.valueOf(e));        }
     }
 
 }

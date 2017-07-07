@@ -8,6 +8,8 @@ import it.polimi.ingsw.GC_23.Player;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  * Created by Alessandro Tonali on 20/05/2017.
@@ -17,6 +19,7 @@ public class HarvestSpace extends ActionSpace {
     private static int orderCounter;
     private ArrayList<FamilyMember> familyMembersPresent;
     private boolean completePlay = false;
+    private final Logger logger = Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
 
     public HarvestSpace(){
         super(1);
@@ -124,7 +127,8 @@ public class HarvestSpace extends ActionSpace {
                     try {
                         permanentEffect.activeEffect(familyMember.getPlayer());
                     } catch (IOException e) {
-                        e.printStackTrace();
+                        logger.setLevel(Level.SEVERE);
+                        logger.severe(String.valueOf(e));
                     }
                 }
             }

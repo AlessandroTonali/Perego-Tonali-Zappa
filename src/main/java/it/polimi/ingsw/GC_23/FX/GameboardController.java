@@ -12,6 +12,8 @@ import javafx.scene.shape.Circle;
 
 import java.io.Serializable;
 import java.rmi.RemoteException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import static javafx.scene.paint.Color.*;
 
@@ -20,6 +22,7 @@ import static javafx.scene.paint.Color.*;
  */
 public class GameboardController implements Serializable {
     private UserFX userFX;
+    private transient final Logger logger = Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
 
     public GameboardController(UserFX userFX) {
         this.userFX = userFX;
@@ -36,12 +39,17 @@ public class GameboardController implements Serializable {
             excomSetter();
             actualString = userFX.receive();
         } catch (RemoteException e) {
-            e.printStackTrace();
+            logger.setLevel(Level.SEVERE);
+            logger.severe(String.valueOf(e));
         }
     }
 
     public void dataTranslator() throws RemoteException{
         dataSetter();
+    }
+
+    public  void cardsTranslator() throws RemoteException{
+        cardsSetter();
     }
 
     public void towerSetter() throws RemoteException{
@@ -618,6 +626,151 @@ public class GameboardController implements Serializable {
         }
 
    }
+
+    public void cardsSetter() throws RemoteException{
+        String inizio = "-fx-background-image: url";
+        String fine;
+        String ind;
+        String actualString = userFX.receive();
+        fine = "(card/" + actualString + ".png)" + ";";
+        ind = inizio + fine;
+        cardt1.setStyle(ind);
+
+        actualString = userFX.receive();
+        fine = "(card/" + actualString + ".png)" + ";";
+        ind = inizio + fine;
+        cardt2.setStyle(ind);
+
+        actualString = userFX.receive();
+        fine = "(card/" + actualString + ".png)" + ";";
+        ind = inizio + fine;
+        cardt3.setStyle(ind);
+
+        actualString = userFX.receive();
+        fine = "(card/" + actualString + ".png)" + ";";
+        ind = inizio + fine;
+        cardt4.setStyle(ind);
+
+        actualString = userFX.receive();
+        fine = "(card/" + actualString + ".png)" + ";";
+        ind = inizio + fine;
+        cardt5.setStyle(ind);
+
+        actualString = userFX.receive();
+        fine = "(card/" + actualString + ".png)" + ";";
+        ind = inizio + fine;
+        cardt6.setStyle(ind);
+
+        actualString = userFX.receive();
+        fine = "(card/" + actualString + ".png)" + ";";
+        ind = inizio + fine;
+        cardc1.setStyle(ind);
+
+        actualString = userFX.receive();
+        fine = "(card/" + actualString + ".png)" + ";";
+        ind = inizio + fine;
+        cardc2.setStyle(ind);
+
+        actualString = userFX.receive();
+        fine = "(card/" + actualString + ".png)" + ";";
+        ind = inizio + fine;
+        cardc3.setStyle(ind);
+
+        actualString = userFX.receive();
+        fine = "(card/" + actualString + ".png)" + ";";
+        ind = inizio + fine;
+        cardc4.setStyle(ind);
+
+        actualString = userFX.receive();
+        fine = "(card/" + actualString + ".png)" + ";";
+        ind = inizio + fine;
+        cardc5.setStyle(ind);
+
+        actualString = userFX.receive();
+        fine = "(card/" + actualString + ".png)" + ";";
+        ind = inizio + fine;
+        cardc6.setStyle(ind);
+
+        actualString = userFX.receive();
+        fine = "(card/" + actualString + ".png)" + ";";
+        ind = inizio + fine;
+        cardb1.setStyle(ind);
+
+        actualString = userFX.receive();
+        fine = "(card/" + actualString + ".png)" + ";";
+        ind = inizio + fine;
+        cardb2.setStyle(ind);
+
+        actualString = userFX.receive();
+        fine = "(card/" + actualString + ".png)" + ";";
+        ind = inizio + fine;
+        cardb3.setStyle(ind);
+
+        actualString = userFX.receive();
+        fine = "(card/" + actualString + ".png)" + ";";
+        ind = inizio + fine;
+        cardb4.setStyle(ind);
+
+        actualString = userFX.receive();
+        fine = "(card/" + actualString + ".png)" + ";";
+        ind = inizio + fine;
+        cardb5.setStyle(ind);
+
+        actualString = userFX.receive();
+        fine = "(card/" + actualString + ".png)" + ";";
+        ind = inizio + fine;
+        cardb6.setStyle(ind);
+
+        actualString = userFX.receive();
+        fine = "(card/" + actualString + ".png)" + ";";
+        ind = inizio + fine;
+        cardv1.setStyle(ind);
+
+        actualString = userFX.receive();
+        fine = "(card/" + actualString + ".png)" + ";";
+        ind = inizio + fine;
+        cardv2.setStyle(ind);
+
+        actualString = userFX.receive();
+        fine = "(card/" + actualString + ".png)" + ";";
+        ind = inizio + fine;
+        cardv3.setStyle(ind);
+
+        actualString = userFX.receive();
+        fine = "(card/" + actualString + ".png)" + ";";
+        ind = inizio + fine;
+        cardv4.setStyle(ind);
+
+        actualString = userFX.receive();
+        fine = "(card/" + actualString + ".png)" + ";";
+        ind = inizio + fine;
+        cardv5.setStyle(ind);
+
+        actualString = userFX.receive();
+        fine = "(card/" + actualString + ".png)" + ";";
+        ind = inizio + fine;
+        cardv6.setStyle(ind);
+
+        actualString = userFX.receive();
+        fine = "(card/" + actualString + ".png)" + ";";
+        ind = inizio + fine;
+        cardl1.setStyle(ind);
+
+        actualString = userFX.receive();
+        fine = "(card/" + actualString + ".png)" + ";";
+        ind = inizio + fine;
+        cardl2.setStyle(ind);
+
+        actualString = userFX.receive();
+        fine = "(card/" + actualString + ".png)" + ";";
+        ind = inizio + fine;
+        cardl3.setStyle(ind);
+
+        actualString = userFX.receive();
+        fine = "(card/" + actualString + ".png)" + ";";
+        ind = inizio + fine;
+        cardl4.setStyle(ind);
+    }
 
 
     @FXML

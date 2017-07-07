@@ -10,6 +10,8 @@ import it.polimi.ingsw.GC_23.Resources.ResourcesSet;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 
 /**
@@ -20,6 +22,7 @@ public class ProductionSpace extends ActionSpace {
     private int orderCounter;
     private ArrayList<FamilyMember> playerOrder;
     private boolean completePlay = false;
+    private final Logger logger = Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
 
     public ProductionSpace(){
         super(1);
@@ -135,7 +138,8 @@ public class ProductionSpace extends ActionSpace {
                     try {
                         permanentEffect.activeEffect(familyMember.getPlayer());
                     } catch (IOException e) {
-                        e.printStackTrace();
+                        logger.setLevel(Level.SEVERE);
+                        logger.severe(String.valueOf(e));
                     }
                 }
             }

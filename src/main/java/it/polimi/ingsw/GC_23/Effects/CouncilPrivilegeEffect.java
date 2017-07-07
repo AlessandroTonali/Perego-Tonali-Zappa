@@ -9,6 +9,8 @@ import java.util.ArrayList;
 import java.util.Scanner;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  * Created by jesss on 21/05/17.
@@ -19,7 +21,7 @@ public class CouncilPrivilegeEffect extends AbsEffect {
     private int numberOfPrivileges;
     boolean isDifferent;
     private FamilyMember familyMember;
-
+    private final Logger logger = Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
 
     public CouncilPrivilegeEffect(int numberOfPrivileges, boolean isDifferent) {
         this.numberOfPrivileges = numberOfPrivileges;
@@ -62,7 +64,8 @@ public class CouncilPrivilegeEffect extends AbsEffect {
                     try {
                         Thread.sleep(1000);
                     } catch (InterruptedException e) {
-                        e.printStackTrace();
+                        logger.setLevel(Level.SEVERE);
+                        logger.severe(String.valueOf(e));
                     }
                 }
                 if(player.isTimeIsOver()){
@@ -99,7 +102,8 @@ public class CouncilPrivilegeEffect extends AbsEffect {
                         try {
                             Thread.sleep(1000);
                         } catch (InterruptedException e) {
-                            e.printStackTrace();
+                            logger.setLevel(Level.SEVERE);
+                            logger.severe(String.valueOf(e));
                         }
                     }
                     if(player.isTimeIsOver()){

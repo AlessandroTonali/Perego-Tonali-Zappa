@@ -14,6 +14,8 @@ import java.rmi.RemoteException;
 import java.util.ArrayList;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 
 /**
@@ -41,6 +43,8 @@ public class Player implements Serializable {
     private boolean timeIsOver = false;
     private boolean typed = false;
     private int typedInt;
+
+    private transient final Logger logger = Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
 
     public Player(PlayerColor playerColor, BonusTile bonusTile) {
         this.playerColor = playerColor;
@@ -218,7 +222,8 @@ public class Player implements Serializable {
             try {
                 Thread.sleep(1000);
             } catch (InterruptedException e) {
-                e.printStackTrace();
+                logger.setLevel(Level.SEVERE);
+                logger.severe(String.valueOf(e));
             }
         }
         if(timeIsOver){
@@ -255,7 +260,8 @@ public class Player implements Serializable {
                         try {
                             Thread.sleep(1000);
                         } catch (InterruptedException e) {
-                            e.printStackTrace();
+                            logger.setLevel(Level.SEVERE);
+                            logger.severe(String.valueOf(e));
                         }
                     }
                     if (timeIsOver) {
@@ -359,7 +365,8 @@ public class Player implements Serializable {
             try {
                 Thread.sleep(1000);
             } catch (InterruptedException e) {
-                e.printStackTrace();
+                logger.setLevel(Level.SEVERE);
+                logger.severe(String.valueOf(e));
             }
         }
         if(timeIsOver){

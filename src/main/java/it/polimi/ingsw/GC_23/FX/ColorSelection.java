@@ -18,6 +18,7 @@ public class ColorSelection implements Serializable {
     private Stage primaryStage;
     private UserFX userFX;
     private ColorController colorController;
+    private final Logger logger = Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
 
     public ColorSelection(Stage primaryStage, Login login)  throws RemoteException{
         this.primaryStage = primaryStage;
@@ -34,7 +35,8 @@ public class ColorSelection implements Serializable {
         try {
             content = loader.load();
         } catch (IOException e) {
-            e.printStackTrace();
+            logger.setLevel(Level.SEVERE);
+            logger.severe(String.valueOf(e));
         }
         primaryStage.setScene(new Scene(content));
         primaryStage.show();
@@ -47,7 +49,8 @@ public class ColorSelection implements Serializable {
             try {
                 Thread.sleep(2000);
             } catch (InterruptedException e) {
-                e.printStackTrace();
+                logger.setLevel(Level.SEVERE);
+                logger.severe(String.valueOf(e));
             }
         }
         colorController.setLabel();

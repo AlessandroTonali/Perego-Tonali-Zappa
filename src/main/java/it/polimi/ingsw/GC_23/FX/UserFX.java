@@ -24,7 +24,7 @@ public class UserFX extends Application implements Runnable, Serializable{
     private int personalCounter;
     private Login login;
     private String username;
-    private User user;
+    private transient User user;
 
     @Override
     public void start(Stage primaryStage) throws RemoteException, FileNotFoundException {

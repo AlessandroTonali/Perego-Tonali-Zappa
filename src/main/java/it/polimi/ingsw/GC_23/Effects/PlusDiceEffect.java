@@ -10,6 +10,8 @@ import java.rmi.RemoteException;
 import java.util.ArrayList;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  * Created by Alessandro on 19/06/2017.
@@ -20,6 +22,7 @@ public class PlusDiceEffect extends PermanentEffect {
     private String type;
     private CardColor cardColor;
     private ArrayList<SingleCost> sales;
+    private final Logger logger = Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
 
 
     public PlusDiceEffect(int plusDiceValue, String type, CardColor cardColor, ArrayList<SingleCost> sales) {
@@ -65,7 +68,8 @@ public class PlusDiceEffect extends PermanentEffect {
                 try {
                     Thread.sleep(1000);
                 } catch (InterruptedException e) {
-                    e.printStackTrace();
+                    logger.setLevel(Level.SEVERE);
+                    logger.severe(String.valueOf(e));
                 }
             }
             if(player.isTimeIsOver()){

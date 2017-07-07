@@ -41,6 +41,7 @@ public class UserImpl extends UnicastRemoteObject implements User,Remote, Serial
     private UserFX userFX;
     private ArrayList<String> receivedFromGui;
     private ArrayList<String> sentToGui;
+    private transient final Logger logger = Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
 
     public UserImpl() throws RemoteException{
         this.receivedFromGui = new ArrayList<>();
@@ -52,7 +53,8 @@ public class UserImpl extends UnicastRemoteObject implements User,Remote, Serial
         try{
             execute();
         }catch (Exception e){
-            e.printStackTrace();
+            logger.setLevel(Level.SEVERE);
+            logger.severe(String.valueOf(e));
         }
     }
 
@@ -110,7 +112,8 @@ public class UserImpl extends UnicastRemoteObject implements User,Remote, Serial
                 }
             }
         }catch (Exception e){
-            e.printStackTrace();
+            logger.setLevel(Level.SEVERE);
+            logger.severe(String.valueOf(e));
         }
     }
 
@@ -148,7 +151,8 @@ public class UserImpl extends UnicastRemoteObject implements User,Remote, Serial
                 }
             }
         }catch(Exception e){
-            e.printStackTrace();
+            logger.setLevel(Level.SEVERE);
+            logger.severe(String.valueOf(e));
         }
     }
 
@@ -161,7 +165,8 @@ public class UserImpl extends UnicastRemoteObject implements User,Remote, Serial
             outWriter = new PrintWriter(socket.getOutputStream(),true);
             inScanner = new Scanner(socket.getInputStream());
         } catch (Exception e) {
-            e.printStackTrace();
+            logger.setLevel(Level.SEVERE);
+            logger.severe(String.valueOf(e));
         }
         outWriter.println(guiInterface);
         outWriter.println(username);
@@ -219,7 +224,8 @@ public class UserImpl extends UnicastRemoteObject implements User,Remote, Serial
             socket.close();
             outVideo.println("Socket closed");
         } catch (Exception e) {
-            e.printStackTrace();
+            logger.setLevel(Level.SEVERE);
+            logger.severe(String.valueOf(e));
             System.out.println("Socket not closed");
             closeSocket();
         }
@@ -318,9 +324,10 @@ public class UserImpl extends UnicastRemoteObject implements User,Remote, Serial
     public String getReceivedFromGui() throws RemoteException{
         while (this.receivedFromGui.size() == 0){
             try {
-                Thread.sleep(2000);
+                Thread.sleep(1000);
             } catch (InterruptedException e) {
-                e.printStackTrace();
+                logger.setLevel(Level.SEVERE);
+                logger.severe(String.valueOf(e));
             }
         }
         String string = this.receivedFromGui.get(0);
@@ -331,9 +338,10 @@ public class UserImpl extends UnicastRemoteObject implements User,Remote, Serial
     public String getSentToGui() throws RemoteException{
         while (this.sentToGui.size() == 0){
             try {
-                Thread.sleep(2000);
+                Thread.sleep(1000);
             } catch (InterruptedException e) {
-                e.printStackTrace();
+                logger.setLevel(Level.SEVERE);
+                logger.severe(String.valueOf(e));
             }
         }
         String string = this.sentToGui.get(0);

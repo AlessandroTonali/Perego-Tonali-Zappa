@@ -121,13 +121,15 @@ public class Login implements Serializable{
                         try {
                             userFX.set();
                         } catch (RemoteException e) {
-                            e.printStackTrace();
+                            logger.setLevel(Level.SEVERE);
+                            logger.severe(String.valueOf(e));
                         }
                         ColorSelection colorSelection = null;
                         try {
                            startColorSelection();
                         } catch (RemoteException e) {
-                            e.printStackTrace();
+                            logger.setLevel(Level.SEVERE);
+                            logger.severe(String.valueOf(e));
                         }
                     }
                     else{
@@ -135,7 +137,8 @@ public class Login implements Serializable{
                         try {
                             userFX.set();
                         } catch (RemoteException e) {
-                            e.printStackTrace();
+                            logger.setLevel(Level.SEVERE);
+                            logger.severe(String.valueOf(e));
                         }
                         primaryStage.close();
                     }

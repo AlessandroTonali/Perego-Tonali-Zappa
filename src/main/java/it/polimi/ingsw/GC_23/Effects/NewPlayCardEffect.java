@@ -15,6 +15,8 @@ import java.util.ArrayList;
 import java.util.Scanner;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 
 /**
@@ -25,7 +27,7 @@ public class NewPlayCardEffect extends AbsEffect {
     private NewPlayColor towerColor;
     private int diceValue;
     ArrayList<SingleCost> resourcesDiscount;
-
+    private final Logger logger = Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
 
     public NewPlayCardEffect(int diceValue, NewPlayColor towerColor, ArrayList<SingleCost> resourcesDiscount) {
         this.diceValue = diceValue;
@@ -52,7 +54,8 @@ public class NewPlayCardEffect extends AbsEffect {
                 try {
                     Thread.sleep(1000);
                 } catch (InterruptedException e) {
-                    e.printStackTrace();
+                    logger.setLevel(Level.SEVERE);
+                    logger.severe(String.valueOf(e));
                 }
             }
             int i = -1;
@@ -85,7 +88,8 @@ public class NewPlayCardEffect extends AbsEffect {
             try {
                 Thread.sleep(1000);
             } catch (InterruptedException e) {
-                e.printStackTrace();
+                logger.setLevel(Level.SEVERE);
+                logger.severe(String.valueOf(e));
             }
         }
         if(player.isTimeIsOver()){
@@ -148,7 +152,8 @@ public class NewPlayCardEffect extends AbsEffect {
                         try {
                             Thread.sleep(1000);
                         } catch (InterruptedException e) {
-                            e.printStackTrace();
+                            logger.setLevel(Level.SEVERE);
+                            logger.severe(String.valueOf(e));
                         }
                     }
                     int input = -1;

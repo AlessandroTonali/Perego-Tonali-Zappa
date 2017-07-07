@@ -8,6 +8,8 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  * Created by jesss on 23/05/17.
@@ -18,6 +20,7 @@ public class MarketController extends PlaceFamilyMember {
     private MarketSpace[] marketSpace = new MarketSpace[DIM];
     private static int DIM = 4;
     private MarketSpace chosenSpace;
+    private final Logger logger = Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
 
     public MarketController(FamilyMember familyMember, MarketSpace[] marketSpace) throws IOException {
         this.familyMember = familyMember;
@@ -39,7 +42,8 @@ public class MarketController extends PlaceFamilyMember {
             try {
                 Thread.sleep(1000);
             } catch (InterruptedException e) {
-                e.printStackTrace();
+                logger.setLevel(Level.SEVERE);
+                logger.severe(String.valueOf(e));
             }
         }
         if(familyMember.getPlayer().isTimeIsOver()){

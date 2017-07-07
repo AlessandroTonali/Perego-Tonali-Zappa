@@ -17,6 +17,8 @@ import java.net.URL;
 import java.rmi.RemoteException;
 import java.util.Map;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  * Created by jesss on 03/07/17.
@@ -25,6 +27,7 @@ public class ColorController implements Serializable{
     private UserFX userFX;
     private Stage primaryStage;
     private int votation = 0;
+    private transient final Logger logger = Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
 
     public ColorController(UserFX userFX, Stage primaryStage) {
         this.userFX = userFX;
@@ -96,7 +99,8 @@ public class ColorController implements Serializable{
                 i++;
             }
         }catch(RemoteException e){
-            e.printStackTrace();
+            logger.setLevel(Level.SEVERE);
+            logger.severe(String.valueOf(e));
         }
     }
 
@@ -116,28 +120,32 @@ public class ColorController implements Serializable{
                     try {
                         userFX.send("RED");
                     } catch (RemoteException e) {
-                        e.printStackTrace();
+                        logger.setLevel(Level.SEVERE);
+                        logger.severe(String.valueOf(e));
                     }
                 }
                 else if(selectedToggle.equals(blue) && bluelabel.getText().equals("null")) {
                     try {
                         userFX.send("BLUE");
                     } catch (RemoteException e) {
-                        e.printStackTrace();
+                        logger.setLevel(Level.SEVERE);
+                        logger.severe(String.valueOf(e));
                     }
                 }
                 else if(selectedToggle.equals(green) && greenlabel.getText().equals("null")) {
                     try {
                         userFX.send("GREEN");
                     } catch (RemoteException e) {
-                        e.printStackTrace();
+                        logger.setLevel(Level.SEVERE);
+                        logger.severe(String.valueOf(e));
                     }
                 }
                 else if(selectedToggle.equals(yellow) && yellowlabel.getText().equals("null")){
                     try {
                         userFX.send("YELLOW");
                     } catch (RemoteException e) {
-                        e.printStackTrace();
+                        logger.setLevel(Level.SEVERE);
+                        logger.severe(String.valueOf(e));
                     }
                 }
                 else {
@@ -150,12 +158,14 @@ public class ColorController implements Serializable{
                 try {
                     userFX.send(Integer.toString(votation));
                 } catch (RemoteException e) {
-                    e.printStackTrace();
+                    logger.setLevel(Level.SEVERE);
+                    logger.severe(String.valueOf(e));
                 }
                 try {
                     startGameboard();
                 } catch (RemoteException e) {
-                    e.printStackTrace();
+                    logger.setLevel(Level.SEVERE);
+                    logger.severe(String.valueOf(e));
                 }
             }
         });

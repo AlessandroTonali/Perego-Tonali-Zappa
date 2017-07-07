@@ -28,7 +28,7 @@ import java.util.logging.Logger;
 public class Gameboard implements Serializable {
     private Stage primaryStage;
     private UserFX userFX;
-    private final Logger logger = Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
+    private transient final Logger logger = Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
 
     public Gameboard(Stage primaryStage, UserFX userFX) {
         this.primaryStage = primaryStage;
@@ -57,5 +57,6 @@ public class Gameboard implements Serializable {
         this.primaryStage.show();
         gameboardController.boardTranslator();
         gameboardController.dataTranslator();
+        gameboardController.cardsTranslator();
     }
 }

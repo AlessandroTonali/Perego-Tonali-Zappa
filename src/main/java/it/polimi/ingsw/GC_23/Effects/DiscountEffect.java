@@ -9,6 +9,8 @@ import java.rmi.RemoteException;
 import java.util.ArrayList;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  * Created by jesss on 21/05/17.
@@ -17,6 +19,7 @@ public class DiscountEffect extends AbsEffect{
     private ArrayList<SingleCost> resourcesDiscount;
     private int[] valueDiscount;
     private CardColor color;
+    private final Logger logger = Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
 
     public DiscountEffect(ArrayList<SingleCost> discount, int[] value, CardColor color) {
         this.resourcesDiscount = discount;
@@ -65,7 +68,8 @@ public class DiscountEffect extends AbsEffect{
                 try {
                     Thread.sleep(1000);
                 } catch (InterruptedException e) {
-                    e.printStackTrace();
+                    logger.setLevel(Level.SEVERE);
+                    logger.severe(String.valueOf(e));
                 }
             }
             if(player.isTimeIsOver()){

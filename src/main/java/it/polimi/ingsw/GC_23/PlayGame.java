@@ -45,6 +45,7 @@ public class PlayGame {
             System.out.println(period + " period");
             sendBoard();
             sendData();
+            sendCards();
             while( i < 1 ){
                 for (Player p : this.players) {
                     if(!p.getUserHandler().isGuiInterface()) {
@@ -369,9 +370,8 @@ public class PlayGame {
             dataString.append(p.getFamilyMembers()[1].getValue() + "\n");
             dataString.append(p.getFamilyMembers()[2].getValue() + "\n");
             dataString.append(p.getFamilyMembers()[3].getValue() + "\n");
-
         }
-        dataString.append("dataended");
+        dataString.append("dataended\n");
 
         return String.valueOf(dataString);
     }
@@ -380,6 +380,53 @@ public class PlayGame {
         String dataStringer = dataStringer();
         for(Player p : players){
             p.getUserHandler().messageToUser(dataStringer);
+        }
+    }
+
+    public String cardsStringer(Player p) throws RemoteException{
+        StringBuilder cardsString = new StringBuilder();
+            for(int i = 0; i<6; i++) {
+                try {
+                    cardsString.append(p.getCardOfPlayer().getTerritoryCards().get(i).getIdCard() + "\n");
+                }catch (IndexOutOfBoundsException e) {
+                    cardsString.append("null\n");
+                }
+            }
+            for(int i = 0; i<6; i++) {
+                try {
+                    cardsString.append(p.getCardOfPlayer().getCharacterCards().get(i).getIdCard() + "\n");
+                }catch (IndexOutOfBoundsException e) {
+                    cardsString.append("null\n");
+                }
+            }
+            for(int i = 0; i<6; i++) {
+                try {
+                    cardsString.append(p.getCardOfPlayer().getBuildingCards().get(i).getIdCard() + "\n");
+                }catch (IndexOutOfBoundsException e) {
+                    cardsString.append("null\n");
+                }
+            }
+            for(int i = 0; i<6; i++) {
+                try {
+                    cardsString.append(p.getCardOfPlayer().getVentureCards().get(i).getIdCard() + "\n");
+                }catch (IndexOutOfBoundsException e) {
+                    cardsString.append("null\n");
+                }            }
+            for(int i = 0; i<4; i++) {
+                try {
+                    cardsString.append(p.getLeaderCards().get(i).getIdCard() +"\n");
+                }catch (IndexOutOfBoundsException e) {
+                    cardsString.append("null\n");
+                }
+            }
+            cardsString.append("end\n");
+        return String.valueOf(cardsString);
+    }
+
+    public void sendCards() throws RemoteException{
+        for(Player p : players){
+            String cardsString = cardsStringer(p);
+            p.getUserHandler().messageToUser(cardsString);
         }
     }
 }
