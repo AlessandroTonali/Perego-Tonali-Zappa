@@ -1,6 +1,6 @@
 {
 	"Options": {
-		"timeout_start_match": "3",
+		"timeout_start_match": "6343",
 		"timeout_player_move": "30"
 	},
 	"ExcommunicationTile": [

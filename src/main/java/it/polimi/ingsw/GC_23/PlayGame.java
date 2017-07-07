@@ -364,13 +364,15 @@ public class PlayGame {
             dataString.append(p.getResources().getFaithPointsObj() + "\n");
             dataString.append(p.getResources().getMilitaryPoints() + "\n");
             dataString.append(p.getResources().getVictoryPoints() + "\n");
-            dataString.append("endResources");
+            dataString.append("endResources\n");
+            dataString.append(p.getFamilyMembers()[0].getValue() + "\n");
+            dataString.append(p.getFamilyMembers()[1].getValue() + "\n");
+            dataString.append(p.getFamilyMembers()[2].getValue() + "\n");
+            dataString.append(p.getFamilyMembers()[3].getValue() + "\n");
+
         }
-        dataString.append("everything ended");
-        dataString.append(board.getDiceOValue() + "\n");
-        dataString.append(board.getDiceWValue() + "\n");
-        dataString.append(board.getDiceBValue() + "\n");
-        dataString.append(0 + "\n");
+        dataString.append("dataended");
+
         return String.valueOf(dataString);
     }
 

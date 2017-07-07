@@ -483,22 +483,29 @@ public class GameboardController implements Serializable {
         actualString = userFX.receive();
         victory1.setText(actualString);
 
+        actualString = userFX.receive();//endresources
         actualString = userFX.receive();
+        orange.setText(actualString);
+        actualString = userFX.receive();
+        white.setText(actualString);
+        actualString = userFX.receive();
+        black.setText(actualString);
+        actualString = userFX.receive();
+        neutral.setText(actualString);
+        actualString = userFX.receive();
+        Image image;
         switch (actualString) {
             case "RED":
                 circle2.setFill(RED);
                 break;
             case "BLUE":
-                Image image = new Image("stuff/BLUEBLACK.png");
-                circle2.setFill(new ImagePattern(image));
-                break;
-            case "YELLOW":
-                Image image3 = new Image("/stuff/wood.png");
-                circle2.setFill(new ImagePattern(image3));
+                circle2.setFill(BLUE);
                 break;
             case "GREEN":
-                Image image4 = new Image("/stuff/wood.png");
-                circle2.setFill(new ImagePattern(image4));
+                circle2.setFill(GREEN);
+                break;
+            case "YELLOW":
+                circle2.setFill(YELLOW);
                 break;
         }
         actualString = userFX.receive();
@@ -517,19 +524,30 @@ public class GameboardController implements Serializable {
         victory2.setText(actualString);
 
         actualString = userFX.receive();
-        if(!actualString.equals("everything ended")) {
+        actualString = userFX.receive();
+        orange.setText(actualString);
+        actualString = userFX.receive();
+        white.setText(actualString);
+        actualString = userFX.receive();
+        black.setText(actualString);
+        actualString = userFX.receive();
+        neutral.setText(actualString);
+        actualString = userFX.receive();
+
+
+        if(!actualString.equals("dataended")) {
             switch (actualString) {
                 case "RED":
-                    circle3.setStyle("-fx-background-color: RED;");
-                    break;
-                case "YELLOW":
-                    circle3.setStyle("-fx-background-color: YELLOW;");
+                    circle3.setFill(RED);
                     break;
                 case "BLUE":
-                    circle3.setStyle("-fx-background-color: BLUE;");
+                    circle3.setFill(BLUE);
                     break;
                 case "GREEN":
-                    circle3.setStyle("-fx-background-color: GREEN;");
+                    circle3.setFill(GREEN);
+                    break;
+                case "YELLOW":
+                    circle3.setFill(YELLOW);
                     break;
             }
             actualString = userFX.receive();
@@ -548,20 +566,28 @@ public class GameboardController implements Serializable {
             victory3.setText(actualString);
 
             actualString = userFX.receive();
-
-            if(!actualString.equals("everything ended")) {
+            actualString = userFX.receive();
+            orange.setText(actualString);
+            actualString = userFX.receive();
+            white.setText(actualString);
+            actualString = userFX.receive();
+            black.setText(actualString);
+            actualString = userFX.receive();
+            neutral.setText(actualString);
+            actualString = userFX.receive();
+            if(!actualString.equals("dataended")) {
                 switch (actualString) {
-                    case "GREEN":
-                        circle4.setStyle("-fx-background-color: GREEN;");
-                        break;
                     case "RED":
-                        circle4.setStyle("-fx-background-color: RED;");
-                        break;
-                    case "YELLOW":
-                        circle4.setStyle("-fx-background-color: YELLOW;");
+                        circle4.setFill(RED);
                         break;
                     case "BLUE":
-                        circle4.setStyle("-fx-background-color: BLUE;");
+                        circle4.setFill(BLUE);
+                        break;
+                    case "GREEN":
+                        circle4.setFill(GREEN);
+                        break;
+                    case "YELLOW":
+                        circle4.setFill(YELLOW);
                         break;
                 }
                 actualString = userFX.receive();
@@ -578,17 +604,20 @@ public class GameboardController implements Serializable {
                 military4.setText(actualString);
                 actualString = userFX.receive();
                 victory4.setText(actualString);
+                actualString = userFX.receive();
+                orange.setText(actualString);
+                actualString = userFX.receive();
+                white.setText(actualString);
+                actualString = userFX.receive();
+                black.setText(actualString);
+                actualString = userFX.receive();
+                neutral.setText(actualString);
+                actualString = userFX.receive();
             }
+
         }
-        actualString = userFX.receive();
-        orange.setText(actualString);
-        actualString = userFX.receive();
-        white.setText(actualString);
-        actualString = userFX.receive();
-        black.setText(actualString);
-        actualString = userFX.receive();
-        neutral.setText(actualString);
-    }
+
+   }
 
 
     @FXML
