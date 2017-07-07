@@ -48,7 +48,6 @@ public class BuildingCardTest {
         ArrayList<SingleCost> costs = new ArrayList<>();
         costs.add(new SingleCost(new ResourcesSet(0,10,1,0,0,0,0)));
         BuildingCard buildingCard = new BuildingCard(1, CardColor.YELLOW,"test", effects, effects,costs);
-
         player.setCardOfPlayer(new CardOfPlayer(territoryCards,characterCards,buildingCards,ventureCards));
 
         buildingCard.addCardOfPlayer(player);
