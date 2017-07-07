@@ -78,36 +78,36 @@
                                     <Circle fx:id="second" centerX="252.0" centerY="27.0" fill="#1f93ff00" layoutX="10.0" layoutY="10.0" radius="16.0" stroke="BLACK" strokeType="INSIDE" />
                                     <Circle fx:id="thrid" centerX="252.0" centerY="63.0" fill="#1f93ff00" layoutX="10.0" layoutY="10.0" radius="16.0" stroke="BLACK" strokeType="INSIDE" />
                                     <Circle fx:id="fourth" centerX="252.0" centerY="100.0" fill="#1f93ff00" layoutX="10.0" layoutY="10.0" radius="16.0" stroke="BLACK" strokeType="INSIDE" />
-                                    <Circle fx:id="council1" centerX="85.0" centerY="40.0" fill="#1f93ff00" radius="14.0" stroke="TRANSPARENT" strokeType="INSIDE" />
-                                    <Circle fx:id="council2" centerX="105.0" centerY="30.0" fill="#1f93ff00" layoutX="10.0" layoutY="10.0" radius="14.0" stroke="TRANSPARENT" strokeType="INSIDE" />
-                                    <Circle fx:id="council3" centerX="125.0" centerY="20.0" fill="#1f93ff00" layoutX="20.0" layoutY="20.0" radius="14.0" stroke="TRANSPARENT" strokeType="INSIDE" />
-                                    <Circle fx:id="council4" centerX="155.0" centerY="20.0" fill="#1f93ff00" layoutX="20.0" layoutY="20.0" radius="14.0" stroke="TRANSPARENT" strokeType="INSIDE" />
+                                    <Pane fx:id="council1" layoutX="70.0" layoutY="35.0" prefHeight="25.0" prefWidth="25.0" />
+                                    <Pane fx:id="council2" layoutX="97.0" layoutY="35.0" prefHeight="25.0" prefWidth="25.0" />
+                                    <Pane fx:id="council3" layoutX="124.0" layoutY="35.0" prefHeight="25.0" prefWidth="25.0" />
+                                    <Pane fx:id="council4" layoutX="151.0" layoutY="35.0" prefHeight="25.0" prefWidth="25.0" />
                                  </children>
                               </Pane>
                               <Pane fx:id="productionbuttons" layoutX="80.0" layoutY="850.0" prefHeight="100.0" prefWidth="320.0">
                                  <children>
                                     <Button id="button" fx:id="production1" layoutX="-1.0" layoutY="18.0" stylesheets="@roundbutton.css" />
                                     <Button id="rectangle" fx:id="productionrectangle" layoutX="78.0" layoutY="20.0" mnemonicParsing="false" prefHeight="54.0" prefWidth="144.0" stylesheets="@roundrectangle.css" />
-                                    <Circle fx:id="production2" centerX="130.0" centerY="45.0" fill="#1f93ff00" radius="12.0" stroke="TRANSPARENT" strokeType="INSIDE" />
-                                    <Circle fx:id="production3" centerX="155.0" centerY="45.0" fill="#1f93ff00" radius="12.0" stroke="TRANSPARENT" strokeType="INSIDE" />
-                                    <Circle fx:id="production4" centerX="180.0" centerY="45.0" fill="#1f93ff00" radius="12.0" stroke="TRANSPARENT" strokeType="INSIDE" />
-                                    <Circle fx:id="production5" centerX="195.0" centerY="35.0" fill="#1f93ff00" layoutX="10.0" layoutY="10.0" radius="12.0" stroke="TRANSPARENT" strokeType="INSIDE" />
-                                    <Circle fx:id="production6" centerX="220.0" centerY="35.0" fill="#1f93ff00" layoutX="10.0" layoutY="10.0" radius="12.0" stroke="TRANSPARENT" strokeType="INSIDE" />
-                                    <Circle fx:id="production7" centerX="245.0" centerY="35.0" fill="#1f93ff00" layoutX="10.0" layoutY="10.0" radius="12.0" stroke="TRANSPARENT" strokeType="INSIDE" />
-                                    <Circle fx:id="production8" centerX="270.0" centerY="35.0" fill="#1f93ff00" layoutX="10.0" layoutY="10.0" radius="12.0" stroke="TRANSPARENT" strokeType="INSIDE" />
+                                    <Pane fx:id="production2" layoutX="119.0" layoutY="32.0" prefHeight="25.0" prefWidth="25.0" />
+                                    <Pane fx:id="production3" layoutX="147.0" layoutY="32.0" prefHeight="25.0" prefWidth="25.0" />
+                                    <Pane fx:id="production4" layoutX="175.0" layoutY="32.0" prefHeight="25.0" prefWidth="25.0" />
+                                    <Pane fx:id="production5" layoutX="203.0" layoutY="32.0" prefHeight="25.0" prefWidth="25.0" />
+                                    <Pane fx:id="production6" layoutX="231.0" layoutY="32.0" prefHeight="25.0" prefWidth="25.0" />
+                                    <Pane fx:id="production7" layoutX="259.0" layoutY="32.0" prefHeight="25.0" prefWidth="25.0" />
+                                    <Pane fx:id="production8" layoutX="287.0" layoutY="32.0" prefHeight="25.0" prefWidth="25.0" />
                                  </children>
                               </Pane>
                               <Pane fx:id="harvestbuttons" layoutX="80.0" layoutY="930.0" prefHeight="100.0" prefWidth="320.0">
                                  <children>
                                     <Button id="button" fx:id="harvest1" layoutX="-1.0" layoutY="22.0" stylesheets="@roundbutton.css" />
                                     <Button id="rectangle" fx:id="harvestrectangle" layoutX="78.0" layoutY="24.0" mnemonicParsing="false" prefHeight="54.0" prefWidth="144.0" stylesheets="@roundrectangle.css" />
-                                    <Circle fx:id="harvest2" centerX="130.0" centerY="45.0" fill="#1f93ff00" radius="12.0" stroke="TRANSPARENT" strokeType="INSIDE" />
-                                    <Circle fx:id="harvest3" centerX="155.0" centerY="45.0" fill="#1f93ff00" radius="12.0" stroke="TRANSPARENT" strokeType="INSIDE" />
-                                    <Circle fx:id="harvest4" centerX="180.0" centerY="45.0" fill="#1f93ff00" radius="12.0" stroke="TRANSPARENT" strokeType="INSIDE" />
-                                    <Circle fx:id="harvest5" centerX="205.0" centerY="45.0" fill="#1f93ff00" radius="12.0" stroke="TRANSPARENT" strokeType="INSIDE" />
-                                    <Circle fx:id="harvest6" centerX="230.0" centerY="45.0" fill="#1f93ff00" radius="12.0" stroke="TRANSPARENT" strokeType="INSIDE" />
-                                    <Circle fx:id="harvest7" centerX="255.0" centerY="45.0" fill="#1f93ff00" radius="12.0" stroke="TRANSPARENT" strokeType="INSIDE" />
-                                    <Circle fx:id="harvest8" centerX="280.0" centerY="45.0" fill="#1f93ff00" radius="12.0" stroke="TRANSPARENT" strokeType="INSIDE" />
+                                    <Pane fx:id="harvest2" layoutX="120.0" layoutY="37.0" prefHeight="25.0" prefWidth="25.0" />
+                                    <Pane fx:id="harvest3" layoutX="148.0" layoutY="37.0" prefHeight="25.0" prefWidth="25.0" />
+                                    <Pane fx:id="harvest4" layoutX="176.0" layoutY="37.0" prefHeight="25.0" prefWidth="25.0" />
+                                    <Pane fx:id="harvest5" layoutX="204.0" layoutY="37.0" prefHeight="25.0" prefWidth="25.0" />
+                                    <Pane fx:id="harvest6" layoutX="232.0" layoutY="37.0" prefHeight="25.0" prefWidth="25.0" />
+                                    <Pane fx:id="harvest7" layoutX="260.0" layoutY="37.0" prefHeight="25.0" prefWidth="25.0" />
+                                    <Pane fx:id="harvest8" layoutX="288.0" layoutY="37.0" prefHeight="25.0" prefWidth="25.0" />
                                  </children>
                               </Pane>
                               <Pane fx:id="marketbuttons" layoutX="400.0" layoutY="850.0" prefHeight="110.0" prefWidth="250.0">
@@ -227,15 +227,16 @@
                                     <Label fx:id="victory4" layoutX="365.0" layoutY="150.0" />
                                  </children>
                               </Pane>
-                              <Rectangle arcHeight="5.0" arcWidth="5.0" height="25.0" layoutX="50.0" layoutY="240.0" stroke="BLACK" strokeType="INSIDE" width="25.0" />
-                              <Label fx:id="black" layoutX="95.0" layoutY="245.0" />
-                              <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="25.0" layoutX="180.0" layoutY="240.0" stroke="BLACK" strokeType="INSIDE" width="25.0" />
-                              <Label fx:id="white" layoutX="225.0" layoutY="245.0" />
-                              <Rectangle arcHeight="5.0" arcWidth="5.0" fill="ORANGE" height="25.0" layoutX="310.0" layoutY="240.0" stroke="BLACK" strokeType="INSIDE" width="25.0" />
-                              <Label fx:id="orange" layoutX="355.0" layoutY="245.0" />
-                              <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ffa10000" height="25.0" layoutX="440.0" layoutY="240.0" stroke="BLACK" strokeType="INSIDE" width="25.0" />
-                              <Button fx:id="increase" layoutX="530.0" layoutY="240.0" mnemonicParsing="false" text="Increase" />
-                              <Label fx:id="neutral" layoutX="485.0" layoutY="245.0" />
+                              <Rectangle arcHeight="5.0" arcWidth="5.0" height="25.0" layoutX="40.0" layoutY="240.0" stroke="BLACK" strokeType="INSIDE" width="25.0" />
+                              <Label fx:id="black" layoutX="85.0" layoutY="245.0" />
+                              <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="25.0" layoutX="170.0" layoutY="240.0" stroke="BLACK" strokeType="INSIDE" width="25.0" />
+                              <Label fx:id="white" layoutX="215.0" layoutY="245.0" />
+                              <Rectangle arcHeight="5.0" arcWidth="5.0" fill="ORANGE" height="25.0" layoutX="300.0" layoutY="240.0" stroke="BLACK" strokeType="INSIDE" width="25.0" />
+                              <Label fx:id="orange" layoutX="345.0" layoutY="245.0" />
+                              <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ffa10000" height="25.0" layoutX="430.0" layoutY="240.0" stroke="BLACK" strokeType="INSIDE" width="25.0" />
+                              <Button fx:id="increase" layoutX="520.0" layoutY="240.0" mnemonicParsing="false" text="Increase" />
+                              <Label fx:id="neutral" layoutX="475.0" layoutY="245.0" />
+                              <Button layoutX="200.0" layoutY="280.0" mnemonicParsing="false" text="SKIP YOUR TURN" fx:id="skip"/>
                            </children>
                         </Pane>
                      </children>
@@ -244,7 +245,59 @@
                      <content>
                         <AnchorPane fx:id="insidescroll1" style="-fx-background-color: #FAEBD7;">
                            <children>
-                              <Pane fx:id="gameboard1" prefHeight="1100.0" prefWidth="800.0" stylesheets="@background.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                              <Pane fx:id="gameboard1" prefHeight="1100.0" prefWidth="800.0" stylesheets="@background.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                 <children>
+                                    <Pane fx:id="territoryPane" prefHeight="150.0" prefWidth="700.0">
+                                       <children>
+                                          <Pane id="card" fx:id="cardt1" layoutX="50.0" layoutY="20.0" prefHeight="200.0" prefWidth="200.0" stylesheets="@cardspace.css" />
+                                          <Pane id="card" fx:id="cardt2" layoutX="150.0" layoutY="20.0" prefHeight="200.0" prefWidth="200.0" stylesheets="@cardspace.css" />
+                                          <Pane id="card" fx:id="cardt3" layoutX="250.0" layoutY="20.0" prefHeight="200.0" prefWidth="200.0" stylesheets="@cardspace.css" />
+                                          <Pane id="card" fx:id="cardt4" layoutX="350.0" layoutY="20.0" prefHeight="200.0" prefWidth="200.0" stylesheets="@cardspace.css" />
+                                          <Pane id="card" fx:id="cardt5" layoutX="450.0" layoutY="20.0" prefHeight="200.0" prefWidth="200.0" stylesheets="@cardspace.css" />
+                                          <Pane id="card" fx:id="cardt6" layoutX="550.0" layoutY="20.0" prefHeight="200.0" prefWidth="200.0" stylesheets="@cardspace.css" />
+                                       </children>
+                                    </Pane>
+                                    <Pane fx:id="characterPane" layoutY="150.0" prefHeight="150.0" prefWidth="700.0">
+                                       <children>
+                                          <Pane id="card" fx:id="cardc1" layoutX="50.0" layoutY="20.0" prefHeight="200.0" prefWidth="200.0" stylesheets="@cardspace.css" />
+                                          <Pane id="card" fx:id="cardc2" layoutX="150.0" layoutY="20.0" prefHeight="200.0" prefWidth="200.0" stylesheets="@cardspace.css" />
+                                          <Pane id="card" fx:id="cardc3" layoutX="250.0" layoutY="20.0" prefHeight="200.0" prefWidth="200.0" stylesheets="@cardspace.css" />
+                                          <Pane id="card" fx:id="cardc4" layoutX="350.0" layoutY="20.0" prefHeight="200.0" prefWidth="200.0" stylesheets="@cardspace.css" />
+                                          <Pane id="card" fx:id="cardc5" layoutX="450.0" layoutY="20.0" prefHeight="200.0" prefWidth="200.0" stylesheets="@cardspace.css" />
+                                          <Pane id="card" fx:id="cardc6" layoutX="550.0" layoutY="20.0" prefHeight="200.0" prefWidth="200.0" stylesheets="@cardspace.css" />
+                                       </children>
+                                    </Pane>
+                                    <Pane fx:id="buildingPane" layoutY="300.0" prefHeight="150.0" prefWidth="700.0">
+                                       <children>
+                                          <Pane id="card" fx:id="cardb1" layoutX="50.0" layoutY="20.0" prefHeight="200.0" prefWidth="200.0" stylesheets="@cardspace.css" />
+                                          <Pane id="card" fx:id="cardb2" layoutX="150.0" layoutY="20.0" prefHeight="200.0" prefWidth="200.0" stylesheets="@cardspace.css" />
+                                          <Pane id="card" fx:id="cardb3" layoutX="250.0" layoutY="20.0" prefHeight="200.0" prefWidth="200.0" stylesheets="@cardspace.css" />
+                                          <Pane id="card" fx:id="cardb4" layoutX="350.0" layoutY="20.0" prefHeight="200.0" prefWidth="200.0" stylesheets="@cardspace.css" />
+                                          <Pane id="card" fx:id="cardb5" layoutX="450.0" layoutY="20.0" prefHeight="200.0" prefWidth="200.0" stylesheets="@cardspace.css" />
+                                          <Pane id="card" fx:id="cardb6" layoutX="550.0" layoutY="20.0" prefHeight="200.0" prefWidth="200.0" stylesheets="@cardspace.css" />
+                                       </children>
+                                    </Pane>
+                                    <Pane fx:id="venturePane" layoutY="450.0" prefHeight="150.0" prefWidth="700.0">
+                                       <children>
+                                          <Pane id="card" fx:id="cardv1" layoutX="50.0" layoutY="20.0" prefHeight="200.0" prefWidth="200.0" stylesheets="@cardspace.css" />
+                                          <Pane id="card" fx:id="cardv2" layoutX="150.0" layoutY="20.0" prefHeight="200.0" prefWidth="200.0" stylesheets="@cardspace.css" />
+                                          <Pane id="card" fx:id="cardv3" layoutX="250.0" layoutY="20.0" prefHeight="200.0" prefWidth="200.0" stylesheets="@cardspace.css" />
+                                          <Pane id="card" fx:id="cardv4" layoutX="350.0" layoutY="20.0" prefHeight="200.0" prefWidth="200.0" stylesheets="@cardspace.css" />
+                                          <Pane id="card" fx:id="cardv5" layoutX="450.0" layoutY="20.0" prefHeight="200.0" prefWidth="200.0" stylesheets="@cardspace.css" />
+                                          <Pane id="card" fx:id="cardv6" layoutX="550.0" layoutY="20.0" prefHeight="200.0" prefWidth="200.0" stylesheets="@cardspace.css" />
+                                       </children>
+                                    </Pane>
+                                    <Pane fx:id="leaderPane" layoutY="600.0" prefHeight="150.0" prefWidth="700.0">
+                                       <children>
+                                          <Pane id="card" fx:id="cardl1" layoutX="50.0" layoutY="20.0" prefHeight="200.0" prefWidth="200.0" stylesheets="@cardspace.css" />
+                                          <Pane id="card" fx:id="cardl2" layoutX="150.0" layoutY="20.0" prefHeight="200.0" prefWidth="200.0" stylesheets="@cardspace.css" />
+                                          <Pane id="card" fx:id="cardl3" layoutX="250.0" layoutY="20.0" prefHeight="200.0" prefWidth="200.0" stylesheets="@cardspace.css" />
+                                          <Pane id="card" fx:id="cardl4" layoutX="350.0" layoutY="20.0" prefHeight="200.0" prefWidth="200.0" stylesheets="@cardspace.css" />
+                                          <Button fx:id="discard" layoutX="480.0" layoutY="40.0" mnemonicParsing="false" text="Discard" />
+                                          <Button fx:id="active" layoutX="485.0" layoutY="90.0" mnemonicParsing="false" text="Active" />
+                                       </children>
+                                    </Pane>
+                                 </children></Pane>
                            </children>
                         </AnchorPane>
                      </content>

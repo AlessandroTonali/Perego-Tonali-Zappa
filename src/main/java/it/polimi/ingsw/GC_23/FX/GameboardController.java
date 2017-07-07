@@ -856,64 +856,64 @@ public class GameboardController implements Serializable {
     private Button market4;
 
     @FXML
-    private Circle council1;
+    private Pane council1;
 
     @FXML
-    private Circle council2;
+    private Pane council2;
 
     @FXML
-    private Circle council3;
+    private Pane council3;
 
     @FXML
-    private Circle council4;
+    private Pane council4;
 
     @FXML
     private Button production1;
 
     @FXML
-    private Circle production2;
+    private Pane production2;
 
     @FXML
-    private Circle production3;
+    private Pane production3;
 
     @FXML
-    private Circle production4;
+    private Pane production4;
 
     @FXML
-    private Circle production5;
+    private Pane production5;
 
     @FXML
-    private Circle production6;
+    private Pane production6;
 
     @FXML
-    private Circle production7;
+    private Pane production7;
 
     @FXML
-    private Circle production8;
+    private Pane production8;
 
     @FXML
     private Button harvest1;
 
     @FXML
-    private Circle harvest2;
+    private Pane harvest2;
 
     @FXML
-    private Circle harvest3;
+    private Pane harvest3;
 
     @FXML
-    private Circle harvest4;
+    private Pane harvest4;
 
     @FXML
-    private Circle harvest5;
+    private Pane harvest5;
 
     @FXML
-    private Circle harvest6;
+    private Pane harvest6;
 
     @FXML
-    private Circle harvest7;
+    private Pane harvest7;
 
     @FXML
-    private Circle harvest8;
+    private Pane harvest8;
 
     @FXML
     private Pane excom1;
@@ -923,6 +923,99 @@ public class GameboardController implements Serializable {
 
     @FXML
     private Pane excom3;
+
+    @FXML
+    private Pane cardt1;
+
+    @FXML
+    private Pane cardt2;
+
+    @FXML
+    private Pane cardt3;
+
+    @FXML
+    private Pane cardt4;
+
+    @FXML
+    private Pane cardt5;
+
+    @FXML
+    private Pane cardt6;
+
+    @FXML
+    private Pane cardc1;
+
+    @FXML
+    private Pane cardc2;
+
+    @FXML
+    private Pane cardc3;
+
+    @FXML
+    private Pane cardc4;
+
+    @FXML
+    private Pane cardc5;
+
+    @FXML
+    private Pane cardc6;
+
+    @FXML
+    private Pane cardb1;
+
+    @FXML
+    private Pane cardb2;
+
+    @FXML
+    private Pane cardb3;
+
+    @FXML
+    private Pane cardb4;
+
+    @FXML
+    private Pane cardb5;
+
+    @FXML
+    private Pane cardb6;
+
+    @FXML
+    private Pane cardv1;
+
+    @FXML
+    private Pane cardv2;
+
+    @FXML
+    private Pane cardv3;
+
+    @FXML
+    private Pane cardv4;
+
+    @FXML
+    private Pane cardv5;
+
+    @FXML
+    private Pane cardv6;
+
+    @FXML
+    private Pane cardl1;
+
+    @FXML
+    private Pane cardl2;
+
+    @FXML
+    private Pane cardl3;
+
+    @FXML
+    private Pane cardl4;
+
+    @FXML
+    private Button active;
+
+    @FXML
+    private Button discard;
+
+    @FXML
+    private Button skip;
 
 }
 
