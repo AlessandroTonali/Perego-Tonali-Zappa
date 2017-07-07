@@ -38,6 +38,7 @@ public class TerritoryCardTest {
         }
         assertFalse(territoryCard.checkTakeable(player));
 
+
         player.getResources().setMilitaryPoints(7);
         assertTrue(territoryCard.checkTakeable(player));
 
