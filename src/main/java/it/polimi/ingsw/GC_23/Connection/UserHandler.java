@@ -1,17 +1,10 @@
 package it.polimi.ingsw.GC_23.Connection;
 
 
-import com.sun.xml.internal.ws.encoding.soap.SerializationException;
-import it.polimi.ingsw.GC_23.FX.UserFX;
 import it.polimi.ingsw.GC_23.Player;
 
-import java.io.*;
 import java.net.Socket;
 import java.rmi.RemoteException;
-import java.util.Map;
-import java.util.Scanner;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 
 /**
