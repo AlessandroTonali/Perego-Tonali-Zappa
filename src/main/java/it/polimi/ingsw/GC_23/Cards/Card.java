@@ -53,7 +53,7 @@ public abstract class Card {
     /**
      * check if can take the card
      * @param player
-     * @return a boolean object that is true if you can take the card or is false if can't take a card
+     * @return a boolean object that is true if you can take the card or is false if can't t
      * @throws RemoteException
      */
     public abstract boolean checkTakeable(Player player) throws RemoteException;
