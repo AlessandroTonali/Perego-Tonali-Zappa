@@ -42,6 +42,10 @@ public abstract class ActionSpace {
         return value;
     }
 
+    /**
+     * remove the family member by the list of all family member's player
+     * @param familyMember
+     */
     public void setFamilyMember(FamilyMember familyMember) {
         this.familyMember = familyMember;
         Player player = familyMember.getPlayer();
@@ -58,10 +62,23 @@ public abstract class ActionSpace {
 
     }
 
+    /**
+     * remove all family member present in the action space
+     */
     public void resetFamilyMember(){
         this.familyMember = null;
     }
 
+    /**
+     * check permanent effects of the player before entry in a action and active these if is possible
+     * @param familyMember
+     * @throws RemoteException
+     */
     public abstract void checkBeforeActivablePermanentEffect(FamilyMember familyMember) throws RemoteException;
+
+    /**
+     * check permanent effects of the player after entry in a action and active these if is possible
+     * @param familyMember
+     */
     public abstract void checkAfterActivablePermanentEffect(FamilyMember familyMember);
 }

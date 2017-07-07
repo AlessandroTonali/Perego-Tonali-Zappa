@@ -25,18 +25,10 @@ public class VentureCard extends Card {
     public boolean checkTakeable(Player player) throws RemoteException {
         if (player.getCardOfPlayer().getVentureCards().size() < 6) {
             if (getCost(player) instanceof MilitaryCost) {
-                MilitaryCost requiredMilitaryPoint = (MilitaryCost) getCostSelected();
-                if (player.getResources().checkAffordable(requiredMilitaryPoint.getResourcesRequired())) {
-                    return true;
-                } else {
-                    return false;
-                }
+                MilitaryCost requiredMilitaryPoint = (MilitaryCost) getCost(player);
+                return player.getResources().checkAffordable(requiredMilitaryPoint.getResourcesRequired());
             } else {
-                if (player.getResources().checkAffordable(getCostSelected().getResources())) {
-                    return true;
-                } else {
-                    return false;
-                }
+                return player.getResources().checkAffordable(getCost(player).getResources());
             }
         } else {
             return false;

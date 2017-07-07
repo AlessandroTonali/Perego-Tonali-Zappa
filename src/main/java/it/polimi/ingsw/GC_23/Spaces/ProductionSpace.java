@@ -16,8 +16,8 @@ import java.util.ArrayList;
  * Created by Alessandro Tonali on 20/05/2017.
  */
 public class ProductionSpace extends ActionSpace {
-    private static boolean isBusyFirst;
-    private static int orderCounter;
+    private boolean isBusyFirst;
+    private int orderCounter;
     private ArrayList<FamilyMember> playerOrder;
     private boolean completePlay = false;
 
@@ -49,7 +49,7 @@ public class ProductionSpace extends ActionSpace {
                 members[i] = null;
                 break;
             }
-            }
+        }
         player.setFamilyMembers(members);
 
             i++;
@@ -60,6 +60,11 @@ public class ProductionSpace extends ActionSpace {
         return playerOrder;
     }
 
+    /**
+     *
+     * @param familyMember that you want to check the value
+     * @return true if family member value is higher than space value
+     */
     public boolean checkValue(FamilyMember familyMember){
         if(isBusyFirst) {
             return (familyMember.getValue() - 3) > 1;
@@ -70,14 +75,19 @@ public class ProductionSpace extends ActionSpace {
         }
     }
 
+    /**
+     * check if there is another family member of the player
+     * @param familyMember that want to put in a space
+     * @return true if another family member of player is present, false if there isn't another family member of player
+     */
     public boolean checkFamiliar(FamilyMember familyMember){
-        if(completePlay == false && this.isBusyFirst == true){
+        if(!completePlay && this.isBusyFirst){
             return true;
         }
         boolean familiarPresence = false;
         if (familyMember.getFamilyColor() != FamilyColor.NEUTRAL) {
-            for (int i = 0; i < playerOrder.size(); i++) {
-                if (playerOrder.get(i).getPlayer().isEquals(familyMember.getPlayer())) {
+            for (FamilyMember aPlayerOrder : playerOrder) {
+                if (aPlayerOrder.getPlayer().isEquals(familyMember.getPlayer())) {
                     familiarPresence = true;
                 }
             }
@@ -85,11 +95,11 @@ public class ProductionSpace extends ActionSpace {
         return familiarPresence;
     }
 
-    public static boolean getIsBusyFirst() {
+    public boolean getIsBusyFirst() {
         return isBusyFirst;
     }
 
-    public static int getOrderCounter() {
+    public int getOrderCounter() {
         return orderCounter;
     }
 
@@ -109,7 +119,7 @@ public class ProductionSpace extends ActionSpace {
         for (int i = 0; i < permanentEffectArrayList.size(); i++) {
             PermanentEffect permanentEffect = permanentEffectArrayList.get(i);
             if (permanentEffect instanceof PlusDiceEffect && ((PlusDiceEffect) permanentEffect).getType().equals("production")) {
-                familyMember.setValue(familyMember.getValue() + familyMember.getValue());
+                familyMember.setValue(familyMember.getValue() + ((PlusDiceEffect) permanentEffect).getPlusDiceValue());
             }
         }
     }
@@ -138,7 +148,7 @@ public class ProductionSpace extends ActionSpace {
 
         for(FamilyMember f : playerOrder) {
             if(f == null) continue;
-            stringBuilder.append( "position: " + i + "--" + f.toString());
+            stringBuilder.append("position: ").append(i).append("--").append(f.toString());
 
         }
         return String.valueOf(stringBuilder);
