@@ -282,12 +282,14 @@ public class GameboardController implements Serializable {
             }
         }
         actualString = userFX.receive();
-        black.setText(actualString);
+        orange.setText(actualString);
         actualString = userFX.receive();
         white.setText(actualString);
         actualString = userFX.receive();
-        orange.setText(actualString);
-        }
+        black.setText(actualString);
+        actualString = userFX.receive();
+        neutral.setText(actualString);
+    }
 
 
     @FXML
@@ -484,6 +486,9 @@ public class GameboardController implements Serializable {
     private Label orange;
 
     @FXML
+    private Label neutral;
+
+    @FXML
     private Circle circle1;
 
     @FXML
@@ -494,6 +499,18 @@ public class GameboardController implements Serializable {
 
     @FXML
     private Circle circle4;
+
+    @FXML
+    private Circle first;
+
+    @FXML
+    private Circle second;
+
+    @FXML
+    private Circle third;
+
+    @FXML
+    private Circle fourth;
 
 
 }
