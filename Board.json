@@ -22,5 +22,13 @@
 		{"id": "35", "period": "3", "permanent_effect": [{"effect": "1035"}]},
 		{"id": "36", "period": "3", "permanent_effect": [{"effect": "1036"}]},
 		{"id": "37", "period": "3", "permanent_effect": [{"effect": "1037"}]}
+	],
+
+	"BonusTile": [
+		{"id": "80", "production_effect": "70", "harvest_effect": "71"},
+		{"id": "81", "production_effect": "72", "harvest_effect": "73"},
+		{"id": "82", "production_effect": "74", "harvest_effect": "75"},
+		{"id": "83", "production_effect": "76", "harvest_effect": "77"},
+		{"id": "84", "production_effect": "78", "harvest_effect": "79"}
 	]
 }

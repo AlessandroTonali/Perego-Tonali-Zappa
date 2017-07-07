@@ -1,5 +1,6 @@
 package it.polimi.ingsw.GC_23;
 
+import it.polimi.ingsw.GC_23.Effects.AbsEffect;
 import it.polimi.ingsw.GC_23.Effects.BenefitsEffect;
 
 /**
@@ -9,6 +10,7 @@ public class BonusTile {
 
     private BenefitsEffect productionEffect;
     private BenefitsEffect harvestEffect;
+    private int idBonusTile;
 
     public BonusTile(BenefitsEffect productionEffect, BenefitsEffect harvestEffect) {
         this.productionEffect = productionEffect;
@@ -31,5 +33,12 @@ public class BonusTile {
         this.harvestEffect = harvestEffect;
     }
 
+    public int getIdBonusTile() {
+        return idBonusTile;
+    }
+
+    public void setIdBonusTile(int idBonusTile) {
+        this.idBonusTile = idBonusTile;
+    }
 }
 

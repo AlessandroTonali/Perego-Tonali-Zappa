@@ -29,6 +29,15 @@ public abstract class Card {
     private int idCard;
 
 
+    /**
+     * Constructor for create a generic Development Card
+     * @param period
+     * @param cardColor
+     * @param name
+     * @param immediateEffect
+     * @param permanentEffect
+     * @param cost
+     */
     public Card(int period, CardColor cardColor, String name, ArrayList<AbsEffect> immediateEffect,
                 ArrayList<AbsEffect> permanentEffect, ArrayList<SingleCost>
             cost) {
@@ -41,7 +50,12 @@ public abstract class Card {
     }
 
 
-
+    /**
+     * check if can take the card
+     * @param player
+     * @return a boolean object that is true if you can take the card or is false if can't take a card
+     * @throws RemoteException
+     */
     public abstract boolean checkTakeable(Player player) throws RemoteException;
 
     public int getPeriod() {
@@ -106,6 +120,12 @@ public abstract class Card {
         return this.cost.size()>1;
     }
 
+    /**
+     * Method for choose a cost when there are two or plus possible cost on a development card
+     * @param player
+     * @return SingleCost object chosen, if there is only one cost return that cost
+     * @throws RemoteException
+     */
     public SingleCost chooseCost(Player player) throws RemoteException {
         int i = 0;
         int j = 0;
@@ -150,8 +170,16 @@ public abstract class Card {
         this.costSelected = costSelected;
     }
 
+    /**
+     * Add a specific card to ArrayList of card associated at @param player
+     * @param player
+     */
     public abstract void addCardOfPlayer(Player player);
 
+    /**
+     *
+     * @return a String object with all resources cost possible
+     */
     public String costString() {
         StringBuilder stringBuilder = new StringBuilder();
         for(SingleCost c : cost) {
@@ -160,6 +188,10 @@ public abstract class Card {
         return String.valueOf(stringBuilder);
     }
 
+    /**
+     *
+     * @return a String object with all effect associated at card
+     */
     public String effectString() {
         StringBuilder stringBuilder = new StringBuilder();
         for(AbsEffect i : immediateEffect) {

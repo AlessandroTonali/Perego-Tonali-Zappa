@@ -105,4 +105,24 @@ public class SocketHandler implements Runnable,UserHandler{
     public ObjectOutputStream getOutSocket() {
         return outSocket;
     }
+
+    public void setSocket(Socket socket) {
+        this.socket = socket;
+    }
+
+    public void setInSocket(ObjectInputStream inSocket) {
+        this.inSocket = inSocket;
+    }
+
+    public void setOutSocket(ObjectOutputStream outSocket) {
+        this.outSocket = outSocket;
+    }
+
+    public void setInScanner(Scanner inScanner) {
+        this.inScanner = inScanner;
+    }
+
+    public void setOutWriter(PrintWriter outWriter) {
+        this.outWriter = outWriter;
+    }
 }

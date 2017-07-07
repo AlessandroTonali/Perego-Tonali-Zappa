@@ -18,6 +18,10 @@ public class Dice {
         this.value = this.roll();
     }
 
+    /**
+     * Generate a random value for set a the dice value
+     * @return a random value between 1 and 6
+     */
     private int roll() {
         int maxValue = 6;
         int minvalue = 1;

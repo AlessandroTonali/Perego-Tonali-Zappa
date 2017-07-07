@@ -34,6 +34,7 @@ public class ParseJson {
     private ArrayList<ExcommunicationTile> excommunicationTileFirstPeriod = new ArrayList<>();
     private ArrayList<ExcommunicationTile> excommunicationTileSecondPeriod = new ArrayList<>();
     private ArrayList<ExcommunicationTile> excommunicationTileThirdPeriod = new ArrayList<>();
+    private ArrayList<BonusTile> bonusTileArrayList = new ArrayList<>();
     private final Logger logger = Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
 
 
@@ -368,6 +369,23 @@ public class ParseJson {
 
         JSONArray excommunicationTiles = rootObject.getJSONArray("ExcommunicationTile");
         parseExcommunicationTile(excommunicationTiles);
+
+        JSONArray bonusTiles = rootObject.getJSONArray("BonusTile");
+        parseBonusTile(bonusTiles);
+    }
+
+    private void parseBonusTile(JSONArray bonusTiles) {
+        for (int i = 0; i < bonusTiles.length(); i++) {
+            JSONObject jsonObject = bonusTiles.getJSONObject(i);
+            int idBonusTile = jsonObject.getInt("id");
+            BenefitsEffect productionEffect = (BenefitsEffect) effectMap.get(jsonObject.getInt("production_effect"));
+            BenefitsEffect harvestEffect = (BenefitsEffect) effectMap.get(jsonObject.getInt("harvest_effect"));
+
+            BonusTile  bonusTile = new BonusTile(productionEffect, harvestEffect);
+            bonusTile.setIdBonusTile(idBonusTile);
+            bonusTileArrayList.add(bonusTile);
+
+        }
     }
 
     private void parseExcommunicationTile(JSONArray excommunicationTiles) {
@@ -794,6 +812,10 @@ public class ParseJson {
 
     public HashMap<Integer, AbsEffect> getEffectMap() {
         return effectMap;
+    }
+
+    public ArrayList<BonusTile> getBonusTileArrayList() {
+        return bonusTileArrayList;
     }
 
     // METODO PER TESTING
