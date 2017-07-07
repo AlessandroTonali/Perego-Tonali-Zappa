@@ -21,15 +21,11 @@ public class PlayerTimeOut implements Runnable{
     @Override
     public void run() {
         try {
-            player.getUserHandler().messageToUser("ciao sono il timeout");
             Thread.sleep(time);
             if(isNeeded) {
                 player.setTimeIsOver(true);
-                player.getUserHandler().messageToUser("timeout finito u re gonna die1");
             }
         } catch (InterruptedException e) {
-            e.printStackTrace();
-        } catch (RemoteException e) {
             e.printStackTrace();
         }
 

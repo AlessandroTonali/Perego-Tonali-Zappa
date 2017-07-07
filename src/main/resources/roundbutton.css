@@ -5,6 +5,8 @@
     -fx-max-width: 58px;
     -fx-max-height: 58px;
     -fx-background-color: transparent;
+    -fx-border-image-repeat: no-repeat;
+    -fx-background-size: contain;
 }
 
 #button:hover{
@@ -15,6 +17,8 @@
     -fx-max-height: 58px;
     -fx-background-color: gold;
     -fx-opacity: 40%;
+    -fx-border-image-repeat: no-repeat;
+    -fx-background-size: contain;
 }
 
 #button:pressed{
@@ -25,4 +29,6 @@
     -fx-max-height: 58px;
     -fx-background-color: green;
     -fx-opacity: 60%;
+    -fx-border-image-repeat: no-repeat;
+    -fx-background-size: contain;
 }

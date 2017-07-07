@@ -1,9 +1,8 @@
 #excom {
-    -fx-max-width: 100px;
-    -fx-min-width: 100px;
+    -fx-max-width: 55px;
+    -fx-min-width: 55px;
     -fx-max-height: 100px;
     -fx-min-height: 100px;
-    -fx-background-image: url(excomm_2_2.png);
     -fx-background-size: contain;
     -fx-background-repeat: no-repeat;
 }

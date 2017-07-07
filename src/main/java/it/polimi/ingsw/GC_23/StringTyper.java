@@ -17,26 +17,27 @@ public class StringTyper implements Runnable {
     @Override
     public void run() {
         try {
-            this.player.getUserHandler().messageToUser("ciao sono il thread");
-            this.player.getUserHandler().messageToUser("write");
-            String sw = player.getUserHandler().messageFromUser();
-            int i = 0;
-
-            try {
-                i = Integer.parseInt(sw);
-
-            } catch (NumberFormatException e) {
-                this.player.getUserHandler().messageToUser("read");
-                this.player.getUserHandler().messageToUser("Invalid format");
-                run();
-                return;
-
+            if(!player.getUserHandler().isGuiInterface()) {
+                this.player.getUserHandler().messageToUser("write");
             }
-            player.setTypedInt(i);
+                String sw = player.getUserHandler().messageFromUser();
+                int i = 0;
 
-            player.setTyped(true);
+                try {
+                    i = Integer.parseInt(sw);
 
+                } catch (NumberFormatException e) {
+                    if (!player.getUserHandler().isGuiInterface()) {
+                        this.player.getUserHandler().messageToUser("read");
+                        this.player.getUserHandler().messageToUser("Invalid format");
+                    }
+                    run();
+                    return;
 
+                }
+                player.setTypedInt(i);
+
+                player.setTyped(true);
         } catch (RemoteException e) {
             e.printStackTrace();
         }

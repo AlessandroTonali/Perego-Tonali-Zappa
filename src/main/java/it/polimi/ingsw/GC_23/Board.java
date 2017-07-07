@@ -384,6 +384,9 @@ public class Board {
                 break;
             }
         }
+        boardString.append(getExcommunicationSpaceFirstPeriod().getExcommunicationTile().getIdTile() +"\n");
+        boardString.append(getExcommunicationSpaceSecondPeriod().getExcommunicationTile().getIdTile() + "\n");
+        boardString.append(getExcommunicationSpaceThirdPeriod().getExcommunicationTile().getIdTile() + "\n");
         boardString.append("end"+"\n");
         return String.valueOf(boardString);
     }

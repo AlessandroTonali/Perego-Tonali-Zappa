@@ -2,6 +2,7 @@ package it.polimi.ingsw.GC_23;
 
 import it.polimi.ingsw.GC_23.Cards.LeaderCard;
 import it.polimi.ingsw.GC_23.Cards.VentureCard;
+import it.polimi.ingsw.GC_23.Connection.UserHandler;
 import it.polimi.ingsw.GC_23.Effects.EndGameEffect;
 import it.polimi.ingsw.GC_23.Effects.PermanentEffect;
 import it.polimi.ingsw.GC_23.Enumerations.FamilyColor;
@@ -42,11 +43,15 @@ public class PlayGame {
         resetFamilyMembers();
         while(true) {
             System.out.println(period + " period");
+            sendBoard();
+            sendData();
             while( i < 1 ){
                 for (Player p : this.players) {
-                    p.getUserHandler().messageToUser("");
-                    p.getUserHandler().messageToUser(("Period: " + this.period + " Turn: " + this.turn + "\n"));
-                    p.getUserHandler().messageToUser(p.getUserHandler().getCurrentUser() + ": it's your turn!\n");
+                    if(!p.getUserHandler().isGuiInterface()) {
+                        p.getUserHandler().messageToUser("");
+                        p.getUserHandler().messageToUser(("Period: " + this.period + " Turn: " + this.turn + "\n"));
+                        p.getUserHandler().messageToUser(p.getUserHandler().getCurrentUser() + ": it's your turn!\n");
+                    }
                     p.chooseMove(this.board, this.isAdvanced);
 
                     for (LeaderCard leaderCard : p.getLeaderCards()){
@@ -313,8 +318,6 @@ public class PlayGame {
     }
 
     private void resetFamilyMembers() throws RemoteException {
-
-
         for(Player p: players){
             FamilyMember[] familyMembers = new FamilyMember[4];
 
@@ -340,6 +343,40 @@ public class PlayGame {
                 }
             }
             p.setFamilyMembers(familyMembers);
+        }
+    }
+
+    public void sendBoard() throws RemoteException{
+        String boardStringer = this.board.boardStringer();
+        for(Player p : players) {
+            p.getUserHandler().messageToUser(boardStringer);
+        }
+    }
+
+    public String dataStringer() throws RemoteException{
+        StringBuilder dataString = new StringBuilder();
+        for(Player p : players) {
+            dataString.append(p.getPlayerColor().toString() + "\n");
+            dataString.append(p.getResources().getGold() + "\n");
+            dataString.append(p.getResources().getStone() + "\n");
+            dataString.append(p.getResources().getWood() + "\n");
+            dataString.append(p.getResources().getServants() + "\n");
+            dataString.append(p.getResources().getFaithPointsObj() + "\n");
+            dataString.append(p.getResources().getMilitaryPoints() + "\n");
+            dataString.append(p.getResources().getVictoryPoints() + "\n");
+            dataString.append("endResources");
+        }
+        dataString.append(board.getDiceOValue() + "\n");
+        dataString.append(board.getDiceWValue() + "\n");
+        dataString.append(board.getDiceBValue() + "\n");
+        dataString.append(0 + "\n");
+        return String.valueOf(dataString);
+    }
+
+    public void sendData() throws RemoteException{
+        String dataStringer = dataStringer();
+        for(Player p : players){
+            p.getUserHandler().messageToUser(dataStringer);
         }
     }
 }

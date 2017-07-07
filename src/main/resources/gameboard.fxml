@@ -76,20 +76,38 @@
                                     <Button id="rectangle" fx:id="council" layoutX="19.0" layoutY="5.0" mnemonicParsing="false" prefHeight="76.0" prefWidth="188.0" stylesheets="@roundrectangle.css" />
                                     <Circle fx:id="first" centerX="262.0" centerY="-1.0" fill="#1f93ff00" radius="16.0" stroke="BLACK" strokeType="INSIDE" />
                                     <Circle fx:id="second" centerX="252.0" centerY="27.0" fill="#1f93ff00" layoutX="10.0" layoutY="10.0" radius="16.0" stroke="BLACK" strokeType="INSIDE" />
-                                    <Circle fx:id="third" centerX="252.0" centerY="63.0" fill="#1f93ff00" layoutX="10.0" layoutY="10.0" radius="16.0" stroke="BLACK" strokeType="INSIDE" />
+                                    <Circle fx:id="thrid" centerX="252.0" centerY="63.0" fill="#1f93ff00" layoutX="10.0" layoutY="10.0" radius="16.0" stroke="BLACK" strokeType="INSIDE" />
                                     <Circle fx:id="fourth" centerX="252.0" centerY="100.0" fill="#1f93ff00" layoutX="10.0" layoutY="10.0" radius="16.0" stroke="BLACK" strokeType="INSIDE" />
+                                    <Circle fx:id="council1" centerX="85.0" centerY="40.0" fill="#1f93ff00" radius="14.0" stroke="TRANSPARENT" strokeType="INSIDE" />
+                                    <Circle fx:id="council2" centerX="105.0" centerY="30.0" fill="#1f93ff00" layoutX="10.0" layoutY="10.0" radius="14.0" stroke="TRANSPARENT" strokeType="INSIDE" />
+                                    <Circle fx:id="council3" centerX="125.0" centerY="20.0" fill="#1f93ff00" layoutX="20.0" layoutY="20.0" radius="14.0" stroke="TRANSPARENT" strokeType="INSIDE" />
+                                    <Circle fx:id="council4" centerX="155.0" centerY="20.0" fill="#1f93ff00" layoutX="20.0" layoutY="20.0" radius="14.0" stroke="TRANSPARENT" strokeType="INSIDE" />
                                  </children>
                               </Pane>
                               <Pane fx:id="productionbuttons" layoutX="80.0" layoutY="850.0" prefHeight="100.0" prefWidth="320.0">
                                  <children>
                                     <Button id="button" fx:id="production1" layoutX="-1.0" layoutY="18.0" stylesheets="@roundbutton.css" />
                                     <Button id="rectangle" fx:id="productionrectangle" layoutX="78.0" layoutY="20.0" mnemonicParsing="false" prefHeight="54.0" prefWidth="144.0" stylesheets="@roundrectangle.css" />
+                                    <Circle fx:id="production2" centerX="130.0" centerY="45.0" fill="#1f93ff00" radius="12.0" stroke="TRANSPARENT" strokeType="INSIDE" />
+                                    <Circle fx:id="production3" centerX="155.0" centerY="45.0" fill="#1f93ff00" radius="12.0" stroke="TRANSPARENT" strokeType="INSIDE" />
+                                    <Circle fx:id="production4" centerX="180.0" centerY="45.0" fill="#1f93ff00" radius="12.0" stroke="TRANSPARENT" strokeType="INSIDE" />
+                                    <Circle fx:id="production5" centerX="195.0" centerY="35.0" fill="#1f93ff00" layoutX="10.0" layoutY="10.0" radius="12.0" stroke="TRANSPARENT" strokeType="INSIDE" />
+                                    <Circle fx:id="production6" centerX="220.0" centerY="35.0" fill="#1f93ff00" layoutX="10.0" layoutY="10.0" radius="12.0" stroke="TRANSPARENT" strokeType="INSIDE" />
+                                    <Circle fx:id="production7" centerX="245.0" centerY="35.0" fill="#1f93ff00" layoutX="10.0" layoutY="10.0" radius="12.0" stroke="TRANSPARENT" strokeType="INSIDE" />
+                                    <Circle fx:id="production8" centerX="270.0" centerY="35.0" fill="#1f93ff00" layoutX="10.0" layoutY="10.0" radius="12.0" stroke="TRANSPARENT" strokeType="INSIDE" />
                                  </children>
                               </Pane>
                               <Pane fx:id="harvestbuttons" layoutX="80.0" layoutY="930.0" prefHeight="100.0" prefWidth="320.0">
                                  <children>
                                     <Button id="button" fx:id="harvest1" layoutX="-1.0" layoutY="22.0" stylesheets="@roundbutton.css" />
                                     <Button id="rectangle" fx:id="harvestrectangle" layoutX="78.0" layoutY="24.0" mnemonicParsing="false" prefHeight="54.0" prefWidth="144.0" stylesheets="@roundrectangle.css" />
+                                    <Circle fx:id="harvest2" centerX="130.0" centerY="45.0" fill="#1f93ff00" radius="12.0" stroke="TRANSPARENT" strokeType="INSIDE" />
+                                    <Circle fx:id="harvest3" centerX="155.0" centerY="45.0" fill="#1f93ff00" radius="12.0" stroke="TRANSPARENT" strokeType="INSIDE" />
+                                    <Circle fx:id="harvest4" centerX="180.0" centerY="45.0" fill="#1f93ff00" radius="12.0" stroke="TRANSPARENT" strokeType="INSIDE" />
+                                    <Circle fx:id="harvest5" centerX="205.0" centerY="45.0" fill="#1f93ff00" radius="12.0" stroke="TRANSPARENT" strokeType="INSIDE" />
+                                    <Circle fx:id="harvest6" centerX="230.0" centerY="45.0" fill="#1f93ff00" radius="12.0" stroke="TRANSPARENT" strokeType="INSIDE" />
+                                    <Circle fx:id="harvest7" centerX="255.0" centerY="45.0" fill="#1f93ff00" radius="12.0" stroke="TRANSPARENT" strokeType="INSIDE" />
+                                    <Circle fx:id="harvest8" centerX="280.0" centerY="45.0" fill="#1f93ff00" radius="12.0" stroke="TRANSPARENT" strokeType="INSIDE" />
                                  </children>
                               </Pane>
                               <Pane fx:id="marketbuttons" layoutX="400.0" layoutY="850.0" prefHeight="110.0" prefWidth="250.0">
@@ -103,7 +121,9 @@
                               <Pane fx:id="dicebuttons" layoutX="400.0" layoutY="960.0" prefHeight="65.0" prefWidth="200.0" />
                               <Pane fx:id="excommunicationspaces" layoutX="150.0" layoutY="610.0" prefHeight="159.0" prefWidth="200.0">
                                  <children>
-                                    <Pane id="excom" layoutX="76.0" layoutY="60.0" prefHeight="200.0" prefWidth="200.0" stylesheets="@excommunicationspace.css" />
+                                    <Pane id="excom" fx:id="excom1" layoutX="23.0" layoutY="46.0" prefHeight="200.0" prefWidth="200.0" stylesheets="@excommunicationspace.css" />
+                                    <Pane id="excom" fx:id="excom3" layoutX="132.0" layoutY="46.0" prefHeight="200.0" prefWidth="200.0" stylesheets="@excommunicationspace.css" />
+                                    <Pane id="excom" fx:id="excom2" layoutX="76.0" layoutY="60.0" prefHeight="200.0" prefWidth="200.0" stylesheets="@excommunicationspace.css" />
                                  </children>
                               </Pane>
                            </children>
@@ -214,6 +234,7 @@
                               <Rectangle arcHeight="5.0" arcWidth="5.0" fill="ORANGE" height="25.0" layoutX="310.0" layoutY="240.0" stroke="BLACK" strokeType="INSIDE" width="25.0" />
                               <Label fx:id="orange" layoutX="355.0" layoutY="245.0" />
                               <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ffa10000" height="25.0" layoutX="440.0" layoutY="240.0" stroke="BLACK" strokeType="INSIDE" width="25.0" />
+                              <Button fx:id="increase" layoutX="530.0" layoutY="240.0" mnemonicParsing="false" text="Increase" />
                               <Label fx:id="neutral" layoutX="485.0" layoutY="245.0" />
                            </children>
                         </Pane>

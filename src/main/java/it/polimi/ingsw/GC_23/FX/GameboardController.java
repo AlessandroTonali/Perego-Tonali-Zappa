@@ -1,14 +1,19 @@
 package it.polimi.ingsw.GC_23.FX;
 
+import com.sun.prism.paint.Color;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.layout.*;
+import javafx.scene.paint.ImagePattern;
+import javafx.scene.paint.Paint;
 import javafx.scene.shape.Circle;
 
 import java.io.Serializable;
 import java.rmi.RemoteException;
+
+import static javafx.scene.paint.Color.*;
 
 /**
  * Created by jesss on 21/06/17.
@@ -24,6 +29,12 @@ public class GameboardController implements Serializable {
         try {
             String actualString = userFX.receive();
             towerSetter();
+            marketSetter();
+            harvestSetter();
+            productionSetter();
+            councilSetter();
+            excomSetter();
+            actualString = userFX.receive();
         } catch (RemoteException e) {
             e.printStackTrace();
         }
@@ -36,6 +47,7 @@ public class GameboardController implements Serializable {
     public void towerSetter() throws RemoteException{
         String inizio;
         String fine;
+        String fine2;
         String ind;
         String actualString;
         actualString = userFX.receive();
@@ -46,6 +58,10 @@ public class GameboardController implements Serializable {
 
         actualString = userFX.receive();
         actualString = userFX.receive();
+        fine2 = "(stuff/" + actualString + ".png)" + ";";
+        ind = inizio + fine2;
+        territory1.setStyle(ind);
+
         actualString = userFX.receive();
         actualString = userFX.receive();
         fine = "(card/" + actualString + ".png)" + ";";
@@ -54,6 +70,10 @@ public class GameboardController implements Serializable {
 
         actualString = userFX.receive();
         actualString = userFX.receive();
+        fine2 = "(stuff/" + actualString + ".png)" + ";";
+        ind = inizio + fine2;
+        territory2.setStyle(ind);
+
         actualString = userFX.receive();
         actualString = userFX.receive();
         fine = "(card/" + actualString + ".png)" + ";";
@@ -62,6 +82,10 @@ public class GameboardController implements Serializable {
 
         actualString = userFX.receive();
         actualString = userFX.receive();
+        fine2 = "(stuff/" + actualString + ".png)" + ";";
+        ind = inizio + fine2;
+        territory3.setStyle(ind);
+
         actualString = userFX.receive();
         actualString = userFX.receive();
         fine = "(card/" + actualString + ".png)" + ";";
@@ -70,6 +94,10 @@ public class GameboardController implements Serializable {
 
         actualString = userFX.receive();
         actualString = userFX.receive();
+        fine2 = "(stuff/" + actualString + ".png)" + ";";
+        ind = inizio + fine2;
+        territory4.setStyle(ind);
+
         actualString = userFX.receive();
         actualString = userFX.receive();
         fine = "(card/" + actualString + ".png)" + ";";
@@ -78,6 +106,10 @@ public class GameboardController implements Serializable {
 
         actualString = userFX.receive();
         actualString = userFX.receive();
+        fine2 = "(stuff/" + actualString + ".png)" + ";";
+        ind = inizio + fine2;
+        character1.setStyle(ind);
+
         actualString = userFX.receive();
         actualString = userFX.receive();
         fine = "(card/" + actualString + ".png)" + ";";
@@ -86,6 +118,10 @@ public class GameboardController implements Serializable {
 
         actualString = userFX.receive();
         actualString = userFX.receive();
+        fine2 = "(stuff/" + actualString + ".png)" + ";";
+        ind = inizio + fine2;
+        character2.setStyle(ind);
+
         actualString = userFX.receive();
         actualString = userFX.receive();
         fine = "(card/" + actualString + ".png)" + ";";
@@ -94,6 +130,10 @@ public class GameboardController implements Serializable {
 
         actualString = userFX.receive();
         actualString = userFX.receive();
+        fine2 = "(stuff/" + actualString + ".png)" + ";";
+        ind = inizio + fine2;
+        character3.setStyle(ind);
+
         actualString = userFX.receive();
         actualString = userFX.receive();
         fine = "(card/" + actualString + ".png)" + ";";
@@ -102,6 +142,10 @@ public class GameboardController implements Serializable {
 
         actualString = userFX.receive();
         actualString = userFX.receive();
+        fine2 = "(stuff/" + actualString + ".png)" + ";";
+        ind = inizio + fine2;
+        character4.setStyle(ind);
+
         actualString = userFX.receive();
         actualString = userFX.receive();
         fine = "(card/" + actualString + ".png)" + ";";
@@ -110,6 +154,10 @@ public class GameboardController implements Serializable {
 
         actualString = userFX.receive();
         actualString = userFX.receive();
+        fine2 = "(stuff/" + actualString + ".png)" + ";";
+        ind = inizio + fine2;
+        building1.setStyle(ind);
+
         actualString = userFX.receive();
         actualString = userFX.receive();
         fine = "(card/" + actualString + ".png)" + ";";
@@ -118,6 +166,10 @@ public class GameboardController implements Serializable {
 
         actualString = userFX.receive();
         actualString = userFX.receive();
+        fine2 = "(stuff/" + actualString + ".png)" + ";";
+        ind = inizio + fine2;
+        building2.setStyle(ind);
+
         actualString = userFX.receive();
         actualString = userFX.receive();
         fine = "(card/" + actualString + ".png)" + ";";
@@ -126,6 +178,10 @@ public class GameboardController implements Serializable {
 
         actualString = userFX.receive();
         actualString = userFX.receive();
+        fine2 = "(stuff/" + actualString + ".png)" + ";";
+        ind = inizio + fine2;
+        building3.setStyle(ind);
+
         actualString = userFX.receive();
         actualString = userFX.receive();
         fine = "(card/" + actualString + ".png)" + ";";
@@ -134,6 +190,10 @@ public class GameboardController implements Serializable {
 
         actualString = userFX.receive();
         actualString = userFX.receive();
+        fine2 = "(stuff/" + actualString + ".png)" + ";";
+        ind = inizio + fine2;
+        building4.setStyle(ind);
+
         actualString = userFX.receive();
         actualString = userFX.receive();
         fine = "(card/" + actualString + ".png)" + ";";
@@ -142,6 +202,10 @@ public class GameboardController implements Serializable {
 
         actualString = userFX.receive();
         actualString = userFX.receive();
+        fine2 = "(stuff/" + actualString + ".png)" + ";";
+        ind = inizio + fine2;
+        venture1.setStyle(ind);
+
         actualString = userFX.receive();
         actualString = userFX.receive();
         fine = "(card/" + actualString + ".png)" + ";";
@@ -150,6 +214,10 @@ public class GameboardController implements Serializable {
 
         actualString = userFX.receive();
         actualString = userFX.receive();
+        fine2 = "(stuff/" + actualString + ".png)" + ";";
+        ind = inizio + fine2;
+        venture2.setStyle(ind);
+
         actualString = userFX.receive();
         actualString = userFX.receive();
         fine = "(card/" + actualString + ".png)" + ";";
@@ -158,26 +226,247 @@ public class GameboardController implements Serializable {
 
         actualString = userFX.receive();
         actualString = userFX.receive();
+        fine2 = "(stuff/" + actualString + ".png)" + ";";
+        ind = inizio + fine2;
+        venture3.setStyle(ind);
+
         actualString = userFX.receive();
         actualString = userFX.receive();
         fine = "(card/" + actualString + ".png)" + ";";
         ind = inizio + fine;
         venturecard4.setStyle(ind);
+
+        actualString = userFX.receive();
+        actualString = userFX.receive();
+        fine2 = "(stuff/" + actualString + ".png)" + ";";
+        ind = inizio + fine2;
+        venture4.setStyle(ind);
     }
+
+    public void marketSetter() throws RemoteException{
+        String actualString;
+        String inizio;
+        String fine;
+        String ind;
+        inizio = "-fx-background-image: url";
+        actualString = userFX.receive();
+        actualString = userFX.receive();
+        fine = "(stuff/" + actualString + ".png)" + ";";
+        ind = inizio + fine;
+        market1.setStyle(ind);
+
+        actualString = userFX.receive();
+        actualString = userFX.receive();
+        fine = "(stuff/" + actualString + ".png)" + ";";
+        ind = inizio + fine;
+        market2.setStyle(ind);
+
+        actualString = userFX.receive();
+        actualString = userFX.receive();
+        fine = "(stuff/" + actualString + ".png)" + ";";
+        ind = inizio + fine;
+        market3.setStyle(ind);
+
+        actualString = userFX.receive();
+        actualString = userFX.receive();
+        fine = "(stuff/" + actualString + ".png)" + ";";
+        ind = inizio + fine;
+        market4.setStyle(ind);
+    }
+
+    public void harvestSetter() throws RemoteException {
+        String inizio = "-fx-background-image: url";
+        String fine;
+        String ind;
+        String actualString = userFX.receive();
+        if (!actualString.equals("harvestend")) {
+            fine = "(stuff/" + actualString + ".png)" + ";";
+            ind = inizio + fine;
+            harvest1.setStyle(ind);
+
+            actualString = userFX.receive();
+            if (!actualString.equals("harvestend")) {
+                fine = "(stuff/" + actualString + ".png)" + ";";
+                ind = inizio + fine;
+                harvest2.setStyle(ind);
+
+                actualString = userFX.receive();
+                if (!actualString.equals("harvestend")) {
+                    fine = "(stuff/" + actualString + ".png)" + ";";
+                    ind = inizio + fine;
+                    harvest3.setStyle(ind);
+
+                    actualString = userFX.receive();
+                    if (!actualString.equals("harvestend")) {
+                        fine = "(stuff/" + actualString + ".png)" + ";";
+                        ind = inizio + fine;
+                        harvest4.setStyle(ind);
+
+                        actualString = userFX.receive();
+                        if (!actualString.equals("harvestend")) {
+                            fine = "(stuff/" + actualString + ".png)" + ";";
+                            ind = inizio + fine;
+                            harvest5.setStyle(ind);
+
+                            actualString = userFX.receive();
+                            if (!actualString.equals("harvestend")) {
+                                fine = "(stuff/" + actualString + ".png)" + ";";
+                                ind = inizio + fine;
+                                harvest6.setStyle(ind);
+
+                                actualString = userFX.receive();
+                                if (!actualString.equals("harvestend")) {
+                                    fine = "(stuff/" + actualString + ".png)" + ";";
+                                    ind = inizio + fine;
+                                    harvest7.setStyle(ind);
+
+                                    actualString = userFX.receive();
+                                    if(!actualString.equals("harvestend")) {
+                                        fine = "(stuff/" + actualString + ".png)" + ";";
+                                        ind = inizio + fine;
+                                        harvest8.setStyle(ind);
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    public void productionSetter() throws RemoteException {
+        String inizio = "-fx-background-image: url";
+        String fine;
+        String ind;
+        String actualString = userFX.receive();
+        if (!actualString.equals("productionend")) {
+            fine = "(stuff/" + actualString + ".png)" + ";";
+            ind = inizio + fine;
+            production1.setStyle(ind);
+
+            actualString = userFX.receive();
+            if (!actualString.equals("productionend")) {
+                fine = "(stuff/" + actualString + ".png)" + ";";
+                ind = inizio + fine;
+                production2.setStyle(ind);
+
+                actualString = userFX.receive();
+                if (!actualString.equals("productionend")) {
+                    fine = "(stuff/" + actualString + ".png)" + ";";
+                    ind = inizio + fine;
+                    production3.setStyle(ind);
+
+                    actualString = userFX.receive();
+                    if (!actualString.equals("productionend")) {
+                        fine = "(stuff/" + actualString + ".png)" + ";";
+                        ind = inizio + fine;
+                        production4.setStyle(ind);
+
+                        actualString = userFX.receive();
+                        if (!actualString.equals("productionend")) {
+                            fine = "(stuff/" + actualString + ".png)" + ";";
+                            ind = inizio + fine;
+                            production5.setStyle(ind);
+
+                            actualString = userFX.receive();
+                            if (!actualString.equals("productionend")) {
+                                fine = "(stuff/" + actualString + ".png)" + ";";
+                                ind = inizio + fine;
+                                production6.setStyle(ind);
+
+                                actualString = userFX.receive();
+                                if (!actualString.equals("productionend")) {
+                                    fine = "(stuff/" + actualString + ".png)" + ";";
+                                    ind = inizio + fine;
+                                    production7.setStyle(ind);
+
+                                    actualString = userFX.receive();
+                                    if(!actualString.equals("productionend")) {
+                                        fine = "(stuff/" + actualString + ".png)" + ";";
+                                        ind = inizio + fine;
+                                        production8.setStyle(ind);
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    public  void councilSetter() throws RemoteException {
+        String inizio = "-fx-background-image: url";
+        String fine;
+        String ind;
+        String actualString = userFX.receive();
+        if (!actualString.equals("councilend")) {
+            fine = "(stuff/" + actualString + ".png)" + ";";
+            ind = inizio + fine;
+            council1.setStyle(ind);
+
+            actualString = userFX.receive();
+            if (!actualString.equals("councilend")) {
+                fine = "(stuff/" + actualString + ".png)" + ";";
+                ind = inizio + fine;
+                council2.setStyle(ind);
+
+                actualString = userFX.receive();
+                if (!actualString.equals("councilend")) {
+                    fine = "(stuff/" + actualString + ".png)" + ";";
+                    ind = inizio + fine;
+                    council3.setStyle(ind);
+
+                    actualString = userFX.receive();
+                    if (!actualString.equals("councilend")) {
+                        fine = "(stuff/" + actualString + ".png)" + ";";
+                        ind = inizio + fine;
+                        council4.setStyle(ind);
+                    }
+                }
+
+            }
+        }
+    }
+
+    public void excomSetter() throws RemoteException{
+        String inizio = "-fx-background-image: url";
+        String fine;
+        String ind;
+        String actualString = userFX.receive();
+        fine = "(exc/" + actualString + ".png)" + ";";
+        ind = inizio + fine;
+
+        excom1.setStyle(ind);
+        actualString = userFX.receive();
+        fine = "(exc/" + actualString + ".png)" + ";";
+        ind = inizio + fine;
+
+        excom2.setStyle(ind);
+        actualString = userFX.receive();
+        fine = "(exc/" + actualString + ".png)" + ";";
+        ind = inizio + fine;
+        excom3.setStyle(ind);
+    }
+
 
     public void dataSetter() throws RemoteException{
         String actualString = userFX.receive();
+        actualString = userFX.receive();
         switch (actualString) {
             case "RED":
-                circle1.setStyle("-fx-background-color: RED");
+                circle1.setFill(RED);
                 break;
             case "BLUE":
-                circle1.setStyle("-fx-background-color: BLUE");
+                circle1.setFill(BLUE);
                 break;
             case "GREEN":
-                circle1.setStyle("-fx-background-color: GREEN");
+                circle1.setFill(GREEN);
+                break;
             case "YELLOW":
-                circle1.setStyle("-fx-background-color: YELLOW");
+                circle1.setFill(YELLOW);
+                break;
         }
         actualString = userFX.receive();
         coin1.setText(actualString);
@@ -197,15 +486,20 @@ public class GameboardController implements Serializable {
         actualString = userFX.receive();
         switch (actualString) {
             case "RED":
-                circle2.setStyle("-fx-background-color: RED");
+                circle2.setFill(RED);
                 break;
             case "BLUE":
-                circle2.setStyle("-fx-background-color: BLUE");
+                Image image = new Image("stuff/BLUEBLACK.png");
+                circle2.setFill(new ImagePattern(image));
                 break;
             case "YELLOW":
-                circle2.setStyle("-fx-background-color: YELLOW");
+                Image image3 = new Image("/stuff/wood.png");
+                circle2.setFill(new ImagePattern(image3));
+                break;
             case "GREEN":
-                circle2.setStyle("-fx-background-color: GREEN");
+                Image image4 = new Image("/stuff/wood.png");
+                circle2.setFill(new ImagePattern(image4));
+                break;
         }
         actualString = userFX.receive();
         coin2.setText(actualString);
@@ -219,24 +513,24 @@ public class GameboardController implements Serializable {
         faith2.setText(actualString);
         actualString = userFX.receive();
         military2.setText(actualString);
-        System.out.println("prima");
         actualString = userFX.receive();
-        System.out.println("dopo");
         victory2.setText(actualString);
 
         actualString = userFX.receive();
         if(!actualString.equals("endResources")) {
             switch (actualString) {
                 case "RED":
-                    circle3.setStyle("-fx-background-color: RED");
+                    circle3.setStyle("-fx-background-color: RED;");
                     break;
                 case "YELLOW":
-                    circle3.setStyle("-fx-background-color: YELLOW");
+                    circle3.setStyle("-fx-background-color: YELLOW;");
+                    break;
                 case "BLUE":
-                    circle3.setStyle("-fx-background-color: BLUE");
+                    circle3.setStyle("-fx-background-color: BLUE;");
                     break;
                 case "GREEN":
-                    circle3.setStyle("-fx-background-color: GREEN");
+                    circle3.setStyle("-fx-background-color: GREEN;");
+                    break;
             }
             actualString = userFX.receive();
             coin3.setText(actualString);
@@ -257,14 +551,16 @@ public class GameboardController implements Serializable {
             if(!actualString.equals("endResources")) {
                 switch (actualString) {
                     case "GREEN":
-                        circle4.setStyle("-fx-background-color: GREEN");
+                        circle4.setStyle("-fx-background-color: GREEN;");
+                        break;
                     case "RED":
-                        circle4.setStyle("-fx-background-color: RED");
+                        circle4.setStyle("-fx-background-color: RED;");
                         break;
                     case "YELLOW":
-                        circle4.setStyle("-fx-background-color: YELLOW");
+                        circle4.setStyle("-fx-background-color: YELLOW;");
+                        break;
                     case "BLUE":
-                        circle4.setStyle("-fx-background-color: BLUE");
+                        circle4.setStyle("-fx-background-color: BLUE;");
                         break;
                 }
                 actualString = userFX.receive();
@@ -514,6 +810,89 @@ public class GameboardController implements Serializable {
     @FXML
     private Circle fourth;
 
+    @FXML
+    private Button insert;
+
+    @FXML
+    private Button market1;
+
+    @FXML
+    private Button market2;
+
+    @FXML
+    private Button market3;
+
+    @FXML
+    private Button market4;
+
+    @FXML
+    private Circle council1;
+
+    @FXML
+    private Circle council2;
+
+    @FXML
+    private Circle council3;
+
+    @FXML
+    private Circle council4;
+
+    @FXML
+    private Button production1;
+
+    @FXML
+    private Circle production2;
+
+    @FXML
+    private Circle production3;
+
+    @FXML
+    private Circle production4;
+
+    @FXML
+    private Circle production5;
+
+    @FXML
+    private Circle production6;
+
+    @FXML
+    private Circle production7;
+
+    @FXML
+    private Circle production8;
+
+    @FXML
+    private Button harvest1;
+
+    @FXML
+    private Circle harvest2;
+
+    @FXML
+    private Circle harvest3;
+
+    @FXML
+    private Circle harvest4;
+
+    @FXML
+    private Circle harvest5;
+
+    @FXML
+    private Circle harvest6;
+
+    @FXML
+    private Circle harvest7;
+
+    @FXML
+    private Circle harvest8;
+
+    @FXML
+    private Pane excom1;
+
+    @FXML
+    private Pane excom2;
+
+    @FXML
+    private Pane excom3;
 
 }
 

@@ -73,8 +73,6 @@ public class Match implements Runnable{
             creator.createPlayer(u.getCurrentPlayer().getPlayerColor(), u);
         }
         setAdvanced();
-        sendBoard();
-        sendData();
         creator.startGame(userHandlers.size(), this.isAdvanced);
         for(UserHandler u: userHandlers){
             u.messageToUser("quit");
@@ -196,40 +194,6 @@ public class Match implements Runnable{
 
     public void setAdvanced() {
         isAdvanced = votation>0;
-    }
-
-    public void sendBoard() throws RemoteException{
-        String boardStringer = this.board.boardStringer();
-        for(UserHandler u : userHandlers) {
-            u.messageToUser(boardStringer);
-            }
-    }
-
-    public String dataStringer() throws RemoteException{
-        StringBuilder dataString = new StringBuilder();
-        for(UserHandler u : userHandlers) {
-            dataString.append(u.getCurrentPlayer().getPlayerColor().toString() + "\n");
-            dataString.append(u.getCurrentPlayer().getResources().getGold() + "\n");
-            dataString.append(u.getCurrentPlayer().getResources().getStone() + "\n");
-            dataString.append(u.getCurrentPlayer().getResources().getWood() + "\n");
-            dataString.append(u.getCurrentPlayer().getResources().getServants() + "\n");
-            dataString.append(u.getCurrentPlayer().getResources().getFaithPointsObj() + "\n");
-            dataString.append(u.getCurrentPlayer().getResources().getMilitaryPoints() + "\n");
-            dataString.append(u.getCurrentPlayer().getResources().getVictoryPoints() + "\n");
-            dataString.append("endResources");
-            dataString.append(u.getCurrentPlayer().getFamilyMembers()[0].getValue() + "\n");
-            dataString.append(u.getCurrentPlayer().getFamilyMembers()[1].getValue() + "\n");
-            dataString.append(u.getCurrentPlayer().getFamilyMembers()[2].getValue() + "\n");
-            dataString.append(u.getCurrentPlayer().getFamilyMembers()[3].getValue() + "\n");
-        }
-        return String.valueOf(dataString);
-    }
-
-    public void sendData() throws RemoteException{
-        String dataStringer = dataStringer();
-        for(UserHandler u : userHandlers){
-            u.messageToUser(dataStringer);
-        }
     }
 }
 
