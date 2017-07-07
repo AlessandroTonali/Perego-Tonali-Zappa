@@ -74,7 +74,7 @@ public class Match implements Runnable{
         }
         setAdvanced();
         sendBoard();
-        //sendData();
+        sendData();
         creator.startGame(userHandlers.size(), this.isAdvanced);
         for(UserHandler u: userHandlers){
             u.messageToUser("quit");

@@ -55,6 +55,7 @@ public class ServerImpl extends UnicastRemoteObject implements Server {
         UserHandler userHandler = new RMIHandler(user);
         userHandler.setCurrentUser(user.getUsername());
         this.userHandlers.add(userHandler);
+
         addToMatch(userHandler);
         System.out.println("Client accepted: " + user.getUsername());
         getExecutor().submit((RMIHandler) userHandler);
