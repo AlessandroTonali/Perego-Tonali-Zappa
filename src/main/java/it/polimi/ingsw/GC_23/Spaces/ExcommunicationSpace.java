@@ -1,6 +1,8 @@
 package it.polimi.ingsw.GC_23.Spaces;
 
+import it.polimi.ingsw.GC_23.Effects.AbsEffect;
 import it.polimi.ingsw.GC_23.ExcommunicationTile;
+import it.polimi.ingsw.GC_23.ParseJson;
 import it.polimi.ingsw.GC_23.Player;
 import it.polimi.ingsw.GC_23.Resources.ResourcesSet;
 import it.polimi.ingsw.GC_23.StringTyper;
@@ -52,60 +54,14 @@ public class ExcommunicationSpace {
                 break;
             case 2:
                 int faithPoint = player.getResources().getFaithPoints();
-                int victoryPointsGained = 0;
-                switch (faithPoint){
-                    case 1:
-                        victoryPointsGained = 1;
-                        break;
-                    case 2:
-                        victoryPointsGained = 2;
-                        break;
-                    case 3:
-                        victoryPointsGained = 3;
-                        break;
-                    case 4:
-                        victoryPointsGained = 4;
-                        break;
-                    case 5:
-                        victoryPointsGained = 5;
-                        break;
-                    case 6:
-                        victoryPointsGained = 7;
-                        break;
-                    case 7:
-                        victoryPointsGained = 9;
-                        break;
-                    case 8:
-                        victoryPointsGained = 11;
-                        break;
-                    case 9:
-                        victoryPointsGained = 13;
-                        break;
-                    case 10:
-                        victoryPointsGained = 15;
-                        break;
-                    case 11:
-                        victoryPointsGained = 17;
-                        break;
-                    case 12:
-                        victoryPointsGained = 19;
-                        break;
-                    case 13:
-                        victoryPointsGained = 22;
-                        break;
-                    case 14:
-                        victoryPointsGained = 25;
-                        break;
-                    case 15:
-                        victoryPointsGained = 30;
-                        break;
-                }
+                AbsEffect effect = ParseJson.getParseJson().getFaithTrackEffect().get(faithPoint);
+                effect.activeEffect(player);
                 if (player.isPointOnVatican()) {
-                    victoryPointsGained = victoryPointsGained + 5;
+                    int victoryPointsGained = 5;
+                    player.getResources().sum(new ResourcesSet(0,0,0,0,0,victoryPointsGained,0),player);
                 }
                 player.getResources().setFaithPoints(0);
-                player.getResources().sum(new ResourcesSet(0,0,0,0,0,victoryPointsGained,0),player);
-                player.getUserHandler().messageToUser("You've support the vatican, you receive "+victoryPointsGained+" victory points and your faith points have been resetted");
+                player.getUserHandler().messageToUser("You've support the vatican");
                 break;
             default:
                 player.getUserHandler().messageToUser("Wrong number selected, try again");

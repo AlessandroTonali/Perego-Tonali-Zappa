@@ -1,4 +1,8 @@
 {
+	"Options": {
+		"timeout_start_match": "3",
+		"timeout_player_move": "30"
+	},
 	"ExcommunicationTile": [
 		{"id": "11", "period": "1", "permanent_effect": [{"effect": "1011"}]},
 		{"id": "12", "period": "1", "permanent_effect": [{"effect": "1012"}]},
@@ -30,5 +34,62 @@
 		{"id": "82", "production_effect": "74", "harvest_effect": "75"},
 		{"id": "83", "production_effect": "76", "harvest_effect": "77"},
 		{"id": "84", "production_effect": "78", "harvest_effect": "79"}
+	],
+	
+	"TerritoryTowerBonus": [
+		{"effect": "0"},
+		{"effect": "0"},
+		{"effect": "23"},
+		{"effect": "24"}
+	],
+	"CharacterTowerBonus": [
+		{"effect": "0"},
+		{"effect": "0"},
+		{"effect": "33"},
+		{"effect": "34"}
+	],
+	"BuildingTowerBonus": [
+		{"effect": "0"},
+		{"effect": "0"},
+		{"effect": "43"},
+		{"effect": "44"}
+	],
+	"VentureTowerBonus": [
+		{"effect": "0"},
+		{"effect": "0"},
+		{"effect": "53"},
+		{"effect": "54"}
+	],
+	
+	"MarketBonus": [
+		{"effect": "61"},
+		{"effect": "62"},
+		{"effect": "63"},
+		{"effect": "64"}
+	],
+	
+	"CouncilBonus": [
+		{"effect": "1"},
+		{"effect": "2"}
+	],
+	
+	"FaithTrack": [
+		{"position": "0", "effect": "0"},
+		{"position": "1", "effect": "85"},
+		{"position": "2", "effect": "86"},
+		{"position": "3", "effect": "87"},
+		{"position": "4", "effect": "88"},
+		{"position": "5", "effect": "89"},
+		{"position": "6", "effect": "90"},
+		{"position": "7", "effect": "91"},
+		{"position": "8", "effect": "92"},
+		{"position": "9", "effect": "93"},
+		{"position": "10", "effect": "94"},
+		{"position": "11", "effect": "95"},
+		{"position": "12", "effect": "96"},
+		{"position": "13", "effect": "97"},
+		{"position": "14", "effect": "98"},
+		{"position": "15", "effect": "99"}
+		
 	]
 }

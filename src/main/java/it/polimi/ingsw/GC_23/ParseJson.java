@@ -26,16 +26,25 @@ public class ParseJson {
     private HashMap<Integer,VentureCard> ventureCardMap = new HashMap<>();
     private HashMap<Integer,TerritoryCard> territoryCardMap = new HashMap<>();
     private HashMap<Integer,CharacterCard> characterCardMap = new HashMap<>();
+    private HashMap<Integer, AbsEffect> faithTrackEffect = new HashMap<>();
     private ArrayList<LeaderCard> leaderCardArrayList = new ArrayList<>();
     private ArrayList<Card> characterCardArrayList = new ArrayList<>();
     private ArrayList<Card> territoryCardArrayList = new ArrayList<>();
     private ArrayList<Card> ventureCardArrayList = new ArrayList<>();
     private ArrayList<Card> buildingCardArrayList = new ArrayList<>();
+    private ArrayList<AbsEffect> marketEffectArrayList = new ArrayList<>();
+    private ArrayList<AbsEffect> councilEffectArrayList = new ArrayList<>();
+    private AbsEffect[] towerTerritoryEffect = new AbsEffect[4];
+    private AbsEffect[] towerCharacterEffect = new AbsEffect[4];
+    private AbsEffect[] towerBuildingEffect = new AbsEffect[4];
+    private AbsEffect[] towerVentureEffect = new AbsEffect[4];
     private ArrayList<ExcommunicationTile> excommunicationTileFirstPeriod = new ArrayList<>();
     private ArrayList<ExcommunicationTile> excommunicationTileSecondPeriod = new ArrayList<>();
     private ArrayList<ExcommunicationTile> excommunicationTileThirdPeriod = new ArrayList<>();
     private ArrayList<BonusTile> bonusTileArrayList = new ArrayList<>();
     private final Logger logger = Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
+    private int timeoutStartMatch;
+    private int timeoutPlayerMove;
 
 
     public static synchronized ParseJson getParseJson(){
@@ -57,14 +66,7 @@ public class ParseJson {
     }
 
     public ArrayList<AbsEffect> getMarketEffect() {
-
-        ArrayList<AbsEffect> arrayList = new ArrayList<>();
-        arrayList.add(effectMap.get(61));
-        arrayList.add(effectMap.get(62));
-        arrayList.add(effectMap.get(63));
-        arrayList.add(effectMap.get(64));
-        return arrayList;
-
+        return marketEffectArrayList;
     }
 
 
@@ -367,11 +369,62 @@ public class ParseJson {
 
         JSONObject rootObject = new JSONObject(jsonContent);
 
+        JSONObject options = rootObject.getJSONObject("Options");
+        timeoutStartMatch = options.getInt("timeout_start_match");
+        timeoutPlayerMove = options.getInt("timeout_player_move");
+
         JSONArray excommunicationTiles = rootObject.getJSONArray("ExcommunicationTile");
         parseExcommunicationTile(excommunicationTiles);
 
         JSONArray bonusTiles = rootObject.getJSONArray("BonusTile");
         parseBonusTile(bonusTiles);
+
+        JSONArray territoryTowerBonus = rootObject.getJSONArray("TerritoryTowerBonus");
+        parseBonusTower(towerTerritoryEffect, territoryTowerBonus);
+
+        JSONArray characterTowerBonus = rootObject.getJSONArray("CharacterTowerBonus");
+        parseBonusTower(towerCharacterEffect, characterTowerBonus);
+
+        JSONArray buildingTowerBonus = rootObject.getJSONArray("BuildingTowerBonus");
+        parseBonusTower(towerBuildingEffect, buildingTowerBonus);
+
+        JSONArray ventureTowerBonus = rootObject.getJSONArray("VentureTowerBonus");
+        parseBonusTower(towerVentureEffect, ventureTowerBonus);
+
+        JSONArray marketBonus = rootObject.getJSONArray("MarketBonus");
+        parseBonus(marketBonus);
+
+        JSONArray councilBonus = rootObject.getJSONArray("CouncilBonus");
+        parseBonus(councilBonus);
+
+        JSONArray faithTrack = rootObject.getJSONArray("FaithTrack");
+        parseFaithTrack(faithTrack);
+    }
+
+    private void parseBonus(JSONArray arrayBonus) {
+        for (int i = 0; i < arrayBonus.length(); i++) {
+            JSONObject jsonObject = arrayBonus.getJSONObject(i);
+            AbsEffect effect = effectMap.get(jsonObject.getInt("effect"));
+            marketEffectArrayList.add(effect);
+        }
+    }
+
+    private void parseFaithTrack(JSONArray faithTrack) {
+        for (int i = 0; i < faithTrack.length(); i++) {
+            JSONObject jsonObject = faithTrack.getJSONObject(i);
+            int position = jsonObject.getInt("position");
+            AbsEffect effect = effectMap.get(jsonObject.getInt("effect"));
+
+            faithTrackEffect.put(position,effect);
+        }
+    }
+
+    private void parseBonusTower(AbsEffect[] absEffects, JSONArray jsonArray) {
+        for (int i = 0; i < jsonArray.length(); i++) {
+            JSONObject jsonObject = jsonArray.getJSONObject(i);
+            AbsEffect effect = effectMap.get(jsonObject.getInt("effect"));
+            absEffects[i] = effect;
+        }
     }
 
     private void parseBonusTile(JSONArray bonusTiles) {
@@ -439,11 +492,9 @@ public class ParseJson {
     private void parseEndGameEffect(JSONArray endGameEffects) {
         for (int i = 0; i < endGameEffects.length(); i++) {
             int idEffect = endGameEffects.getJSONObject(i).getInt("id");
-            //TODO
-            /*ArrayList<AbsEffect> effects = parsingEffect(endGameEffects.getJSONObject(i).getJSONArray("immediate_effect"));
-
-            EndGameEffect endGameEffect = new EndGameEffect(effects);
-            effectMap.put(idEffect, endGameEffect);*/
+            int type = endGameEffects.getJSONObject(i).getInt("type");
+            EndGameEffect endGameEffect = new EndGameEffect(type);
+            effectMap.put(idEffect, endGameEffect);
         }
     }
 
@@ -717,12 +768,10 @@ public class ParseJson {
     }
 
     public ArrayList<AbsEffect> getCouncilSpaceEffect() {
-        ArrayList<AbsEffect> councilEffects  = new ArrayList<>();
-        councilEffects.add(effectMap.get(1));
-        councilEffects.add(effectMap.get(2));
-
-        return councilEffects ;
+        return councilEffectArrayList;
     }
+
+    //TODO TOGLIERE QUESTI GET BONUS TILE
 
     public BonusTile getBonusTile1() {
         return new BonusTile((BenefitsEffect) effectMap.get(70), (BenefitsEffect) effectMap.get(71));
@@ -773,37 +822,17 @@ public class ParseJson {
     }
 
     public AbsEffect[] getTowerTerritoryEffect() {
-        AbsEffect[] absEffects = new AbsEffect[4];
-        absEffects[0] = effectMap.get(0);
-        absEffects[1] = effectMap.get(0);
-        absEffects[2] = effectMap.get(23);
-        absEffects[3] = effectMap.get(24);
-        return absEffects;
+        return towerTerritoryEffect;
     }
 
     public AbsEffect[] getTowerCharacterEffect() {
-        AbsEffect[] absEffects = new AbsEffect[4];
-        absEffects[0] = effectMap.get(0);
-        absEffects[1] = effectMap.get(0);
-        absEffects[2] = effectMap.get(33);
-        absEffects[3] = effectMap.get(34);
-        return absEffects;
+        return towerCharacterEffect;
     }
     public AbsEffect[] getTowerBuildingEffect() {
-        AbsEffect[] absEffects = new AbsEffect[4];
-        absEffects[0] = effectMap.get(0);
-        absEffects[1] = effectMap.get(0);
-        absEffects[2] = effectMap.get(43);
-        absEffects[3] = effectMap.get(44);
-        return absEffects;
+        return towerBuildingEffect;
     }
     public AbsEffect[] getTowerVentureEffect() {
-        AbsEffect[] absEffects = new AbsEffect[4];
-        absEffects[0] = effectMap.get(0);
-        absEffects[1] = effectMap.get(0);
-        absEffects[2] = effectMap.get(53);
-        absEffects[3] = effectMap.get(54);
-        return absEffects;
+        return towerVentureEffect;
     }
 
     public ArrayList<LeaderCard> getLeaderCardArrayList() {
@@ -816,6 +845,18 @@ public class ParseJson {
 
     public ArrayList<BonusTile> getBonusTileArrayList() {
         return bonusTileArrayList;
+    }
+
+    public HashMap<Integer, AbsEffect> getFaithTrackEffect() {
+        return faithTrackEffect;
+    }
+
+    public int getTimeoutStartMatch() {
+        return timeoutStartMatch;
+    }
+
+    public int getTimeoutPlayerMove() {
+        return timeoutPlayerMove;
     }
 
     // METODO PER TESTING
