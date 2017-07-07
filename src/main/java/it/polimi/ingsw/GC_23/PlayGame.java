@@ -366,6 +366,7 @@ public class PlayGame {
             dataString.append(p.getResources().getVictoryPoints() + "\n");
             dataString.append("endResources");
         }
+        dataString.append("everything ended");
         dataString.append(board.getDiceOValue() + "\n");
         dataString.append(board.getDiceWValue() + "\n");
         dataString.append(board.getDiceBValue() + "\n");

@@ -517,7 +517,7 @@ public class GameboardController implements Serializable {
         victory2.setText(actualString);
 
         actualString = userFX.receive();
-        if(!actualString.equals("endResources")) {
+        if(!actualString.equals("everything ended")) {
             switch (actualString) {
                 case "RED":
                     circle3.setStyle("-fx-background-color: RED;");
@@ -548,7 +548,8 @@ public class GameboardController implements Serializable {
             victory3.setText(actualString);
 
             actualString = userFX.receive();
-            if(!actualString.equals("endResources")) {
+
+            if(!actualString.equals("everything ended")) {
                 switch (actualString) {
                     case "GREEN":
                         circle4.setStyle("-fx-background-color: GREEN;");
