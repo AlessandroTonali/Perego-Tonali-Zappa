@@ -219,7 +219,9 @@ public class GameboardController implements Serializable {
         faith2.setText(actualString);
         actualString = userFX.receive();
         military2.setText(actualString);
+        System.out.println("prima");
         actualString = userFX.receive();
+        System.out.println("dopo");
         victory2.setText(actualString);
 
         actualString = userFX.receive();
