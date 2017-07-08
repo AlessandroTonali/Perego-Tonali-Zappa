@@ -1,7 +1,7 @@
 {
 	"Options": {
 		"timeout_start_match": "6",
-		"timeout_player_move": "30"
+		"timeout_player_move": "3000"
 	},
 	"ExcommunicationTile": [
 		{"id": "11", "period": "1", "permanent_effect": [{"effect": "1011"}]},

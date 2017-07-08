@@ -75,6 +75,7 @@ public class Match implements Runnable{
         setAdvanced();
         creator.startGame(userHandlers.size(), this.isAdvanced);
         for(UserHandler u: userHandlers){
+
             u.messageToUser("quit");
             u.setEndMatch(true);
         }
@@ -104,11 +105,14 @@ public class Match implements Runnable{
         Map<Player, String> association = playerController.getAssociation();
         while(true) {
             int z = -1;
-            userHandler.messageToUser("IF YOU WOULD LIKE TO PLAY WITH ADVANCED RULES PRESS 0\n" +
-                    "IF YOU WOULD LIKE TO PLAY WITH BASIC RULES PRESS 1\n" +
-                    "MAJORITY WILL DECIDE");
-            userHandler.messageToUser("write");
-            String in = userHandler.messageFromUser();
+            if(!userHandler.isGuiInterface()) {
+                userHandler.messageToUser("IF YOU WOULD LIKE TO PLAY WITH ADVANCED RULES PRESS 0\n" +
+                        "IF YOU WOULD LIKE TO PLAY WITH BASIC RULES PRESS 1\n" +
+                        "MAJORITY WILL DECIDE");
+                userHandler.messageToUser("write");
+            }
+                String in = userHandler.messageFromUser();
+
             try {
                 z = Integer.parseInt(in);
             } catch (NumberFormatException e) {

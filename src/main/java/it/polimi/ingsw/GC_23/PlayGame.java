@@ -43,14 +43,19 @@ public class PlayGame {
         resetFamilyMembers();
         while(true) {
             System.out.println(period + " period");
-            sendBoard();
-            sendData();
-            sendCards();
-            sendTurnPlayer(players.get(0));
+            for(Player p : players) {
+                if(p.getUserHandler().isGuiInterface()) {
+                    update();
+                    sendTurnPlayer(players.get(0));
+                }
+            }
 
             while( i < 1 ){
                 for (Player p : this.players) {
-                    sendTurnPlayer(p);
+                    if(p.getUserHandler().isGuiInterface()) {
+                        update();
+                        sendTurnPlayer(p);
+                    }
                     if(!p.getUserHandler().isGuiInterface()) {
                         p.getUserHandler().messageToUser("");
                         p.getUserHandler().messageToUser(("Period: " + this.period + " Turn: " + this.turn + "\n"));
@@ -174,7 +179,9 @@ public class PlayGame {
                 case 1:
                     if (p.getResources().getFaithPoints() < 3) {
                         board.getExcommunicationSpaceFirstPeriod().getExcommunicationTile().takeExcommunication(p);
-                        p.getUserHandler().messageToUser("You receive the excommunication");
+                       if(!p.getUserHandler().isGuiInterface()) {
+                           p.getUserHandler().messageToUser("You receive the excommunication");
+                       }
                     } else {
                         board.getExcommunicationSpaceFirstPeriod().chooseExcommunication(p);
 
@@ -183,7 +190,9 @@ public class PlayGame {
                 case 2:
                     if (p.getResources().getFaithPoints() < 4) {
                         board.getExcommunicationSpaceSecondPeriod().getExcommunicationTile().takeExcommunication(p);
-                        p.getUserHandler().messageToUser("You receive the excommunication");
+                       if(!p.getUserHandler().isGuiInterface()) {
+                           p.getUserHandler().messageToUser("You receive the excommunication");
+                       }
                     } else {
                         board.getExcommunicationSpaceSecondPeriod().chooseExcommunication(p);
                     }
@@ -191,7 +200,9 @@ public class PlayGame {
                 case 3:
                     if (p.getResources().getFaithPoints() < 4) {
                         board.getExcommunicationSpaceThirdPeriod().getExcommunicationTile().takeExcommunication(p);
-                        p.getUserHandler().messageToUser("You receive the excommunication");
+                        if(!p.getUserHandler().isGuiInterface()) {
+                            p.getUserHandler().messageToUser("You receive the excommunication");
+                        }
                     } else {
                         board.getExcommunicationSpaceThirdPeriod().chooseExcommunication(p);
                     }
@@ -311,12 +322,16 @@ public class PlayGame {
             }
         }
         for (Player p : this.players) {
-            p.getUserHandler().messageToUser(("----------------END----------------\n"));
-            p.getUserHandler().messageToUser("THE WINNER IS PLAYER: " + playersOrder.get(0).getUserHandler().getCurrentUser() + "\n");
-            p.getUserHandler().messageToUser("Victory order: \n");
+            if(!p.getUserHandler().isGuiInterface()) {
+                p.getUserHandler().messageToUser(("----------------END----------------\n"));
+                p.getUserHandler().messageToUser("THE WINNER IS PLAYER: " + playersOrder.get(0).getUserHandler().getCurrentUser() + "\n");
+                p.getUserHandler().messageToUser("Victory order: \n");
+            }
             for (Player pl : playersOrder) {
-                p.getUserHandler().messageToUser(pl.getUserHandler().getCurrentUser()+"\n");
-                p.getUserHandler().messageToUser("-----------------\n");
+                if(!p.getUserHandler().isGuiInterface()) {
+                    p.getUserHandler().messageToUser(pl.getUserHandler().getCurrentUser() + "\n");
+                    p.getUserHandler().messageToUser("-----------------\n");
+                }
             }
         }
     }
@@ -353,7 +368,8 @@ public class PlayGame {
     public void sendBoard() throws RemoteException{
         String boardStringer = this.board.boardStringer();
         for(Player p : players) {
-            p.getUserHandler().messageToUser(boardStringer);
+                p.getUserHandler().messageToUser(boardStringer);
+
         }
     }
 
@@ -382,7 +398,9 @@ public class PlayGame {
     public void sendData() throws RemoteException{
         String dataStringer = dataStringer();
         for(Player p : players){
-            p.getUserHandler().messageToUser(dataStringer);
+            if(p.getUserHandler().isGuiInterface()) {
+                p.getUserHandler().messageToUser(dataStringer);
+            }
         }
     }
 
@@ -433,7 +451,9 @@ public class PlayGame {
     public void sendCards() throws RemoteException{
         String cardsString = cardsStringer();
         for(Player p : players){
-            p.getUserHandler().messageToUser(cardsString);
+
+                p.getUserHandler().messageToUser(cardsString);
+
         }
     }
 
