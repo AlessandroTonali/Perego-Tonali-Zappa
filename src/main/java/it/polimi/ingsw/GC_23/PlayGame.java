@@ -43,9 +43,7 @@ public class PlayGame {
         resetFamilyMembers();
         while(true) {
             System.out.println(period + " period");
-            sendBoard();
-            sendData();
-            sendCards();
+            update();
             while( i < 1 ){
                 for (Player p : this.players) {
                     if(!p.getUserHandler().isGuiInterface()) {
@@ -432,5 +430,11 @@ public class PlayGame {
         for(Player p : players){
             p.getUserHandler().messageToUser(cardsString);
         }
+    }
+
+    public void update() throws RemoteException{
+        sendBoard();
+        sendData();
+        sendCards();
     }
 }

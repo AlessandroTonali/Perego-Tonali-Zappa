@@ -227,7 +227,9 @@ public class Player implements Serializable {
             }
         }
         if(timeIsOver){
-            getUserHandler().messageToUser("read");
+            if(!getUserHandler().isGuiInterface()) {
+                getUserHandler().messageToUser("read");
+            }
             timeIsOver = false;
             return;
         }
@@ -352,11 +354,15 @@ public class Player implements Serializable {
             if( f == null){
                 continue;
             }
-            getUserHandler().messageToUser("Press " + j + " for choosing: " + f.toString());
+            if(!getUserHandler().isGuiInterface()) {
+                getUserHandler().messageToUser("Press " + j + " for choosing: " + f.toString());
+            }
             j++;
         }
-        getUserHandler().messageToUser("read");
-        getUserHandler().messageToUser("Choose your family member");
+        if(!getUserHandler().isGuiInterface()) {
+            getUserHandler().messageToUser("read");
+            getUserHandler().messageToUser("Choose your family member");
+        }
         StringTyper stringTyper2 = new StringTyper(this);
         ExecutorService executorService = Executors.newCachedThreadPool();
         executorService.submit(stringTyper2);
@@ -371,7 +377,9 @@ public class Player implements Serializable {
         }
         if(timeIsOver){
             timeIsOver = false;
-            getUserHandler().messageToUser("read");
+            if(!getUserHandler().isGuiInterface()) {
+                getUserHandler().messageToUser("read");
+            }
             return null;
         }
         if(typed){
@@ -382,15 +390,21 @@ public class Player implements Serializable {
         try {
             chosen = this.familyMembers[i];
             if(chosen == null){
-                getUserHandler().messageToUser("You already used this family member, choose another one");
+                if(!getUserHandler().isGuiInterface()) {
+                    getUserHandler().messageToUser("You already used this family member, choose another one");
+                }
                 return chooseFamilyMember(0);
             }
         } catch (ArrayIndexOutOfBoundsException e) {
-            getUserHandler().messageToUser("Invalid number");
+            if(!getUserHandler().isGuiInterface()) {
+                getUserHandler().messageToUser("Invalid number");
+            }
             return chooseFamilyMember(0);
         }
-        getUserHandler().messageToUser("You choose the " + i + " family member");
-        getUserHandler().messageToUser("You have " + this.getResources().toString());
+        if(!getUserHandler().isGuiInterface()) {
+            getUserHandler().messageToUser("You choose the " + i + " family member");
+            getUserHandler().messageToUser("You have " + this.getResources().toString());
+        }
         return chosen;
     }
 

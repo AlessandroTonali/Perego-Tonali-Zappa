@@ -2,8 +2,12 @@ package it.polimi.ingsw.GC_23.FX;
 
 import com.sun.prism.paint.Color;
 import it.polimi.ingsw.GC_23.StringTyper;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.ChoiceDialog;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.layout.*;
@@ -11,8 +15,12 @@ import javafx.scene.paint.ImagePattern;
 import javafx.scene.paint.Paint;
 import javafx.scene.shape.Circle;
 
+import javax.swing.*;
 import java.io.Serializable;
 import java.rmi.RemoteException;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Optional;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -789,6 +797,266 @@ public class GameboardController implements Serializable {
         while (!actualString.equals("end")){
             actualString = userFX.receive();
         }
+    }
+
+    public String chooseFamilyMember() throws RemoteException{
+        int value = -1;
+        List<String> choices = new ArrayList<>();
+        choices.add("ORANGE");
+        choices.add("WHITE");
+        choices.add("BLACK");
+        choices.add("NEUTRAL");
+
+        ChoiceDialog<String> dialog = new ChoiceDialog<>("ORANGE", choices);
+        dialog.setTitle("Family Member");
+        dialog.setHeaderText("Set the family member for your action");
+        dialog.setContentText("Choose your family member:");
+
+        Optional<String> result = dialog.showAndWait();
+        if (result.isPresent()){
+            switch (result.toString()){
+                case "ORANGE":
+                    value = 0;
+                    break;
+                case "WHITE":
+                    value = 1;
+                    break;
+                case "BLACK":
+                    value = 2;
+                    break;
+                case "NEUTRAL":
+                    value = 3;
+                    break;
+            }
+            return String.valueOf(value);
+        }
+        return String.valueOf(value);
+    }
+
+
+    public void handle() throws RemoteException{
+        territory1.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                try {
+                    userFX.send("5");
+                    userFX.send(chooseFamilyMember());
+                    userFX.send("3");
+                }catch (RemoteException e){
+                    e.printStackTrace();
+                }
+
+            }
+        });
+
+        territory2.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                try {
+                    userFX.send("5");
+                    userFX.send(chooseFamilyMember());
+                    userFX.send("2");
+                }catch (RemoteException e){
+                    e.printStackTrace();
+                }
+
+            }
+        });
+
+        territory3.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                try {
+                    userFX.send("5");
+                    userFX.send(chooseFamilyMember());
+                    userFX.send("1");
+                }catch (RemoteException e){
+                    e.printStackTrace();
+                }
+
+            }
+        });
+
+        territory4.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                try {
+                    userFX.send("5");
+                    userFX.send(chooseFamilyMember());
+                    userFX.send("0");
+                }catch (RemoteException e){
+                    e.printStackTrace();
+                }
+
+            }
+        });
+
+        character1.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                try {
+                    userFX.send("6");
+                    userFX.send(chooseFamilyMember());
+                    userFX.send("3");
+                }catch (RemoteException e){
+                    e.printStackTrace();
+                }
+
+            }
+        });
+
+        character2.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                try {
+                    userFX.send("6");
+                    userFX.send(chooseFamilyMember());
+                    userFX.send("2");
+                }catch (RemoteException e){
+                    e.printStackTrace();
+                }
+
+            }
+        });
+
+        character3.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                try {
+                    userFX.send("6");
+                    userFX.send(chooseFamilyMember());
+                    userFX.send("1");
+                }catch (RemoteException e){
+                    e.printStackTrace();
+                }
+
+            }
+        });
+
+        character4.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                try {
+                    userFX.send("6");
+                    userFX.send(chooseFamilyMember());
+                    userFX.send("0");
+                }catch (RemoteException e){
+                    e.printStackTrace();
+                }
+
+            }
+        });
+
+        building1.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                try {
+                    userFX.send("7");
+                    userFX.send(chooseFamilyMember());
+                    userFX.send("3");
+                }catch (RemoteException e){
+                    e.printStackTrace();
+                }
+
+            }
+        });
+
+        building2.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                try {
+                    userFX.send("7");
+                    userFX.send(chooseFamilyMember());
+                    userFX.send("2");
+                }catch (RemoteException e){
+                    e.printStackTrace();
+                }
+
+            }
+        });
+
+        building3.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                try {
+                    userFX.send("7");
+                    userFX.send(chooseFamilyMember());
+                    userFX.send("1");
+                }catch (RemoteException e){
+                    e.printStackTrace();
+                }
+
+            }
+        });
+
+        building4.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                try {
+                    userFX.send("7");
+                    userFX.send(chooseFamilyMember());
+                    userFX.send("0");
+                }catch (RemoteException e){
+                    e.printStackTrace();
+                }
+
+            }
+        });
+
+        venture1.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                try {
+                    userFX.send("8");
+                    userFX.send(chooseFamilyMember());
+                    userFX.send("3");
+                }catch (RemoteException e){
+                    e.printStackTrace();
+                }
+
+            }
+        });
+
+        venture2.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                try {
+                    userFX.send("8");
+                    userFX.send(chooseFamilyMember());
+                    userFX.send("2");
+                }catch (RemoteException e){
+                    e.printStackTrace();
+                }
+
+            }
+        });
+
+        venture3.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                try {
+                    userFX.send("8");
+                    userFX.send(chooseFamilyMember());
+                    userFX.send("1");
+                }catch (RemoteException e){
+                    e.printStackTrace();
+                }
+
+            }
+        });
+
+        venture4.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                try {
+                    userFX.send("8");
+                    userFX.send(chooseFamilyMember());
+                    userFX.send("0");
+                }catch (RemoteException e){
+                    e.printStackTrace();
+                }
+            }
+        });
     }
 
 

@@ -112,9 +112,9 @@ public class Tower {
      * @throws RemoteException
      */
     public TowerSpace chooseTowerSpace(Player player) throws RemoteException {
-        player.getUserHandler().messageToUser("Choose the tower space");
-        //todo: mostrare i towerspace
-
+        if(!player.getUserHandler().isGuiInterface()) {
+            player.getUserHandler().messageToUser("Choose the tower space");
+        }
         ExecutorService executorService = Executors.newCachedThreadPool();
         StringTyper stringTyper  = new StringTyper(player);
         executorService.submit(stringTyper);
@@ -138,11 +138,15 @@ public class Tower {
 
 
         try {
-            player.getUserHandler().messageToUser("You have chosen: " + i);
+            if(!player.getUserHandler().isGuiInterface()) {
+                player.getUserHandler().messageToUser("You have chosen: " + i);
+            }
             return this.spaces[i];
 
         } catch (NullPointerException e) {
-            player.getUserHandler().messageToUser("Number out of bound, try again");
+            if(!player.getUserHandler().isGuiInterface()) {
+                player.getUserHandler().messageToUser("Number out of bound, try again");
+            }
             return chooseTowerSpace(player);
         }
 

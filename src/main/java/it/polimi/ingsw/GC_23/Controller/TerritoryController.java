@@ -29,9 +29,10 @@ public class TerritoryController extends TowerController {
         if (isLegal()) {
             towerSpace.checkAfterActivablePermanentEffect(familyMember);
             makeAction();
-            System.out.println("succes");
         } else {
-            familyMember.getPlayer().getUserHandler().messageToUser("YOU ARE NOT ALLOW TO DO THIS MOVE, DO SOMETHING ELSE!");
+            if(!familyMember.getPlayer().getUserHandler().isGuiInterface()) {
+                familyMember.getPlayer().getUserHandler().messageToUser("YOU ARE NOT ALLOW TO DO THIS MOVE, DO SOMETHING ELSE!");
+            }
             tower.disablePermanentEffect(familyMember);
             throw new IllegalArgumentException();
         }
@@ -47,9 +48,6 @@ public class TerritoryController extends TowerController {
 
         if (isLegal()) {
             makeAction();
-            System.out.println("succes");
-        } else {
-            System.out.println("error");
         }
     }
 
@@ -88,6 +86,7 @@ public class TerritoryController extends TowerController {
             i.activeEffect(familyMember.getPlayer());
         }
         towerSpace.setFamilyMember(familyMember);
+
         towerSpace.getCard().addCardOfPlayer(familyMember.getPlayer());
 
     }

@@ -132,7 +132,7 @@
                   </AnchorPane>
               </content>
             </ScrollPane>
-            <SplitPane dividerPositions="0.42" orientation="VERTICAL" prefHeight="200.0" prefWidth="160.0" style="-fx-background-color: FAEBD7;">
+            <SplitPane dividerPositions="0.5" orientation="VERTICAL" prefHeight="200.0" prefWidth="160.0" style="-fx-background-color: FAEBD7;">
               <items>
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
                      <children>
@@ -229,13 +229,13 @@
                               </Pane>
                               <Rectangle arcHeight="5.0" arcWidth="5.0" height="25.0" layoutX="40.0" layoutY="240.0" stroke="BLACK" strokeType="INSIDE" width="25.0" />
                               <Label fx:id="black" layoutX="85.0" layoutY="245.0" />
-                              <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="25.0" layoutX="170.0" layoutY="240.0" stroke="BLACK" strokeType="INSIDE" width="25.0" />
-                              <Label fx:id="white" layoutX="215.0" layoutY="245.0" />
-                              <Rectangle arcHeight="5.0" arcWidth="5.0" fill="ORANGE" height="25.0" layoutX="300.0" layoutY="240.0" stroke="BLACK" strokeType="INSIDE" width="25.0" />
-                              <Label fx:id="orange" layoutX="345.0" layoutY="245.0" />
-                              <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ffa10000" height="25.0" layoutX="430.0" layoutY="240.0" stroke="BLACK" strokeType="INSIDE" width="25.0" />
-                              <Button fx:id="increase" layoutX="520.0" layoutY="240.0" mnemonicParsing="false" text="Increase" />
-                              <Label fx:id="neutral" layoutX="475.0" layoutY="245.0" />
+                              <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="25.0" layoutX="140.0" layoutY="240.0" stroke="BLACK" strokeType="INSIDE" width="25.0" />
+                              <Label fx:id="white" layoutX="185.0" layoutY="245.0" />
+                              <Rectangle arcHeight="5.0" arcWidth="5.0" fill="ORANGE" height="25.0" layoutX="240.0" layoutY="240.0" stroke="BLACK" strokeType="INSIDE" width="25.0" />
+                              <Label fx:id="orange" layoutX="285.0" layoutY="245.0" />
+                              <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ffa10000" height="25.0" layoutX="340.0" layoutY="240.0" stroke="BLACK" strokeType="INSIDE" width="25.0" />
+                              <Button fx:id="increase" layoutX="420.0" layoutY="240.0" mnemonicParsing="false" text="Increase" />
+                              <Label fx:id="neutral" layoutX="385.0" layoutY="245.0" />
                               <Label layoutX="80.0" layoutY="300.0" text="Turn of:" />
                               <Button fx:id="skip" layoutX="270.0" layoutY="295.0" mnemonicParsing="false" text="SKIP YOUR TURN" />
                               <Label layoutX="80.0" layoutY="275.0" text="Your color:" />
