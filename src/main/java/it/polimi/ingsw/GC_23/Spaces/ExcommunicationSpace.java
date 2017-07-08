@@ -25,6 +25,11 @@ public class ExcommunicationSpace {
         this.excommunicationTile = excommunicationTile;
     }
 
+    /**
+     * method for choose if you want to support the vatican or receive the excommunication
+     * @param player that do the choose
+     * @throws IOException
+     */
     public void chooseExcommunication (Player player) throws IOException {
         player.getUserHandler().messageToUser("Do you want the excommunication?\n 1. Yes\n 2. No");
         int i = -1;

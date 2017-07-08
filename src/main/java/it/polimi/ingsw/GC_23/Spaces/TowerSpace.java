@@ -55,6 +55,10 @@ public class TowerSpace extends ActionSpace {
 
     }
 
+    /**
+     * show on abstract class
+     * check if there is PlusDiceEffect and apply a sale (if present) on card cost
+     */
     @Override
     public void checkBeforeActivablePermanentEffect(FamilyMember familyMember) throws RemoteException {
         ArrayList<PermanentEffect> permanentEffectArrayList = familyMember.getPlayer().getPermanentEffects();
@@ -69,6 +73,9 @@ public class TowerSpace extends ActionSpace {
         }
     }
 
+    /**
+     * show on abstract class
+     */
     @Override
     public void checkAfterActivablePermanentEffect(FamilyMember familyMember) {
         ArrayList<PermanentEffect> permanentEffectArrayList = familyMember.getPlayer().getPermanentEffects();

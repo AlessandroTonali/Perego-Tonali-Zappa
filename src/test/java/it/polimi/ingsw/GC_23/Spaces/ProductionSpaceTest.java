@@ -101,9 +101,6 @@ public class ProductionSpaceTest {
         productionSpace.checkBeforeActivablePermanentEffect(player.getFamilyMembers()[0]);
 
         assertEquals(7, player.getFamilyMembers()[0].getValue());
-
-
-
     }
 
     @Test
