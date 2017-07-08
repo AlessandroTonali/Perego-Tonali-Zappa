@@ -374,145 +374,137 @@ public class PlayGame {
                     player.getUserHandler().messageToUser("towerspace" + i + j);
                     player.getUserHandler().messageToUser(board.getTower(i).getSpaces()[j].getFamilyMember().getPlayer().getPlayerColor().toString() + board.getTower(i).getSpaces()[j].getFamilyMember().getFamilyColor().toString());
                 } catch (NullPointerException e) {
-                    player.getUserHandler().messageToUser("towerspace" + i + j);
                     player.getUserHandler().messageToUser("null");
                 }
             }
         }
         for(int i = 0; i<4; i++){
             try {
-                player.getUserHandler().messageToUser("market" + i+"\n"+ board.getMarketSpaces()[i].getFamilyMember().getPlayer().getPlayerColor().toString() + board.getTower(i).getSpaces()[i].getFamilyMember().getFamilyColor().toString()+"\n");
+                player.getUserHandler().messageToUser("market" + i);
+                player.getUserHandler().messageToUser(board.getMarketSpaces()[i].getFamilyMember().getPlayer().getPlayerColor().toString() + board.getTower(i).getSpaces()[i].getFamilyMember().getFamilyColor().toString());
             }catch (NullPointerException e){
-                player.getUserHandler().messageToUser("market"+i+"\n"+ "null"+"\n");
+                player.getUserHandler().messageToUser("null");
             }catch (ArrayIndexOutOfBoundsException e){
-                player.getUserHandler().messageToUser("market"+i+"\n"+ "not"+"\n");
+                player.getUserHandler().messageToUser("not");
             }
         }
         for(int i = 0; i<16; i++){
             try{
-                player.getUserHandler().messageToUser("harvest"+i+"\n"+ board.getHarvestSpace().getFamilyMembersPresent().get(i).getPlayer().getPlayerColor().toString() + board.getHarvestSpace().getFamilyMembersPresent().get(i).getFamilyColor().toString()+"\n");
+                player.getUserHandler().messageToUser("harvest"+i);
+                player.getUserHandler().messageToUser(board.getHarvestSpace().getFamilyMembersPresent().get(i).getPlayer().getPlayerColor().toString() + board.getHarvestSpace().getFamilyMembersPresent().get(i).getFamilyColor().toString());
             }catch (NullPointerException e){
                 break;
             }
             catch (IndexOutOfBoundsException ex){
-                player.getUserHandler().messageToUser("harvestend"+"\n");
+                player.getUserHandler().messageToUser("harvestend");
                 break;
             }
         }
         for(int i = 0; i<16; i++){
             try{
-                player.getUserHandler().messageToUser("production"+i +"\n"+ board.getProductionSpace().getPlayerOrder().get(i).getPlayer().getPlayerColor().toString() + board.getProductionSpace().getPlayerOrder().get(i).getFamilyColor().toString()+"\n");
+                player.getUserHandler().messageToUser("production"+i);
+                player.getUserHandler().messageToUser(board.getProductionSpace().getPlayerOrder().get(i).getPlayer().getPlayerColor().toString() + board.getProductionSpace().getPlayerOrder().get(i).getFamilyColor().toString());
             }catch (NullPointerException e){
                 break;
             }catch (IndexOutOfBoundsException e){
-                player.getUserHandler().messageToUser("productionend"+"\n");
+                player.getUserHandler().messageToUser("productionend");
                 break;
             }
         }
         for(int i = 0; i<4; i++){
             try {
-                player.getUserHandler().messageToUser("council"+i +"\n"+ board.getCouncilSpace().getPlayerOrder().get(i).getPlayerColor().toString()+"\n");
+                player.getUserHandler().messageToUser("council"+i);
+                player.getUserHandler().messageToUser(board.getCouncilSpace().getPlayerOrder().get(i).getPlayerColor().toString());
             }catch (NullPointerException e){
                 break;
             }catch (IndexOutOfBoundsException e){
-                player.getUserHandler().messageToUser("councilend"+"\n");
+                player.getUserHandler().messageToUser("councilend");
                 break;
             }
         }
-        player.getUserHandler().messageToUser(board.getExcommunicationSpaceFirstPeriod().getExcommunicationTile().getIdTile() +"\n");
-        player.getUserHandler().messageToUser(board.getExcommunicationSpaceSecondPeriod().getExcommunicationTile().getIdTile() + "\n");
-        player.getUserHandler().messageToUser(board.getExcommunicationSpaceThirdPeriod().getExcommunicationTile().getIdTile() + "\n");
-        player.getUserHandler().messageToUser("end"+"\n");
+        player.getUserHandler().messageToUser(String.valueOf(board.getExcommunicationSpaceFirstPeriod().getExcommunicationTile().getIdTile()));
+        player.getUserHandler().messageToUser(String.valueOf(board.getExcommunicationSpaceSecondPeriod().getExcommunicationTile().getIdTile()));
+        player.getUserHandler().messageToUser(String.valueOf(board.getExcommunicationSpaceThirdPeriod().getExcommunicationTile().getIdTile()));
+        player.getUserHandler().messageToUser("end");
     }
 
     public void sendBoard() throws RemoteException{
         for(Player p : players) {
                 boardStringer(p);
-
         }
     }
 
-    public String dataStringer() throws RemoteException{
-        StringBuilder dataString = new StringBuilder();
-        for(Player p : players) {
-            dataString.append(p.getPlayerColor().toString() + "\n");
-            dataString.append(p.getResources().getGold() + "\n");
-            dataString.append(p.getResources().getStone() + "\n");
-            dataString.append(p.getResources().getWood() + "\n");
-            dataString.append(p.getResources().getServants() + "\n");
-            dataString.append(p.getResources().getFaithPointsObj() + "\n");
-            dataString.append(p.getResources().getMilitaryPoints() + "\n");
-            dataString.append(p.getResources().getVictoryPoints() + "\n");
-            dataString.append("endResources\n");
-            dataString.append(p.getFamilyMembers()[0].getValue() + "\n");
-            dataString.append(p.getFamilyMembers()[1].getValue() + "\n");
-            dataString.append(p.getFamilyMembers()[2].getValue() + "\n");
-            dataString.append(p.getFamilyMembers()[3].getValue() + "\n");
+    public void dataStringer(Player p) throws RemoteException{
+        for(Player player: players) {
+            player.getUserHandler().messageToUser(player.getPlayerColor().toString());
+            player.getUserHandler().messageToUser(String.valueOf(player.getResources().getGold()));
+            player.getUserHandler().messageToUser(String.valueOf(player.getResources().getStone()));
+            player.getUserHandler().messageToUser(String.valueOf(player.getResources().getWood()));
+            player.getUserHandler().messageToUser(String.valueOf((player.getResources().getServants())));
+            player.getUserHandler().messageToUser(String.valueOf(player.getResources().getFaithPointsObj()));
+            player.getUserHandler().messageToUser(String.valueOf(player.getResources().getMilitaryPoints()));
+            player.getUserHandler().messageToUser(String.valueOf(player.getResources().getVictoryPoints()));
+            player.getUserHandler().messageToUser("endResources");
+            player.getUserHandler().messageToUser(String.valueOf(p.getFamilyMembers()[0].getValue()));
+            player.getUserHandler().messageToUser(String.valueOf(p.getFamilyMembers()[1].getValue()));
+            player.getUserHandler().messageToUser(String.valueOf(p.getFamilyMembers()[2].getValue()));
+            player.getUserHandler().messageToUser(String.valueOf(p.getFamilyMembers()[3].getValue()));
         }
-        dataString.append("dataended\n");
 
-        return String.valueOf(dataString);
     }
 
     public void sendData() throws RemoteException{
-        String dataStringer = dataStringer();
         for(Player p : players){
-            if(p.getUserHandler().isGuiInterface()) {
-                p.getUserHandler().messageToUser(dataStringer);
-            }
+                dataStringer(p);
+        }
+        for(Player p : players) {
+            p.getUserHandler().messageToUser("dataended");
         }
     }
 
-    public String cardsStringer() throws RemoteException{
-        StringBuilder cardsString = new StringBuilder();
-        for(Player p : players) {
-            cardsString.append(p.getPlayerColor().toString()+"\n");
-            for (int i = 0; i < 6; i++) {//invio territory
+    public void cardsStringer(Player player) throws RemoteException{
+        player.getUserHandler().messageToUser(player.getPlayerColor().toString());
+            for (int i = 0; i < 6; i++) {
                 try {
-                    cardsString.append(p.getCardOfPlayer().getTerritoryCards().get(i).getIdCard() + "\n");
+                    player.getUserHandler().messageToUser(String.valueOf(player.getCardOfPlayer().getTerritoryCards().get(i).getIdCard()));
                 } catch (IndexOutOfBoundsException e) {
-                    cardsString.append("null\n");
+                    player.getUserHandler().messageToUser("null");
                 }
             }
             for (int i = 0; i < 6; i++) {// invio character
                 try {
-                    cardsString.append(p.getCardOfPlayer().getCharacterCards().get(i).getIdCard() + "\n");
+                    player.getUserHandler().messageToUser(String.valueOf(player.getCardOfPlayer().getCharacterCards().get(i).getIdCard()));
                 } catch (IndexOutOfBoundsException e) {
-                    cardsString.append("null\n");
+                    player.getUserHandler().messageToUser("null");
                 }
             }
             for (int i = 0; i < 6; i++) {// invio building
                 try {
-                    cardsString.append(p.getCardOfPlayer().getBuildingCards().get(i).getIdCard() + "\n");
+                    player.getUserHandler().messageToUser(String.valueOf(player.getCardOfPlayer().getBuildingCards().get(i).getIdCard()));
                 } catch (IndexOutOfBoundsException e) {
-                    cardsString.append("null\n");
+                    player.getUserHandler().messageToUser("null");
                 }
             }
             for (int i = 0; i < 6; i++) { // invio venture
                 try {
-                    cardsString.append(p.getCardOfPlayer().getVentureCards().get(i).getIdCard() + "\n");
+                    player.getUserHandler().messageToUser(String.valueOf(player.getCardOfPlayer().getVentureCards().get(i).getIdCard()));
                 } catch (IndexOutOfBoundsException e) {
-                    cardsString.append("null\n");
+                    player.getUserHandler().messageToUser("null");
                 }
             }
             for (int i = 0; i < 4; i++) { // invio leader
                 try {
-                    cardsString.append(p.getLeaderCards().get(i).getIdCard() + "\n");
+                    player.getUserHandler().messageToUser(String.valueOf(player.getLeaderCards().get(i).getIdCard()));
                 } catch (IndexOutOfBoundsException e) {
-                    cardsString.append("null\n");
+                    player.getUserHandler().messageToUser("null");
                 }
             }
-        }
-        cardsString.append("end\n");
-        return String.valueOf(cardsString);
+            player.getUserHandler().messageToUser("end");
     }
 
     public void sendCards() throws RemoteException{
-        String cardsString = cardsStringer();
         for(Player p : players){
-
-                p.getUserHandler().messageToUser(cardsString);
-
+            cardsStringer(p);
         }
     }
 

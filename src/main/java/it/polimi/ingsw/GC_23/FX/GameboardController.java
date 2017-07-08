@@ -82,6 +82,7 @@ public class GameboardController implements Serializable {
         String ind;
         String actualString;
         actualString = userFX.receive();
+        actualString = userFX.receive();
         inizio = "-fx-background-image: url";
         fine = "(card/" + actualString + ".png)" + ";";
         ind = inizio + fine;
@@ -485,7 +486,6 @@ public class GameboardController implements Serializable {
     public void dataSetter() throws RemoteException{
         yourcolor.setText(color);
         String actualString = userFX.receive();
-        actualString = userFX.receive();
         String actualColor = actualString;
 
         switch (actualString) {
