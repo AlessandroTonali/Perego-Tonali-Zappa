@@ -357,7 +357,13 @@ public class Player implements Serializable {
             if(!getUserHandler().isGuiInterface()) {
                 getUserHandler().messageToUser("Press " + j + " for choosing: " + f.toString());
             }
+            if(getUserHandler().isGuiInterface()){
+                userHandler.messageToUser(f.getFamilyColor().toString());
+            }
             j++;
+        }
+        if(userHandler.isGuiInterface()){
+            userHandler.messageToUser("end");
         }
         if(!getUserHandler().isGuiInterface()) {
             getUserHandler().messageToUser("read");
