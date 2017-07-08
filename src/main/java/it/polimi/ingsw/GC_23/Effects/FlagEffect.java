@@ -20,19 +20,27 @@ public class FlagEffect extends AbsEffect {
         switch (type) {
             case "venture":
                 player.setNotScoreVenture(true);
-                player.getUserHandler().messageToUser("Effect activated! At the end of the game you haven't scored the venture card");
+                if(!player.getUserHandler().isGuiInterface()) {
+                    player.getUserHandler().messageToUser("Effect activated! At the end of the game you haven't scored the venture card");
+                }
                 break;
             case "character":
                 player.setNotScoreCharacter(true);
-                player.getUserHandler().messageToUser("Effect activated! At the end of the game you haven't scored the character card");
+                if(!player.getUserHandler().isGuiInterface()) {
+                    player.getUserHandler().messageToUser("Effect activated! At the end of the game you haven't scored the character card");
+                }
                 break;
             case "territory":
                 player.setNotScoreTerrytory(true);
-                player.getUserHandler().messageToUser("Effect activated! At the end of the game you haven't scored the territory card");
+                if(!player.getUserHandler().isGuiInterface()) {
+                    player.getUserHandler().messageToUser("Effect activated! At the end of the game you haven't scored the territory card");
+                }
                 break;
             case "market":
                 player.setNotPlayInMarket(true);
-                player.getUserHandler().messageToUser("Effect activated! Now you cannot use the market");
+                if(!player.getUserHandler().isGuiInterface()) {
+                    player.getUserHandler().messageToUser("Effect activated! Now you cannot use the market");
+                }
                 break;
             case "double_servant":
                 player.setDoubleServantToIncrease(true);
