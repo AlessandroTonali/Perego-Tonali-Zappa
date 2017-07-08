@@ -132,34 +132,36 @@ public abstract class Card {
     public SingleCost chooseCost(Player player) throws RemoteException {
         int i = 0;
         int j = 0;
-        for(SingleCost singlecost : this.cost) {
-            if (!(singlecost instanceof MilitaryCost)) {
-                player.getUserHandler().messageToUser("Press " + i + " for choosing: " + singlecost.getResources().toString());
-                i++;
-            } else {
-                player.getUserHandler().messageToUser("Press "+ i + " for choosing: " + singlecost.getResources().toString() +" and you required " + ((MilitaryCost) singlecost).getResourcesRequired().toString());
-                i++;
+        if (cost.size() != 1) {
+            for (SingleCost singlecost : this.cost) {
+                if (!(singlecost instanceof MilitaryCost)) {
+                    player.getUserHandler().messageToUser("Press " + i + " for choosing: " + singlecost.getResources().toString());
+                    i++;
+                } else {
+                    player.getUserHandler().messageToUser("Press " + i + " for choosing: " + singlecost.getResources().toString() + " and you required " + ((MilitaryCost) singlecost).getResourcesRequired().toString());
+                    i++;
+                }
             }
-        }
 
-        ExecutorService executorService = Executors.newCachedThreadPool();
-        StringTyper stringTyper  = new StringTyper(player);
-        executorService.submit(stringTyper);
-        while(!player.isTyped() && !player.isTimeIsOver()){
-            try {
-                Thread.sleep(1000);
-            } catch (InterruptedException e) {
-                logger.setLevel(Level.SEVERE);
-                logger.severe(String.valueOf(e));
+            ExecutorService executorService = Executors.newCachedThreadPool();
+            StringTyper stringTyper = new StringTyper(player);
+            executorService.submit(stringTyper);
+            while (!player.isTyped() && !player.isTimeIsOver()) {
+                try {
+                    Thread.sleep(1000);
+                } catch (InterruptedException e) {
+                    logger.setLevel(Level.SEVERE);
+                    logger.severe(String.valueOf(e));
+                }
             }
-        }
-        if(player.isTimeIsOver()){
-            player.getUserHandler().messageToUser("read");
-            return cost.get(0);
-        }
-        if(player.isTyped()){
-            player.setTyped(false);
-            j = player.getTypedInt();
+            if (player.isTimeIsOver()) {
+                player.getUserHandler().messageToUser("read");
+                return cost.get(0);
+            }
+            if (player.isTyped()) {
+                player.setTyped(false);
+                j = player.getTypedInt();
+            }
         }
 
         setCostSelected(cost.get(j));

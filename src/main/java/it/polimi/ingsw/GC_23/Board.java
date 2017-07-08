@@ -7,15 +7,10 @@ import it.polimi.ingsw.GC_23.Cards.VentureCard;
 import it.polimi.ingsw.GC_23.Effects.BenefitsEffect;
 import it.polimi.ingsw.GC_23.Enumerations.CardColor;
 import it.polimi.ingsw.GC_23.Enumerations.DiceColor;
-import it.polimi.ingsw.GC_23.Resources.ResourcesSet;
 import it.polimi.ingsw.GC_23.Spaces.*;
 
 import java.rmi.RemoteException;
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
 
 /**
  * Created by jesss on 31/05/17.
@@ -39,6 +34,10 @@ public class Board {
     private ArrayList<BuildingCard> buildingCards;
     private ArrayList<CharacterCard> characterCards;
 
+    /**
+     * initialize the board component
+     * @param numberOfPlayers the number of players that play
+     */
     public Board(int numberOfPlayers){
         this.towers = towerInstancer();
         this.territoryCards = ParseJson.getParseJson().getTerritoryCardArrayList();
@@ -86,6 +85,11 @@ public class Board {
 
     }
 
+    /**
+     * method for put the cards in the respective tower spaces
+     * @param i index for selection the tower type (0 -> Territory, 1 -> Character, 2 -> Building, 3 -> Venture)
+     * @param tower the respective tower where you put the card
+     */
     public void setCardInTowerSpace(int i, Tower tower ) {
         int j = 0;
         switch (i) {
@@ -130,6 +134,9 @@ public class Board {
 
     }
 
+    /**
+     * set the card in the tower
+     */
     public void setCard() {
         int i = 0;
         for (Tower t : towers) {
@@ -140,6 +147,9 @@ public class Board {
         }
     }
 
+    /**
+     * method for setting the dice value
+     */
     public void setDices(){
         diceB = new Dice(DiceColor.BLACK);
         diceO = new Dice(DiceColor.ORANGE);
@@ -165,6 +175,9 @@ public class Board {
         return councilSpace;
     }
 
+    /**
+     * remove all card in all tower spaces
+     */
     public void resetCardTowers(){
         for( Tower t: getTowers()){
             TowerSpace[] spaces = t.getSpaces();
@@ -198,6 +211,10 @@ public class Board {
         return harvestSpace;
     }
 
+    /**
+     * method for create the tower spaces and the towers
+     * @return an array with the four towers
+     */
     private Tower[] towerInstancer() {
         TowerSpace terrytory1 = new TowerSpace(null, (BenefitsEffect) ParseJson.getParseJson().getTowerTerritoryEffect()[0],
                 0);
