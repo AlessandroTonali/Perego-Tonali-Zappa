@@ -829,10 +829,11 @@ public class GameboardController implements Serializable {
 
     public String chooseFamilyMember() throws RemoteException{
         List<String> choices = new ArrayList<>();
-        choices.add("ORANGE");
-        choices.add("WHITE");
-        choices.add("BLACK");
-        choices.add("NEUTRAL");
+        String actualString = userFX.receive();
+        while(!actualString.equals("end")){
+            choices.add(actualString);
+            actualString = userFX.receive();
+        }
 
         ChoiceDialog<String> dialog = new ChoiceDialog<>("ORANGE", choices);
         dialog.setTitle("Family Member");
