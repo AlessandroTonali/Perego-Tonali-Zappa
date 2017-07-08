@@ -226,8 +226,7 @@ public class ParseJson {
             resources = singleCost.getResources();
         }
 
-        Requirement requirement = new Requirement(numberVenture, numberCharacter, numberBuilding, numberTerritory, resources);
-        return requirement;
+        return new Requirement(numberVenture, numberCharacter, numberBuilding, numberTerritory, resources);
     }
 
     private void parseImmediateEffect() {
@@ -241,9 +240,10 @@ public class ParseJson {
             logger.severe(String.valueOf(e));
         }
 
-        benefitsEffectMap = new HashMap<Integer,BenefitsEffect>();
+        benefitsEffectMap = new HashMap<>();
 
 
+        assert jsonContent != null;
         JSONObject rootObject = new JSONObject(jsonContent);
 
         JSONArray benefitEffects = rootObject.getJSONArray("BenefitEffect");
@@ -393,20 +393,20 @@ public class ParseJson {
         parseBonusTower(towerVentureEffect, ventureTowerBonus);
 
         JSONArray marketBonus = rootObject.getJSONArray("MarketBonus");
-        parseBonus(marketBonus);
+        parseBonus(marketBonus, marketEffectArrayList);
 
         JSONArray councilBonus = rootObject.getJSONArray("CouncilBonus");
-        parseBonus(councilBonus);
+        parseBonus(councilBonus, councilEffectArrayList);
 
         JSONArray faithTrack = rootObject.getJSONArray("FaithTrack");
         parseFaithTrack(faithTrack);
     }
 
-    private void parseBonus(JSONArray arrayBonus) {
+    private void parseBonus(JSONArray arrayBonus, ArrayList<AbsEffect> arrayList) {
         for (int i = 0; i < arrayBonus.length(); i++) {
             JSONObject jsonObject = arrayBonus.getJSONObject(i);
             AbsEffect effect = effectMap.get(jsonObject.getInt("effect"));
-            marketEffectArrayList.add(effect);
+            arrayList.add(effect);
         }
     }
 
@@ -725,8 +725,7 @@ public class ParseJson {
         if (jsonObject.has("required")) {
             SingleCost requiredCost = parseCost(jsonObject.getJSONArray("required").getJSONObject(0));
             SingleCost payedCost = parseCost(jsonObject.getJSONArray("payed").getJSONObject(0));
-            MilitaryCost militaryCost = new MilitaryCost(payedCost.getResources(), requiredCost.getResources());
-            return militaryCost;
+            return new MilitaryCost(payedCost.getResources(), requiredCost.getResources());
         }
 
 
@@ -752,9 +751,7 @@ public class ParseJson {
             victoryPoint = jsonObject.getInt("victoryPoint");
         }
 
-        SingleCost singleCost = new SingleCost(new ResourcesSet(faithPoint,coin,militaryPoint,servant,stone,victoryPoint,wood));
-
-        return singleCost;
+        return new SingleCost(new ResourcesSet(faithPoint,coin,militaryPoint,servant,stone,victoryPoint,wood));
     }
 
     public BenefitsEffect[] getCouncilBenefit() {

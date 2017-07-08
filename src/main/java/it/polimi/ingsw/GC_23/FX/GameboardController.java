@@ -6,9 +6,7 @@ import it.polimi.ingsw.GC_23.StringTyper;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
-import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
-import javafx.scene.control.ChoiceDialog;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.layout.*;
@@ -836,7 +834,7 @@ public class GameboardController implements Serializable {
         choices.add("BLACK");
         choices.add("NEUTRAL");
 
-        ChoiceDialog<String> dialog = new ChoiceDialog<>("ORANGE", choices);
+        /*ChoiceDialog<String> dialog = new ChoiceDialog<>("ORANGE", choices);
         dialog.setTitle("Family Member");
         dialog.setHeaderText("Set the family member for your action");
         dialog.setContentText("Choose your family member:");
@@ -858,7 +856,7 @@ public class GameboardController implements Serializable {
                     break;
             }
             return String.valueOf(value);
-        }
+        }*/
         return String.valueOf(value);
     }
 

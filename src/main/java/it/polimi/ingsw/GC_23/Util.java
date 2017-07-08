@@ -18,15 +18,15 @@ public class Util {
         ArrayList<Card> cardsFirstPeriod = new ArrayList<>();
         ArrayList<Card> cardsSecondPeriod = new ArrayList<>();
         ArrayList<Card> cardsThirdPeriod = new ArrayList<>();
-        for (int i = 0; i < cards.size(); i++) {
-            if (cards.get(i).getPeriod() == 1) {
-                cardsFirstPeriod.add(cards.get(i));
+        for (Card card : cards) {
+            if (card.getPeriod() == 1) {
+                cardsFirstPeriod.add(card);
             }
-            if (cards.get(i).getPeriod() == 2) {
-                cardsSecondPeriod.add(cards.get(i));
+            if (card.getPeriod() == 2) {
+                cardsSecondPeriod.add(card);
             }
-            if (cards.get(i).getPeriod() == 3){
-                cardsThirdPeriod.add(cards.get(i));
+            if (card.getPeriod() == 3) {
+                cardsThirdPeriod.add(card);
             }
         }
 
@@ -34,15 +34,9 @@ public class Util {
         Collections.shuffle(cardsSecondPeriod, new Random());
         Collections.shuffle(cardsThirdPeriod, new Random());
 
-        for (int i = 0; i < cardsFirstPeriod.size(); i++) {
-            cardsShuffeled.add(cardsFirstPeriod.get(i));
-        }
-        for (int i = 0; i < cardsSecondPeriod.size(); i++) {
-            cardsShuffeled.add(cardsSecondPeriod.get(i));
-        }
-        for (int i = 0; i < cardsThirdPeriod.size(); i++) {
-            cardsShuffeled.add(cardsThirdPeriod.get(i));
-        }
+        cardsShuffeled.addAll(cardsFirstPeriod);
+        cardsShuffeled.addAll(cardsSecondPeriod);
+        cardsShuffeled.addAll(cardsThirdPeriod);
 
         return cardsShuffeled;
     }
