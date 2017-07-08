@@ -1,9 +1,7 @@
 package it.polimi.ingsw.GC_23.Connection;
 
-import com.sun.jmx.snmp.Timestamp;
-import it.polimi.ingsw.GC_23.FX.UserFX;
-import javafx.application.Application;
 
+import it.polimi.ingsw.GC_23.FX.UserFX;
 import java.io.*;
 import java.net.MalformedURLException;
 import java.net.Socket;
@@ -11,13 +9,10 @@ import java.rmi.*;
 import java.rmi.registry.LocateRegistry;
 import java.rmi.registry.Registry;
 import java.rmi.server.UnicastRemoteObject;
-import java.sql.Time;
 import java.util.ArrayList;
 import java.util.Scanner;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 /**
  * Created by jesss on 03/06/17.

@@ -66,6 +66,12 @@ public class Tower {
     }
 
 
+    /**
+     * check if present another family member with the same color of the player
+     * @param familyMember that want tu put in a tower
+     * @return true if the player have already put a family member in this tower,
+     * false if the there isn't a player's family member in the tower
+     */
     // controlla se è presente un familiare del tuo colore nella torre
     public boolean checkFamiliarTower(FamilyMember familyMember) {
         boolean myFamiliarPresence = false;
@@ -82,6 +88,11 @@ public class Tower {
         return myFamiliarPresence;
     }
 
+    /**
+     * check if present a family member in this tower
+     * @return true if there is a family member,
+     * false if there isn't a family member
+     */
     // controlla se è presente un familiare nella torre
     public boolean checkOtherFamiliar() {
         boolean otherFamiliarPresence  = false;
@@ -94,6 +105,12 @@ public class Tower {
         return otherFamiliarPresence;
     }
 
+    /**
+     * method for choosing a tower space in the tower
+     * @param player that want to play in the tower
+     * @return the tower space chosen
+     * @throws RemoteException
+     */
     public TowerSpace chooseTowerSpace(Player player) throws RemoteException {
         player.getUserHandler().messageToUser("Choose the tower space");
         //todo: mostrare i towerspace
@@ -142,6 +159,12 @@ public class Tower {
         return String.valueOf(stringBuilder);
     }
 
+    /**
+     * check if is possibile to active permanent effect on the tower
+     * @param familyMember that you want to put in the tower
+     * @return family member with permanent effect activated
+     * @throws RemoteException
+     */
     public FamilyMember checkPermanentEffect(FamilyMember familyMember) throws RemoteException {
         ArrayList<PermanentEffect> permanentEffects = familyMember.getPlayer().getPermanentEffects();
         for (int i = 0; i < permanentEffects.size(); i++) {
@@ -161,6 +184,12 @@ public class Tower {
         return familyMember;
     }
 
+    /**
+     * method for disable the permanent effect activated earlier when you entered in the tower
+     * @param familyMember that you want to disable the permanent effect
+     * @return the family member with disabled the permanent effect
+     * @throws RemoteException
+     */
     public FamilyMember disablePermanentEffect(FamilyMember familyMember) throws RemoteException {
         ArrayList<PermanentEffect> permanentEffectArrayList = familyMember.getPlayer().getPermanentEffects();
         for (int i = 0; i < permanentEffectArrayList.size(); i++) {

@@ -80,7 +80,7 @@ public class ProductionSpace extends ActionSpace {
 
     /**
      * check if there is another family member of the player
-     * @param familyMember that want to put in a space
+     * @param familyMember that want to put in the space
      * @return true if another family member of player is present, false if there isn't another family member of player
      */
     public boolean checkFamiliar(FamilyMember familyMember){
@@ -106,6 +106,9 @@ public class ProductionSpace extends ActionSpace {
         return orderCounter;
     }
 
+    /**
+     * show on abstract class
+     */
     @Override
     public void resetFamilyMember(){
             playerOrder = new ArrayList<>();
@@ -115,6 +118,9 @@ public class ProductionSpace extends ActionSpace {
         }
 
 
+    /**
+     * show on abstract class
+     */
     @Override
     public void checkBeforeActivablePermanentEffect(FamilyMember familyMember) {
         ArrayList<PermanentEffect> permanentEffectArrayList = familyMember.getPlayer().getPermanentEffects();
@@ -127,6 +133,9 @@ public class ProductionSpace extends ActionSpace {
         }
     }
 
+    /**
+     * show on abstract class
+     */
     @Override
     public void checkAfterActivablePermanentEffect(FamilyMember familyMember) {
         ArrayList<PermanentEffect> permanentEffectArrayList = familyMember.getPlayer().getPermanentEffects();

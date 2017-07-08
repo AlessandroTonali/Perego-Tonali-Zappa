@@ -24,6 +24,9 @@ public class CouncilSpace extends ActionSpace {
 
 
 
+    /**
+     * show on abstract class
+     */
     public void setFamilyMember(FamilyMember familyMember){
         this.playerOrder.add(familyMember.getPlayer());
         orderCounter++;
@@ -43,6 +46,12 @@ public class CouncilSpace extends ActionSpace {
         return effects;
     }
 
+    /**
+     * check if already present a family member of the player
+     * @param playerColor color of player that want to put a familiar in council space
+     * @return true if familiar of the player is already present,
+     * false if familiar of the player isn't present
+     */
     public boolean checkFamiliar(PlayerColor playerColor){
         for(int i = 0; i<playerOrder.size(); i++) {
             if (playerOrder.get(i).getPlayerColor() == playerColor) {
@@ -56,6 +65,9 @@ public class CouncilSpace extends ActionSpace {
         return playerOrder;
     }
 
+    /**
+     * show on abstract class
+     */
     @Override
     public void resetFamilyMember(){
 
@@ -64,11 +76,17 @@ public class CouncilSpace extends ActionSpace {
 
     }
 
+    /**
+     * show on abstract class
+     */
     @Override
     public void checkBeforeActivablePermanentEffect(FamilyMember familyMember) {
 
     }
 
+    /**
+     * show on abstract class
+     */
     @Override
     public void checkAfterActivablePermanentEffect(FamilyMember familyMember) {
 

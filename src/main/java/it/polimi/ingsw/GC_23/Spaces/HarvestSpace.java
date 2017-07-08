@@ -60,6 +60,10 @@ public class HarvestSpace extends ActionSpace {
         return familyMembersPresent;
     }
 
+    /**
+     * @param familyMember that you want to check the value
+     * @return true if family member value is higher than space value
+     */
     public boolean checkValue(FamilyMember familyMember){
         if(isBusyFirst) {
             return (familyMember.getValue() - 3) >= 1;
@@ -70,6 +74,11 @@ public class HarvestSpace extends ActionSpace {
         }
     }
 
+    /**
+     * check if there is another family member of the player
+     * @param familyMember that want to put in the space
+     * @return true if another family member of player is present, false if there isn't another family member of player
+     */
     // controlla se sono presenti altri familiari dello stesso player, true --> son presenti, false --> non sono presenti
     public boolean checkFamiliar(FamilyMember familyMember){
         for (int i = 0; i < familyMembersPresent.size(); i++) {
@@ -95,6 +104,9 @@ public class HarvestSpace extends ActionSpace {
         return orderCounter;
     }
 
+    /**
+     * show on abstract class
+     */
     @Override
     public void resetFamilyMember(){
 
@@ -104,6 +116,9 @@ public class HarvestSpace extends ActionSpace {
         }
 
 
+    /**
+     * show on abstract class
+     */
     @Override
     public void checkBeforeActivablePermanentEffect(FamilyMember familyMember) {
         ArrayList<PermanentEffect> permanentEffectArrayList = familyMember.getPlayer().getPermanentEffects();
@@ -111,11 +126,14 @@ public class HarvestSpace extends ActionSpace {
         for (int i = 0; i < permanentEffectArrayList.size(); i++) {
             PermanentEffect permanentEffect = permanentEffectArrayList.get(i);
             if (permanentEffect instanceof PlusDiceEffect && ((PlusDiceEffect) permanentEffect).getType().equals("harvest")) {
-                familyMember.setValue(familyMember.getValue() + familyMember.getValue());
+                familyMember.setValue(familyMember.getValue() + ((PlusDiceEffect) permanentEffect).getPlusDiceValue());
             }
         }
     }
 
+    /**
+     * show on abstract class
+     */
     @Override
     public void checkAfterActivablePermanentEffect(FamilyMember familyMember) {
         ArrayList<PermanentEffect> permanentEffectArrayList = familyMember.getPlayer().getPermanentEffects();
