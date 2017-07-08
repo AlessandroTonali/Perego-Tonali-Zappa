@@ -365,10 +365,69 @@ public class PlayGame {
         }
     }
 
+    public void boardStringer(Player player) throws RemoteException{
+        for(int i = 0; i<4; i++){
+            for(int j = 0; j<4; j++) {
+                player.getUserHandler().messageToUser("tower" + i + j);
+                player.getUserHandler().messageToUser(String.valueOf(board.getTower(i).getSpaces()[j].getCard().getIdCard()));
+                try {
+                    player.getUserHandler().messageToUser("towerspace" + i + j);
+                    player.getUserHandler().messageToUser(board.getTower(i).getSpaces()[j].getFamilyMember().getPlayer().getPlayerColor().toString() + board.getTower(i).getSpaces()[j].getFamilyMember().getFamilyColor().toString());
+                } catch (NullPointerException e) {
+                    player.getUserHandler().messageToUser("towerspace" + i + j);
+                    player.getUserHandler().messageToUser("null");
+                }
+            }
+        }
+        for(int i = 0; i<4; i++){
+            try {
+                player.getUserHandler().messageToUser("market" + i+"\n"+ board.getMarketSpaces()[i].getFamilyMember().getPlayer().getPlayerColor().toString() + board.getTower(i).getSpaces()[i].getFamilyMember().getFamilyColor().toString()+"\n");
+            }catch (NullPointerException e){
+                player.getUserHandler().messageToUser("market"+i+"\n"+ "null"+"\n");
+            }catch (ArrayIndexOutOfBoundsException e){
+                player.getUserHandler().messageToUser("market"+i+"\n"+ "not"+"\n");
+            }
+        }
+        for(int i = 0; i<16; i++){
+            try{
+                player.getUserHandler().messageToUser("harvest"+i+"\n"+ board.getHarvestSpace().getFamilyMembersPresent().get(i).getPlayer().getPlayerColor().toString() + board.getHarvestSpace().getFamilyMembersPresent().get(i).getFamilyColor().toString()+"\n");
+            }catch (NullPointerException e){
+                break;
+            }
+            catch (IndexOutOfBoundsException ex){
+                player.getUserHandler().messageToUser("harvestend"+"\n");
+                break;
+            }
+        }
+        for(int i = 0; i<16; i++){
+            try{
+                player.getUserHandler().messageToUser("production"+i +"\n"+ board.getProductionSpace().getPlayerOrder().get(i).getPlayer().getPlayerColor().toString() + board.getProductionSpace().getPlayerOrder().get(i).getFamilyColor().toString()+"\n");
+            }catch (NullPointerException e){
+                break;
+            }catch (IndexOutOfBoundsException e){
+                player.getUserHandler().messageToUser("productionend"+"\n");
+                break;
+            }
+        }
+        for(int i = 0; i<4; i++){
+            try {
+                player.getUserHandler().messageToUser("council"+i +"\n"+ board.getCouncilSpace().getPlayerOrder().get(i).getPlayerColor().toString()+"\n");
+            }catch (NullPointerException e){
+                break;
+            }catch (IndexOutOfBoundsException e){
+                player.getUserHandler().messageToUser("councilend"+"\n");
+                break;
+            }
+        }
+        player.getUserHandler().messageToUser(board.getExcommunicationSpaceFirstPeriod().getExcommunicationTile().getIdTile() +"\n");
+        player.getUserHandler().messageToUser(board.getExcommunicationSpaceSecondPeriod().getExcommunicationTile().getIdTile() + "\n");
+        player.getUserHandler().messageToUser(board.getExcommunicationSpaceThirdPeriod().getExcommunicationTile().getIdTile() + "\n");
+        player.getUserHandler().messageToUser("end"+"\n");
+    }
+
     public void sendBoard() throws RemoteException{
-        String boardStringer = this.board.boardStringer();
         for(Player p : players) {
-                p.getUserHandler().messageToUser(boardStringer);
+                boardStringer(p);
 
         }
     }

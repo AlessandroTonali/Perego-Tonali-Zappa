@@ -41,7 +41,7 @@ public class ColorSelection implements Serializable {
         primaryStage.setScene(new Scene(content));
         primaryStage.show();
         fill();
-        colorController.handle();
+        colorController.handleColor();
     }
 
     public void fill() throws RemoteException{

@@ -105,7 +105,7 @@ public class ColorController implements Serializable{
         }
     }
 
-    public void handle() throws RemoteException{
+    public void handleColor() throws RemoteException{
         button.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
@@ -154,11 +154,17 @@ public class ColorController implements Serializable{
                     }
                 }
                 else {
-                    /*Alert alert = new Alert(Alert.AlertType.ERROR);
+                    Alert alert = new Alert(Alert.AlertType.ERROR);
                     alert.setTitle("Error Dialog");
                     alert.setHeaderText("Invalid choice: color already chosen!");
                     alert.setContentText("Please select a valid choice");
-                    alert.showAndWait();*/
+                    alert.showAndWait();
+                    try {
+                        handleColor();
+                    } catch (RemoteException e) {
+                        e.printStackTrace();
+                    }
+                    return;
                 }
                 try {
                     userFX.send(Integer.toString(votation));
