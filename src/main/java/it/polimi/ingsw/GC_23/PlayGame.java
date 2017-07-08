@@ -436,19 +436,19 @@ public class PlayGame {
 
     public void dataStringer(Player p) throws RemoteException{
         for(Player player: players) {
-            player.getUserHandler().messageToUser(player.getPlayerColor().toString());
-            player.getUserHandler().messageToUser(String.valueOf(player.getResources().getGold()));
-            player.getUserHandler().messageToUser(String.valueOf(player.getResources().getStone()));
-            player.getUserHandler().messageToUser(String.valueOf(player.getResources().getWood()));
-            player.getUserHandler().messageToUser(String.valueOf((player.getResources().getServants())));
-            player.getUserHandler().messageToUser(String.valueOf(player.getResources().getFaithPointsObj()));
-            player.getUserHandler().messageToUser(String.valueOf(player.getResources().getMilitaryPoints()));
-            player.getUserHandler().messageToUser(String.valueOf(player.getResources().getVictoryPoints()));
-            player.getUserHandler().messageToUser("endResources");
-            player.getUserHandler().messageToUser(String.valueOf(p.getFamilyMembers()[0].getValue()));
-            player.getUserHandler().messageToUser(String.valueOf(p.getFamilyMembers()[1].getValue()));
-            player.getUserHandler().messageToUser(String.valueOf(p.getFamilyMembers()[2].getValue()));
-            player.getUserHandler().messageToUser(String.valueOf(p.getFamilyMembers()[3].getValue()));
+            p.getUserHandler().messageToUser(player.getPlayerColor().toString());
+            p.getUserHandler().messageToUser(String.valueOf(player.getResources().getGold()));
+            p.getUserHandler().messageToUser(String.valueOf(player.getResources().getStone()));
+            p.getUserHandler().messageToUser(String.valueOf(player.getResources().getWood()));
+            p.getUserHandler().messageToUser(String.valueOf((player.getResources().getServants())));
+            p.getUserHandler().messageToUser(String.valueOf(player.getResources().getFaithPointsObj()));
+            p.getUserHandler().messageToUser(String.valueOf(player.getResources().getMilitaryPoints()));
+            p.getUserHandler().messageToUser(String.valueOf(player.getResources().getVictoryPoints()));
+            p.getUserHandler().messageToUser("endResources");
+            p.getUserHandler().messageToUser(String.valueOf(p.getFamilyMembers()[0].getValue()));
+            p.getUserHandler().messageToUser(String.valueOf(p.getFamilyMembers()[1].getValue()));
+            p.getUserHandler().messageToUser(String.valueOf(p.getFamilyMembers()[2].getValue()));
+            p.getUserHandler().messageToUser(String.valueOf(p.getFamilyMembers()[3].getValue()));
         }
 
     }
