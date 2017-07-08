@@ -60,5 +60,6 @@ public class Gameboard implements Serializable {
         gameboardController.boardTranslator();
         gameboardController.dataTranslator();
         gameboardController.cardsTranslator();
+        gameboardController.whoseTurnTranslator();
     }
 }

@@ -43,9 +43,14 @@ public class PlayGame {
         resetFamilyMembers();
         while(true) {
             System.out.println(period + " period");
-            update();
+            sendBoard();
+            sendData();
+            sendCards();
+            sendTurnPlayer(players.get(0));
+
             while( i < 1 ){
                 for (Player p : this.players) {
+                    sendTurnPlayer(p);
                     if(!p.getUserHandler().isGuiInterface()) {
                         p.getUserHandler().messageToUser("");
                         p.getUserHandler().messageToUser(("Period: " + this.period + " Turn: " + this.turn + "\n"));
@@ -429,6 +434,12 @@ public class PlayGame {
         String cardsString = cardsStringer();
         for(Player p : players){
             p.getUserHandler().messageToUser(cardsString);
+        }
+    }
+
+    public void sendTurnPlayer(Player p) throws RemoteException{
+        for (Player pl : players){
+            pl.getUserHandler().messageToUser(p.getPlayerColor().toString());
         }
     }
 

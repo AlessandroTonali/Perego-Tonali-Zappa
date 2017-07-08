@@ -1,5 +1,6 @@
 package it.polimi.ingsw.GC_23.FX;
 
+import com.sun.org.apache.regexp.internal.RE;
 import com.sun.prism.paint.Color;
 import it.polimi.ingsw.GC_23.StringTyper;
 import javafx.event.ActionEvent;
@@ -62,6 +63,17 @@ public class GameboardController implements Serializable {
     public  void cardsTranslator() throws RemoteException{
         cardsSetter();
     }
+    public void whoseTurnTranslator() throws RemoteException {
+        turnsetter();
+    }
+
+    private void turnsetter() throws RemoteException {
+        String string = userFX.receive();
+        string = userFX.receive();
+        turn.setText(string);
+    }
+
+    ;
 
     public void towerSetter() throws RemoteException{
         String inizio;
@@ -471,21 +483,27 @@ public class GameboardController implements Serializable {
 
 
     public void dataSetter() throws RemoteException{
+        yourcolor.setText(color);
         String actualString = userFX.receive();
         actualString = userFX.receive();
         String actualColor = actualString;
+
         switch (actualString) {
             case "RED":
                 circle1.setFill(RED);
+                first.setFill(RED);
                 break;
             case "BLUE":
                 circle1.setFill(BLUE);
+                first.setFill(BLUE);
                 break;
             case "GREEN":
                 circle1.setFill(GREEN);
+                first.setFill(GREEN);
                 break;
             case "YELLOW":
                 circle1.setFill(YELLOW);
+                first.setFill(YELLOW);
                 break;
         }
         actualString = userFX.receive();
@@ -517,15 +535,19 @@ public class GameboardController implements Serializable {
         switch (actualString) {
             case "RED":
                 circle2.setFill(RED);
+                second.setFill(RED);
                 break;
             case "BLUE":
                 circle2.setFill(BLUE);
+                second.setFill(BLUE);
                 break;
             case "GREEN":
                 circle2.setFill(GREEN);
+                second.setFill(GREEN);
                 break;
             case "YELLOW":
                 circle2.setFill(YELLOW);
+                second.setFill(YELLOW);
                 break;
         }
         actualString = userFX.receive();
@@ -560,15 +582,19 @@ public class GameboardController implements Serializable {
             switch (actualString) {
                 case "RED":
                     circle3.setFill(RED);
+                    third.setFill(RED);
                     break;
                 case "BLUE":
                     circle3.setFill(BLUE);
+                    third.setFill(BLUE);
                     break;
                 case "GREEN":
                     circle3.setFill(GREEN);
+                    third.setFill(GREEN);
                     break;
                 case "YELLOW":
                     circle3.setFill(YELLOW);
+                    third.setFill(YELLOW);
                     break;
             }
             actualString = userFX.receive();
@@ -602,12 +628,15 @@ public class GameboardController implements Serializable {
                 switch (actualString) {
                     case "RED":
                         circle4.setFill(RED);
+                        fourth.setFill(RED);
                         break;
                     case "BLUE":
                         circle4.setFill(BLUE);
+                        fourth.setFill(BLUE);
                         break;
                     case "GREEN":
                         circle4.setFill(GREEN);
+                        fourth.setFill(GREEN);
                         break;
                     case "YELLOW":
                         circle4.setFill(YELLOW);

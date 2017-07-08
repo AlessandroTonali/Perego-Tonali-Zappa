@@ -189,7 +189,8 @@ public class ParseJson {
             ArrayList<AbsEffect> effects = parsingEffect(jsonObject.getJSONArray("effect"));
 
             LeaderCard leaderCard = new LeaderCard(name, requirement, effects);
-            leaderCard.setIdCard(idCard);
+            leaderCard.
+                    setIdCard(idCard);
             leaderCardArrayList.add(leaderCard);
         }
 
