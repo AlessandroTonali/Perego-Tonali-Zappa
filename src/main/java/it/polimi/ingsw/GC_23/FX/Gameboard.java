@@ -28,11 +28,13 @@ import java.util.logging.Logger;
 public class Gameboard implements Serializable {
     private Stage primaryStage;
     private UserFX userFX;
+    private String color;
     private transient final Logger logger = Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
 
-    public Gameboard(Stage primaryStage, UserFX userFX) {
+    public Gameboard(Stage primaryStage, UserFX userFX, String color) {
         this.primaryStage = primaryStage;
         this.userFX = userFX;
+        this.color = color;
     }
 
     public void startGameBoard(Stage primaryStage) throws RemoteException{
@@ -40,7 +42,7 @@ public class Gameboard implements Serializable {
         this.primaryStage.setTitle("Lorenzo Il Magnifico");
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(this.getClass().getClassLoader().getResource("gameboard.fxml"));
-        GameboardController gameboardController =new GameboardController(userFX);
+        GameboardController gameboardController =new GameboardController(userFX, color);
         loader.setController(gameboardController);
         Parent content = null;
         try {

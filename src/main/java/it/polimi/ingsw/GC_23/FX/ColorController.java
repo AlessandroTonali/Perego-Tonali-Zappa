@@ -27,6 +27,7 @@ public class ColorController implements Serializable{
     private UserFX userFX;
     private Stage primaryStage;
     private int votation = 0;
+    private String color;
     private transient final Logger logger = Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
 
     public ColorController(UserFX userFX, Stage primaryStage) {
@@ -118,6 +119,7 @@ public class ColorController implements Serializable{
                 Toggle selectedToggle = toggles.getSelectedToggle();
                 if(selectedToggle.equals(red) && redlabel.getText().equals("null")) {
                     try {
+                        color = "RED";
                         userFX.send("RED");
                     } catch (RemoteException e) {
                         logger.setLevel(Level.SEVERE);
@@ -126,6 +128,7 @@ public class ColorController implements Serializable{
                 }
                 else if(selectedToggle.equals(blue) && bluelabel.getText().equals("null")) {
                     try {
+                        color = "BLUE";
                         userFX.send("BLUE");
                     } catch (RemoteException e) {
                         logger.setLevel(Level.SEVERE);
@@ -134,6 +137,7 @@ public class ColorController implements Serializable{
                 }
                 else if(selectedToggle.equals(green) && greenlabel.getText().equals("null")) {
                     try {
+                        color = "GREEN";
                         userFX.send("GREEN");
                     } catch (RemoteException e) {
                         logger.setLevel(Level.SEVERE);
@@ -142,6 +146,7 @@ public class ColorController implements Serializable{
                 }
                 else if(selectedToggle.equals(yellow) && yellowlabel.getText().equals("null")){
                     try {
+                        color = "YELLOW";
                         userFX.send("YELLOW");
                     } catch (RemoteException e) {
                         logger.setLevel(Level.SEVERE);
@@ -172,7 +177,7 @@ public class ColorController implements Serializable{
     }
 
     public void startGameboard() throws RemoteException{
-        Gameboard gameboard = new Gameboard(primaryStage, userFX);
+        Gameboard gameboard = new Gameboard(primaryStage, userFX, color);
         gameboard.startGameBoard(primaryStage);
     }
 }

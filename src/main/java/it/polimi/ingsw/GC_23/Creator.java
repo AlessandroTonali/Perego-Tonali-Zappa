@@ -76,7 +76,7 @@ public class Creator {
         familyMembers[3] = new FamilyMember(player, FamilyColor.NEUTRAL, 0);
         player.setFamilyMembers(familyMembers);
         //player.setResources(new ResourcesSet(0,0,0,3,2,0,2));
-        //TODO TOGLIERE COMMENTO
+        //TODO TOGLIERE COMMENTO E TEST
         player.setResources(new ResourcesSet(50,50,50,50,50,50,50));
         player.setUserHandler(userHandler);
 

@@ -1,6 +1,7 @@
 package it.polimi.ingsw.GC_23.FX;
 
 import com.sun.prism.paint.Color;
+import it.polimi.ingsw.GC_23.StringTyper;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -22,10 +23,12 @@ import static javafx.scene.paint.Color.*;
  */
 public class GameboardController implements Serializable {
     private UserFX userFX;
+    private String color;
     private transient final Logger logger = Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
 
-    public GameboardController(UserFX userFX) {
+    public GameboardController(UserFX userFX, String color) {
         this.userFX = userFX;
+        this.color = color;
     }
 
     public void boardTranslator() throws RemoteException{
@@ -462,6 +465,7 @@ public class GameboardController implements Serializable {
     public void dataSetter() throws RemoteException{
         String actualString = userFX.receive();
         actualString = userFX.receive();
+        String actualColor = actualString;
         switch (actualString) {
             case "RED":
                 circle1.setFill(RED);
@@ -493,15 +497,15 @@ public class GameboardController implements Serializable {
 
         actualString = userFX.receive();//endresources
         actualString = userFX.receive();
-        orange.setText(actualString);
+        if(actualColor.equals(color)) orange.setText(actualString);
         actualString = userFX.receive();
-        white.setText(actualString);
+        if(actualColor.equals(color)) white.setText(actualString);
         actualString = userFX.receive();
-        black.setText(actualString);
+        if(actualColor.equals(color)) black.setText(actualString);
         actualString = userFX.receive();
-        neutral.setText(actualString);
+        if(actualColor.equals(color))  neutral.setText(actualString);
         actualString = userFX.receive();
-        Image image;
+        actualColor = actualString;
         switch (actualString) {
             case "RED":
                 circle2.setFill(RED);
@@ -533,17 +537,18 @@ public class GameboardController implements Serializable {
 
         actualString = userFX.receive();
         actualString = userFX.receive();
-        orange.setText(actualString);
+        if(actualColor.equals(color)) orange.setText(actualString);
         actualString = userFX.receive();
-        white.setText(actualString);
+        if(actualColor.equals(color)) white.setText(actualString);
         actualString = userFX.receive();
-        black.setText(actualString);
+        if(actualColor.equals(color)) black.setText(actualString);
         actualString = userFX.receive();
-        neutral.setText(actualString);
+        if(actualColor.equals(color))  neutral.setText(actualString);
         actualString = userFX.receive();
 
 
         if(!actualString.equals("dataended")) {
+            actualColor = actualString;
             switch (actualString) {
                 case "RED":
                     circle3.setFill(RED);
@@ -575,15 +580,17 @@ public class GameboardController implements Serializable {
 
             actualString = userFX.receive();
             actualString = userFX.receive();
-            orange.setText(actualString);
+            if(actualColor.equals(color)) orange.setText(actualString);
             actualString = userFX.receive();
-            white.setText(actualString);
+            if(actualColor.equals(color)) white.setText(actualString);
             actualString = userFX.receive();
-            black.setText(actualString);
+            if(actualColor.equals(color)) black.setText(actualString);
             actualString = userFX.receive();
-            neutral.setText(actualString);
+            if(actualColor.equals(color))  neutral.setText(actualString);
             actualString = userFX.receive();
+
             if(!actualString.equals("dataended")) {
+                actualColor = actualString;
                 switch (actualString) {
                     case "RED":
                         circle4.setFill(RED);
@@ -613,13 +620,17 @@ public class GameboardController implements Serializable {
                 actualString = userFX.receive();
                 victory4.setText(actualString);
                 actualString = userFX.receive();
-                orange.setText(actualString);
                 actualString = userFX.receive();
-                white.setText(actualString);
+                if(actualColor.equals(color)) {
+                    orange.setText(actualString);
+                }
+
                 actualString = userFX.receive();
-                black.setText(actualString);
+                if(actualColor.equals(color)) white.setText(actualString);
                 actualString = userFX.receive();
-                neutral.setText(actualString);
+                if(actualColor.equals(color)) black.setText(actualString);
+                actualString = userFX.receive();
+                if(actualColor.equals(color))  neutral.setText(actualString);
                 actualString = userFX.receive();
             }
 
@@ -631,7 +642,12 @@ public class GameboardController implements Serializable {
         String inizio = "-fx-background-image: url";
         String fine;
         String ind;
+
         String actualString = userFX.receive();
+        while(!actualString.equals(color)){
+            actualString = userFX.receive();
+        }
+        actualString = userFX.receive();
         fine = "(card/" + actualString + ".png)" + ";";
         ind = inizio + fine;
         cardt1.setStyle(ind);
@@ -752,24 +768,27 @@ public class GameboardController implements Serializable {
         cardv6.setStyle(ind);
 
         actualString = userFX.receive();
-        fine = "(card/" + actualString + ".png)" + ";";
+        fine = "(leader/" + actualString + ".jpg)" + ";";
         ind = inizio + fine;
         cardl1.setStyle(ind);
 
         actualString = userFX.receive();
-        fine = "(card/" + actualString + ".png)" + ";";
+        fine = "(leader/" + actualString + ".jpg)" + ";";
         ind = inizio + fine;
         cardl2.setStyle(ind);
 
         actualString = userFX.receive();
-        fine = "(card/" + actualString + ".png)" + ";";
+        fine = "(leader/" + actualString + ".jpg)" + ";";
         ind = inizio + fine;
         cardl3.setStyle(ind);
 
         actualString = userFX.receive();
-        fine = "(card/" + actualString + ".png)" + ";";
+        fine = "(leader/" + actualString + ".jpg)" + ";";
         ind = inizio + fine;
         cardl4.setStyle(ind);
+        while (!actualString.equals("end")){
+            actualString = userFX.receive();
+        }
     }
 
 
