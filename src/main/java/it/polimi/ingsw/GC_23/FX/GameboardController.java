@@ -8,6 +8,7 @@ import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.layout.*;
 import javafx.scene.paint.ImagePattern;
@@ -311,7 +312,7 @@ public class GameboardController implements Serializable {
         if (!actualString.equals("harvestend")) {
             fine = "(stuff/" + actualString + ".png)" + ";";
             ind = inizio + fine;
-            harvest1.setStyle(ind);
+            harvestb.setStyle(ind);
 
             actualString = userFX.receive();
             if (!actualString.equals("harvestend")) {
@@ -372,7 +373,7 @@ public class GameboardController implements Serializable {
         if (!actualString.equals("productionend")) {
             fine = "(stuff/" + actualString + ".png)" + ";";
             ind = inizio + fine;
-            production1.setStyle(ind);
+            productionb.setStyle(ind);
 
             actualString = userFX.receive();
             if (!actualString.equals("productionend")) {
@@ -827,49 +828,134 @@ public class GameboardController implements Serializable {
     }
 
     public String chooseFamilyMember() throws RemoteException{
-        int value = -1;
         List<String> choices = new ArrayList<>();
         choices.add("ORANGE");
         choices.add("WHITE");
         choices.add("BLACK");
         choices.add("NEUTRAL");
 
-        /*ChoiceDialog<String> dialog = new ChoiceDialog<>("ORANGE", choices);
+        ChoiceDialog<String> dialog = new ChoiceDialog<>("ORANGE", choices);
         dialog.setTitle("Family Member");
         dialog.setHeaderText("Set the family member for your action");
         dialog.setContentText("Choose your family member:");
 
         Optional<String> result = dialog.showAndWait();
-        if (result.isPresent()){
-            switch (result.toString()){
-                case "ORANGE":
-                    value = 0;
-                    break;
-                case "WHITE":
-                    value = 1;
-                    break;
-                case "BLACK":
-                    value = 2;
-                    break;
-                case "NEUTRAL":
-                    value = 3;
-                    break;
+        while (!result.isPresent()){
+            try {
+                Thread.sleep(1000);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
             }
-            return String.valueOf(value);
-        }*/
+        }
+        return result.get();
+    }
+
+    public String chooseCouncilPrivilege() throws RemoteException{
+        int value = -1;
+        List<String> choices = new ArrayList<>();
+        choices.add("1 Stone and 1 Wood");
+        choices.add("2 Servants");
+        choices.add("2 Coins");
+        choices.add("2 Military Points");
+        choices.add("2 Faith Points");
+
+        ChoiceDialog<String> dialog = new ChoiceDialog<>("1 Stone and 1 Wood", choices);
+        dialog.setTitle("Council Privilege");
+        dialog.setHeaderText("Select the council privilege you will receive");
+        dialog.setContentText("Choose your council privilege:");
+
+        Optional<String> result = dialog.showAndWait();
+        while (!result.isPresent()){
+            try {
+                Thread.sleep(1000);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
+        switch (result.get()){
+            case "1 Stone and 1 Wood":
+                value = 0;
+                break;
+            case "2 Servants":
+                value = 1;
+                break;
+            case "2 Coins":
+                value = 2;
+                break;
+            case "2 Military Points":
+                value = 3;
+                break;
+            case "2 Faith Points":
+                value = 4;
+                break;
+        }
+        return String.valueOf(value);
+    }
+
+    public String chooseIncreaseValue() throws RemoteException{
+        TextInputDialog dialog = new TextInputDialog("value");
+        dialog.setTitle("Increase value");
+        dialog.setHeaderText("Enter the family value");
+        dialog.setContentText("Enter the value here:");
+
+        Optional<String> result = dialog.showAndWait();
+        while(!result.isPresent()){
+            try {
+                Thread.sleep(1000);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
+        return result.get();
+    }
+
+    public void busyAlert() throws RemoteException{
+        Alert alert = new Alert(Alert.AlertType.ERROR);
+        alert.setTitle("Error Dialog");
+        alert.setHeaderText("Invalid move: space already occupied!");
+        alert.setContentText("Please select a valid choice");
+        alert.showAndWait();
+    }
+
+    public String identifyFamilyMember(String string) throws RemoteException{
+        int value = -1;
+        switch (string){
+            case "ORANGE":
+                value = 0;
+                break;
+            case "WHITE":
+                value = 1;
+                break;
+            case "BLACK":
+                value = 2;
+                break;
+            case "NEUTRAL":
+                value = 3;
+                break;
+        }
         return String.valueOf(value);
     }
 
 
-    public void handle() throws RemoteException{
+    public void handle() throws RemoteException {
         territory1.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
                 try {
-                    userFX.send("5");
-                    userFX.send(chooseFamilyMember());
-                    userFX.send("3");
-                }catch (RemoteException e){
+                    if (territory1.getStyle().contains("-fx-background-image:")) {
+                        busyAlert();
+                    } else {
+                        String inizio = "-fx-background-image: url";
+                        String fine;
+                        userFX.send("5");
+                        String familyMember = chooseFamilyMember();
+                        userFX.send(identifyFamilyMember(familyMember));
+                        userFX.send("3");
+                        fine = "(stuff/" + color + familyMember + ".png)" + ";";
+                        String ind = inizio + fine;
+                        territory1.setStyle(ind);
+                    }
+                } catch (RemoteException e) {
                     e.printStackTrace();
                 }
 
@@ -880,10 +966,20 @@ public class GameboardController implements Serializable {
             @Override
             public void handle(ActionEvent event) {
                 try {
-                    userFX.send("5");
-                    userFX.send(chooseFamilyMember());
-                    userFX.send("2");
-                }catch (RemoteException e){
+                    if (territory2.getStyle().contains("-fx-background-image:")) {
+                        busyAlert();
+                    } else {
+                        String inizio = "-fx-background-image: url";
+                        String fine;
+                        userFX.send("5");
+                        String familyMember = chooseFamilyMember();
+                        userFX.send(identifyFamilyMember(familyMember));
+                        userFX.send("2");
+                        fine = "(stuff/" + color + familyMember + ".png)" + ";";
+                        String ind = inizio + fine;
+                        territory2.setStyle(ind);
+                    }
+                } catch (RemoteException e) {
                     e.printStackTrace();
                 }
 
@@ -894,10 +990,20 @@ public class GameboardController implements Serializable {
             @Override
             public void handle(ActionEvent event) {
                 try {
-                    userFX.send("5");
-                    userFX.send(chooseFamilyMember());
-                    userFX.send("1");
-                }catch (RemoteException e){
+                    if (territory3.getStyle().contains("-fx-background-image:")) {
+                        busyAlert();
+                    } else {
+                        String inizio = "-fx-background-image: url";
+                        String fine;
+                        userFX.send("5");
+                        String familyMember = chooseFamilyMember();
+                        userFX.send(identifyFamilyMember(familyMember));
+                        userFX.send("1");
+                        fine = "(stuff/" + color + familyMember + ".png)" + ";";
+                        String ind = inizio + fine;
+                        territory3.setStyle(ind);
+                    }
+                } catch (RemoteException e) {
                     e.printStackTrace();
                 }
 
@@ -908,13 +1014,22 @@ public class GameboardController implements Serializable {
             @Override
             public void handle(ActionEvent event) {
                 try {
-                    userFX.send("5");
-                    userFX.send(chooseFamilyMember());
-                    userFX.send("0");
-                }catch (RemoteException e){
+                    if (territory4.getStyle().contains("-fx-background-image:")) {
+                        busyAlert();
+                    } else {
+                        String inizio = "-fx-background-image: url";
+                        String fine;
+                        userFX.send("5");
+                        String familyMember = chooseFamilyMember();
+                        userFX.send(identifyFamilyMember(familyMember));
+                        userFX.send("0");
+                        fine = "(stuff/" + color + familyMember + ".png)" + ";";
+                        String ind = inizio + fine;
+                        territory4.setStyle(ind);
+                    }
+                } catch (RemoteException e) {
                     e.printStackTrace();
                 }
-
             }
         });
 
@@ -922,10 +1037,20 @@ public class GameboardController implements Serializable {
             @Override
             public void handle(ActionEvent event) {
                 try {
-                    userFX.send("6");
-                    userFX.send(chooseFamilyMember());
-                    userFX.send("3");
-                }catch (RemoteException e){
+                    if (character1.getStyle().contains("-fx-background-image:")) {
+                        busyAlert();
+                    } else {
+                        String inizio = "-fx-background-image: url";
+                        String fine;
+                        userFX.send("6");
+                        String familyMember = chooseFamilyMember();
+                        userFX.send(identifyFamilyMember(familyMember));
+                        userFX.send("3");
+                        fine = "(stuff/" + color + familyMember + ".png)" + ";";
+                        String ind = inizio + fine;
+                        character1.setStyle(ind);
+                    }
+                } catch (RemoteException e) {
                     e.printStackTrace();
                 }
 
@@ -936,13 +1061,22 @@ public class GameboardController implements Serializable {
             @Override
             public void handle(ActionEvent event) {
                 try {
-                    userFX.send("6");
-                    userFX.send(chooseFamilyMember());
-                    userFX.send("2");
-                }catch (RemoteException e){
+                    if (character2.getStyle().contains("-fx-background-image:")) {
+                        busyAlert();
+                    } else {
+                        String inizio = "-fx-background-image: url";
+                        String fine;
+                        userFX.send("6");
+                        String familyMember = chooseFamilyMember();
+                        userFX.send(identifyFamilyMember(familyMember));
+                        userFX.send("2");
+                        fine = "(stuff/" + color + familyMember + ".png)" + ";";
+                        String ind = inizio + fine;
+                        character2.setStyle(ind);
+                    }
+                } catch (RemoteException e) {
                     e.printStackTrace();
                 }
-
             }
         });
 
@@ -950,13 +1084,22 @@ public class GameboardController implements Serializable {
             @Override
             public void handle(ActionEvent event) {
                 try {
-                    userFX.send("6");
-                    userFX.send(chooseFamilyMember());
-                    userFX.send("1");
-                }catch (RemoteException e){
+                    if (character3.getStyle().contains("-fx-background-image:")) {
+                        busyAlert();
+                    } else {
+                        String inizio = "-fx-background-image: url";
+                        String fine;
+                        userFX.send("6");
+                        String familyMember = chooseFamilyMember();
+                        userFX.send(identifyFamilyMember(familyMember));
+                        userFX.send("1");
+                        fine = "(stuff/" + color + familyMember + ".png)" + ";";
+                        String ind = inizio + fine;
+                        character3.setStyle(ind);
+                    }
+                } catch (RemoteException e) {
                     e.printStackTrace();
                 }
-
             }
         });
 
@@ -964,10 +1107,20 @@ public class GameboardController implements Serializable {
             @Override
             public void handle(ActionEvent event) {
                 try {
-                    userFX.send("6");
-                    userFX.send(chooseFamilyMember());
-                    userFX.send("0");
-                }catch (RemoteException e){
+                    if (character4.getStyle().contains("-fx-background-image:")) {
+                        busyAlert();
+                    } else {
+                        String inizio = "-fx-background-image: url";
+                        String fine;
+                        userFX.send("6");
+                        String familyMember = chooseFamilyMember();
+                        userFX.send(identifyFamilyMember(familyMember));
+                        userFX.send("0");
+                        fine = "(stuff/" + color + familyMember + ".png)" + ";";
+                        String ind = inizio + fine;
+                        character4.setStyle(ind);
+                    }
+                } catch (RemoteException e) {
                     e.printStackTrace();
                 }
 
@@ -978,10 +1131,20 @@ public class GameboardController implements Serializable {
             @Override
             public void handle(ActionEvent event) {
                 try {
-                    userFX.send("7");
-                    userFX.send(chooseFamilyMember());
-                    userFX.send("3");
-                }catch (RemoteException e){
+                    if (building1.getStyle().contains("-fx-background-image:")) {
+                        busyAlert();
+                    } else {
+                        String inizio = "-fx-background-image: url";
+                        String fine;
+                        userFX.send("7");
+                        String familyMember = chooseFamilyMember();
+                        userFX.send(identifyFamilyMember(familyMember));
+                        userFX.send("3");
+                        fine = "(stuff/" + color + familyMember + ".png)" + ";";
+                        String ind = inizio + fine;
+                        building1.setStyle(ind);
+                    }
+                } catch (RemoteException e) {
                     e.printStackTrace();
                 }
 
@@ -992,10 +1155,20 @@ public class GameboardController implements Serializable {
             @Override
             public void handle(ActionEvent event) {
                 try {
-                    userFX.send("7");
-                    userFX.send(chooseFamilyMember());
-                    userFX.send("2");
-                }catch (RemoteException e){
+                    if (building2.getStyle().contains("-fx-background-image:")) {
+                        busyAlert();
+                    } else {
+                        String inizio = "-fx-background-image: url";
+                        String fine;
+                        userFX.send("7");
+                        String familyMember = chooseFamilyMember();
+                        userFX.send(identifyFamilyMember(familyMember));
+                        userFX.send("2");
+                        fine = "(stuff/" + color + familyMember + ".png)" + ";";
+                        String ind = inizio + fine;
+                        building2.setStyle(ind);
+                    }
+                } catch (RemoteException e) {
                     e.printStackTrace();
                 }
 
@@ -1006,13 +1179,22 @@ public class GameboardController implements Serializable {
             @Override
             public void handle(ActionEvent event) {
                 try {
-                    userFX.send("7");
-                    userFX.send(chooseFamilyMember());
-                    userFX.send("1");
-                }catch (RemoteException e){
+                    if (building3.getStyle().contains("-fx-background-image:")) {
+                        busyAlert();
+                    } else {
+                        String inizio = "-fx-background-image: url";
+                        String fine;
+                        userFX.send("7");
+                        String familyMember = chooseFamilyMember();
+                        userFX.send(identifyFamilyMember(familyMember));
+                        userFX.send("1");
+                        fine = "(stuff/" + color + familyMember + ".png)" + ";";
+                        String ind = inizio + fine;
+                        building3.setStyle(ind);
+                    }
+                } catch (RemoteException e) {
                     e.printStackTrace();
                 }
-
             }
         });
 
@@ -1020,13 +1202,22 @@ public class GameboardController implements Serializable {
             @Override
             public void handle(ActionEvent event) {
                 try {
-                    userFX.send("7");
-                    userFX.send(chooseFamilyMember());
-                    userFX.send("0");
-                }catch (RemoteException e){
+                    if (building4.getStyle().contains("-fx-background-image:")) {
+                        busyAlert();
+                    } else {
+                        String inizio = "-fx-background-image: url";
+                        String fine;
+                        userFX.send("7");
+                        String familyMember = chooseFamilyMember();
+                        userFX.send(identifyFamilyMember(familyMember));
+                        userFX.send("0");
+                        fine = "(stuff/" + color + familyMember + ".png)" + ";";
+                        String ind = inizio + fine;
+                        building4.setStyle(ind);
+                    }
+                } catch (RemoteException e) {
                     e.printStackTrace();
                 }
-
             }
         });
 
@@ -1034,10 +1225,20 @@ public class GameboardController implements Serializable {
             @Override
             public void handle(ActionEvent event) {
                 try {
-                    userFX.send("8");
-                    userFX.send(chooseFamilyMember());
-                    userFX.send("3");
-                }catch (RemoteException e){
+                    if (venture1.getStyle().contains("-fx-background-image:")) {
+                        busyAlert();
+                    } else {
+                        String inizio = "-fx-background-image: url";
+                        String fine;
+                        userFX.send("8");
+                        String familyMember = chooseFamilyMember();
+                        userFX.send(identifyFamilyMember(familyMember));
+                        userFX.send("3");
+                        fine = "(stuff/" + color + familyMember + ".png)" + ";";
+                        String ind = inizio + fine;
+                        venture1.setStyle(ind);
+                    }
+                } catch (RemoteException e) {
                     e.printStackTrace();
                 }
 
@@ -1048,10 +1249,20 @@ public class GameboardController implements Serializable {
             @Override
             public void handle(ActionEvent event) {
                 try {
-                    userFX.send("8");
-                    userFX.send(chooseFamilyMember());
-                    userFX.send("2");
-                }catch (RemoteException e){
+                    if (venture2.getStyle().contains("-fx-background-image:")) {
+                        busyAlert();
+                    } else {
+                        String inizio = "-fx-background-image: url";
+                        String fine;
+                        userFX.send("8");
+                        String familyMember = chooseFamilyMember();
+                        userFX.send(identifyFamilyMember(familyMember));
+                        userFX.send("2");
+                        fine = "(stuff/" + color + familyMember + ".png)" + ";";
+                        String ind = inizio + fine;
+                        venture2.setStyle(ind);
+                    }
+                } catch (RemoteException e) {
                     e.printStackTrace();
                 }
 
@@ -1062,10 +1273,20 @@ public class GameboardController implements Serializable {
             @Override
             public void handle(ActionEvent event) {
                 try {
-                    userFX.send("8");
-                    userFX.send(chooseFamilyMember());
-                    userFX.send("1");
-                }catch (RemoteException e){
+                    if (venture3.getStyle().contains("-fx-background-image:")) {
+                        busyAlert();
+                    } else {
+                        String inizio = "-fx-background-image: url";
+                        String fine;
+                        userFX.send("8");
+                        String familyMember = chooseFamilyMember();
+                        userFX.send(identifyFamilyMember(familyMember));
+                        userFX.send("1");
+                        fine = "(stuff/" + color + familyMember + ".png)" + ";";
+                        String ind = inizio + fine;
+                        venture3.setStyle(ind);
+                    }
+                } catch (RemoteException e) {
                     e.printStackTrace();
                 }
 
@@ -1076,10 +1297,301 @@ public class GameboardController implements Serializable {
             @Override
             public void handle(ActionEvent event) {
                 try {
-                    userFX.send("8");
-                    userFX.send(chooseFamilyMember());
+                    if (venture4.getStyle().contains("-fx-background-image:")) {
+                        busyAlert();
+                    } else {
+                        String inizio = "-fx-background-image: url";
+                        String fine;
+                        userFX.send("8");
+                        String familyMember = chooseFamilyMember();
+                        userFX.send(identifyFamilyMember(familyMember));
+                        userFX.send("0");
+                        fine = "(stuff/" + color + familyMember + ".png)" + ";";
+                        String ind = inizio + fine;
+                        venture4.setStyle(ind);
+                    }
+                } catch (RemoteException e) {
+                    e.printStackTrace();
+                }
+            }
+        });
+
+        skip.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                try {
+                    userFX.send("11");
+                } catch (RemoteException e) {
+                    e.printStackTrace();
+                }
+            }
+        });
+
+        council.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                try {
+                    String inizio = "-fx-background-image: url";
+                    String fine;
                     userFX.send("0");
-                }catch (RemoteException e){
+                    String familyMember = chooseFamilyMember();
+                    userFX.send(identifyFamilyMember(familyMember));
+                    userFX.send(chooseCouncilPrivilege());
+                    fine = "(stuff/" + color + familyMember + ".png)" + ";";
+                    String ind = inizio + fine;
+                    if (!council1.getStyle().contains("-fx-background-image:")) {
+                        council1.setStyle(ind);
+                    } else {
+                        if (!council2.getStyle().contains("-fx-background-image:")) {
+                            council2.setStyle(ind);
+                        } else {
+                            if (!council3.getStyle().contains("-fx-background-image:")) {
+                                council3.setStyle(ind);
+                            } else {
+                                if (!council4.getStyle().contains("-fx-background-image:")) {
+                                    council4.setStyle(ind);
+                                } else {
+                                    busyAlert();
+                                }
+                            }
+                        }
+                    }
+                } catch (RemoteException e) {
+                    e.printStackTrace();
+                }
+            }
+        });
+
+        harvestb.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                try {
+                    if (harvestb.getStyle().contains("-fx-background-image:")) {
+                        busyAlert();
+                    } else {
+                        String inizio = "-fx-background-image: url";
+                        String fine;
+                        userFX.send("1");
+                        String familyMember = chooseFamilyMember();
+                        userFX.send(identifyFamilyMember(familyMember));
+                        fine = "(stuff/" + color + familyMember + ".png)" + ";";
+                        String ind = inizio + fine;
+                        harvestb.setStyle(ind);
+                    }
+                } catch (RemoteException e) {
+                    e.printStackTrace();
+                }
+            }
+        });
+
+        harvestrectangle.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                try {
+                    if (!harvestb.getStyle().contains("-fx-background-image:")) {
+                        busyAlert();
+                    } else {
+                        String inizio = "-fx-background-image: url";
+                        String fine;
+                        userFX.send("1");
+                        String familyMember = chooseFamilyMember();
+                        userFX.send(identifyFamilyMember(familyMember));
+                        fine = "(stuff/" + color + familyMember + ".png)" + ";";
+                        String ind = inizio + fine;
+                        if (!harvest2.getStyle().contains("-fx-background-image:")) {
+                            harvest2.setStyle(ind);
+                        } else {
+                            if (!harvest3.getStyle().contains("-fx-background-image:")) {
+                                harvest3.setStyle(ind);
+                            } else {
+                                if (!harvest4.getStyle().contains("-fx-background-image:")) {
+                                    harvest4.setStyle(ind);
+                                } else {
+                                    if (!harvest5.getStyle().contains("-fx-background-image:")) {
+                                        harvest5.setStyle(ind);
+                                    } else {
+                                        if (!harvest6.getStyle().contains("-fx-background-image:")) {
+                                            harvest6.setStyle(ind);
+                                        } else {
+                                            if (!harvest7.getStyle().contains("-fx-background-image:")) {
+                                                harvest7.setStyle(ind);
+                                            } else {
+                                                busyAlert();
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                } catch (RemoteException e) {
+                    e.printStackTrace();
+                }
+            }
+        });
+
+        productionb.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                try {
+                    if (productionb.getStyle().contains("-fx-background-image:")) {
+                        busyAlert();
+                    } else {
+                        String inizio = "-fx-background-image: url";
+                        String fine;
+                        userFX.send("2");
+                        String familyMember = chooseFamilyMember();
+                        userFX.send(identifyFamilyMember(familyMember));
+                        fine = "(stuff/" + color + familyMember + ".png)" + ";";
+                        String ind = inizio + fine;
+                        productionb.setStyle(ind);
+                    }
+                } catch (RemoteException e) {
+                    e.printStackTrace();
+                }
+            }
+        });
+
+        productionrectangle.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                try {
+                    if (!productionb.getStyle().contains("-fx-background-image:")) {
+                        busyAlert();
+                    } else {
+                        String inizio = "-fx-background-image: url";
+                        String fine;
+                        userFX.send("2");
+                        String familyMember = chooseFamilyMember();
+                        userFX.send(identifyFamilyMember(familyMember));
+                        fine = "(stuff/" + color + familyMember + ".png)" + ";";
+                        String ind = inizio + fine;
+                        if (!production2.getStyle().contains("-fx-background-image:")) {
+                            production2.setStyle(ind);
+                        } else {
+                            if (!production3.getStyle().contains("-fx-background-image:")) {
+                                production3.setStyle(ind);
+                            } else {
+                                if (!production4.getStyle().contains("-fx-background-image:")) {
+                                    production4.setStyle(ind);
+                                } else {
+                                    if (!production5.getStyle().contains("-fx-background-image:")) {
+                                        production5.setStyle(ind);
+                                    } else {
+                                        if (!production6.getStyle().contains("-fx-background-image:")) {
+                                            production6.setStyle(ind);
+                                        } else {
+                                            if (!production7.getStyle().contains("-fx-background-image:")) {
+                                                production7.setStyle(ind);
+                                            } else {
+                                                busyAlert();
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                } catch (RemoteException e) {
+                    e.printStackTrace();
+                }
+            }
+        });
+
+        market1.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                try {
+                    if (market1.getStyle().contains("-fx-background-image:")) {
+                        busyAlert();
+                    } else {
+                        String inizio = "-fx-background-image: url";
+                        String fine;
+                        userFX.send("4");
+                        String familyMember = chooseFamilyMember();
+                        userFX.send(identifyFamilyMember(familyMember));
+                        fine = "(stuff/" + color + familyMember + ".png)" + ";";
+                        String ind = inizio + fine;
+                        userFX.send("1");
+                    }
+                } catch (RemoteException e) {
+                    e.printStackTrace();
+                }
+            }
+        });
+
+        market2.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                try {
+                    if (market2.getStyle().contains("-fx-background-image:")) {
+                        busyAlert();
+                    } else {
+                        String inizio = "-fx-background-image: url";
+                        String fine;
+                        userFX.send("4");
+                        String familyMember = chooseFamilyMember();
+                        userFX.send(identifyFamilyMember(familyMember));
+                        fine = "(stuff/" + color + familyMember + ".png)" + ";";
+                        String ind = inizio + fine;
+                        userFX.send("2");
+                    }
+                } catch (RemoteException e) {
+                    e.printStackTrace();
+                }
+            }
+        });
+
+        market3.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                try {
+                    if (market3.getStyle().contains("-fx-background-image:")) {
+                        busyAlert();
+                    } else {
+                        String inizio = "-fx-background-image: url";
+                        String fine;
+                        userFX.send("4");
+                        String familyMember = chooseFamilyMember();
+                        userFX.send(identifyFamilyMember(familyMember));
+                        fine = "(stuff/" + color + familyMember + ".png)" + ";";
+                        String ind = inizio + fine;
+                        userFX.send("3");
+                    }
+                } catch (RemoteException e) {
+                    e.printStackTrace();
+                }
+            }
+        });
+
+        market4.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                try {
+                    if (market1.getStyle().contains("-fx-background-image:")) {
+                        busyAlert();
+                    } else {
+                        String inizio = "-fx-background-image: url";
+                        String fine;
+                        userFX.send("4");
+                        String familyMember = chooseFamilyMember();
+                        userFX.send(identifyFamilyMember(familyMember));
+                        fine = "(stuff/" + color + familyMember + ".png)" + ";";
+                        String ind = inizio + fine;
+                        userFX.send("4");
+                    }
+                } catch (RemoteException e) {
+                    e.printStackTrace();
+                }
+            }
+        });
+
+        increase.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                try {
+                    userFX.send(chooseIncreaseValue());
+                } catch (RemoteException e) {
                     e.printStackTrace();
                 }
             }
@@ -1335,9 +1847,6 @@ public class GameboardController implements Serializable {
     private Pane council4;
 
     @FXML
-    private Button production1;
-
-    @FXML
     private Pane production2;
 
     @FXML
@@ -1357,9 +1866,6 @@ public class GameboardController implements Serializable {
 
     @FXML
     private Pane production8;
-
-    @FXML
-    private Button harvest1;
 
     @FXML
     private Pane harvest2;
@@ -1489,6 +1995,24 @@ public class GameboardController implements Serializable {
 
     @FXML
     private Label yourcolor;
+
+    @FXML
+    private Button council;
+
+    @FXML
+    private Button productionb;
+
+    @FXML
+    private Button productionrectangle;
+
+    @FXML
+    private Button harvestb;
+
+    @FXML
+    private Button harvestrectangle;
+
+    @FXML
+    private Button increase;
 
 }
 

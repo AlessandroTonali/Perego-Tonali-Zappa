@@ -86,7 +86,7 @@
                               </Pane>
                               <Pane fx:id="productionbuttons" layoutX="80.0" layoutY="850.0" prefHeight="100.0" prefWidth="320.0">
                                  <children>
-                                    <Button id="button" fx:id="production1" layoutX="-1.0" layoutY="18.0" stylesheets="@roundbutton.css" />
+                                    <Button id="button" fx:id="productionb" layoutX="-1.0" layoutY="18.0" stylesheets="@roundbutton.css" />
                                     <Button id="rectangle" fx:id="productionrectangle" layoutX="78.0" layoutY="20.0" mnemonicParsing="false" prefHeight="54.0" prefWidth="144.0" stylesheets="@roundrectangle.css" />
                                     <Pane fx:id="production2" layoutX="119.0" layoutY="32.0" prefHeight="25.0" prefWidth="25.0" />
                                     <Pane fx:id="production3" layoutX="147.0" layoutY="32.0" prefHeight="25.0" prefWidth="25.0" />
@@ -99,7 +99,7 @@
                               </Pane>
                               <Pane fx:id="harvestbuttons" layoutX="80.0" layoutY="930.0" prefHeight="100.0" prefWidth="320.0">
                                  <children>
-                                    <Button id="button" fx:id="harvest1" layoutX="-1.0" layoutY="22.0" stylesheets="@roundbutton.css" />
+                                    <Button id="button" fx:id="harvestb" layoutX="-1.0" layoutY="22.0" stylesheets="@roundbutton.css" />
                                     <Button id="rectangle" fx:id="harvestrectangle" layoutX="78.0" layoutY="24.0" mnemonicParsing="false" prefHeight="54.0" prefWidth="144.0" stylesheets="@roundrectangle.css" />
                                     <Pane fx:id="harvest2" layoutX="120.0" layoutY="37.0" prefHeight="25.0" prefWidth="25.0" />
                                     <Pane fx:id="harvest3" layoutX="148.0" layoutY="37.0" prefHeight="25.0" prefWidth="25.0" />
