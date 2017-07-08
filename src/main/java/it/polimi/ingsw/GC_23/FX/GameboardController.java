@@ -1189,6 +1189,12 @@ public class GameboardController implements Serializable {
     @FXML
     private Button skip;
 
+    @FXML
+    private Label turn;
+
+    @FXML
+    private Label yourcolor;
+
 }
 
 

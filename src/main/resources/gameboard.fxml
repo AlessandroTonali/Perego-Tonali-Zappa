@@ -236,7 +236,11 @@
                               <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ffa10000" height="25.0" layoutX="430.0" layoutY="240.0" stroke="BLACK" strokeType="INSIDE" width="25.0" />
                               <Button fx:id="increase" layoutX="520.0" layoutY="240.0" mnemonicParsing="false" text="Increase" />
                               <Label fx:id="neutral" layoutX="475.0" layoutY="245.0" />
-                              <Button layoutX="200.0" layoutY="280.0" mnemonicParsing="false" text="SKIP YOUR TURN" fx:id="skip"/>
+                              <Label layoutX="80.0" layoutY="300.0" text="Turn of:" />
+                              <Button fx:id="skip" layoutX="270.0" layoutY="295.0" mnemonicParsing="false" text="SKIP YOUR TURN" />
+                              <Label layoutX="80.0" layoutY="275.0" text="Your color:" />
+                              <Label fx:id="yourcolor" layoutX="160.0" layoutY="275.0" />
+                              <Label fx:id="turn" layoutX="160.0" layoutY="300.0" />
                            </children>
                         </Pane>
                      </children>
