@@ -26,7 +26,9 @@ public class CouncilController extends PlaceFamilyMember {
             makeAction();
         }
         else {
-            familyMember.getPlayer().getUserHandler().messageToUser("YOU ARE NOT ALLOW TO DO THIS MOVE, DO SOMETHING ELSE!");
+            if(!familyMember.getPlayer().getUserHandler().isGuiInterface()) {
+                familyMember.getPlayer().getUserHandler().messageToUser("YOU ARE NOT ALLOW TO DO THIS MOVE, DO SOMETHING ELSE!");
+            }
             throw new IllegalArgumentException();
         }
     }
@@ -53,7 +55,9 @@ public class CouncilController extends PlaceFamilyMember {
         if(player.getUserHandler().isGuiInterface()){
             player.getUserHandler().messageToUser("effectended");
         }
-        player.getUserHandler().messageToUser(familyMember.getPlayer().getResources().toString());
+        if(!player.getUserHandler().isGuiInterface()) {
+            player.getUserHandler().messageToUser(familyMember.getPlayer().getResources().toString());
+        }
     }
 }
 

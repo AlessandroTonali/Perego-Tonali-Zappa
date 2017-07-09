@@ -24,10 +24,14 @@ public class DiscardLeaderCard implements Controller {
             makeAction();
             player.setTimeIsOver(false);
             playerTimeOut.setNeeded(false);
-            player.getUserHandler().messageToUser("YOU HAVE DISCARDED THE LEADER CARD");
+            if(!player.getUserHandler().isGuiInterface()) {
+                player.getUserHandler().messageToUser("YOU HAVE DISCARDED THE LEADER CARD");
+            }
             player.chooseMove(player.getView(), true);
         } else {
-            player.getUserHandler().messageToUser("YOU CAN'T DISCARD THE LEADER CARD");
+            if(!player.getUserHandler().isGuiInterface()) {
+                player.getUserHandler().messageToUser("YOU CAN'T DISCARD THE LEADER CARD");
+            }
             playerTimeOut.setNeeded(false);
             player.chooseMove(player.getView(), true);
         }

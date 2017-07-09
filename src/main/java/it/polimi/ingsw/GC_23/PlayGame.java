@@ -518,6 +518,7 @@ public class PlayGame {
                     player.getUserHandler().messageToUser("null");
                 }
             }
+            player.getUserHandler().messageToUser(String.valueOf(player.getBonusTile().getIdBonusTile()));
             player.getUserHandler().messageToUser("end");
     }
 

@@ -883,7 +883,14 @@ public class GameboardController implements Serializable {
         fine = "(leader/" + actualString + ".jpg)" + ";";
         ind = inizio + fine;
         cardl4.setStyle(ind);
-        while (!"end".equals(actualString)) {
+
+        actualString = userFX.receive();
+        fine = "(bonus/" + actualString + ".png)" + ";";
+        ind = inizio + fine;
+
+        bonus.setStyle(ind + "-fx-background-size: contain;" + "-fx-background-repeat: no-repeat;");
+
+        while (!"end".equals(actualString)){
             actualString = userFX.receive();
         }
     }
@@ -1704,18 +1711,41 @@ public class GameboardController implements Serializable {
         });
 
         increase.setOnAction(new EventHandler<ActionEvent>() {
-                                 @Override
-                                 public void handle(ActionEvent event) {
-                                     try {
-                                         userFX.send(chooseIncreaseValue());
-                                         userFX.send(identifyFamilyMember(chooseFamilyMember()));
-                                     } catch (RemoteException e) {
-                                         logger.setLevel(Level.SEVERE);
-                                         logger.severe(String.valueOf(e));
-                                     }
-                                 }
-                             }
-        );
+            @Override
+            public void handle(ActionEvent event) {
+                try {
+                    userFX.send(chooseIncreaseValue());
+                    userFX.send(identifyFamilyMember(chooseFamilyMember()));
+                } catch (RemoteException e) {
+                    logger.setLevel(Level.SEVERE);
+                    logger.severe(String.valueOf(e));
+                }
+            }
+        });
+
+        active.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                try {
+                    userFX.send("12");
+                }catch (RemoteException e){
+                    logger.setLevel(Level.SEVERE);
+                    logger.severe(String.valueOf(e));
+                }
+            }
+        });
+
+        discard.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                try {
+                    userFX.send("13");
+                }catch (RemoteException e) {
+                    logger.setLevel(Level.SEVERE);
+                    logger.severe(String.valueOf(e));
+                }
+            }
+        });
     }
 
     private String effectswitcher() throws RemoteException {
@@ -2152,6 +2182,8 @@ public class GameboardController implements Serializable {
     @FXML
     private Button increase;
 
+    @FXML
+    private Pane bonus;
 }
 
 

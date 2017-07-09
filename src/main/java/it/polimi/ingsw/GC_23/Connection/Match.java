@@ -50,7 +50,6 @@ public class Match implements Runnable{
             board = creator.getBoard();
             setting();
         } catch (Exception e) {
-
             logger.setLevel(Level.SEVERE);
             logger.severe(String.valueOf(e));
         }

@@ -26,10 +26,14 @@ public class ActiveLeaderCard implements Controller {
             makeAction();
             player.setTimeIsOver(false);
             playerTimeOut.setNeeded(false);
-            player.getUserHandler().messageToUser("YOU HAVE ACTIVATED THE LEADER CARD");
+            if(!player.getUserHandler().isGuiInterface()) {
+                player.getUserHandler().messageToUser("YOU HAVE ACTIVATED THE LEADER CARD");
+            }
             player.chooseMove(player.getView(), true);
         } else {
-            player.getUserHandler().messageToUser("YOU CAN'T ACTIVE THE LEADER CARD");
+            if(!player.getUserHandler().isGuiInterface()){
+                player.getUserHandler().messageToUser("YOU CAN'T ACTIVE THE LEADER CARD");
+            }
             playerTimeOut.setNeeded(false);
             player.chooseMove(player.getView(), true);
         }
@@ -52,7 +56,9 @@ public class ActiveLeaderCard implements Controller {
             AbsEffect effect = leaderCardEffects.get(i);
             if (effect instanceof PermanentEffect) {
                 if (leaderCard.isActivatedPermanentEffect())
-                    player.getUserHandler().messageToUser("Permanent effect of card is already active");
+                    if(!player.getUserHandler().isGuiInterface()) {
+                        player.getUserHandler().messageToUser("Permanent effect of card is already active");
+                    }
                 else {
                     if ((effect instanceof PlusDiceEffect) || (effect instanceof SetDiceEffect)) {
                         if(player.getUserHandler().isGuiInterface()) {
@@ -63,13 +69,17 @@ public class ActiveLeaderCard implements Controller {
                             player.getUserHandler().messageToUser("effectended");
                         }
                     }
-                    player.getUserHandler().messageToUser("Leader card activeted correctly");
+                    if(!player.getUserHandler().isGuiInterface()) {
+                        player.getUserHandler().messageToUser("Leader card activeted correctly");
+                    }
                     player.getPermanentEffects().add((PermanentEffect) effect);
                     leaderCard.setActivatedPermanentEffect(true);
                     leaderCard.setActivatedInThisRound(true);
                 }
             } else {
-                player.getUserHandler().messageToUser("Leader card activeted correctly");
+                if(!player.getUserHandler().isGuiInterface()) {
+                    player.getUserHandler().messageToUser("Leader card activeted correctly");
+                }
                 if(player.getUserHandler().isGuiInterface()) {
                     player.getUserHandler().messageToUser("effect");
                 }

@@ -25,7 +25,9 @@ public class HarvestController extends PlaceFamilyMember {
                 makeAction();
             }
             else{
-                familyMember.getPlayer().getUserHandler().messageToUser("YOU ARE NOT ALLOW TO DO THIS MOVE, DO SOMETHING ELSE!");
+                if(!familyMember.getPlayer().getUserHandler().isGuiInterface()) {
+                    familyMember.getPlayer().getUserHandler().messageToUser("YOU ARE NOT ALLOW TO DO THIS MOVE, DO SOMETHING ELSE!");
+                }
                 throw new IllegalArgumentException();
             }
         }
@@ -55,7 +57,9 @@ public class HarvestController extends PlaceFamilyMember {
             familyMember.getPlayer().getUserHandler().messageToUser("effectended");
         }
         harvestSpace.setFamilyMember(familyMember);
-        familyMember.getPlayer().getUserHandler().messageToUser(familyMember.getPlayer().getResources().toString());
+        if(!familyMember.getPlayer().getUserHandler().isGuiInterface()) {
+            familyMember.getPlayer().getUserHandler().messageToUser(familyMember.getPlayer().getResources().toString());
+        }
     }
 
 }
