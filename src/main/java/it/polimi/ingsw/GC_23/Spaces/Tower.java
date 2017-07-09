@@ -124,6 +124,7 @@ public class Tower {
             } catch (InterruptedException e) {
                 logger.setLevel(Level.SEVERE);
                 logger.severe(String.valueOf(e));
+                Thread.currentThread().interrupt();
             }
         }
         int i = -1;
