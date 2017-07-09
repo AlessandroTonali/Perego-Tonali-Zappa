@@ -3,9 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="12559092-ad45-4654-bd82-cde319336451" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/Controller/HarvestController.java" afterPath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/Controller/HarvestController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/Controller/ProductionController.java" afterPath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/Controller/ProductionController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/Spaces/ProductionSpace.java" afterPath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/Spaces/ProductionSpace.java" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -1316,14 +1313,7 @@
       <workItem from="1499532985117" duration="4137000" />
       <workItem from="1499599865831" duration="24000" />
       <workItem from="1499602055588" duration="6647000" />
-      <workItem from="1499610551318" duration="23097000" />
-    </task>
-    <task id="LOCAL-00010" summary="fix">
-      <created>1496410242744</created>
-      <option name="number" value="00010" />
-      <option name="presentableId" value="LOCAL-00010" />
-      <option name="project" value="LOCAL" />
-      <updated>1496410242744</updated>
+      <workItem from="1499610551318" duration="23139000" />
     </task>
     <task id="LOCAL-00011" summary="Other fix">
       <created>1496411084961</created>
@@ -1661,7 +1651,14 @@
       <option name="project" value="LOCAL" />
       <updated>1499631503600</updated>
     </task>
-    <option name="localTasksCounter" value="59" />
+    <task id="LOCAL-00059" summary="immagini council">
+      <created>1499638653337</created>
+      <option name="number" value="00059" />
+      <option name="presentableId" value="LOCAL-00059" />
+      <option name="project" value="LOCAL" />
+      <updated>1499638653338</updated>
+    </task>
+    <option name="localTasksCounter" value="60" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -1697,7 +1694,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="513517000" />
+    <option name="totallyTimeSpent" value="513559000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1811,7 +1808,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="fixati errori" />
     <MESSAGE value="fix error" />
     <MESSAGE value="modifiche" />
     <MESSAGE value="inseriti nuovi effetti permanenti" />
@@ -1836,7 +1832,8 @@
     <MESSAGE value="increase" />
     <MESSAGE value="market" />
     <MESSAGE value="marketok" />
-    <option name="LAST_COMMIT_MESSAGE" value="marketok" />
+    <MESSAGE value="immagini council" />
+    <option name="LAST_COMMIT_MESSAGE" value="immagini council" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
