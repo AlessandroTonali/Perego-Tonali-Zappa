@@ -1752,12 +1752,14 @@ public class GameboardController implements Serializable {
             @Override
             public void handle(ActionEvent event) {
                 try {
+                    userFX.send("3");
                     userFX.send(chooseIncreaseValue());
                     userFX.send(identifyFamilyMember(chooseFamilyMember()));
-                    if("OK".equals(userFX.receive())){
+                    String astring = userFX.receive();
+                    if("OK".equals(astring)){
 
                     }
-                    if("KO".equals(userFX.receive())){
+                    if("KO".equals(astring)){
                         errorAlert();
                     }
                 } catch (RemoteException e) {
