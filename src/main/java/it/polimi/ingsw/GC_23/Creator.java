@@ -23,7 +23,6 @@ public class Creator {
 
     public Creator(int numberOfPlayers){
         board= new Board(numberOfPlayers);
-        System.out.println("da togliere");
 
     }
 

@@ -18,7 +18,6 @@ public class PlayerController {
     private Map<Player, String> userPlayerAssociation;
 
     public PlayerController() {
-        System.out.println("da togliere");
         ArrayList<Player> players = new ArrayList<Player>();
         players.add(new Player(PlayerColor.GREEN, ParseJson.getParseJson().getBonusTile1()));
         players.add(new Player(PlayerColor.RED, ParseJson.getParseJson().getBonusTile1()));

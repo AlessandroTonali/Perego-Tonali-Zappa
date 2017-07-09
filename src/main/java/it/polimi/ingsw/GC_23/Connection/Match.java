@@ -33,7 +33,6 @@ public class Match implements Runnable{
 
     @Override
     public void run(){
-        System.out.println("da togliere");
 
         System.out.println("Match runned");
         while(!startMatch) {

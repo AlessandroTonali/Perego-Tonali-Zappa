@@ -39,7 +39,6 @@ public class Board {
      * @param numberOfPlayers the number of players that play
      */
     public Board(int numberOfPlayers){
-        System.out.println("da togliere");
         this.towers = towerInstancer();
         this.territoryCards = ParseJson.getParseJson().getTerritoryCardArrayList();
         this.ventureCards = ParseJson.getParseJson().getVentureCardArrayList();

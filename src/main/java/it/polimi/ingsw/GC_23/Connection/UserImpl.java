@@ -41,7 +41,6 @@ public class UserImpl extends UnicastRemoteObject implements User,Remote, Serial
     private transient final Logger logger = Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
 
     public UserImpl() throws RemoteException{
-        System.out.println("da togliere");
         this.receivedFromGui = new ArrayList<>();
         this.sentToGui = new ArrayList<>();
         socket = new Socket();

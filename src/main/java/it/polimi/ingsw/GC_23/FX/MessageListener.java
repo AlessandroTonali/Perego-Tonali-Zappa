@@ -18,7 +18,6 @@ public class MessageListener implements Runnable {
 
     @Override
     public void run() {
-        System.out.println("da togliere");
 
         while (!read){
             try {

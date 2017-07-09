@@ -22,7 +22,6 @@ public class LeaderCard {
         this.name = name;
         this.requirement = requirement;
         this.effect = effect;
-        System.out.println("da togliere");
 
     }
 

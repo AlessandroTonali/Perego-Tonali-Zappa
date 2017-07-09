@@ -38,7 +38,6 @@ public class Gameboard implements Serializable {
         this.primaryStage = primaryStage;
         this.userFX = userFX;
         this.color = color;
-        System.out.println("da togliere");
 
     }
 

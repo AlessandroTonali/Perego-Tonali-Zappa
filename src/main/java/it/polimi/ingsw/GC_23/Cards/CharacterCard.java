@@ -16,7 +16,6 @@ public class CharacterCard extends Card {
     public CharacterCard(int period, CardColor cardColor, String name, ArrayList<AbsEffect> immediateEffect, ArrayList<AbsEffect> permanentEffect, ArrayList<SingleCost>
             cost) {
         super(period, cardColor, name, immediateEffect, permanentEffect, cost);
-        System.out.println("da togliere");
 
     }
 
