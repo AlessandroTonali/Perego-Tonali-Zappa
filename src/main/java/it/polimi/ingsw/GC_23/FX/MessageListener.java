@@ -56,6 +56,7 @@ public class MessageListener implements Runnable {
 
             if("update".equals(actualString)){
                 read = false;
+                gameboard.updateController(gameboardController);
 
                 going();
 
