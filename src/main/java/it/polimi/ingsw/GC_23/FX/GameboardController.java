@@ -85,7 +85,9 @@ public class GameboardController implements Serializable {
         actualString = userFX.receive();
         inizio = "-fx-background-image: url";
         fine = "(card/" + actualString + ".png)" + ";";
+
         ind = inizio + fine;
+        System.out.println(ind);
         territorycard1.setStyle(ind);
 
         actualString = userFX.receive();

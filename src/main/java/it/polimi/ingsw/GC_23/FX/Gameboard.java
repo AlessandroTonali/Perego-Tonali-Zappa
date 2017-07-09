@@ -19,6 +19,8 @@ import java.io.IOException;
 import java.io.Serializable;
 import java.net.URL;
 import java.rmi.RemoteException;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -30,11 +32,28 @@ public class Gameboard implements Serializable {
     private UserFX userFX;
     private String color;
     private transient final Logger logger = Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
+    private MessageListener messageListener;
 
     public Gameboard(Stage primaryStage, UserFX userFX, String color) {
         this.primaryStage = primaryStage;
         this.userFX = userFX;
         this.color = color;
+    }
+
+    public void running(GameboardController gameboardController) throws RemoteException {
+        String actualString = userFX.receive();
+        while (true){
+            if(actualString.equals("update")){
+                updateController(gameboardController);
+
+            }
+        }
+
+
+    }
+
+    public UserFX getUserFX() {
+        return userFX;
     }
 
     public void startGameBoard(Stage primaryStage) throws RemoteException{
@@ -57,10 +76,19 @@ public class Gameboard implements Serializable {
         this.primaryStage.setWidth(bounds.getWidth());
         this.primaryStage.setHeight(bounds.getHeight());
         this.primaryStage.show();
+        String actualString = userFX.receive();
+        MessageListener messageListener = new MessageListener(gameboardController,this,true);
+        ExecutorService executorService = Executors.newCachedThreadPool();
+        executorService.submit(messageListener);
+        this.messageListener = messageListener;
+
+    }
+
+    public void updateController(GameboardController gameboardController) throws RemoteException {
         gameboardController.boardTranslator();
         gameboardController.dataTranslator();
         gameboardController.cardsTranslator();
         gameboardController.whoseTurnTranslator();
-        gameboardController.handle();
+        messageListener.setRead(true);
     }
 }
