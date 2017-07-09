@@ -40,7 +40,7 @@ public class GameboardController implements Serializable {
 
     }
 
-    public void boardTranslator() throws RemoteException{
+    public void boardTranslator() throws RemoteException {
         try {
             String actualString;
             towerSetter();
@@ -56,13 +56,14 @@ public class GameboardController implements Serializable {
         }
     }
 
-    public void dataTranslator() throws RemoteException{
+    public void dataTranslator() throws RemoteException {
         dataSetter();
     }
 
-    public  void cardsTranslator() throws RemoteException{
+    public void cardsTranslator() throws RemoteException {
         cardsSetter();
     }
+
     public void whoseTurnTranslator() throws RemoteException {
         turnsetter();
     }
@@ -72,7 +73,7 @@ public class GameboardController implements Serializable {
         turn.setText(string);
     }
 
-    public void towerSetter() throws RemoteException{
+    public void towerSetter() throws RemoteException {
         String inizio;
         String fine;
         String fine2;
@@ -273,7 +274,7 @@ public class GameboardController implements Serializable {
         venture4.setStyle(ind);
     }
 
-    public void marketSetter() throws RemoteException{
+    public void marketSetter() throws RemoteException {
         String actualString;
         String inizio;
         String fine;
@@ -359,32 +360,32 @@ public class GameboardController implements Serializable {
 
                                     actualString = userFX.receive();
                                     actualString = userFX.receive();
-                                    if(!"harvestend".equals(actualString)) {
+                                    if (!"harvestend".equals(actualString)) {
                                         fine = "(stuff/" + actualString + ".png)" + ";";
                                         ind = inizio + fine;
                                         harvest8.setStyle(ind + "-fx-background-size: contain;");
-                                    }else{
+                                    } else {
                                         harvest8.setStyle("-fx-background-image: url(stuff/null.png);");
                                     }
-                                }else{
+                                } else {
                                     harvest7.setStyle("-fx-background-image: url(stuff/null.png);");
                                 }
-                            }else{
+                            } else {
                                 harvest6.setStyle("-fx-background-image: url(stuff/null.png);");
                             }
-                        }else{
+                        } else {
                             harvest5.setStyle("-fx-background-image: url(stuff/null.png);");
                         }
-                    }else{
+                    } else {
                         harvest4.setStyle("-fx-background-image: url(stuff/null.png);");
                     }
-                }else{
+                } else {
                     harvest3.setStyle("-fx-background-image: url(stuff/null.png);");
                 }
-            }else{
+            } else {
                 harvest2.setStyle("-fx-background-image: url(stuff/null.png);");
             }
-        }else{
+        } else {
             harvestb.setStyle("-fx-background-image: url(stuff/null.png);");
         }
     }
@@ -445,37 +446,37 @@ public class GameboardController implements Serializable {
 
                                     actualString = userFX.receive();
                                     actualString = userFX.receive();
-                                    if(!"productionend".equals(actualString)) {
+                                    if (!"productionend".equals(actualString)) {
                                         fine = "(stuff/" + actualString + ".png)" + ";";
                                         ind = inizio + fine;
                                         production8.setStyle(ind + "-fx-background-size: contain;");
-                                    }else{
+                                    } else {
                                         production8.setStyle("-fx-background-image: url(stuff/null.png);");
                                     }
-                                }else{
+                                } else {
                                     production7.setStyle("-fx-background-image: url(stuff/null.png);");
                                 }
-                            }else{
+                            } else {
                                 production6.setStyle("-fx-background-image: url(stuff/null.png);");
                             }
-                        }else{
+                        } else {
                             production5.setStyle("-fx-background-image: url(stuff/null.png);");
                         }
-                    }else{
+                    } else {
                         production4.setStyle("-fx-background-image: url(stuff/null.png);");
                     }
-                }else{
+                } else {
                     production3.setStyle("-fx-background-image: url(stuff/null.png);");
                 }
-            }else{
+            } else {
                 production2.setStyle("-fx-background-image: url(stuff/null.png);");
             }
-        }else{
+        } else {
             productionb.setStyle("-fx-background-image: url(stuff/null.png);");
         }
     }
 
-    public  void councilSetter() throws RemoteException {
+    public void councilSetter() throws RemoteException {
         String inizio = "-fx-background-image: url";
         String fine;
         String ind;
@@ -507,21 +508,21 @@ public class GameboardController implements Serializable {
                         fine = "(stuff/" + actualString + ".png)" + ";";
                         ind = inizio + fine;
                         council4.setStyle(ind + "-fx-background-size: contain;");
-                    }else{
+                    } else {
                         council4.setStyle("-fx-background-image: url(stuff/null.png);");
                     }
-                }else{
+                } else {
                     council3.setStyle("-fx-background-image: url(stuff/null.png);");
                 }
-            }else{
+            } else {
                 council2.setStyle("-fx-background-image: url(stuff/null.png);");
             }
-        }else{
+        } else {
             council1.setStyle("-fx-background-image: url(stuff/null.png);");
         }
     }
 
-    public void excomSetter() throws RemoteException{
+    public void excomSetter() throws RemoteException {
         String inizio = "-fx-background-image: url";
         String fine;
         String ind;
@@ -542,7 +543,7 @@ public class GameboardController implements Serializable {
     }
 
 
-    public void dataSetter() throws RemoteException{
+    public void dataSetter() throws RemoteException {
         yourcolor.setText(color);
         String actualString = userFX.receive();
         String actualColor = actualString;
@@ -582,13 +583,13 @@ public class GameboardController implements Serializable {
 
         actualString = userFX.receive();//endresources
         actualString = userFX.receive();
-        if(actualColor.equals(color)) orange.setText(actualString);
+        if (actualColor.equals(color)) orange.setText(actualString);
         actualString = userFX.receive();
-        if(actualColor.equals(color)) white.setText(actualString);
+        if (actualColor.equals(color)) white.setText(actualString);
         actualString = userFX.receive();
-        if(actualColor.equals(color)) black.setText(actualString);
+        if (actualColor.equals(color)) black.setText(actualString);
         actualString = userFX.receive();
-        if(actualColor.equals(color))  neutral.setText(actualString);
+        if (actualColor.equals(color)) neutral.setText(actualString);
         actualString = userFX.receive();
         actualColor = actualString;
         switch (actualString) {
@@ -626,17 +627,17 @@ public class GameboardController implements Serializable {
 
         actualString = userFX.receive();
         actualString = userFX.receive();
-        if(actualColor.equals(color)) orange.setText(actualString);
+        if (actualColor.equals(color)) orange.setText(actualString);
         actualString = userFX.receive();
-        if(actualColor.equals(color)) white.setText(actualString);
+        if (actualColor.equals(color)) white.setText(actualString);
         actualString = userFX.receive();
-        if(actualColor.equals(color)) black.setText(actualString);
+        if (actualColor.equals(color)) black.setText(actualString);
         actualString = userFX.receive();
-        if(actualColor.equals(color))  neutral.setText(actualString);
+        if (actualColor.equals(color)) neutral.setText(actualString);
         actualString = userFX.receive();
 
 
-        if(!"dataended".equals(actualString)) {
+        if (!"dataended".equals(actualString)) {
             actualColor = actualString;
             switch (actualString) {
                 case "RED":
@@ -673,16 +674,16 @@ public class GameboardController implements Serializable {
 
             actualString = userFX.receive();
             actualString = userFX.receive();
-            if(actualColor.equals(color)) orange.setText(actualString);
+            if (actualColor.equals(color)) orange.setText(actualString);
             actualString = userFX.receive();
-            if(actualColor.equals(color)) white.setText(actualString);
+            if (actualColor.equals(color)) white.setText(actualString);
             actualString = userFX.receive();
-            if(actualColor.equals(color)) black.setText(actualString);
+            if (actualColor.equals(color)) black.setText(actualString);
             actualString = userFX.receive();
-            if(actualColor.equals(color))  neutral.setText(actualString);
+            if (actualColor.equals(color)) neutral.setText(actualString);
             actualString = userFX.receive();
 
-            if(!"dataended".equals(actualString)) {
+            if (!"dataended".equals(actualString)) {
                 actualColor = actualString;
                 switch (actualString) {
                     case "RED":
@@ -717,30 +718,30 @@ public class GameboardController implements Serializable {
                 victory4.setText(actualString);
                 actualString = userFX.receive();
                 actualString = userFX.receive();
-                if(actualColor.equals(color)) {
+                if (actualColor.equals(color)) {
                     orange.setText(actualString);
                 }
 
                 actualString = userFX.receive();
-                if(actualColor.equals(color)) white.setText(actualString);
+                if (actualColor.equals(color)) white.setText(actualString);
                 actualString = userFX.receive();
-                if(actualColor.equals(color)) black.setText(actualString);
+                if (actualColor.equals(color)) black.setText(actualString);
                 actualString = userFX.receive();
-                if(actualColor.equals(color))  neutral.setText(actualString);
+                if (actualColor.equals(color)) neutral.setText(actualString);
                 actualString = userFX.receive();
             }
 
         }
 
-   }
+    }
 
-    public void cardsSetter() throws RemoteException{
+    public void cardsSetter() throws RemoteException {
         String inizio = "-fx-background-image: url";
         String fine;
         String ind;
 
         String actualString = userFX.receive();
-        while(!actualString.equals(color)){
+        while (!actualString.equals(color)) {
             actualString = userFX.receive();
         }
         actualString = userFX.receive();
@@ -882,15 +883,15 @@ public class GameboardController implements Serializable {
         fine = "(leader/" + actualString + ".jpg)" + ";";
         ind = inizio + fine;
         cardl4.setStyle(ind);
-        while (!"end".equals(actualString)){
+        while (!"end".equals(actualString)) {
             actualString = userFX.receive();
         }
     }
 
-    public String chooseFamilyMember() throws RemoteException{
+    public String chooseFamilyMember() throws RemoteException {
         List<String> choices = new ArrayList<>();
         String actualString = userFX.receive();
-        while(!"end".equals(actualString)){
+        while (!"end".equals(actualString)) {
             choices.add(actualString);
             actualString = userFX.receive();
         }
@@ -901,7 +902,7 @@ public class GameboardController implements Serializable {
         dialog.setContentText("Choose your family member:");
 
         Optional<String> result = dialog.showAndWait();
-        while (!result.isPresent()){
+        while (!result.isPresent()) {
             try {
                 Thread.sleep(500);
             } catch (InterruptedException e) {
@@ -913,11 +914,11 @@ public class GameboardController implements Serializable {
         return result.get();
     }
 
-    public String chooseCouncilPrivilege() throws RemoteException{
+    public String chooseCouncilPrivilege() throws RemoteException {
         int value = -1;
         List<String> choices = new ArrayList<>();
         String actualString = userFX.receive();
-        while(!"end".equals(actualString)){
+        while (!"end".equals(actualString)) {
             choices.add(actualString);
             actualString = userFX.receive();
         }
@@ -927,7 +928,7 @@ public class GameboardController implements Serializable {
         dialog.setContentText("Choose your council privilege:");
 
         Optional<String> result = dialog.showAndWait();
-        while (!result.isPresent()){
+        while (!result.isPresent()) {
             try {
                 Thread.sleep(500);
             } catch (InterruptedException e) {
@@ -936,7 +937,7 @@ public class GameboardController implements Serializable {
                 Thread.currentThread().interrupt();
             }
         }
-        switch (result.get()){
+        switch (result.get()) {
             case "faith points 0 military points 0 gold 0 servants 0 wood 1 stone 1 victory points 0":
                 value = 0;
                 break;
@@ -956,14 +957,14 @@ public class GameboardController implements Serializable {
         return String.valueOf(value);
     }
 
-    public String chooseIncreaseValue() throws RemoteException{
+    public String chooseIncreaseValue() throws RemoteException {
         TextInputDialog dialog = new TextInputDialog("value");
         dialog.setTitle("Increase value");
         dialog.setHeaderText("Enter the family value");
         dialog.setContentText("Enter the value here:");
 
         Optional<String> result = dialog.showAndWait();
-        while(!result.isPresent()){
+        while (!result.isPresent()) {
             try {
                 Thread.sleep(500);
             } catch (InterruptedException e) {
@@ -975,7 +976,7 @@ public class GameboardController implements Serializable {
         return result.get();
     }
 
-    public void busyAlert() throws RemoteException{
+    public void busyAlert() throws RemoteException {
         Alert alert = new Alert(Alert.AlertType.ERROR);
         alert.setTitle("Error Dialog");
         alert.setHeaderText("Invalid move: space already occupied!");
@@ -983,9 +984,9 @@ public class GameboardController implements Serializable {
         alert.showAndWait();
     }
 
-    public String identifyFamilyMember(String string) throws RemoteException{
+    public String identifyFamilyMember(String string) throws RemoteException {
         int value = -1;
-        switch (string){
+        switch (string) {
             case "ORANGE":
                 value = 0;
                 break;
@@ -1419,6 +1420,16 @@ public class GameboardController implements Serializable {
                     userFX.send("0");
                     String familyMember = chooseFamilyMember();
                     userFX.send(identifyFamilyMember(familyMember));
+                    String astring = userFX.receive();
+                    while (!"effedscdctended".equals(astring)) {
+                        try {
+                            userFX.send(effectswitcher());
+                            astring = userFX.receive();
+                        }catch (NullPointerException e ){
+                            astring = userFX.receive();
+                            continue;
+                        }
+                    }
                     userFX.send(chooseCouncilPrivilege());
                     fine = "(stuff/" + color + familyMember + ".png)" + ";";
                     String ind = inizio + fine;
@@ -1683,18 +1694,37 @@ public class GameboardController implements Serializable {
         });
 
         increase.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent event) {
-                try {
-                    userFX.send(chooseIncreaseValue());
-                    userFX.send(identifyFamilyMember(chooseFamilyMember()));
-                } catch (RemoteException e) {
-                    logger.setLevel(Level.SEVERE);
-                    logger.severe(String.valueOf(e));
-                }
-            }
-        });
+                                 @Override
+                                 public void handle(ActionEvent event) {
+                                     try {
+                                         userFX.send(chooseIncreaseValue());
+                                         userFX.send(identifyFamilyMember(chooseFamilyMember()));
+                                     } catch (RemoteException e) {
+                                         logger.setLevel(Level.SEVERE);
+                                         logger.severe(String.valueOf(e));
+                                     }
+                                 }
+                             }
+        );
     }
+
+    private String effectswitcher() throws RemoteException {
+        String actualString = userFX.receive();
+        switch (actualString) {
+            case ("councilEffect"):
+                return chooseCouncilPrivilege();
+            case ("benefitsEffect"):
+                return null;
+        }
+        return  null;
+    }
+
+
+
+
+
+
+
 
 
     @FXML

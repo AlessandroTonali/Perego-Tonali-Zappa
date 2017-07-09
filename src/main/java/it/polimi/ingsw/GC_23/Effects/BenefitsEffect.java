@@ -38,8 +38,10 @@ public class BenefitsEffect extends AbsEffect{
             player.getUserHandler().messageToUser("benefitsEffect");
         }
         player.getResources().sum(this.resources, player);
-        player.getUserHandler().messageToUser("Effect activeted! You have received: "+ resources.toString());
-    }
+        if(!player.getUserHandler().isGuiInterface()) {
+            player.getUserHandler().messageToUser("Effect activeted! You have received: " + resources.toString());
+        }
+        }
 
     /**
      *
