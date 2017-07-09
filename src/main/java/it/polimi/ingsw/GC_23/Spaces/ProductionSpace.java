@@ -18,17 +18,17 @@ import java.util.logging.Logger;
  * Created by Alessandro Tonali on 20/05/2017.
  */
 public class ProductionSpace extends ActionSpace {
-    private boolean isBusyFirst;
-    private int orderCounter;
+    private static boolean isBusyFirst;
+    private static int orderCounter;
     private ArrayList<FamilyMember> playerOrder;
     private boolean completePlay = false;
     private final Logger logger = Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
 
     public ProductionSpace(){
         super(1);
-        isBusyFirst = false;
-        orderCounter = 0;
-        completePlay =true;
+        this.isBusyFirst = false;
+        this.orderCounter = 0;
+        this.completePlay =true;
         this.playerOrder= new ArrayList<FamilyMember>();
     }
 
@@ -42,7 +42,7 @@ public class ProductionSpace extends ActionSpace {
 
     public void setFamilyMember(FamilyMember familyMember) {
         this.isBusyFirst = true;
-        this.playerOrder.add(familyMember);
+        this.getPlayerOrder().add(familyMember);
         orderCounter++;
         Player player = familyMember.getPlayer();
         FamilyMember[] members = familyMember.getPlayer().getFamilyMembers();
@@ -52,10 +52,11 @@ public class ProductionSpace extends ActionSpace {
                 members[i] = null;
                 break;
             }
+            i++;
         }
         player.setFamilyMembers(members);
 
-            i++;
+
         }
 
 
