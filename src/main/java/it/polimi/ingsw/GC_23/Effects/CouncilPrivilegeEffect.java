@@ -179,6 +179,10 @@ public class CouncilPrivilegeEffect extends AbsEffect {
         }
         BenefitsEffect[] chosenEffect = chooseCouncilPrivilege(player);
         for (BenefitsEffect e : chosenEffect) {
+            if(player.getUserHandler().isGuiInterface()){
+                player.getUserHandler().messageToUser("effect");
+            }
+
             e.activeEffect(player);
         }
     }

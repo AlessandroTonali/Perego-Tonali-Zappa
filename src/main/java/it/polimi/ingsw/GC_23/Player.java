@@ -347,8 +347,10 @@ public class Player implements Serializable {
             chooseMove(view, isAdvanced);
         }
         playerTimeOut.setNeeded(false);
-        getUserHandler().messageToUser("Wait for your turn\n");
-        getUserHandler().messageToUser("wait");
+        if(!userHandler.isGuiInterface()) {
+            getUserHandler().messageToUser("Wait for your turn\n");
+            getUserHandler().messageToUser("wait");
+        }
         return;
     }
 

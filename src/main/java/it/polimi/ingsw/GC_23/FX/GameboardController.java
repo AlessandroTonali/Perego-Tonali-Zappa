@@ -1421,7 +1421,7 @@ public class GameboardController implements Serializable {
                     String familyMember = chooseFamilyMember();
                     userFX.send(identifyFamilyMember(familyMember));
                     String astring = userFX.receive();
-                    while (!"effedscdctended".equals(astring)) {
+                    while (!"effectended".equals(astring)) {
                         try {
                             userFX.send(effectswitcher());
                             astring = userFX.receive();
@@ -1430,7 +1430,7 @@ public class GameboardController implements Serializable {
                             continue;
                         }
                     }
-                    userFX.send(chooseCouncilPrivilege());
+                    //userFX.send(chooseCouncilPrivilege());
                     fine = "(stuff/" + color + familyMember + ".png)" + ";";
                     String ind = inizio + fine;
                     if (council1.getStyle().contains("-fx-background-image: url(stuff/null.png);")) {
