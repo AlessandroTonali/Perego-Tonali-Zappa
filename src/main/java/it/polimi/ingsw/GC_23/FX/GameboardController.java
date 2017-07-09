@@ -1752,6 +1752,7 @@ public class GameboardController implements Serializable {
             @Override
             public void handle(ActionEvent event) {
                 try {
+                    userFX.send("3");
                     userFX.send(chooseIncreaseValue());
                     userFX.send(identifyFamilyMember(chooseFamilyMember()));
                     if("OK".equals(userFX.receive())){
