@@ -991,6 +991,14 @@ public class GameboardController implements Serializable {
         alert.showAndWait();
     }
 
+    public void errorAlert() throws RemoteException {
+        Alert alert = new Alert(Alert.AlertType.ERROR);
+        alert.setTitle("Error Dialog");
+        alert.setHeaderText("Invalid move");
+        alert.setContentText("Please make a valid action");
+        alert.showAndWait();
+    }
+
     public String identifyFamilyMember(String string) throws RemoteException {
         int value = -1;
         switch (string) {
@@ -1750,7 +1758,7 @@ public class GameboardController implements Serializable {
 
                     }
                     if("KO".equals(userFX.receive())){
-                        busyAlert();
+                        errorAlert();
                     }
                 } catch (RemoteException e) {
                     logger.setLevel(Level.SEVERE);
