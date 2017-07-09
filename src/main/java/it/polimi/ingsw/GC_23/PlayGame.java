@@ -59,6 +59,8 @@ public class PlayGame {
 
             while( i < 1 ){
                 for(Player p : this.players){
+                    boardupdater(p);
+
                     if(!p.getUserHandler().isGuiInterface()) {
                         p.getUserHandler().messageToUser("");
                         p.getUserHandler().messageToUser(("Period: " + this.period + " Turn: " + this.turn + "\n"));
@@ -123,6 +125,13 @@ public class PlayGame {
             }
         }
         return false;
+    }
+
+    public void boardupdater(Player player) throws RemoteException {
+        for(Player p : players){
+            update(p);
+            sendTurnPlayer(p,player);
+        }
     }
 
     /**
