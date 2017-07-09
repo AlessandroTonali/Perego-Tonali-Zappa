@@ -85,7 +85,6 @@ public class GameboardController implements Serializable {
         fine = "(card/" + actualString + ".png)" + ";";
 
         ind = inizio + fine;
-        System.out.println(ind);
         territorycard1.setStyle(ind);
 
         actualString = userFX.receive();
@@ -857,13 +856,13 @@ public class GameboardController implements Serializable {
     public String chooseCouncilPrivilege() throws RemoteException{
         int value = -1;
         List<String> choices = new ArrayList<>();
-        choices.add("1 Stone and 1 Wood");
-        choices.add("2 Servants");
-        choices.add("2 Coins");
-        choices.add("2 Military Points");
-        choices.add("2 Faith Points");
+        String actualString = userFX.receive();
+        while(!"end".equals(actualString)){
+            choices.add(actualString);
+            actualString = userFX.receive();
+        }
 
-        ChoiceDialog<String> dialog = new ChoiceDialog<>("1 Stone and 1 Wood", choices);
+        ChoiceDialog<String> dialog = new ChoiceDialog<>("faith points 0 military points 0 gold 0 servants 0 wood 1 stone 1 victory points 0", choices);
         dialog.setTitle("Council Privilege");
         dialog.setHeaderText("Select the council privilege you will receive");
         dialog.setContentText("Choose your council privilege:");
@@ -879,19 +878,19 @@ public class GameboardController implements Serializable {
             }
         }
         switch (result.get()){
-            case "1 Stone and 1 Wood":
+            case "faith points 0 military points 0 gold 0 servants 0 wood 1 stone 1 victory points 0":
                 value = 0;
                 break;
-            case "2 Servants":
+            case "faith points 0 military points 0 gold 0 servants 2 wood 0 stone 0 victory points 0":
                 value = 1;
                 break;
-            case "2 Coins":
+            case "faith points 0 military points 0 gold 2 servants 0 wood 0 stone 0 victory points 0":
                 value = 2;
                 break;
-            case "2 Military Points":
+            case "faith points 0 military points 2 gold 0 servants 0 wood 0 stone 0 victory points 0":
                 value = 3;
                 break;
-            case "2 Faith Points":
+            case "faith points 1 military points 0 gold 0 servants 0 wood 0 stone 0 victory points 0":
                 value = 4;
                 break;
         }
@@ -1366,19 +1365,19 @@ public class GameboardController implements Serializable {
                     String ind = inizio + fine;
                     if (!council1.getStyle().contains("-fx-background-image:")) {
                         council1.setStyle(ind);
-                        council1.setStyle("-fx-background-size: contain");
+                        council1.setStyle("-fx-background-size: contain;");
                     } else {
                         if (!council2.getStyle().contains("-fx-background-image:")) {
                             council2.setStyle(ind);
-                            council2.setStyle("-fx-background-size: contain");
+                            council2.setStyle("-fx-background-size: contain;");
                         } else {
                             if (!council3.getStyle().contains("-fx-background-image:")) {
                                 council3.setStyle(ind);
-                                council3.setStyle("-fx-background-size: contain");
+                                council3.setStyle("-fx-background-size: contain;");
                             } else {
                                 if (!council4.getStyle().contains("-fx-background-image:")) {
                                     council4.setStyle(ind);
-                                    council4.setStyle("-fx-background-size: contain");
+                                    council4.setStyle("-fx-background-size: contain;");
                                 } else {
                                     busyAlert();
                                 }

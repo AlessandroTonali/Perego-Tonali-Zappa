@@ -53,9 +53,14 @@ public class CouncilPrivilegeEffect extends AbsEffect {
         BenefitsEffect[] chosen = new BenefitsEffect[this.getNumberOfPrivileges()];
         int numBen = this.getNumberOfPrivileges();
         while (numBen > 0) {
-            player.getUserHandler().messageToUser("Select possible council privilege:");
-            for (int n = 0; n < benefits.length; n++) {
-                player.getUserHandler().messageToUser(n + ": " + benefits[n].toString());
+            if(!player.getUserHandler().isGuiInterface()) {
+                player.getUserHandler().messageToUser("Select possible council privilege:");
+            }
+                for (int n = 0; n < benefits.length; n++) {
+                    player.getUserHandler().messageToUser(n + ": " + benefits[n].toString());
+                }
+            if(player.getUserHandler().isGuiInterface()){
+                player.getUserHandler().messageToUser("end");
             }
             if (!isDifferent) {
                 int i = -1;
