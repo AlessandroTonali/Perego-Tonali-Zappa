@@ -925,43 +925,49 @@ public class GameboardController implements Serializable {
         int value = -1;
         List<String> choices = new ArrayList<>();
         String actualString = userFX.receive();
-        while (!"end".equals(actualString)) {
-            choices.add(actualString);
+        while (!"councilprivilegeend".equals(actualString)) {
+            while (!(choices.size() == 0)){
+                choices.remove(0);
+            }
+            while (!"end".equals(actualString)) {
+                choices.add(actualString);
+                actualString = userFX.receive();
+            }
+            ChoiceDialog<String> dialog = new ChoiceDialog<>("faith points 0 military points 0 gold 0 servants 0 wood 1 stone 1 victory points 0", choices);
+            dialog.setTitle("Council Privilege");
+            dialog.setHeaderText("Select the council privilege you will receive");
+            dialog.setContentText("Choose your council privilege:");
+
+            Optional<String> result = dialog.showAndWait();
+            while (!result.isPresent()) {
+                try {
+                    Thread.sleep(500);
+                } catch (InterruptedException e) {
+                    logger.setLevel(Level.SEVERE);
+                    logger.severe(String.valueOf(e));
+                    Thread.currentThread().interrupt();
+                }
+            }
+            switch (result.get()) {
+                case "faith points 0 military points 0 gold 0 servants 0 wood 1 stone 1 victory points 0":
+                    value = 0;
+                    break;
+                case "faith points 0 military points 0 gold 0 servants 2 wood 0 stone 0 victory points 0":
+                    value = 1;
+                    break;
+                case "faith points 0 military points 0 gold 2 servants 0 wood 0 stone 0 victory points 0":
+                    value = 2;
+                    break;
+                case "faith points 0 military points 2 gold 0 servants 0 wood 0 stone 0 victory points 0":
+                    value = 3;
+                    break;
+                case "faith points 1 military points 0 gold 0 servants 0 wood 0 stone 0 victory points 0":
+                    value = 4;
+                    break;
+            }
+            userFX.send(String.valueOf(value));
             actualString = userFX.receive();
         }
-        ChoiceDialog<String> dialog = new ChoiceDialog<>("faith points 0 military points 0 gold 0 servants 0 wood 1 stone 1 victory points 0", choices);
-        dialog.setTitle("Council Privilege");
-        dialog.setHeaderText("Select the council privilege you will receive");
-        dialog.setContentText("Choose your council privilege:");
-
-        Optional<String> result = dialog.showAndWait();
-        while (!result.isPresent()) {
-            try {
-                Thread.sleep(500);
-            } catch (InterruptedException e) {
-                logger.setLevel(Level.SEVERE);
-                logger.severe(String.valueOf(e));
-                Thread.currentThread().interrupt();
-            }
-        }
-        switch (result.get()) {
-            case "faith points 0 military points 0 gold 0 servants 0 wood 1 stone 1 victory points 0":
-                value = 0;
-                break;
-            case "faith points 0 military points 0 gold 0 servants 2 wood 0 stone 0 victory points 0":
-                value = 1;
-                break;
-            case "faith points 0 military points 0 gold 2 servants 0 wood 0 stone 0 victory points 0":
-                value = 2;
-                break;
-            case "faith points 0 military points 2 gold 0 servants 0 wood 0 stone 0 victory points 0":
-                value = 3;
-                break;
-            case "faith points 1 military points 0 gold 0 servants 0 wood 0 stone 0 victory points 0":
-                value = 4;
-                break;
-        }
-        userFX.send(String.valueOf(value));
         return null;
     }
 
@@ -1799,7 +1805,8 @@ public class GameboardController implements Serializable {
         String actualString = userFX.receive();
         switch (actualString) {
             case ("councilEffect"):
-                return chooseCouncilPrivilege();
+                chooseCouncilPrivilege();
+                return null;
             case ("benefitsEffect"):
                 return null;
         }
