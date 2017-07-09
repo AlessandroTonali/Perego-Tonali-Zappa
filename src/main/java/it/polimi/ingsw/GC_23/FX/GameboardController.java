@@ -37,6 +37,8 @@ public class GameboardController implements Serializable {
     public GameboardController(UserFX userFX, String color) {
         this.userFX = userFX;
         this.color = color;
+        System.out.println("da togliere");
+
     }
 
     public void boardTranslator() throws RemoteException{

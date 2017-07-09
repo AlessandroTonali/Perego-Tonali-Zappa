@@ -19,7 +19,7 @@ public class BuildingCard extends Card {
     public BuildingCard(int period, CardColor cardColor, String name, ArrayList<AbsEffect> immediateEffect, ArrayList<AbsEffect> permanentEffect,
                         ArrayList<SingleCost> cost) {
         super(period, cardColor, name, immediateEffect, permanentEffect, cost);
-
+        System.out.println("da togliere");
     }
 
     //controlla numero carte e se ha abbastanza risorse

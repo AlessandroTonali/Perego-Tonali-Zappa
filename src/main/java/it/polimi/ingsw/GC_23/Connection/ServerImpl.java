@@ -25,6 +25,7 @@ public class ServerImpl extends UnicastRemoteObject implements Server {
     private static ExecutorService executor;
 
     private ServerImpl() throws RemoteException {
+        System.out.println("da togliere");
         this.matches = new ArrayList<>();
         this.userHandlers = new ArrayList<>();
     }

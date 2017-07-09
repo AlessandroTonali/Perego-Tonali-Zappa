@@ -34,6 +34,8 @@ public class Login implements Serializable{
 
 
     public Login(UserFX userFX) throws FileNotFoundException, RemoteException {
+        System.out.println("da togliere");
+
         this.userFX = userFX;
         primaryStage = new Stage();
         this.primaryStage.setTitle("Login");

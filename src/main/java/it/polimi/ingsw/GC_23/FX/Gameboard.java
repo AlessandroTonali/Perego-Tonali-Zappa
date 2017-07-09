@@ -38,6 +38,8 @@ public class Gameboard implements Serializable {
         this.primaryStage = primaryStage;
         this.userFX = userFX;
         this.color = color;
+        System.out.println("da togliere");
+
     }
 
     public void running(GameboardController gameboardController) throws RemoteException {

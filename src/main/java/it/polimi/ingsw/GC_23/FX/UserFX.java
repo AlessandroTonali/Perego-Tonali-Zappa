@@ -30,6 +30,7 @@ public class UserFX extends Application implements Runnable, Serializable{
     public void start(Stage primaryStage) throws RemoteException, FileNotFoundException {
         this.login = new Login(this);
         this.login.startLogin();
+        System.out.println("da togliere");
     }
 
     @Override

@@ -21,6 +21,7 @@ public class SocketAccepter implements Runnable {
     @Override
     public void run() {
         try {
+            System.out.println("da togliere");
             this.serverSocket = ServerImpl.getServer().getServerSocket();
             Socket socket = serverSocket.accept();
             SocketAccepter socketAccepter = new SocketAccepter();

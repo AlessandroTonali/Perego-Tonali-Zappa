@@ -33,6 +33,7 @@ public class SocketHandler implements Runnable,UserHandler{
     public SocketHandler(Socket socket)   {
         this.socket = socket;
         try {
+            System.out.println("da togliere");
             this.outSocket= new ObjectOutputStream(socket.getOutputStream());
             this.outWriter = new PrintWriter(socket.getOutputStream(), true);
             this.inSocket = new ObjectInputStream(socket.getInputStream());

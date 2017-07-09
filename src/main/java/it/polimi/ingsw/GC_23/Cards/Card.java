@@ -44,6 +44,7 @@ public abstract class Card {
     public Card(int period, CardColor cardColor, String name, ArrayList<AbsEffect> immediateEffect,
                 ArrayList<AbsEffect> permanentEffect, ArrayList<SingleCost>
             cost) {
+        System.out.println("da togliere");
         this.period = period;
         this.cardColor = cardColor;
         this.name = name;

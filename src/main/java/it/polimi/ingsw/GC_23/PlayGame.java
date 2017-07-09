@@ -30,6 +30,7 @@ public class PlayGame {
         this.board = board;
         this.isAdvanced = isAdvanced;
         scheduling();
+        System.out.println("da togliere");
     }
 
     public PlayGame(ArrayList<Player> players) throws IOException {

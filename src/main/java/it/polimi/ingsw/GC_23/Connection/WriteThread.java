@@ -13,6 +13,7 @@ public class WriteThread implements Runnable {
 
     public WriteThread(UserImpl user) {
         this.user = user;
+        System.out.println("da togliere");
     }
 
     @Override

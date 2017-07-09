@@ -51,7 +51,7 @@ public class Player implements Serializable {
         this.bonusTile = bonusTile;
         this.cardOfPlayer = new CardOfPlayer();
         permanentEffects = new ArrayList<>();
-        //permanent effect ancora non lo dobbiamo fare
+        System.out.println("da togliere");
     }
 
     public void setTimeIsOver(boolean timeIsOver) {

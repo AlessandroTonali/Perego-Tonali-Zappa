@@ -33,6 +33,7 @@ public class ColorController implements Serializable{
     public ColorController(UserFX userFX, Stage primaryStage) {
         this.userFX = userFX;
         this.primaryStage = primaryStage;
+        System.out.println("da togliere");
     }
 
     @FXML

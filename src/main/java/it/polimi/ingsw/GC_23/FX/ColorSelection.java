@@ -23,6 +23,8 @@ public class ColorSelection implements Serializable {
     public ColorSelection(Stage primaryStage, Login login)  throws RemoteException{
         this.primaryStage = primaryStage;
         this.userFX = login.getUserFX();
+        System.out.println("da togliere");
+
     }
 
     public void startColorSelection() throws RemoteException{

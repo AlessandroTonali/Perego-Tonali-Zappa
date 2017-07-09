@@ -19,6 +19,8 @@ public class TerritoryCard extends Card {
         ArrayList<SingleCost> costs = new ArrayList<>();
         costs.add(new SingleCost(new ResourcesSet()));
         super.setCost(costs);
+        System.out.println("da togliere");
+
     }
 
     @Override

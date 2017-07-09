@@ -22,6 +22,7 @@ public class RMIHandler implements Runnable, UserHandler, Remote {
 
     public RMIHandler(User user) {
         this.user = user;
+        System.out.println("da togliere");
     }
 
     @Override
