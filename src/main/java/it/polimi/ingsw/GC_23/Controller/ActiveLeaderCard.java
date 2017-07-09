@@ -55,7 +55,13 @@ public class ActiveLeaderCard implements Controller {
                     player.getUserHandler().messageToUser("Permanent effect of card is already active");
                 else {
                     if ((effect instanceof PlusDiceEffect) || (effect instanceof SetDiceEffect)) {
+                        if(player.getUserHandler().isGuiInterface()) {
+                            player.getUserHandler().messageToUser("effect");
+                        }
                         effect.activeEffect(player);
+                        if(player.getUserHandler().isGuiInterface()){
+                            player.getUserHandler().messageToUser("effectended");
+                        }
                     }
                     player.getUserHandler().messageToUser("Leader card activeted correctly");
                     player.getPermanentEffects().add((PermanentEffect) effect);
@@ -64,7 +70,13 @@ public class ActiveLeaderCard implements Controller {
                 }
             } else {
                 player.getUserHandler().messageToUser("Leader card activeted correctly");
+                if(player.getUserHandler().isGuiInterface()) {
+                    player.getUserHandler().messageToUser("effect");
+                }
                 effect.activeEffect(player);
+                if(player.getUserHandler().isGuiInterface()){
+                    player.getUserHandler().messageToUser("effectended");
+                }
                 leaderCard.setActivatedInThisRound(true);
             }
         }

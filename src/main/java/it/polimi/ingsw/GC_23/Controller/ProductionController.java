@@ -47,7 +47,13 @@ public class ProductionController extends PlaceFamilyMember {
     //TODO: attiva anche gli effetti permanenti delle carte edificio in possesso con valore <= a quello dell'azione
     @Override
     public void makeAction() throws RemoteException {
+        if(familyMember.getPlayer().getUserHandler().isGuiInterface()) {
+            familyMember.getPlayer().getUserHandler().messageToUser("effect");
+        }
         this.familyMember.getPlayer().getBonusTile().getProductionEffect().activeEffect(this.familyMember.getPlayer());
+        if(familyMember.getPlayer().getUserHandler().isGuiInterface()){
+           familyMember.getPlayer().getUserHandler().messageToUser("effectended");
+        }
         productionSpace.setFamilyMember(familyMember);
         this.familyMember.getPlayer().getUserHandler().messageToUser(this.familyMember.getPlayer().getResources().toString());
     }

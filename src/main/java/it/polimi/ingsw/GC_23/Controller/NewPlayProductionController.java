@@ -42,7 +42,13 @@ public class NewPlayProductionController implements Controller {
 
     @Override
     public void makeAction() throws IOException {
+        if(familyMember.getPlayer().getUserHandler().isGuiInterface()) {
+            familyMember.getPlayer().getUserHandler().messageToUser("effect");
+        }
         familyMember.getPlayer().getBonusTile().getHarvestEffect().activeEffect(familyMember.getPlayer());
+        if(familyMember.getPlayer().getUserHandler().isGuiInterface()){
+            familyMember.getPlayer().getUserHandler().messageToUser("effectended");
+        }
         //TODO
 
     }

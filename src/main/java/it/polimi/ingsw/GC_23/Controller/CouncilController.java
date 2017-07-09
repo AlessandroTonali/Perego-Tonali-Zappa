@@ -45,7 +45,13 @@ public class CouncilController extends PlaceFamilyMember {
         councilSpace.setFamilyMember(familyMember);
         ArrayList<AbsEffect> effects = councilSpace.getEffects();
         for(AbsEffect i : effects) {
+            if(player.getUserHandler().isGuiInterface()){
+                player.getUserHandler().messageToUser("effect");
+            }
             i.activeEffect(familyMember.getPlayer());
+        }
+        if(player.getUserHandler().isGuiInterface()){
+            player.getUserHandler().messageToUser("effectended");
         }
         player.getUserHandler().messageToUser(familyMember.getPlayer().getResources().toString());
     }

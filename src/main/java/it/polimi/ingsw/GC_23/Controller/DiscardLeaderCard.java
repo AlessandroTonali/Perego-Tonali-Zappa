@@ -44,7 +44,13 @@ public class DiscardLeaderCard implements Controller {
 
     @Override
     public void makeAction() throws IOException {
+        if(player.getUserHandler().isGuiInterface()) {
+            player.getUserHandler().messageToUser("effect");
+        }
         ParseJson.getParseJson().getEffectMap().get(1).activeEffect(player);
+        if(player.getUserHandler().isGuiInterface()){
+            player.getUserHandler().messageToUser("effectended");
+        }
         leaderCard.setDiscardedInThisTurn(true);
     }
 }

@@ -77,7 +77,13 @@ public class MarketController extends PlaceFamilyMember {
 
     @Override
     public void makeAction() throws IOException {
+        if(familyMember.getPlayer().getUserHandler().isGuiInterface()) {
+            familyMember.getPlayer().getUserHandler().messageToUser("effect");
+        }
         chosenSpace.getEffect().activeEffect(familyMember.getPlayer());
+        if(familyMember.getPlayer().getUserHandler().isGuiInterface()){
+            familyMember.getPlayer().getUserHandler().messageToUser("effectended");
+        }
         chosenSpace.setFamilyMember(familyMember);
     }
 }

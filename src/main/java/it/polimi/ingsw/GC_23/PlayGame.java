@@ -45,7 +45,10 @@ public class PlayGame {
             System.out.println(period + " period");
 
             for(Player p : players) {
-                p.getUserHandler().messageToUser("starttoupdate");
+                if(p.getUserHandler().isGuiInterface())
+                {
+                    p.getUserHandler().messageToUser("starttoupdate");
+                }
             }
             for(Player p : players) {
                 if(p.getUserHandler().isGuiInterface()) {

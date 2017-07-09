@@ -88,7 +88,13 @@ public class OtherCardsController extends TowerController {
         super.getFamilyMember().getPlayer().getResources().pay(cost.getResources());
         ArrayList<AbsEffect> effects = super.getTowerSpace().getCard().getImmediateEffect();
         for(AbsEffect i : effects){
+            if(familyMember.getPlayer().getUserHandler().isGuiInterface()) {
+                familyMember.getPlayer().getUserHandler().messageToUser("effect");
+            }
             i.activeEffect(super.getFamilyMember().getPlayer());
+        }
+        if(familyMember.getPlayer().getUserHandler().isGuiInterface()){
+            familyMember.getPlayer().getUserHandler().messageToUser("effectended");
         }
         super.getTowerSpace().setFamilyMember(super.getFamilyMember());
         super.getTowerSpace().getCard().addCardOfPlayer(super.getFamilyMember().getPlayer());

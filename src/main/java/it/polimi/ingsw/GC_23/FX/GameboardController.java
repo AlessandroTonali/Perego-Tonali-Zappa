@@ -861,7 +861,6 @@ public class GameboardController implements Serializable {
             choices.add(actualString);
             actualString = userFX.receive();
         }
-
         ChoiceDialog<String> dialog = new ChoiceDialog<>("faith points 0 military points 0 gold 0 servants 0 wood 1 stone 1 victory points 0", choices);
         dialog.setTitle("Council Privilege");
         dialog.setHeaderText("Select the council privilege you will receive");

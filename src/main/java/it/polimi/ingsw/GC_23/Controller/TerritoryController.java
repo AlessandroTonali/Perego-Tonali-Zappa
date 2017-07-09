@@ -83,7 +83,13 @@ public class TerritoryController extends TowerController {
 
         ArrayList<AbsEffect> effects = towerSpace.getCard().getImmediateEffect();
         for(AbsEffect i : effects){
+            if(familyMember.getPlayer().getUserHandler().isGuiInterface()) {
+               familyMember.getPlayer().getUserHandler().messageToUser("effect");
+            }
             i.activeEffect(familyMember.getPlayer());
+            if(familyMember.getPlayer().getUserHandler().isGuiInterface()){
+                familyMember.getPlayer().getUserHandler().messageToUser("effectended");
+            }
         }
         towerSpace.setFamilyMember(familyMember);
 

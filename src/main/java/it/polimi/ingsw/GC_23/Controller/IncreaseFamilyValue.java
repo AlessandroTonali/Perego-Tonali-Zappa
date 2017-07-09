@@ -17,7 +17,9 @@ public class IncreaseFamilyValue implements Controller {
         this.quantity = quantity;
         this.familyMember = familyMember;
         if (!this.isLegal()) {
-            familyMember.getPlayer().getUserHandler().messageToUser("YOU ARE NOT ALLOW TO DO THIS MOVE, DO SOMETHING ELSE!");
+            if(!familyMember.getPlayer().getUserHandler().isGuiInterface()) {
+                familyMember.getPlayer().getUserHandler().messageToUser("YOU ARE NOT ALLOW TO DO THIS MOVE, DO SOMETHING ELSE!");
+            }
             throw new IllegalArgumentException();
         } else {
             this.makeAction();

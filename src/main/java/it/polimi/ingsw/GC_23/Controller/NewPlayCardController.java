@@ -61,7 +61,13 @@ public class NewPlayCardController implements Controller {
         familyMember.getPlayer().getResources().pay(costCard.getResources());
         ArrayList<AbsEffect> effects = towerSpace.getCard().getImmediateEffect();
         for(AbsEffect i : effects){
+            if(familyMember.getPlayer().getUserHandler().isGuiInterface()) {
+                familyMember.getPlayer().getUserHandler().messageToUser("effect");
+            }
             i.activeEffect(familyMember.getPlayer());
+        }
+        if(familyMember.getPlayer().getUserHandler().isGuiInterface()){
+            familyMember.getPlayer().getUserHandler().messageToUser("effectended");
         }
         towerSpace.getCard().addCardOfPlayer(familyMember.getPlayer());
 

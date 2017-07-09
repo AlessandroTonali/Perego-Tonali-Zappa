@@ -47,7 +47,13 @@ public class HarvestController extends PlaceFamilyMember {
     //TODO: attiva anche gli effetti permanenti delle carte terriorio in possesso con valore <= a quello dell'azione
     @Override
     public void makeAction() throws RemoteException {
+        if(familyMember.getPlayer().getUserHandler().isGuiInterface()) {
+            familyMember.getPlayer().getUserHandler().messageToUser("effect");
+        }
         this.familyMember.getPlayer().getBonusTile().getHarvestEffect().activeEffect(this.familyMember.getPlayer());
+        if(familyMember.getPlayer().getUserHandler().isGuiInterface()){
+            familyMember.getPlayer().getUserHandler().messageToUser("effectended");
+        }
         harvestSpace.setFamilyMember(familyMember);
         familyMember.getPlayer().getUserHandler().messageToUser(familyMember.getPlayer().getResources().toString());
     }
