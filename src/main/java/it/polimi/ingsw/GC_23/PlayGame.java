@@ -128,6 +128,9 @@ public class PlayGame {
         return false;
     }
 
+    /**
+     * method for doing a player order based on last order and position in council space
+     */
     private void makeTurnOrder() {
         ArrayList<Player> pastOrder = this.players;
         this.players = board.getCouncilSpace().getPlayerOrder();
@@ -138,6 +141,10 @@ public class PlayGame {
         }
     }
 
+    /**
+     * method for doing a player order based on military track
+     * @return an order arrayList of player
+     */
     private ArrayList<Player> makeMilitaryOrder() {
         ArrayList<Player> playersOrder = players;
         for(int i=0; i<playersOrder.size();i++){
@@ -153,6 +160,10 @@ public class PlayGame {
         return playersOrder;
     }
 
+    /**
+     * multiple check at the end of the period
+     * @throws IOException
+     */
     private void checkEndPeriod() throws IOException {
         board.resetCardTowers();
         board.setCard();
@@ -219,6 +230,10 @@ public class PlayGame {
 
     }
 
+    /**
+     * list of check and action at the end of the game
+     * @throws IOException
+     */
     private void checkEndGame() throws IOException {
         for (Player p : players) {
             //assegna punti territory cards
@@ -315,6 +330,10 @@ public class PlayGame {
 
     }
 
+    /**
+     * method for elect the winner of the  game
+     * @throws RemoteException
+     */
     private void getWinner() throws RemoteException {
         ArrayList<Player> playersOrder = players;
         for (int i = 0; i < playersOrder.size(); i++) {

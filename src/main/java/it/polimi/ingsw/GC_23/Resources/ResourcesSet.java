@@ -21,6 +21,11 @@ public class ResourcesSet {
     private static int resourceNumber = 7;
 
 
+    /**
+     * check if two resourceSet are equals
+     * @param o object to compare
+     * @return true if the two objects are equal, false if not
+     */
     @Override
     public boolean equals(Object o) {
 
@@ -175,6 +180,11 @@ public class ResourcesSet {
 
     }
 
+    /**
+     * check this object if bigger than the param in input
+     * @param checked resources to be checked
+     * @return true if the object is bigger, false if not
+     */
     public boolean checkAffordable( ResourcesSet checked) {
         int[] playerSet = this.getArray();
         int[] checkSet = checked.getArray();
@@ -200,6 +210,11 @@ public class ResourcesSet {
 
     }
 
+    /**
+     * add at this object the resources at first parameter
+     * @param prize resources to add
+     * @param player to add resources
+     */
     public void sum(ResourcesSet prize, Player player) {
         checkPermanentEffect(player, prize);
         int[] playerset = this.getArray();
@@ -215,6 +230,10 @@ public class ResourcesSet {
         this.setArray(playerset);
     }
 
+    /**
+     * subtract the resource
+     * @param prize resources to subtract
+     */
     public void pay(ResourcesSet prize) {
         int[] playerset = this.getArray();
         int[] prizeset = prize.getArray();
@@ -224,6 +243,11 @@ public class ResourcesSet {
         this.setArray(playerset);
     }
 
+    /**
+     * check and active the permanent effect on the resources
+     * @param player that you want to check the permanent effect
+     * @param prize
+     */
     public void checkPermanentEffect(Player player, ResourcesSet prize){
         ArrayList<PermanentEffect> permanentEffectArrayList = player.getPermanentEffects();
         for (int i = 0; i < permanentEffectArrayList.size(); i++) {

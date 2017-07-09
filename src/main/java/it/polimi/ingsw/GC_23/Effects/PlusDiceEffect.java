@@ -48,6 +48,12 @@ public class PlusDiceEffect extends PermanentEffect {
         return sales;
     }
 
+    /**
+     * method for choosing sale on a plus dice effect
+     * @param player that active the effect
+     * @return the sale chosen
+     * @throws RemoteException
+     */
     public SingleCost chooseSale(Player player) throws RemoteException {
         int i = 0;
         int j = 0;

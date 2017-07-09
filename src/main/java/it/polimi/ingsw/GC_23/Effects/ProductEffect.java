@@ -99,7 +99,9 @@ public class ProductEffect extends AbsEffect {
 
         }
 
-        ResourcesSet resource = giving.getResources();
+
+        ResourcesSet givRes = giving.getResources();
+        ResourcesSet resource = new ResourcesSet(givRes.getFaithPoints(),givRes.getGold(), givRes.getMilitaryPoints(), givRes.getServants(),givRes.getStone(),givRes.getVictoryPoints(),givRes.getWood());
         if(resource.getWood()>0){
                 resource.setWood(resource.getWood() * productFactor);
         }

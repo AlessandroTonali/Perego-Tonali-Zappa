@@ -177,6 +177,12 @@ public class Player implements Serializable {
         return leaderCards;
     }
 
+    /**
+     * method for choose an action
+     * @param board where we want to play
+     * @param isAdvanced boolean parameter for advanced rule
+     * @throws IOException
+     */
     public void chooseMove(Board board, boolean isAdvanced) throws IOException {
         this.view = board;
         if(getUserHandler().isGuiInterface()){
@@ -352,6 +358,12 @@ public class Player implements Serializable {
 
     }
 
+    /**
+     * method for chosing a family member
+     * @param value
+     * @return family member chosen
+     * @throws IOException
+     */
     public FamilyMember chooseFamilyMember(int value) throws IOException {
         int j = 0;
         for(FamilyMember f: familyMembers) {
@@ -419,6 +431,11 @@ public class Player implements Serializable {
         return chosen;
     }
 
+    /**
+     * method for chosing a leader card between those owned by the player
+     * @return the leader card chosen
+     * @throws RemoteException
+     */
     public LeaderCard chooseLeaderCard() throws RemoteException {
         LeaderCard leaderCard = null;
         userHandler.messageToUser("Chooose the leader card:");

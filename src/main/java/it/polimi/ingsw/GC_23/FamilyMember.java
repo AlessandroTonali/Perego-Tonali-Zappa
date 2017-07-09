@@ -55,6 +55,12 @@ public class FamilyMember {
         this.value = value;
     }
 
+    /**
+     * method for check the permanent effect relative on family member
+     * @param value initial family member value
+     * @return new value of family member
+     * @throws RemoteException
+     */
     public int checkPermanentEffect(int value) throws RemoteException {
         ArrayList<PermanentEffect> permanentEffectArrayList = player.getPermanentEffects();
 
@@ -63,6 +69,12 @@ public class FamilyMember {
 
             if (permanentEffect instanceof SetDiceEffect && ((SetDiceEffect) permanentEffectArrayList.get(i)).getType().equals("dice_color")) {
                 if (familyColor != FamilyColor.NEUTRAL) {
+                    value = ((SetDiceEffect) permanentEffect).getValue();
+                }
+            }
+
+            if (permanentEffect instanceof SetDiceEffect && ((SetDiceEffect) permanentEffectArrayList.get(i)).getType().equals("dice_neutral")) {
+                if (familyColor == FamilyColor.NEUTRAL) {
                     value = ((SetDiceEffect) permanentEffect).getValue();
                 }
             }

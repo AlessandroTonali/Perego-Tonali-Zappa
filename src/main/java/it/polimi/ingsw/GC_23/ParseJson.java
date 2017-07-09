@@ -70,7 +70,9 @@ public class ParseJson {
     }
 
 
-
+    /**
+     * method for parse the card from json file
+     */
     private void parseCard() {
         String jsonContent = null;
         try {
@@ -198,6 +200,11 @@ public class ParseJson {
 
     }
 
+    /**
+     * method for parsing requirment object
+     * @param requirementJsonObject JSONObject of requirments
+     * @return a requirment object
+     */
     private Requirement parseRequirement(JSONObject requirementJsonObject) {
         int numberVenture = 0;
         int numberCharacter = 0;
@@ -229,6 +236,9 @@ public class ParseJson {
         return new Requirement(numberVenture, numberCharacter, numberBuilding, numberTerritory, resources);
     }
 
+    /**
+     * method for parsing ImmediateEffect File
+     */
     private void parseImmediateEffect() {
         String jsonContent = null;
         try {
@@ -276,6 +286,9 @@ public class ParseJson {
         parseFlagEffect(flagEffects);
     }
 
+    /**
+     * method for parsing permanent effect file
+     */
     private void parsePermanentEffect() {
         String jsonContent = null;
         try {
@@ -318,6 +331,9 @@ public class ParseJson {
         parseSetDiceEffect(setDiceEffects);
     }
 
+    /**
+     * method for parsing and create SetDiceEffect Object
+     */
     private void parseSetDiceEffect(JSONArray setDiceEffects) {
         for (int i = 0; i < setDiceEffects.length(); i++) {
             JSONObject jsonObject = setDiceEffects.getJSONObject(i);
@@ -330,6 +346,9 @@ public class ParseJson {
         }
     }
 
+    /**
+     * method for parsing and create FlagEffect Object
+     */
     private void parseFlagEffect(JSONArray flagEffects) {
         for (int i = 0; i < flagEffects.length(); i++) {
             JSONObject jsonObject = flagEffects.getJSONObject(i);
@@ -342,6 +361,9 @@ public class ParseJson {
         }
     }
 
+    /**
+     * method for parsing and create MalusOnBenefit Object
+     */
     private void parseMalusOnBenefitEffect(JSONArray malusOnBenefitEffects) {
         for (int i = 0; i < malusOnBenefitEffects.length(); i++) {
             JSONObject jsonObject = malusOnBenefitEffects.getJSONObject(i);
@@ -356,6 +378,9 @@ public class ParseJson {
 
     }
 
+    /**
+     * method for parsing and create board file
+     */
     private void parseBoardComponent() {
         String jsonContent = null;
         try {
@@ -402,6 +427,11 @@ public class ParseJson {
         parseFaithTrack(faithTrack);
     }
 
+    /**
+     * method for parsing generic bonus
+     * @param arrayBonus
+     * @param arrayList
+     */
     private void parseBonus(JSONArray arrayBonus, ArrayList<AbsEffect> arrayList) {
         for (int i = 0; i < arrayBonus.length(); i++) {
             JSONObject jsonObject = arrayBonus.getJSONObject(i);
@@ -410,6 +440,10 @@ public class ParseJson {
         }
     }
 
+    /**
+     * method for parsing faith track bonus
+     * @param faithTrack
+     */
     private void parseFaithTrack(JSONArray faithTrack) {
         for (int i = 0; i < faithTrack.length(); i++) {
             JSONObject jsonObject = faithTrack.getJSONObject(i);
@@ -420,6 +454,11 @@ public class ParseJson {
         }
     }
 
+    /**
+     * method for parsing the bonus of a tower
+     * @param absEffects array of effect of tower
+     * @param jsonArray
+     */
     private void parseBonusTower(AbsEffect[] absEffects, JSONArray jsonArray) {
         for (int i = 0; i < jsonArray.length(); i++) {
             JSONObject jsonObject = jsonArray.getJSONObject(i);
@@ -428,6 +467,10 @@ public class ParseJson {
         }
     }
 
+    /**
+     * method for parsing and create the BonusTile Object
+     * @param bonusTiles
+     */
     private void parseBonusTile(JSONArray bonusTiles) {
         for (int i = 0; i < bonusTiles.length(); i++) {
             JSONObject jsonObject = bonusTiles.getJSONObject(i);
@@ -442,6 +485,10 @@ public class ParseJson {
         }
     }
 
+    /**
+     * method for parsing the ExcommunicationTile effect and add the effect on excommunicationTile
+     * @param excommunicationTiles
+     */
     private void parseExcommunicationTile(JSONArray excommunicationTiles) {
         for (int i = 0; i < excommunicationTiles.length(); i++) {
             JSONObject jsonObject = excommunicationTiles.getJSONObject(i);
@@ -464,6 +511,10 @@ public class ParseJson {
         }
     }
 
+    /**
+     * method for parsing and create PlusDiceEffect Object
+     * @param plusDiceEffects
+     */
     private void parsePlusDiceEffect(JSONArray plusDiceEffects) {
         for (int i = 0; i < plusDiceEffects.length(); i++) {
             JSONObject jsonObject = plusDiceEffects.getJSONObject(i);
@@ -490,6 +541,10 @@ public class ParseJson {
         }
     }
 
+    /**
+     * method for parsing and create the EndGameEffect Object
+     * @param endGameEffects
+     */
     private void parseEndGameEffect(JSONArray endGameEffects) {
         for (int i = 0; i < endGameEffects.length(); i++) {
             int idEffect = endGameEffects.getJSONObject(i).getInt("id");
@@ -499,6 +554,11 @@ public class ParseJson {
         }
     }
 
+    /**7
+     *method for parsing generic effect
+     * @param jsonArray
+     * @return
+     */
     private ArrayList<AbsEffect> parsingEffect(JSONArray jsonArray) {
         ArrayList<AbsEffect> arrayList = new ArrayList<>();
         for (int y = 0; y < jsonArray.length() ; y++) {
@@ -510,6 +570,10 @@ public class ParseJson {
         return arrayList;
     }
 
+    /**
+     * method for parsing and create ProductionEffectObject
+     * @param productionEffects
+     */
     private void parseProductionEffect(JSONArray productionEffects) {
         for (int i = 0; i < productionEffects.length(); i++) {
             JSONObject productionEffectObject = productionEffects.getJSONObject(i);
@@ -523,6 +587,10 @@ public class ParseJson {
         }
     }
 
+    /**
+     * method for parsing and create HarvestEffect Object
+     * @param harvestEffects
+     */
     private void parseHarvestEffect(JSONArray harvestEffects) {
         for (int i = 0; i < harvestEffects.length(); i++) {
             JSONObject harvestEffectObject = harvestEffects.getJSONObject(i);
@@ -571,6 +639,10 @@ public class ParseJson {
         }
     }*/
 
+    /**
+     * method for parsing and create NewPlayHarvestEffect Object
+     * @param newPlayHarvestEffects
+     */
     private void parseNewPlayHarvestEffect(JSONArray newPlayHarvestEffects) {
         for (int i = 0; i < newPlayHarvestEffects.length(); i++) {
             int idEffect = newPlayHarvestEffects.getJSONObject(i).getInt("id");
@@ -580,6 +652,10 @@ public class ParseJson {
         }
     }
 
+    /**
+     * method for parsing and create NewPlayProductionEffect Object
+     * @param newPlayProductionEffects
+     */
     private void parseNewPlayProductionEffect(JSONArray newPlayProductionEffects) {
         for (int i = 0; i < newPlayProductionEffects.length(); i++) {
             int idEffect = newPlayProductionEffects.getJSONObject(i).getInt("id");
@@ -589,6 +665,10 @@ public class ParseJson {
         }
     }
 
+    /**
+     * method for parsing and create NewPlayCardEffect Object
+     * @param newPlayEffects
+     */
     private void parseNewPlayCardEffect(JSONArray newPlayEffects) {
         for (int i = 0; i < newPlayEffects.length(); i++) {
             ArrayList<SingleCost> sale = new ArrayList<>();
@@ -625,6 +705,10 @@ public class ParseJson {
 
     }
 
+    /**
+     * method for parsing and create BenefitEffect Object
+     * @param benefitEffects
+     */
     private void parseBenefitEffect(JSONArray benefitEffects) {
         for (int i = 0; i < benefitEffects.length() ; i++) {
             JSONObject jsonObject = benefitEffects.getJSONObject(i);
@@ -634,6 +718,10 @@ public class ParseJson {
         }
     }
 
+    /**
+     * method for parsing and create CoucncilPrivilegeEffect Object
+     * @param councilPrivilegeEffects
+     */
     private void parseCouncilPrivilegeEffect(JSONArray councilPrivilegeEffects) {
         for (int i = 0; i < councilPrivilegeEffects.length(); i++) {
             JSONObject jsonObject = councilPrivilegeEffects.getJSONObject(i);
@@ -644,6 +732,10 @@ public class ParseJson {
         }
     }
 
+    /**
+     * method for parsing and create ImplicationEffect Object
+     * @param implicationEffects
+     */
     private void parseImplicationEffect(JSONArray implicationEffects) {
         for (int i = 0; i < implicationEffects.length() ; i++) {
             ArrayList<SingleCost> requirments = new ArrayList<>();
@@ -671,6 +763,10 @@ public class ParseJson {
         }
     }
 
+    /**
+     * method for parsing and create ProductEffect Object
+     * @param productEffects
+     */
     private void parseProductEffect(JSONArray productEffects) {
         for (int i = 0; i < productEffects.length(); i++) {
             ProductEffect productEffect = null;
@@ -713,6 +809,11 @@ public class ParseJson {
         }
     }
 
+    /**
+     * method for parsing a generic cost of the card
+     * @param jsonObject
+     * @return a SigleCost object
+     */
     private SingleCost parseCost(JSONObject jsonObject) {
         int faithPoint = 0;
         int coin = 0;
@@ -754,6 +855,10 @@ public class ParseJson {
         return new SingleCost(new ResourcesSet(faithPoint,coin,militaryPoint,servant,stone,victoryPoint,wood));
     }
 
+    /**
+     * metgod for getting the effect of a council
+     * @return an array with the effect
+     */
     public BenefitsEffect[] getCouncilBenefit() {
         BenefitsEffect[] councilPrivilegeBenefit = new BenefitsEffect[5];
         councilPrivilegeBenefit[0] = benefitsEffectMap.get(10);

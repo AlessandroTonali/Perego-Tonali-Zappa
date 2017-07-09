@@ -20,6 +20,11 @@ public class Requirement {
         this.resources = resources;
     }
 
+    /**
+     * method for verify if the player satisfy the requirment
+     * @param player that want to check the requirment
+     * @return true if satisfy the requirment, false if not
+     */
     public boolean checkRequirement(Player player) {
         boolean isRequirementSatisfied = true;
         if (player.getCardOfPlayer().getVentureCards().size() < numberVenture) {
