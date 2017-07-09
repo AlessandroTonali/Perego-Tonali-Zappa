@@ -180,6 +180,9 @@ public class Player implements Serializable {
 
     public void chooseMove(Board board, boolean isAdvanced) throws IOException {
         this.view = board;
+        if(getUserHandler().isGuiInterface()){
+            getUserHandler().messageToUser("play");
+        }
         if(!getUserHandler().isGuiInterface()) {
             getUserHandler().messageToUser("read");
             if (isAdvanced) {

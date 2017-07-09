@@ -69,7 +69,6 @@ public class GameboardController implements Serializable {
 
     private void turnsetter() throws RemoteException {
         String string = userFX.receive();
-        string = userFX.receive();
         turn.setText(string);
     }
 
