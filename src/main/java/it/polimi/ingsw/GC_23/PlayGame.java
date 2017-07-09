@@ -47,7 +47,7 @@ public class PlayGame {
             for(Player p : players) {
                 if(p.getUserHandler().isGuiInterface()) {
                     update(p);
-                    sendTurnPlayer(players.get(0));
+                    sendTurnPlayer(p , players.get(0));
                 }
             }
 
@@ -55,7 +55,7 @@ public class PlayGame {
                 for (Player p : this.players) {
                     if (p.getUserHandler().isGuiInterface()) {
                         update(p);
-                        sendTurnPlayer(p);
+                        sendTurnPlayer(p, p);
                     }
                 }
                 for(Player p : this.players){
@@ -508,10 +508,8 @@ public class PlayGame {
 
     }
 
-    public void sendTurnPlayer(Player p) throws RemoteException{
-        for (Player pl : players){
-            pl.getUserHandler().messageToUser(p.getPlayerColor().toString());
-        }
+    public void sendTurnPlayer(Player p, Player turnofplayer) throws RemoteException{
+        p.getUserHandler().messageToUser(turnofplayer.getPlayerColor().toString());
     }
 
     public void update(Player p) throws RemoteException{
