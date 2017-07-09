@@ -309,7 +309,8 @@ public class GameboardController implements Serializable {
         String inizio = "-fx-background-image: url";
         String fine;
         String ind;
-        String actualString = userFX.receive();
+        String
+                actualString = userFX.receive();
         if (!"harvestend".equals(actualString)) {
             fine = "(stuff/" + actualString + ".png)" + ";";
             ind = inizio + fine;
@@ -371,11 +372,14 @@ public class GameboardController implements Serializable {
         String fine;
         String ind;
         String actualString = userFX.receive();
+        actualString = userFX.receive();
+
         if (!"productionend".equals(actualString)) {
             fine = "(stuff/" + actualString + ".png)" + ";";
             ind = inizio + fine;
             productionb.setStyle(ind);
 
+            actualString = userFX.receive();
             actualString = userFX.receive();
             if (!"productionend".equals(actualString)) {
                 fine = "(stuff/" + actualString + ".png)" + ";";
@@ -383,11 +387,13 @@ public class GameboardController implements Serializable {
                 production2.setStyle(ind);
 
                 actualString = userFX.receive();
+                actualString = userFX.receive();
                 if (!"productionend".equals(actualString)) {
                     fine = "(stuff/" + actualString + ".png)" + ";";
                     ind = inizio + fine;
                     production3.setStyle(ind);
 
+                    actualString = userFX.receive();
                     actualString = userFX.receive();
                     if (!"productionend".equals(actualString)) {
                         fine = "(stuff/" + actualString + ".png)" + ";";
@@ -395,11 +401,13 @@ public class GameboardController implements Serializable {
                         production4.setStyle(ind);
 
                         actualString = userFX.receive();
+                        actualString = userFX.receive();
                         if (!"productionend".equals(actualString)) {
                             fine = "(stuff/" + actualString + ".png)" + ";";
                             ind = inizio + fine;
                             production5.setStyle(ind);
 
+                            actualString = userFX.receive();
                             actualString = userFX.receive();
                             if (!"productionend".equals(actualString)) {
                                 fine = "(stuff/" + actualString + ".png)" + ";";
@@ -407,11 +415,13 @@ public class GameboardController implements Serializable {
                                 production6.setStyle(ind);
 
                                 actualString = userFX.receive();
+                                actualString = userFX.receive();
                                 if (!"productionend".equals(actualString)) {
                                     fine = "(stuff/" + actualString + ".png)" + ";";
                                     ind = inizio + fine;
                                     production7.setStyle(ind);
 
+                                    actualString = userFX.receive();
                                     actualString = userFX.receive();
                                     if(!"productionend".equals(actualString)) {
                                         fine = "(stuff/" + actualString + ".png)" + ";";
