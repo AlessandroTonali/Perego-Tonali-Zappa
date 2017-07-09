@@ -37,12 +37,14 @@ public class MessageListener implements Runnable {
     }
     public void reader() throws RemoteException {
         String actualString = gameboard.getUserFX().receive();
-        System.out.println("ci sono");
-        while (!actualString.equals("matchended")){
-            if(actualString.equals("update")){
+        while (!"matchended".equals(actualString)){
+            if("update".equals(actualString)){
                 gameboard.updateController(gameboardController);
                 read = false;
                 run();
+            }
+            if("play".equals(actualString)){
+                gameboardController.handle();
             }
             actualString = gameboard.getUserFX().receive();
         }

@@ -46,7 +46,7 @@ public class PlayGame {
 
             for(Player p : players) {
                 if(p.getUserHandler().isGuiInterface()) {
-                    update();
+                    update(p);
                     sendTurnPlayer(players.get(0));
                 }
             }
@@ -54,7 +54,7 @@ public class PlayGame {
             while( i < 1 ){
                 for (Player p : this.players) {
                     if(p.getUserHandler().isGuiInterface()) {
-                        update();
+                        update(p);
                         sendTurnPlayer(p);
                     }
                     if(!p.getUserHandler().isGuiInterface()) {
@@ -515,10 +515,8 @@ public class PlayGame {
         }
     }
 
-    public void update() throws RemoteException{
-        for(Player p: players){
-            p.getUserHandler().messageToUser("update");
-        }
+    public void update(Player p) throws RemoteException{
+        p.getUserHandler().messageToUser("update");
         sendBoard();
         sendData();
         sendCards();
