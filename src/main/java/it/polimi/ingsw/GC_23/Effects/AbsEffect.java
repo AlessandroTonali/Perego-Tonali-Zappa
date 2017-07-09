@@ -10,5 +10,11 @@ import java.rmi.RemoteException;
  * Created by jesss on 28/05/17.
  */
 public abstract class AbsEffect{
+
+    /**
+     * method for active the bonus of the effect
+     * @param player that want to active the effect
+     * @throws IOException
+     */
     public abstract void activeEffect(Player player) throws IOException;
 }

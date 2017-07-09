@@ -23,7 +23,7 @@ public class EndGameEffect extends PermanentEffect {
         int playerVictoryPoint = player.getResources().getVictoryPoints();
         switch (type) {
             case 1:
-                int victoryPointLost = playerVictoryPoint % 5;
+                int victoryPointLost = playerVictoryPoint / 5;
                 playerVictoryPoint = playerVictoryPoint - victoryPointLost;
                 player.getResources().setVictoryPoints(playerVictoryPoint);
                 break;

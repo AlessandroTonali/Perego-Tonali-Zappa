@@ -23,6 +23,13 @@ import static org.junit.Assert.*;
 public class BenefitsEffectTest {
     @Test
     public void activeEffect() throws Exception {
+        BenefitsEffect benefitsEffect = new BenefitsEffect(new ResourcesSet(0,1,0,0,0,0,0));
+        Player player = new Player(PlayerColor.RED, ParseJson.getParseJson().getBonusTileArrayList().get(0));
+        player.setResources(new ResourcesSet(0,0,0,0,0,0,0));
+
+        benefitsEffect.activeEffect(player);
+
+        assertEquals(1, player.getResources().getGold());
 
     }
 
