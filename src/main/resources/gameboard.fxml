@@ -84,30 +84,30 @@
                                     <Pane fx:id="council4" layoutX="151.0" layoutY="35.0" prefHeight="25.0" prefWidth="25.0" />
                                  </children>
                               </Pane>
-                              <Pane fx:id="harvestbuttons" layoutX="80.0" layoutY="850.0" prefHeight="100.0" prefWidth="320.0">
+                              <Pane fx:id="productionbuttons" layoutX="80.0" layoutY="850.0" prefHeight="100.0" prefWidth="320.0">
                                  <children>
-                                    <Button id="button" fx:id="harvestb" layoutX="-1.0" layoutY="18.0" stylesheets="@roundbutton.css" />
-                                    <Button id="rectangle" fx:id="harvestrectangle" layoutX="78.0" layoutY="20.0" mnemonicParsing="false" prefHeight="54.0" prefWidth="144.0" stylesheets="@roundrectangle.css" />
-                                    <Pane fx:id="harvest2" layoutX="119.0" layoutY="32.0" prefHeight="25.0" prefWidth="25.0" />
-                                    <Pane fx:id="harvest3" layoutX="147.0" layoutY="32.0" prefHeight="25.0" prefWidth="25.0" />
-                                    <Pane fx:id="harvest4" layoutX="175.0" layoutY="32.0" prefHeight="25.0" prefWidth="25.0" />
-                                    <Pane fx:id="harvest5" layoutX="203.0" layoutY="32.0" prefHeight="25.0" prefWidth="25.0" />
-                                    <Pane fx:id="harvest6" layoutX="231.0" layoutY="32.0" prefHeight="25.0" prefWidth="25.0" />
-                                    <Pane fx:id="harvest7" layoutX="259.0" layoutY="32.0" prefHeight="25.0" prefWidth="25.0" />
-                                    <Pane fx:id="harvest8" layoutX="287.0" layoutY="32.0" prefHeight="25.0" prefWidth="25.0" />
+                                    <Button id="button" fx:id="productionb" layoutX="-1.0" layoutY="18.0" stylesheets="@roundbutton.css" />
+                                    <Button id="rectangle" fx:id="productionrectangle" layoutX="78.0" layoutY="20.0" mnemonicParsing="false" prefHeight="54.0" prefWidth="144.0" stylesheets="@roundrectangle.css" />
+                                    <Pane fx:id="production2" layoutX="119.0" layoutY="32.0" prefHeight="25.0" prefWidth="25.0" />
+                                    <Pane fx:id="production3" layoutX="147.0" layoutY="32.0" prefHeight="25.0" prefWidth="25.0" />
+                                    <Pane fx:id="production4" layoutX="175.0" layoutY="32.0" prefHeight="25.0" prefWidth="25.0" />
+                                    <Pane fx:id="production5" layoutX="203.0" layoutY="32.0" prefHeight="25.0" prefWidth="25.0" />
+                                    <Pane fx:id="production6" layoutX="231.0" layoutY="32.0" prefHeight="25.0" prefWidth="25.0" />
+                                    <Pane fx:id="production7" layoutX="259.0" layoutY="32.0" prefHeight="25.0" prefWidth="25.0" />
+                                    <Pane fx:id="production8" layoutX="287.0" layoutY="32.0" prefHeight="25.0" prefWidth="25.0" />
                                  </children>
                               </Pane>
-                              <Pane fx:id="productionbuttons" layoutX="80.0" layoutY="930.0" prefHeight="100.0" prefWidth="320.0">
+                              <Pane fx:id="harvestbuttons" layoutX="80.0" layoutY="930.0" prefHeight="100.0" prefWidth="320.0">
                                  <children>
-                                    <Button id="button" fx:id="productionb" layoutX="-1.0" layoutY="22.0" stylesheets="@roundbutton.css" />
-                                    <Button id="rectangle" fx:id="productionrectangle" layoutX="78.0" layoutY="24.0" mnemonicParsing="false" prefHeight="54.0" prefWidth="144.0" stylesheets="@roundrectangle.css" />
-                                    <Pane fx:id="production2" layoutX="120.0" layoutY="37.0" prefHeight="25.0" prefWidth="25.0" />
-                                    <Pane fx:id="production3" layoutX="148.0" layoutY="37.0" prefHeight="25.0" prefWidth="25.0" />
-                                    <Pane fx:id="production4" layoutX="176.0" layoutY="37.0" prefHeight="25.0" prefWidth="25.0" />
-                                    <Pane fx:id="production5" layoutX="204.0" layoutY="37.0" prefHeight="25.0" prefWidth="25.0" />
-                                    <Pane fx:id="production6" layoutX="232.0" layoutY="37.0" prefHeight="25.0" prefWidth="25.0" />
-                                    <Pane fx:id="production7" layoutX="260.0" layoutY="37.0" prefHeight="25.0" prefWidth="25.0" />
-                                    <Pane fx:id="production8" layoutX="288.0" layoutY="37.0" prefHeight="25.0" prefWidth="25.0" />
+                                    <Button id="button" fx:id="harvestb" layoutX="-1.0" layoutY="22.0" stylesheets="@roundbutton.css" />
+                                    <Button id="rectangle" fx:id="harvestrectangle" layoutX="78.0" layoutY="24.0" mnemonicParsing="false" prefHeight="54.0" prefWidth="144.0" stylesheets="@roundrectangle.css" />
+                                    <Pane fx:id="harvest2" layoutX="120.0" layoutY="37.0" prefHeight="25.0" prefWidth="25.0" />
+                                    <Pane fx:id="harvest3" layoutX="148.0" layoutY="37.0" prefHeight="25.0" prefWidth="25.0" />
+                                    <Pane fx:id="harvest4" layoutX="176.0" layoutY="37.0" prefHeight="25.0" prefWidth="25.0" />
+                                    <Pane fx:id="harvest5" layoutX="204.0" layoutY="37.0" prefHeight="25.0" prefWidth="25.0" />
+                                    <Pane fx:id="harvest6" layoutX="232.0" layoutY="37.0" prefHeight="25.0" prefWidth="25.0" />
+                                    <Pane fx:id="harvest7" layoutX="260.0" layoutY="37.0" prefHeight="25.0" prefWidth="25.0" />
+                                    <Pane fx:id="harvest8" layoutX="288.0" layoutY="37.0" prefHeight="25.0" prefWidth="25.0" />
                                  </children>
                               </Pane>
                               <Pane fx:id="marketbuttons" layoutX="400.0" layoutY="850.0" prefHeight="110.0" prefWidth="250.0">
