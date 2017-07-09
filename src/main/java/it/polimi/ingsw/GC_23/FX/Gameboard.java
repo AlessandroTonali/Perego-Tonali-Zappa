@@ -78,11 +78,12 @@ public class Gameboard implements Serializable {
         this.primaryStage.setWidth(bounds.getWidth());
         this.primaryStage.setHeight(bounds.getHeight());
         this.primaryStage.show();
-        String actualString = userFX.receive();
-        MessageListener messageListener = new MessageListener(gameboardController,this,true);
-        ExecutorService executorService = Executors.newCachedThreadPool();
-        executorService.submit(messageListener);
-        this.messageListener = messageListener;
+        //MessageListener messageListener = new MessageListener(gameboardController,this,true);
+        //ExecutorService executorService = Executors.newCachedThreadPool();
+        //executorService.submit(messageListener);
+        //this.messageListener = messageListener;
+        String actualstring = userFX.receive();
+        updateController(gameboardController);
 
     }
 
@@ -91,6 +92,5 @@ public class Gameboard implements Serializable {
         gameboardController.dataTranslator();
         gameboardController.cardsTranslator();
         gameboardController.whoseTurnTranslator();
-        messageListener.setRead(true);
     }
 }

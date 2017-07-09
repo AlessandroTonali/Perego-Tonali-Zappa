@@ -180,6 +180,9 @@ public class Player implements Serializable {
 
     public void chooseMove(Board board, boolean isAdvanced) throws IOException {
         this.view = board;
+        if(getUserHandler().isGuiInterface()){
+            getUserHandler().messageToUser("play");
+        }
         if(!getUserHandler().isGuiInterface()) {
             getUserHandler().messageToUser("read");
             if (isAdvanced) {
@@ -224,6 +227,7 @@ public class Player implements Serializable {
             } catch (InterruptedException e) {
                 logger.setLevel(Level.SEVERE);
                 logger.severe(String.valueOf(e));
+                Thread.currentThread().interrupt();
             }
         }
         if(timeIsOver){
@@ -264,6 +268,7 @@ public class Player implements Serializable {
                         } catch (InterruptedException e) {
                             logger.setLevel(Level.SEVERE);
                             logger.severe(String.valueOf(e));
+                            Thread.currentThread().interrupt();
                         }
                     }
                     if (timeIsOver) {
@@ -379,6 +384,7 @@ public class Player implements Serializable {
             } catch (InterruptedException e) {
                 logger.setLevel(Level.SEVERE);
                 logger.severe(String.valueOf(e));
+                Thread.currentThread().interrupt();
             }
         }
         if(timeIsOver){

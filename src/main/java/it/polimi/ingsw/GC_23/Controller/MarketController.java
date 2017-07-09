@@ -44,6 +44,8 @@ public class MarketController extends PlaceFamilyMember {
             } catch (InterruptedException e) {
                 logger.setLevel(Level.SEVERE);
                 logger.severe(String.valueOf(e));
+                Thread.currentThread().interrupt();
+
             }
         }
         if(familyMember.getPlayer().isTimeIsOver()){

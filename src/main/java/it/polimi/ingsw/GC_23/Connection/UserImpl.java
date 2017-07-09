@@ -326,6 +326,7 @@ public class UserImpl extends UnicastRemoteObject implements User,Remote, Serial
             } catch (InterruptedException e) {
                 logger.setLevel(Level.SEVERE);
                 logger.severe(String.valueOf(e));
+                Thread.currentThread().interrupt();
             }
         }
         String string = this.receivedFromGui.get(0);
@@ -340,6 +341,7 @@ public class UserImpl extends UnicastRemoteObject implements User,Remote, Serial
             } catch (InterruptedException e) {
                 logger.setLevel(Level.SEVERE);
                 logger.severe(String.valueOf(e));
+                Thread.currentThread().interrupt();
             }
         }
         String string = this.sentToGui.get(0);

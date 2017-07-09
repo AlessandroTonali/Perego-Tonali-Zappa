@@ -32,9 +32,6 @@ public class Main {
 
         ParseJson.getParseJson();
 
-        Board board = new Board(2);
-
-
         TowerSpace towerSpace = new TowerSpace(ParseJson.getParseJson().getBuildingCardArrayList().get(0),
               new BenefitsEffect(new ResourcesSet()), 7  );
         Player player2 = new Player(PlayerColor.BLUE,null);

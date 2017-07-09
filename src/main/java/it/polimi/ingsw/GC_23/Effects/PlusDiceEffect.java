@@ -70,6 +70,7 @@ public class PlusDiceEffect extends PermanentEffect {
                 } catch (InterruptedException e) {
                     logger.setLevel(Level.SEVERE);
                     logger.severe(String.valueOf(e));
+                    Thread.currentThread().interrupt();
                 }
             }
             if(player.isTimeIsOver()){

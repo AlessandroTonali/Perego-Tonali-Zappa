@@ -163,7 +163,8 @@ public class ColorController implements Serializable{
                     try {
                         handleColor();
                     } catch (RemoteException e) {
-                        e.printStackTrace();
+                        logger.setLevel(Level.SEVERE);
+                        logger.severe(String.valueOf(e));
                     }
                     return;
                 }
