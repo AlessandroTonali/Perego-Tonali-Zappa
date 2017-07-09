@@ -43,7 +43,6 @@ public class GameboardController implements Serializable {
     public void boardTranslator() throws RemoteException{
         try {
             String actualString;
-
             towerSetter();
             marketSetter();
             harvestSetter();
@@ -314,63 +313,79 @@ public class GameboardController implements Serializable {
         if (!"harvestend".equals(actualString)) {
             fine = "(stuff/" + actualString + ".png)" + ";";
             ind = inizio + fine;
-            harvestb.setStyle(ind);
+            harvestb.setStyle(ind + "-fx-background-size: contain;");
 
             actualString = userFX.receive();
             actualString = userFX.receive();
             if (!"harvestend".equals(actualString)) {
                 fine = "(stuff/" + actualString + ".png)" + ";";
                 ind = inizio + fine;
-                harvest2.setStyle(ind);
+                harvest2.setStyle(ind + "-fx-background-size: contain;");
 
                 actualString = userFX.receive();
                 actualString = userFX.receive();
                 if (!"harvestend".equals(actualString)) {
                     fine = "(stuff/" + actualString + ".png)" + ";";
                     ind = inizio + fine;
-                    harvest3.setStyle(ind);
+                    harvest3.setStyle(ind + "-fx-background-size: contain;");
 
                     actualString = userFX.receive();
                     actualString = userFX.receive();
                     if (!"harvestend".equals(actualString)) {
                         fine = "(stuff/" + actualString + ".png)" + ";";
                         ind = inizio + fine;
-                        harvest4.setStyle(ind);
+                        harvest4.setStyle(ind + "-fx-background-size: contain;");
 
                         actualString = userFX.receive();
                         actualString = userFX.receive();
                         if (!"harvestend".equals(actualString)) {
                             fine = "(stuff/" + actualString + ".png)" + ";";
                             ind = inizio + fine;
-                            harvest5.setStyle(ind);
+                            harvest5.setStyle(ind + "-fx-background-size: contain;");
 
                             actualString = userFX.receive();
                             actualString = userFX.receive();
                             if (!"harvestend".equals(actualString)) {
                                 fine = "(stuff/" + actualString + ".png)" + ";";
                                 ind = inizio + fine;
-                                harvest6.setStyle(ind);
+                                harvest6.setStyle(ind + "-fx-background-size: contain;");
 
                                 actualString = userFX.receive();
                                 actualString = userFX.receive();
                                 if (!"harvestend".equals(actualString)) {
                                     fine = "(stuff/" + actualString + ".png)" + ";";
                                     ind = inizio + fine;
-                                    harvest7.setStyle(ind);
+                                    harvest7.setStyle(ind + "-fx-background-size: contain;");
 
                                     actualString = userFX.receive();
                                     actualString = userFX.receive();
                                     if(!"harvestend".equals(actualString)) {
                                         fine = "(stuff/" + actualString + ".png)" + ";";
                                         ind = inizio + fine;
-                                        harvest8.setStyle(ind);
+                                        harvest8.setStyle(ind + "-fx-background-size: contain;");
+                                    }else{
+                                        harvest8.setStyle("-fx-background-image: url(stuff/null.png);");
                                     }
+                                }else{
+                                    harvest7.setStyle("-fx-background-image: url(stuff/null.png);");
                                 }
+                            }else{
+                                harvest6.setStyle("-fx-background-image: url(stuff/null.png);");
                             }
+                        }else{
+                            harvest5.setStyle("-fx-background-image: url(stuff/null.png);");
                         }
+                    }else{
+                        harvest4.setStyle("-fx-background-image: url(stuff/null.png);");
                     }
+                }else{
+                    harvest3.setStyle("-fx-background-image: url(stuff/null.png);");
                 }
+            }else{
+                harvest2.setStyle("-fx-background-image: url(stuff/null.png);");
             }
+        }else{
+            harvestb.setStyle("-fx-background-image: url(stuff/null.png);");
         }
     }
 
@@ -384,63 +399,79 @@ public class GameboardController implements Serializable {
         if (!"productionend".equals(actualString)) {
             fine = "(stuff/" + actualString + ".png)" + ";";
             ind = inizio + fine;
-            productionb.setStyle(ind);
+            productionb.setStyle(ind + "-fx-background-size: contain;");
 
             actualString = userFX.receive();
             actualString = userFX.receive();
             if (!"productionend".equals(actualString)) {
                 fine = "(stuff/" + actualString + ".png)" + ";";
                 ind = inizio + fine;
-                production2.setStyle(ind);
+                production2.setStyle(ind + "-fx-background-size: contain;");
 
                 actualString = userFX.receive();
                 actualString = userFX.receive();
                 if (!"productionend".equals(actualString)) {
                     fine = "(stuff/" + actualString + ".png)" + ";";
                     ind = inizio + fine;
-                    production3.setStyle(ind);
+                    production3.setStyle(ind + "-fx-background-size: contain;");
 
                     actualString = userFX.receive();
                     actualString = userFX.receive();
                     if (!"productionend".equals(actualString)) {
                         fine = "(stuff/" + actualString + ".png)" + ";";
                         ind = inizio + fine;
-                        production4.setStyle(ind);
+                        production4.setStyle(ind + "-fx-background-size: contain;");
 
                         actualString = userFX.receive();
                         actualString = userFX.receive();
                         if (!"productionend".equals(actualString)) {
                             fine = "(stuff/" + actualString + ".png)" + ";";
                             ind = inizio + fine;
-                            production5.setStyle(ind);
+                            production5.setStyle(ind + "-fx-background-size: contain;");
 
                             actualString = userFX.receive();
                             actualString = userFX.receive();
                             if (!"productionend".equals(actualString)) {
                                 fine = "(stuff/" + actualString + ".png)" + ";";
                                 ind = inizio + fine;
-                                production6.setStyle(ind);
+                                production6.setStyle(ind + "-fx-background-size: contain;");
 
                                 actualString = userFX.receive();
                                 actualString = userFX.receive();
                                 if (!"productionend".equals(actualString)) {
                                     fine = "(stuff/" + actualString + ".png)" + ";";
                                     ind = inizio + fine;
-                                    production7.setStyle(ind);
+                                    production7.setStyle(ind + "-fx-background-size: contain;");
 
                                     actualString = userFX.receive();
                                     actualString = userFX.receive();
                                     if(!"productionend".equals(actualString)) {
                                         fine = "(stuff/" + actualString + ".png)" + ";";
                                         ind = inizio + fine;
-                                        production8.setStyle(ind);
+                                        production8.setStyle(ind + "-fx-background-size: contain;");
+                                    }else{
+                                        production8.setStyle("-fx-background-image: url(stuff/null.png);");
                                     }
+                                }else{
+                                    production7.setStyle("-fx-background-image: url(stuff/null.png);");
                                 }
+                            }else{
+                                production6.setStyle("-fx-background-image: url(stuff/null.png);");
                             }
+                        }else{
+                            production5.setStyle("-fx-background-image: url(stuff/null.png);");
                         }
+                    }else{
+                        production4.setStyle("-fx-background-image: url(stuff/null.png);");
                     }
+                }else{
+                    production3.setStyle("-fx-background-image: url(stuff/null.png);");
                 }
+            }else{
+                production2.setStyle("-fx-background-image: url(stuff/null.png);");
             }
+        }else{
+            productionb.setStyle("-fx-background-image: url(stuff/null.png);");
         }
     }
 
@@ -454,32 +485,39 @@ public class GameboardController implements Serializable {
 
             fine = "(stuff/" + actualString + ".png)" + ";";
             ind = inizio + fine;
-            council1.setStyle(ind);
+            council1.setStyle(ind + "-fx-background-size: contain;");
 
             actualString = userFX.receive();
             actualString = userFX.receive();
             if (!"councilend".equals(actualString)) {
                 fine = "(stuff/" + actualString + ".png)" + ";";
                 ind = inizio + fine;
-                council2.setStyle(ind);
+                council2.setStyle(ind + "-fx-background-size: contain;");
 
                 actualString = userFX.receive();
                 actualString = userFX.receive();
                 if (!"councilend".equals(actualString)) {
                     fine = "(stuff/" + actualString + ".png)" + ";";
                     ind = inizio + fine;
-                    council3.setStyle(ind);
+                    council3.setStyle(ind + "-fx-background-size: contain;");
 
                     actualString = userFX.receive();
                     actualString = userFX.receive();
                     if (!"councilend".equals(actualString)) {
                         fine = "(stuff/" + actualString + ".png)" + ";";
                         ind = inizio + fine;
-                        council4.setStyle(ind);
+                        council4.setStyle(ind + "-fx-background-size: contain;");
+                    }else{
+                        council4.setStyle("-fx-background-image: url(stuff/null.png);");
                     }
+                }else{
+                    council3.setStyle("-fx-background-image: url(stuff/null.png);");
                 }
-
+            }else{
+                council2.setStyle("-fx-background-image: url(stuff/null.png);");
             }
+        }else{
+            council1.setStyle("-fx-background-image: url(stuff/null.png);");
         }
     }
 
@@ -1385,16 +1423,16 @@ public class GameboardController implements Serializable {
                     fine = "(stuff/" + color + familyMember + ".png)" + ";";
                     String ind = inizio + fine;
                     if (council1.getStyle().contains("-fx-background-image: url(stuff/null.png);")) {
-                        council1.setStyle(ind);
+                        council1.setStyle(ind + "-fx-background-size: contain;");
                     } else {
                         if (council2.getStyle().contains("-fx-background-image: url(stuff/null.png);")) {
-                            council2.setStyle(ind);
+                            council2.setStyle(ind + "-fx-background-size: contain;");
                         } else {
                             if (council3.getStyle().contains("-fx-background-image: url(stuff/null.png);")) {
-                                council3.setStyle(ind);
+                                council3.setStyle(ind + "-fx-background-size: contain;");
                             } else {
                                 if (council4.getStyle().contains("-fx-background-image: url(stuff/null.png);")) {
-                                    council4.setStyle(ind);
+                                    council4.setStyle(ind + "-fx-background-size: contain;");
                                 } else {
                                     busyAlert();
                                 }
@@ -1422,7 +1460,7 @@ public class GameboardController implements Serializable {
                         userFX.send(identifyFamilyMember(familyMember));
                         fine = "(stuff/" + color + familyMember + ".png)" + ";";
                         String ind = inizio + fine;
-                        harvestb.setStyle(ind);
+                        harvestb.setStyle(ind + "-fx-background-size: contain;");
                     }
                 } catch (RemoteException e) {
                     logger.setLevel(Level.SEVERE);
@@ -1446,22 +1484,22 @@ public class GameboardController implements Serializable {
                         fine = "(stuff/" + color + familyMember + ".png)" + ";";
                         String ind = inizio + fine;
                         if (harvest2.getStyle().contains("-fx-background-image: url(stuff/null.png);")) {
-                            harvest2.setStyle(ind);
+                            harvest2.setStyle(ind + "-fx-background-size: contain;");
                         } else {
                             if (harvest3.getStyle().contains("-fx-background-image: url(stuff/null.png);")) {
-                                harvest3.setStyle(ind);
+                                harvest3.setStyle(ind + "-fx-background-size: contain;");
                             } else {
                                 if (harvest4.getStyle().contains("-fx-background-image: url(stuff/null.png);")) {
-                                    harvest4.setStyle(ind);
+                                    harvest4.setStyle(ind + "-fx-background-size: contain;");
                                 } else {
                                     if (harvest5.getStyle().contains("-fx-background-image: url(stuff/null.png);")) {
-                                        harvest5.setStyle(ind);
+                                        harvest5.setStyle(ind + "-fx-background-size: contain;");
                                     } else {
                                         if (harvest6.getStyle().contains("-fx-background-image: url(stuff/null.png);")) {
-                                            harvest6.setStyle(ind);
+                                            harvest6.setStyle(ind + "-fx-background-size: contain;");
                                         } else {
                                             if (harvest7.getStyle().contains("-fx-background-image: url(stuff/null.png);")) {
-                                                harvest7.setStyle(ind);
+                                                harvest7.setStyle(ind + "-fx-background-size: contain;");
                                             } else {
                                                 busyAlert();
                                             }
@@ -1492,7 +1530,7 @@ public class GameboardController implements Serializable {
                         userFX.send(identifyFamilyMember(familyMember));
                         fine = "(stuff/" + color + familyMember + ".png)" + ";";
                         String ind = inizio + fine;
-                        productionb.setStyle(ind);
+                        productionb.setStyle(ind + "-fx-background-size: contain;");
                     }
                 } catch (RemoteException e) {
                     logger.setLevel(Level.SEVERE);
@@ -1516,22 +1554,22 @@ public class GameboardController implements Serializable {
                         fine = "(stuff/" + color + familyMember + ".png)" + ";";
                         String ind = inizio + fine;
                         if (production2.getStyle().contains("-fx-background-image: url(stuff/null.png);")) {
-                            production2.setStyle(ind);
+                            production2.setStyle(ind + "-fx-background-size: contain;");
                         } else {
                             if (production3.getStyle().contains("-fx-background-image: url(stuff/null.png);")) {
-                                production3.setStyle(ind);
+                                production3.setStyle(ind + "-fx-background-size: contain;");
                             } else {
                                 if (production4.getStyle().contains("-fx-background-image: url(stuff/null.png);")) {
-                                    production4.setStyle(ind);
+                                    production4.setStyle(ind + "-fx-background-size: contain;");
                                 } else {
                                     if (production5.getStyle().contains("-fx-background-image: url(stuff/null.png);")) {
-                                        production5.setStyle(ind);
+                                        production5.setStyle(ind + "-fx-background-size: contain;");
                                     } else {
                                         if (production6.getStyle().contains("-fx-background-image: url(stuff/null.png);")) {
-                                            production6.setStyle(ind);
+                                            production6.setStyle(ind + "-fx-background-size: contain;");
                                         } else {
                                             if (production7.getStyle().contains("-fx-background-image: url(stuff/null.png);")) {
-                                                production7.setStyle(ind);
+                                                production7.setStyle(ind + "-fx-background-size: contain;");
                                             } else {
                                                 busyAlert();
                                             }
@@ -1562,7 +1600,7 @@ public class GameboardController implements Serializable {
                         userFX.send(identifyFamilyMember(familyMember));
                         fine = "(stuff/" + color + familyMember + ".png)" + ";";
                         String ind = inizio + fine;
-                        market1.setStyle(ind);
+                        market1.setStyle(ind + "-fx-background-size: contain;");
                         userFX.send("1");
                     }
                 } catch (RemoteException e) {
@@ -1586,7 +1624,7 @@ public class GameboardController implements Serializable {
                         userFX.send(identifyFamilyMember(familyMember));
                         fine = "(stuff/" + color + familyMember + ".png)" + ";";
                         String ind = inizio + fine;
-                        market2.setStyle(ind);
+                        market2.setStyle(ind + "-fx-background-size: contain;");
                         userFX.send("2");
                     }
                 } catch (RemoteException e) {
@@ -1610,7 +1648,7 @@ public class GameboardController implements Serializable {
                         userFX.send(identifyFamilyMember(familyMember));
                         fine = "(stuff/" + color + familyMember + ".png)" + ";";
                         String ind = inizio + fine;
-                        market3.setStyle(ind);
+                        market3.setStyle(ind + "-fx-background-size: contain;");
                         userFX.send("3");
                     }
                 } catch (RemoteException e) {
@@ -1634,7 +1672,7 @@ public class GameboardController implements Serializable {
                         userFX.send(identifyFamilyMember(familyMember));
                         fine = "(stuff/" + color + familyMember + ".png)" + ";";
                         String ind = inizio + fine;
-                        market4.setStyle(ind);
+                        market4.setStyle(ind + "-fx-background-size: contain;");
                         userFX.send("4");
                     }
                 } catch (RemoteException e) {
