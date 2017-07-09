@@ -224,6 +224,7 @@ public class Player implements Serializable {
             } catch (InterruptedException e) {
                 logger.setLevel(Level.SEVERE);
                 logger.severe(String.valueOf(e));
+                Thread.currentThread().interrupt();
             }
         }
         if(timeIsOver){
@@ -264,6 +265,7 @@ public class Player implements Serializable {
                         } catch (InterruptedException e) {
                             logger.setLevel(Level.SEVERE);
                             logger.severe(String.valueOf(e));
+                            Thread.currentThread().interrupt();
                         }
                     }
                     if (timeIsOver) {
@@ -379,6 +381,7 @@ public class Player implements Serializable {
             } catch (InterruptedException e) {
                 logger.setLevel(Level.SEVERE);
                 logger.severe(String.valueOf(e));
+                Thread.currentThread().interrupt();
             }
         }
         if(timeIsOver){

@@ -51,6 +51,7 @@ public class ColorSelection implements Serializable {
             } catch (InterruptedException e) {
                 logger.setLevel(Level.SEVERE);
                 logger.severe(String.valueOf(e));
+                Thread.currentThread().interrupt();
             }
         }
         colorController.setLabel();
