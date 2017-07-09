@@ -58,12 +58,6 @@ public class PlayGame {
             }
 
             while( i < 1 ){
-                for (Player p : this.players) {
-                    if (p.getUserHandler().isGuiInterface()) {
-                        update(p);
-                        sendTurnPlayer(p, p);
-                    }
-                }
                 for(Player p : this.players){
                     if(!p.getUserHandler().isGuiInterface()) {
                         p.getUserHandler().messageToUser("");
