@@ -1746,6 +1746,12 @@ public class GameboardController implements Serializable {
                 try {
                     userFX.send(chooseIncreaseValue());
                     userFX.send(identifyFamilyMember(chooseFamilyMember()));
+                    if("OK".equals(userFX.receive())){
+
+                    }
+                    if("KO".equals(userFX.receive())){
+                        busyAlert();
+                    }
                 } catch (RemoteException e) {
                     logger.setLevel(Level.SEVERE);
                     logger.severe(String.valueOf(e));
