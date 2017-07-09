@@ -476,10 +476,14 @@ public class PlayGame {
             p.getUserHandler().messageToUser(String.valueOf(player.getResources().getMilitaryPoints()));
             p.getUserHandler().messageToUser(String.valueOf(player.getResources().getVictoryPoints()));
             p.getUserHandler().messageToUser("endResources");
-            p.getUserHandler().messageToUser(String.valueOf(p.getFamilyMembers()[0].getValue()));
-            p.getUserHandler().messageToUser(String.valueOf(p.getFamilyMembers()[1].getValue()));
-            p.getUserHandler().messageToUser(String.valueOf(p.getFamilyMembers()[2].getValue()));
-            p.getUserHandler().messageToUser(String.valueOf(p.getFamilyMembers()[3].getValue()));
+            try{p.getUserHandler().messageToUser(String.valueOf(p.getFamilyMembers()[0].getValue()));
+            }catch (NullPointerException e ){p.getUserHandler().messageToUser("null");}
+            try{p.getUserHandler().messageToUser(String.valueOf(p.getFamilyMembers()[1].getValue())); }
+            catch (NullPointerException ex ){p.getUserHandler().messageToUser("null");}
+            try{p.getUserHandler().messageToUser(String.valueOf(p.getFamilyMembers()[2].getValue()));
+            } catch (NullPointerException exc ){p.getUserHandler().messageToUser("null");}
+            try{p.getUserHandler().messageToUser(String.valueOf(p.getFamilyMembers()[3].getValue()));
+            }catch (NullPointerException expr ){p.getUserHandler().messageToUser("null");}
         }
 
     }
