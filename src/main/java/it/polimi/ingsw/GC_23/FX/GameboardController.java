@@ -432,11 +432,14 @@ public class GameboardController implements Serializable {
         String fine;
         String ind;
         String actualString = userFX.receive();
+        actualString = userFX.receive();
         if (!"councilend".equals(actualString)) {
+
             fine = "(stuff/" + actualString + ".png)" + ";";
             ind = inizio + fine;
             council1.setStyle(ind);
 
+            actualString = userFX.receive();
             actualString = userFX.receive();
             if (!"councilend".equals(actualString)) {
                 fine = "(stuff/" + actualString + ".png)" + ";";
@@ -444,11 +447,13 @@ public class GameboardController implements Serializable {
                 council2.setStyle(ind);
 
                 actualString = userFX.receive();
+                actualString = userFX.receive();
                 if (!"councilend".equals(actualString)) {
                     fine = "(stuff/" + actualString + ".png)" + ";";
                     ind = inizio + fine;
                     council3.setStyle(ind);
 
+                    actualString = userFX.receive();
                     actualString = userFX.receive();
                     if (!"councilend".equals(actualString)) {
                         fine = "(stuff/" + actualString + ".png)" + ";";
