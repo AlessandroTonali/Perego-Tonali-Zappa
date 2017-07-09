@@ -53,10 +53,12 @@ public class PlayGame {
 
             while( i < 1 ){
                 for (Player p : this.players) {
-                    if(p.getUserHandler().isGuiInterface()) {
+                    if (p.getUserHandler().isGuiInterface()) {
                         update(p);
                         sendTurnPlayer(p);
                     }
+                }
+                for(Player p : this.players){
                     if(!p.getUserHandler().isGuiInterface()) {
                         p.getUserHandler().messageToUser("");
                         p.getUserHandler().messageToUser(("Period: " + this.period + " Turn: " + this.turn + "\n"));
@@ -429,10 +431,10 @@ public class PlayGame {
         player.getUserHandler().messageToUser("end");
     }
 
-    public void sendBoard() throws RemoteException{
-        for(Player p : players) {
-                boardStringer(p);
-        }
+    public void sendBoard(Player pl) throws RemoteException{
+
+                boardStringer(pl);
+
     }
 
     public void dataStringer(Player p) throws RemoteException{
@@ -454,13 +456,10 @@ public class PlayGame {
 
     }
 
-    public void sendData() throws RemoteException{
-        for(Player p : players){
+    public void sendData(Player p) throws RemoteException{
                 dataStringer(p);
-        }
-        for(Player p : players) {
-            p.getUserHandler().messageToUser("dataended");
-        }
+                p.getUserHandler().messageToUser("dataended");
+
     }
 
     public void cardsStringer(Player player) throws RemoteException{
@@ -503,10 +502,10 @@ public class PlayGame {
             player.getUserHandler().messageToUser("end");
     }
 
-    public void sendCards() throws RemoteException{
-        for(Player p : players){
+    public void sendCards(Player p) throws RemoteException{
+
             cardsStringer(p);
-        }
+
     }
 
     public void sendTurnPlayer(Player p) throws RemoteException{
@@ -517,8 +516,8 @@ public class PlayGame {
 
     public void update(Player p) throws RemoteException{
         p.getUserHandler().messageToUser("update");
-        sendBoard();
-        sendData();
-        sendCards();
+        sendBoard(p);
+        sendData(p);
+        sendCards(p);
     }
 }

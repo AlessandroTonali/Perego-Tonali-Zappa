@@ -42,9 +42,12 @@ public class MessageListener implements Runnable {
                 gameboard.updateController(gameboardController);
                 read = false;
                 run();
+
             }
             if("play".equals(actualString)){
                 gameboardController.handle();
+                read = false;
+                run();
             }
             actualString = gameboard.getUserFX().receive();
         }
