@@ -843,7 +843,7 @@ public class GameboardController implements Serializable {
         Optional<String> result = dialog.showAndWait();
         while (!result.isPresent()){
             try {
-                Thread.sleep(1000);
+                Thread.sleep(500);
             } catch (InterruptedException e) {
                 logger.setLevel(Level.SEVERE);
                 logger.severe(String.valueOf(e));
@@ -870,7 +870,7 @@ public class GameboardController implements Serializable {
         Optional<String> result = dialog.showAndWait();
         while (!result.isPresent()){
             try {
-                Thread.sleep(1000);
+                Thread.sleep(500);
             } catch (InterruptedException e) {
                 logger.setLevel(Level.SEVERE);
                 logger.severe(String.valueOf(e));
@@ -906,7 +906,7 @@ public class GameboardController implements Serializable {
         Optional<String> result = dialog.showAndWait();
         while(!result.isPresent()){
             try {
-                Thread.sleep(1000);
+                Thread.sleep(5);
             } catch (InterruptedException e) {
                 logger.setLevel(Level.SEVERE);
                 logger.severe(String.valueOf(e));
@@ -949,7 +949,7 @@ public class GameboardController implements Serializable {
             @Override
             public void handle(ActionEvent event) {
                 try {
-                    if (territory1.getStyle().contains("-fx-background-image:")) {
+                    if (!territory1.getStyle().contains("-fx-background-image: url(stuff/null.png);")) {
                         busyAlert();
                     } else {
                         String inizio = "-fx-background-image: url";
@@ -974,7 +974,7 @@ public class GameboardController implements Serializable {
             @Override
             public void handle(ActionEvent event) {
                 try {
-                    if (territory2.getStyle().contains("-fx-background-image:")) {
+                    if (!territory2.getStyle().contains(("-fx-background-image: url(stuff/null.png);"))) {
                         busyAlert();
                     } else {
                         String inizio = "-fx-background-image: url";
@@ -999,7 +999,7 @@ public class GameboardController implements Serializable {
             @Override
             public void handle(ActionEvent event) {
                 try {
-                    if (territory3.getStyle().contains("-fx-background-image:")) {
+                    if (!territory3.getStyle().contains(("-fx-background-image: url(stuff/null.png);"))) {
                         busyAlert();
                     } else {
                         String inizio = "-fx-background-image: url";
@@ -1024,7 +1024,7 @@ public class GameboardController implements Serializable {
             @Override
             public void handle(ActionEvent event) {
                 try {
-                    if (territory4.getStyle().contains("-fx-background-image:")) {
+                    if (!territory4.getStyle().contains("-fx-background-image: url(stuff/null.png);")) {
                         busyAlert();
                     } else {
                         String inizio = "-fx-background-image: url";
@@ -1048,7 +1048,7 @@ public class GameboardController implements Serializable {
             @Override
             public void handle(ActionEvent event) {
                 try {
-                    if (character1.getStyle().contains("-fx-background-image:")) {
+                    if (!character1.getStyle().contains("-fx-background-image: url(stuff/null.png);")) {
                         busyAlert();
                     } else {
                         String inizio = "-fx-background-image: url";
@@ -1073,7 +1073,7 @@ public class GameboardController implements Serializable {
             @Override
             public void handle(ActionEvent event) {
                 try {
-                    if (character2.getStyle().contains("-fx-background-image:")) {
+                    if (!character2.getStyle().contains("-fx-background-image: url(stuff/null.png);")) {
                         busyAlert();
                     } else {
                         String inizio = "-fx-background-image: url";
@@ -1097,7 +1097,7 @@ public class GameboardController implements Serializable {
             @Override
             public void handle(ActionEvent event) {
                 try {
-                    if (character3.getStyle().contains("-fx-background-image:")) {
+                    if (!character3.getStyle().contains("-fx-background-image: url(stuff/null.png);")) {
                         busyAlert();
                     } else {
                         String inizio = "-fx-background-image: url";
@@ -1121,7 +1121,7 @@ public class GameboardController implements Serializable {
             @Override
             public void handle(ActionEvent event) {
                 try {
-                    if (character4.getStyle().contains("-fx-background-image:")) {
+                    if (!character4.getStyle().contains("-fx-background-image: url(stuff/null.png);")) {
                         busyAlert();
                     } else {
                         String inizio = "-fx-background-image: url";
@@ -1146,7 +1146,7 @@ public class GameboardController implements Serializable {
             @Override
             public void handle(ActionEvent event) {
                 try {
-                    if (building1.getStyle().contains("-fx-background-image:")) {
+                    if (!building1.getStyle().contains("-fx-background-image: url(stuff/null.png);")) {
                         busyAlert();
                     } else {
                         String inizio = "-fx-background-image: url";
@@ -1171,7 +1171,7 @@ public class GameboardController implements Serializable {
             @Override
             public void handle(ActionEvent event) {
                 try {
-                    if (building2.getStyle().contains("-fx-background-image:")) {
+                    if (!building2.getStyle().contains("-fx-background-image: url(stuff/null.png);")) {
                         busyAlert();
                     } else {
                         String inizio = "-fx-background-image: url";
@@ -1196,7 +1196,7 @@ public class GameboardController implements Serializable {
             @Override
             public void handle(ActionEvent event) {
                 try {
-                    if (building3.getStyle().contains("-fx-background-image:")) {
+                    if (!building3.getStyle().contains("-fx-background-image: url(stuff/null.png);")) {
                         busyAlert();
                     } else {
                         String inizio = "-fx-background-image: url";
@@ -1220,7 +1220,7 @@ public class GameboardController implements Serializable {
             @Override
             public void handle(ActionEvent event) {
                 try {
-                    if (building4.getStyle().contains("-fx-background-image:")) {
+                    if (!building4.getStyle().contains("-fx-background-image: url(stuff/null.png);")) {
                         busyAlert();
                     } else {
                         String inizio = "-fx-background-image: url";
@@ -1244,7 +1244,7 @@ public class GameboardController implements Serializable {
             @Override
             public void handle(ActionEvent event) {
                 try {
-                    if (venture1.getStyle().contains("-fx-background-image:")) {
+                    if (!venture1.getStyle().contains("-fx-background-image: url(stuff/null.png);")) {
                         busyAlert();
                     } else {
                         String inizio = "-fx-background-image: url";
@@ -1269,7 +1269,7 @@ public class GameboardController implements Serializable {
             @Override
             public void handle(ActionEvent event) {
                 try {
-                    if (venture2.getStyle().contains("-fx-background-image:")) {
+                    if (!venture2.getStyle().contains("-fx-background-image: url(stuff/null.png);")) {
                         busyAlert();
                     } else {
                         String inizio = "-fx-background-image: url";
@@ -1294,7 +1294,7 @@ public class GameboardController implements Serializable {
             @Override
             public void handle(ActionEvent event) {
                 try {
-                    if (venture3.getStyle().contains("-fx-background-image:")) {
+                    if (!venture3.getStyle().contains("-fx-background-image: url(stuff/null.png);")) {
                         busyAlert();
                     } else {
                         String inizio = "-fx-background-image: url";
@@ -1319,7 +1319,7 @@ public class GameboardController implements Serializable {
             @Override
             public void handle(ActionEvent event) {
                 try {
-                    if (venture4.getStyle().contains("-fx-background-image:")) {
+                    if (!venture4.getStyle().contains("-fx-background-image: url(stuff/null.png);")) {
                         busyAlert();
                     } else {
                         String inizio = "-fx-background-image: url";
@@ -1363,16 +1363,16 @@ public class GameboardController implements Serializable {
                     userFX.send(chooseCouncilPrivilege());
                     fine = "(stuff/" + color + familyMember + ".png)" + ";";
                     String ind = inizio + fine;
-                    if (!council1.getStyle().contains("-fx-background-image:")) {
+                    if (council1.getStyle().contains("-fx-background-image: url(stuff/null.png);")) {
                         council1.setStyle(ind);
                     } else {
-                        if (!council2.getStyle().contains("-fx-background-image:")) {
+                        if (council2.getStyle().contains("-fx-background-image: url(stuff/null.png);")) {
                             council2.setStyle(ind);
                         } else {
-                            if (!council3.getStyle().contains("-fx-background-image:")) {
+                            if (council3.getStyle().contains("-fx-background-image: url(stuff/null.png);")) {
                                 council3.setStyle(ind);
                             } else {
-                                if (!council4.getStyle().contains("-fx-background-image:")) {
+                                if (council4.getStyle().contains("-fx-background-image: url(stuff/null.png);")) {
                                     council4.setStyle(ind);
                                 } else {
                                     busyAlert();
@@ -1391,7 +1391,7 @@ public class GameboardController implements Serializable {
             @Override
             public void handle(ActionEvent event) {
                 try {
-                    if (harvestb.getStyle().contains("-fx-background-image:")) {
+                    if (!harvestb.getStyle().contains("-fx-background-image: url(stuff/null.png);")) {
                         busyAlert();
                     } else {
                         String inizio = "-fx-background-image: url";
@@ -1414,7 +1414,7 @@ public class GameboardController implements Serializable {
             @Override
             public void handle(ActionEvent event) {
                 try {
-                    if (!harvestb.getStyle().contains("-fx-background-image:")) {
+                    if (harvestb.getStyle().contains("-fx-background-image: url(stuff/null.png);")) {
                         busyAlert();
                     } else {
                         String inizio = "-fx-background-image: url";
@@ -1424,22 +1424,22 @@ public class GameboardController implements Serializable {
                         userFX.send(identifyFamilyMember(familyMember));
                         fine = "(stuff/" + color + familyMember + ".png)" + ";";
                         String ind = inizio + fine;
-                        if (!harvest2.getStyle().contains("-fx-background-image:")) {
+                        if (harvest2.getStyle().contains("-fx-background-image: url(stuff/null.png);")) {
                             harvest2.setStyle(ind);
                         } else {
-                            if (!harvest3.getStyle().contains("-fx-background-image:")) {
+                            if (harvest3.getStyle().contains("-fx-background-image: url(stuff/null.png);")) {
                                 harvest3.setStyle(ind);
                             } else {
-                                if (!harvest4.getStyle().contains("-fx-background-image:")) {
+                                if (harvest4.getStyle().contains("-fx-background-image: url(stuff/null.png);")) {
                                     harvest4.setStyle(ind);
                                 } else {
-                                    if (!harvest5.getStyle().contains("-fx-background-image:")) {
+                                    if (harvest5.getStyle().contains("-fx-background-image: url(stuff/null.png);")) {
                                         harvest5.setStyle(ind);
                                     } else {
-                                        if (!harvest6.getStyle().contains("-fx-background-image:")) {
+                                        if (harvest6.getStyle().contains("-fx-background-image: url(stuff/null.png);")) {
                                             harvest6.setStyle(ind);
                                         } else {
-                                            if (!harvest7.getStyle().contains("-fx-background-image:")) {
+                                            if (harvest7.getStyle().contains("-fx-background-image: url(stuff/null.png);")) {
                                                 harvest7.setStyle(ind);
                                             } else {
                                                 busyAlert();
@@ -1461,7 +1461,7 @@ public class GameboardController implements Serializable {
             @Override
             public void handle(ActionEvent event) {
                 try {
-                    if (productionb.getStyle().contains("-fx-background-image:")) {
+                    if (!productionb.getStyle().contains("-fx-background-image: url(stuff/null.png);")) {
                         busyAlert();
                     } else {
                         String inizio = "-fx-background-image: url";
@@ -1484,7 +1484,7 @@ public class GameboardController implements Serializable {
             @Override
             public void handle(ActionEvent event) {
                 try {
-                    if (!productionb.getStyle().contains("-fx-background-image:")) {
+                    if (productionb.getStyle().contains("-fx-background-image: url(stuff/null.png);")) {
                         busyAlert();
                     } else {
                         String inizio = "-fx-background-image: url";
@@ -1494,22 +1494,22 @@ public class GameboardController implements Serializable {
                         userFX.send(identifyFamilyMember(familyMember));
                         fine = "(stuff/" + color + familyMember + ".png)" + ";";
                         String ind = inizio + fine;
-                        if (!production2.getStyle().contains("-fx-background-image:")) {
+                        if (production2.getStyle().contains("-fx-background-image: url(stuff/null.png);")) {
                             production2.setStyle(ind);
                         } else {
-                            if (!production3.getStyle().contains("-fx-background-image:")) {
+                            if (production3.getStyle().contains("-fx-background-image: url(stuff/null.png);")) {
                                 production3.setStyle(ind);
                             } else {
-                                if (!production4.getStyle().contains("-fx-background-image:")) {
+                                if (production4.getStyle().contains("-fx-background-image: url(stuff/null.png);")) {
                                     production4.setStyle(ind);
                                 } else {
-                                    if (!production5.getStyle().contains("-fx-background-image:")) {
+                                    if (production5.getStyle().contains("-fx-background-image: url(stuff/null.png);")) {
                                         production5.setStyle(ind);
                                     } else {
-                                        if (!production6.getStyle().contains("-fx-background-image:")) {
+                                        if (production6.getStyle().contains("-fx-background-image: url(stuff/null.png);")) {
                                             production6.setStyle(ind);
                                         } else {
-                                            if (!production7.getStyle().contains("-fx-background-image:")) {
+                                            if (production7.getStyle().contains("-fx-background-image: url(stuff/null.png);")) {
                                                 production7.setStyle(ind);
                                             } else {
                                                 busyAlert();
@@ -1531,7 +1531,7 @@ public class GameboardController implements Serializable {
             @Override
             public void handle(ActionEvent event) {
                 try {
-                    if (market1.getStyle().contains("-fx-background-image:")) {
+                    if (!market1.getStyle().contains("-fx-background-image: url(stuff/null.png);")) {
                         busyAlert();
                     } else {
                         String inizio = "-fx-background-image: url";
@@ -1555,7 +1555,7 @@ public class GameboardController implements Serializable {
             @Override
             public void handle(ActionEvent event) {
                 try {
-                    if (market2.getStyle().contains("-fx-background-image:")) {
+                    if (!market2.getStyle().contains("-fx-background-image: url(stuff/null.png);")) {
                         busyAlert();
                     } else {
                         String inizio = "-fx-background-image: url";
@@ -1579,7 +1579,7 @@ public class GameboardController implements Serializable {
             @Override
             public void handle(ActionEvent event) {
                 try {
-                    if (market3.getStyle().contains("-fx-background-image:")) {
+                    if (!market3.getStyle().contains("-fx-background-image: url(stuff/null.png);")) {
                         busyAlert();
                     } else {
                         String inizio = "-fx-background-image: url";
@@ -1603,7 +1603,7 @@ public class GameboardController implements Serializable {
             @Override
             public void handle(ActionEvent event) {
                 try {
-                    if (market1.getStyle().contains("-fx-background-image:")) {
+                    if (!market4.getStyle().contains("-fx-background-image: url(stuff/null.png);")) {
                         busyAlert();
                     } else {
                         String inizio = "-fx-background-image: url";
@@ -1628,6 +1628,7 @@ public class GameboardController implements Serializable {
             public void handle(ActionEvent event) {
                 try {
                     userFX.send(chooseIncreaseValue());
+                    userFX.send(identifyFamilyMember(chooseFamilyMember()));
                 } catch (RemoteException e) {
                     logger.setLevel(Level.SEVERE);
                     logger.severe(String.valueOf(e));

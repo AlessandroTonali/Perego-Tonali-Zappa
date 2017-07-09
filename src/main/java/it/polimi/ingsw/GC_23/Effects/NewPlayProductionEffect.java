@@ -21,6 +21,9 @@ public class NewPlayProductionEffect extends AbsEffect {
 
     @Override
     public void activeEffect(Player player) throws IOException{
+        if(player.getUserHandler().isGuiInterface()){
+            player.getUserHandler().messageToUser("newPlayProductionEffect");
+        }
         FamilyMember familyMember = new FamilyMember(player, FamilyColor.NEUTRAL, diceValue);
         new ProductionController(familyMember, player.getView().getProductionSpace());
     }

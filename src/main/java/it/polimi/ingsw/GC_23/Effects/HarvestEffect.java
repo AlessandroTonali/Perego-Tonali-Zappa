@@ -52,12 +52,17 @@ public class HarvestEffect extends PermanentEffect  {
 
     @Override
     public void activeEffect(Player player) throws IOException {
+        if (player.getUserHandler().isGuiInterface()) {
+            player.getUserHandler().messageToUser("harvestEffect");
+        }
         if(isActivable) {
             for (int i = 0; i < effects.size(); i++) {
                 effects.get(i).activeEffect(player);
             }
         } else {
-            player.getUserHandler().messageToUser("Permanent effect on harvest isn't activable");
+            if(!player.getUserHandler().isGuiInterface()) {
+                player.getUserHandler().messageToUser("Permanent effect on harvest isn't activable");
+            }
         }
     }
 }

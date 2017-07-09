@@ -22,6 +22,9 @@ public class NewPlayHarvestEffect extends AbsEffect {
 
     @Override
     public void activeEffect(Player player) throws IOException {
+        if(player.getUserHandler().isGuiInterface()){
+            player.getUserHandler().messageToUser("newPlayHarvestEffect");
+        }
         FamilyMember familyMember = new FamilyMember(player, FamilyColor.NEUTRAL, diceValue);
         new HarvestController(familyMember, player.getView().getHarvestSpace());
     }

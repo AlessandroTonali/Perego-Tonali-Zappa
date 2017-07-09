@@ -1,6 +1,8 @@
 package it.polimi.ingsw.GC_23.FX;
 
 import java.rmi.RemoteException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  * Created by Alessandro Tonali on 09/07/2017.
@@ -9,6 +11,7 @@ public class MessageListener implements Runnable {
     private GameboardController gameboardController;
     private Gameboard gameboard;
     private boolean read;
+    private transient final Logger logger = Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
 
     public MessageListener(GameboardController gameboardController, Gameboard gameboard, boolean read) {
         this.gameboardController = gameboardController;
@@ -23,14 +26,16 @@ public class MessageListener implements Runnable {
             try {
                 Thread.sleep(500);
             } catch (InterruptedException e) {
-                e.printStackTrace();
+                logger.setLevel(Level.SEVERE);
+                logger.severe(String.valueOf(e));
             }
 
         }
         try {
             reader();
         } catch (RemoteException e) {
-            e.printStackTrace();
+            logger.setLevel(Level.SEVERE);
+            logger.severe(String.valueOf(e));
         }
 
 
@@ -40,14 +45,16 @@ public class MessageListener implements Runnable {
             try {
                 Thread.sleep(500);
             } catch (InterruptedException e) {
-                e.printStackTrace();
+                logger.setLevel(Level.SEVERE);
+                logger.severe(String.valueOf(e));
             }
 
         }
         try {
             reader();
         } catch (RemoteException e) {
-            e.printStackTrace();
+            logger.setLevel(Level.SEVERE);
+            logger.severe(String.valueOf(e));
         }
     }
     public void reader() throws RemoteException {

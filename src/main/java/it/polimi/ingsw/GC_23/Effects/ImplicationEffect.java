@@ -45,10 +45,15 @@ public class ImplicationEffect extends AbsEffect{
         ImplicationEffect chosen = new ImplicationEffect(chosenCost, chosenBenefit);
         while (!madeChoice) {
             int i =-1;
-            player.getUserHandler().messageToUser("Select possible implication");
+            if(!player.getUserHandler().isGuiInterface()) {
+                player.getUserHandler().messageToUser("Select possible implication");
+            }
             for (int m = 0; m < requirements.size(); m++) {
                 player.getUserHandler().messageToUser(m + "--> " + requirements.get(m).toString());
                 player.getUserHandler().messageToUser("     " + givings.get(m).toString());
+            }
+            if(player.getUserHandler().isGuiInterface()){
+                player.getUserHandler().messageToUser("end");
             }
             while (!player.isTimeIsOver() && !player.isTyped()){
                 try {
@@ -61,7 +66,9 @@ public class ImplicationEffect extends AbsEffect{
             }
             if(player.isTimeIsOver()){
                 player.setTimeIsOver(false);
-                player.getUserHandler().messageToUser("read");
+                if(!player.getUserHandler().isGuiInterface()) {
+                    player.getUserHandler().messageToUser("read");
+                }
                 return  null;
             }
             if(player.isTyped()){
@@ -69,19 +76,25 @@ public class ImplicationEffect extends AbsEffect{
                 i = player.getTypedInt();
             }
                 if(i<this.getGivings().size()){
-                    player.getUserHandler().messageToUser("Chosen implication");
+                    if(!player.getUserHandler().isGuiInterface()) {
+                        player.getUserHandler().messageToUser("Chosen implication");
+                    }
                 }
                 else{
-                    player.getUserHandler().messageToUser("Error: incorrect number, try again");
+                    if(!player.getUserHandler().isGuiInterface()) {
+                        player.getUserHandler().messageToUser("Error: incorrect number, try again");
+                    }
                     continue;
                 }
 
             try{
                 chosen.getRequirements().add(this.getRequirements().get(i));
                 chosen.getGivings().add(this.getGivings().get(i));
-                player.getUserHandler().messageToUser("You pay: "+ chosen.getRequirements().toString());
-                player.getUserHandler().messageToUser("You get: "+ chosen.getGivings().toString());
-                player.getUserHandler().messageToUser("");
+                if(!player.getUserHandler().isGuiInterface()) {
+                    player.getUserHandler().messageToUser("You pay: " + chosen.getRequirements().toString());
+                    player.getUserHandler().messageToUser("You get: " + chosen.getGivings().toString());
+                    player.getUserHandler().messageToUser("");
+                }
                 madeChoice =true;
             }catch (NullPointerException e){
                 return null;
@@ -92,11 +105,16 @@ public class ImplicationEffect extends AbsEffect{
 
 
     public void activeEffect(Player player) throws IOException {
+        if(player.getUserHandler().isGuiInterface()){
+            player.getUserHandler().messageToUser("implicationEffect");
+        }
         ImplicationEffect implicationEffect = chooseImplication(player);
         SingleCost cost = implicationEffect.getRequirements().get(0);
         AbsEffect effect = implicationEffect.getGivings().get(0);
         player.getResources().pay(cost.getResources());
-        player.getUserHandler().messageToUser("You lost:"+ cost.toString());
+        if(!player.getUserHandler().isGuiInterface()) {
+            player.getUserHandler().messageToUser("You lost:" + cost.toString());
+        }
         effect.activeEffect(player);
     }
 

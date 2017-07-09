@@ -262,8 +262,10 @@ public class Player implements Serializable {
                     new ProductionController(chooseFamilyMember(0), new ProductionSpace());
                     break;
                 case 3:
-                    getUserHandler().messageToUser("read");
-                    getUserHandler().messageToUser("How much?");
+                    if(!getUserHandler().isGuiInterface()) {
+                        getUserHandler().messageToUser("read");
+                        getUserHandler().messageToUser("How much?");
+                    }
                     int j = -1;
                     StringTyper stringTyper1 = new StringTyper(this);
                     executorService.submit(stringTyper1);
@@ -278,7 +280,9 @@ public class Player implements Serializable {
                     }
                     if (timeIsOver) {
                         timeIsOver = false;
-                        getUserHandler().messageToUser("read");
+                        if(!getUserHandler().isGuiInterface()) {
+                            getUserHandler().messageToUser("read");
+                        }
                         return;
                     }
                     if (typed) {

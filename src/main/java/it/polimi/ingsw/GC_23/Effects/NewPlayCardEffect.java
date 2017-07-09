@@ -42,11 +42,15 @@ public class NewPlayCardEffect extends AbsEffect {
         if (chosenDiscount.size() == 1) {
             sale =  resourcesDiscount.get(0);
         } else {
-            player.getUserHandler().messageToUser("Select possible discount");
+            if(!player.getUserHandler().isGuiInterface()) {
+                player.getUserHandler().messageToUser("Select possible discount");
+            }
             for (int j = 0; j < resourcesDiscount.size(); j++) {
                 player.getUserHandler().messageToUser(j + "--> " + resourcesDiscount.get(j).toString());
             }
-
+            if (player.getUserHandler().isGuiInterface()){
+                player.getUserHandler().messageToUser("end");
+            }
             ExecutorService executorService = Executors.newCachedThreadPool();
             StringTyper stringTyper  = new StringTyper(player);
             executorService.submit(stringTyper);
@@ -80,7 +84,9 @@ public class NewPlayCardEffect extends AbsEffect {
 
     public Tower chooseTower(Player player) throws RemoteException {
         Tower[] towers = player.getView().getTowers();
-        player.getUserHandler().messageToUser("Choose a tower");
+        if(!player.getUserHandler().isGuiInterface()) {
+            player.getUserHandler().messageToUser("Choose a tower");
+        }
         int i = -1;
         ExecutorService executorService = Executors.newCachedThreadPool();
         StringTyper stringTyper  = new StringTyper(player);
@@ -106,7 +112,9 @@ public class NewPlayCardEffect extends AbsEffect {
         try{
             return towers[i];
         }catch (NullPointerException e) {
-            player.getUserHandler().messageToUser("Number out of bound, insert again");
+            if(!player.getUserHandler().isGuiInterface()) {
+                player.getUserHandler().messageToUser("Number out of bound, insert again");
+            }
             return chooseTower(player);
         }
     }
@@ -114,6 +122,9 @@ public class NewPlayCardEffect extends AbsEffect {
 
     @Override
     public void activeEffect(Player player) throws IOException {
+        if(player.getUserHandler().isGuiInterface()){
+            player.getUserHandler().messageToUser("newPlayCardEffect");
+        }
         FamilyMember familyMember = new FamilyMember(player, FamilyColor.NEUTRAL, diceValue);
         SingleCost sale = chooseResourceDiscount(player);
         Tower tower = null;
@@ -139,14 +150,20 @@ public class NewPlayCardEffect extends AbsEffect {
 
         if (newPlay.isLegal()) {
             newPlay.makeAction();
-            player.getUserHandler().messageToUser("New play card effect done");
+            if(!player.getUserHandler().isGuiInterface()) {
+                player.getUserHandler().messageToUser("New play card effect done");
+            }
         } else {
-            player.getUserHandler().messageToUser("Error new play card effect");
+            if(!player.getUserHandler().isGuiInterface()) {
+                player.getUserHandler().messageToUser("Error new play card effect");
+            }
             boolean stayInWhile = true;
             while (stayInWhile) {
-                player.getUserHandler().messageToUser("What do you want to do? \n " +
-                        "1. Try again \n" +
-                        "2. Discard");
+                if(!player.getUserHandler().isGuiInterface()) {
+                    player.getUserHandler().messageToUser("What do you want to do? \n " +
+                            "1. Try again \n" +
+                            "2. Discard");
+                }
                     ExecutorService executorService = Executors.newCachedThreadPool();
                     StringTyper stringTyper  = new StringTyper(player);
                     executorService.submit(stringTyper);
@@ -178,7 +195,9 @@ public class NewPlayCardEffect extends AbsEffect {
                             stayInWhile = false;
                             break;
                         default:
-                            player.getUserHandler().messageToUser("Invalid choise");
+                            if(!player.getUserHandler().isGuiInterface()) {
+                                player.getUserHandler().messageToUser("Invalid choice");
+                            }
                             break;
                     }
 

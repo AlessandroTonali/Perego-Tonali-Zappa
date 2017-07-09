@@ -60,10 +60,14 @@ public class PlusDiceEffect extends PermanentEffect {
         if (sales.size() > 1) {
             for (SingleCost singlecost : sales) {
                 if (!(singlecost instanceof MilitaryCost)) {
-                    player.getUserHandler().messageToUser("Press " + i + " for choosing: " + singlecost.getResources().toString());
+                    if(!player.getUserHandler().isGuiInterface()) {
+                        player.getUserHandler().messageToUser("Press " + i + " for choosing: " + singlecost.getResources().toString());
+                    }
                     i++;
                 } else {
-                    player.getUserHandler().messageToUser("Press " + i + " for choosing: " + singlecost.getResources().toString() + " and you required " + ((MilitaryCost) singlecost).getResourcesRequired().toString());
+                    if(!player.getUserHandler().isGuiInterface()) {
+                        player.getUserHandler().messageToUser("Press " + i + " for choosing: " + singlecost.getResources().toString() + " and you required " + ((MilitaryCost) singlecost).getResourcesRequired().toString());
+                    }
                     i++;
                 }
             }
@@ -81,14 +85,18 @@ public class PlusDiceEffect extends PermanentEffect {
             }
             if(player.isTimeIsOver()){
                 player.setTimeIsOver(false);
-                player.getUserHandler().messageToUser("read");
+                if(!player.getUserHandler().isGuiInterface()) {
+                    player.getUserHandler().messageToUser("read");
+                }
                 return  null;
             }
             if(player.isTyped()){
                 player.setTyped(false);
                 j = player.getTypedInt();
             }
-            player.getUserHandler().messageToUser("Chosen sale");
+            if(!player.getUserHandler().isGuiInterface()) {
+                player.getUserHandler().messageToUser("Chosen sale");
+            }
         }
         return sales.get(j);
 
@@ -97,6 +105,9 @@ public class PlusDiceEffect extends PermanentEffect {
 
     @Override
     public void activeEffect(Player player) throws IOException {
+        if(player.getUserHandler().isGuiInterface()){
+            player.getUserHandler().messageToUser("plusDiceEffect");
+        }
         FamilyMember[] familyMembers = player.getFamilyMembers();
         for (int i = 0; i < familyMembers.length; i++) {
             FamilyMember familyMember = familyMembers[i];

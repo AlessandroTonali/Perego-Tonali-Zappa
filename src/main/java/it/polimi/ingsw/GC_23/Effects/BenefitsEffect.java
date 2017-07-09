@@ -34,8 +34,11 @@ public class BenefitsEffect extends AbsEffect{
      * @throws RemoteException
      */
     public void activeEffect(Player player) throws RemoteException {
+        if(player.getUserHandler().isGuiInterface()) {
+            player.getUserHandler().messageToUser("benefitsEffect");
+        }
         player.getResources().sum(this.resources, player);
-        //player.getUserHandler().messageToUser("Effect activeted! You have received: "+ resources.toString());
+        player.getUserHandler().messageToUser("Effect activeted! You have received: "+ resources.toString());
     }
 
     /**

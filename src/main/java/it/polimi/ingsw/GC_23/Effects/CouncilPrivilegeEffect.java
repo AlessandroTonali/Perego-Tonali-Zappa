@@ -76,7 +76,9 @@ public class CouncilPrivilegeEffect extends AbsEffect {
                 }
                 if(player.isTimeIsOver()){
                     player.setTimeIsOver(false);
-                    player.getUserHandler().messageToUser("read");
+                    if(!player.getUserHandler().isGuiInterface()) {
+                        player.getUserHandler().messageToUser("read");
+                    }
                     return  null;
                 }
                 if(player.isTyped()){
@@ -85,9 +87,13 @@ public class CouncilPrivilegeEffect extends AbsEffect {
                 }
 
                     if (i < benefits.length) {
-                        player.getUserHandler().messageToUser("Chosen council privilege");
+                        if(!player.getUserHandler().isGuiInterface()) {
+                            player.getUserHandler().messageToUser("Chosen council privilege");
+                        }
                     } else {
-                        player.getUserHandler().messageToUser("Error: incorrect number, try again");
+                        if(!player.getUserHandler().isGuiInterface()) {
+                            player.getUserHandler().messageToUser("Error: incorrect number, try again");
+                        }
                         continue;
 
                 }
@@ -95,7 +101,9 @@ public class CouncilPrivilegeEffect extends AbsEffect {
                 try {
                     chosen[l] = this.benefits[i];
                     l++;
-                    player.getUserHandler().messageToUser("You get: " + this.benefits[i].getResources().toString());
+                    if(!player.getUserHandler().isGuiInterface()) {
+                        player.getUserHandler().messageToUser("You get: " + this.benefits[i].getResources().toString());
+                    }
                     numBen--;
                 } catch (NullPointerException ex) {
                     return null;
@@ -115,7 +123,9 @@ public class CouncilPrivilegeEffect extends AbsEffect {
                     }
                     if(player.isTimeIsOver()){
                         player.setTimeIsOver(false);
-                        player.getUserHandler().messageToUser("read");
+                        if(!player.getUserHandler().isGuiInterface()) {
+                            player.getUserHandler().messageToUser("read");
+                        }
                         return  null;
                     }
                     if(player.isTyped()){
@@ -123,35 +133,50 @@ public class CouncilPrivilegeEffect extends AbsEffect {
                         i = player.getTypedInt();
                     }
                     if (i < benefits.length) {
-                        player.getUserHandler().messageToUser("Chosen council privilege");
+                        if(!player.getUserHandler().isGuiInterface()) {
+                            player.getUserHandler().messageToUser("Chosen council privilege");
+                        }
                     } else {
-                        player.getUserHandler().messageToUser("Error: incorrect number, try again");
+                        if(!player.getUserHandler().isGuiInterface()) {
+                            player.getUserHandler().messageToUser("Error: incorrect number, try again");
+                        }
                         continue;
                     }
                     if (!alreadyTaken(chosenEffects, i)) {
                         chosenEffects.add(i);
                     } else {
-                        player.getUserHandler().messageToUser("Already taken, please choose another one");
+                        if(!player.getUserHandler().isGuiInterface()) {
+                            player.getUserHandler().messageToUser("Already taken, please choose another one");
+                        }
                         continue;
                     }
-                    player.getUserHandler().messageToUser("Chosen different council privilege");
+                    if(!player.getUserHandler().isGuiInterface()) {
+                        player.getUserHandler().messageToUser("Chosen different council privilege");
+                    }
                 try {
                     chosen[l] = this.benefits[i];
                     l++;
-                    player.getUserHandler().messageToUser("You get:  " + this.benefits[i].getResources().toString());
-                    player.getUserHandler().messageToUser("");
+                    if(!player.getUserHandler().isGuiInterface()) {
+                        player.getUserHandler().messageToUser("You get:  " + this.benefits[i].getResources().toString());
+                        player.getUserHandler().messageToUser("");
+                    }
                     numBen--;
                 } catch (NullPointerException ex) {
                     return null;
                 }
             }
         }
-        player.getUserHandler().messageToUser("You have chosen all your council privilege");
+        if(!player.getUserHandler().isGuiInterface()) {
+            player.getUserHandler().messageToUser("You have chosen all your council privilege");
+        }
         return chosen;
     }
 
 
     public void activeEffect(Player player) throws RemoteException {
+        if(player.getUserHandler().isGuiInterface()) {
+            player.getUserHandler().messageToUser("councilEffect");
+        }
         BenefitsEffect[] chosenEffect = chooseCouncilPrivilege(player);
         for (BenefitsEffect e : chosenEffect) {
             e.activeEffect(player);

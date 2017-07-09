@@ -59,9 +59,14 @@ public class DiscountEffect extends AbsEffect{
         ExecutorService executorService = Executors.newCachedThreadPool();
         StringTyper stringTyper = new StringTyper(player);
         while(!madeChoice){
-            player.getUserHandler().messageToUser("Select possible discount");
+            if(!player.getUserHandler().isGuiInterface()) {
+                player.getUserHandler().messageToUser("Select possible discount");
+            }
             for(int n=0; n< resourcesDiscount.size(); n++ ){
                 player.getUserHandler().messageToUser(n+"--> "+resourcesDiscount.get(n).toString());
+            }
+            if(player.getUserHandler().isGuiInterface()){
+                player.getUserHandler().messageToUser("end");
             }
             executorService.submit(stringTyper);
             while (!player.isTimeIsOver() && !player.isTyped()){
@@ -75,7 +80,9 @@ public class DiscountEffect extends AbsEffect{
             }
             if(player.isTimeIsOver()){
                 player.setTimeIsOver(false);
-                player.getUserHandler().messageToUser("read");
+                if(!player.getUserHandler().isGuiInterface()) {
+                    player.getUserHandler().messageToUser("read");
+                }
                 return  null;
             }
             if(player.isTyped()){
@@ -83,16 +90,22 @@ public class DiscountEffect extends AbsEffect{
                 i = player.getTypedInt();
             }
             if(i<this.getResourcesDiscount().size()){
-                player.getUserHandler().messageToUser("Chosen discount");
+                if(!player.getUserHandler().isGuiInterface()) {
+                    player.getUserHandler().messageToUser("Chosen discount");
+                }
             }
                 else{
-                    player.getUserHandler().messageToUser("Error: incorrect number, try again");
+                    if(!player.getUserHandler().isGuiInterface()) {
+                        player.getUserHandler().messageToUser("Error: incorrect number, try again");
+                    }
                     continue;
             }
             try{
                 chosenDiscount.add(this.getResourcesDiscount().get(i));
-                player.getUserHandler().messageToUser("You get: "+ chosenDiscount.get(i).toString());
-                player.getUserHandler().messageToUser("");
+                if(!player.getUserHandler().isGuiInterface()) {
+                    player.getUserHandler().messageToUser("You get: " + chosenDiscount.get(i).toString());
+                    player.getUserHandler().messageToUser("");
+                }
                 madeChoice =true;
             }catch (NullPointerException e){
                 return null;
@@ -103,9 +116,11 @@ public class DiscountEffect extends AbsEffect{
 
     //todo: sconto dei valori del familiare per effetti permanenti
     public void activeEffect(Player player) throws RemoteException {
-    SingleCost chosenResourcesDiscount = chooseResourceDiscount(player);
-    //è uguale se li aggiungo e dopo li toglie come se il prezzo fosse uguale?
-    player.getResources().sum(chosenResourcesDiscount.getResources(),player);
+        if(player.getUserHandler().isGuiInterface()) {
+            player.getUserHandler().messageToUser("discountEffect");
+        }
+        SingleCost chosenResourcesDiscount = chooseResourceDiscount(player);
+        player.getResources().sum(chosenResourcesDiscount.getResources(),player);
     }
 
 

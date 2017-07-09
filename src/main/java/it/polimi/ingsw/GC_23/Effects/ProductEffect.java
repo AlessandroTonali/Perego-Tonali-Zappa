@@ -5,6 +5,7 @@ import it.polimi.ingsw.GC_23.Player;
 import it.polimi.ingsw.GC_23.Resources.ResourcesSet;
 import it.polimi.ingsw.GC_23.SingleCost;
 
+import java.rmi.RemoteException;
 import java.util.ArrayList;
 
 /**

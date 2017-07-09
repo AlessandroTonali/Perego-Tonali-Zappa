@@ -17,6 +17,9 @@ public class FlagEffect extends AbsEffect {
 
     @Override
     public void activeEffect(Player player) throws IOException {
+        if(player.getUserHandler().isGuiInterface()){
+            player.getUserHandler().messageToUser("flagEffect");
+        }
         switch (type) {
             case "venture":
                 player.setNotScoreVenture(true);
