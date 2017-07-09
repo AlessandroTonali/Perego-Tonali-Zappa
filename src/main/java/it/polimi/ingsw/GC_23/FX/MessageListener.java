@@ -35,19 +35,36 @@ public class MessageListener implements Runnable {
 
 
     }
+    public void going() {
+        while (!read) {
+            try {
+                Thread.sleep(500);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+
+        }
+        try {
+            reader();
+        } catch (RemoteException e) {
+            e.printStackTrace();
+        }
+    }
     public void reader() throws RemoteException {
         String actualString = gameboard.getUserFX().receive();
         while (!"matchended".equals(actualString)){
+
             if("update".equals(actualString)){
-                gameboard.updateController(gameboardController);
                 read = false;
-                run();
+
+                going();
 
             }
             if("play".equals(actualString)){
-                gameboardController.handle();
                 read = false;
-                run();
+                gameboardController.handle();
+
+                going();
             }
             actualString = gameboard.getUserFX().receive();
         }
