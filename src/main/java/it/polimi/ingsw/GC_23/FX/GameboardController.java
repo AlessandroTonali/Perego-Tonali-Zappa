@@ -1671,6 +1671,7 @@ public class GameboardController implements Serializable {
                         userFX.send("4");
                         String familyMember = chooseFamilyMember();
                         userFX.send(identifyFamilyMember(familyMember));
+                        userFX.send("0");
                         String astring = userFX.receive();
                         while (!"effectended".equals(astring)) {
                             try {
@@ -1684,7 +1685,6 @@ public class GameboardController implements Serializable {
                         fine = "(stuff/" + color + familyMember + ".png)" + ";";
                         String ind = inizio + fine;
                         market1.setStyle(ind + "-fx-background-size: contain;");
-                        userFX.send("0");
                     }
                 } catch (RemoteException e) {
                     logger.setLevel(Level.SEVERE);
@@ -1705,6 +1705,7 @@ public class GameboardController implements Serializable {
                         userFX.send("4");
                         String familyMember = chooseFamilyMember();
                         userFX.send(identifyFamilyMember(familyMember));
+                        userFX.send("1");
                         String astring = userFX.receive();
                         while (!"effectended".equals(astring)) {
                             try {
@@ -1718,7 +1719,6 @@ public class GameboardController implements Serializable {
                         fine = "(stuff/" + color + familyMember + ".png)" + ";";
                         String ind = inizio + fine;
                         market2.setStyle(ind + "-fx-background-size: contain;");
-                        userFX.send("1");
                     }
                 } catch (RemoteException e) {
                     logger.setLevel(Level.SEVERE);
@@ -1739,6 +1739,7 @@ public class GameboardController implements Serializable {
                         userFX.send("4");
                         String familyMember = chooseFamilyMember();
                         userFX.send(identifyFamilyMember(familyMember));
+                        userFX.send("2");
                         String astring = userFX.receive();
                         while (!"effectended".equals(astring)) {
                             try {
@@ -1752,7 +1753,6 @@ public class GameboardController implements Serializable {
                         fine = "(stuff/" + color + familyMember + ".png)" + ";";
                         String ind = inizio + fine;
                         market3.setStyle(ind + "-fx-background-size: contain;");
-                        userFX.send("2");
                     }
                 } catch (RemoteException e) {
                     logger.setLevel(Level.SEVERE);
@@ -1773,6 +1773,7 @@ public class GameboardController implements Serializable {
                         userFX.send("4");
                         String familyMember = chooseFamilyMember();
                         userFX.send(identifyFamilyMember(familyMember));
+                        userFX.send("3");
                         String astring = userFX.receive();
                         while (!"effectended".equals(astring)) {
                             try {
@@ -1786,7 +1787,6 @@ public class GameboardController implements Serializable {
                         fine = "(stuff/" + color + familyMember + ".png)" + ";";
                         String ind = inizio + fine;
                         market4.setStyle(ind + "-fx-background-size: contain;");
-                        userFX.send("3");
                     }
                 } catch (RemoteException e) {
                     logger.setLevel(Level.SEVERE);
