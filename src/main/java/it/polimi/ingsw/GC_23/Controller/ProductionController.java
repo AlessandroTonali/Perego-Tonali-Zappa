@@ -25,7 +25,9 @@ public class ProductionController extends PlaceFamilyMember {
                 makeAction();
             }
             else {
-                familyMember.getPlayer().getUserHandler().messageToUser("NOT VALID MOVE, TRY ANOTHER ONE!");
+                if(!familyMember.getPlayer().getUserHandler().isGuiInterface()) {
+                    familyMember.getPlayer().getUserHandler().messageToUser("NOT VALID MOVE, TRY ANOTHER ONE!");
+                }
                 throw new IllegalArgumentException();
             }
         }
@@ -55,7 +57,9 @@ public class ProductionController extends PlaceFamilyMember {
            familyMember.getPlayer().getUserHandler().messageToUser("effectended");
         }
         productionSpace.setFamilyMember(familyMember);
-        this.familyMember.getPlayer().getUserHandler().messageToUser(this.familyMember.getPlayer().getResources().toString());
+        if(!familyMember.getPlayer().getUserHandler().isGuiInterface()) {
+            this.familyMember.getPlayer().getUserHandler().messageToUser(this.familyMember.getPlayer().getResources().toString());
+        }
     }
 
 }
