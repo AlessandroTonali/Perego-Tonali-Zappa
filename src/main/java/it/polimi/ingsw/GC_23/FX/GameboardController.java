@@ -1365,19 +1365,15 @@ public class GameboardController implements Serializable {
                     String ind = inizio + fine;
                     if (!council1.getStyle().contains("-fx-background-image:")) {
                         council1.setStyle(ind);
-                        council1.setStyle("-fx-background-size: contain;");
                     } else {
                         if (!council2.getStyle().contains("-fx-background-image:")) {
                             council2.setStyle(ind);
-                            council2.setStyle("-fx-background-size: contain;");
                         } else {
                             if (!council3.getStyle().contains("-fx-background-image:")) {
                                 council3.setStyle(ind);
-                                council3.setStyle("-fx-background-size: contain;");
                             } else {
                                 if (!council4.getStyle().contains("-fx-background-image:")) {
                                     council4.setStyle(ind);
-                                    council4.setStyle("-fx-background-size: contain;");
                                 } else {
                                     busyAlert();
                                 }

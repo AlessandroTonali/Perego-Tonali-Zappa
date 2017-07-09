@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="12559092-ad45-4654-bd82-cde319336451" name="Default" comment="non funzionante">
+    <list default="true" id="12559092-ad45-4654-bd82-cde319336451" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/Effects/CouncilPrivilegeEffect.java" afterPath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/Effects/CouncilPrivilegeEffect.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/FX/GameboardController.java" afterPath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/FX/GameboardController.java" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
@@ -48,7 +47,15 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="315">
               <caret line="69" column="32" lean-forward="false" selection-start-line="69" selection-start-column="22" selection-end-line="69" selection-end-column="32" />
-              <folding />
+              <folding>
+                <marker date="1499603539000" expanded="true" signature="12734:14019" ph="{...}" />
+                <marker date="1499603539000" expanded="true" signature="14082:15234" ph="{...}" />
+                <marker date="1499603539000" expanded="true" signature="15303:18838" ph="{...}" />
+                <marker date="1499603539000" expanded="true" signature="18899:18943" ph="{...}" />
+                <marker date="1499603539000" expanded="true" signature="19006:20299" ph="{...}" />
+                <marker date="1499603539000" expanded="true" signature="20358:20462" ph="{...}" />
+                <marker date="1499603539000" expanded="true" signature="20531:22518" ph="{...}" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -56,8 +63,8 @@
       <file leaf-file-name="GameboardController.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/FX/GameboardController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="179">
-              <caret line="865" column="45" lean-forward="true" selection-start-line="865" selection-start-column="45" selection-end-line="865" selection-end-column="45" />
+            <state relative-caret-position="434">
+              <caret line="1376" column="40" lean-forward="true" selection-start-line="1376" selection-start-column="40" selection-end-line="1376" selection-end-column="40" />
               <folding />
             </state>
           </provider>
@@ -76,9 +83,15 @@
       <file leaf-file-name="Player.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/Player.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="166">
-              <caret line="249" column="41" lean-forward="false" selection-start-line="249" selection-start-column="24" selection-end-line="249" selection-end-column="41" />
-              <folding />
+            <state relative-caret-position="256">
+              <caret line="255" column="41" lean-forward="false" selection-start-line="255" selection-start-column="41" selection-end-line="255" selection-end-column="41" />
+              <folding>
+                <marker date="1499603539000" expanded="true" signature="15474:16295" ph="{...}" />
+                <marker date="1499603539000" expanded="false" signature="16336:16347" ph=" { " />
+                <marker date="1499603539000" expanded="false" signature="16366:16372" ph=" }" />
+                <marker date="1499603539000" expanded="false" signature="16429:16440" ph=" { " />
+                <marker date="1499603539000" expanded="false" signature="16471:16477" ph=" }" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -97,7 +110,7 @@
         <entry file="file://$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/Effects/AbsEffect.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="135">
-              <caret line="12" column="25" lean-forward="false" selection-start-line="12" selection-start-column="25" selection-end-line="12" selection-end-column="25" />
+              <caret line="18" column="25" lean-forward="false" selection-start-line="18" selection-start-column="25" selection-end-line="18" selection-end-column="25" />
               <folding />
             </state>
           </provider>
@@ -1406,7 +1419,7 @@
       <workItem from="1499515782905" duration="12585000" />
       <workItem from="1499532985117" duration="4137000" />
       <workItem from="1499599865831" duration="24000" />
-      <workItem from="1499602055588" duration="1441000" />
+      <workItem from="1499602055588" duration="1954000" />
     </task>
     <task id="LOCAL-00001" summary="prova">
       <created>1494941646968</created>
@@ -1730,7 +1743,14 @@
       <option name="project" value="LOCAL" />
       <updated>1499528245199</updated>
     </task>
-    <option name="localTasksCounter" value="47" />
+    <task id="LOCAL-00047" summary="council privilege alert">
+      <created>1499603527981</created>
+      <option name="number" value="00047" />
+      <option name="presentableId" value="LOCAL-00047" />
+      <option name="project" value="LOCAL" />
+      <updated>1499603527981</updated>
+    </task>
+    <option name="localTasksCounter" value="48" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -1766,7 +1786,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="485214000" />
+    <option name="totallyTimeSpent" value="485727000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1880,7 +1900,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="uml version update" />
     <MESSAGE value="parsing effect" />
     <MESSAGE value="Change constructor of Card" />
     <MESSAGE value="update cards" />
@@ -1905,7 +1924,8 @@
     <MESSAGE value="tower handle" />
     <MESSAGE value="handle" />
     <MESSAGE value="non funzionante" />
-    <option name="LAST_COMMIT_MESSAGE" value="non funzionante" />
+    <MESSAGE value="council privilege alert" />
+    <option name="LAST_COMMIT_MESSAGE" value="council privilege alert" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1918,7 +1938,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/FamilyMember.java</url>
-          <line>96</line>
+          <line>108</line>
           <properties />
           <option name="timeStamp" value="167" />
         </line-breakpoint>
@@ -2218,7 +2238,15 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="315">
           <caret line="69" column="32" lean-forward="false" selection-start-line="69" selection-start-column="22" selection-end-line="69" selection-end-column="32" />
-          <folding />
+          <folding>
+            <marker date="1499603539000" expanded="true" signature="12734:14019" ph="{...}" />
+            <marker date="1499603539000" expanded="true" signature="14082:15234" ph="{...}" />
+            <marker date="1499603539000" expanded="true" signature="15303:18838" ph="{...}" />
+            <marker date="1499603539000" expanded="true" signature="18899:18943" ph="{...}" />
+            <marker date="1499603539000" expanded="true" signature="19006:20299" ph="{...}" />
+            <marker date="1499603539000" expanded="true" signature="20358:20462" ph="{...}" />
+            <marker date="1499603539000" expanded="true" signature="20531:22518" ph="{...}" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -2240,9 +2268,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/Player.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="166">
-          <caret line="249" column="41" lean-forward="false" selection-start-line="249" selection-start-column="24" selection-end-line="249" selection-end-column="41" />
-          <folding />
+        <state relative-caret-position="256">
+          <caret line="255" column="41" lean-forward="false" selection-start-line="255" selection-start-column="41" selection-end-line="255" selection-end-column="41" />
+          <folding>
+            <marker date="1499603539000" expanded="true" signature="15474:16295" ph="{...}" />
+            <marker date="1499603539000" expanded="false" signature="16336:16347" ph=" { " />
+            <marker date="1499603539000" expanded="false" signature="16366:16372" ph=" }" />
+            <marker date="1499603539000" expanded="false" signature="16429:16440" ph=" { " />
+            <marker date="1499603539000" expanded="false" signature="16471:16477" ph=" }" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -2257,7 +2291,7 @@
     <entry file="file://$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/Effects/AbsEffect.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="135">
-          <caret line="12" column="25" lean-forward="false" selection-start-line="12" selection-start-column="25" selection-end-line="12" selection-end-column="25" />
+          <caret line="18" column="25" lean-forward="false" selection-start-line="18" selection-start-column="25" selection-end-line="18" selection-end-column="25" />
           <folding />
         </state>
       </provider>
@@ -2272,8 +2306,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/FX/GameboardController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="179">
-          <caret line="865" column="45" lean-forward="true" selection-start-line="865" selection-start-column="45" selection-end-line="865" selection-end-column="45" />
+        <state relative-caret-position="434">
+          <caret line="1376" column="40" lean-forward="true" selection-start-line="1376" selection-start-column="40" selection-end-line="1376" selection-end-column="40" />
           <folding />
         </state>
       </provider>
