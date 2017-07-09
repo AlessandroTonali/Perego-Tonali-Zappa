@@ -259,7 +259,7 @@ public class Player implements Serializable {
                     new HarvestController(chooseFamilyMember(0), board.getHarvestSpace());
                     break;
                 case 2:
-                    new ProductionController(chooseFamilyMember(0), new ProductionSpace());
+                    new ProductionController(chooseFamilyMember(0), board.getProductionSpace());
                     break;
                 case 3:
                     if(!getUserHandler().isGuiInterface()) {
