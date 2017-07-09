@@ -906,7 +906,7 @@ public class GameboardController implements Serializable {
         Optional<String> result = dialog.showAndWait();
         while(!result.isPresent()){
             try {
-                Thread.sleep(5);
+                Thread.sleep(500);
             } catch (InterruptedException e) {
                 logger.setLevel(Level.SEVERE);
                 logger.severe(String.valueOf(e));

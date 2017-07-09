@@ -31,14 +31,14 @@ public class RMIHandler implements Runnable, UserHandler, Remote {
 
     @Override
     public void messageToUser(String message) throws RemoteException {
-        if("write".equals(message) || "wait".equals(message) || "read".equals(message)){
+        if(message.equals("write") || message.equals("wait") || message.equals("read")){
             return;
         }
-        if("start".equals(message)){
+        if(message.equals("start")){
             user.setMatchStarted(true);
             return;
         }
-        if("quit".equals(message)){
+        if(message.equals("quit")){
             ServerImpl.getServer().RMIQuitter(user);
         }
         else {

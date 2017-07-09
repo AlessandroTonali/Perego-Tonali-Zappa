@@ -11,7 +11,6 @@ public class MessageListener implements Runnable {
     private GameboardController gameboardController;
     private Gameboard gameboard;
     private boolean read;
-    private transient final Logger logger = Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
 
     public MessageListener(GameboardController gameboardController, Gameboard gameboard, boolean read) {
         this.gameboardController = gameboardController;
@@ -26,16 +25,14 @@ public class MessageListener implements Runnable {
             try {
                 Thread.sleep(500);
             } catch (InterruptedException e) {
-                logger.setLevel(Level.SEVERE);
-                logger.severe(String.valueOf(e));
+                e.printStackTrace();
             }
 
         }
         try {
             reader();
         } catch (RemoteException e) {
-            logger.setLevel(Level.SEVERE);
-            logger.severe(String.valueOf(e));
+            e.printStackTrace();
         }
 
 
@@ -45,16 +42,14 @@ public class MessageListener implements Runnable {
             try {
                 Thread.sleep(500);
             } catch (InterruptedException e) {
-                logger.setLevel(Level.SEVERE);
-                logger.severe(String.valueOf(e));
+                e.printStackTrace();
             }
 
         }
         try {
             reader();
         } catch (RemoteException e) {
-            logger.setLevel(Level.SEVERE);
-            logger.severe(String.valueOf(e));
+            e.printStackTrace();
         }
     }
     public void reader() throws RemoteException {
