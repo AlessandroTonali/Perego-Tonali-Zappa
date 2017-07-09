@@ -961,7 +961,8 @@ public class GameboardController implements Serializable {
                 value = 4;
                 break;
         }
-        return String.valueOf(value);
+        userFX.send(String.valueOf(value));
+        return null;
     }
 
     public String chooseIncreaseValue() throws RemoteException {
