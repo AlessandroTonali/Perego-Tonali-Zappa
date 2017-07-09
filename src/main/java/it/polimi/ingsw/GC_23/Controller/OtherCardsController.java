@@ -41,7 +41,9 @@ public class OtherCardsController extends TowerController {
             makeAction(cost);
             System.out.println("success");
         } else {
-            familyMember.getPlayer().getUserHandler().messageToUser("YOU ARE NOT ALLOW TO DO THIS MOVE, DO SOMETHING ELSE!");
+            if(!familyMember.getPlayer().getUserHandler().isGuiInterface()) {
+                familyMember.getPlayer().getUserHandler().messageToUser("YOU ARE NOT ALLOW TO DO THIS MOVE, DO SOMETHING ELSE!");
+            }
             throw new IllegalArgumentException();
         }
     }

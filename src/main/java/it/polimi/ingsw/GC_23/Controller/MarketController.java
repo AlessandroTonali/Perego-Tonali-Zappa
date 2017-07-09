@@ -25,11 +25,15 @@ public class MarketController extends PlaceFamilyMember {
     public MarketController(FamilyMember familyMember, MarketSpace[] marketSpace) throws IOException {
         this.familyMember = familyMember;
         this.marketSpace = marketSpace;
-        familyMember.getPlayer().getUserHandler().messageToUser("Choose the market space");
+        if(!familyMember.getPlayer().getUserHandler().isGuiInterface()) {
+            familyMember.getPlayer().getUserHandler().messageToUser("Choose the market space");
+        }
         int i = 0;
         for(MarketSpace m : marketSpace){
             if (m.getFamilyMember() == null){
-                familyMember.getPlayer().getUserHandler().messageToUser("Press " + i + " for getting: " + m.getEffect().toString());
+                if(!familyMember.getPlayer().getUserHandler().isGuiInterface()) {
+                    familyMember.getPlayer().getUserHandler().messageToUser("Press " + i + " for getting: " + m.getEffect().toString());
+                }
             }
             i++;
         }
@@ -50,7 +54,9 @@ public class MarketController extends PlaceFamilyMember {
         }
         if(familyMember.getPlayer().isTimeIsOver()){
             familyMember.getPlayer().setTimeIsOver(false);
-            familyMember.getPlayer().getUserHandler().messageToUser("read");
+            if(!familyMember.getPlayer().getUserHandler().isGuiInterface()) {
+                familyMember.getPlayer().getUserHandler().messageToUser("read");
+            }
             return;
         }
         if(familyMember.getPlayer().isTyped()){
@@ -61,7 +67,9 @@ public class MarketController extends PlaceFamilyMember {
         if (isLegal()) {
             makeAction();
         } else {
-            familyMember.getPlayer().getUserHandler().messageToUser("YOU ARE NOT ALLOW TO DO THIS MOVE, DO SOMETHING ELSE!");
+            if(!familyMember.getPlayer().getUserHandler().isGuiInterface()) {
+                familyMember.getPlayer().getUserHandler().messageToUser("YOU ARE NOT ALLOW TO DO THIS MOVE, DO SOMETHING ELSE!");
+            }
             throw new IllegalArgumentException();
         }
     }

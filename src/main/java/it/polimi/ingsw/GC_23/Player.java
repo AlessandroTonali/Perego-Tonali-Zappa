@@ -335,7 +335,9 @@ public class Player implements Serializable {
                     break;
                 }
                 default:
-                    getUserHandler().messageToUser("Wrong number selected, try again");
+                    if(!getUserHandler().isGuiInterface()) {
+                        getUserHandler().messageToUser("Wrong number selected, try again");
+                    }
                     chooseMove(view, isAdvanced);
                     playerTimeOut.setNeeded(false);
                     return;
@@ -444,23 +446,31 @@ public class Player implements Serializable {
      */
     public LeaderCard chooseLeaderCard() throws RemoteException {
         LeaderCard leaderCard = null;
-        userHandler.messageToUser("Chooose the leader card:");
+        if(!userHandler.isGuiInterface()) {
+            userHandler.messageToUser("Chooose the leader card:");
+        }
         for (int i = 0; i < leaderCards.size(); i++) {
             userHandler.messageToUser(i+". "+ leaderCards.get(i).toString());
         }
-        userHandler.messageToUser("write");
+        if(!userHandler.isGuiInterface()) {
+            userHandler.messageToUser("write");
+        }
         String answer = userHandler.messageFromUser();
         int i = -1;
         try {
             i = Integer.parseInt(answer);
         } catch (NumberFormatException e) {
-            userHandler.messageToUser("Is not a number, try again");
+            if(!userHandler.isGuiInterface()) {
+                userHandler.messageToUser("Is not a number, try again");
+            }
             chooseLeaderCard();
         }
         if (i < leaderCards.size()) {
             leaderCard = leaderCards.get(i);
         } else {
-            userHandler.messageToUser("Invalid number, try again");
+            if(!userHandler.isGuiInterface()) {
+                userHandler.messageToUser("Invalid number, try again");
+            }
             chooseLeaderCard();
         }
 

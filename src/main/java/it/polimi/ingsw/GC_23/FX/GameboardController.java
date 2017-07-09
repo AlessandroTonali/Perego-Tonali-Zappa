@@ -1671,10 +1671,20 @@ public class GameboardController implements Serializable {
                         userFX.send("4");
                         String familyMember = chooseFamilyMember();
                         userFX.send(identifyFamilyMember(familyMember));
+                        String astring = userFX.receive();
+                        while (!"effectended".equals(astring)) {
+                            try {
+                                userFX.send(effectswitcher());
+                                astring = userFX.receive();
+                            }catch (NullPointerException e ){
+                                astring = userFX.receive();
+                                continue;
+                            }
+                        }
                         fine = "(stuff/" + color + familyMember + ".png)" + ";";
                         String ind = inizio + fine;
                         market1.setStyle(ind + "-fx-background-size: contain;");
-                        userFX.send("1");
+                        userFX.send("0");
                     }
                 } catch (RemoteException e) {
                     logger.setLevel(Level.SEVERE);
@@ -1695,10 +1705,20 @@ public class GameboardController implements Serializable {
                         userFX.send("4");
                         String familyMember = chooseFamilyMember();
                         userFX.send(identifyFamilyMember(familyMember));
+                        String astring = userFX.receive();
+                        while (!"effectended".equals(astring)) {
+                            try {
+                                userFX.send(effectswitcher());
+                                astring = userFX.receive();
+                            }catch (NullPointerException e ){
+                                astring = userFX.receive();
+                                continue;
+                            }
+                        }
                         fine = "(stuff/" + color + familyMember + ".png)" + ";";
                         String ind = inizio + fine;
                         market2.setStyle(ind + "-fx-background-size: contain;");
-                        userFX.send("2");
+                        userFX.send("1");
                     }
                 } catch (RemoteException e) {
                     logger.setLevel(Level.SEVERE);
@@ -1719,10 +1739,20 @@ public class GameboardController implements Serializable {
                         userFX.send("4");
                         String familyMember = chooseFamilyMember();
                         userFX.send(identifyFamilyMember(familyMember));
+                        String astring = userFX.receive();
+                        while (!"effectended".equals(astring)) {
+                            try {
+                                userFX.send(effectswitcher());
+                                astring = userFX.receive();
+                            }catch (NullPointerException e ){
+                                astring = userFX.receive();
+                                continue;
+                            }
+                        }
                         fine = "(stuff/" + color + familyMember + ".png)" + ";";
                         String ind = inizio + fine;
                         market3.setStyle(ind + "-fx-background-size: contain;");
-                        userFX.send("3");
+                        userFX.send("2");
                     }
                 } catch (RemoteException e) {
                     logger.setLevel(Level.SEVERE);
@@ -1743,10 +1773,20 @@ public class GameboardController implements Serializable {
                         userFX.send("4");
                         String familyMember = chooseFamilyMember();
                         userFX.send(identifyFamilyMember(familyMember));
+                        String astring = userFX.receive();
+                        while (!"effectended".equals(astring)) {
+                            try {
+                                userFX.send(effectswitcher());
+                                astring = userFX.receive();
+                            }catch (NullPointerException e ){
+                                astring = userFX.receive();
+                                continue;
+                            }
+                        }
                         fine = "(stuff/" + color + familyMember + ".png)" + ";";
                         String ind = inizio + fine;
                         market4.setStyle(ind + "-fx-background-size: contain;");
-                        userFX.send("4");
+                        userFX.send("3");
                     }
                 } catch (RemoteException e) {
                     logger.setLevel(Level.SEVERE);
@@ -2239,5 +2279,3 @@ public class GameboardController implements Serializable {
     @FXML
     private Pane bonus;
 }
-
-

@@ -181,7 +181,10 @@ public class Tower {
                     if (sale !=  null) {
                         this.setSale(((PlusDiceEffect) permanentEffects.get(i)).chooseSale(familyMember.getPlayer()));
                     }
-                    familyMember.getPlayer().getUserHandler().messageToUser("Your family member value is increased to: " +familyMember.getValue());
+
+                    if(!familyMember.getPlayer().getUserHandler().isGuiInterface()) {
+                        familyMember.getPlayer().getUserHandler().messageToUser("Your family member value is increased to: " + familyMember.getValue());
+                    }
                 }
             }
         }
@@ -203,7 +206,9 @@ public class Tower {
                 int plusDice = ((PlusDiceEffect) permanentEffect).getPlusDiceValue();
                 familyMember.setValue(familyMember.getValue() - plusDice);
                 this.setSale(new SingleCost(new ResourcesSet(0,0,0,0,0,0,0)));
-                familyMember.getPlayer().getUserHandler().messageToUser("Disable permanent effect");
+                if(!familyMember.getPlayer().getUserHandler().isGuiInterface()) {
+                    familyMember.getPlayer().getUserHandler().messageToUser("Disable permanent effect");
+                }
             }
         }
 
