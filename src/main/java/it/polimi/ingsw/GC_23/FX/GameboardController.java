@@ -1475,6 +1475,7 @@ public class GameboardController implements Serializable {
                         String fine;
                         userFX.send("1");
                         String familyMember = chooseFamilyMember();
+                        userFX.send(identifyFamilyMember(familyMember));
                         String astring = userFX.receive();
                         while (!"effectended".equals(astring)) {
                             try {
@@ -1485,7 +1486,6 @@ public class GameboardController implements Serializable {
                                 continue;
                             }
                         }
-                        //userFX.send(identifyFamilyMember(familyMember));
                         fine = "(stuff/" + color + familyMember + ".png)" + ";";
                         String ind = inizio + fine;
                         harvestb.setStyle(ind + "-fx-background-size: contain;");
@@ -1509,6 +1509,16 @@ public class GameboardController implements Serializable {
                         userFX.send("1");
                         String familyMember = chooseFamilyMember();
                         userFX.send(identifyFamilyMember(familyMember));
+                        String astring = userFX.receive();
+                        while (!"effectended".equals(astring)) {
+                            try {
+                                userFX.send(effectswitcher());
+                                astring = userFX.receive();
+                            }catch (NullPointerException e ){
+                                astring = userFX.receive();
+                                continue;
+                            }
+                        }
                         fine = "(stuff/" + color + familyMember + ".png)" + ";";
                         String ind = inizio + fine;
                         if (harvest2.getStyle().contains("-fx-background-image: url(stuff/null.png);")) {
@@ -1556,6 +1566,16 @@ public class GameboardController implements Serializable {
                         userFX.send("2");
                         String familyMember = chooseFamilyMember();
                         userFX.send(identifyFamilyMember(familyMember));
+                        String astring = userFX.receive();
+                        while (!"effectended".equals(astring)) {
+                            try {
+                                userFX.send(effectswitcher());
+                                astring = userFX.receive();
+                            }catch (NullPointerException e ){
+                                astring = userFX.receive();
+                                continue;
+                            }
+                        }
                         fine = "(stuff/" + color + familyMember + ".png)" + ";";
                         String ind = inizio + fine;
                         productionb.setStyle(ind + "-fx-background-size: contain;");
@@ -1579,6 +1599,16 @@ public class GameboardController implements Serializable {
                         userFX.send("2");
                         String familyMember = chooseFamilyMember();
                         userFX.send(identifyFamilyMember(familyMember));
+                        String astring = userFX.receive();
+                        while (!"effectended".equals(astring)) {
+                            try {
+                                userFX.send(effectswitcher());
+                                astring = userFX.receive();
+                            }catch (NullPointerException e ){
+                                astring = userFX.receive();
+                                continue;
+                            }
+                        }
                         fine = "(stuff/" + color + familyMember + ".png)" + ";";
                         String ind = inizio + fine;
                         if (production2.getStyle().contains("-fx-background-image: url(stuff/null.png);")) {
