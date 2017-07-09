@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="12559092-ad45-4654-bd82-cde319336451" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/FX/GameboardController.java" afterPath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/FX/GameboardController.java" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -45,10 +44,10 @@
       <file leaf-file-name="GameboardController.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/FX/GameboardController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="138">
-              <caret line="1767" column="0" lean-forward="false" selection-start-line="1767" selection-start-column="0" selection-end-line="1767" selection-end-column="0" />
+            <state relative-caret-position="113">
+              <caret line="1763" column="21" lean-forward="true" selection-start-line="1763" selection-start-column="21" selection-end-line="1763" selection-end-column="21" />
               <folding>
-                <marker date="1499622813521" expanded="true" signature="72792:73005" ph="{...}" />
+                <marker date="1499623076047" expanded="true" signature="72792:73005" ph="{...}" />
               </folding>
             </state>
           </provider>
@@ -1392,14 +1391,7 @@
       <workItem from="1499620701316" duration="1131000" />
       <workItem from="1499621864515" duration="58000" />
       <workItem from="1499621949123" duration="105000" />
-      <workItem from="1499622163909" duration="873000" />
-    </task>
-    <task id="LOCAL-00012" summary="Other fix">
-      <created>1496411309874</created>
-      <option name="number" value="00012" />
-      <option name="presentableId" value="LOCAL-00012" />
-      <option name="project" value="LOCAL" />
-      <updated>1496411309874</updated>
+      <workItem from="1499622163909" duration="922000" />
     </task>
     <task id="LOCAL-00013" summary="Other fix">
       <created>1496411329187</created>
@@ -1737,7 +1729,14 @@
       <option name="project" value="LOCAL" />
       <updated>1499621549648</updated>
     </task>
-    <option name="localTasksCounter" value="61" />
+    <task id="LOCAL-00061" summary="finita harvest">
+      <created>1499623051529</created>
+      <option name="number" value="00061" />
+      <option name="presentableId" value="LOCAL-00061" />
+      <option name="project" value="LOCAL" />
+      <updated>1499623051529</updated>
+    </task>
+    <option name="localTasksCounter" value="62" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -1773,7 +1772,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="502805000" />
+    <option name="totallyTimeSpent" value="502854000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -2368,10 +2367,10 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/FX/GameboardController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="138">
-          <caret line="1767" column="0" lean-forward="false" selection-start-line="1767" selection-start-column="0" selection-end-line="1767" selection-end-column="0" />
+        <state relative-caret-position="113">
+          <caret line="1763" column="21" lean-forward="true" selection-start-line="1763" selection-start-column="21" selection-end-line="1763" selection-end-column="21" />
           <folding>
-            <marker date="1499622813521" expanded="true" signature="72792:73005" ph="{...}" />
+            <marker date="1499623076047" expanded="true" signature="72792:73005" ph="{...}" />
           </folding>
         </state>
       </provider>
