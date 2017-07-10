@@ -126,7 +126,7 @@ public class ProductionSpace extends ActionSpace {
 
         for (int i = 0; i < permanentEffectArrayList.size(); i++) {
             PermanentEffect permanentEffect = permanentEffectArrayList.get(i);
-            if (permanentEffect instanceof PlusDiceEffect && ((PlusDiceEffect) permanentEffect).getType().equals("production")) {
+            if (permanentEffect instanceof PlusDiceEffect && "production".equals(((PlusDiceEffect) permanentEffect).getType())) {
                 familyMember.setValue(familyMember.getValue() + ((PlusDiceEffect) permanentEffect).getPlusDiceValue());
             }
         }

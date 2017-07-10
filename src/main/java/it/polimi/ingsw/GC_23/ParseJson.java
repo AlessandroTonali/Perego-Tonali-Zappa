@@ -642,19 +642,19 @@ public class ParseJson {
             } else {
                 sale.add(new SingleCost(new ResourcesSet(0,0,0,0,0,0,0)));
             }
-            if (towerColor.equals("green")) {
+            if ("green".equals(towerColor)) {
                 newPlayColor = NewPlayColor.GREEN;
             }
-            if (towerColor.equals("yellow")) {
+            if ("yellow".equals(towerColor)) {
                 newPlayColor = NewPlayColor.YELLOW;
             }
-            if (towerColor.equals("purple")) {
+            if ("purple".equals(towerColor)) {
                 newPlayColor = NewPlayColor.PURPLE;
             }
-            if (towerColor.equals("blue")) {
+            if ("blue".equals(towerColor)) {
                 newPlayColor = NewPlayColor.BLUE;
             }
-            if (towerColor.equals("rainbow")) {
+            if ("rainbow".equals(towerColor)) {
                 newPlayColor = NewPlayColor.RAINBOW;
             }
             NewPlayCardEffect newPlayCardEffect = new NewPlayCardEffect(diceValue, newPlayColor, sale);
@@ -740,17 +740,17 @@ public class ParseJson {
             if (!jsonObject.has("required_product")) {
 
                 String cardColor = productEffects.getJSONObject(i).getString("card_color");
-                if (cardColor.equals("green")) {
+                if ("green".equals(cardColor)) {
 
                     productEffect = new ProductEffect(givings.get(0), CardColor.GREEN);
                 }
-                if (cardColor.equals("yellow")) {
+                if ("yellow".equals(cardColor)) {
                     productEffect = new ProductEffect(givings.get(0), CardColor.YELLOW);
                 }
-                if (cardColor.equals("purple")) {
+                if ("purple".equals(cardColor)) {
                     productEffect = new ProductEffect(givings.get(0), CardColor.PURPLE);
                 }
-                if (cardColor.equals("blue")) {
+                if ("blue".equals(cardColor)) {
                     productEffect = new ProductEffect(givings.get(0), CardColor.BLUE);
                 }
             } else {

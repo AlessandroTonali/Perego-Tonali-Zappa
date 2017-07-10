@@ -168,7 +168,7 @@ public class Tower {
     public FamilyMember checkPermanentEffect(FamilyMember familyMember) throws RemoteException {
         ArrayList<PermanentEffect> permanentEffects = familyMember.getPlayer().getPermanentEffects();
         for (int i = 0; i < permanentEffects.size(); i++) {
-            if (permanentEffects.get(i) instanceof PlusDiceEffect && ((PlusDiceEffect) permanentEffects.get(i)).getType().equals("tower") && ((PlusDiceEffect) permanentEffects.get(i)).getCardColor() == towerColor) {
+            if (permanentEffects.get(i) instanceof PlusDiceEffect && "tower".equals(((PlusDiceEffect) permanentEffects.get(i)).getType()) && ((PlusDiceEffect) permanentEffects.get(i)).getCardColor() == towerColor) {
                 int plusDice = ((PlusDiceEffect) permanentEffects.get(i)).getPlusDiceValue();
                 familyMember.setValue(familyMember.getValue() + plusDice);
                 if (sale !=  null) {
@@ -194,7 +194,7 @@ public class Tower {
         ArrayList<PermanentEffect> permanentEffectArrayList = familyMember.getPlayer().getPermanentEffects();
         for (int i = 0; i < permanentEffectArrayList.size(); i++) {
             PermanentEffect permanentEffect = permanentEffectArrayList.get(i);
-            if (permanentEffect instanceof PlusDiceEffect && ((PlusDiceEffect) permanentEffect).getType().equals("tower")) {
+            if (permanentEffect instanceof PlusDiceEffect && "tower".equals(((PlusDiceEffect) permanentEffect).getType())) {
                 int plusDice = ((PlusDiceEffect) permanentEffect).getPlusDiceValue();
                 familyMember.setValue(familyMember.getValue() - plusDice);
                 this.setSale(new SingleCost(new ResourcesSet(0,0,0,0,0,0,0)));

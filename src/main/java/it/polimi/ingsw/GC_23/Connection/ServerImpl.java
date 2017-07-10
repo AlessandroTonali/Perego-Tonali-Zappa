@@ -115,7 +115,7 @@ public class ServerImpl extends UnicastRemoteObject implements Server {
     }
 
     public void addToMatch(UserHandler userHandler) throws RemoteException {
-        if (matches.size() != 0 && !matches.get(matches.size() - 1).isStartMatch()) {
+        if (!matches.isEmpty() && !matches.get(matches.size() - 1).isStartMatch()) {
             if (matches.get(matches.size() - 1).getPlayerCounter() == 1) {
                 executor.submit(new MatchTimeOut(matches.get(matches.size() - 1)));
             }

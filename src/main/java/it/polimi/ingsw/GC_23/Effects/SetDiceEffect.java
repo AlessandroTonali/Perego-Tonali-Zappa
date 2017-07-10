@@ -42,10 +42,10 @@ public class SetDiceEffect extends PermanentEffect{
         FamilyMember[] familyMembers = player.getFamilyMembers();
         for (int i = 0; i < familyMembers.length; i++) {
             FamilyMember familyMember = familyMembers[i];
-            if (type.equals("dice_neutral") && familyMember.getFamilyColor() == FamilyColor.NEUTRAL) {
+            if ("dice_neutral".equals(type) && familyMember.getFamilyColor() == FamilyColor.NEUTRAL) {
                 familyMember.setValue(value);
             }
-            if (type.equals("dice_color") && familyMember.getFamilyColor() != FamilyColor.NEUTRAL) {
+            if ("dice_color".equals(type) && familyMember.getFamilyColor() != FamilyColor.NEUTRAL) {
                 familyMember.setValue(value);
             }
         }

@@ -72,12 +72,10 @@ public class UserImpl extends UnicastRemoteObject implements User,Remote, Serial
             ExecutorService executorService = Executors.newCachedThreadPool();
             userFX.setUserImpl(this);
             executorService.submit(userFX);
-            //Application.launch(userFX.getClass());
             while (!isYourTurn){
                 Thread.sleep(3000);
             }
             setYourTurn(false);
-            //selectConnection();
             if(!guiInterface) {
                 if (socketConnection) {
                     connectSocket();
@@ -99,7 +97,7 @@ public class UserImpl extends UnicastRemoteObject implements User,Remote, Serial
             else{
                 if(socketConnection){
                     connectSocket();
-                    while (!inScanner.nextLine().equals("start")){
+                    while (!"start".equals(inScanner.nextLine())){
                         Thread.sleep(2000);
                     }
                     this.matchStarted = true;
@@ -116,45 +114,6 @@ public class UserImpl extends UnicastRemoteObject implements User,Remote, Serial
                 }
             }
         }catch (Exception e){
-            logger.setLevel(Level.SEVERE);
-            logger.severe(String.valueOf(e));
-        }
-    }
-
-    private void selectConnection() throws IOException{
-        boolean selected =false;
-        try{
-            while(!selected) {
-                outVideo.println("Select type of connection");
-                outVideo.println("0 --> RMI");
-                outVideo.println("1 --> SOCKET");
-                String connection = inKeyboard.readLine();
-                int i = 3;
-                try {
-                    i = Integer.parseInt(connection);
-
-                } catch (NumberFormatException e) {
-                    System.out.println("Invalid format");
-                    selectConnection();
-                    return;
-                }
-                switch (i) {
-                    case 0:
-                        outVideo.println("Connection Selected");
-                        selected =true;
-                        connectRMI();
-                        break;
-                    case 1:
-                        outVideo.println("Connection Selected");
-                        selected = true;
-                        connectSocket();
-                        break;
-                    default:
-                        outVideo.println("Invalid number, try again");
-                        break;
-                }
-            }
-        }catch(Exception e){
             logger.setLevel(Level.SEVERE);
             logger.severe(String.valueOf(e));
         }
@@ -190,25 +149,25 @@ public class UserImpl extends UnicastRemoteObject implements User,Remote, Serial
     private void play() throws IOException{
         String actualString = inScanner.nextLine();
         while (true) {
-            while (!actualString.equals("write") && !actualString.equals("wait") && !actualString.equals("quit") && !actualString.equals("read")) {
+            while (!"write".equals(actualString) && !"wait".equals(actualString) && !"quit".equals(actualString) && !"read".equals(actualString)) {
                 outVideo.println(actualString);
                 actualString = inScanner.nextLine();
             }
-            if(actualString.equals("read")){
+            if("read".equals(actualString)){
                 actualString = inScanner.nextLine();
                 continue;
             }
-            if (actualString.equals("write")) {
+            if ("write".equals(actualString)) {
                 ExecutorService executorService = Executors.newCachedThreadPool();
                 WriteThread writeThread = new WriteThread(this);
                 executorService.submit(writeThread);
-                while (!actualString.equals("read") && !typed) {
+                while (!"read".equals(actualString) && !typed) {
                     actualString = inScanner.nextLine();
                 }
                 typed = false;
                 continue;
             }
-            if (actualString.equals("wait")) {
+            if ("wait".equals(actualString)) {
                 String string = inScanner.nextLine();
                 while (string == null) {
                     string = inScanner.nextLine();
@@ -216,7 +175,7 @@ public class UserImpl extends UnicastRemoteObject implements User,Remote, Serial
                 actualString = string;
                 continue;
             }
-            if (actualString.equals("quit")) {
+            if ("quit".equals(actualString)) {
                 isYourTurn = true;
                 break;
             }
@@ -326,7 +285,7 @@ public class UserImpl extends UnicastRemoteObject implements User,Remote, Serial
     }
 
     public String getReceivedFromGui() throws RemoteException{
-        while (this.receivedFromGui.size() == 0){
+        while (this.receivedFromGui.isEmpty()){
             try {
                 Thread.sleep(1000);
             } catch (InterruptedException e) {
@@ -341,7 +300,7 @@ public class UserImpl extends UnicastRemoteObject implements User,Remote, Serial
     }
 
     public String getSentToGui() throws RemoteException{
-        while (this.sentToGui.size() == 0){
+        while (this.sentToGui.isEmpty()){
             try {
                 Thread.sleep(1000);
             } catch (InterruptedException e) {

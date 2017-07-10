@@ -30,7 +30,6 @@ public class CouncilSpace extends ActionSpace {
     public void setFamilyMember(FamilyMember familyMember){
         this.playerOrder.add(familyMember.getPlayer());
         orderCounter++;
-        Player player = familyMember.getPlayer();
         FamilyMember[] members = familyMember.getPlayer().getFamilyMembers();
         int i = 0;
         for(FamilyMember m : members) {

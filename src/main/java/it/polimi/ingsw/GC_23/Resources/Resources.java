@@ -28,6 +28,6 @@ public class Resources {
         this.quantity = quantity;
     }
 
-    public String toString(){return "" + quantity;
+    public String toString(){return Integer.toString(quantity);
     }
 }

@@ -67,22 +67,22 @@ public class FamilyMember {
         for (int i = 0; i < permanentEffectArrayList.size(); i++) {
             PermanentEffect permanentEffect = permanentEffectArrayList.get(i);
 
-            if (permanentEffect instanceof SetDiceEffect && ((SetDiceEffect) permanentEffectArrayList.get(i)).getType().equals("dice_color") && familyColor != FamilyColor.NEUTRAL) {
+            if (permanentEffect instanceof SetDiceEffect && ("dice_color".equals(((SetDiceEffect) permanentEffectArrayList.get(i)).getType()) && familyColor != FamilyColor.NEUTRAL)) {
                 value = ((SetDiceEffect) permanentEffect).getValue();
             }
 
-            if (permanentEffect instanceof SetDiceEffect && ((SetDiceEffect) permanentEffectArrayList.get(i)).getType().equals("dice_neutral") && familyColor == FamilyColor.NEUTRAL) {
+            if (permanentEffect instanceof SetDiceEffect && ("dice_neutral".equals(((SetDiceEffect) permanentEffectArrayList.get(i)).getType()) && familyColor == FamilyColor.NEUTRAL)) {
                 value = ((SetDiceEffect) permanentEffect).getValue();
             }
         }
 
         for (int i = 0; i < permanentEffectArrayList.size(); i++) {
             PermanentEffect permanentEffect = permanentEffectArrayList.get(i);
-            if (permanentEffect instanceof PlusDiceEffect && ((PlusDiceEffect) permanentEffectArrayList.get(i)).getType().equals("dice_color") && familyColor != FamilyColor.NEUTRAL) {
+            if (permanentEffect instanceof PlusDiceEffect && ("dice_color".equals(((PlusDiceEffect) permanentEffectArrayList.get(i)).getType()) && familyColor != FamilyColor.NEUTRAL)) {
                 value = value + ((PlusDiceEffect) permanentEffect).getPlusDiceValue();
 
             }
-            if (permanentEffect instanceof PlusDiceEffect && ((PlusDiceEffect) permanentEffectArrayList.get(i)).getType().equals("dice_neutral") && familyColor == FamilyColor.NEUTRAL) {
+            if (permanentEffect instanceof PlusDiceEffect && ("dice_neutral".equals(((PlusDiceEffect) permanentEffectArrayList.get(i)).getType()) && familyColor == FamilyColor.NEUTRAL)) {
                 value = value + ((PlusDiceEffect) permanentEffect).getPlusDiceValue();
             }
         }

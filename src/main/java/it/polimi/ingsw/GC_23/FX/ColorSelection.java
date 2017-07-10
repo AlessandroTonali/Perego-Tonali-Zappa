@@ -18,7 +18,7 @@ public class ColorSelection implements Serializable {
     private Stage primaryStage;
     private UserFX userFX;
     private ColorController colorController;
-    private final Logger logger = Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
+    private transient final Logger logger = Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
 
     public ColorSelection(Stage primaryStage, Login login)  throws RemoteException{
         this.primaryStage = primaryStage;

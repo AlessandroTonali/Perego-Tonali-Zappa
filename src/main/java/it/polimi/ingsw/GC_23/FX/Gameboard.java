@@ -32,8 +32,8 @@ public class Gameboard implements Serializable {
     private UserFX userFX;
     private String color;
     private transient final Logger logger = Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
-    private MessageListener messageListener;
-    private ExecutorService executorService;
+    private transient MessageListener messageListener;
+    private transient ExecutorService executorService;
 
     public Gameboard(Stage primaryStage, UserFX userFX, String color) {
         this.primaryStage = primaryStage;
@@ -45,7 +45,7 @@ public class Gameboard implements Serializable {
     public void running(GameboardController gameboardController) throws RemoteException {
         String actualString = userFX.receive();
         while (true){
-            if(actualString.equals("update")){
+            if("update".equals(actualString)){
                 updateController(gameboardController);
 
             }
@@ -86,7 +86,7 @@ public class Gameboard implements Serializable {
         this.primaryStage.show();
         String astring;
         astring = userFX.receive();
-        while (!astring.equals("starttoupdate")){
+        while (!"starttoupdate".equals(astring)){
             astring = userFX.receive();
 
         }
