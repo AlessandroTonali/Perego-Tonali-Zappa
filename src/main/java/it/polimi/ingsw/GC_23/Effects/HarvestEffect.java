@@ -1,13 +1,10 @@
 package it.polimi.ingsw.GC_23.Effects;
 
-import it.polimi.ingsw.GC_23.FamilyMember;
 import it.polimi.ingsw.GC_23.Player;
-import jdk.nashorn.internal.runtime.arrays.ArrayLikeIterator;
 
 import java.io.IOException;
 import java.util.ArrayList;
 
-import java.util.logging.Logger;
 
 /**
  * Created by Alessandro on 16/06/2017.

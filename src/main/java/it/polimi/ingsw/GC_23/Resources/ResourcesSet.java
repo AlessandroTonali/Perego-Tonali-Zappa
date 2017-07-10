@@ -4,7 +4,6 @@ import it.polimi.ingsw.GC_23.Effects.MalusOnBenefitEffect;
 import it.polimi.ingsw.GC_23.Effects.PermanentEffect;
 import it.polimi.ingsw.GC_23.Player;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 /**

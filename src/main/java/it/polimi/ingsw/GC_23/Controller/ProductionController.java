@@ -5,7 +5,6 @@ import it.polimi.ingsw.GC_23.Spaces.ProductionSpace;
 
 import java.io.IOException;
 import java.rmi.RemoteException;
-import java.util.ArrayList;
 
 /**
  * Created by jesss on 23/05/17.

@@ -1,6 +1,5 @@
 package it.polimi.ingsw.GC_23;
 
-import java.rmi.RemoteException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 

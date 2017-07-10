@@ -1,11 +1,51 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="12559092-ad45-4654-bd82-cde319336451" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/UML/Connection.uml" afterPath="$PROJECT_DIR$/UML/Connection.uml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/UML/Controller.uml" afterPath="$PROJECT_DIR$/UML/Controller.uml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/UML/Model.uml" afterPath="$PROJECT_DIR$/UML/Model.uml" />
+    <list default="true" id="12559092-ad45-4654-bd82-cde319336451" name="Default" comment="UML">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/Board.java" afterPath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/Board.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/BonusTile.java" afterPath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/BonusTile.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/Cards/Card.java" afterPath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/Cards/Card.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/Cards/CharacterCard.java" afterPath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/Cards/CharacterCard.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/Connection/Match.java" afterPath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/Connection/Match.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/Connection/PlayerController.java" afterPath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/Connection/PlayerController.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/Connection/RMIHandler.java" afterPath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/Connection/RMIHandler.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/Connection/Server.java" afterPath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/Connection/Server.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/Connection/ServerImpl.java" afterPath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/Connection/ServerImpl.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/Connection/SocketAccepter.java" afterPath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/Connection/SocketAccepter.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/Connection/SocketHandler.java" afterPath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/Connection/SocketHandler.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/Connection/User.java" afterPath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/Connection/User.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/Connection/UserHandler.java" afterPath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/Connection/UserHandler.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/Controller/Controller.java" afterPath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/Controller/Controller.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/Controller/CouncilController.java" afterPath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/Controller/CouncilController.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/Controller/DiscardLeaderCard.java" afterPath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/Controller/DiscardLeaderCard.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/Controller/MarketController.java" afterPath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/Controller/MarketController.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/Controller/ProductionController.java" afterPath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/Controller/ProductionController.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/Controller/TowerController.java" afterPath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/Controller/TowerController.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/Creator.java" afterPath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/Creator.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/Dice.java" afterPath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/Dice.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/Effects/AbsEffect.java" afterPath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/Effects/AbsEffect.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/Effects/CouncilPrivilegeEffect.java" afterPath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/Effects/CouncilPrivilegeEffect.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/Effects/HarvestEffect.java" afterPath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/Effects/HarvestEffect.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/Effects/NewPlayHarvestEffect.java" afterPath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/Effects/NewPlayHarvestEffect.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/Effects/NewPlayProductionEffect.java" afterPath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/Effects/NewPlayProductionEffect.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/Effects/PermanentEffect.java" afterPath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/Effects/PermanentEffect.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/Effects/ProductEffect.java" afterPath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/Effects/ProductEffect.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/Effects/ProductionEffect.java" afterPath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/Effects/ProductionEffect.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/FX/Gameboard.java" afterPath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/FX/Gameboard.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/FX/GameboardController.java" afterPath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/FX/GameboardController.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/FX/Login.java" afterPath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/FX/Login.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/FX/UserFX.java" afterPath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/FX/UserFX.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/Main.java" afterPath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/Main.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/PlayerTimeOut.java" afterPath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/PlayerTimeOut.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/Resources/FaithPoints.java" afterPath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/Resources/FaithPoints.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/Resources/Resources.java" afterPath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/Resources/Resources.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/Resources/ResourcesSet.java" afterPath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/Resources/ResourcesSet.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/Spaces/ActionSpace.java" afterPath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/Spaces/ActionSpace.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/Spaces/DiceSpace.java" afterPath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/Spaces/DiceSpace.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/Spaces/ExcommunicationSpace.java" afterPath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/Spaces/ExcommunicationSpace.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/Spaces/MarketSpace.java" afterPath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/Spaces/MarketSpace.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/StringTyper.java" afterPath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/StringTyper.java" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -43,7 +83,18 @@
     <favorites_list name="GC_23" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="MatchTimeOut.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/Connection/MatchTimeOut.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="105">
+              <caret line="11" column="13" lean-forward="false" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -58,8 +109,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>system.out.print</find>
-      <find>system.out.println</find>
       <find>si</find>
       <find>excomm</find>
       <find>alert</find>
@@ -88,6 +137,8 @@
       <find>nullpoin</find>
       <find>perm</find>
       <find>resar</find>
+      <find>switch</find>
+      <find>matches</find>
     </findStrings>
     <replaceStrings>
       <replace />
@@ -112,57 +163,57 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/resources/cardspace.css" />
-        <option value="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/Cards/Card.java" />
-        <option value="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/Board.java" />
-        <option value="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/Effects/DiscountEffect.java" />
-        <option value="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/Effects/CouncilPrivilegeEffect.java" />
-        <option value="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/Effects/FlagEffect.java" />
-        <option value="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/Effects/HarvestEffect.java" />
-        <option value="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/Effects/ImplicationEffect.java" />
-        <option value="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/Effects/NewPlayCardEffect.java" />
-        <option value="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/Effects/NewPlayHarvestEffect.java" />
-        <option value="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/Effects/NewPlayProductionEffect.java" />
-        <option value="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/Effects/ProductionEffect.java" />
-        <option value="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/Effects/ProductEffect.java" />
-        <option value="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/Controller/CouncilController.java" />
-        <option value="$PROJECT_DIR$/src/main/resources/gameboard.fxml" />
-        <option value="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/Controller/MarketController.java" />
-        <option value="$PROJECT_DIR$/Board.json" />
-        <option value="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/Controller/ProductionController.java" />
-        <option value="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/Controller/HarvestController.java" />
-        <option value="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/Spaces/ExcommunicationSpace.java" />
-        <option value="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/Controller/TerritoryController.java" />
-        <option value="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/Connection/MatchTimeOut.java" />
-        <option value="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/Connection/RMIHandler.java" />
-        <option value="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/Connection/UserImpl.java" />
-        <option value="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/Effects/PlusDiceEffect.java" />
-        <option value="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/Effects/SetDiceEffect.java" />
-        <option value="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/FX/ColorSelection.java" />
-        <option value="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/FX/MessageListener.java" />
-        <option value="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/Player.java" />
-        <option value="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/FX/Gameboard.java" />
-        <option value="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/Connection/ServerImpl.java" />
-        <option value="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/Effects/BenefitsEffect.java" />
-        <option value="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/ParseJson.java" />
-        <option value="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/Spaces/CouncilSpace.java" />
-        <option value="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/Spaces/HarvestSpace.java" />
-        <option value="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/Spaces/ProductionSpace.java" />
         <option value="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/Spaces/Tower.java" />
         <option value="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/Spaces/TowerSpace.java" />
-        <option value="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/Resources/ResourcesSet.java" />
-        <option value="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/Resources/Resources.java" />
-        <option value="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/BonusTile.java" />
-        <option value="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/Creator.java" />
         <option value="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/ExcommunicationTile.java" />
         <option value="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/FamilyMember.java" />
         <option value="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/PlayGame.java" />
         <option value="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/Util.java" />
         <option value="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/FX/ColorController.java" />
-        <option value="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/FX/GameboardController.java" />
-        <option value="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/FX/Login.java" />
-        <option value="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/Connection/Match.java" />
         <option value="$PROJECT_DIR$/README.md" />
+        <option value="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/FX/GameboardController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/Controller/DiscardLeaderCard.java" />
+        <option value="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/Board.java" />
+        <option value="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/BonusTile.java" />
+        <option value="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/Creator.java" />
+        <option value="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/Dice.java" />
+        <option value="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/Main.java" />
+        <option value="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/PlayerTimeOut.java" />
+        <option value="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/StringTyper.java" />
+        <option value="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/Cards/Card.java" />
+        <option value="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/Cards/CharacterCard.java" />
+        <option value="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/Connection/Match.java" />
+        <option value="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/Connection/PlayerController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/Connection/RMIHandler.java" />
+        <option value="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/Connection/Server.java" />
+        <option value="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/Connection/ServerImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/Connection/SocketAccepter.java" />
+        <option value="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/Connection/SocketHandler.java" />
+        <option value="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/Connection/User.java" />
+        <option value="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/Connection/UserHandler.java" />
+        <option value="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/Controller/Controller.java" />
+        <option value="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/Controller/CouncilController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/Controller/MarketController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/Controller/ProductionController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/Controller/TowerController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/Effects/AbsEffect.java" />
+        <option value="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/Effects/CouncilPrivilegeEffect.java" />
+        <option value="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/Effects/HarvestEffect.java" />
+        <option value="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/Effects/NewPlayHarvestEffect.java" />
+        <option value="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/Effects/NewPlayProductionEffect.java" />
+        <option value="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/Effects/PermanentEffect.java" />
+        <option value="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/Effects/ProductEffect.java" />
+        <option value="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/Effects/ProductionEffect.java" />
+        <option value="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/FX/Gameboard.java" />
+        <option value="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/FX/Login.java" />
+        <option value="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/FX/UserFX.java" />
+        <option value="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/Resources/FaithPoints.java" />
+        <option value="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/Resources/ResourcesSet.java" />
+        <option value="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/Resources/Resources.java" />
+        <option value="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/Spaces/ActionSpace.java" />
+        <option value="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/Spaces/DiceSpace.java" />
+        <option value="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/Spaces/ExcommunicationSpace.java" />
+        <option value="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/Spaces/MarketSpace.java" />
       </list>
     </option>
   </component>
@@ -211,9 +262,8 @@
     <option name="jreName" value="#JAVA_INTERNAL" />
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="-1" />
     <option name="y" value="23" />
-    <option name="width" value="1053" />
+    <option name="width" value="1279" />
     <option name="height" value="706" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
@@ -335,6 +385,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="PackagesPane" />
+      <pane id="Scratches" />
       <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
@@ -345,20 +397,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="Perego-Tonali-Zappa" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="GC_23" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Perego-Tonali-Zappa" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="UML" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -420,10 +458,38 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="GC_23" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Perego-Tonali-Zappa" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="GC_23" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Connection" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
-      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -469,122 +535,6 @@
       <recent name="$PROJECT_DIR$/src/main/resources/bonus" />
       <recent name="$PROJECT_DIR$/src/main/resources" />
     </key>
-  </component>
-  <component name="RestoreUpdateTree" date="Moments ago" ActionInfo="_Update">
-    <UpdatedFiles>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Updated from server" />
-        <option name="myStatusName" value="Changed on server" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="CHANGED_ON_SERVER" />
-        <FILE-GROUP>
-          <option name="myUpdateName" value="Updated" />
-          <option name="myStatusName" value="Changed" />
-          <option name="mySupportsDeletion" value="false" />
-          <option name="myCanBeAbsent" value="false" />
-          <option name="myId" value="UPDATED" />
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/.idea/workspace.xml</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/Controller/CouncilController.java</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/Controller/HarvestController.java</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/Controller/MarketController.java</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/Controller/ProductionController.java</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/Creator.java</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/FX/GameboardController.java</PATH>
-        </FILE-GROUP>
-        <FILE-GROUP>
-          <option name="myUpdateName" value="Created" />
-          <option name="myStatusName" value="Created" />
-          <option name="mySupportsDeletion" value="false" />
-          <option name="myCanBeAbsent" value="false" />
-          <option name="myId" value="CREATED" />
-        </FILE-GROUP>
-        <FILE-GROUP>
-          <option name="myUpdateName" value="Deleted" />
-          <option name="myStatusName" value="Deleted" />
-          <option name="mySupportsDeletion" value="false" />
-          <option name="myCanBeAbsent" value="true" />
-          <option name="myId" value="REMOVED_FROM_REPOSITORY" />
-        </FILE-GROUP>
-        <FILE-GROUP>
-          <option name="myUpdateName" value="Restored" />
-          <option name="myStatusName" value="Will be restored" />
-          <option name="mySupportsDeletion" value="false" />
-          <option name="myCanBeAbsent" value="false" />
-          <option name="myId" value="RESTORED" />
-        </FILE-GROUP>
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Modified" />
-        <option name="myStatusName" value="Modified" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="MODIFIED" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Skipped" />
-        <option name="myStatusName" value="Skipped" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="SKIPPED" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Merged with conflicts" />
-        <option name="myStatusName" value="Will be merged with conflicts" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="MERGED_WITH_CONFLICTS" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Merged with tree conflicts" />
-        <option name="myStatusName" value="Merged with tree conflicts" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="MERGED_WITH_TREE_CONFLICT" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Merged with property conflicts" />
-        <option name="myStatusName" value="Will be merged with property conflicts" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="MERGED_WITH_PROPERTY_CONFLICT" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Merged" />
-        <option name="myStatusName" value="Will be merged" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="MERGED" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Not in repository" />
-        <option name="myStatusName" value="Not in repository" />
-        <option name="mySupportsDeletion" value="true" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="UNKNOWN" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Locally added" />
-        <option name="myStatusName" value="Locally added" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="LOCALLY_ADDED" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Locally removed" />
-        <option name="myStatusName" value="Locally removed" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="LOCALLY_REMOVED" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Switched" />
-        <option name="myStatusName" value="Switched" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="SWITCHED" />
-      </FILE-GROUP>
-    </UpdatedFiles>
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -1315,6 +1265,9 @@
       <workItem from="1499602055588" duration="6647000" />
       <workItem from="1499610551318" duration="24182000" />
       <workItem from="1499669023938" duration="7613000" />
+      <workItem from="1499686930072" duration="34000" />
+      <workItem from="1499687940050" duration="187000" />
+      <workItem from="1499688547229" duration="1300000" />
     </task>
     <task id="LOCAL-00018" summary="fixati errori">
       <created>1496749375797</created>
@@ -1695,7 +1648,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="527104000" />
+    <option name="totallyTimeSpent" value="528662000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1707,63 +1660,39 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-1" y="23" width="1053" height="706" extended-state="0" />
+    <frame x="0" y="23" width="1279" height="706" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Nl-Palette" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.40522876" sideWeight="0.5048465" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32714054" sideWeight="0.48753893" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32956383" sideWeight="0.48753893" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24959612" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24959612" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.50651467" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32739726" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32410422" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24918567" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.71824104" sideWeight="0.4951535" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Coverage" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3263328" sideWeight="0.51246107" order="10" side_tool="true" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.35311574" sideWeight="0.48096192" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.31758958" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.23263328" sideWeight="0.5190381" order="5" side_tool="true" content_ui="tabs" />
-      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Nl-Palette" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.40522876" sideWeight="0.5048465" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32714054" sideWeight="0.48753893" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32956383" sideWeight="0.48753893" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24959612" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.50651467" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32739726" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32258064" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.40522876" sideWeight="0.5048465" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32659662" sideWeight="0.48753893" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24918567" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.71824104" sideWeight="0.4951535" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Coverage" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3263328" sideWeight="0.51246107" order="10" side_tool="true" content_ui="tabs" />
+      <window_info id="Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.09127625" sideWeight="0.48096192" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.31758958" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23282135" sideWeight="0.48096192" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32956383" sideWeight="0.48753893" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24959612" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.23263328" sideWeight="0.5190381" order="5" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.50651467" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Coverage" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3263328" sideWeight="0.51246107" order="10" side_tool="true" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.31758958" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -1875,1352 +1804,463 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/Controller/ProductionController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="7" column="0" lean-forward="false" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/Controller/TerritoryController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" column="0" lean-forward="false" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
+        <state relative-caret-position="188">
+          <caret line="15" column="13" lean-forward="false" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
           <folding>
             <element signature="imports" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/Connection/MatchTimeOut.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/Controller/TowerController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="26" column="45" lean-forward="true" selection-start-line="26" selection-start-column="45" selection-end-line="26" selection-end-column="45" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/Connection/RMIHandler.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="345">
-          <caret line="47" column="14" lean-forward="true" selection-start-line="47" selection-start-column="14" selection-end-line="47" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/Effects/SetDiceEffect.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="175">
-          <caret line="23" column="5" lean-forward="false" selection-start-line="23" selection-start-column="5" selection-end-line="23" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/Controller/NewPlayCardController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="16" column="13" lean-forward="false" selection-start-line="16" selection-start-column="13" selection-end-line="16" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/Connection/UserImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="179">
-          <caret line="99" column="41" lean-forward="false" selection-start-line="99" selection-start-column="36" selection-end-line="99" selection-end-column="41" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/Connection/ServerImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="235">
-          <caret line="117" column="31" lean-forward="true" selection-start-line="117" selection-start-column="31" selection-end-line="117" selection-end-column="31" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/Effects/ImplicationEffect.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="5" column="22" lean-forward="false" selection-start-line="5" selection-start-column="17" selection-end-line="5" selection-end-column="22" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/Effects/BenefitsEffect.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="400">
-          <caret line="68" column="0" lean-forward="false" selection-start-line="68" selection-start-column="0" selection-end-line="68" selection-end-column="0" />
-          <folding>
-            <element signature="e#1870#1871#0" expanded="false" />
-            <element signature="e#1937#1938#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/Spaces/CouncilSpace.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="235">
-          <caret line="32" column="0" lean-forward="false" selection-start-line="32" selection-start-column="0" selection-end-line="32" selection-end-column="0" />
-          <folding>
-            <element signature="e#1824#1825#0" expanded="false" />
-            <element signature="e#1858#1859#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/Spaces/HarvestSpace.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="205">
-          <caret line="124" column="81" lean-forward="true" selection-start-line="124" selection-start-column="81" selection-end-line="124" selection-end-column="81" />
-          <folding>
-            <element signature="e#1671#1672#0" expanded="false" />
-            <element signature="e#1714#1715#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/Spaces/ProductionSpace.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="205">
-          <caret line="128" column="127" lean-forward="false" selection-start-line="128" selection-start-column="127" selection-end-line="128" selection-end-column="127" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/Spaces/TowerSpace.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="454">
-          <caret line="81" column="31" lean-forward="false" selection-start-line="81" selection-start-column="31" selection-end-line="81" selection-end-column="31" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/Spaces/Tower.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="205">
-          <caret line="141" column="25" lean-forward="false" selection-start-line="141" selection-start-column="17" selection-end-line="141" selection-end-column="25" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/Resources/ResourcesSet.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="190">
-          <caret line="200" column="43" lean-forward="false" selection-start-line="200" selection-start-column="43" selection-end-line="200" selection-end-column="43" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/Resources/Resources.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="30" column="62" lean-forward="false" selection-start-line="30" selection-start-column="62" selection-end-line="30" selection-end-column="62" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/Board.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2466">
-          <caret line="166" column="0" lean-forward="false" selection-start-line="166" selection-start-column="0" selection-end-line="166" selection-end-column="0" />
-          <folding>
-            <element signature="e#6000#6001#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/BonusTile.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="132">
-          <caret line="16" column="51" lean-forward="false" selection-start-line="16" selection-start-column="51" selection-end-line="16" selection-end-column="51" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/CardOfPlayer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="118">
-          <caret line="12" column="13" lean-forward="false" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
+        <state relative-caret-position="30">
+          <caret line="2" column="42" lean-forward="false" selection-start-line="2" selection-start-column="42" selection-end-line="2" selection-end-column="42" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/Effects/AbsEffect.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="10" column="3" lean-forward="false" selection-start-line="10" selection-start-column="3" selection-end-line="10" selection-end-column="3" />
-          <folding />
+        <state relative-caret-position="150">
+          <caret line="10" column="22" lean-forward="false" selection-start-line="10" selection-start-column="22" selection-end-line="10" selection-end-column="22" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/Dice.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/Effects/BenefitsEffect.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" column="7" lean-forward="true" selection-start-line="2" selection-start-column="7" selection-end-line="2" selection-end-column="7" />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/Effects/CouncilPrivilegeEffect.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" column="0" lean-forward="false" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/Effects/FlagEffect.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" column="7" lean-forward="true" selection-start-line="2" selection-start-column="7" selection-end-line="2" selection-end-column="7" />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/Effects/HarvestEffect.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="105">
-          <caret line="10" column="13" lean-forward="false" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
+          <caret line="7" column="0" lean-forward="false" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/Effects/ImplicationEffect.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" column="7" lean-forward="true" selection-start-line="2" selection-start-column="7" selection-end-line="2" selection-end-column="7" />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/Effects/NewPlayHarvestEffect.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="6" column="0" lean-forward="false" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/Creator.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/Effects/NewPlayProductionEffect.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="132">
-          <caret line="77" column="58" lean-forward="false" selection-start-line="77" selection-start-column="58" selection-end-line="77" selection-end-column="58" />
+        <state relative-caret-position="90">
+          <caret line="6" column="0" lean-forward="false" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/ExcommunicationTile.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/Effects/NewPlayCardEffect.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="98">
-          <caret line="23" column="53" lean-forward="false" selection-start-line="23" selection-start-column="53" selection-end-line="23" selection-end-column="53" />
-          <folding />
+        <state relative-caret-position="30">
+          <caret line="2" column="7" lean-forward="true" selection-start-line="2" selection-start-column="7" selection-end-line="2" selection-end-column="7" />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/FamilyMember.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/Effects/MalusOnBenefitEffect.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-273">
-          <caret line="97" column="34" lean-forward="false" selection-start-line="97" selection-start-column="34" selection-end-line="97" selection-end-column="34" />
-          <folding />
+        <state relative-caret-position="30">
+          <caret line="2" column="7" lean-forward="true" selection-start-line="2" selection-start-column="7" selection-end-line="2" selection-end-column="7" />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/Main.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/Effects/EndGameEffect.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="29" column="13" lean-forward="false" selection-start-line="29" selection-start-column="13" selection-end-line="29" selection-end-column="13" />
-          <folding />
+        <state relative-caret-position="30">
+          <caret line="2" column="7" lean-forward="true" selection-start-line="2" selection-start-column="7" selection-end-line="2" selection-end-column="7" />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/MilitaryCost.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/Effects/PermanentEffect.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="11" column="0" lean-forward="true" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/ParseJson.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-3059">
-          <caret line="644" column="30" lean-forward="false" selection-start-line="644" selection-start-column="24" selection-end-line="644" selection-end-column="30" />
+        <state relative-caret-position="0">
+          <caret line="0" column="38" lean-forward="false" selection-start-line="0" selection-start-column="38" selection-end-line="0" selection-end-column="38" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/Effects/PlusDiceEffect.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="212">
-          <caret line="112" column="6" lean-forward="false" selection-start-line="112" selection-start-column="6" selection-end-line="112" selection-end-column="6" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/Player.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2401">
-          <caret line="341" column="26" lean-forward="false" selection-start-line="341" selection-start-column="26" selection-end-line="341" selection-end-column="26" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/PlayerTimeOut.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="9" column="13" lean-forward="false" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/Effects/CouncilPrivilegeEffect.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="124">
-          <caret line="212" column="87" lean-forward="false" selection-start-line="212" selection-start-column="87" selection-end-line="212" selection-end-column="87" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/PlayGame.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="186">
-          <caret line="574" column="0" lean-forward="true" selection-start-line="574" selection-start-column="0" selection-end-line="574" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/Requirement.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="7" column="13" lean-forward="false" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/Util.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="302">
-          <caret line="50" column="72" lean-forward="false" selection-start-line="50" selection-start-column="72" selection-end-line="50" selection-end-column="72" />
-          <folding />
+        <state relative-caret-position="30">
+          <caret line="2" column="7" lean-forward="true" selection-start-line="2" selection-start-column="7" selection-end-line="2" selection-end-column="7" />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/Effects/ProductEffect.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="501">
-          <caret line="59" column="6" lean-forward="false" selection-start-line="59" selection-start-column="6" selection-end-line="59" selection-end-column="6" />
+        <state relative-caret-position="90">
+          <caret line="6" column="0" lean-forward="false" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/Effects/ProductionEffect.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" column="0" lean-forward="false" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/Effects/SetDiceEffect.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" column="7" lean-forward="true" selection-start-line="2" selection-start-column="7" selection-end-line="2" selection-end-column="7" />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/Enumerations/CardColor.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="5" column="12" lean-forward="false" selection-start-line="5" selection-start-column="12" selection-end-line="5" selection-end-column="12" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/Enumerations/DiceColor.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="5" column="12" lean-forward="false" selection-start-line="5" selection-start-column="12" selection-end-line="5" selection-end-column="12" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/Enumerations/FamilyColor.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="5" column="12" lean-forward="false" selection-start-line="5" selection-start-column="12" selection-end-line="5" selection-end-column="12" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/Enumerations/NewPlayColor.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="5" column="12" lean-forward="false" selection-start-line="5" selection-start-column="12" selection-end-line="5" selection-end-column="12" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/Enumerations/PlayerColor.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="5" column="12" lean-forward="false" selection-start-line="5" selection-start-column="12" selection-end-line="5" selection-end-column="12" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/FX/ColorController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-246">
-          <caret line="160" column="40" lean-forward="true" selection-start-line="160" selection-start-column="40" selection-end-line="160" selection-end-column="40" />
-          <folding />
+        <state relative-caret-position="30">
+          <caret line="2" column="7" lean-forward="true" selection-start-line="2" selection-start-column="7" selection-end-line="2" selection-end-column="7" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/FX/ColorSelection.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-450">
-          <caret line="20" column="22" lean-forward="false" selection-start-line="20" selection-start-column="22" selection-end-line="20" selection-end-column="22" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/StringTyper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="11" column="13" lean-forward="false" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
-          <folding />
+        <state relative-caret-position="30">
+          <caret line="2" column="7" lean-forward="true" selection-start-line="2" selection-start-column="7" selection-end-line="2" selection-end-column="7" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/FX/Gameboard.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="510">
-          <caret line="52" column="0" lean-forward="true" selection-start-line="52" selection-start-column="0" selection-end-line="52" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/SingleCost.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="7" column="13" lean-forward="false" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
+        <state relative-caret-position="165">
+          <caret line="11" column="0" lean-forward="false" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/FX/GameboardController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-11939">
-          <caret line="923" column="28" lean-forward="false" selection-start-line="923" selection-start-column="28" selection-end-line="923" selection-end-column="28" />
-          <folding />
+        <state relative-caret-position="30">
+          <caret line="2" column="7" lean-forward="true" selection-start-line="2" selection-start-column="7" selection-end-line="2" selection-end-column="7" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/FX/Login.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1011">
-          <caret line="110" column="20" lean-forward="true" selection-start-line="110" selection-start-column="20" selection-end-line="110" selection-end-column="20" />
+        <state relative-caret-position="210">
+          <caret line="14" column="0" lean-forward="false" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/FX/MessageListener.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-892">
-          <caret line="23" column="23" lean-forward="true" selection-start-line="23" selection-start-column="23" selection-end-line="23" selection-end-column="23" />
-          <folding />
+        <state relative-caret-position="30">
+          <caret line="2" column="7" lean-forward="true" selection-start-line="2" selection-start-column="7" selection-end-line="2" selection-end-column="7" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/FX/UserFX.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1130">
-          <caret line="18" column="13" lean-forward="false" selection-start-line="18" selection-start-column="13" selection-end-line="18" selection-end-column="13" />
+        <state relative-caret-position="120">
+          <caret line="8" column="0" lean-forward="false" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="uml://JAVA/it.polimi.ingsw.GC_23.Connection">
-      <provider selected="true" editor-type-id="UmlEditorProvider">
-        <state>
-          <ID>JAVA</ID>
-          <OriginalElement>it.polimi.ingsw.GC_23.Connection</OriginalElement>
-          <nodes>
-            <node x="" y="">it.polimi.ingsw.GC_23.Connection</node>
-          </nodes>
-          <notes />
-          <edges />
-          <settings layout="Hierarchic Group" zoom="0.26288552353508965" x="776.5695628924971" y="617.4564525938226" />
-          <SelectedNodes />
-          <Categories>
-            <Category>Methods</Category>
-          </Categories>
-          <SCOPE>All</SCOPE>
-          <VISIBILITY>public</VISIBILITY>
-        </state>
-      </provider>
-    </entry>
-    <entry file="uml://JavaScript-modules-diagram//Users/valeriopozzoni/Desktop/Perego-Tonali-Zappa/src/main/java/it/polimi/ingsw/GC_23">
-      <provider selected="true" editor-type-id="UmlEditorProvider">
-        <state>
-          <ID>JavaScript-modules-diagram</ID>
-          <OriginalElement>$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23</OriginalElement>
-          <nodes />
-          <notes />
-          <edges />
-          <settings layout="Hierarchic Group" zoom="1.0" x="440.5" y="281.0" />
-          <SelectedNodes />
-          <Categories>
-            <Category>All</Category>
-          </Categories>
-          <VISIBILITY>Details</VISIBILITY>
-        </state>
-      </provider>
-    </entry>
-    <entry file="uml://JavaScript-modules-diagram//Users/valeriopozzoni/Desktop/Perego-Tonali-Zappa/src/main/java/it/polimi/ingsw/GC_23/Cards;/Users/valeriopozzoni/Desktop/Perego-Tonali-Zappa/src/main/java/it/polimi/ingsw/GC_23/Effects;/Users/valeriopozzoni/Desktop/Perego-Tonali-Zappa/src/main/java/it/polimi/ingsw/GC_23/Resources;/Users/valeriopozzoni/Desktop/Perego-Tonali-Zappa/src/main/java/it/polimi/ingsw/GC_23/Spaces;">
-      <provider selected="true" editor-type-id="UmlEditorProvider">
-        <state>
-          <ID>JavaScript-modules-diagram</ID>
-          <OriginalElement>$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/Cards;/Users/valeriopozzoni/Desktop/Perego-Tonali-Zappa/src/main/java/it/polimi/ingsw/GC_23/Effects;/Users/valeriopozzoni/Desktop/Perego-Tonali-Zappa/src/main/java/it/polimi/ingsw/GC_23/Resources;/Users/valeriopozzoni/Desktop/Perego-Tonali-Zappa/src/main/java/it/polimi/ingsw/GC_23/Spaces;</OriginalElement>
-          <nodes />
-          <notes />
-          <edges />
-          <settings layout="Hierarchic Group" zoom="1.0" x="440.5" y="281.0" />
-          <SelectedNodes />
-          <Categories>
-            <Category>All</Category>
-          </Categories>
-          <VISIBILITY>Overview</VISIBILITY>
-        </state>
-      </provider>
-    </entry>
-    <entry file="uml://JAVA/it.polimi.ingsw.GC_23">
-      <provider selected="true" editor-type-id="UmlEditorProvider">
-        <state>
-          <ID>JAVA</ID>
-          <OriginalElement>it.polimi.ingsw.GC_23</OriginalElement>
-          <nodes>
-            <node x="180.0" y="2150.0">it.polimi.ingsw.GC_23.CreatorTest</node>
-            <node x="2112.351827202924" y="258.0">it.polimi.ingsw.GC_23.Dice</node>
-            <node x="724.3242925976513" y="1529.0">it.polimi.ingsw.GC_23.BonusTile</node>
-            <node x="1529.2373100071568" y="1092.0">it.polimi.ingsw.GC_23.FamilyMember</node>
-            <node x="1787.0489253393666" y="387.0">it.polimi.ingsw.GC_23.Board</node>
-            <node x="0.0" y="2150.0">it.polimi.ingsw.GC_23.PlayGameTest</node>
-            <node x="1829.9239253393666" y="585.0">it.polimi.ingsw.GC_23.Creator</node>
-            <node x="1175.3786226630107" y="2076.0">it.polimi.ingsw.GC_23.Main</node>
-            <node x="1209.1796442936152" y="893.0">it.polimi.ingsw.GC_23.Spaces</node>
-            <node x="2055.422073487515" y="1092.0">it.polimi.ingsw.GC_23.PlayerTimeOut</node>
-            <node x="2265.3387401541813" y="387.0">it.polimi.ingsw.GC_23.DiceTest</node>
-            <node x="1399.2373100071568" y="1092.0">it.polimi.ingsw.GC_23.BoardTest</node>
-            <node x="1214.0891618590088" y="1221.0">it.polimi.ingsw.GC_23.Controller</node>
-            <node x="356.9115779020444" y="714.0">it.polimi.ingsw.GC_23.ExcommunicationTile</node>
-            <node x="1938.4239253393666" y="714.0">it.polimi.ingsw.GC_23.Connection</node>
-            <node x="411.4923433048434" y="0.0">it.polimi.ingsw.GC_23.SingleCost</node>
-            <node x="192.66157790204443" y="119.0">it.polimi.ingsw.GC_23.Requirement</node>
-            <node x="2301.3618883023296" y="119.0">it.polimi.ingsw.GC_23.CardOfPlayer</node>
-            <node x="1259.4939144461205" y="119.0">it.polimi.ingsw.GC_23.Enumerations</node>
-            <node x="1417.798288141696" y="2076.0">it.polimi.ingsw.GC_23.RequirementTest</node>
-            <node x="542.6847260501929" y="258.0">it.polimi.ingsw.GC_23.Cards</node>
-            <node x="1591.798288141696" y="2076.0">it.polimi.ingsw.GC_23.FamilyMemberTest</node>
-            <node x="1576.7998100071568" y="1718.0">it.polimi.ingsw.GC_23.Player</node>
-            <node x="2011.2810681965095" y="585.0">it.polimi.ingsw.GC_23.FX</node>
-            <node x="471.30630826716674" y="2076.0">it.polimi.ingsw.GC_23.ParseJson</node>
-            <node x="884.3242925976514" y="1847.0">it.polimi.ingsw.GC_23.Resources</node>
-            <node x="346.0" y="2150.0">it.polimi.ingsw.GC_23.Util</node>
-            <node x="861.4029558404561" y="1390.0">it.polimi.ingsw.GC_23.Effects</node>
-            <node x="922.3531873219376" y="119.0">it.polimi.ingsw.GC_23.StringTyper</node>
-            <node x="2054.96697200413" y="2076.0">it.polimi.ingsw.GC_23.PlayerTest</node>
-            <node x="1774.5489253393666" y="506.0">it.polimi.ingsw.GC_23.PlayGame</node>
-            <node x="36.5" y="119.0">it.polimi.ingsw.GC_23.MilitaryCost</node>
-          </nodes>
-          <notes />
-          <edges>
-            <edge source="it.polimi.ingsw.GC_23.Controller" target="it.polimi.ingsw.GC_23.Cards">
-              <point x="-43.75" y="-14.5" />
-              <point x="1245.3391618590088" y="1181.0" />
-              <point x="638.8770337425005" y="1181.0" />
-              <point x="638.8770337425005" y="357.0" />
-              <point x="632.5693414348083" y="357.0" />
-              <point x="28.38461538461536" y="14.5" />
-            </edge>
-            <edge source="it.polimi.ingsw.GC_23.RequirementTest" target="it.polimi.ingsw.GC_23.Player">
-              <point x="19.25" y="-14.5" />
-              <point x="1514.048288141696" y="2046.0" />
-              <point x="1607.7989253393666" y="2046.0" />
-              <point x="1607.7989253393666" y="1817.0" />
-              <point x="1626.3831433404903" y="1817.0" />
-              <point x="7.083333333333371" y="14.5" />
-            </edge>
-            <edge source="it.polimi.ingsw.GC_23.FX" target="it.polimi.ingsw.GC_23.Connection">
-              <point x="25.5" y="14.5" />
-              <point x="2087.7810681965093" y="684.0" />
-              <point x="2063.352496767938" y="684.0" />
-              <point x="45.428571428571445" y="-14.5" />
-            </edge>
-            <edge source="it.polimi.ingsw.GC_23.PlayerTest" target="it.polimi.ingsw.GC_23.Resources">
-              <point x="-44.80000000000001" y="-14.5" />
-              <point x="2066.16697200413" y="1936.0" />
-              <point x="1024.538578311937" y="1936.0" />
-              <point x="64.71428571428575" y="14.5" />
-            </edge>
-            <edge source="it.polimi.ingsw.GC_23.Connection" target="it.polimi.ingsw.GC_23.FX">
-              <point x="22.714285714285722" y="-14.5" />
-              <point x="2040.6382110536524" y="674.0" />
-              <point x="2070.7810681965093" y="674.0" />
-              <point x="8.5" y="14.5" />
-            </edge>
-            <edge source="it.polimi.ingsw.GC_23.Spaces" target="it.polimi.ingsw.GC_23.Resources">
-              <point x="-22.941176470588232" y="14.5" />
-              <point x="1251.238467823027" y="1062.0" />
-              <point x="1175.9421030354795" y="1062.0" />
-              <point x="1175.9421030354795" y="1767.0" />
-              <point x="978.6992925976514" y="1767.0" />
-              <point x="18.875" y="-14.5" />
-            </edge>
-            <edge source="it.polimi.ingsw.GC_23.Cards" target="it.polimi.ingsw.GC_23.SingleCost">
-              <point x="0.0" y="-14.5" />
-              <point x="604.1847260501929" y="79.0" />
-              <point x="492.9506766381768" y="79.0" />
-              <point x="23.95833333333337" y="14.5" />
-            </edge>
-            <edge source="it.polimi.ingsw.GC_23.Effects" target="it.polimi.ingsw.GC_23.Resources">
-              <point x="16.25" y="14.5" />
-              <point x="942.6529558404561" y="1509.0" />
-              <point x="954.3242925976514" y="1509.0" />
-              <point x="-6.291666666666686" y="-14.5" />
-            </edge>
-            <edge source="it.polimi.ingsw.GC_23.Main" target="it.polimi.ingsw.GC_23.Effects">
-              <point x="-31.19999999999999" y="-14.5" />
-              <point x="1183.1786226630106" y="2046.0" />
-              <point x="843.8242925976513" y="2046.0" />
-              <point x="843.8242925976513" y="1509.0" />
-              <point x="920.9862891737894" y="1509.0" />
-              <point x="-5.416666666666629" y="14.5" />
-            </edge>
-            <edge source="it.polimi.ingsw.GC_23.Creator" target="it.polimi.ingsw.GC_23.Board">
-              <point x="35.25" y="-14.5" />
-              <point x="1911.2387312633891" y="466.0" />
-              <point x="1845.8405920060331" y="466.0" />
-              <point x="17.29166666666663" y="14.5" />
-            </edge>
-            <edge source="it.polimi.ingsw.GC_23.FamilyMemberTest" target="it.polimi.ingsw.GC_23.Effects">
-              <point x="-20.75" y="-14.5" />
-              <point x="1654.048288141696" y="1956.0" />
-              <point x="1045.8242925976515" y="1956.0" />
-              <point x="1045.8242925976515" y="1489.0" />
-              <point x="964.3196225071226" y="1489.0" />
-              <point x="37.91666666666663" y="14.5" />
-            </edge>
-            <edge source="it.polimi.ingsw.GC_23.FamilyMemberTest" target="it.polimi.ingsw.GC_23.FamilyMember">
-              <point x="62.25" y="-14.5" />
-              <point x="1737.048288141696" y="2056.0" />
-              <point x="1753.0489253393666" y="2056.0" />
-              <point x="1753.0489253393666" y="1171.0" />
-              <point x="1659.5498100071568" y="1171.0" />
-              <point x="60.81249999999994" y="14.5" />
-            </edge>
-            <edge source="it.polimi.ingsw.GC_23.ParseJson" target="it.polimi.ingsw.GC_23.Cards">
-              <point x="4.5" y="-14.5" />
-              <point x="529.8063082671667" y="2006.0" />
-              <point x="560.4115779020444" y="2006.0" />
-              <point x="560.4115779020444" y="357.0" />
-              <point x="566.3385722040391" y="357.0" />
-              <point x="-37.84615384615381" y="14.5" />
-            </edge>
-            <edge source="it.polimi.ingsw.GC_23.Cards" target="it.polimi.ingsw.GC_23.Cards">
-              <point x="-56.76923076923072" y="14.5" />
-              <point x="547.4154952809622" y="307.0" />
-              <point x="522.6847260501929" y="307.0" />
-              <point x="522.6847260501929" y="272.5" />
-              <point x="-61.5" y="-0.0" />
-            </edge>
-            <edge source="it.polimi.ingsw.GC_23.ParseJson" target="it.polimi.ingsw.GC_23.SingleCost">
-              <point x="-49.5" y="-14.5" />
-              <point x="475.80630826716674" y="2056.0" />
-              <point x="26.0" y="2056.0" />
-              <point x="26.0" y="49.0" />
-              <point x="416.28400997151005" y="49.0" />
-              <point x="-52.70833333333337" y="14.5" />
-            </edge>
-            <edge source="it.polimi.ingsw.GC_23.Board" target="it.polimi.ingsw.GC_23.Spaces">
-              <point x="-31.125" y="14.5" />
-              <point x="1797.4239253393666" y="446.0" />
-              <point x="1527.6950893605308" y="446.0" />
-              <point x="1527.6950893605308" y="813.0" />
-              <point x="1294.1796442936152" y="813.0" />
-              <point x="20.0" y="-14.5" />
-            </edge>
-            <edge source="it.polimi.ingsw.GC_23.Controller" target="it.polimi.ingsw.GC_23.PlayerTimeOut">
-              <point x="68.75" y="-14.5" />
-              <point x="1357.8391618590088" y="1201.0" />
-              <point x="2072.797073487515" y="1201.0" />
-              <point x="-52.125" y="14.5" />
-            </edge>
-            <edge source="it.polimi.ingsw.GC_23.Main" target="it.polimi.ingsw.GC_23.FamilyMember">
-              <point x="15.600000000000023" y="-14.5" />
-              <point x="1229.9786226630108" y="2026.0" />
-              <point x="1515.5239253393665" y="2026.0" />
-              <point x="1515.5239253393665" y="1181.0" />
-              <point x="1590.0498100071568" y="1181.0" />
-              <point x="-8.6875" y="14.5" />
-            </edge>
-            <edge source="it.polimi.ingsw.GC_23.Spaces" target="it.polimi.ingsw.GC_23.Spaces">
-              <point x="-53.529411764705884" y="14.5" />
-              <point x="1220.6502325289093" y="952.0" />
-              <point x="1179.1796442936152" y="952.0" />
-              <point x="1179.1796442936152" y="900.25" />
-              <point x="-65.0" y="-7.25" />
-            </edge>
-            <edge source="it.polimi.ingsw.GC_23.Creator" target="it.polimi.ingsw.GC_23.Resources">
-              <point x="13.428571428571445" y="14.5" />
-              <point x="1890.3524967679382" y="694.0" />
-              <point x="1887.9239253393666" y="694.0" />
-              <point x="1887.9239253393666" y="1827.0" />
-              <point x="1029.0326259309848" y="1827.0" />
-              <point x="69.20833333333334" y="-14.5" />
-            </edge>
-            <edge source="it.polimi.ingsw.GC_23.Cards" target="it.polimi.ingsw.GC_23.Enumerations">
-              <point x="27.333333333333314" y="-14.5" />
-              <point x="631.5180593835262" y="198.0" />
-              <point x="1273.9105811127872" y="198.0" />
-              <point x="-72.08333333333331" y="14.5" />
-            </edge>
-            <edge source="it.polimi.ingsw.GC_23.BoardTest" target="it.polimi.ingsw.GC_23.Board">
-              <point x="27.5" y="-14.5" />
-              <point x="1481.7373100071568" y="1072.0" />
-              <point x="1593.1226461040674" y="1072.0" />
-              <point x="1593.1226461040674" y="466.0" />
-              <point x="1811.2572586727" y="466.0" />
-              <point x="-17.29166666666663" y="14.5" />
-            </edge>
-            <edge source="it.polimi.ingsw.GC_23.ExcommunicationTile" target="it.polimi.ingsw.GC_23.Effects">
-              <point x="23.0" y="14.5" />
-              <point x="471.9115779020444" y="873.0" />
-              <point x="459.625" y="873.0" />
-              <point x="459.625" y="1340.0" />
-              <point x="889.8404558404561" y="1340.0" />
-              <point x="-36.5625" y="-14.5" />
-            </edge>
-            <edge source="it.polimi.ingsw.GC_23.Resources" target="it.polimi.ingsw.GC_23.Player">
-              <point x="44.04166666666667" y="-14.5" />
-              <point x="1003.865959264318" y="1787.0" />
-              <point x="1583.88314334049" y="1787.0" />
-              <point x="-35.416666666666664" y="14.5" />
-            </edge>
-            <edge source="it.polimi.ingsw.GC_23.PlayerTest" target="it.polimi.ingsw.GC_23.Player">
-              <point x="-22.399999999999977" y="-14.5" />
-              <point x="2088.56697200413" y="1926.0" />
-              <point x="1649.9664766738235" y="1926.0" />
-              <point x="1649.9664766738235" y="1817.0" />
-              <point x="1654.7164766738233" y="1817.0" />
-              <point x="35.41666666666663" y="14.5" />
-            </edge>
-            <edge source="it.polimi.ingsw.GC_23.Controller" target="it.polimi.ingsw.GC_23.SingleCost">
-              <point x="-31.25" y="-14.5" />
-              <point x="1257.8391618590088" y="1171.0" />
-              <point x="676.1847260501929" y="1171.0" />
-              <point x="676.1847260501929" y="69.0" />
-              <point x="502.53400997151016" y="69.0" />
-              <point x="33.54166666666674" y="14.5" />
-            </edge>
-            <edge source="it.polimi.ingsw.GC_23.Controller" target="it.polimi.ingsw.GC_23.Spaces">
-              <point x="-6.25" y="-14.5" />
-              <point x="1283.5891618590088" y="1072.0" />
-              <point x="1266.532585470086" y="1072.0" />
-              <point x="-7.647058823529392" y="14.5" />
-            </edge>
-            <edge source="it.polimi.ingsw.GC_23.Spaces" target="it.polimi.ingsw.GC_23.Connection">
-              <point x="40.0" y="-14.5" />
-              <point x="1314.1796442936152" y="833.0" />
-              <point x="1994.0739253393667" y="833.0" />
-              <point x="-23.850000000000023" y="14.5" />
-            </edge>
-            <edge source="it.polimi.ingsw.GC_23.Spaces" target="it.polimi.ingsw.GC_23.SingleCost">
-              <point x="-20.0" y="-14.5" />
-              <point x="1254.1796442936152" y="833.0" />
-              <point x="1099.7971520175442" y="833.0" />
-              <point x="1099.7971520175442" y="59.0" />
-              <point x="512.1173433048434" y="59.0" />
-              <point x="43.125" y="14.5" />
-            </edge>
-            <edge source="it.polimi.ingsw.GC_23.Effects" target="it.polimi.ingsw.GC_23.Connection">
-              <point x="60.9375" y="-14.5" />
-              <point x="987.3404558404561" y="1370.0" />
-              <point x="1970.3489253393666" y="1370.0" />
-              <point x="1970.3489253393666" y="853.0" />
-              <point x="2025.8739253393667" y="853.0" />
-              <point x="7.9500000000000455" y="14.5" />
-            </edge>
-            <edge source="it.polimi.ingsw.GC_23.Player" target="it.polimi.ingsw.GC_23.Cards">
-              <point x="-40.925925925925924" y="-14.5" />
-              <point x="1578.373884081231" y="1688.0" />
-              <point x="591.873116363583" y="1688.0" />
-              <point x="591.873116363583" y="367.0" />
-              <point x="585.261649127116" y="367.0" />
-              <point x="-18.923076923076906" y="14.5" />
-            </edge>
-            <edge source="it.polimi.ingsw.GC_23.Controller" target="it.polimi.ingsw.GC_23.Controller">
-              <point x="-64.28571428571428" y="14.5" />
-              <point x="1224.8034475732945" y="1270.0" />
-              <point x="1194.0891618590088" y="1270.0" />
-              <point x="1194.0891618590088" y="1235.5" />
-              <point x="-75.0" y="-0.0" />
-            </edge>
-            <edge source="it.polimi.ingsw.GC_23.Cards" target="it.polimi.ingsw.GC_23.Player">
-              <point x="-9.461538461538453" y="14.5" />
-              <point x="595.0212645117313" y="1678.0" />
-              <point x="1581.522032229379" y="1678.0" />
-              <point x="-37.77777777777777" y="-14.5" />
-            </edge>
-            <edge source="it.polimi.ingsw.GC_23.Player" target="it.polimi.ingsw.GC_23.FamilyMember">
-              <point x="-3.1481481481481524" y="-14.5" />
-              <point x="1616.1516618590088" y="1181.0" />
-              <point x="1607.4248100071568" y="1181.0" />
-              <point x="8.6875" y="14.5" />
-            </edge>
-            <edge source="it.polimi.ingsw.GC_23.PlayGame" target="it.polimi.ingsw.GC_23.Player">
-              <point x="-13.5" y="14.5" />
-              <point x="1815.0489253393666" y="1578.0" />
-              <point x="1622.447958155305" y="1578.0" />
-              <point x="3.1481481481481524" y="-14.5" />
-            </edge>
-            <edge source="it.polimi.ingsw.GC_23.RequirementTest" target="it.polimi.ingsw.GC_23.Resources">
-              <point x="-19.25" y="-14.5" />
-              <point x="1475.548288141696" y="1976.0" />
-              <point x="981.3957211690799" y="1976.0" />
-              <point x="21.571428571428584" y="14.5" />
-            </edge>
-            <edge source="it.polimi.ingsw.GC_23.Controller" target="it.polimi.ingsw.GC_23.Effects">
-              <point x="-21.428571428571416" y="14.5" />
-              <point x="1267.6605904304374" y="1340.0" />
-              <point x="962.9654558404561" y="1340.0" />
-              <point x="36.5625" y="-14.5" />
-            </edge>
-            <edge source="it.polimi.ingsw.GC_23.Spaces" target="it.polimi.ingsw.GC_23.Dice">
-              <point x="60.0" y="-14.5" />
-              <point x="1334.1796442936152" y="873.0" />
-              <point x="2254.8387401541813" y="873.0" />
-              <point x="2254.8387401541813" y="357.0" />
-              <point x="2165.551827202924" y="357.0" />
-              <point x="15.200000000000045" y="14.5" />
-            </edge>
-            <edge source="it.polimi.ingsw.GC_23.Creator" target="it.polimi.ingsw.GC_23.PlayGame">
-              <point x="-35.25" y="-14.5" />
-              <point x="13.5" y="14.5" />
-            </edge>
-            <edge source="it.polimi.ingsw.GC_23.Connection" target="it.polimi.ingsw.GC_23.Player">
-              <point x="55.65000000000009" y="14.5" />
-              <point x="2073.5739253393667" y="853.0" />
-              <point x="2204.922073487515" y="853.0" />
-              <point x="2204.922073487515" y="1658.0" />
-              <point x="1647.6331433404903" y="1658.0" />
-              <point x="28.33333333333337" y="-14.5" />
-            </edge>
-            <edge source="it.polimi.ingsw.GC_23.Controller" target="it.polimi.ingsw.GC_23.Player">
-              <point x="64.28571428571422" y="14.5" />
-              <point x="1353.374876144723" y="1340.0" />
-              <point x="1350.1865156549238" y="1340.0" />
-              <point x="1350.1865156549238" y="1598.0" />
-              <point x="1606.7072174145642" y="1598.0" />
-              <point x="-12.592592592592553" y="-14.5" />
-            </edge>
-            <edge source="it.polimi.ingsw.GC_23.ParseJson" target="it.polimi.ingsw.GC_23.Requirement">
-              <point x="-31.5" y="-14.5" />
-              <point x="493.80630826716674" y="2036.0" />
-              <point x="202.5" y="2036.0" />
-              <point x="202.5" y="238.0" />
-              <point x="205.36157790204447" y="238.0" />
-              <point x="-50.799999999999955" y="14.5" />
-            </edge>
-            <edge source="it.polimi.ingsw.GC_23.Creator" target="it.polimi.ingsw.GC_23.FamilyMember">
-              <point x="-40.285714285714334" y="14.5" />
-              <point x="1836.6382110536524" y="694.0" />
-              <point x="1847.9766942263523" y="694.0" />
-              <point x="1847.9766942263523" y="1072.0" />
-              <point x="1658.3087385785855" y="1072.0" />
-              <point x="59.57142857142861" y="-14.5" />
-            </edge>
-            <edge source="it.polimi.ingsw.GC_23.Controller" target="it.polimi.ingsw.GC_23.StringTyper">
-              <point x="-18.75" y="-14.5" />
-              <point x="1270.3391618590088" y="1161.0" />
-              <point x="1078.7971520175442" y="1161.0" />
-              <point x="1078.7971520175442" y="178.0" />
-              <point x="1012.3531873219376" y="178.0" />
-              <point x="30.0" y="14.5" />
-            </edge>
-            <edge source="it.polimi.ingsw.GC_23.Player" target="it.polimi.ingsw.GC_23.Resources">
-              <point x="-21.25" y="14.5" />
-              <point x="1598.0498100071568" y="1797.0" />
-              <point x="1016.4492925976514" y="1797.0" />
-              <point x="56.625" y="-14.5" />
-            </edge>
-            <edge source="it.polimi.ingsw.GC_23.PlayerTest" target="it.polimi.ingsw.GC_23.Connection">
-              <point x="22.40000000000009" y="-14.5" />
-              <point x="2133.36697200413" y="2046.0" />
-              <point x="2215.922073487515" y="2046.0" />
-              <point x="2215.922073487515" y="843.0" />
-              <point x="2089.473925339367" y="843.0" />
-              <point x="71.55000000000007" y="14.5" />
-            </edge>
-            <edge source="it.polimi.ingsw.GC_23.Controller" target="it.polimi.ingsw.GC_23.Resources">
-              <point x="0.0" y="14.5" />
-              <point x="1289.0891618590088" y="1340.0" />
-              <point x="1312.5838708537176" y="1340.0" />
-              <point x="1312.5838708537176" y="1777.0" />
-              <point x="991.2826259309848" y="1777.0" />
-              <point x="31.458333333333343" y="-14.5" />
-            </edge>
-            <edge source="it.polimi.ingsw.GC_23.FamilyMemberTest" target="it.polimi.ingsw.GC_23.Player">
-              <point x="20.75" y="-14.5" />
-              <point x="1695.548288141696" y="1946.0" />
-              <point x="1638.9664766738235" y="1946.0" />
-              <point x="1638.9664766738235" y="1817.0" />
-              <point x="1640.5498100071568" y="1817.0" />
-              <point x="21.25" y="14.5" />
-            </edge>
-            <edge source="it.polimi.ingsw.GC_23.MilitaryCost" target="it.polimi.ingsw.GC_23.SingleCost">
-              <point x="0.0" y="-14.5" />
-              <point x="98.5" y="59.0" />
-              <point x="425.8673433048434" y="59.0" />
-              <point x="-43.125" y="14.5" />
-            </edge>
-            <edge source="it.polimi.ingsw.GC_23.Effects" target="it.polimi.ingsw.GC_23.Board">
-              <point x="52.8125" y="-14.5" />
-              <point x="979.2154558404561" y="1360.0" />
-              <point x="1764.0489253393666" y="1360.0" />
-              <point x="1764.0489253393666" y="476.0" />
-              <point x="1818.1739253393666" y="476.0" />
-              <point x="-10.375" y="14.5" />
-            </edge>
-            <edge source="it.polimi.ingsw.GC_23.Player" target="it.polimi.ingsw.GC_23.Enumerations">
-              <point x="34.629629629629676" y="-14.5" />
-              <point x="1653.9294396367864" y="1678.0" />
-              <point x="2378.8387401541813" y="1678.0" />
-              <point x="2378.8387401541813" y="198.0" />
-              <point x="1418.0772477794537" y="198.0" />
-              <point x="72.08333333333326" y="14.5" />
-            </edge>
-            <edge source="it.polimi.ingsw.GC_23.Cards" target="it.polimi.ingsw.GC_23.Effects">
-              <point x="0.0" y="14.5" />
-              <point x="604.4828029732698" y="1330.0" />
-              <point x="897.9654558404561" y="1330.0" />
-              <point x="-28.4375" y="-14.5" />
-            </edge>
-            <edge source="it.polimi.ingsw.GC_23.FamilyMember" target="it.polimi.ingsw.GC_23.Enumerations">
-              <point x="19.857142857142833" y="-14.5" />
-              <point x="1618.5944528642997" y="972.0" />
-              <point x="1506.6950893605308" y="972.0" />
-              <point x="1506.6950893605308" y="218.0" />
-              <point x="1360.410581112787" y="218.0" />
-              <point x="14.416666666666629" y="14.5" />
-            </edge>
-            <edge source="it.polimi.ingsw.GC_23.BoardTest" target="it.polimi.ingsw.GC_23.Spaces">
-              <point x="-27.5" y="-14.5" />
-              <point x="1426.7373100071568" y="1022.0" />
-              <point x="1304.7678795877328" y="1022.0" />
-              <point x="30.588235294117624" y="14.5" />
-            </edge>
-            <edge source="it.polimi.ingsw.GC_23.Player" target="it.polimi.ingsw.GC_23.PlayerTimeOut">
-              <point x="25.18518518518522" y="-14.5" />
-              <point x="1644.484995192342" y="1648.0" />
-              <point x="2126.4961475615887" y="1648.0" />
-              <point x="2126.4961475615887" y="1201.0" />
-              <point x="2142.297073487515" y="1201.0" />
-              <point x="17.375" y="14.5" />
-            </edge>
-            <edge source="it.polimi.ingsw.GC_23.Effects" target="it.polimi.ingsw.GC_23.FamilyMember">
-              <point x="44.6875" y="-14.5" />
-              <point x="971.0904558404561" y="1350.0" />
-              <point x="1374.5891618590088" y="1350.0" />
-              <point x="1374.5891618590088" y="1171.0" />
-              <point x="1572.6748100071568" y="1171.0" />
-              <point x="-26.0625" y="14.5" />
-            </edge>
-            <edge source="it.polimi.ingsw.GC_23.Resources" target="it.polimi.ingsw.GC_23.Effects">
-              <point x="6.291666666666657" y="-14.5" />
-              <point x="965.3242925976514" y="1499.0" />
-              <point x="953.4862891737894" y="1499.0" />
-              <point x="27.08333333333337" y="14.5" />
-            </edge>
-            <edge source="it.polimi.ingsw.GC_23.Main" target="it.polimi.ingsw.GC_23.Spaces">
-              <point x="0.0" y="-14.5" />
-              <point x="1214.3786226630107" y="2026.0" />
-              <point x="1183.5891618590088" y="2026.0" />
-              <point x="1183.5891618590088" y="1072.0" />
-              <point x="1258.8855266465564" y="1072.0" />
-              <point x="-15.29411764705884" y="14.5" />
-            </edge>
-            <edge source="it.polimi.ingsw.GC_23.PlayerTimeOut" target="it.polimi.ingsw.GC_23.Player">
-              <point x="-17.375" y="14.5" />
-              <point x="2107.547073487515" y="1201.0" />
-              <point x="2123.3479994134404" y="1201.0" />
-              <point x="2123.3479994134404" y="1638.0" />
-              <point x="1641.3368470441937" y="1638.0" />
-              <point x="22.037037037037067" y="-14.5" />
-            </edge>
-            <edge source="it.polimi.ingsw.GC_23.Requirement" target="it.polimi.ingsw.GC_23.Resources">
-              <point x="0.0" y="14.5" />
-              <point x="256.1615779020444" y="238.0" />
-              <point x="261.375" y="238.0" />
-              <point x="261.375" y="1807.0" />
-              <point x="915.7826259309846" y="1807.0" />
-              <point x="-44.041666666666714" y="-14.5" />
-            </edge>
-            <edge source="it.polimi.ingsw.GC_23.FamilyMemberTest" target="it.polimi.ingsw.GC_23.Resources">
-              <point x="-62.25" y="-14.5" />
-              <point x="1612.548288141696" y="1966.0" />
-              <point x="1002.9671497405086" y="1966.0" />
-              <point x="43.14285714285717" y="14.5" />
-            </edge>
-            <edge source="it.polimi.ingsw.GC_23.Board" target="it.polimi.ingsw.GC_23.Cards">
-              <point x="-27.666666666666686" y="-14.5" />
-              <point x="1800.8822586727" y="327.0" />
-              <point x="660.9539568194236" y="327.0" />
-              <point x="56.769230769230774" y="14.5" />
-            </edge>
-            <edge source="it.polimi.ingsw.GC_23.Connection" target="it.polimi.ingsw.GC_23.Connection">
-              <point x="-71.54999999999995" y="14.5" />
-              <point x="1946.3739253393667" y="763.0" />
-              <point x="1918.4239253393666" y="763.0" />
-              <point x="1918.4239253393666" y="738.1666666666667" />
-              <point x="-79.5" y="9.666666666666742" />
-            </edge>
-            <edge source="it.polimi.ingsw.GC_23.Spaces" target="it.polimi.ingsw.GC_23.FamilyMember">
-              <point x="45.882352941176464" y="14.5" />
-              <point x="1320.0619972347918" y="1002.0" />
-              <point x="1559.023024292871" y="1002.0" />
-              <point x="-39.71428571428572" y="-14.5" />
-            </edge>
-            <edge source="it.polimi.ingsw.GC_23.Effects" target="it.polimi.ingsw.GC_23.Enumerations">
-              <point x="-4.0625" y="-14.5" />
-              <point x="922.3404558404561" y="1290.0" />
-              <point x="1142.1721520175442" y="1290.0" />
-              <point x="1142.1721520175442" y="208.0" />
-              <point x="1302.7439144461205" y="208.0" />
-              <point x="-43.25" y="14.5" />
-            </edge>
-            <edge source="it.polimi.ingsw.GC_23.Player" target="it.polimi.ingsw.GC_23.CardOfPlayer">
-              <point x="40.92592592592587" y="-14.5" />
-              <point x="1660.2257359330827" y="1698.0" />
-              <point x="2388.7609534856115" y="1698.0" />
-              <point x="2388.7609534856115" y="238.0" />
-              <point x="2414.2368883023296" y="238.0" />
-              <point x="48.375" y="14.5" />
-            </edge>
-            <edge source="it.polimi.ingsw.GC_23.FX" target="it.polimi.ingsw.GC_23.FX">
-              <point x="-42.5" y="14.5" />
-              <point x="2019.7810681965095" y="634.0" />
-              <point x="1991.2810681965095" y="634.0" />
-              <point x="1991.2810681965095" y="606.75" />
-              <point x="-51.0" y="7.25" />
-            </edge>
-            <edge source="it.polimi.ingsw.GC_23.RequirementTest" target="it.polimi.ingsw.GC_23.Requirement">
-              <point x="-57.75" y="-14.5" />
-              <point x="1437.048288141696" y="1986.0" />
-              <point x="250.375" y="1986.0" />
-              <point x="250.375" y="238.0" />
-              <point x="230.76157790204445" y="238.0" />
-              <point x="-25.399999999999977" y="14.5" />
-            </edge>
-            <edge source="it.polimi.ingsw.GC_23.Player" target="it.polimi.ingsw.GC_23.Board">
-              <point x="31.481481481481524" y="-14.5" />
-              <point x="1650.7812914886383" y="1668.0" />
-              <point x="2226.922073487515" y="1668.0" />
-              <point x="2226.922073487515" y="446.0" />
-              <point x="1859.6739253393666" y="446.0" />
-              <point x="31.125" y="14.5" />
-            </edge>
-            <edge source="it.polimi.ingsw.GC_23.Cards" target="it.polimi.ingsw.GC_23.StringTyper">
-              <point x="13.666666666666686" y="-14.5" />
-              <point x="617.8513927168597" y="168.0" />
-              <point x="932.3531873219376" y="168.0" />
-              <point x="-50.0" y="14.5" />
-            </edge>
-            <edge source="it.polimi.ingsw.GC_23.Controller" target="it.polimi.ingsw.GC_23.Connection">
-              <point x="56.25" y="-14.5" />
-              <point x="1345.3391618590088" y="1191.0" />
-              <point x="1959.3489253393666" y="1191.0" />
-              <point x="1959.3489253393666" y="843.0" />
-              <point x="2009.9739253393666" y="843.0" />
-              <point x="-7.9500000000000455" y="14.5" />
-            </edge>
-            <edge source="it.polimi.ingsw.GC_23.Connection" target="it.polimi.ingsw.GC_23.Board">
-              <point x="-22.714285714285666" y="-14.5" />
-              <point x="1995.2096396250809" y="674.0" />
-              <point x="1970.7810681965095" y="674.0" />
-              <point x="1970.7810681965095" y="456.0" />
-              <point x="1852.7572586727" y="456.0" />
-              <point x="24.20833333333337" y="14.5" />
-            </edge>
-            <edge source="it.polimi.ingsw.GC_23.SingleCost" target="it.polimi.ingsw.GC_23.Resources">
-              <point x="-33.54166666666663" y="14.5" />
-              <point x="435.4506766381768" y="69.0" />
-              <point x="171.0" y="69.0" />
-              <point x="171.0" y="1817.0" />
-              <point x="903.1992925976513" y="1817.0" />
-              <point x="-56.62500000000006" y="-14.5" />
-            </edge>
-            <edge source="it.polimi.ingsw.GC_23.DiceTest" target="it.polimi.ingsw.GC_23.Dice">
-              <point x="0.0" y="-14.5" />
-              <point x="2316.8387401541813" y="347.0" />
-              <point x="2180.7518272029242" y="347.0" />
-              <point x="30.399999999999977" y="14.5" />
-            </edge>
-            <edge source="it.polimi.ingsw.GC_23.Cards" target="it.polimi.ingsw.GC_23.CardOfPlayer">
-              <point x="41.0" y="-14.5" />
-              <point x="645.1847260501929" y="228.0" />
-              <point x="2317.4868883023296" y="228.0" />
-              <point x="-48.375" y="14.5" />
-            </edge>
-            <edge source="it.polimi.ingsw.GC_23.Player" target="it.polimi.ingsw.GC_23.StringTyper">
-              <point x="-22.03703703703701" y="-14.5" />
-              <point x="1597.2627729701198" y="1628.0" />
-              <point x="1067.7971520175442" y="1628.0" />
-              <point x="1067.7971520175442" y="188.0" />
-              <point x="992.3531873219376" y="188.0" />
-              <point x="10.0" y="14.5" />
-            </edge>
-            <edge source="it.polimi.ingsw.GC_23.Main" target="it.polimi.ingsw.GC_23.Player">
-              <point x="31.19999999999999" y="-14.5" />
-              <point x="1245.5786226630107" y="2036.0" />
-              <point x="1543.9822586727" y="2036.0" />
-              <point x="1543.9822586727" y="1807.0" />
-              <point x="1612.2164766738235" y="1807.0" />
-              <point x="-7.083333333333314" y="14.5" />
-            </edge>
-            <edge source="it.polimi.ingsw.GC_23.FamilyMember" target="it.polimi.ingsw.GC_23.Player">
-              <point x="26.062499999999943" y="14.5" />
-              <point x="1624.7998100071568" y="1181.0" />
-              <point x="1619.2998100071568" y="1181.0" />
-              <point x="0.0" y="-14.5" />
-            </edge>
-            <edge source="it.polimi.ingsw.GC_23.ParseJson" target="it.polimi.ingsw.GC_23.BonusTile">
-              <point x="40.5" y="-14.5" />
-              <point x="565.8063082671667" y="2046.0" />
-              <point x="765.1576259309846" y="2046.0" />
-              <point x="765.1576259309846" y="1698.0" />
-              <point x="778.8242925976513" y="1698.0" />
-              <point x="0.0" y="14.5" />
-            </edge>
-            <edge source="it.polimi.ingsw.GC_23.Spaces" target="it.polimi.ingsw.GC_23.Effects">
-              <point x="-38.23529411764707" y="14.5" />
-              <point x="1235.944350175968" y="1042.0" />
-              <point x="1160.1700442119502" y="1042.0" />
-              <point x="1160.1700442119502" y="1310.0" />
-              <point x="938.5904558404561" y="1310.0" />
-              <point x="12.1875" y="-14.5" />
-            </edge>
-            <edge source="it.polimi.ingsw.GC_23.StringTyper" target="it.polimi.ingsw.GC_23.Player">
-              <point x="-30.0" y="14.5" />
-              <point x="952.3531873219376" y="178.0" />
-              <point x="687.1847260501929" y="178.0" />
-              <point x="687.1847260501929" y="1668.0" />
-              <point x="1584.6701803775272" y="1668.0" />
-              <point x="-34.62962962962962" y="-14.5" />
-            </edge>
-            <edge source="it.polimi.ingsw.GC_23.BonusTile" target="it.polimi.ingsw.GC_23.Effects">
-              <point x="0.0" y="-14.5" />
-              <point x="778.8242925976513" y="1499.0" />
-              <point x="910.1529558404561" y="1499.0" />
-              <point x="-16.25" y="14.5" />
-            </edge>
-            <edge source="it.polimi.ingsw.GC_23.Cards" target="it.polimi.ingsw.GC_23.Requirement">
-              <point x="-41.0" y="-14.5" />
-              <point x="563.1847260501929" y="218.0" />
-              <point x="306.9615779020444" y="218.0" />
-              <point x="50.80000000000001" y="14.5" />
-            </edge>
-            <edge source="it.polimi.ingsw.GC_23.Connection" target="it.polimi.ingsw.GC_23.Creator">
-              <point x="-45.42857142857139" y="-14.5" />
-              <point x="1972.4953539107953" y="684.0" />
-              <point x="1917.2096396250809" y="684.0" />
-              <point x="40.28571428571422" y="14.5" />
-            </edge>
-            <edge source="it.polimi.ingsw.GC_23.Creator" target="it.polimi.ingsw.GC_23.Player">
-              <point x="-26.85714285714289" y="14.5" />
-              <point x="1850.0667824822237" y="684.0" />
-              <point x="1858.9766942263523" y="684.0" />
-              <point x="1858.9766942263523" y="1588.0" />
-              <point x="1625.596106303453" y="1588.0" />
-              <point x="6.296296296296305" y="-14.5" />
-            </edge>
-            <edge source="it.polimi.ingsw.GC_23.Effects" target="it.polimi.ingsw.GC_23.Controller">
-              <point x="28.4375" y="-14.5" />
-              <point x="954.8404558404561" y="1330.0" />
-              <point x="1246.2320190018659" y="1330.0" />
-              <point x="-42.85714285714283" y="14.5" />
-            </edge>
-            <edge source="it.polimi.ingsw.GC_23.Board" target="it.polimi.ingsw.GC_23.Dice">
-              <point x="27.666666666666657" y="-14.5" />
-              <point x="1856.2155920060331" y="367.0" />
-              <point x="2135.1518272029243" y="367.0" />
-              <point x="-15.199999999999989" y="14.5" />
-            </edge>
-            <edge source="it.polimi.ingsw.GC_23.Effects" target="it.polimi.ingsw.GC_23.SingleCost">
-              <point x="-60.9375" y="-14.5" />
-              <point x="865.4654558404561" y="1370.0" />
-              <point x="330.1615779020444" y="1370.0" />
-              <point x="330.1615779020444" y="79.0" />
-              <point x="445.03400997151005" y="79.0" />
-              <point x="-23.95833333333337" y="14.5" />
-            </edge>
-            <edge source="it.polimi.ingsw.GC_23.Resources" target="it.polimi.ingsw.GC_23.Resources">
-              <point x="-43.14285714285717" y="14.5" />
-              <point x="916.6814354547942" y="1906.0" />
-              <point x="854.3242925976514" y="1906.0" />
-              <point x="854.3242925976514" y="1854.25" />
-              <point x="-75.5" y="-7.25" />
-            </edge>
-            <edge source="it.polimi.ingsw.GC_23.Dice" target="it.polimi.ingsw.GC_23.Enumerations">
-              <point x="0.0" y="-14.5" />
-              <point x="2150.351827202924" y="208.0" />
-              <point x="1389.2439144461205" y="208.0" />
-              <point x="43.25" y="14.5" />
-            </edge>
-            <edge source="it.polimi.ingsw.GC_23.Player" target="it.polimi.ingsw.GC_23.BonusTile">
-              <point x="-31.481481481481467" y="-14.5" />
-              <point x="1587.8183285256753" y="1658.0" />
-              <point x="815.1576259309848" y="1658.0" />
-              <point x="36.33333333333337" y="14.5" />
-            </edge>
-            <edge source="it.polimi.ingsw.GC_23.Cards" target="it.polimi.ingsw.GC_23.Resources">
-              <point x="-28.38461538461536" y="14.5" />
-              <point x="575.8001106655776" y="367.0" />
-              <point x="569.873116363583" y="367.0" />
-              <point x="569.873116363583" y="1797.0" />
-              <point x="928.365959264318" y="1797.0" />
-              <point x="-31.45833333333337" y="-14.5" />
-            </edge>
-            <edge source="it.polimi.ingsw.GC_23.ParseJson" target="it.polimi.ingsw.GC_23.ExcommunicationTile">
-              <point x="-22.5" y="-14.5" />
-              <point x="502.80630826716674" y="2026.0" />
-              <point x="409.875" y="2026.0" />
-              <point x="409.875" y="873.0" />
-              <point x="379.9115779020444" y="873.0" />
-              <point x="-69.0" y="14.5" />
-            </edge>
-            <edge source="it.polimi.ingsw.GC_23.Effects" target="it.polimi.ingsw.GC_23.Player">
-              <point x="59.58333333333326" y="14.5" />
-              <point x="985.9862891737894" y="1469.0" />
-              <point x="1059.8057740791328" y="1469.0" />
-              <point x="1059.8057740791328" y="1638.0" />
-              <point x="1594.1146248219716" y="1638.0" />
-              <point x="-25.185185185185162" y="-14.5" />
-            </edge>
-            <edge source="it.polimi.ingsw.GC_23.CardOfPlayer" target="it.polimi.ingsw.GC_23.Cards">
-              <point x="-16.125" y="14.5" />
-              <point x="2349.7368883023296" y="238.0" />
-              <point x="658.8513927168597" y="238.0" />
-              <point x="54.666666666666686" y="-14.5" />
-            </edge>
-            <edge source="it.polimi.ingsw.GC_23.Cards" target="it.polimi.ingsw.GC_23.MilitaryCost">
-              <point x="-54.66666666666663" y="-14.5" />
-              <point x="549.5180593835263" y="228.0" />
-              <point x="139.83333333333337" y="228.0" />
-              <point x="41.33333333333334" y="14.5" />
-            </edge>
-            <edge source="it.polimi.ingsw.GC_23.ParseJson" target="it.polimi.ingsw.GC_23.Effects">
-              <point x="13.5" y="-14.5" />
-              <point x="538.8063082671667" y="2016.0" />
-              <point x="580.873116363583" y="2016.0" />
-              <point x="580.873116363583" y="1479.0" />
-              <point x="888.4862891737894" y="1479.0" />
-              <point x="-37.91666666666663" y="14.5" />
-            </edge>
-            <edge source="it.polimi.ingsw.GC_23.Player" target="it.polimi.ingsw.GC_23.Effects">
-              <point x="-28.333333333333314" y="-14.5" />
-              <point x="1590.9664766738235" y="1648.0" />
-              <point x="1056.6576259309848" y="1648.0" />
-              <point x="1056.6576259309848" y="1479.0" />
-              <point x="975.1529558404561" y="1479.0" />
-              <point x="48.75" y="14.5" />
-            </edge>
-            <edge source="it.polimi.ingsw.GC_23.Effects" target="it.polimi.ingsw.GC_23.StringTyper">
-              <point x="-12.1875" y="-14.5" />
-              <point x="914.2154558404561" y="188.0" />
-              <point x="972.3531873219376" y="188.0" />
-              <point x="-10.0" y="14.5" />
-            </edge>
-            <edge source="it.polimi.ingsw.GC_23.PlayerTest" target="it.polimi.ingsw.GC_23.Board">
-              <point x="44.799999999999955" y="-14.5" />
-              <point x="2155.76697200413" y="2056.0" />
-              <point x="2233.8387401541813" y="2056.0" />
-              <point x="2233.8387401541813" y="436.0" />
-              <point x="1866.5905920060331" y="436.0" />
-              <point x="38.04166666666663" y="14.5" />
-            </edge>
-            <edge source="it.polimi.ingsw.GC_23.Spaces" target="it.polimi.ingsw.GC_23.StringTyper">
-              <point x="-30.0" y="-14.5" />
-              <point x="1244.1796442936152" y="843.0" />
-              <point x="1089.7971520175442" y="843.0" />
-              <point x="1089.7971520175442" y="168.0" />
-              <point x="1032.3531873219376" y="168.0" />
-              <point x="50.0" y="14.5" />
-            </edge>
-            <edge source="it.polimi.ingsw.GC_23.Main" target="it.polimi.ingsw.GC_23.Resources">
-              <point x="-15.600000000000023" y="-14.5" />
-              <point x="1198.7786226630105" y="2036.0" />
-              <point x="959.8242925976514" y="2036.0" />
-              <point x="0.0" y="14.5" />
-            </edge>
-            <edge source="it.polimi.ingsw.GC_23.RequirementTest" target="it.polimi.ingsw.GC_23.FamilyMember">
-              <point x="57.75" y="-14.5" />
-              <point x="1552.548288141696" y="2056.0" />
-              <point x="1672.2998100071568" y="2056.0" />
-              <point x="1672.2998100071568" y="1181.0" />
-              <point x="1642.1748100071568" y="1181.0" />
-              <point x="43.43749999999994" y="14.5" />
-            </edge>
-            <edge source="it.polimi.ingsw.GC_23.Spaces" target="it.polimi.ingsw.GC_23.Enumerations">
-              <point x="0.0" y="-14.5" />
-              <point x="1274.1796442936152" y="218.0" />
-              <point x="1331.5772477794537" y="218.0" />
-              <point x="-14.416666666666686" y="14.5" />
-            </edge>
-            <edge source="it.polimi.ingsw.GC_23.PlayGame" target="it.polimi.ingsw.GC_23.Board">
-              <point x="27.0" y="-14.5" />
-              <point x="1855.5489253393666" y="486.0" />
-              <point x="1832.0072586727" y="486.0" />
-              <point x="3.458333333333343" y="14.5" />
-            </edge>
-            <edge source="it.polimi.ingsw.GC_23.Spaces" target="it.polimi.ingsw.GC_23.Player">
-              <point x="15.294117647058783" y="14.5" />
-              <point x="1289.473761940674" y="1042.0" />
-              <point x="1385.5891618590088" y="1042.0" />
-              <point x="1385.5891618590088" y="1588.0" />
-              <point x="1609.8553655627124" y="1588.0" />
-              <point x="-9.4444444444444" y="-14.5" />
-            </edge>
-            <edge source="it.polimi.ingsw.GC_23.Effects" target="it.polimi.ingsw.GC_23.Effects">
-              <point x="-59.58333333333334" y="14.5" />
-              <point x="866.8196225071227" y="1439.0" />
-              <point x="841.4029558404561" y="1439.0" />
-              <point x="841.4029558404561" y="1411.75" />
-              <point x="-65.0" y="7.25" />
-            </edge>
-            <edge source="it.polimi.ingsw.GC_23.PlayGame" target="it.polimi.ingsw.GC_23.FamilyMember">
-              <point x="-40.5" y="14.5" />
-              <point x="1788.0489253393666" y="560.0" />
-              <point x="1791.1837048083628" y="560.0" />
-              <point x="1791.1837048083628" y="1062.0" />
-              <point x="1638.4515957214426" y="1062.0" />
-              <point x="39.71428571428572" y="-14.5" />
-            </edge>
-            <edge source="it.polimi.ingsw.GC_23.MilitaryCost" target="it.polimi.ingsw.GC_23.Resources">
-              <point x="0.0" y="14.5" />
-              <point x="98.5" y="1827.0" />
-              <point x="890.615959264318" y="1827.0" />
-              <point x="-69.2083333333334" y="-14.5" />
-            </edge>
-            <edge source="it.polimi.ingsw.GC_23.Spaces" target="it.polimi.ingsw.GC_23.Cards">
-              <point x="-40.0" y="-14.5" />
-              <point x="1234.1796442936152" y="853.0" />
-              <point x="658.3385722040391" y="853.0" />
-              <point x="658.3385722040391" y="337.0" />
-              <point x="651.4924183578853" y="337.0" />
-              <point x="47.30769230769232" y="14.5" />
-            </edge>
-            <edge source="it.polimi.ingsw.GC_23.Player" target="it.polimi.ingsw.GC_23.Connection">
-              <point x="15.740740740740762" y="-14.5" />
-              <point x="1635.0405507478977" y="1618.0" />
-              <point x="2041.7739253393665" y="1618.0" />
-              <point x="23.850000000000023" y="14.5" />
-            </edge>
-            <edge source="it.polimi.ingsw.GC_23.Controller" target="it.polimi.ingsw.GC_23.FamilyMember">
-              <point x="43.75" y="-14.5" />
-              <point x="1332.8391618590088" y="1161.0" />
-              <point x="1555.2998100071568" y="1161.0" />
-              <point x="-43.4375" y="14.5" />
-            </edge>
-            <edge source="it.polimi.ingsw.GC_23.PlayerTest" target="it.polimi.ingsw.GC_23.PlayerTimeOut">
-              <point x="0.0" y="-14.5" />
-              <point x="2110.96697200413" y="2036.0" />
-              <point x="2157.8086475615887" y="2036.0" />
-              <point x="2157.8086475615887" y="1201.0" />
-              <point x="2177.047073487515" y="1201.0" />
-              <point x="52.125" y="14.5" />
-            </edge>
-            <edge source="it.polimi.ingsw.GC_23.Effects" target="it.polimi.ingsw.GC_23.Cards">
-              <point x="-20.3125" y="-14.5" />
-              <point x="906.0904558404561" y="1320.0" />
-              <point x="612.6078029732698" y="1320.0" />
-              <point x="612.6078029732698" y="367.0" />
-              <point x="613.6462645117314" y="367.0" />
-              <point x="9.461538461538453" y="14.5" />
-            </edge>
-            <edge source="it.polimi.ingsw.GC_23.ParseJson" target="it.polimi.ingsw.GC_23.MilitaryCost">
-              <point x="-40.5" y="-14.5" />
-              <point x="484.80630826716674" y="2046.0" />
-              <point x="61.25" y="2046.0" />
-              <point x="61.25" y="238.0" />
-              <point x="57.16666666666674" y="238.0" />
-              <point x="-41.33333333333326" y="14.5" />
-            </edge>
-            <edge source="it.polimi.ingsw.GC_23.FamilyMember" target="it.polimi.ingsw.GC_23.Spaces">
-              <point x="-59.571428571428555" y="-14.5" />
-              <point x="1539.1658814357284" y="1012.0" />
-              <point x="1312.4149384112623" y="1012.0" />
-              <point x="38.235294117647015" y="14.5" />
-            </edge>
-            <edge source="it.polimi.ingsw.GC_23.Controller" target="it.polimi.ingsw.GC_23.Requirement">
-              <point x="-68.75" y="-14.5" />
-              <point x="1220.3391618590088" y="1201.0" />
-              <point x="298.375" y="1201.0" />
-              <point x="298.375" y="238.0" />
-              <point x="281.5615779020444" y="238.0" />
-              <point x="25.399999999999977" y="14.5" />
-            </edge>
-            <edge source="it.polimi.ingsw.GC_23.Spaces" target="it.polimi.ingsw.GC_23.ExcommunicationTile">
-              <point x="-60.0" y="-14.5" />
-              <point x="1214.1796442936152" y="873.0" />
-              <point x="517.9115779020444" y="873.0" />
-              <point x="69.0" y="14.5" />
-            </edge>
-            <edge source="it.polimi.ingsw.GC_23.Player" target="it.polimi.ingsw.GC_23.Controller">
-              <point x="-15.740740740740705" y="-14.5" />
-              <point x="1603.5590692664161" y="1608.0" />
-              <point x="1347.0383675067758" y="1608.0" />
-              <point x="1347.0383675067758" y="1340.0" />
-              <point x="1331.9463047161516" y="1340.0" />
-              <point x="42.85714285714283" y="14.5" />
-            </edge>
-            <edge source="it.polimi.ingsw.GC_23.ParseJson" target="it.polimi.ingsw.GC_23.Resources">
-              <point x="49.5" y="-14.5" />
-              <point x="574.8063082671667" y="2056.0" />
-              <point x="938.2528640262228" y="2056.0" />
-              <point x="-21.571428571428577" y="14.5" />
-            </edge>
-          </edges>
-          <settings layout="Hierarchic Group" zoom="0.5132953826749627" x="279.18032826323054" y="-960.5569302111969" />
-          <SelectedNodes />
-          <Categories />
-          <SCOPE>All</SCOPE>
-          <VISIBILITY>public</VISIBILITY>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/Cards/BuildingCard.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/Resources/FaithPoints.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="70">
-          <caret line="29" column="7" lean-forward="true" selection-start-line="23" selection-start-column="4" selection-end-line="29" selection-end-column="7" />
+        <state relative-caret-position="30">
+          <caret line="2" column="0" lean-forward="false" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/Resources/Gold.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="5" column="13" lean-forward="false" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/Resources/MilitaryPoints.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="5" column="13" lean-forward="false" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/Resources/ResourcesSet.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="6" column="0" lean-forward="false" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/Resources/Resources.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" column="0" lean-forward="false" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/Resources/Servants.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="5" column="13" lean-forward="false" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/Resources/Stone.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="5" column="13" lean-forward="false" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/Resources/VictoryPoints.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="5" column="13" lean-forward="false" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/Resources/Wood.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="5" column="13" lean-forward="false" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/Spaces/CouncilSpace.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" column="7" lean-forward="true" selection-start-line="2" selection-start-column="7" selection-end-line="2" selection-end-column="7" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/Spaces/DiceSpace.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="3" column="0" lean-forward="false" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/Spaces/ExcommunicationSpace.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="10" column="0" lean-forward="false" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/Spaces/MarketSpace.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="4" column="0" lean-forward="false" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/Spaces/HarvestSpace.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" column="7" lean-forward="true" selection-start-line="2" selection-start-column="7" selection-end-line="2" selection-end-column="7" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/Spaces/ActionSpace.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="6" column="0" lean-forward="false" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/Spaces/ProductionSpace.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" column="7" lean-forward="true" selection-start-line="2" selection-start-column="7" selection-end-line="2" selection-end-column="7" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/Spaces/Tower.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="3" column="7" lean-forward="true" selection-start-line="3" selection-start-column="7" selection-end-line="3" selection-end-column="7" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/Spaces/TowerSpace.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" column="7" lean-forward="true" selection-start-line="2" selection-start-column="7" selection-end-line="2" selection-end-column="7" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/Connection/Match.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="10">
-          <caret line="201" column="48" lean-forward="false" selection-start-line="201" selection-start-column="48" selection-end-line="201" selection-end-column="48" />
+        <state relative-caret-position="105">
+          <caret line="16" column="13" lean-forward="false" selection-start-line="16" selection-start-column="13" selection-end-line="16" selection-end-column="13" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/README.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="480">
-            <caret line="32" column="17" lean-forward="true" selection-start-line="32" selection-start-column="17" selection-end-line="32" selection-end-column="17" />
-            <folding />
-          </first_editor>
-          <second_editor />
+    <entry file="file://$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/Connection/MatchTimeOut.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="11" column="13" lean-forward="false" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -3327,8 +2367,8 @@
   <component name="mavenExecuteGoalHistory">
     <option value="$PROJECT_DIR$" />
     <option value="sonar:sonar" />
-    <option value="test" />
     <option value="install" />
+    <option value="test" />
     <option value="start" />
   </component>
 </project>

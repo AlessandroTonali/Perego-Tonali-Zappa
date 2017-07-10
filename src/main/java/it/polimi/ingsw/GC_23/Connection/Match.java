@@ -3,7 +3,6 @@ package it.polimi.ingsw.GC_23.Connection;
 import it.polimi.ingsw.GC_23.Board;
 import it.polimi.ingsw.GC_23.Creator;
 import it.polimi.ingsw.GC_23.Player;
-import it.polimi.ingsw.GC_23.StringTyper;
 
 import java.io.IOException;
 import java.rmi.RemoteException;

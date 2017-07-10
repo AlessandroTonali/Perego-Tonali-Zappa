@@ -1,13 +1,10 @@
 package it.polimi.ingsw.GC_23.Connection;
 
-import it.polimi.ingsw.GC_23.FX.UserFX;
 
 import java.io.IOException;
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.rmi.RemoteException;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 

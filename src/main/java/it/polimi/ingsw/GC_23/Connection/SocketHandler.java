@@ -1,6 +1,5 @@
 package it.polimi.ingsw.GC_23.Connection;
 
-import it.polimi.ingsw.GC_23.FX.UserFX;
 import it.polimi.ingsw.GC_23.Player;
 
 import java.io.IOException;
@@ -9,7 +8,6 @@ import java.io.ObjectOutputStream;
 import java.io.PrintWriter;
 import java.net.Socket;
 import java.rmi.RemoteException;
-import java.util.Map;
 import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;

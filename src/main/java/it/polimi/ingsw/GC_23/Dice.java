@@ -1,7 +1,6 @@
 package it.polimi.ingsw.GC_23;
 
 import it.polimi.ingsw.GC_23.Enumerations.DiceColor;
-import it.polimi.ingsw.GC_23.Spaces.DiceSpace;
 
 import java.util.Random;
 

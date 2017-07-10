@@ -1,6 +1,5 @@
 package it.polimi.ingsw.GC_23.Controller;
 
-import it.polimi.ingsw.GC_23.SingleCost;
 
 import java.io.IOException;
 import java.rmi.RemoteException;

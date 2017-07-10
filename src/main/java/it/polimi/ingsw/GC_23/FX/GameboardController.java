@@ -1,6 +1,5 @@
 package it.polimi.ingsw.GC_23.FX;
 
-import com.sun.org.apache.regexp.internal.RE;
 import com.sun.prism.paint.Color;
 import it.polimi.ingsw.GC_23.StringTyper;
 import javafx.event.ActionEvent;

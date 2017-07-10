@@ -3,11 +3,9 @@ package it.polimi.ingsw.GC_23.FX;
 import it.polimi.ingsw.GC_23.Connection.User;
 import it.polimi.ingsw.GC_23.Connection.UserImpl;
 import javafx.application.Application;
-import javafx.application.Platform;
 import javafx.stage.Stage;
 
 import java.io.FileNotFoundException;
-import java.io.IOException;
 import java.io.Serializable;
 import java.rmi.RemoteException;
 import java.util.ArrayList;

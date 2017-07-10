@@ -1,6 +1,5 @@
 package it.polimi.ingsw.GC_23;
 
-import it.polimi.ingsw.GC_23.Effects.AbsEffect;
 import it.polimi.ingsw.GC_23.Effects.BenefitsEffect;
 
 /**

@@ -1,6 +1,5 @@
 package it.polimi.ingsw.GC_23.Connection;
 
-import it.polimi.ingsw.GC_23.FX.UserFX;
 
 import java.io.*;
 import java.net.ServerSocket;

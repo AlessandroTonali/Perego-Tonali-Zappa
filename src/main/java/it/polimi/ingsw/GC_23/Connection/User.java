@@ -2,10 +2,8 @@ package it.polimi.ingsw.GC_23.Connection;
 
 import it.polimi.ingsw.GC_23.FX.UserFX;
 
-import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.io.Serializable;
 import java.rmi.Remote;
 import java.rmi.RemoteException;
 import java.util.Scanner;

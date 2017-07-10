@@ -1,6 +1,5 @@
 package it.polimi.ingsw.GC_23.Resources;
 
-import it.polimi.ingsw.GC_23.Player;
 
 /**
  * Created by Alessandro Tonali on 20/05/2017.

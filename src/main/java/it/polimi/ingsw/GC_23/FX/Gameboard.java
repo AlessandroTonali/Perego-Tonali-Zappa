@@ -1,23 +1,14 @@
 package it.polimi.ingsw.GC_23.FX;
 
-import it.polimi.ingsw.GC_23.Connection.User;
-import it.polimi.ingsw.GC_23.Connection.UserImpl;
-import it.polimi.ingsw.GC_23.Controller.Controller;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.geometry.Rectangle2D;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
-import javafx.scene.layout.*;
-import javafx.scene.paint.ImagePattern;
 import javafx.stage.Screen;
 import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.io.Serializable;
-import java.net.URL;
 import java.rmi.RemoteException;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;

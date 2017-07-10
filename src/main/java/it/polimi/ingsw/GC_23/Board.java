@@ -9,14 +9,12 @@ import it.polimi.ingsw.GC_23.Enumerations.CardColor;
 import it.polimi.ingsw.GC_23.Enumerations.DiceColor;
 import it.polimi.ingsw.GC_23.Spaces.*;
 
-import java.rmi.RemoteException;
 import java.util.ArrayList;
 
 /**
  * Created by jesss on 31/05/17.
  */
 public class Board {
-    private int towerDim =4;
     private Tower[] towers;
     private MarketSpace[] marketSpaces;
     private CouncilSpace councilSpace;
@@ -302,6 +300,7 @@ public class Board {
                 case 1: stringBuilder.append("CHARACTER TOWER\n"); break;
                 case 2: stringBuilder.append("BUILDING TOWER\n"); break;
                 case 3: stringBuilder.append("VENTURE TOWER\n"); break;
+                default: throw new UnsupportedOperationException();
             }
              stringBuilder.append(t.toString());
             i++;

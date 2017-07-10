@@ -4,7 +4,6 @@ import it.polimi.ingsw.GC_23.Cards.LeaderCard;
 import it.polimi.ingsw.GC_23.ParseJson;
 import it.polimi.ingsw.GC_23.Player;
 import it.polimi.ingsw.GC_23.PlayerTimeOut;
-import sun.security.krb5.internal.PAData;
 
 import java.io.IOException;
 

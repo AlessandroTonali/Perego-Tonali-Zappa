@@ -5,7 +5,6 @@ import it.polimi.ingsw.GC_23.Spaces.MarketSpace;
 import it.polimi.ingsw.GC_23.StringTyper;
 
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.logging.Level;

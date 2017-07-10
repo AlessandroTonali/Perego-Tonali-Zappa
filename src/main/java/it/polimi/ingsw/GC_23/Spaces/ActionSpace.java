@@ -1,11 +1,9 @@
 package it.polimi.ingsw.GC_23.Spaces;
 
-import it.polimi.ingsw.GC_23.Effects.AbsEffect;
 import it.polimi.ingsw.GC_23.FamilyMember;
 import it.polimi.ingsw.GC_23.Player;
 
 import java.rmi.RemoteException;
-import java.util.ArrayList;
 
 /**
  * Created by Alessandro Tonali on 20/05/2017.
