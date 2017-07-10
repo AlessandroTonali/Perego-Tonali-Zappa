@@ -13,6 +13,12 @@ public class IncreaseFamilyValue implements Controller {
     int quantity;
     FamilyMember familyMember;
 
+    /**
+     *
+     * @param quantity number of servants that you want to use
+     * @param familyMember that you want to increase the value
+     * @throws IOException
+     */
     public IncreaseFamilyValue(int quantity, FamilyMember familyMember) throws IOException {
         this.quantity = quantity;
         this.familyMember = familyMember;
@@ -33,6 +39,10 @@ public class IncreaseFamilyValue implements Controller {
         }
     }
 
+    /**
+     * show on interface
+     * @return
+     */
     public boolean isLegal() {
         ResourcesSet playerRes = this.familyMember.getPlayer().getResources();
         if (playerRes.checkAffordable(new ResourcesSet(0, 0, 0, quantity, 0
@@ -44,6 +54,9 @@ public class IncreaseFamilyValue implements Controller {
 
     }
 
+    /**
+     * show on interface
+     */
     @Override
     public void makeAction() {
         if (familyMember.getPlayer().isDoubleServantToIncrease()) {

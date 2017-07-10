@@ -18,6 +18,12 @@ public class LeaderCard {
     private boolean discardedInThisTurn = false;
     private int idCard;
 
+    /**
+     * construct for creating a leader card object
+     * @param name of leader card
+     * @param requirement to satisfy for active the leader card
+     * @param effect array list of effect of the leader card
+     */
     public LeaderCard(String name, Requirement requirement, ArrayList<AbsEffect> effect) {
         this.name = name;
         this.requirement = requirement;

@@ -22,6 +22,12 @@ public class MarketController extends PlaceFamilyMember {
     private MarketSpace chosenSpace;
     private final Logger logger = Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
 
+    /**
+     *
+     * @param familyMember that you want to put in market space
+     * @param marketSpace associated at the move
+     * @throws IOException
+     */
     public MarketController(FamilyMember familyMember, MarketSpace[] marketSpace) throws IOException {
         this.familyMember = familyMember;
         this.marketSpace = marketSpace;
@@ -74,6 +80,10 @@ public class MarketController extends PlaceFamilyMember {
         }
     }
 
+    /**
+     * show on interface
+     * @return
+     */
     public boolean isLegal(){
         if(!(chosenSpace.checkBusy())&&(chosenSpace.checkValue(familyMember)) && !familyMember.getPlayer().isNotPlayInMarket()) {
             return true;
@@ -83,6 +93,10 @@ public class MarketController extends PlaceFamilyMember {
         }
     }
 
+    /**
+     * show on interface
+     * @throws IOException
+     */
     @Override
     public void makeAction() throws IOException {
         if(familyMember.getPlayer().getUserHandler().isGuiInterface()) {

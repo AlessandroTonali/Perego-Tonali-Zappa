@@ -21,6 +21,13 @@ public class BuildingCard extends Card {
         super(period, cardColor, name, immediateEffect, permanentEffect, cost);
     }
 
+    /**
+     * verify if the number of building card of the player is minus of maximum card takeable
+     * and check the resources to take the card
+     * @param player that want to take the card
+     * @return true if you can take the card, false if not
+     * @throws RemoteException
+     */
     //controlla numero carte e se ha abbastanza risorse
     @Override
     public boolean checkTakeable(Player player) throws RemoteException {
@@ -35,6 +42,10 @@ public class BuildingCard extends Card {
         }
     }
 
+    /**
+     * show on abstract class
+     * @param player
+     */
     public void addCardOfPlayer(Player player) {
         player.getCardOfPlayer().setCard(this);
         for (int i = 0; i < getPermanentEffect().size(); i++) {

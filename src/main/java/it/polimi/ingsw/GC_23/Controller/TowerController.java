@@ -49,19 +49,9 @@ public abstract class TowerController extends PlaceFamilyMember {
         return towerSpace;
     }
 
+    @Override
     public abstract boolean isLegal() throws RemoteException;
 
+    @Override
     public abstract void makeAction() throws IOException;
-
-    // controlla se il tower space che ci hanno passato appartiene alla torre
-    private boolean checkTowerSpaceInTower() {
-        boolean isMember = false;
-        TowerSpace[] towerSpaces = tower.getSpaces();
-        for (int i = 0; i < towerSpaces.length ; i++) {
-            if (towerSpaces[i].getCard().getName().equals(towerSpace.getCard().getName())) {
-                isMember = true;
-            }
-        }
-        return isMember;
-    }
 }

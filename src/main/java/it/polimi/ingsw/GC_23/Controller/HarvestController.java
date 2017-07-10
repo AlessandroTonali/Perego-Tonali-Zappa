@@ -13,6 +13,12 @@ public class HarvestController extends PlaceFamilyMember {
     private FamilyMember familyMember;
     private HarvestSpace harvestSpace;
 
+    /**
+     *
+     * @param familyMember which you do the move
+     * @param harvestSpace that you want to put the family member
+     * @throws IOException
+     */
     public HarvestController(FamilyMember familyMember, HarvestSpace harvestSpace) throws IOException {
         this.familyMember = familyMember;
         this.harvestSpace = harvestSpace;
@@ -32,6 +38,10 @@ public class HarvestController extends PlaceFamilyMember {
         }
     }
 
+    /**
+     * show  on interface
+     * @return
+     */
     //Da controllare: no familiari dello stesso colore (si neutro)
     @Override
     public boolean isLegal() {
@@ -44,11 +54,20 @@ public class HarvestController extends PlaceFamilyMember {
         return legal;
     }
 
+    /**
+     *
+     * @return  true if the value of  family member is enough to enter in harvest space,
+     * false if not
+     */
     public boolean hasSense() {
         return this.harvestSpace.checkValue(familyMember);
     }
 
 
+    /**
+     * show on interface
+     * @throws RemoteException
+     */
     @Override
     public void makeAction() throws RemoteException {
         if(familyMember.getPlayer().getUserHandler().isGuiInterface()) {

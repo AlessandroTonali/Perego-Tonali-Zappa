@@ -19,6 +19,12 @@ public class CouncilController extends PlaceFamilyMember {
     CouncilSpace councilSpace;
     FamilyMember familyMember;
 
+    /**
+     * controller of the council space
+     * @param councilSpace council space associated
+     * @param familyMember family member that you want to put in
+     * @throws IOException
+     */
     public CouncilController(CouncilSpace councilSpace, FamilyMember familyMember) throws IOException {
         this.councilSpace = councilSpace;
         this.familyMember = familyMember;
@@ -32,6 +38,11 @@ public class CouncilController extends PlaceFamilyMember {
             throw new IllegalArgumentException();
         }
     }
+
+    /**
+     * show on interface
+     * @return
+     */
     @Override
     public boolean isLegal(){
         if(familyMember.getValue()>=1 && !councilSpace.checkFamiliar(familyMember.getPlayer().getPlayerColor())){
@@ -41,6 +52,11 @@ public class CouncilController extends PlaceFamilyMember {
             return false;
         }
     }
+
+    /**
+     * show on interface
+     * @throws IOException
+     */
     @Override
     public void makeAction() throws IOException {
         Player player = familyMember.getPlayer();

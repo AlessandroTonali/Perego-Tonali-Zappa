@@ -18,6 +18,13 @@ public class ActiveLeaderCard implements Controller {
     LeaderCard leaderCard;
     Player player;
 
+    /**
+     *   active the the effect of leader card
+     * @param leaderCard that you want to active
+     * @param player that use the leader card
+     * @param playerTimeOut the time out of the game
+     * @throws IOException
+     */
     public ActiveLeaderCard(LeaderCard leaderCard, Player player, PlayerTimeOut playerTimeOut) throws IOException {
         this.leaderCard = leaderCard;
         this.player = player;
@@ -38,6 +45,10 @@ public class ActiveLeaderCard implements Controller {
         }
     }
 
+    /**
+     * show on interface
+     * @return
+     */
     @Override
     public boolean isLegal() {
         boolean legal = false;
@@ -50,18 +61,20 @@ public class ActiveLeaderCard implements Controller {
         return legal;
     }
 
+    /**
+     * show on interface
+     * @throws IOException
+     */
     @Override
     public void makeAction() throws IOException {
         ArrayList<AbsEffect> leaderCardEffects = leaderCard.getEffect();
         for (int i = 0; i < leaderCardEffects.size(); i++) {
             AbsEffect effect = leaderCardEffects.get(i);
             if (effect instanceof PermanentEffect) {
-                if (leaderCard.isActivatedPermanentEffect())
-                    if(!player.getUserHandler().isGuiInterface()) {
-                        player.getUserHandler().messageToUser("Permanent effect of card is already active");
-                    }
+                if (leaderCard.isActivatedPermanentEffect() && !player.getUserHandler().isGuiInterface())
+                    player.getUserHandler().messageToUser("Permanent effect of card is already active");
                 else {
-                    if ((effect instanceof PlusDiceEffect) || (effect instanceof SetDiceEffect)) {
+                    if (((effect instanceof PlusDiceEffect) || (effect instanceof SetDiceEffect))) {
                         if(player.getUserHandler().isGuiInterface()) {
                             player.getUserHandler().messageToUser("effect");
                         }

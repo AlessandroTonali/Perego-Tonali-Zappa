@@ -37,4 +37,12 @@ public class PlayerTimeOut implements Runnable{
 
 
     }
+
+    public int getTime() {
+        return time;
+    }
+
+    public void setTime(int time) {
+        this.time = time;
+    }
 }

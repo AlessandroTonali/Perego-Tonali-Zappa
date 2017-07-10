@@ -20,6 +20,12 @@ public class TerritoryController extends TowerController {
     private TowerSpace towerSpace;
     private Tower tower;
 
+    /**
+     * controller of territory tower
+     * @param familyMember with which you do the move
+     * @param tower
+     * @throws IOException
+     */
     public TerritoryController(FamilyMember familyMember, Tower tower) throws IOException {
         super(familyMember, tower);
         this.familyMember = super.getFamilyMember();
@@ -58,6 +64,12 @@ public class TerritoryController extends TowerController {
         }
     }
 
+    /**
+     * show on interface
+     * @return
+     * @throws RemoteException
+     */
+    @Override
     public boolean isLegal() throws RemoteException {
         ResourcesSet cost = super.getTowerSpace().getCard().getCost(this.familyMember.getPlayer()).getResources();
         cost.sum(tower.getSale().getResources(), familyMember.getPlayer());
@@ -83,6 +95,11 @@ public class TerritoryController extends TowerController {
         return legal;
     }
 
+    /**
+     * show on interface
+     * @throws IOException
+     */
+    @Override
     public void makeAction() throws IOException {
         if(tower.checkOtherFamiliar()) {
             familyMember.getPlayer().getResources().pay(new ResourcesSet(0,3,0,0,0,0,0));

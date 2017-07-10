@@ -19,6 +19,11 @@ public class CharacterCard extends Card {
 
     }
 
+    /**
+     *
+     * @param player that want to take the  ccard
+     * @return true if you can take, false if not
+     */
     @Override
     public boolean checkTakeable(Player player) {
         if (player.getCardOfPlayer().getCharacterCards().size() < 6) {
@@ -28,6 +33,10 @@ public class CharacterCard extends Card {
         }
     }
 
+    /**
+     * show on abstract class
+     * @param player
+     */
     @Override
     public void addCardOfPlayer(Player player) {
         player.getCardOfPlayer().setCard(this);

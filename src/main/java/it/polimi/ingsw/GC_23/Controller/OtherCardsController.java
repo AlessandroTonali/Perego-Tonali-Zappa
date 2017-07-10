@@ -19,10 +19,12 @@ public class OtherCardsController extends TowerController {
     private TowerSpace towerSpace;
     private  Tower tower;
 
+    @Override
     public void makeAction() {
 
     }
 
+    @Override
     public boolean isLegal(){
         return false;
     }

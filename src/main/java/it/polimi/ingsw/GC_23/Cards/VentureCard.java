@@ -21,7 +21,12 @@ public class VentureCard extends Card {
 
     }
 
-
+    /**
+     * show on abstract class
+     * @param player that want to take the card
+     * @return
+     * @throws RemoteException
+     */
     @Override
     public boolean checkTakeable(Player player) throws RemoteException {
         if (player.getCardOfPlayer().getVentureCards().size() < 6) {
@@ -36,6 +41,10 @@ public class VentureCard extends Card {
         }
     }
 
+    /**
+     * show on abstract class
+     * @param player
+     */
     public void addCardOfPlayer(Player player) {
         player.getCardOfPlayer().setCard(this);
         for (int i = 0; i < getPermanentEffect().size(); i++) {

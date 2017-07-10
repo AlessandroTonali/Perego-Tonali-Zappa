@@ -16,6 +16,13 @@ public class DiscardLeaderCard implements Controller {
     private LeaderCard leaderCard;
     private Player player;
 
+    /**
+     *
+     * @param leaderCard that you want to discard
+     * @param player that has the leader card
+     * @param playerTimeOut the time out of the player move
+     * @throws IOException
+     */
     public DiscardLeaderCard(LeaderCard leaderCard, Player player, PlayerTimeOut playerTimeOut) throws IOException {
         this.leaderCard = leaderCard;
         this.player = player;
@@ -35,6 +42,10 @@ public class DiscardLeaderCard implements Controller {
         }
     }
 
+    /**
+     * show on interface
+     * @return
+     */
     @Override
     public boolean isLegal() {
         boolean legal = false;
@@ -46,6 +57,10 @@ public class DiscardLeaderCard implements Controller {
         return legal;
     }
 
+    /**
+     * show on interface
+     * @throws IOException
+     */
     @Override
     public void makeAction() throws IOException {
         if(player.getUserHandler().isGuiInterface()) {

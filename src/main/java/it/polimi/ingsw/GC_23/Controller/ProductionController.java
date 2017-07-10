@@ -14,6 +14,12 @@ public class ProductionController extends PlaceFamilyMember {
     private FamilyMember familyMember;
     private ProductionSpace productionSpace;
 
+    /**
+     * controller of production space
+     * @param familyMember with which you do the move
+     * @param productionSpace associated at the controller
+     * @throws IOException
+     */
     public ProductionController(FamilyMember familyMember, ProductionSpace productionSpace) throws IOException {
         this.familyMember = familyMember;
         this.productionSpace = productionSpace;
@@ -33,6 +39,10 @@ public class ProductionController extends PlaceFamilyMember {
         }
     }
 
+    /**
+     * show on interface
+     * @return
+     */
     //Da controllare: no familiari dello stesso colore (si neutro)
     public boolean isLegal() {
         if (!(productionSpace.checkBusy())&&(familyMember.getValue()>=1) && !productionSpace.checkFamiliar(familyMember)){
@@ -42,11 +52,19 @@ public class ProductionController extends PlaceFamilyMember {
             return false;
     }
 
+    /**
+     *
+     * @return  true if the value of  family member is enough to enter in harvest space,
+     * false if not
+     */
     public boolean hasSense() {
         return this.productionSpace.checkValue(familyMember);
     }
 
-    //TODO: attiva anche gli effetti permanenti delle carte edificio in possesso con valore <= a quello dell'azione
+    /**
+     * show on interface
+     * @throws RemoteException
+     */
     @Override
     public void makeAction() throws RemoteException {
         if(familyMember.getPlayer().getUserHandler().isGuiInterface()) {

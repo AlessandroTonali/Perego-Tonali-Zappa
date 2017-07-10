@@ -21,6 +21,13 @@ public class NewPlayCardController implements Controller {
     private TowerSpace towerSpace;
     private SingleCost costCard;
 
+    /**
+     *
+     * @param tower where you want to do the new play
+     * @param familyMember with which you do the move
+     * @param sale on card cost
+     * @throws RemoteException
+     */
     public NewPlayCardController(Tower tower, FamilyMember familyMember, SingleCost sale) throws RemoteException {
         this.familyMember = familyMember;
         this.tower = tower;
@@ -31,6 +38,11 @@ public class NewPlayCardController implements Controller {
         }
     }
 
+    /**
+     * show on interface
+     * @return
+     * @throws RemoteException
+     */
     //non controlla se c'è un altro familiare dello stesso colore ma fa checkOtherFamiliar
     @Override
     public boolean isLegal() throws RemoteException {
@@ -52,6 +64,11 @@ public class NewPlayCardController implements Controller {
         return legal;
     }
 
+    /**
+     * show on interface
+     * in this action the member is not setted in tower space
+     * @throws IOException
+     */
     //non setta il familyMember
     @Override
     public void makeAction() throws IOException {
