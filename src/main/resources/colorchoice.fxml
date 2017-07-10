@@ -13,9 +13,9 @@
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <Pane />
-      <Label layoutX="231.0" layoutY="35.0" text="Select your color">
+      <Label layoutX="224.0" layoutY="33.0" text="Select your color">
          <font>
-            <Font size="18.0" />
+            <Font name="Cambria" size="24.0" />
          </font></Label>
       <HBox layoutX="109.0" layoutY="81.0" prefHeight="126.0" prefWidth="310.0" style="-fx-border-color: BLACK;">
          <children>
@@ -27,7 +27,7 @@
                            <children>
                               <Label layoutX="60.0" layoutY="5.0" text="Color">
                                  <font>
-                                    <Font name="System Bold" size="13.0" />
+                                    <Font name="Cambria" size="13.0" />
                                  </font>
                               </Label>
                            </children>
@@ -64,25 +64,25 @@
                            <children>
                               <Label layoutX="62.0" layoutY="5.0" text="User">
                                  <font>
-                                    <Font name="System Bold" size="13.0" />
+                                    <Font name="System Font Regular" size="13.0" />
                                  </font></Label>
                            </children></Pane>
                         <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: BLACK;">
                            <children>
-                              <Label fx:id="greenlabel" layoutX="36.0" layoutY="2.0" />
+                              <Label fx:id="greenlabel" layoutX="63.0" layoutY="5.0" />
                            </children></Pane>
                         <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: BLACK;">
                            <children>
-                              <Label fx:id="redlabel" layoutX="36.0" layoutY="2.0" />
+                              <Label fx:id="redlabel" layoutX="63.0" layoutY="5.0" />
                            </children></Pane>
                         <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: BLACK;">
                            <children>
-                              <Label fx:id="bluelabel" layoutX="36.0" layoutY="2.0" />
+                              <Label fx:id="bluelabel" layoutX="63.0" layoutY="5.0" />
                            </children>
                         </Pane>
                         <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: BLACK;">
                            <children>
-                              <Label fx:id="yellowlabel" layoutX="36.0" layoutY="2.0" />
+                              <Label fx:id="yellowlabel" layoutX="63.0" layoutY="5.0" />
                            </children></Pane>
                      </children>
                   </VBox>
@@ -96,7 +96,7 @@
                <children>
                   <Label layoutX="5.0" layoutY="5.0" text="Toggles">
                      <font>
-                        <Font name="System Bold" size="13.0" />
+                        <Font name="System Font Regular" size="13.0" />
                      </font>
                   </Label>
                </children>
@@ -136,7 +136,7 @@
       <RadioButton fx:id="advanced" layoutX="310.0" layoutY="271.0" mnemonicParsing="false" text="Advanced Rules" toggleGroup="$rules" />
       <Label layoutX="213.0" layoutY="227.0" text="Select game difficulty">
          <font>
-            <Font size="18.0" />
+            <Font name="Cambria" size="18.0" />
          </font>
       </Label>
    </children>
