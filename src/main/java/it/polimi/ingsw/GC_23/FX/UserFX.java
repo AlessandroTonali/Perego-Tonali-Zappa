@@ -58,7 +58,7 @@ public class UserFX extends Application implements Runnable, Serializable{
      */
     public String receive() throws RemoteException{
         if(user.isSocketConnection()) {
-            return user.getInScanner().nextLine();
+             return user.getInScanner().nextLine();
         }
         else {
             return user.getSentToGui();
