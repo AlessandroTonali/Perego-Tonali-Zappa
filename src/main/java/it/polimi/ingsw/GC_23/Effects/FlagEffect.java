@@ -11,10 +11,19 @@ public class FlagEffect extends AbsEffect {
 
     private String type;
 
+    /**
+     * effect that set a parameter on player
+     * @param type
+     */
     public FlagEffect(String type) {
         this.type = type;
     }
 
+    /**
+     *
+     * @param player that want to active the effect
+     * @throws IOException
+     */
     @Override
     public void activeEffect(Player player) throws IOException {
         if(player.getUserHandler().isGuiInterface()){

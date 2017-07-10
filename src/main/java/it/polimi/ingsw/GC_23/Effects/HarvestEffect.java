@@ -18,6 +18,11 @@ public class HarvestEffect extends PermanentEffect  {
     private ArrayList<AbsEffect> effects;
     private boolean isActivable;
 
+    /**
+     *
+     * @param harvestValue value of  harvest for active the effect
+     * @param effects array list of effect to active
+     */
     public HarvestEffect(int harvestValue, ArrayList<AbsEffect> effects) {
         this.harvestValue = harvestValue;
         this.effects = effects;

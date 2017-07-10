@@ -15,10 +15,19 @@ import java.io.IOException;
 public class NewPlayProductionEffect extends AbsEffect {
     private int diceValue;
 
+    /**
+     * new play on production space
+     * @param diceValue value of the new play
+     */
     public NewPlayProductionEffect(int diceValue) {
         this.diceValue = diceValue;
     }
 
+    /**
+     *
+     * @param player that want to active the effect
+     * @throws IOException
+     */
     @Override
     public void activeEffect(Player player) throws IOException{
         if(player.getUserHandler().isGuiInterface()){

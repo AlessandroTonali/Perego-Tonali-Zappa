@@ -56,6 +56,10 @@ public class ProductEffect extends AbsEffect {
         this.cardColor = cardColor;
     }
 
+    /**
+     *
+     * @param player that want to active the effect
+     */
     @Override
     public void activeEffect(Player player) {
         int productFactor = 0;

@@ -13,6 +13,11 @@ public class SetDiceEffect extends PermanentEffect{
     private String type;
     private int value;
 
+    /**
+     * set the value of dice or set of dices at a specific value
+     * @param value of dice to set
+     * @param type of effect
+     */
     public SetDiceEffect(int value, String type) {
         this.value = value;
         this.type = type;
@@ -27,6 +32,11 @@ public class SetDiceEffect extends PermanentEffect{
     }
 
 
+    /**
+     *
+     * @param player that want to active the effect
+     * @throws IOException
+     */
     @Override
     public void activeEffect(Player player) throws IOException {
         FamilyMember[] familyMembers = player.getFamilyMembers();

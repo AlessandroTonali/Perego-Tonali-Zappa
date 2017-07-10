@@ -25,6 +25,12 @@ public class NewPlayCardEffect extends AbsEffect {
     ArrayList<SingleCost> resourcesDiscount;
     private final Logger logger = Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
 
+    /**
+     * effect can be do a particular new play on a tower
+     * @param diceValue value of the new play
+     * @param towerColor color of tower selected
+     * @param resourcesDiscount possible sale on card
+     */
     public NewPlayCardEffect(int diceValue, NewPlayColor towerColor, ArrayList<SingleCost> resourcesDiscount) {
         this.diceValue = diceValue;
         this.resourcesDiscount = resourcesDiscount;
@@ -32,6 +38,12 @@ public class NewPlayCardEffect extends AbsEffect {
 
     }
 
+    /**
+     * method for choose a sale if the array list size is higher than 1
+     * @param player that do the choose
+     * @return the cost selected
+     * @throws IOException
+     */
     public SingleCost chooseResourceDiscount(Player player) throws IOException {
         SingleCost sale;
         ArrayList<SingleCost> chosenDiscount = new ArrayList<SingleCost>();
@@ -78,6 +90,12 @@ public class NewPlayCardEffect extends AbsEffect {
         return sale;
     }
 
+    /**
+     * method for choose the tower if the color of the effect is rainbow or not already defined
+     * @param player that do the choose
+     * @return the tower selected
+     * @throws RemoteException
+     */
     public Tower chooseTower(Player player) throws RemoteException {
         Tower[] towers = player.getView().getTowers();
         if(!player.getUserHandler().isGuiInterface()) {
@@ -116,6 +134,11 @@ public class NewPlayCardEffect extends AbsEffect {
     }
 
 
+    /**
+     *
+     * @param player that want to active the effect
+     * @throws IOException
+     */
     @Override
     public void activeEffect(Player player) throws IOException {
         if(player.getUserHandler().isGuiInterface()){

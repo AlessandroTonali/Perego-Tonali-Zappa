@@ -24,6 +24,13 @@ public class PlusDiceEffect extends PermanentEffect {
     private final Logger logger = Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
 
 
+    /**
+     * effect that give you a plus on a specific dice or a set of dices
+     * @param plusDiceValue value to sum at value of dice
+     * @param type of plus
+     * @param cardColor color of tower that receive the effect, it is possible to set a null
+     * @param sales on card cost
+     */
     public PlusDiceEffect(int plusDiceValue, String type, CardColor cardColor, ArrayList<SingleCost> sales) {
         this.plusDiceValue = plusDiceValue;
         this.type = type;
@@ -102,6 +109,11 @@ public class PlusDiceEffect extends PermanentEffect {
 
     }
 
+    /**
+     *
+     * @param player that want to active the effect
+     * @throws IOException
+     */
     @Override
     public void activeEffect(Player player) throws IOException {
         if(player.getUserHandler().isGuiInterface()){

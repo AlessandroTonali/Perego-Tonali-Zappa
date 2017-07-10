@@ -21,6 +21,11 @@ public class CouncilPrivilegeEffect extends AbsEffect {
     boolean isDifferent;
     private final Logger logger = Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
 
+    /**
+     *
+     * @param numberOfPrivileges number of privilege of the effect
+     * @param isDifferent boolean parameter that define if the privilege the you receive can be equals or not
+     */
     public CouncilPrivilegeEffect(int numberOfPrivileges, boolean isDifferent) {
         this.numberOfPrivileges = numberOfPrivileges;
         this.isDifferent = isDifferent;
@@ -42,6 +47,12 @@ public class CouncilPrivilegeEffect extends AbsEffect {
         return benefits;
     }
 
+    /**
+     * Method to choose the effect of those present
+     * @param player that do the choose
+     * @return array of effect selected
+     * @throws RemoteException
+     */
     public BenefitsEffect[] chooseCouncilPrivilege(Player player) throws RemoteException {
         ExecutorService executorService = Executors.newCachedThreadPool();
         StringTyper stringTyper = new StringTyper(player);
@@ -175,6 +186,11 @@ public class CouncilPrivilegeEffect extends AbsEffect {
     }
 
 
+    /**
+     *
+     * @param player that want to active the effect
+     * @throws RemoteException
+     */
     @Override
     public void activeEffect(Player player) throws RemoteException {
         if(player.getUserHandler().isGuiInterface()) {
@@ -190,6 +206,12 @@ public class CouncilPrivilegeEffect extends AbsEffect {
         }
     }
 
+    /**
+     * method that check if the council privilege is alread taken or not if the number of privilege is higher than 1
+     * @param checkedList list of the id of the effect
+     * @param checkedNumber id of the effect selected
+     * @return true if you already taken the @param checkedNumber effect,  false if not
+     */
     public boolean alreadyTaken(ArrayList<Integer> checkedList, int checkedNumber) {
         for (int i : checkedList) {
             if (i == checkedNumber) {

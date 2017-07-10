@@ -17,6 +17,11 @@ public class ImplicationEffect extends AbsEffect{
     private ArrayList<AbsEffect> givings;
     private final Logger logger = Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
 
+    /**
+     *
+     * @param requirements array list of cost that you pay to receive the benefit
+     * @param givings array list of benefit to receive
+     */
     public ImplicationEffect(ArrayList<SingleCost> requirements, ArrayList<AbsEffect> givings) {
         this.requirements = requirements;
         this.givings = givings;
@@ -38,6 +43,12 @@ public class ImplicationEffect extends AbsEffect{
         return givings;
     }
 
+    /**
+     * method for choose the effect if the array list requirment size is higher than 1
+     * @param player player that  active the effect
+     * @return the effect chosen
+     * @throws RemoteException
+     */
     public ImplicationEffect chooseImplication(Player player) throws RemoteException {
         Boolean madeChoice = false;
         ArrayList<SingleCost> chosenCost = new ArrayList<SingleCost>();
@@ -104,6 +115,11 @@ public class ImplicationEffect extends AbsEffect{
     }
 
 
+    /**
+     *
+     * @param player that want to active the effect
+     * @throws IOException
+     */
     @Override
     public void activeEffect(Player player) throws IOException {
         if(player.getUserHandler().isGuiInterface()){

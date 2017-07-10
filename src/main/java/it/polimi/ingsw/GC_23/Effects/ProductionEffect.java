@@ -21,6 +21,11 @@ public class ProductionEffect extends PermanentEffect {
         this.effects = effects;
     }
 
+    /**
+     * method for checking if the effect is activable or not
+     * @param familyValue the value of the family member
+     * @return true if the effect is activable, false if not
+     */
     public boolean checkActivable(int familyValue) {
 
         if (productionEffect <= familyValue) {
@@ -32,6 +37,11 @@ public class ProductionEffect extends PermanentEffect {
         return isActivable;
     }
 
+    /**
+     *
+     * @param player that want to active the effect
+     * @throws IOException
+     */
     @Override
     public void activeEffect(Player player) throws IOException {
         if(player.getUserHandler().isGuiInterface()){

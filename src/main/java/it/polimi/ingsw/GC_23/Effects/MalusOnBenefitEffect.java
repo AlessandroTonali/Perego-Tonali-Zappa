@@ -11,6 +11,11 @@ public class MalusOnBenefitEffect extends PermanentEffect{
     private String type;
     private int malusValue;
 
+    /**
+     * permanent effect that give you a malus when you receive a benefit effect
+     * @param type type of resource that give you a malus
+     * @param malusValue value of malus that you receive when take the benefit type resource
+     */
     public MalusOnBenefitEffect(String type, int malusValue) {
         this.type = type;
         this.malusValue = malusValue;

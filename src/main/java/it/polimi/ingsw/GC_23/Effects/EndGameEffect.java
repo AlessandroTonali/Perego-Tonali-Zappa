@@ -14,10 +14,19 @@ public class EndGameEffect extends PermanentEffect {
 
     private int type;
 
+    /**
+     * permanent effect activated at the end of the game
+     * @param type
+     */
     public EndGameEffect(int type) {
         this.type = type;
     }
 
+    /**
+     *
+     * @param player that want to active the effect
+     * @throws IOException
+     */
     @Override
     public void activeEffect(Player player) throws IOException {
         int playerVictoryPoint = player.getResources().getVictoryPoints();
