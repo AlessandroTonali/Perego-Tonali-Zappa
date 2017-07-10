@@ -154,11 +154,11 @@ public class ColorController implements Serializable{
                     }
                 }
                 else {
-                    Alert alert = new Alert(Alert.AlertType.ERROR);
+                    /*Alert alert = new Alert(Alert.AlertType.ERROR);
                     alert.setTitle("Error Dialog");
                     alert.setHeaderText("Invalid choice: color already chosen!");
                     alert.setContentText("Please select a valid choice");
-                    alert.showAndWait();
+                    alert.showAndWait();*/
                     try {
                         handleColor();
                     } catch (RemoteException e) {
