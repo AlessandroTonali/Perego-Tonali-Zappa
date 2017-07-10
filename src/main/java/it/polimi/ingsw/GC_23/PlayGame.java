@@ -134,8 +134,10 @@ public class PlayGame {
 
     public void boardupdater(Player player) throws RemoteException {
         for(Player p : players){
-            update(p);
-            sendTurnPlayer(p,player);
+            if(p.getUserHandler().isGuiInterface()) {
+                update(p);
+                sendTurnPlayer(p, player);
+            }
         }
     }
 
