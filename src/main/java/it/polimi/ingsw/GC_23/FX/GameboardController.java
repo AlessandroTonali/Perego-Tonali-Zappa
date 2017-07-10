@@ -1650,6 +1650,7 @@ public class GameboardController implements Serializable {
                             gameboard.getMessageListener().setRead(true);
                             return;
                         }
+
                         astring = userFX.receive();
                         while (!"effectended".equals(astring)) {
                             try {
