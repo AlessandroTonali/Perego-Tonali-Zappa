@@ -29,23 +29,24 @@ public class ActiveLeaderCard implements Controller {
             if(!player.getUserHandler().isGuiInterface()) {
                 player.getUserHandler().messageToUser("YOU HAVE ACTIVATED THE LEADER CARD");
             }
-            player.chooseMove(player.getView(), true);
+            player.getUserHandler().messageToUser("YOU HAVE ACTIVATED THE LEADER CARD");
         } else {
             if(!player.getUserHandler().isGuiInterface()){
                 player.getUserHandler().messageToUser("YOU CAN'T ACTIVE THE LEADER CARD");
             }
             playerTimeOut.setNeeded(false);
-            player.chooseMove(player.getView(), true);
         }
     }
 
     @Override
     public boolean isLegal() {
-        boolean legal = true;
-        legal = legal && leaderCard.getRequirement().checkRequirement(player);
-
-        legal = legal && !leaderCard.isActivatedInThisRound();
-
+        boolean legal = false;
+        if (leaderCard.getRequirement().checkRequirement(player)){
+            legal = true;
+        }
+        if (leaderCard.isActivatedInThisRound()){
+            legal = false;
+        }
         return legal;
     }
 

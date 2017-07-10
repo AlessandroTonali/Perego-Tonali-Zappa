@@ -1,8 +1,6 @@
 package it.polimi.ingsw.GC_23.Spaces;
 
-import it.polimi.ingsw.GC_23.Cards.Card;
-import it.polimi.ingsw.GC_23.Cards.TerritoryCard;
-import it.polimi.ingsw.GC_23.Effects.AbsEffect;
+
 import it.polimi.ingsw.GC_23.Effects.PermanentEffect;
 import it.polimi.ingsw.GC_23.Effects.PlusDiceEffect;
 import it.polimi.ingsw.GC_23.Enumerations.CardColor;
@@ -11,7 +9,6 @@ import it.polimi.ingsw.GC_23.FamilyMember;
 import it.polimi.ingsw.GC_23.Player;
 import it.polimi.ingsw.GC_23.Resources.ResourcesSet;
 import it.polimi.ingsw.GC_23.SingleCost;
-import it.polimi.ingsw.GC_23.Spaces.TowerSpace;
 import it.polimi.ingsw.GC_23.StringTyper;
 
 import java.rmi.RemoteException;
@@ -78,10 +75,8 @@ public class Tower {
         TowerSpace[] towerSpaces = this.getSpaces();
         if (familyMember.getFamilyColor() != FamilyColor.NEUTRAL) {
             for (int i = 0; i < towerSpaces.length; i++) {
-                if (towerSpaces[i].getFamilyMember()!= null && towerSpaces[i].getFamilyMember().getPlayer().isEquals(familyMember.getPlayer())) {
-                    if (towerSpaces[i].getFamilyMember().getFamilyColor() != FamilyColor.NEUTRAL) {
-                        myFamiliarPresence = true;
-                    }
+                if (towerSpaces[i].getFamilyMember()!= null && towerSpaces[i].getFamilyMember().getPlayer().isEquals(familyMember.getPlayer()) && towerSpaces[i].getFamilyMember().getFamilyColor() != FamilyColor.NEUTRAL) {
+                    myFamiliarPresence = true;
                 }
             }
         }
@@ -173,18 +168,15 @@ public class Tower {
     public FamilyMember checkPermanentEffect(FamilyMember familyMember) throws RemoteException {
         ArrayList<PermanentEffect> permanentEffects = familyMember.getPlayer().getPermanentEffects();
         for (int i = 0; i < permanentEffects.size(); i++) {
-            if (permanentEffects.get(i) instanceof PlusDiceEffect && ((PlusDiceEffect) permanentEffects.get(i)).getType().equals("tower")) {
-                if (((PlusDiceEffect) permanentEffects.get(i)).getCardColor() == towerColor) {
-                    int plusDice = ((PlusDiceEffect) permanentEffects.get(i)).getPlusDiceValue();
-                    familyMember.setValue(familyMember.getValue() + plusDice);
-                    //SingleCost sale = ((PlusDiceEffect) permanentEffects.get(i)).chooseSale(familyMember.getPlayer());
-                    if (sale !=  null) {
-                        this.setSale(((PlusDiceEffect) permanentEffects.get(i)).chooseSale(familyMember.getPlayer()));
-                    }
+            if (permanentEffects.get(i) instanceof PlusDiceEffect && ((PlusDiceEffect) permanentEffects.get(i)).getType().equals("tower") && ((PlusDiceEffect) permanentEffects.get(i)).getCardColor() == towerColor) {
+                int plusDice = ((PlusDiceEffect) permanentEffects.get(i)).getPlusDiceValue();
+                familyMember.setValue(familyMember.getValue() + plusDice);
+                if (sale !=  null) {
+                    this.setSale(((PlusDiceEffect) permanentEffects.get(i)).chooseSale(familyMember.getPlayer()));
+                }
 
-                    if(!familyMember.getPlayer().getUserHandler().isGuiInterface()) {
-                        familyMember.getPlayer().getUserHandler().messageToUser("Your family member value is increased to: " + familyMember.getValue());
-                    }
+                if(!familyMember.getPlayer().getUserHandler().isGuiInterface()) {
+                    familyMember.getPlayer().getUserHandler().messageToUser("Your family member value is increased to: " + familyMember.getValue());
                 }
             }
         }

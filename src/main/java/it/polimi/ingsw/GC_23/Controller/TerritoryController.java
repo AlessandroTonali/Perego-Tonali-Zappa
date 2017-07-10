@@ -1,5 +1,6 @@
 package it.polimi.ingsw.GC_23.Controller;
 
+import com.sun.istack.internal.Nullable;
 import it.polimi.ingsw.GC_23.Effects.AbsEffect;
 import it.polimi.ingsw.GC_23.FamilyMember;
 import it.polimi.ingsw.GC_23.Resources.ResourcesSet;
@@ -20,7 +21,7 @@ public class TerritoryController extends TowerController {
     private Tower tower;
 
     public TerritoryController(FamilyMember familyMember, Tower tower) throws IOException {
-        super(familyMember,tower);
+        super(familyMember, tower);
         this.familyMember = super.getFamilyMember();
         familyMember = this.familyMember;
         this.towerSpace = super.getTowerSpace();

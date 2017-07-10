@@ -1,6 +1,5 @@
 package it.polimi.ingsw.GC_23.Controller;
 
-import it.polimi.ingsw.GC_23.Board;
 import it.polimi.ingsw.GC_23.FamilyMember;
 import it.polimi.ingsw.GC_23.Spaces.HarvestSpace;
 
@@ -36,8 +35,12 @@ public class HarvestController extends PlaceFamilyMember {
     //Da controllare: no familiari dello stesso colore (si neutro)
     @Override
     public boolean isLegal() {
-        boolean legal = true;
-        legal = legal && !harvestSpace.checkFamiliar(familyMember);
+        boolean legal;
+        if (!harvestSpace.checkFamiliar(familyMember)) {
+            legal = true;
+        } else {
+            legal = false;
+        }
         System.out.println(legal);
         return legal;
     }
@@ -46,7 +49,7 @@ public class HarvestController extends PlaceFamilyMember {
         return this.harvestSpace.checkValue(familyMember);
     }
 
-    //TODO: attiva anche gli effetti permanenti delle carte terriorio in possesso con valore <= a quello dell'azione
+
     @Override
     public void makeAction() throws RemoteException {
         if(familyMember.getPlayer().getUserHandler().isGuiInterface()) {

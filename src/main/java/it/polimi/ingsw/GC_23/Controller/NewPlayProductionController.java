@@ -1,12 +1,9 @@
 package it.polimi.ingsw.GC_23.Controller;
 
-import it.polimi.ingsw.GC_23.Cards.TerritoryCard;
-import it.polimi.ingsw.GC_23.Effects.AbsEffect;
 import it.polimi.ingsw.GC_23.FamilyMember;
 import it.polimi.ingsw.GC_23.Spaces.ProductionSpace;
 
 import java.io.IOException;
-import java.util.ArrayList;
 
 /**
  * Created by Alessandro on 08/06/2017.
@@ -20,7 +17,6 @@ public class NewPlayProductionController implements Controller {
         this.familyMember = familyMember;
         this.productionSpace = productionSpace;
 
-        //TODO mettere nella newPlayProductionEffect
         if (isLegal()) {
             makeAction();
             if(!familyMember.getPlayer().getUserHandler().isGuiInterface()) {
@@ -37,9 +33,11 @@ public class NewPlayProductionController implements Controller {
     public boolean isLegal() {
         boolean legal = true;
 
-        legal = legal && productionSpace.checkValue(familyMember);
-
-        legal = legal && productionSpace.checkFamiliar(familyMember);
+        if(productionSpace.checkValue(familyMember) && !productionSpace.checkFamiliar(familyMember)) {
+            legal = true;
+        } else {
+            legal = false;
+        }
 
         return legal;
     }

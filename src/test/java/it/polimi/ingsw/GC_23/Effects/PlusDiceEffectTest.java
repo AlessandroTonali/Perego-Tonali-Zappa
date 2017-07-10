@@ -1,5 +1,7 @@
 package it.polimi.ingsw.GC_23.Effects;
 
+import it.polimi.ingsw.GC_23.Connection.RMIHandler;
+import it.polimi.ingsw.GC_23.Connection.UserImpl;
 import it.polimi.ingsw.GC_23.Enumerations.FamilyColor;
 import it.polimi.ingsw.GC_23.Enumerations.PlayerColor;
 import it.polimi.ingsw.GC_23.FamilyMember;
@@ -42,6 +44,9 @@ public class PlusDiceEffectTest {
         familyMembers[3] = new FamilyMember(player, FamilyColor.NEUTRAL, 0);
         player.setFamilyMembers(familyMembers);
         player.setResources(new ResourcesSet(50,1,5,1,1,50,1));
+        UserImpl user = new UserImpl("s");
+        RMIHandler rmiHandler = new RMIHandler(user);
+        player.setUserHandler(rmiHandler);
 
         plusDiceEffectColor.activeEffect(player);
         assertEquals(2, player.getFamilyMembers()[0].getValue());

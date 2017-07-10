@@ -46,7 +46,6 @@ public class ParseJson {
     private int timeoutStartMatch;
     private int timeoutPlayerMove;
 
-
     public static synchronized ParseJson getParseJson(){
         if(parseJson == null){
             parseJson = new ParseJson();
@@ -268,7 +267,6 @@ public class ParseJson {
         JSONArray implicationEffects = rootObject.getJSONArray("ImplicationEffect");
         parseImplicationEffect(implicationEffects);
 
-        JSONArray discountEffects = rootObject.getJSONArray("DiscountEffect");
 
         JSONArray newPlayCardEffects = rootObject.getJSONArray("NewPlayCardEffect");
         parseNewPlayCardEffect(newPlayCardEffects);
@@ -303,14 +301,7 @@ public class ParseJson {
 
         JSONObject rootObject = new JSONObject(jsonContent);
 
-        /*JSONArray plusTowerEffects = rootObject.getJSONArray("PlusTowerEffect");
-        parsePlusTowerEffect(plusTowerEffects);
 
-        JSONArray plusProductionEffects = rootObject.getJSONArray("PlusProductionEffect");
-        parsePlusProductionEffect(plusProductionEffects);
-
-        JSONArray plusHarvestEffects = rootObject.getJSONArray("PlusHarvestEffect");
-        parsePlusHarvestEffect(plusHarvestEffects);*/
 
         JSONArray plusDiceEffects = rootObject.getJSONArray("PlusDiceEffect");
         parsePlusDiceEffect(plusDiceEffects);
@@ -507,6 +498,8 @@ public class ParseJson {
                 case 3:
                     excommunicationTileThirdPeriod.add(excommunicationTile);
                     break;
+                default:
+                    break;
             }
         }
     }
@@ -603,41 +596,6 @@ public class ParseJson {
 
         }
     }
-
-    /*private void parsePlusHarvestEffect(JSONArray plusHarvestEffects) {
-        for (int i = 0; i < plusHarvestEffects.length(); i++) {
-            int idEffect =  plusHarvestEffects.getJSONObject(i).getInt("id");
-            int diceValue = plusHarvestEffects.getJSONObject(i).getInt("plus_dice_value");
-            PlusHarvestEffect plusHarvestEffect = new PlusHarvestEffect(diceValue);
-            effectMap.put(idEffect, plusHarvestEffect);
-        }
-    }
-
-    private void parsePlusProductionEffect(JSONArray plusProductionEffects) {
-        for (int i = 0; i < plusProductionEffects.length(); i++) {
-            int idEffect =  plusProductionEffects.getJSONObject(i).getInt("id");
-            int diceValue = plusProductionEffects.getJSONObject(i).getInt("plus_dice_value");
-            PlusProductionEffect plusProductionEffect = new PlusProductionEffect(diceValue);
-            effectMap.put(idEffect, plusProductionEffect);
-        }
-    }
-
-    private void parsePlusTowerEffect(JSONArray plusTowerEffects) {
-        for (int i = 0; i < plusTowerEffects.length(); i++) {
-            int idEffect = plusTowerEffects.getJSONObject(i).getInt("id");
-            CardColor cardColor = Util.parseCardColor(plusTowerEffects.getJSONObject(i).getString("card_color"));
-            int plusDiceValue = plusTowerEffects.getJSONObject(i).getInt("plus_dice_value");
-            ArrayList<SingleCost> sales = new ArrayList<>();
-            if (plusTowerEffects.getJSONObject(i).has("sale")) {
-                JSONArray salesJsonArray = plusTowerEffects.getJSONObject(i).getJSONArray("sale");
-                for (int j = 0; j < salesJsonArray.length(); j++) {
-                    sales.add(parseCost(salesJsonArray.getJSONObject(j)));
-                }
-            }
-            PlusTowerEffect plusTowerEffect = new PlusTowerEffect(cardColor, plusDiceValue, sales);
-            effectMap.put(idEffect, plusTowerEffect);
-        }
-    }*/
 
     /**
      * method for parsing and create NewPlayHarvestEffect Object
@@ -960,10 +918,5 @@ public class ParseJson {
 
     public int getTimeoutPlayerMove() {
         return timeoutPlayerMove;
-    }
-
-    // METODO PER TESTING
-    public PermanentEffect getPermanentEffect() {
-        return (PermanentEffect) effectMap.get(492);
     }
 }

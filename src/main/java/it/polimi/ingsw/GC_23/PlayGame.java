@@ -2,7 +2,6 @@ package it.polimi.ingsw.GC_23;
 
 import it.polimi.ingsw.GC_23.Cards.LeaderCard;
 import it.polimi.ingsw.GC_23.Cards.VentureCard;
-import it.polimi.ingsw.GC_23.Connection.UserHandler;
 import it.polimi.ingsw.GC_23.Effects.EndGameEffect;
 import it.polimi.ingsw.GC_23.Effects.PermanentEffect;
 import it.polimi.ingsw.GC_23.Enumerations.FamilyColor;
@@ -13,6 +12,7 @@ import it.polimi.ingsw.GC_23.Spaces.TowerSpace;
 import java.io.IOException;
 import java.rmi.RemoteException;
 import java.util.ArrayList;
+import java.util.logging.Logger;
 
 /**
  * Created by Alessandro on 22/05/2017.
@@ -263,18 +263,25 @@ public class PlayGame {
                 switch (p.getCardOfPlayer().getCharacterCards().size()) {
                     case 1:
                         p.getResources().getVictoryPointsObj().add(1);
+                        break;
                     case 2:
                         p.getResources().getVictoryPointsObj().add(3);
+                        break;
                     case 3:
                         p.getResources().getVictoryPointsObj().add(6);
+                        break;
                     case 4:
                         p.getResources().getVictoryPointsObj().add(10);
+                        break;
                     case 5:
                         p.getResources().getVictoryPointsObj().add(15);
+                        break;
                     case 6:
                         p.getResources().getVictoryPointsObj().add(21);
+                        break;
                     default:
                         p.getResources().getVictoryPointsObj().add(0);
+                        break;
                 }
             }
 

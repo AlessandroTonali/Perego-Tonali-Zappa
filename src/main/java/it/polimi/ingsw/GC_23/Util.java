@@ -5,7 +5,6 @@ import it.polimi.ingsw.GC_23.Enumerations.CardColor;
 
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.Objects;
 import java.util.Random;
 
 /**

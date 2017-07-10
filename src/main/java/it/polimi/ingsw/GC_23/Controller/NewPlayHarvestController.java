@@ -1,12 +1,10 @@
 package it.polimi.ingsw.GC_23.Controller;
 
-import it.polimi.ingsw.GC_23.Cards.BuildingCard;
-import it.polimi.ingsw.GC_23.Effects.AbsEffect;
+
 import it.polimi.ingsw.GC_23.FamilyMember;
 import it.polimi.ingsw.GC_23.Spaces.HarvestSpace;
 
 import java.io.IOException;
-import java.util.ArrayList;
 
 /**
  * Created by Alessandro on 08/06/2017.
@@ -20,7 +18,6 @@ public class NewPlayHarvestController implements Controller {
         this.familyMember = familyMember;
         this.harvestSpace = harvestSpace;
 
-        //TODO mettere nella newPlayHarvestEffect
         if (isLegal()) {
             makeAction();
             familyMember.getPlayer().getUserHandler().messageToUser("Effect new play harvest done");
@@ -31,11 +28,13 @@ public class NewPlayHarvestController implements Controller {
 
     @Override
     public boolean isLegal() {
-        boolean legal = true;
+        boolean legal;
 
-        legal = legal && harvestSpace.checkValue(familyMember);
-
-        legal = legal && !harvestSpace.checkFamiliar(familyMember);
+        if (harvestSpace.checkValue(familyMember) && !harvestSpace.checkFamiliar(familyMember)) {
+            legal = true;
+        } else {
+            legal = false;
+        }
 
         return legal;
     }

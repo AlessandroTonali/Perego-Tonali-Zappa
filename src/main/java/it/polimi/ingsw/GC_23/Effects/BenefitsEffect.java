@@ -33,6 +33,7 @@ public class BenefitsEffect extends AbsEffect{
      * @param player
      * @throws RemoteException
      */
+    @Override
     public void activeEffect(Player player) throws RemoteException {
         if(player.getUserHandler().isGuiInterface()) {
             player.getUserHandler().messageToUser("benefitsEffect");
@@ -51,8 +52,10 @@ public class BenefitsEffect extends AbsEffect{
      */
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
+        if (this == o)
+            return true;
+        if (o == null || getClass() != o.getClass())
+            return false;
 
         BenefitsEffect that = (BenefitsEffect) o;
 

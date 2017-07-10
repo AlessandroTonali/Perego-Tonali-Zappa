@@ -1,12 +1,9 @@
 package it.polimi.ingsw.GC_23.Spaces;
 
-import it.polimi.ingsw.GC_23.BonusTile;
 import it.polimi.ingsw.GC_23.Effects.*;
 import it.polimi.ingsw.GC_23.Enumerations.FamilyColor;
-import it.polimi.ingsw.GC_23.Enumerations.PlayerColor;
 import it.polimi.ingsw.GC_23.FamilyMember;
 import it.polimi.ingsw.GC_23.Player;
-import it.polimi.ingsw.GC_23.Resources.ResourcesSet;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -40,6 +37,7 @@ public class ProductionSpace extends ActionSpace {
         this.playerOrder= new ArrayList<FamilyMember>();
     }
 
+    @Override
     public void setFamilyMember(FamilyMember familyMember) {
         this.isBusyFirst = true;
         this.getPlayerOrder().add(familyMember);
@@ -71,10 +69,10 @@ public class ProductionSpace extends ActionSpace {
      */
     public boolean checkValue(FamilyMember familyMember){
         if(isBusyFirst) {
-            return (familyMember.getValue() - 3) > 1;
+            return (familyMember.getValue() - 3) >= 1;
         }
         else {
-            return (familyMember.getValue()) > 1;
+            return (familyMember.getValue()) >= 1;
 
         }
     }
@@ -143,14 +141,12 @@ public class ProductionSpace extends ActionSpace {
 
         for (int i = 0; i < permanentEffectArrayList.size(); i++) {
             PermanentEffect permanentEffect = permanentEffectArrayList.get(i);
-            if (permanentEffect instanceof ProductionEffect) {
-                if (((ProductionEffect) permanentEffect).checkActivable(familyMember.getValue())) {
-                    try {
-                        permanentEffect.activeEffect(familyMember.getPlayer());
-                    } catch (IOException e) {
-                        logger.setLevel(Level.SEVERE);
-                        logger.severe(String.valueOf(e));
-                    }
+            if (permanentEffect instanceof ProductionEffect && ((ProductionEffect) permanentEffect).checkActivable(familyMember.getValue())) {
+                try {
+                    permanentEffect.activeEffect(familyMember.getPlayer());
+                } catch (IOException e) {
+                    logger.setLevel(Level.SEVERE);
+                    logger.severe(String.valueOf(e));
                 }
             }
         }
@@ -161,7 +157,8 @@ public class ProductionSpace extends ActionSpace {
         int i = 1;
 
         for(FamilyMember f : playerOrder) {
-            if(f == null) continue;
+            if(f == null)
+                continue;
             stringBuilder.append("position: ").append(i).append("--").append(f.toString());
 
         }

@@ -24,6 +24,10 @@ public class RMIHandler implements Runnable, UserHandler, Remote {
         this.user = user;
     }
 
+    public RMIHandler() {
+
+    }
+
     @Override
     public boolean isGuiInterface() throws RemoteException {
         return user.isGuiInterface();

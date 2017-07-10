@@ -1,7 +1,6 @@
 package it.polimi.ingsw.GC_23.Spaces;
 
 import it.polimi.ingsw.GC_23.Cards.Card;
-import it.polimi.ingsw.GC_23.Effects.AbsEffect;
 import it.polimi.ingsw.GC_23.Effects.BenefitsEffect;
 import it.polimi.ingsw.GC_23.Effects.PermanentEffect;
 import it.polimi.ingsw.GC_23.Effects.PlusDiceEffect;

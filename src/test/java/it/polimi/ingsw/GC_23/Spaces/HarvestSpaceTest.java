@@ -1,5 +1,7 @@
 package it.polimi.ingsw.GC_23.Spaces;
 
+import it.polimi.ingsw.GC_23.Connection.RMIHandler;
+import it.polimi.ingsw.GC_23.Connection.UserImpl;
 import it.polimi.ingsw.GC_23.Effects.AbsEffect;
 import it.polimi.ingsw.GC_23.Effects.HarvestEffect;
 import it.polimi.ingsw.GC_23.Effects.PlusDiceEffect;
@@ -57,6 +59,8 @@ public class HarvestSpaceTest {
 
     @Test
     public void resetFamilyMember() throws Exception {
+        HarvestSpace harvestSpace = new HarvestSpace(true);
+        assertFalse(harvestSpace.getFamilyMembersPresent().size() != 0);
     }
 
     @Test
@@ -92,6 +96,9 @@ public class HarvestSpaceTest {
         player.setFamilyMembers(familyMembers);
         player.getPermanentEffects().add(harvestEffect);
         player.setResources(new ResourcesSet(0,0,0,0,0,0,0));
+        UserImpl user = new UserImpl("s");
+        RMIHandler rmiHandler = new RMIHandler(user);
+        player.setUserHandler(rmiHandler);
 
         HarvestSpace harvestSpace = new HarvestSpace(true);
 

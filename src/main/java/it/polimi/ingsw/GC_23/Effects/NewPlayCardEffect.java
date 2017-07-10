@@ -1,10 +1,7 @@
 package it.polimi.ingsw.GC_23.Effects;
 
-import com.sun.media.sound.InvalidFormatException;
 import it.polimi.ingsw.GC_23.*;
 import it.polimi.ingsw.GC_23.Controller.NewPlayCardController;
-import it.polimi.ingsw.GC_23.Controller.OtherCardsController;
-import it.polimi.ingsw.GC_23.Controller.TerritoryController;
 import it.polimi.ingsw.GC_23.Enumerations.FamilyColor;
 import it.polimi.ingsw.GC_23.Enumerations.NewPlayColor;
 import it.polimi.ingsw.GC_23.Spaces.Tower;
@@ -12,7 +9,6 @@ import it.polimi.ingsw.GC_23.Spaces.Tower;
 import java.io.IOException;
 import java.rmi.RemoteException;
 import java.util.ArrayList;
-import java.util.Scanner;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.logging.Level;

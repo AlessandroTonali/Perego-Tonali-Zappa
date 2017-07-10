@@ -2,7 +2,6 @@ package it.polimi.ingsw.GC_23.Effects;
 
 import it.polimi.ingsw.GC_23.*;
 import it.polimi.ingsw.GC_23.Enumerations.CardColor;
-import it.polimi.ingsw.GC_23.Enumerations.DiceColor;
 import it.polimi.ingsw.GC_23.Enumerations.FamilyColor;
 
 import java.io.IOException;
@@ -111,15 +110,11 @@ public class PlusDiceEffect extends PermanentEffect {
         FamilyMember[] familyMembers = player.getFamilyMembers();
         for (int i = 0; i < familyMembers.length; i++) {
             FamilyMember familyMember = familyMembers[i];
-            if (type.equals("dice_neutral")) {
-                if (familyMember.getFamilyColor() == FamilyColor.NEUTRAL) {
-                    familyMember.setValue(familyMember.getValue() + plusDiceValue);
-                }
+            if (type.equals("dice_neutral") && familyMember.getFamilyColor() == FamilyColor.NEUTRAL) {
+                familyMember.setValue(familyMember.getValue() + plusDiceValue);
             }
-            if (type.equals("dice_color")) {
-                if (familyMember.getFamilyColor() != FamilyColor.NEUTRAL) {
-                    familyMember.setValue(familyMember.getValue() + plusDiceValue);
-                }
+            if (type.equals("dice_color") && familyMember.getFamilyColor() != FamilyColor.NEUTRAL) {
+                familyMember.setValue(familyMember.getValue() + plusDiceValue);
             }
         }
     }

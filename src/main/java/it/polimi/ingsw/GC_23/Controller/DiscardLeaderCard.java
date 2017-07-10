@@ -27,21 +27,21 @@ public class DiscardLeaderCard implements Controller {
             if(!player.getUserHandler().isGuiInterface()) {
                 player.getUserHandler().messageToUser("YOU HAVE DISCARDED THE LEADER CARD");
             }
-            player.chooseMove(player.getView(), true);
         } else {
             if(!player.getUserHandler().isGuiInterface()) {
                 player.getUserHandler().messageToUser("YOU CAN'T DISCARD THE LEADER CARD");
             }
             playerTimeOut.setNeeded(false);
-            player.chooseMove(player.getView(), true);
         }
     }
 
     @Override
     public boolean isLegal() {
-        boolean legal = true;
+        boolean legal = false;
 
-        legal = legal && !leaderCard.isDiscardedInThisTurn();
+        if (leaderCard.isDiscardedInThisTurn()) {
+            legal = false;
+        }
 
         return legal;
     }

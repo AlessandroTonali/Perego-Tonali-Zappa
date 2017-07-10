@@ -5,7 +5,6 @@ import it.polimi.ingsw.GC_23.FamilyMember;
 import it.polimi.ingsw.GC_23.Player;
 
 import java.io.IOException;
-import java.rmi.RemoteException;
 
 /**
  * Created by Alessandro on 05/07/2017.
@@ -33,15 +32,11 @@ public class SetDiceEffect extends PermanentEffect{
         FamilyMember[] familyMembers = player.getFamilyMembers();
         for (int i = 0; i < familyMembers.length; i++) {
             FamilyMember familyMember = familyMembers[i];
-            if (type.equals("dice_neutral")) {
-                if (familyMember.getFamilyColor() == FamilyColor.NEUTRAL) {
-                    familyMember.setValue(value);
-                }
+            if (type.equals("dice_neutral") && familyMember.getFamilyColor() == FamilyColor.NEUTRAL) {
+                familyMember.setValue(value);
             }
-            if (type.equals("dice_color")) {
-                if (familyMember.getFamilyColor() != FamilyColor.NEUTRAL) {
-                    familyMember.setValue(value);
-                }
+            if (type.equals("dice_color") && familyMember.getFamilyColor() != FamilyColor.NEUTRAL) {
+                familyMember.setValue(value);
             }
         }
 

@@ -6,7 +6,6 @@ import it.polimi.ingsw.GC_23.Controller.*;
 import it.polimi.ingsw.GC_23.Effects.PermanentEffect;
 import it.polimi.ingsw.GC_23.Enumerations.PlayerColor;
 import it.polimi.ingsw.GC_23.Resources.ResourcesSet;
-import it.polimi.ingsw.GC_23.Spaces.*;
 
 import java.io.IOException;
 import java.io.Serializable;
@@ -91,6 +90,10 @@ public class Player implements Serializable {
 
     public Board getView() {
         return view;
+    }
+
+    public void setView(Board view) {
+        this.view = view;
     }
 
     public FamilyMember[] getFamilyMembers() {
@@ -327,11 +330,14 @@ public class Player implements Serializable {
 
                     if (isAdvanced) {
                         new ActiveLeaderCard(chooseLeaderCard(), this, playerTimeOut);
+                        chooseMove(getView(), true);
                         break;
                     }
+                    break;
                 case 13:
                     if(isAdvanced){
                     new DiscardLeaderCard(chooseLeaderCard(), this, playerTimeOut);
+                    chooseMove(getView(), true);
                     break;
                 }
                 default:
