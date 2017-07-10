@@ -26,10 +26,16 @@ public class HarvestController extends PlaceFamilyMember {
         harvestSpace.checkBeforeActivablePermanentEffect(familyMember);
         if( hasSense()) {
             if(isLegal()){
+                if(familyMember.getPlayer().getUserHandler().isGuiInterface()) {
+                    familyMember.getPlayer().getUserHandler().messageToUser("OK");
+                }
                 harvestSpace.checkAfterActivablePermanentEffect(familyMember);
                 makeAction();
             }
             else{
+                if(familyMember.getPlayer().getUserHandler().isGuiInterface()) {
+                    familyMember.getPlayer().getUserHandler().messageToUser("KO");
+                }
                 if(!familyMember.getPlayer().getUserHandler().isGuiInterface()) {
                     familyMember.getPlayer().getUserHandler().messageToUser("YOU ARE NOT ALLOW TO DO THIS MOVE, DO SOMETHING ELSE!");
                 }

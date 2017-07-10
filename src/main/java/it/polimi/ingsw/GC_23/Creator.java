@@ -89,7 +89,6 @@ public class Creator {
         player.setFamilyMembers(familyMembers);
         player.setResources(new ResourcesSet(0,0,0,3,2,0,2));
         player.setUserHandler(userHandler);
-
         ArrayList<LeaderCard> leaderCards = ParseJson.getParseJson().getLeaderCardArrayList();
         int startIndex = (players.size()-1)*4;
         ArrayList<LeaderCard> playerLeaderCard = new ArrayList<>();

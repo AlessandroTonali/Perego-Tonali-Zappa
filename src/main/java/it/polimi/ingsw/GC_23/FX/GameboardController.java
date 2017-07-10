@@ -1374,6 +1374,7 @@ public class GameboardController implements Serializable {
                         String inizio = "-fx-background-image: url";
                         String fine;
                         userFX.send("6");
+
                         String familyMember = chooseFamilyMember();
                         userFX.send(identifyFamilyMember(familyMember));
                         userFX.send("0");
@@ -1761,6 +1762,11 @@ public class GameboardController implements Serializable {
                     String familyMember = chooseFamilyMember();
                     userFX.send(identifyFamilyMember(familyMember));
                     String astring = userFX.receive();
+                    if("KO".equals(astring)){
+                        gameboard.getMessageListener().setRead(true);
+                        return;
+                    }
+                    astring = userFX.receive();
                     while (!"effectended".equals(astring)) {
                         try {
                             userFX.send(effectswitcher());
@@ -1812,6 +1818,11 @@ public class GameboardController implements Serializable {
                         String familyMember = chooseFamilyMember();
                         userFX.send(identifyFamilyMember(familyMember));
                         String astring = userFX.receive();
+                        if("KO".equals(astring)){
+                            gameboard.getMessageListener().setRead(true);
+                            return;
+                        }
+                        astring = userFX.receive();
                         while (!"effectended".equals(astring)) {
                             try {
                                 userFX.send(effectswitcher());
@@ -1847,6 +1858,11 @@ public class GameboardController implements Serializable {
                         String familyMember = chooseFamilyMember();
                         userFX.send(identifyFamilyMember(familyMember));
                         String astring = userFX.receive();
+                        if("KO".equals(astring)){
+                            gameboard.getMessageListener().setRead(true);
+                            return;
+                        }
+                        astring = userFX.receive();
                         while (!"effectended".equals(astring)) {
                             try {
                                 userFX.send(effectswitcher());
@@ -1906,6 +1922,11 @@ public class GameboardController implements Serializable {
                         String familyMember = chooseFamilyMember();
                         userFX.send(identifyFamilyMember(familyMember));
                         String astring = userFX.receive();
+                        if("KO".equals(astring)){
+                            gameboard.getMessageListener().setRead(true);
+                            return;
+                        }
+                        astring = userFX.receive();
                         while (!"effectended".equals(astring)) {
                             try {
                                 userFX.send(effectswitcher());
@@ -1941,6 +1962,11 @@ public class GameboardController implements Serializable {
                         String familyMember = chooseFamilyMember();
                         userFX.send(identifyFamilyMember(familyMember));
                         String astring = userFX.receive();
+                        if("KO".equals(astring)){
+                            gameboard.getMessageListener().setRead(true);
+                            return;
+                        }
+                        astring = userFX.receive();
                         while (!"effectended".equals(astring)) {
                             try {
                                 userFX.send(effectswitcher());
@@ -2001,6 +2027,11 @@ public class GameboardController implements Serializable {
                         userFX.send(identifyFamilyMember(familyMember));
                         userFX.send("0");
                         String astring = userFX.receive();
+                        if("KO".equals(astring)){
+                            gameboard.getMessageListener().setRead(true);
+                            return;
+                        }
+                        astring = userFX.receive();
                         while (!"effectended".equals(astring)) {
                             try {
                                 userFX.send(effectswitcher());
@@ -2037,6 +2068,11 @@ public class GameboardController implements Serializable {
                         userFX.send(identifyFamilyMember(familyMember));
                         userFX.send("1");
                         String astring = userFX.receive();
+                        if("KO".equals(astring)){
+                            gameboard.getMessageListener().setRead(true);
+                            return;
+                        }
+                        astring = userFX.receive();
                         while (!"effectended".equals(astring)) {
                             try {
                                 userFX.send(effectswitcher());
@@ -2073,6 +2109,11 @@ public class GameboardController implements Serializable {
                         userFX.send(identifyFamilyMember(familyMember));
                         userFX.send("2");
                         String astring = userFX.receive();
+                        if("KO".equals(astring)){
+                            gameboard.getMessageListener().setRead(true);
+                            return;
+                        }
+                        astring = userFX.receive();
                         while (!"effectended".equals(astring)) {
                             try {
                                 userFX.send(effectswitcher());
@@ -2109,6 +2150,11 @@ public class GameboardController implements Serializable {
                         userFX.send(identifyFamilyMember(familyMember));
                         userFX.send("3");
                         String astring = userFX.receive();
+                        if("KO".equals(astring)){
+                            gameboard.getMessageListener().setRead(true);
+                            return;
+                        }
+                        astring = userFX.receive();
                         while (!"effectended".equals(astring)) {
                             try {
                                 userFX.send(effectswitcher());

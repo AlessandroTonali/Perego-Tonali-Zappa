@@ -44,12 +44,21 @@ public class ProductionController extends PlaceFamilyMember {
      * @return
      */
     //Da controllare: no familiari dello stesso colore (si neutro)
-    public boolean isLegal() {
+    public boolean isLegal() throws RemoteException {
+        if(familyMember.getPlayer().getUserHandler().isGuiInterface()) {
+            familyMember.getPlayer().getUserHandler().messageToUser("OK");
+        }
         if (!(productionSpace.checkBusy())&&(familyMember.getValue()>=1) && !productionSpace.checkFamiliar(familyMember)){
             return true;
         }
-        else
+        else{
+            if(familyMember.getPlayer().getUserHandler().isGuiInterface()) {
+                familyMember.getPlayer().getUserHandler().messageToUser("OK");
+            }
             return false;
+
+        }
+
     }
 
     /**

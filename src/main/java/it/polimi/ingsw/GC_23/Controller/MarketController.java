@@ -71,8 +71,14 @@ public class MarketController extends PlaceFamilyMember {
         }
         this.chosenSpace = this.marketSpace[j];
         if (isLegal()) {
+            if(familyMember.getPlayer().getUserHandler().isGuiInterface()) {
+                familyMember.getPlayer().getUserHandler().messageToUser("OK");
+            }
             makeAction();
         } else {
+            if(familyMember.getPlayer().getUserHandler().isGuiInterface()) {
+                familyMember.getPlayer().getUserHandler().messageToUser("KO");
+            }
             if(!familyMember.getPlayer().getUserHandler().isGuiInterface()) {
                 familyMember.getPlayer().getUserHandler().messageToUser("YOU ARE NOT ALLOW TO DO THIS MOVE, DO SOMETHING ELSE!");
             }
@@ -85,6 +91,7 @@ public class MarketController extends PlaceFamilyMember {
      * @return
      */
     public boolean isLegal(){
+
         if(!(chosenSpace.checkBusy())&&(chosenSpace.checkValue(familyMember)) && !familyMember.getPlayer().isNotPlayInMarket()) {
             return true;
         }
