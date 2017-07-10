@@ -43,14 +43,15 @@ public class PlayGame {
     public void scheduling() throws IOException {
         int i = 0;
         resetFamilyMembers();
+        for(Player p : players) {
+            if(p.getUserHandler().isGuiInterface()) {
+                p.getUserHandler().messageToUser("starttoupdate");
+            }
+        }
         while(true) {
             System.out.println(period + " period");
 
-            for(Player p : players) {
-                if(p.getUserHandler().isGuiInterface()) {
-                    p.getUserHandler().messageToUser("starttoupdate");
-                }
-            }
+
             for(Player p : players) {
                 if(p.getUserHandler().isGuiInterface()) {
                     update(p);

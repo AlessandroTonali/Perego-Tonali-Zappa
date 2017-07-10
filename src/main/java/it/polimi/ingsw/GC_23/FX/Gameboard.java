@@ -116,4 +116,8 @@ public class Gameboard implements Serializable {
         gameboardController.whoseTurnTranslator();
         this.messageListener.setRead(true);
     }
+
+    public void excommunicationchoose(GameboardController gameboardController) throws RemoteException {
+        userFX.send(gameboardController.excomAlert());
+    }
 }

@@ -908,7 +908,12 @@ public class GameboardController implements Serializable {
      */
     public String chooseFamilyMember() throws RemoteException {
         List<String> choices = new ArrayList<>();
-        String actualString = userFX.receive();
+        String actualString;
+        try {
+            actualString = userFX.receive();
+        } catch (NullPointerException e){
+            actualString = null;
+        }
         while (!"end".equals(actualString)) {
             choices.add(actualString);
             actualString = userFX.receive();
