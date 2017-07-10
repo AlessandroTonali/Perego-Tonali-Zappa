@@ -17,6 +17,7 @@ import javafx.scene.shape.Circle;
 
 import javax.swing.*;
 import java.io.Serializable;
+import java.rmi.Remote;
 import java.rmi.RemoteException;
 import java.util.ArrayList;
 import java.util.List;
@@ -1010,6 +1011,29 @@ public class GameboardController implements Serializable {
         alert.setHeaderText("Invalid move");
         alert.setContentText("Please make a valid action");
         alert.showAndWait();
+    }
+
+    public String excomAlert() throws RemoteException{
+        String choice;
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        alert.setTitle("Excommunication");
+        alert.setHeaderText("Do you want to receive the excommunication?");
+        alert.setContentText("Choose your option");
+
+        ButtonType buttonTypeOne = new ButtonType("Yes");
+        ButtonType buttonTypeTwo = new ButtonType("No");
+
+        alert.getButtonTypes().setAll(buttonTypeOne, buttonTypeTwo);
+
+        Optional<ButtonType> result = alert.showAndWait();
+        if (result.get() == buttonTypeOne){
+            choice = "1";
+        } else if (result.get() == buttonTypeTwo) {
+            choice = "2";
+        }else{
+            choice = "1";
+        }
+        return choice;
     }
 
     public String identifyFamilyMember(String string) throws RemoteException {

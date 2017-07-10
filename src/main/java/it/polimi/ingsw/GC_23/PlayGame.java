@@ -419,7 +419,7 @@ public class PlayGame {
         for(int i = 0; i<4; i++){
             try {
                 player.getUserHandler().messageToUser("market" + i);
-                player.getUserHandler().messageToUser(board.getMarketSpaces()[i].getFamilyMember().getPlayer().getPlayerColor().toString() + board.getTower(i).getSpaces()[i].getFamilyMember().getFamilyColor().toString());
+                player.getUserHandler().messageToUser(board.getMarketSpaces()[i].getFamilyMember().getPlayer().getPlayerColor().toString() + board.getMarketSpaces()[i].getFamilyMember().getFamilyColor().toString());
             }catch (NullPointerException e){
                 player.getUserHandler().messageToUser("null");
             }catch (ArrayIndexOutOfBoundsException e){

@@ -41,7 +41,6 @@ public class HarvestController extends PlaceFamilyMember {
         } else {
             legal = false;
         }
-        System.out.println(legal);
         return legal;
     }
 

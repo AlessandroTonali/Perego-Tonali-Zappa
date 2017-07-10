@@ -75,6 +75,11 @@ public class MessageListener implements Runnable {
 
                 going();
             }
+            if("excommunication".equals(actualString)){
+                read = false;
+                gameboard.getUserFX().send(gameboardController.excomAlert());
+                going();
+            }
             actualString = gameboard.getUserFX().receive();
         }
 

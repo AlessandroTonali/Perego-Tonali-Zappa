@@ -28,7 +28,9 @@ public class TerritoryController extends TowerController {
         this.tower = super.getTower();
         towerSpace.checkBeforeActivablePermanentEffect(familyMember);
         if (isLegal()) {
-            familyMember.getPlayer().getUserHandler().messageToUser("OK");
+            if(familyMember.getPlayer().getUserHandler().isGuiInterface()) {
+                familyMember.getPlayer().getUserHandler().messageToUser("OK");
+            }
             towerSpace.checkAfterActivablePermanentEffect(familyMember);
             makeAction();
         } else {

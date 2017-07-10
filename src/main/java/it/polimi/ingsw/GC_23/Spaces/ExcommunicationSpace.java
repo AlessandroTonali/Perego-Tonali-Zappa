@@ -31,7 +31,12 @@ public class ExcommunicationSpace {
      * @throws IOException
      */
     public void chooseExcommunication (Player player) throws IOException {
-        player.getUserHandler().messageToUser("Do you want the excommunication?\n 1. Yes\n 2. No");
+        if(player.getUserHandler().isGuiInterface()){
+            player.getUserHandler().messageToUser("excommunication");
+        }
+        if(!player.getUserHandler().isGuiInterface()) {
+            player.getUserHandler().messageToUser("Do you want the excommunication?\n 1. Yes\n 2. No");
+        }
         int i = -1;
         ExecutorService executorService = Executors.newCachedThreadPool();
         StringTyper stringTyper = new StringTyper(player);
