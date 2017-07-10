@@ -39,6 +39,11 @@ public class HarvestEffect extends PermanentEffect  {
         this.effects = effects;
     }
 
+    /**
+     * verify if is possible to active the harvest effect
+     * @param familyValue of family member with you entered in harvest space
+     * @return true if is activable, false if not
+     */
     public boolean checkActivable(int familyValue) {
 
         if (harvestValue <= familyValue) {
@@ -50,6 +55,11 @@ public class HarvestEffect extends PermanentEffect  {
         return isActivable;
     }
 
+    /**
+     * show on abstract class
+     * @param player that want to active the effect
+     * @throws IOException
+     */
     @Override
     public void activeEffect(Player player) throws IOException {
         if (player.getUserHandler().isGuiInterface()) {

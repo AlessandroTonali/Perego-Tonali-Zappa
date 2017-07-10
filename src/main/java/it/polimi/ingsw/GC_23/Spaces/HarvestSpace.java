@@ -2,7 +2,6 @@ package it.polimi.ingsw.GC_23.Spaces;
 
 import it.polimi.ingsw.GC_23.Effects.*;
 import it.polimi.ingsw.GC_23.Enumerations.FamilyColor;
-import it.polimi.ingsw.GC_23.Enumerations.PlayerColor;
 import it.polimi.ingsw.GC_23.FamilyMember;
 import it.polimi.ingsw.GC_23.Player;
 
@@ -18,14 +17,12 @@ public class HarvestSpace extends ActionSpace {
     private static boolean isBusyFirst;
     private static int orderCounter;
     private ArrayList<FamilyMember> familyMembersPresent;
-    private boolean completePlay = false;
     private final Logger logger = Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
 
     public HarvestSpace(){
         super(1);
         this.isBusyFirst = false;
         orderCounter = 0;
-        completePlay =true;
         this.familyMembersPresent = new ArrayList<FamilyMember>();
     }
 
@@ -33,11 +30,11 @@ public class HarvestSpace extends ActionSpace {
         super(1);
         this.isBusyFirst = false;
         orderCounter = 0;
-        this.completePlay = completePlay;
         this.familyMembersPresent = new ArrayList<FamilyMember>(0);
     }
 
 
+    @Override
     public void setFamilyMember(FamilyMember familyMember) {
         this.isBusyFirst = true;
         this.getFamilyMembersPresent().add(familyMember);
@@ -140,15 +137,13 @@ public class HarvestSpace extends ActionSpace {
 
         for (int i = 0; i < permanentEffectArrayList.size(); i++) {
             PermanentEffect permanentEffect = permanentEffectArrayList.get(i);
-            if (permanentEffect instanceof HarvestEffect) {
-                if (((HarvestEffect) permanentEffect).checkActivable(familyMember.getValue())) {
+            if (permanentEffect instanceof HarvestEffect && ((HarvestEffect) permanentEffect).checkActivable(familyMember.getValue())) {
                     try {
                         permanentEffect.activeEffect(familyMember.getPlayer());
                     } catch (IOException e) {
                         logger.setLevel(Level.SEVERE);
                         logger.severe(String.valueOf(e));
                     }
-                }
             }
         }
     }
@@ -157,7 +152,8 @@ public class HarvestSpace extends ActionSpace {
         StringBuilder stringBuilder = new StringBuilder();
         int i = 1;
         for(FamilyMember f : familyMembersPresent) {
-            if(f == null) continue;
+            if(f == null)
+                continue;
             stringBuilder.append( "position: " + i + "--" + f.toString() + "\n");
 
         }

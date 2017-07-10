@@ -67,32 +67,23 @@ public class FamilyMember {
         for (int i = 0; i < permanentEffectArrayList.size(); i++) {
             PermanentEffect permanentEffect = permanentEffectArrayList.get(i);
 
-            if (permanentEffect instanceof SetDiceEffect && ((SetDiceEffect) permanentEffectArrayList.get(i)).getType().equals("dice_color")) {
-                if (familyColor != FamilyColor.NEUTRAL) {
-                    value = ((SetDiceEffect) permanentEffect).getValue();
-                }
+            if (permanentEffect instanceof SetDiceEffect && ((SetDiceEffect) permanentEffectArrayList.get(i)).getType().equals("dice_color") && familyColor != FamilyColor.NEUTRAL) {
+                value = ((SetDiceEffect) permanentEffect).getValue();
             }
 
-            if (permanentEffect instanceof SetDiceEffect && ((SetDiceEffect) permanentEffectArrayList.get(i)).getType().equals("dice_neutral")) {
-                if (familyColor == FamilyColor.NEUTRAL) {
-                    value = ((SetDiceEffect) permanentEffect).getValue();
-                }
+            if (permanentEffect instanceof SetDiceEffect && ((SetDiceEffect) permanentEffectArrayList.get(i)).getType().equals("dice_neutral") && familyColor == FamilyColor.NEUTRAL) {
+                value = ((SetDiceEffect) permanentEffect).getValue();
             }
         }
 
         for (int i = 0; i < permanentEffectArrayList.size(); i++) {
             PermanentEffect permanentEffect = permanentEffectArrayList.get(i);
-            if (permanentEffect instanceof PlusDiceEffect && ((PlusDiceEffect) permanentEffectArrayList.get(i)).getType().equals("dice_color")) {
-                if (familyColor != FamilyColor.NEUTRAL)
-                {
-                    value = value + ((PlusDiceEffect) permanentEffect).getPlusDiceValue();
-                }
+            if (permanentEffect instanceof PlusDiceEffect && ((PlusDiceEffect) permanentEffectArrayList.get(i)).getType().equals("dice_color") && familyColor != FamilyColor.NEUTRAL) {
+                value = value + ((PlusDiceEffect) permanentEffect).getPlusDiceValue();
+
             }
-            if (permanentEffect instanceof PlusDiceEffect && ((PlusDiceEffect) permanentEffectArrayList.get(i)).getType().equals("dice_neutral")) {
-                if (familyColor == FamilyColor.NEUTRAL)
-                {
-                    value = value + ((PlusDiceEffect) permanentEffect).getPlusDiceValue();
-                }
+            if (permanentEffect instanceof PlusDiceEffect && ((PlusDiceEffect) permanentEffectArrayList.get(i)).getType().equals("dice_neutral") && familyColor == FamilyColor.NEUTRAL) {
+                value = value + ((PlusDiceEffect) permanentEffect).getPlusDiceValue();
             }
         }
         return value;
@@ -104,22 +95,22 @@ public class FamilyMember {
 
     public void increaseFamilyValue(int quantity){
         this.value = this.value + quantity;
+        if(getPlayer().isDoubleServantToIncrease()) {
+            quantity = quantity * 2;
+        }
         this.player.getResources().setServants(this.player.getResources().getServants()- quantity);
     }
 
     public boolean isEquals(FamilyMember familyMember) {
         boolean equal = false;
-        if (this.player.isEquals(familyMember.getPlayer())) {
-            if (this.familyColor.equals(familyMember.getFamilyColor())) {
-                if (this.value == familyMember.getValue()) {
-                    equal = true;
-                }
-            }
+        if (this.player.isEquals(familyMember.getPlayer()) && this.familyColor.equals(familyMember.getFamilyColor()) && this.value == familyMember.getValue()) {
+            equal = true;
         }
 
         return equal;
     }
 
+    @Override
     public String toString(){
        try{
            return "Player " + this.player.getPlayerColor() + " color " + this.familyColor + " value " +

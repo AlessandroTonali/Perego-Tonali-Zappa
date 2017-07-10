@@ -26,6 +26,9 @@ public class BenefitsEffectTest {
         BenefitsEffect benefitsEffect = new BenefitsEffect(new ResourcesSet(0,1,0,0,0,0,0));
         Player player = new Player(PlayerColor.RED, ParseJson.getParseJson().getBonusTileArrayList().get(0));
         player.setResources(new ResourcesSet(0,0,0,0,0,0,0));
+        UserImpl user = new UserImpl("s");
+        RMIHandler rmiHandler = new RMIHandler(user);
+        player.setUserHandler(rmiHandler);
 
         benefitsEffect.activeEffect(player);
 

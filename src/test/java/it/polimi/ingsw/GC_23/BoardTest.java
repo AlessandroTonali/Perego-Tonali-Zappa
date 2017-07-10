@@ -16,6 +16,20 @@ import static org.junit.Assert.*;
  */
 public class BoardTest {
     @Test
+    public void towersStringer() throws Exception {
+        Board board = new Board(2);
+        String s = board.towersStringer();
+        assertTrue(s != null);
+    }
+
+    @Test
+    public void marketStringer() throws Exception {
+        Board board = new Board(2);
+        String s = board.marketStringer();
+        assertTrue(s != null);
+    }
+
+    @Test
     public void setCardInTowerSpace() throws Exception {
         TowerSpace terrytory1 = new TowerSpace(null, (BenefitsEffect) ParseJson.getParseJson().getTowerTerritoryEffect()[0],
                 0);

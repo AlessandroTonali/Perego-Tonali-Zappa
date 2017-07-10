@@ -6,7 +6,6 @@ import it.polimi.ingsw.GC_23.StringTyper;
 
 import java.rmi.RemoteException;
 import java.util.ArrayList;
-import java.util.Scanner;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.logging.Level;
@@ -20,7 +19,6 @@ public class CouncilPrivilegeEffect extends AbsEffect {
     private BenefitsEffect[] benefits;
     private int numberOfPrivileges;
     boolean isDifferent;
-    private FamilyMember familyMember;
     private final Logger logger = Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
 
     public CouncilPrivilegeEffect(int numberOfPrivileges, boolean isDifferent) {
@@ -176,6 +174,7 @@ public class CouncilPrivilegeEffect extends AbsEffect {
     }
 
 
+    @Override
     public void activeEffect(Player player) throws RemoteException {
         if(player.getUserHandler().isGuiInterface()) {
             player.getUserHandler().messageToUser("councilEffect");

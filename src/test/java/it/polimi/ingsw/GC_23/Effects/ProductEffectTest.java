@@ -22,6 +22,8 @@ import static org.junit.Assert.*;
  * Created by Alessandro on 09/07/2017.
  */
 public class ProductEffectTest {
+
+
     @Test
     public void activeEffect() throws Exception {
         SingleCost giving = new SingleCost(new ResourcesSet(1,1,1,1,1,1,1));

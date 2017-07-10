@@ -1,5 +1,7 @@
 package it.polimi.ingsw.GC_23.Spaces;
 
+import it.polimi.ingsw.GC_23.Connection.RMIHandler;
+import it.polimi.ingsw.GC_23.Connection.UserImpl;
 import it.polimi.ingsw.GC_23.Creator;
 import it.polimi.ingsw.GC_23.Effects.AbsEffect;
 import it.polimi.ingsw.GC_23.Effects.PlusDiceEffect;
@@ -55,6 +57,12 @@ public class ProductionSpaceTest {
         player1.setFamilyMembers(familyMembers);
         familyMembers[0] = familyMember2;
         player2.setFamilyMembers(familyMembers);
+        UserImpl user = new UserImpl("s");
+        RMIHandler rmiHandler = new RMIHandler(user);
+        player1.setUserHandler(rmiHandler);
+        UserImpl user2 = new UserImpl("s");
+        RMIHandler rmiHandler2 = new RMIHandler(user2);
+        player2.setUserHandler(rmiHandler2);
         ProductionSpace productionSpace = new ProductionSpace(true);
 
         productionSpace.setFamilyMember(familyMember2);
@@ -117,6 +125,9 @@ public class ProductionSpaceTest {
         player.setFamilyMembers(familyMembers);
         player.getPermanentEffects().add(productionEffect);
         player.setResources(new ResourcesSet(0,0,0,0,0,0,0));
+        UserImpl user = new UserImpl("s");
+        RMIHandler rmiHandler = new RMIHandler(user);
+        player.setUserHandler(rmiHandler);
 
         ProductionSpace productionSpace = new ProductionSpace(true);
 

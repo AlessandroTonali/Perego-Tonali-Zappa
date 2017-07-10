@@ -54,6 +54,13 @@ public class UserImpl extends UnicastRemoteObject implements User,Remote, Serial
             logger.severe(String.valueOf(e));
         }
     }
+    public UserImpl(String s) throws RemoteException {
+        this.receivedFromGui = new ArrayList<>();
+        this.sentToGui = new ArrayList<>();
+        socket = new Socket();
+        inKeyboard= new BufferedReader(new InputStreamReader(System.in));
+        outVideo = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)),true);
+    }
 
     public static void main(String[] args) throws Exception {
         UserImpl user = new UserImpl();

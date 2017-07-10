@@ -2,7 +2,6 @@ package it.polimi.ingsw.GC_23.Controller;
 
 import it.polimi.ingsw.GC_23.Effects.AbsEffect;
 import it.polimi.ingsw.GC_23.FamilyMember;
-import it.polimi.ingsw.GC_23.Player;
 import it.polimi.ingsw.GC_23.Resources.ResourcesSet;
 import it.polimi.ingsw.GC_23.SingleCost;
 import it.polimi.ingsw.GC_23.Spaces.Tower;
@@ -20,13 +19,11 @@ public class NewPlayCardController implements Controller {
     private FamilyMember familyMember;
     private Tower tower;
     private TowerSpace towerSpace;
-    private SingleCost sale;
     private SingleCost costCard;
 
     public NewPlayCardController(Tower tower, FamilyMember familyMember, SingleCost sale) throws RemoteException {
         this.familyMember = familyMember;
         this.tower = tower;
-        this.sale = sale;
         this.towerSpace = tower.chooseTowerSpace(familyMember.getPlayer());
         costCard = towerSpace.getCard().getCost(familyMember.getPlayer());
         if (sale != null) {

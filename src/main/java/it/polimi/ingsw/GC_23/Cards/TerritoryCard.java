@@ -23,7 +23,7 @@ public class TerritoryCard extends Card {
 
     @Override
     public boolean checkTakeable(Player player) {
-        boolean takeble = false;
+        boolean takeble;
 
         if(!player.isNotCheckMilitaryOnTerritory()) {
             switch (player.getCardOfPlayer().getTerritoryCards().size()) {
@@ -52,6 +52,7 @@ public class TerritoryCard extends Card {
         return takeble;
     }
 
+    @Override
     public void addCardOfPlayer(Player player) {
         player.getCardOfPlayer().setCard(this);
         for (int i = 0; i < getPermanentEffect().size(); i++) {
