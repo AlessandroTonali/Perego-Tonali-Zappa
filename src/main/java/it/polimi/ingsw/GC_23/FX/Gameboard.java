@@ -33,6 +33,7 @@ public class Gameboard implements Serializable {
     private String color;
     private transient final Logger logger = Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
     private MessageListener messageListener;
+    private ExecutorService executorService;
 
     public Gameboard(Stage primaryStage, UserFX userFX, String color) {
         this.primaryStage = primaryStage;
@@ -57,13 +58,18 @@ public class Gameboard implements Serializable {
         return userFX;
     }
 
+    public MessageListener getMessageListener() {
+        return messageListener;
+    }
+
     public void startGameBoard(Stage primaryStage) throws RemoteException{
         this.primaryStage = primaryStage;
         this.primaryStage.setTitle("Lorenzo Il Magnifico");
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(this.getClass().getClassLoader().getResource("gameboard.fxml"));
-        GameboardController gameboardController =new GameboardController(userFX, color);
+        GameboardController gameboardController =new GameboardController(userFX, color, this);
         loader.setController(gameboardController);
+
         Parent content = null;
         try {
             content = loader.load();
@@ -85,7 +91,7 @@ public class Gameboard implements Serializable {
 
         }
         MessageListener messageListener = new MessageListener(gameboardController,this,true);
-        ExecutorService executorService = Executors.newCachedThreadPool();
+        this.executorService = Executors.newCachedThreadPool();
         executorService.submit(messageListener);
         this.messageListener = messageListener;
 
@@ -93,7 +99,13 @@ public class Gameboard implements Serializable {
 
     }
 
+    public void handleStarter(GameboardController gameboardController) throws RemoteException {
+        gameboardController.handle();
+        messageListener.setRead(true);
+    }
+
     public void updateController(GameboardController gameboardController) throws RemoteException {
+
         gameboardController.boardTranslator();
         gameboardController.dataTranslator();
         gameboardController.cardsTranslator();

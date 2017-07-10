@@ -1,5 +1,7 @@
 package it.polimi.ingsw.GC_23.FX;
 
+import javafx.application.Platform;
+
 import java.rmi.RemoteException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -58,10 +60,14 @@ public class MessageListener implements Runnable {
 
             if("update".equals(actualString)){
                 read = false;
-                gameboard.updateController(gameboardController);
-
+                Platform.runLater(() -> {
+                    try {
+                        gameboard.updateController(gameboardController);
+                    } catch (RemoteException e) {
+                        e.printStackTrace();
+                    }
+                });
                 going();
-
             }
             if("play".equals(actualString)){
                 read = false;

@@ -57,7 +57,7 @@ public class PlayGame {
                 }
             }
 
-            while( i < 1 ){
+            while( i < 4 ){
                 for(Player p : this.players){
                     boardupdater(p);
 

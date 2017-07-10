@@ -37,10 +37,16 @@ public class OtherCardsController extends TowerController {
 
         towerSpace.checkBeforeActivablePermanentEffect(this.familyMember);
         if (isLegal(cost)) {
+            if(familyMember.getPlayer().getUserHandler().isGuiInterface()){
+                familyMember.getPlayer().getUserHandler().messageToUser("OK");
+            }
             towerSpace.checkAfterActivablePermanentEffect(familyMember);
             makeAction(cost);
             System.out.println("success");
         } else {
+            if(familyMember.getPlayer().getUserHandler().isGuiInterface()){
+                familyMember.getPlayer().getUserHandler().messageToUser("KO");
+            }
             if(!familyMember.getPlayer().getUserHandler().isGuiInterface()) {
                 familyMember.getPlayer().getUserHandler().messageToUser("YOU ARE NOT ALLOW TO DO THIS MOVE, DO SOMETHING ELSE!");
             }
@@ -54,10 +60,17 @@ public class OtherCardsController extends TowerController {
         super.getTowerSpace().getCard().getCost(familyMember.getPlayer());
         SingleCost cost = super.getTowerSpace().getCard().getCost(familyMember.getPlayer());
         if (isLegal(cost)) {
+            if(familyMember.getPlayer().getUserHandler().isGuiInterface()){
+                familyMember.getPlayer().getUserHandler().messageToUser("OK");
+            }
             makeAction(cost);
             System.out.println("success");
         } else {
-            System.out.println("error");
+            if(familyMember.getPlayer().getUserHandler().isGuiInterface()){
+                familyMember.getPlayer().getUserHandler().messageToUser("KO");
+            }else {
+                System.out.println("error");
+            }
         }
     }
 

@@ -169,6 +169,7 @@ public class CouncilPrivilegeEffect extends AbsEffect {
         if(player.getUserHandler().isGuiInterface()){
             player.getUserHandler().messageToUser("councilprivilegeend");
         }
+
         if(!player.getUserHandler().isGuiInterface()) {
             player.getUserHandler().messageToUser("You have chosen all your council privilege");
         }
