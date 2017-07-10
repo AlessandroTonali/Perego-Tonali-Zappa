@@ -21,6 +21,9 @@ public class MessageListener implements Runnable {
         this.read = read;
     }
 
+    /**
+     * Starts the thread the listen to the messages sent from the server and update the gameboard or perfrom actions
+     */
     @Override
     public void run() {
 
@@ -61,6 +64,7 @@ public class MessageListener implements Runnable {
             logger.severe(String.valueOf(e));
         }
     }
+
     public void reader() throws RemoteException {
         String actualString = gameboard.getUserFX().receive();
         while (!"matchended".equals(actualString)){

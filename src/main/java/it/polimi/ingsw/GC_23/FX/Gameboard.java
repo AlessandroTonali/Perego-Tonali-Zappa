@@ -33,6 +33,9 @@ public class Gameboard implements Serializable {
 
     }
 
+    /**
+     * When the server sends "update" the gameboard will be updated
+     */
     public void running(GameboardController gameboardController) throws RemoteException {
         String actualString = userFX.receive();
         while (true){
@@ -53,6 +56,10 @@ public class Gameboard implements Serializable {
         return messageListener;
     }
 
+
+    /**
+     * Starts the page "Gameboard" through which the user will play
+     */
     public void startGameBoard(Stage primaryStage) throws RemoteException{
         this.primaryStage = primaryStage;
         this.primaryStage.setTitle("Lorenzo Il Magnifico");
@@ -90,11 +97,17 @@ public class Gameboard implements Serializable {
 
     }
 
+    /**
+     * Starts the handle in GameboardController, where will be listened the actions performed by the user
+     */
     public void handleStarter(GameboardController gameboardController) throws RemoteException {
         gameboardController.handle();
         messageListener.setRead(true);
     }
 
+    /**
+     * Update the gameboard with data from the server
+     */
     public void updateController(GameboardController gameboardController) throws RemoteException {
 
         gameboardController.boardTranslator();

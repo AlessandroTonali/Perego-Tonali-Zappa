@@ -30,11 +30,17 @@ public class UserFX extends Application implements Runnable, Serializable{
         this.login.startLogin();
     }
 
+    /**
+     * Stops gui interface
+     */
     @Override
     public void stop() throws RemoteException{
         System.out.println("UserFX stopped");
     }
 
+    /**
+     * Set the user choice in the UserImpl class
+     */
     public void set() throws RemoteException{
         setSocketConnection(login.isSocketConnection());
         setGui(login.isGuiConnection());
@@ -47,6 +53,9 @@ public class UserFX extends Application implements Runnable, Serializable{
         user.setYourTurn(true);
     }
 
+    /**
+     * Receive a message from the server through the user
+     */
     public String receive() throws RemoteException{
         if(user.isSocketConnection()) {
             return user.getInScanner().nextLine();
@@ -56,6 +65,9 @@ public class UserFX extends Application implements Runnable, Serializable{
         }
     }
 
+    /**
+     * Send a message to the server through the user
+     */
     public void send(String string) throws RemoteException{
         if(user.isSocketConnection()) {
             user.getOutWriter().println(string);

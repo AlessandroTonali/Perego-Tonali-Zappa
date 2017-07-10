@@ -32,6 +32,12 @@ public class RMIHandler implements Runnable, UserHandler, Remote {
         return user.isGuiInterface();
     }
 
+    /**
+     * RMI message to user, it skips some particular string used in socket messages
+     * calls RMIMessageToUser
+     * @param message: string that will be send
+     * @throws RemoteException
+     */
     @Override
     public void messageToUser(String message) throws RemoteException {
         if(message.equals("write") || message.equals("wait") || message.equals("read")){
@@ -54,6 +60,12 @@ public class RMIHandler implements Runnable, UserHandler, Remote {
         }
     }
 
+    /**
+     * RMI message from user
+     * calls RMIMessageFromUser
+     * @return string from user
+     * @throws RemoteException
+     */
     @Override
     public String messageFromUser() throws RemoteException {
         try {
@@ -88,6 +100,7 @@ public class RMIHandler implements Runnable, UserHandler, Remote {
     public void setCurrentUser(String string) throws RemoteException{
         this.currentUser = string;
     }
+
 
     @Override
     public void run() {

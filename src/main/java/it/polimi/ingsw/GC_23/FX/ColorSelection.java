@@ -26,6 +26,9 @@ public class ColorSelection implements Serializable {
 
     }
 
+    /**
+     * Starts the page "Color Selection" through which the user will choose its color and the kind of rules he wants
+     */
     public void startColorSelection() throws RemoteException{
         primaryStage.setTitle("Color selection");
         FXMLLoader loader = new FXMLLoader();
@@ -45,6 +48,9 @@ public class ColorSelection implements Serializable {
         colorController.handleColor();
     }
 
+    /**
+     * Will wait until the match is started
+     */
     public void fill() throws RemoteException{
         while (!userFX.getUser().isMatchStarted()){
             try {

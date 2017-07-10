@@ -14,7 +14,11 @@ import java.util.logging.Logger;
 public class SocketAccepter implements Runnable {
     private ServerSocket serverSocket;
     private final Logger logger = Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
-    private  char c;
+
+    /**
+     * SocketAccepter thread: accept the connection through serverSocket.accept and then create a new
+     * userhandler and add it to a match. Also get its properties: cli/gui interface and username
+     */
     @Override
     public void run() {
         try {

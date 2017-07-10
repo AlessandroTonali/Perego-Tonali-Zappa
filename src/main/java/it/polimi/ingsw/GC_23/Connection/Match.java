@@ -177,7 +177,7 @@ public class Match implements Runnable{
                         selectedPlayer = entry.getKey();
                     }
                 }
-                if ((selectedPlayer.getPlayerColor() == null) || !(association.putIfAbsent(selectedPlayer, userHandler.getCurrentUser()) == null)) {
+                if ((selectedPlayer.getPlayerColor() == null) || (association.putIfAbsent(selectedPlayer, userHandler.getCurrentUser()) != null)) {
                     userHandler.messageToUser("Player già associato o nullo");
                     userHandler.messageToUser("Retry");
                     continue;

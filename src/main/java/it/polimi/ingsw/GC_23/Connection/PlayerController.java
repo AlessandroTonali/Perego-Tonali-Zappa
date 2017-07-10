@@ -12,7 +12,6 @@ import java.util.Map;
  * Created by jesss on 04/06/17.
  */
 public class PlayerController {
-    //mappa playerColor con username
     private Map<Player, String> userPlayerAssociation;
 
     public PlayerController() {
@@ -27,6 +26,9 @@ public class PlayerController {
         }
     }
 
+    /**
+     * @return the map of color and username associations
+     */
     public Map<Player, String> getAssociation() {
         return userPlayerAssociation;
     }

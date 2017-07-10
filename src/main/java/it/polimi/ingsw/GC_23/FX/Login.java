@@ -30,6 +30,9 @@ public class Login implements Serializable{
     private transient final Logger logger = Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
 
 
+    /**
+     * Starts the page "Login" through which the user will choose its username and the kind of connection/user interface wants
+     */
     public Login(UserFX userFX) throws FileNotFoundException, RemoteException {
 
         this.userFX = userFX;

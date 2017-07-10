@@ -42,6 +42,9 @@ public class GameboardController implements Serializable {
 
     }
 
+    /**
+     * Translate the board data received from the server in graphics proprieties
+     */
     public void boardTranslator() throws RemoteException {
         try {
             String actualString;
@@ -58,14 +61,23 @@ public class GameboardController implements Serializable {
         }
     }
 
+    /**
+     * Translate the data (resources values) received from the server in graphics proprieties
+     */
     public void dataTranslator() throws RemoteException {
         dataSetter();
     }
 
+    /**
+     * Translate the cards data received from the server in graphics proprieties
+     */
     public void cardsTranslator() throws RemoteException {
         cardsSetter();
     }
 
+    /**
+     * Get the turn order
+     */
     public void whoseTurnTranslator() throws RemoteException {
         turnsetter();
     }
@@ -897,6 +909,10 @@ public class GameboardController implements Serializable {
         }
     }
 
+    /**
+     * Dialog
+     * Choose the family member to use to perform the action
+     */
     public String chooseFamilyMember() throws RemoteException {
         List<String> choices = new ArrayList<>();
         String actualString = userFX.receive();
@@ -923,6 +939,10 @@ public class GameboardController implements Serializable {
         return result.get();
     }
 
+    /**
+     * Dialog
+     * Choose the council privilege to receive
+     */
     public String chooseCouncilPrivilege() throws RemoteException {
         int value = -1;
         List<String> choices = new ArrayList<>();
@@ -977,6 +997,10 @@ public class GameboardController implements Serializable {
         return null;
     }
 
+    /**
+     * Dialog
+     * Choose the increasing value of the family member
+     */
     public String chooseIncreaseValue() throws RemoteException {
         TextInputDialog dialog = new TextInputDialog("value");
         dialog.setTitle("Increase value");
@@ -996,6 +1020,10 @@ public class GameboardController implements Serializable {
         return result.get();
     }
 
+    /**
+     * Error dialog
+     * Informs that the space is occupied
+     */
     public void busyAlert() throws RemoteException {
         Alert alert = new Alert(Alert.AlertType.ERROR);
         alert.setTitle("Error Dialog");
@@ -1004,17 +1032,25 @@ public class GameboardController implements Serializable {
         alert.showAndWait();
     }
 
+    /**
+     * Error dialog
+     * Informs that the action is not valid
+     */
     public void errorAlert() throws RemoteException {
-        /*Alert alert = new Alert(Alert.AlertType.ERROR);
+        Alert alert = new Alert(Alert.AlertType.ERROR);
         alert.setTitle("Error Dialog");
         alert.setHeaderText("Invalid move");
         alert.setContentText("Please make a valid action");
-        alert.showAndWait();*/
+        alert.showAndWait();
     }
 
+    /**
+     * Dialog
+     * To choose to receive (or not) the excommunication
+     */
     public String excomAlert() throws RemoteException{
         String choice;
-        /*Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
         alert.setTitle("Excommunication");
         alert.setHeaderText("Do you want to receive the excommunication?");
         alert.setContentText("Choose your option");
@@ -1041,10 +1077,12 @@ public class GameboardController implements Serializable {
         }else{
             choice = "1";
         }
-        return choice;*/
-        return null;
+        return choice;
     }
 
+    /**
+     * Select the right family member number
+     */
     public String identifyFamilyMember(String string) throws RemoteException {
         int value = -1;
         switch (string) {
@@ -1065,7 +1103,9 @@ public class GameboardController implements Serializable {
 
     }
 
-
+    /**
+     * Handle the actions performed by the user
+     */
     public void handle() throws RemoteException {
         territory1.setOnAction(new EventHandler<ActionEvent>() {
             @Override
@@ -2229,6 +2269,9 @@ public class GameboardController implements Serializable {
         });
     }
 
+    /**
+     * Through the messages received from the server choose which action perform or alert display
+     */
     private String effectswitcher() throws RemoteException {
 
         String actualString = userFX.receive();

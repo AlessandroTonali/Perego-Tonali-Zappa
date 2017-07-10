@@ -41,6 +41,9 @@ public class SocketHandler implements Runnable,UserHandler{
         }
     }
 
+    /**
+     * SocketHandler lifecycle
+     */
     @Override
     public void run() {
         try{

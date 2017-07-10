@@ -28,6 +28,10 @@ public class ServerImpl extends UnicastRemoteObject implements Server {
         this.userHandlers = new ArrayList<>();
     }
 
+    /**
+     * ServerImpl is a singleton
+     * @throws RemoteException
+     */
     public static ServerImpl getServer() throws RemoteException {
         if (server == null) {
             server = new ServerImpl();
@@ -48,7 +52,11 @@ public class ServerImpl extends UnicastRemoteObject implements Server {
         return matches;
     }
 
-
+    /**
+     * RMI connection accepter: create a userhandler for the user and add it to a match
+     * @param user: user that connects to the server through RMI connection
+     * @throws RemoteException
+     */
     @Override
     public void join(User user) throws RemoteException {
         UserHandler userHandler = new RMIHandler(user);
@@ -60,10 +68,21 @@ public class ServerImpl extends UnicastRemoteObject implements Server {
         getExecutor().submit((RMIHandler) userHandler);
     }
 
+    /**
+     * To disconnect a user, it stops its lifecycle
+     * @param user: user that will be disconnected
+     * @throws RemoteException
+     */
     public void RMIQuitter(User user) throws RemoteException {
         user.setYourTurn(true);
     }
 
+    /**
+     * RMI message to user, if cli it calls printer, if gui it calls addSentToGui
+     * @param string: string that will be send
+     * @param user: user that will receive
+     * @throws RemoteException
+     */
     public void RMIMessageToUser(String string, User user) throws RemoteException {
         try {
             if(!user.isGuiInterface()) {
@@ -78,6 +97,11 @@ public class ServerImpl extends UnicastRemoteObject implements Server {
         }
     }
 
+    /**
+     * RMI message from user, if cli it calls reader, if gui it calls getReceivedFromGui
+     * @param user: user that has sent the message
+     * @throws RemoteException
+     */
     public String RMIMessageFromUser(User user) throws IOException, RemoteException {
         if(!user.isGuiInterface()) {
             return user.reader();
@@ -87,6 +111,10 @@ public class ServerImpl extends UnicastRemoteObject implements Server {
         }
     }
 
+    /**
+     * Main that starts the server and starts the connections accepter ( both rmi and socket)
+     * @throws RemoteException
+     */
     public static void main(String[] args) throws RemoteException, Exception {
         ServerImpl server = getServer();
         executor = Executors.newCachedThreadPool();
@@ -113,6 +141,11 @@ public class ServerImpl extends UnicastRemoteObject implements Server {
         }
     }
 
+    /**
+     * Adds the userhandler to a match: it will join a match if present, or if not already present it will start a new match
+     * @param userHandler: userhandler that will be added
+     * @throws RemoteException
+     */
     public void addToMatch(UserHandler userHandler) throws RemoteException {
         if (!matches.isEmpty() && !matches.get(matches.size() - 1).isStartMatch()) {
             if (matches.get(matches.size() - 1).getPlayerCounter() == 1) {

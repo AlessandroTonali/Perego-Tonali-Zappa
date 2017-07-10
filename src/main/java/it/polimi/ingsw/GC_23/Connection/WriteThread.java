@@ -15,6 +15,9 @@ public class WriteThread implements Runnable {
         this.user = user;
     }
 
+    /**
+     * Used in the play timeout scheduling
+     */
     @Override
     public void run() {
         try {

@@ -74,6 +74,9 @@ public class ColorController implements Serializable{
     @FXML
     private ToggleGroup rules;
 
+    /**
+     * Set the usernames labels according to the map used in the server, in order to avoid players with the same color
+     */
     public void setLabel() throws RemoteException{
         try{
             int i = 1;
@@ -105,6 +108,10 @@ public class ColorController implements Serializable{
         }
     }
 
+    /**
+     * Handle the actions after pressing the button "confirm"
+     * Send the chosen color and the chosen kind of rules
+     */
     public void handleColor() throws RemoteException{
         button.setOnAction(new EventHandler<ActionEvent>() {
             @Override
@@ -183,6 +190,9 @@ public class ColorController implements Serializable{
         });
     }
 
+    /**
+     * Starts the gameboard
+     */
     public void startGameboard() throws RemoteException{
         Gameboard gameboard = new Gameboard(primaryStage, userFX, color);
         gameboard.startGameBoard(primaryStage);

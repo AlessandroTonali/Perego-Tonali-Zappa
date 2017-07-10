@@ -18,6 +18,9 @@ public class MatchTimeOut implements Runnable {
         this.match = match;
     }
 
+    /**
+     * Start match timeout thread, that set the startMatch variable in Match true after the time "time"
+     */
     @Override
     public void run() {
         try {

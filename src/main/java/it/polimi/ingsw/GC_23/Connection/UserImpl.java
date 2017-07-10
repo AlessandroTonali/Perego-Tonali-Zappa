@@ -66,6 +66,11 @@ public class UserImpl extends UnicastRemoteObject implements User,Remote, Serial
         UserImpl user = new UserImpl();
     }
 
+    /**
+     * User lifecycle: create and start a new userFX (javaFx main), when the user has made its choices select the right
+     * connection and starts the cli or continue the play through the gui. The gui colorSelection starts when
+     * it receive "start" (socket) or when the parameter matchStarted is setted true (rmi)
+     */
     private void execute(){
         try{
             this.userFX = new UserFX();
@@ -119,6 +124,9 @@ public class UserImpl extends UnicastRemoteObject implements User,Remote, Serial
         }
     }
 
+    /**
+     * Connect the user to the socket and send its gui/cli choice and its username
+     */
     private void connectSocket(){
         try {
             Socket socket = new Socket("127.0.0.1", 29999);
@@ -137,6 +145,9 @@ public class UserImpl extends UnicastRemoteObject implements User,Remote, Serial
         socketConnection = true;
     }
 
+    /**
+     * Connect the user to RMI
+     */
     private void connectRMI() throws RemoteException, NotBoundException, MalformedURLException {
         Registry reg = LocateRegistry.getRegistry(8080);
         server = (Server) reg.lookup("gameServer");
@@ -146,6 +157,13 @@ public class UserImpl extends UnicastRemoteObject implements User,Remote, Serial
         socketConnection = false;
     }
 
+    /**
+     * Only for socket
+     * Listen to every string received
+     * When it received "write" will let the user write
+     * When it received "wait" it will make the user wait
+     * When it received "quit" it will stop the connection
+     */
     private void play() throws IOException{
         String actualString = inScanner.nextLine();
         while (true) {
@@ -284,6 +302,9 @@ public class UserImpl extends UnicastRemoteObject implements User,Remote, Serial
         this.receivedFromGui.add(string);
     }
 
+    /**
+     * Get a message received from the gui (saved in a arraylist)
+     */
     public String getReceivedFromGui() throws RemoteException{
         while (this.receivedFromGui.isEmpty()){
             try {
@@ -299,6 +320,9 @@ public class UserImpl extends UnicastRemoteObject implements User,Remote, Serial
         return string;
     }
 
+    /**
+     * Get a message received from the server (saved in a arraylist)
+     */
     public String getSentToGui() throws RemoteException{
         while (this.sentToGui.isEmpty()){
             try {
