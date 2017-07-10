@@ -92,10 +92,18 @@ public abstract class Card {
     public SingleCost getCost(Player player) throws RemoteException {
 
         if(!checkCostChoose()){
+            if(player.getUserHandler().isGuiInterface()){
+                player.getUserHandler().messageToUser("nocostchoose");
+            }
             return cost.get(0);
         }
 
-        else {return chooseCost(player); }
+        else {
+            if(player.getUserHandler().isGuiInterface()){
+                player.getUserHandler().messageToUser("costchoose");
+            }
+            return chooseCost(player);
+        }
     }
 
     public ArrayList<AbsEffect> getImmediateEffect() {

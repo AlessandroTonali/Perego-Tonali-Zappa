@@ -1054,7 +1054,6 @@ public class GameboardController implements Serializable {
         alert.setTitle("Excommunication");
         alert.setHeaderText("Do you want to receive the excommunication?");
         alert.setContentText("Choose your option");
-
         ButtonType buttonTypeOne = new ButtonType("Yes");
         ButtonType buttonTypeTwo = new ButtonType("No");
 
@@ -1292,6 +1291,13 @@ public class GameboardController implements Serializable {
                         userFX.send(identifyFamilyMember(familyMember));
                         userFX.send("3");
                         String astring = userFX.receive();
+                        if("nocostchoose".equals(astring)){
+
+                        }
+                        else{
+
+                        }
+                        astring = userFX.receive();
                         if("KO".equals(astring)){
                             gameboard.getMessageListener().setRead(true);
                             return;
@@ -1335,6 +1341,13 @@ public class GameboardController implements Serializable {
                         userFX.send(identifyFamilyMember(familyMember));
                         userFX.send("2");
                         String astring = userFX.receive();
+                        if("nocostchoose".equals(astring)){
+
+                        }
+                        else{
+
+                        }
+                        astring = userFX.receive();
                         if("KO".equals(astring)){
                             gameboard.getMessageListener().setRead(true);
                             return;
@@ -1376,6 +1389,13 @@ public class GameboardController implements Serializable {
                         userFX.send(identifyFamilyMember(familyMember));
                         userFX.send("1");
                         String astring = userFX.receive();
+                        if("nocostchoose".equals(astring)){
+
+                        }
+                        else{
+
+                        }
+                        astring = userFX.receive();
                         if("KO".equals(astring)){
                             gameboard.getMessageListener().setRead(true);
                             return;
@@ -1418,6 +1438,19 @@ public class GameboardController implements Serializable {
                         userFX.send(identifyFamilyMember(familyMember));
                         userFX.send("0");
                         String astring = userFX.receive();
+                        if("nocostchoose".equals(astring)){
+
+                        }
+                        else{
+
+                        }
+                        astring = userFX.receive();if("nocostchoose".equals(astring)){
+
+                        }
+                        else{
+
+                        }
+                        astring = userFX.receive();
                         if("KO".equals(astring)){
                             gameboard.getMessageListener().setRead(true);
                             return;
@@ -1459,6 +1492,13 @@ public class GameboardController implements Serializable {
                         userFX.send(identifyFamilyMember(familyMember));
                         userFX.send("3");
                         String astring = userFX.receive();
+                        if("nocostchoose".equals(astring)){
+
+                        }
+                        else{
+
+                        }
+                        astring = userFX.receive();
                         if("KO".equals(astring)){
                             gameboard.getMessageListener().setRead(true);
                             return;
@@ -1500,6 +1540,13 @@ public class GameboardController implements Serializable {
                         userFX.send(identifyFamilyMember(familyMember));
                         userFX.send("2");
                         String astring = userFX.receive();
+                        if("nocostchoose".equals(astring)){
+
+                        }
+                        else{
+
+                        }
+                        astring = userFX.receive();
                         if("KO".equals(astring)){
                             gameboard.getMessageListener().setRead(true);
                             return;
@@ -1541,6 +1588,13 @@ public class GameboardController implements Serializable {
                         userFX.send(identifyFamilyMember(familyMember));
                         userFX.send("1");
                         String astring = userFX.receive();
+                        if("nocostchoose".equals(astring)){
+
+                        }
+                        else{
+
+                        }
+                        astring = userFX.receive();
                         if("KO".equals(astring)){
                             gameboard.getMessageListener().setRead(true);
                             return;
@@ -1585,6 +1639,13 @@ public class GameboardController implements Serializable {
                         userFX.send("0");
 
                         String astring = userFX.receive();
+                        if("nocostchoose".equals(astring)){
+
+                        }
+                        else{
+
+                        }
+                        astring = userFX.receive();
                         if("KO".equals(astring)){
                             gameboard.getMessageListener().setRead(true);
                             return;
@@ -1626,6 +1687,13 @@ public class GameboardController implements Serializable {
                         userFX.send(identifyFamilyMember(familyMember));
                         userFX.send("3");
                         String astring = userFX.receive();
+                        if("nocostchoose".equals(astring)){
+
+                        }
+                        else{
+
+                        }
+                        astring = userFX.receive();
                         if("KO".equals(astring)){
                             gameboard.getMessageListener().setRead(true);
                             return;
@@ -1667,6 +1735,13 @@ public class GameboardController implements Serializable {
                         userFX.send(identifyFamilyMember(familyMember));
                         userFX.send("2");
                         String astring = userFX.receive();
+                        if("nocostchoose".equals(astring)){
+
+                        }
+                        else{
+
+                        }
+                        astring = userFX.receive();
                         if("KO".equals(astring)){
                             gameboard.getMessageListener().setRead(true);
                             return;
@@ -1708,6 +1783,13 @@ public class GameboardController implements Serializable {
                         userFX.send(identifyFamilyMember(familyMember));
                         userFX.send("1");
                         String astring = userFX.receive();
+                        if("nocostchoose".equals(astring)){
+
+                        }
+                        else{
+
+                        }
+                        astring = userFX.receive();
                         if("KO".equals(astring)){
                             gameboard.getMessageListener().setRead(true);
                             return;
@@ -1750,6 +1832,14 @@ public class GameboardController implements Serializable {
                         userFX.send(identifyFamilyMember(familyMember));
                         userFX.send("0");
                         String astring = userFX.receive();
+                        if("nocostchoose".equals(astring)){
+
+                        }
+                        else{
+
+                        }
+                        astring
+                                = userFX.receive();
                         if("KO".equals(astring)){
                             gameboard.getMessageListener().setRead(true);
                             return;
