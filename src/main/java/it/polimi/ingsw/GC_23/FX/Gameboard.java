@@ -120,4 +120,12 @@ public class Gameboard implements Serializable {
     public void excommunicationchoose(GameboardController gameboardController) throws RemoteException {
         userFX.send(gameboardController.excomAlert());
     }
+
+    /**
+     * Starts the last page "End"
+     */
+    public void startEnd() throws RemoteException{
+        End end = new End(primaryStage, userFX);
+        end.startEnd(primaryStage);
+    }
 }
