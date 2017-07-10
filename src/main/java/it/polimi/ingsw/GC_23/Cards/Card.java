@@ -174,7 +174,9 @@ public abstract class Card {
                 }
             }
             if (player.isTimeIsOver()) {
-                player.getUserHandler().messageToUser("read");
+                if(!player.getUserHandler().isGuiInterface()) {
+                    player.getUserHandler().messageToUser("read");
+                }
                 return cost.get(0);
             }
             if (player.isTyped()) {

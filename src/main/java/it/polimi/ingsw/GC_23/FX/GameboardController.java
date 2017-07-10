@@ -968,16 +968,21 @@ public class GameboardController implements Serializable {
             }
         }
         if(result.get().equals(choices.get(0))){
-            return "0";
+            userFX.send("0");
+            return null;
+
         }else{
             if(result.get().equals(choices.get(1))){
-                return "1";
+                userFX.send("1");
+                return null;
             }else{
                 if(result.get().equals(choices.get(2))){
-                    return "2";
+                    userFX.send("2");
+                    return null;
                 }
                 else{
-                    return "3";
+                    userFX.send("3");
+                    return null;
                 }
             }
         }
@@ -1878,8 +1883,7 @@ public class GameboardController implements Serializable {
                         else{
                             userFX.send(chooseCost());
                         }
-                        astring
-                                = userFX.receive();
+                        astring = userFX.receive();
                         if("KO".equals(astring)){
                             gameboard.getMessageListener().setRead(true);
                             return;

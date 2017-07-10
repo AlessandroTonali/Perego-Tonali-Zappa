@@ -90,7 +90,9 @@ public class OtherCardsController extends TowerController {
 
         legal = legal && (super.getFamilyMember().getValue() >= super.getTowerSpace().getValue());
 
-        legal = legal && super.getTowerSpace().getCard().checkTakeable(super.getFamilyMember().getPlayer());
+        //todo rimettila apposto
+
+        //legal = legal && super.getTowerSpace().getCard().checkTakeable(super.getFamilyMember().getPlayer());
 
       legal = legal && !super.getTower().checkFamiliarTower(super.getFamilyMember());
 
