@@ -42,16 +42,16 @@ public class Util {
 
     public static CardColor parseCardColor(String cardColorString) {
         CardColor cardColor = null;
-        if (cardColorString.equals("green")) {
+        if ("green".equals(cardColorString)) {
             cardColor = CardColor.GREEN;
         }
-        if (cardColorString.equals("yellow")) {
+        if ("yellow".equals(cardColorString)) {
             cardColor = CardColor.YELLOW;
         }
-        if (cardColorString.equals("blue")) {
+        if ("blue".equals(cardColorString)) {
             cardColor = CardColor.BLUE;
         }
-        if (cardColorString.equals("purple")) {
+        if ("purple".equals(cardColorString)) {
             cardColor = CardColor.PURPLE;
         }
 

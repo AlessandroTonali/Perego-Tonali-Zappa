@@ -117,7 +117,7 @@ public class ColorController implements Serializable{
                     votation++;
                 }
                 Toggle selectedToggle = toggles.getSelectedToggle();
-                if(selectedToggle.equals(red) && redlabel.getText().equals("null")) {
+                if(selectedToggle.equals(red) && "null".equals(redlabel.getText())) {
                     try {
                         color = "RED";
                         userFX.send("RED");
@@ -126,7 +126,7 @@ public class ColorController implements Serializable{
                         logger.severe(String.valueOf(e));
                     }
                 }
-                else if(selectedToggle.equals(blue) && bluelabel.getText().equals("null")) {
+                else if(selectedToggle.equals(blue) && "null".equals(bluelabel.getText())) {
                     try {
                         color = "BLUE";
                         userFX.send("BLUE");
@@ -135,7 +135,7 @@ public class ColorController implements Serializable{
                         logger.severe(String.valueOf(e));
                     }
                 }
-                else if(selectedToggle.equals(green) && greenlabel.getText().equals("null")) {
+                else if(selectedToggle.equals(green) && "null".equals(greenlabel.getText())) {
                     try {
                         color = "GREEN";
                         userFX.send("GREEN");
@@ -144,7 +144,7 @@ public class ColorController implements Serializable{
                         logger.severe(String.valueOf(e));
                     }
                 }
-                else if(selectedToggle.equals(yellow) && yellowlabel.getText().equals("null")){
+                else if(selectedToggle.equals(yellow) && "null".equals(yellowlabel.getText())){
                     try {
                         color = "YELLOW";
                         userFX.send("YELLOW");

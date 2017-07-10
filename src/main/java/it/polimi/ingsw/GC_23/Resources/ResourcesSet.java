@@ -199,7 +199,6 @@ public class ResourcesSet {
     }
 
     public void setArray(int[] setarray ) {
-        int[] resarray = new int[resourceNumber ];
         this.faithPoints.setQuantity(setarray[0]);
         this.gold.setQuantity(setarray[1]);
         this.militaryPoints.setQuantity(setarray[2]);

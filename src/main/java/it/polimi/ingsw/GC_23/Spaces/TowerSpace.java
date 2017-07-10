@@ -63,7 +63,7 @@ public class TowerSpace extends ActionSpace {
         ArrayList<PermanentEffect> permanentEffectArrayList = familyMember.getPlayer().getPermanentEffects();
         for (int i = 0; i < permanentEffectArrayList.size(); i++) {
             PermanentEffect permanentEffect = permanentEffectArrayList.get(i);
-            if (permanentEffect instanceof PlusDiceEffect && ((PlusDiceEffect) permanentEffect).getType().equals("tower")) {
+            if (permanentEffect instanceof PlusDiceEffect && "tower".equals(((PlusDiceEffect) permanentEffect).getType())) {
                 ResourcesSet sale = ((PlusDiceEffect) permanentEffect).chooseSale(familyMember.getPlayer()).getResources();
                 ResourcesSet costSelected = card.chooseCost(familyMember.getPlayer()).getResources();
                 costSelected.sum(sale, familyMember.getPlayer());
@@ -79,7 +79,7 @@ public class TowerSpace extends ActionSpace {
     public void checkAfterActivablePermanentEffect(FamilyMember familyMember) {
         ArrayList<PermanentEffect> permanentEffectArrayList = familyMember.getPlayer().getPermanentEffects();
         for (int i = 0; i < permanentEffectArrayList.size(); i++) {
-            PermanentEffect permanentEffect = permanentEffectArrayList.get(i);
+            //PermanentEffect permanentEffect = permanentEffectArrayList.get(i);
             //TODO
         }
     }

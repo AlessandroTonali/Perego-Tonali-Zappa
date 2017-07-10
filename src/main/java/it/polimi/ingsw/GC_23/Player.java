@@ -327,7 +327,6 @@ public class Player implements Serializable {
                 case 11:
                     break;
                 case 12:
-
                     if (isAdvanced) {
                         new ActiveLeaderCard(chooseLeaderCard(), this, playerTimeOut);
                         chooseMove(getView(), true);
@@ -339,7 +338,8 @@ public class Player implements Serializable {
                     new DiscardLeaderCard(chooseLeaderCard(), this, playerTimeOut);
                     chooseMove(getView(), true);
                     break;
-                }
+                    }
+                    break;
                 default:
                     if(!getUserHandler().isGuiInterface()) {
                         getUserHandler().messageToUser("Wrong number selected, try again");

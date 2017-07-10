@@ -63,6 +63,12 @@ public class BenefitsEffect extends AbsEffect{
     }
 
     @Override
+    public int hashCode() {
+        return resources != null ? resources.hashCode() : 0;
+    }
+
+
+    @Override
     public String toString() {
         return resources.toString();
     }

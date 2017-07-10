@@ -12,6 +12,7 @@ import it.polimi.ingsw.GC_23.Spaces.TowerSpace;
 import java.io.IOException;
 import java.rmi.RemoteException;
 import java.util.ArrayList;
+import java.util.logging.Level;
 import java.util.logging.Logger;
 
 /**
@@ -24,6 +25,7 @@ public class PlayGame {
     private int period=1;
     private int turn=1;
     private boolean isAdvanced;
+    private final Logger logger = Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
 
     public PlayGame(ArrayList<Player> players, Board board, boolean isAdvanced) throws IOException {
         this.players = players;
@@ -45,8 +47,7 @@ public class PlayGame {
             System.out.println(period + " period");
 
             for(Player p : players) {
-                if(p.getUserHandler().isGuiInterface())
-                {
+                if(p.getUserHandler().isGuiInterface()) {
                     p.getUserHandler().messageToUser("starttoupdate");
                 }
             }
@@ -59,7 +60,9 @@ public class PlayGame {
 
             while( i < 4 ){
                 for(Player p : this.players){
-                    boardupdater(p);
+                    if(p.getUserHandler().isGuiInterface()) {
+                        boardupdater(p);
+                    }
 
                     if(!p.getUserHandler().isGuiInterface()) {
                         p.getUserHandler().messageToUser("");
@@ -95,7 +98,8 @@ public class PlayGame {
                            leaderCard.setActivatedInThisRound(false);
                        }
                    }catch (NullPointerException e){
-
+                       logger.setLevel(Level.SEVERE);
+                       logger.severe(String.valueOf(e));
                    }
                 }
                 board.getCouncilSpace().resetFamilyMember();
@@ -190,7 +194,8 @@ public class PlayGame {
                     leaderCard.setActivatedInThisRound(false);
                 }
             }catch (NullPointerException e){
-
+                logger.setLevel(Level.SEVERE);
+                logger.severe(String.valueOf(e));
             }
         }
         board.getCouncilSpace().resetFamilyMember();
@@ -247,14 +252,19 @@ public class PlayGame {
                 switch (p.getCardOfPlayer().getTerritoryCards().size()) {
                     case 3:
                         p.getResources().getVictoryPointsObj().add(1);
+                        break;
                     case 4:
                         p.getResources().getVictoryPointsObj().add(4);
+                        break;
                     case 5:
                         p.getResources().getVictoryPointsObj().add(10);
+                        break;
                     case 6:
                         p.getResources().getVictoryPointsObj().add(20);
+                        break;
                     default:
                         p.getResources().getVictoryPointsObj().add(0);
+                        break;
                 }
             }
 

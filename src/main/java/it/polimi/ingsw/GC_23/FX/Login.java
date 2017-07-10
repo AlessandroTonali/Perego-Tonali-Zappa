@@ -107,7 +107,7 @@ public class Login implements Serializable{
         button.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
-                if(textField.getText().equals("")){
+                if("".equals(textField.getText())){
                     Alert alert = new Alert(Alert.AlertType.ERROR);
                     alert.setTitle("Error Dialog");
                     alert.setHeaderText("Invalid username");
@@ -125,7 +125,6 @@ public class Login implements Serializable{
                             logger.setLevel(Level.SEVERE);
                             logger.severe(String.valueOf(e));
                         }
-                        ColorSelection colorSelection = null;
                         try {
                            startColorSelection();
                         } catch (RemoteException e) {

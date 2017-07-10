@@ -1026,6 +1026,15 @@ public class GameboardController implements Serializable {
         alert.getButtonTypes().setAll(buttonTypeOne, buttonTypeTwo);
 
         Optional<ButtonType> result = alert.showAndWait();
+        while (!result.isPresent()) {
+            try {
+                Thread.sleep(500);
+            } catch (InterruptedException e) {
+                logger.setLevel(Level.SEVERE);
+                logger.severe(String.valueOf(e));
+                Thread.currentThread().interrupt();
+            }
+        }
         if (result.get() == buttonTypeOne){
             choice = "1";
         } else if (result.get() == buttonTypeTwo) {

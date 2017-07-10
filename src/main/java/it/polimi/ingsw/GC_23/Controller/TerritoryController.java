@@ -1,6 +1,5 @@
 package it.polimi.ingsw.GC_23.Controller;
 
-import com.sun.istack.internal.Nullable;
 import it.polimi.ingsw.GC_23.Effects.AbsEffect;
 import it.polimi.ingsw.GC_23.FamilyMember;
 import it.polimi.ingsw.GC_23.Resources.ResourcesSet;
