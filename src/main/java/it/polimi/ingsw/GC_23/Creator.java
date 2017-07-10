@@ -57,8 +57,7 @@ public class Creator {
     }
 
     public Player createPlayer(PlayerColor playerColor){
-        Player player = new Player(playerColor, ParseJson.getParseJson().getBonusTile1());
-        player.getBonusTile().setIdBonusTile(80);
+        Player player = new Player(playerColor, ParseJson.getParseJson().getBonusTile());
         this.players.add(player);
         FamilyMember[] familyMembers = new FamilyMember[4];
         familyMembers[0] = new FamilyMember(player, FamilyColor.ORANGE, 0);
@@ -77,7 +76,7 @@ public class Creator {
      * @return
      */
     public Player createPlayer(PlayerColor playerColor, UserHandler userHandler){
-        Player player = new Player(playerColor, ParseJson.getParseJson().getBonusTile1());
+        Player player = new Player(playerColor, ParseJson.getParseJson().getBonusTile());
         this.players.add(player);
         FamilyMember[] familyMembers = new FamilyMember[4];
         familyMembers[0] = new FamilyMember(player, FamilyColor.ORANGE, 0);

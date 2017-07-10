@@ -832,22 +832,8 @@ public class ParseJson {
         return councilEffectArrayList;
     }
 
-    //TODO TOGLIERE QUESTI GET BONUS TILE
-
     public BonusTile getBonusTile1() {
         return new BonusTile((BenefitsEffect) effectMap.get(70), (BenefitsEffect) effectMap.get(71));
-    }
-    public BonusTile getBonusTile2() {
-        return new BonusTile((BenefitsEffect) effectMap.get(72), (BenefitsEffect) effectMap.get(73));
-    }
-    public BonusTile getBonusTile3() {
-        return new BonusTile((BenefitsEffect) effectMap.get(74), (BenefitsEffect) effectMap.get(75));
-    }
-    public BonusTile getBonusTile4() {
-        return new BonusTile((BenefitsEffect) effectMap.get(76), (BenefitsEffect) effectMap.get(77));
-    }
-    public BonusTile getBonusTile5() {
-        return new BonusTile((BenefitsEffect) effectMap.get(78), (BenefitsEffect) effectMap.get(79));
     }
 
     public ArrayList<CharacterCard> getCharacterCardArrayList() {
@@ -906,6 +892,11 @@ public class ParseJson {
 
     public ArrayList<BonusTile> getBonusTileArrayList() {
         return bonusTileArrayList;
+    }
+
+    public BonusTile getBonusTile(){
+        Collections.shuffle(bonusTileArrayList, new Random());
+        return  bonusTileArrayList.get(0);
     }
 
     public HashMap<Integer, AbsEffect> getFaithTrackEffect() {
