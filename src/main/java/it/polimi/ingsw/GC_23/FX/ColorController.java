@@ -1,22 +1,14 @@
 package it.polimi.ingsw.GC_23.FX;
 
-import it.polimi.ingsw.GC_23.Connection.PlayerController;
-import it.polimi.ingsw.GC_23.Enumerations.PlayerColor;
-import it.polimi.ingsw.GC_23.Player;
+
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
-import javafx.fxml.Initializable;
 import javafx.scene.control.*;
-import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 
-import javax.swing.text.TabableView;
 import java.io.Serializable;
-import java.net.URL;
 import java.rmi.RemoteException;
-import java.util.Map;
-import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
