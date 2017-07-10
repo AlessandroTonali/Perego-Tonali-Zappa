@@ -906,7 +906,7 @@ public class GameboardController implements Serializable {
             actualString = userFX.receive();
         }
 
-        /*ChoiceDialog<String> dialog = new ChoiceDialog<>("ORANGE", choices);
+        ChoiceDialog<String> dialog = new ChoiceDialog<>("ORANGE", choices);
         dialog.setTitle("Family Member");
         dialog.setHeaderText("Set the family member for your action");
         dialog.setContentText("Choose your family member:");
@@ -921,8 +921,7 @@ public class GameboardController implements Serializable {
                 Thread.currentThread().interrupt();
             }
         }
-        return result.get();*/
-        return null;
+        return result.get();
     }
 
     public String chooseCouncilPrivilege() throws RemoteException {
@@ -937,7 +936,7 @@ public class GameboardController implements Serializable {
                 choices.add(actualString);
                 actualString = userFX.receive();
             }
-           /*ChoiceDialog<String> dialog = new ChoiceDialog<>("faith points 0 military points 0 gold 0 servants 0 wood 1 stone 1 victory points 0", choices);
+           ChoiceDialog<String> dialog = new ChoiceDialog<>("faith points 0 military points 0 gold 0 servants 0 wood 1 stone 1 victory points 0", choices);
             dialog.setTitle("Council Privilege");
             dialog.setHeaderText("Select the council privilege you will receive");
             dialog.setContentText("Choose your council privilege:");
@@ -974,13 +973,13 @@ public class GameboardController implements Serializable {
                     break;
             }
             userFX.send(String.valueOf(value));
-            actualString = userFX.receive();*/
+            actualString = userFX.receive();
         }
         return null;
     }
 
     public String chooseIncreaseValue() throws RemoteException {
-        /*TextInputDialog dialog = new TextInputDialog("value");
+        TextInputDialog dialog = new TextInputDialog("value");
         dialog.setTitle("Increase value");
         dialog.setHeaderText("Enter the family value");
         dialog.setContentText("Enter the value here:");
@@ -995,16 +994,15 @@ public class GameboardController implements Serializable {
                 Thread.currentThread().interrupt();
             }
         }
-        return result.get();*/
-        return  null;
+        return result.get();
     }
 
     public void busyAlert() throws RemoteException {
-        /*Alert alert = new Alert(Alert.AlertType.ERROR);
+        Alert alert = new Alert(Alert.AlertType.ERROR);
         alert.setTitle("Error Dialog");
         alert.setHeaderText("Invalid move: space already occupied!");
         alert.setContentText("Please select a valid choice");
-        alert.showAndWait();*/
+        alert.showAndWait();
     }
 
     public void errorAlert() throws RemoteException {
@@ -1017,7 +1015,7 @@ public class GameboardController implements Serializable {
 
     public String excomAlert() throws RemoteException{
         String choice;
-        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        /*Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
         alert.setTitle("Excommunication");
         alert.setHeaderText("Do you want to receive the excommunication?");
         alert.setContentText("Choose your option");
@@ -1044,7 +1042,8 @@ public class GameboardController implements Serializable {
         }else{
             choice = "1";
         }
-        return choice;
+        return choice;*/
+        return null;
     }
 
     public String identifyFamilyMember(String string) throws RemoteException {
