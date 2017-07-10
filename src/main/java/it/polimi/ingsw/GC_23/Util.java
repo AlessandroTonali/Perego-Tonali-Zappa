@@ -12,6 +12,11 @@ import java.util.Random;
  */
 public class Util {
 
+    /**
+     * method for shuffle the card in base of your period
+     * @param cards the array list of card that you want to shuffle
+     * @return
+     */
     public static ArrayList<? extends Card> shuffleCard(ArrayList<Card> cards) {
         ArrayList<Card>  cardsShuffeled= new ArrayList<>();
         ArrayList<Card> cardsFirstPeriod = new ArrayList<>();
@@ -40,6 +45,11 @@ public class Util {
         return cardsShuffeled;
     }
 
+    /**
+     * method to assign the string of the color to the enumeration card color
+     * @param cardColorString the string of the color
+     * @return the object CardColor corresponding to the string in input
+     */
     public static CardColor parseCardColor(String cardColorString) {
         CardColor cardColor = null;
         if ("green".equals(cardColorString)) {

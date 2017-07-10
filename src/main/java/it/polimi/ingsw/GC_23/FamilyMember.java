@@ -93,6 +93,10 @@ public class FamilyMember {
         this.position = position;
     }
 
+    /**
+     * method for increase the value of familymember and decrease the servants of the player
+     * @param quantity to increase
+     */
     public void increaseFamilyValue(int quantity){
         this.value = this.value + quantity;
         if(getPlayer().isDoubleServantToIncrease()) {

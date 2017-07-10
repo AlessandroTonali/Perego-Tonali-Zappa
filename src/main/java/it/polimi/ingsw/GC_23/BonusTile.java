@@ -12,6 +12,11 @@ public class BonusTile {
     private BenefitsEffect harvestEffect;
     private int idBonusTile;
 
+    /**
+     *
+     * @param productionEffect effect when you activated a production
+     * @param harvestEffect effect when you activated a harvest
+     */
     public BonusTile(BenefitsEffect productionEffect, BenefitsEffect harvestEffect) {
         this.productionEffect = productionEffect;
         this.harvestEffect = harvestEffect;

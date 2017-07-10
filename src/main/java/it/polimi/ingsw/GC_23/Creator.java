@@ -21,6 +21,10 @@ public class Creator {
     private ArrayList<Player> players = new ArrayList<Player>();
     private PlayGame playGame;
 
+    /**
+     * class for initialize the resources and card at the star of  the game
+     * @param numberOfPlayers in the match
+     */
     public Creator(int numberOfPlayers){
         board= new Board(numberOfPlayers);
 
@@ -68,6 +72,12 @@ public class Creator {
         return player;
     }
 
+    /**
+     * method for create and inizialize the player
+     * @param playerColor color of the player
+     * @param userHandler handler associated at the player
+     * @return
+     */
     public Player createPlayer(PlayerColor playerColor, UserHandler userHandler){
         Player player = new Player(playerColor, ParseJson.getParseJson().getBonusTile1());
         this.players.add(player);
@@ -77,25 +87,9 @@ public class Creator {
         familyMembers[2] = new FamilyMember(player, FamilyColor.BLACK, 0);
         familyMembers[3] = new FamilyMember(player, FamilyColor.NEUTRAL, 0);
         player.setFamilyMembers(familyMembers);
-        //player.setResources(new ResourcesSet(0,0,0,3,2,0,2));
-        //TODO TOGLIERE COMMENTO E TEST
-        player.setResources(new ResourcesSet(50,50,50,50,50,50,50));
+        player.setResources(new ResourcesSet(0,0,0,3,2,0,2));
         player.setUserHandler(userHandler);
 
-        // ---INIZIO TEST---
-            ArrayList<TerritoryCard> territoryCards = ParseJson.getParseJson().getTerritoryCardArrayList();
-            ArrayList<CharacterCard> characterCards = ParseJson.getParseJson().getCharacterCardArrayList();
-            ArrayList<BuildingCard> buildingCards = ParseJson.getParseJson().getBuildingCardArrayList();
-            ArrayList<VentureCard> ventureCards = ParseJson.getParseJson().getVentureCardArrayList();
-
-        for (int i = 0; i < 5; i++) {
-            player.getCardOfPlayer().setCard(territoryCards.get(i));
-            player.getCardOfPlayer().setCard(characterCards.get(i));
-            player.getCardOfPlayer().setCard(buildingCards.get(i));
-            player.getCardOfPlayer().setCard(ventureCards.get(i));
-        }
-
-        // ---FINE TEST---
         ArrayList<LeaderCard> leaderCards = ParseJson.getParseJson().getLeaderCardArrayList();
         int startIndex = (players.size()-1)*4;
         ArrayList<LeaderCard> playerLeaderCard = new ArrayList<>();

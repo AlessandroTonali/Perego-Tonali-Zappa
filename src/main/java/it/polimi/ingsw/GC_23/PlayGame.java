@@ -413,6 +413,11 @@ public class PlayGame {
         }
     }
 
+    /**
+     * method for string on cli the status of the board
+     * @param player that require the status of the board
+     * @throws RemoteException
+     */
     public void boardStringer(Player player) throws RemoteException{
         for(int i = 0; i<4; i++){
             for(int j = 0; j<4; j++) {
@@ -482,6 +487,11 @@ public class PlayGame {
 
     }
 
+    /**
+     * method for print on cli the resources of the player
+     * @param p the player
+     * @throws RemoteException
+     */
     public void dataStringer(Player p) throws RemoteException{
         for(Player player: players) {
             p.getUserHandler().messageToUser(player.getPlayerColor().toString());
@@ -511,6 +521,11 @@ public class PlayGame {
 
     }
 
+    /**
+     * method for print the card
+     * @param player the player
+     * @throws RemoteException
+     */
     public void cardsStringer(Player player) throws RemoteException{
         player.getUserHandler().messageToUser(player.getPlayerColor().toString());
             for (int i = 0; i < 6; i++) {

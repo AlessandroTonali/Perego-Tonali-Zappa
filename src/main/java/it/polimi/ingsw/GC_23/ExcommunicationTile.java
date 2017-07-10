@@ -19,6 +19,11 @@ public class ExcommunicationTile {
         this.effect = effect;
     }
 
+    /**
+     * method for receive the excommunication
+     * @param player that receive the excommunication
+     * @throws IOException
+     */
     public void takeExcommunication(Player player) throws IOException {
         for (int i = 0; i < effect.size(); i++) {
             if (effect.get(i) instanceof PermanentEffect) {
