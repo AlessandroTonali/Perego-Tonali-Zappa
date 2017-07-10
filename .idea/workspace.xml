@@ -2,14 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="12559092-ad45-4654-bd82-cde319336451" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/UML/Connection.uml" afterPath="$PROJECT_DIR$/UML/Connection.uml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/UML/Controller.uml" afterPath="$PROJECT_DIR$/UML/Controller.uml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/UML/Model.uml" afterPath="$PROJECT_DIR$/UML/Model.uml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/Board.java" afterPath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/Board.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/Connection/Match.java" afterPath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/Connection/Match.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/Controller/ActiveLeaderCard.java" afterPath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/Controller/ActiveLeaderCard.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/Controller/OtherCardsController.java" afterPath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/Controller/OtherCardsController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/FX/MessageListener.java" afterPath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/GC_23/FX/MessageListener.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/java/it/polimi/ingsw/GC_23/Effects/HarvestEffectTest.java" afterPath="$PROJECT_DIR$/src/test/java/it/polimi/ingsw/GC_23/Effects/HarvestEffectTest.java" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -1306,13 +1302,6 @@
       <workItem from="1499610551318" duration="24182000" />
       <workItem from="1499669023938" duration="7613000" />
     </task>
-    <task id="LOCAL-00015" summary="Fix parse">
-      <created>1496522472218</created>
-      <option name="number" value="00015" />
-      <option name="presentableId" value="LOCAL-00015" />
-      <option name="project" value="LOCAL" />
-      <updated>1496522472218</updated>
-    </task>
     <task id="LOCAL-00016" summary="fixati errori">
       <created>1496689902866</created>
       <option name="number" value="00016" />
@@ -1649,7 +1638,14 @@
       <option name="project" value="LOCAL" />
       <updated>1499677820786</updated>
     </task>
-    <option name="localTasksCounter" value="64" />
+    <task id="LOCAL-00064" summary="UML">
+      <created>1499683518314</created>
+      <option name="number" value="00064" />
+      <option name="presentableId" value="LOCAL-00064" />
+      <option name="project" value="LOCAL" />
+      <updated>1499683518314</updated>
+    </task>
+    <option name="localTasksCounter" value="65" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -1685,7 +1681,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="526963000" />
+    <option name="totallyTimeSpent" value="527025000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1823,7 +1819,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="inseriti nuovi effetti permanenti" />
     <MESSAGE value="finito timeout" />
     <MESSAGE value="timeout" />
     <MESSAGE value="Gooo Cesare Borgia" />
@@ -1848,7 +1843,8 @@
     <MESSAGE value="immagini council" />
     <MESSAGE value="gyyggt" />
     <MESSAGE value="documentation" />
-    <option name="LAST_COMMIT_MESSAGE" value="documentation" />
+    <MESSAGE value="UML" />
+    <option name="LAST_COMMIT_MESSAGE" value="UML" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
