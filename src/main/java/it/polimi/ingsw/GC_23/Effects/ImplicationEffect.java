@@ -60,8 +60,12 @@ public class ImplicationEffect extends AbsEffect{
                 player.getUserHandler().messageToUser("Select possible implication");
             }
             for (int m = 0; m < requirements.size(); m++) {
-                player.getUserHandler().messageToUser(m + "--> " + requirements.get(m).toString());
-                player.getUserHandler().messageToUser("     " + givings.get(m).toString());
+                if(!player.getUserHandler().isGuiInterface()) {
+                    player.getUserHandler().messageToUser(m + "--> " + requirements.get(m).toString());
+                    player.getUserHandler().messageToUser("     " + givings.get(m).toString());
+                }else{
+                    player.getUserHandler().messageToUser("requirements: "+ requirements.get(m).toString() + "givings: " + givings.get(m).toString());
+                }
             }
             if(player.getUserHandler().isGuiInterface()){
                 player.getUserHandler().messageToUser("end");

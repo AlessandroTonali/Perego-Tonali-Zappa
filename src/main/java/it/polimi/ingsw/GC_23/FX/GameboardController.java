@@ -938,7 +938,61 @@ public class GameboardController implements Serializable {
         return result.get();
     }
 
-    public String chooseCost() throws RemoteException {
+    /**
+     * Dialog
+     * Choose implication of production/harvest
+     */
+    public void chooseImplication() throws RemoteException {
+        List<String> choices = new ArrayList<>();
+        String actualString;
+        try {
+            actualString = userFX.receive();
+        } catch (NullPointerException e){
+            actualString = null;
+        }
+        while (!"end".equals(actualString)) {
+            choices.add(actualString);
+            actualString = userFX.receive();
+        }
+
+        ChoiceDialog<String> dialog = new ChoiceDialog<>(choices.get(0),choices);
+        dialog.setTitle("Implication");
+        dialog.setHeaderText("Select the implication you want to get");
+        dialog.setContentText("Choose the implication:");
+        dialog.getDialogPane().lookupButton(ButtonType.CANCEL).setDisable(true);
+
+        Optional<String> result = dialog.showAndWait();
+        while (!result.isPresent()) {
+            try {
+                Thread.sleep(500);
+            } catch (InterruptedException e) {
+                logger.setLevel(Level.SEVERE);
+                logger.severe(String.valueOf(e));
+                Thread.currentThread().interrupt();
+            }
+        }
+        if(result.get().equals(choices.get(0))){
+            userFX.send("0");
+
+        }else{
+            if(result.get().equals(choices.get(1))){
+                userFX.send("1");
+            }else{
+                if(result.get().equals(choices.get(2))){
+                    userFX.send("2");
+                }
+                else{
+                    userFX.send("3");
+                }
+            }
+        }
+    }
+
+    /**
+     * Dialog
+     * Choose cost of the card
+     */
+    public void chooseCost() throws RemoteException {
         List<String> choices = new ArrayList<>();
         String actualString;
         try {
@@ -969,20 +1023,15 @@ public class GameboardController implements Serializable {
         }
         if(result.get().equals(choices.get(0))){
             userFX.send("0");
-            return null;
-
         }else{
             if(result.get().equals(choices.get(1))){
                 userFX.send("1");
-                return null;
             }else{
                 if(result.get().equals(choices.get(2))){
                     userFX.send("2");
-                    return null;
                 }
                 else{
                     userFX.send("3");
-                    return null;
                 }
             }
         }
@@ -1345,7 +1394,7 @@ public class GameboardController implements Serializable {
 
                         }
                         else{
-                            userFX.send(chooseCost());
+                            chooseCost();
                         }
                         astring = userFX.receive();
                         if("KO".equals(astring)){
@@ -1395,7 +1444,7 @@ public class GameboardController implements Serializable {
 
                         }
                         else{
-                            userFX.send(chooseCost());
+                           chooseCost();
                         }
                         astring = userFX.receive();
                         if("KO".equals(astring)){
@@ -1443,7 +1492,7 @@ public class GameboardController implements Serializable {
 
                         }
                         else{
-                            userFX.send(chooseCost());
+                            chooseCost();
                         }
                         astring = userFX.receive();
                         if("KO".equals(astring)){
@@ -1492,7 +1541,7 @@ public class GameboardController implements Serializable {
 
                         }
                         else{
-                            userFX.send(chooseCost());
+                            chooseCost();
                         }
                         astring = userFX.receive();
                         if("KO".equals(astring)){
@@ -1540,7 +1589,7 @@ public class GameboardController implements Serializable {
 
                         }
                         else{
-                            userFX.send(chooseCost());
+                            chooseCost();
                         }
                         astring = userFX.receive();
                         if("KO".equals(astring)){
@@ -1588,7 +1637,7 @@ public class GameboardController implements Serializable {
 
                         }
                         else{
-                            userFX.send(chooseCost());
+                            chooseCost();
                         }
                         astring = userFX.receive();
                         if("KO".equals(astring)){
@@ -1636,7 +1685,7 @@ public class GameboardController implements Serializable {
 
                         }
                         else{
-                            userFX.send(chooseCost());
+                           chooseCost();
                         }
                         astring = userFX.receive();
                         if("KO".equals(astring)){
@@ -1687,7 +1736,7 @@ public class GameboardController implements Serializable {
 
                         }
                         else{
-                            userFX.send(chooseCost());
+                            chooseCost();
                         }
                         astring = userFX.receive();
                         if("KO".equals(astring)){
@@ -1736,7 +1785,7 @@ public class GameboardController implements Serializable {
 
                         }
                         else{
-                            userFX.send(chooseCost());
+                            chooseCost();
                         }
                         astring = userFX.receive();
                         if("KO".equals(astring)){
@@ -1784,7 +1833,7 @@ public class GameboardController implements Serializable {
 
                         }
                         else{
-                            userFX.send(chooseCost());
+                            chooseCost();
                         }
                         astring = userFX.receive();
                         if("KO".equals(astring)){
@@ -1832,7 +1881,7 @@ public class GameboardController implements Serializable {
 
                         }
                         else{
-                            userFX.send(chooseCost());
+                            chooseCost();
                         }
                         astring = userFX.receive();
                         if("KO".equals(astring)){
@@ -1881,7 +1930,7 @@ public class GameboardController implements Serializable {
 
                         }
                         else{
-                            userFX.send(chooseCost());
+                            chooseCost();
                         }
                         astring = userFX.receive();
                         if("KO".equals(astring)){
@@ -2414,6 +2463,9 @@ public class GameboardController implements Serializable {
                 chooseCouncilPrivilege();
                 return null;
             case ("benefitsEffect"):
+                return null;
+            case ("implicationEffect"):
+                chooseImplication();
                 return null;
         }
         return  null;
