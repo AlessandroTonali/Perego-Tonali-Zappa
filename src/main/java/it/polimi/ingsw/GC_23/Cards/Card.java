@@ -142,13 +142,24 @@ public abstract class Card {
         if (cost.size() != 1) {
             for (SingleCost singlecost : this.cost) {
                 if (!(singlecost instanceof MilitaryCost)) {
-                    player.getUserHandler().messageToUser("Press " + i + " for choosing: " + singlecost.getResources().toString());
+                    if(!player.getUserHandler().isGuiInterface()) {
+                        player.getUserHandler().messageToUser("Press " + i + " for choosing: " + singlecost.getResources().toString());
+                    }
+                    else {
+                        player.getUserHandler().messageToUser(singlecost.getResources().toString());
+                    }
                     i++;
                 } else {
-                    player.getUserHandler().messageToUser("Press " + i + " for choosing: " + singlecost.getResources().toString() + " and you required " + ((MilitaryCost) singlecost).getResourcesRequired().toString());
+                    if(!player.getUserHandler().isGuiInterface()) {
+                        player.getUserHandler().messageToUser("Press " + i + " for choosing: " + singlecost.getResources().toString() + " and you required " + ((MilitaryCost) singlecost).getResourcesRequired().toString());
+                    }else{
+                        player.getUserHandler().messageToUser(((MilitaryCost) singlecost).getResources().toString() +
+                                " and you required "+ ((MilitaryCost) singlecost).getResourcesRequired().toString());
+                    }
                     i++;
                 }
             }
+            player.getUserHandler().messageToUser("end");
 
             ExecutorService executorService = Executors.newCachedThreadPool();
             StringTyper stringTyper = new StringTyper(player);
