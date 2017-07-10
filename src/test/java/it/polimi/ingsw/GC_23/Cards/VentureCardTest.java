@@ -1,6 +1,9 @@
 package it.polimi.ingsw.GC_23.Cards;
 
 import it.polimi.ingsw.GC_23.*;
+import it.polimi.ingsw.GC_23.Connection.RMIHandler;
+import it.polimi.ingsw.GC_23.Connection.UserHandler;
+import it.polimi.ingsw.GC_23.Connection.UserImpl;
 import it.polimi.ingsw.GC_23.Effects.AbsEffect;
 import it.polimi.ingsw.GC_23.Enumerations.CardColor;
 import it.polimi.ingsw.GC_23.Enumerations.PlayerColor;
@@ -17,8 +20,11 @@ import static org.junit.Assert.*;
 public class VentureCardTest {
     @Test
     public void checkTakeable() throws Exception {
-
         Player player = new Player(PlayerColor.BLUE, ParseJson.getParseJson().getBonusTile1());
+        UserImpl user = new UserImpl("s");
+        user.setGuiInterface(false);
+        RMIHandler rmiHandler = new RMIHandler(user);
+        player.setUserHandler(rmiHandler);
         ResourcesSet resourcesSet1 = new ResourcesSet(10,10,2,10,10,10,10);
         ResourcesSet resourcesSet2 = new ResourcesSet(0,10,1,0,0,0,0);
         player.setResources(resourcesSet1);

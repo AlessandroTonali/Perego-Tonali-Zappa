@@ -1,6 +1,8 @@
 package it.polimi.ingsw.GC_23.Cards;
 
 import it.polimi.ingsw.GC_23.CardOfPlayer;
+import it.polimi.ingsw.GC_23.Connection.RMIHandler;
+import it.polimi.ingsw.GC_23.Connection.UserImpl;
 import it.polimi.ingsw.GC_23.Effects.AbsEffect;
 import it.polimi.ingsw.GC_23.Enumerations.CardColor;
 import it.polimi.ingsw.GC_23.Enumerations.PlayerColor;
@@ -24,6 +26,10 @@ public class TerritoryCardTest {
     public void checkTakeable() throws Exception {
 
         Player player = new Player(PlayerColor.BLUE, ParseJson.getParseJson().getBonusTile1());
+        UserImpl user = new UserImpl("s");
+        user.setGuiInterface(false);
+        RMIHandler rmiHandler = new RMIHandler(user);
+        player.setUserHandler(rmiHandler);
         player.setResources(new ResourcesSet(10,10,2,10,10,10,10));
         ArrayList<AbsEffect> effects = new ArrayList<>();
         AbsEffect effect = ParseJson.getParseJson().getEffectMap().get(10);
