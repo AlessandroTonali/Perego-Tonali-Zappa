@@ -22,7 +22,11 @@ In order to start the game, follow these steps
     + On your left you will see the gameboard, on top right yours resources and the resources of the other players, while down right your cards
      
 
-  * It is possibile to set the match and play timeout in file Board.json
+  * It is possibile to set the match and play timeout in file Board.json. In "Options":
+    + Change "timeout_start_match"
+        - to set the match timeout, started from the first user connecting
+    + Change "timeout_player_move"
+        - to set the play timeout, restarted for every choosing made by the user
   
 ### UML diagrams
   Check the UML diagrams in the folder UML (.uml and .png files)
