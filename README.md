@@ -35,3 +35,7 @@ In order to start the game, follow these steps
     + Model UML
     + Controller UML
     + Initial UML
+    
+    
+    
+Check the game through Sonar 6.4.0
