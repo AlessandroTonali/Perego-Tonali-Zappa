@@ -44,7 +44,6 @@ public class OtherCardsController extends TowerController {
             }
             towerSpace.checkAfterActivablePermanentEffect(familyMember);
             makeAction(cost);
-            System.out.println("success");
         } else {
             if(familyMember.getPlayer().getUserHandler().isGuiInterface()){
                 familyMember.getPlayer().getUserHandler().messageToUser("KO");
@@ -66,12 +65,9 @@ public class OtherCardsController extends TowerController {
                 familyMember.getPlayer().getUserHandler().messageToUser("OK");
             }
             makeAction(cost);
-            System.out.println("success");
         } else {
             if(familyMember.getPlayer().getUserHandler().isGuiInterface()){
                 familyMember.getPlayer().getUserHandler().messageToUser("KO");
-            }else {
-                System.out.println("error");
             }
         }
     }

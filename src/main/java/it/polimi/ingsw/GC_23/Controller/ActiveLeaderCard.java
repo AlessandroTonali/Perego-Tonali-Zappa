@@ -74,7 +74,7 @@ public class ActiveLeaderCard implements Controller {
                 if (leaderCard.isActivatedPermanentEffect() && !player.getUserHandler().isGuiInterface())
                     player.getUserHandler().messageToUser("Permanent effect of card is already active");
                 else {
-                    if (((effect instanceof PlusDiceEffect) || (effect instanceof SetDiceEffect))) {
+                    if ((effect instanceof PlusDiceEffect) || (effect instanceof SetDiceEffect)) {
                         if(player.getUserHandler().isGuiInterface()) {
                             player.getUserHandler().messageToUser("effect");
                         }

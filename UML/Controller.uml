@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement>it.polimi.ingsw.GC_23.Controller</OriginalElement>
+  <nodes>
+    <node x="878.25" y="144.0">it.polimi.ingsw.GC_23.Controller.NewPlayHarvestController</node>
+    <node x="440.25" y="300.0">it.polimi.ingsw.GC_23.Controller.ProductionController</node>
+    <node x="1085.25" y="144.0">it.polimi.ingsw.GC_23.Controller.NewPlayProductionController</node>
+    <node x="1908.25" y="144.0">it.polimi.ingsw.GC_23.Controller.NewPlayCardController</node>
+    <node x="858.25" y="300.0">it.polimi.ingsw.GC_23.Controller.HarvestController</node>
+    <node x="247.0" y="478.0">it.polimi.ingsw.GC_23.Controller.TerritoryController</node>
+    <node x="658.0" y="629.0">it.polimi.ingsw.GC_23.Controller.HarvestControllerTest</node>
+    <node x="1311.25" y="144.0">it.polimi.ingsw.GC_23.Controller.DiscardLeaderCard</node>
+    <node x="0.0" y="467.0">it.polimi.ingsw.GC_23.Controller.OtherCardsController</node>
+    <node x="0.0" y="629.0">it.polimi.ingsw.GC_23.Controller.ProductionControllerTest</node>
+    <node x="639.25" y="133.0">it.polimi.ingsw.GC_23.Controller.PlaceFamilyMember</node>
+    <node x="449.0" y="629.0">it.polimi.ingsw.GC_23.Controller.CouncilControllerTest</node>
+    <node x="1311.25" y="0.0">it.polimi.ingsw.GC_23.Controller.Controller</node>
+    <node x="83.25" y="278.0">it.polimi.ingsw.GC_23.Controller.TowerController</node>
+    <node x="659.25" y="311.0">it.polimi.ingsw.GC_23.Controller.MarketController</node>
+    <node x="1510.25" y="144.0">it.polimi.ingsw.GC_23.Controller.ActiveLeaderCard</node>
+    <node x="1709.25" y="144.0">it.polimi.ingsw.GC_23.Controller.IncreaseFamilyValue</node>
+    <node x="1077.25" y="311.0">it.polimi.ingsw.GC_23.Controller.CouncilController</node>
+    <node x="866.0" y="629.0">it.polimi.ingsw.GC_23.Controller.ActiveLeaderCardTest</node>
+    <node x="227.0" y="629.0">it.polimi.ingsw.GC_23.Controller.IncreaseFamilyValueTest</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="it.polimi.ingsw.GC_23.Controller.ProductionController" target="it.polimi.ingsw.GC_23.Controller.PlaceFamilyMember">
+      <point x="0.0" y="-47.5" />
+      <point x="539.75" y="258.0" />
+      <point x="704.9499999999999" y="258.0" />
+      <point x="-43.80000000000001" y="47.5" />
+    </edge>
+    <edge source="it.polimi.ingsw.GC_23.Controller.NewPlayProductionController" target="it.polimi.ingsw.GC_23.Controller.Controller">
+      <point x="0.0" y="-36.5" />
+      <point x="1188.25" y="113.0" />
+      <point x="1375.1785714285713" y="113.0" />
+      <point x="-25.57142857142867" y="36.5" />
+    </edge>
+    <edge source="it.polimi.ingsw.GC_23.Controller.IncreaseFamilyValue" target="it.polimi.ingsw.GC_23.Controller.Controller">
+      <point x="0.0" y="-36.5" />
+      <point x="1798.75" y="103.0" />
+      <point x="1451.892857142857" y="103.0" />
+      <point x="51.14285714285711" y="36.5" />
+    </edge>
+    <edge source="it.polimi.ingsw.GC_23.Controller.OtherCardsController" target="it.polimi.ingsw.GC_23.Controller.TowerController">
+      <point x="0.0" y="-58.5" />
+      <point x="113.5" y="442.0" />
+      <point x="167.5" y="442.0" />
+      <point x="-84.25" y="69.5" />
+    </edge>
+    <edge source="it.polimi.ingsw.GC_23.Controller.MarketController" target="it.polimi.ingsw.GC_23.Controller.PlaceFamilyMember">
+      <point x="0.0" y="-36.5" />
+      <point x="0.0" y="47.5" />
+    </edge>
+    <edge source="it.polimi.ingsw.GC_23.Controller.NewPlayHarvestController" target="it.polimi.ingsw.GC_23.Controller.Controller">
+      <point x="0.0" y="-36.5" />
+      <point x="971.75" y="103.0" />
+      <point x="1349.607142857143" y="103.0" />
+      <point x="-51.14285714285711" y="36.5" />
+    </edge>
+    <edge source="it.polimi.ingsw.GC_23.Controller.CouncilController" target="it.polimi.ingsw.GC_23.Controller.PlaceFamilyMember">
+      <point x="0.0" y="-36.5" />
+      <point x="1166.75" y="248.0" />
+      <point x="836.3499999999999" y="248.0" />
+      <point x="87.60000000000002" y="47.5" />
+    </edge>
+    <edge source="it.polimi.ingsw.GC_23.Controller.ActiveLeaderCard" target="it.polimi.ingsw.GC_23.Controller.Controller">
+      <point x="0.0" y="-36.5" />
+      <point x="1599.75" y="113.0" />
+      <point x="1426.3214285714284" y="113.0" />
+      <point x="25.57142857142844" y="36.5" />
+    </edge>
+    <edge source="it.polimi.ingsw.GC_23.Controller.TerritoryController" target="it.polimi.ingsw.GC_23.Controller.TowerController">
+      <point x="0.0" y="-47.5" />
+      <point x="390.0" y="442.0" />
+      <point x="336.0" y="442.0" />
+      <point x="84.25" y="69.5" />
+    </edge>
+    <edge source="it.polimi.ingsw.GC_23.Controller.TowerController" target="it.polimi.ingsw.GC_23.Controller.PlaceFamilyMember">
+      <point x="0.0" y="-69.5" />
+      <point x="251.75" y="248.0" />
+      <point x="661.1499999999999" y="248.0" />
+      <point x="-87.60000000000002" y="47.5" />
+    </edge>
+    <edge source="it.polimi.ingsw.GC_23.Controller.NewPlayCardController" target="it.polimi.ingsw.GC_23.Controller.Controller">
+      <point x="0.0" y="-36.5" />
+      <point x="1997.75" y="93.0" />
+      <point x="1477.4642857142858" y="93.0" />
+      <point x="76.71428571428578" y="36.5" />
+    </edge>
+    <edge source="it.polimi.ingsw.GC_23.Controller.DiscardLeaderCard" target="it.polimi.ingsw.GC_23.Controller.Controller">
+      <point x="0.0" y="-36.5" />
+      <point x="0.0" y="36.5" />
+    </edge>
+    <edge source="it.polimi.ingsw.GC_23.Controller.PlaceFamilyMember" target="it.polimi.ingsw.GC_23.Controller.Controller">
+      <point x="0.0" y="-47.5" />
+      <point x="748.75" y="93.0" />
+      <point x="1324.0357142857142" y="93.0" />
+      <point x="-76.71428571428578" y="36.5" />
+    </edge>
+    <edge source="it.polimi.ingsw.GC_23.Controller.HarvestController" target="it.polimi.ingsw.GC_23.Controller.PlaceFamilyMember">
+      <point x="0.0" y="-47.5" />
+      <point x="957.75" y="258.0" />
+      <point x="792.55" y="258.0" />
+      <point x="43.799999999999955" y="47.5" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Group" zoom="0.5653179190751445" x="884.1871165644172" y="312.05419222903885" />
+  <SelectedNodes>
+    <node>it.polimi.ingsw.GC_23.Controller.CouncilController</node>
+  </SelectedNodes>
+  <Categories>
+    <Category>Methods</Category>
+  </Categories>
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+

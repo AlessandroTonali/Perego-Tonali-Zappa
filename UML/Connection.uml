@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement>it.polimi.ingsw.GC_23.Connection</OriginalElement>
+  <nodes>
+    <node x="1412.3333333333335" y="324.9999999999999">it.polimi.ingsw.GC_23.Connection.SocketHandler</node>
+    <node x="634.0" y="354.0">it.polimi.ingsw.GC_23.Connection.RMIHandler</node>
+    <node x="1397.0" y="1055.0">it.polimi.ingsw.GC_23.Connection.WriteThread</node>
+    <node x="858.0" y="0.0">it.polimi.ingsw.GC_23.Connection.UserHandler</node>
+    <node x="17.0" y="0.0">it.polimi.ingsw.GC_23.Connection.User</node>
+    <node x="879.9999999999995" y="1500.6666666666665">it.polimi.ingsw.GC_23.Connection.ServerImpl</node>
+    <node x="736.0" y="1055.0">it.polimi.ingsw.GC_23.Connection.PlayerController</node>
+    <node x="1048.0" y="1055.0">it.polimi.ingsw.GC_23.Connection.SocketAccepter</node>
+    <node x="23.5" y="1055.0">it.polimi.ingsw.GC_23.Connection.Server</node>
+    <node x="410.0" y="1055.0">it.polimi.ingsw.GC_23.Connection.Match</node>
+    <node x="1223.0" y="1055.0">it.polimi.ingsw.GC_23.Connection.MatchTimeOut</node>
+    <node x="0.0" y="497.0">it.polimi.ingsw.GC_23.Connection.UserImpl</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="it.polimi.ingsw.GC_23.Connection.ServerImpl" target="it.polimi.ingsw.GC_23.Connection.UserHandler">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+    <edge source="it.polimi.ingsw.GC_23.Connection.MatchTimeOut" target="it.polimi.ingsw.GC_23.Connection.Match">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+    <edge source="it.polimi.ingsw.GC_23.Connection.SocketHandler" target="it.polimi.ingsw.GC_23.Connection.UserHandler">
+      <point x="0.0" y="-212.5" />
+      <point x="1632.833333333333" y="230.0" />
+      <point x="1109.25" y="230.0" />
+      <point x="83.75" y="102.5" />
+    </edge>
+    <edge source="it.polimi.ingsw.GC_23.Connection.Match" target="it.polimi.ingsw.GC_23.Connection.PlayerController">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+    <edge source="it.polimi.ingsw.GC_23.Connection.RMIHandler" target="it.polimi.ingsw.GC_23.Connection.UserHandler">
+      <point x="0.0" y="-113.5" />
+      <point x="811.5" y="230.0" />
+      <point x="941.75" y="230.0" />
+      <point x="-83.75" y="102.5" />
+    </edge>
+    <edge source="it.polimi.ingsw.GC_23.Connection.SocketAccepter" target="it.polimi.ingsw.GC_23.Connection.SocketHandler">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+    <edge source="it.polimi.ingsw.GC_23.Connection.ServerImpl" target="it.polimi.ingsw.GC_23.Connection.RMIHandler">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+    <edge source="it.polimi.ingsw.GC_23.Connection.UserImpl" target="it.polimi.ingsw.GC_23.Connection.WriteThread">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+    <edge source="it.polimi.ingsw.GC_23.Connection.ServerImpl" target="it.polimi.ingsw.GC_23.Connection.MatchTimeOut">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+    <edge source="it.polimi.ingsw.GC_23.Connection.ServerImpl" target="it.polimi.ingsw.GC_23.Connection.Match">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+    <edge source="it.polimi.ingsw.GC_23.Connection.Match" target="it.polimi.ingsw.GC_23.Connection.UserHandler">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+    <edge source="it.polimi.ingsw.GC_23.Connection.ServerImpl" target="it.polimi.ingsw.GC_23.Connection.Server">
+      <point x="0.0" y="-124.5" />
+      <point x="0.0" y="69.5" />
+    </edge>
+    <edge source="it.polimi.ingsw.GC_23.Connection.UserImpl" target="it.polimi.ingsw.GC_23.Connection.Server">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+    <edge source="it.polimi.ingsw.GC_23.Connection.ServerImpl" target="it.polimi.ingsw.GC_23.Connection.SocketAccepter">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+    <edge source="it.polimi.ingsw.GC_23.Connection.RMIHandler" target="it.polimi.ingsw.GC_23.Connection.User">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+    <edge source="it.polimi.ingsw.GC_23.Connection.WriteThread" target="it.polimi.ingsw.GC_23.Connection.UserImpl">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+    <edge source="it.polimi.ingsw.GC_23.Connection.UserImpl" target="it.polimi.ingsw.GC_23.Connection.User">
+      <point x="0.0" y="-256.5" />
+      <point x="0.0" y="223.5" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Group" zoom="0.6000000000000001" x="1328.0" y="528.3333333333333" />
+  <SelectedNodes>
+    <node>it.polimi.ingsw.GC_23.Connection.ServerImpl</node>
+  </SelectedNodes>
+  <Categories>
+    <Category>Methods</Category>
+  </Categories>
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>packageLocal</VISIBILITY>
+</Diagram>
+

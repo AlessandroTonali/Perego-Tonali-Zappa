@@ -1,6 +1,5 @@
 package it.polimi.ingsw.GC_23.Effects;
 
-import com.sun.org.apache.regexp.internal.RE;
 import it.polimi.ingsw.GC_23.Connection.RMIHandler;
 import it.polimi.ingsw.GC_23.Connection.UserImpl;
 import it.polimi.ingsw.GC_23.Enumerations.FamilyColor;

@@ -13,6 +13,7 @@ public class MessageListener implements Runnable {
     private GameboardController gameboardController;
     private Gameboard gameboard;
     private boolean read;
+    private transient final Logger logger = Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
 
     public MessageListener(GameboardController gameboardController, Gameboard gameboard, boolean read) {
         this.gameboardController = gameboardController;
@@ -27,7 +28,8 @@ public class MessageListener implements Runnable {
             try {
                 Thread.sleep(500);
             } catch (InterruptedException e) {
-                e.printStackTrace();
+                logger.setLevel(Level.SEVERE);
+                logger.severe(String.valueOf(e));
                 Thread.currentThread().interrupt();
             }
 
@@ -35,7 +37,8 @@ public class MessageListener implements Runnable {
         try {
             reader();
         } catch (RemoteException e) {
-            e.printStackTrace();
+            logger.setLevel(Level.SEVERE);
+            logger.severe(String.valueOf(e));
         }
 
 
@@ -45,7 +48,8 @@ public class MessageListener implements Runnable {
             try {
                 Thread.sleep(500);
             } catch (InterruptedException e) {
-                e.printStackTrace();
+                logger.setLevel(Level.SEVERE);
+                logger.severe(String.valueOf(e));
                 Thread.currentThread().interrupt();
             }
 
@@ -53,7 +57,8 @@ public class MessageListener implements Runnable {
         try {
             reader();
         } catch (RemoteException e) {
-            e.printStackTrace();
+            logger.setLevel(Level.SEVERE);
+            logger.severe(String.valueOf(e));
         }
     }
     public void reader() throws RemoteException {
@@ -66,7 +71,8 @@ public class MessageListener implements Runnable {
                     try {
                         gameboard.updateController(gameboardController);
                     } catch (RemoteException e) {
-                        e.printStackTrace();
+                        logger.setLevel(Level.SEVERE);
+                        logger.severe(String.valueOf(e));
                     }
                 });
                 going();

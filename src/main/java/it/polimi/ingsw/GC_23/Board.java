@@ -70,7 +70,7 @@ public class Board {
                 this.marketSpaces[3]= new MarketSpace(ParseJson.getParseJson().getMarketEffect().get(3));
                 break;
             default:
-                System.out.println("wrong number of players");
+                System.err.println("wrong number of players");
                 break;
         }
 

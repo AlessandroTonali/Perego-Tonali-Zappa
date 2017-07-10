@@ -23,3 +23,11 @@ In order to start the game, follow these steps
      
 
   * It is possibile to set the match and play timeout in file Board.json
+  
+### UML diagrams
+  Check the UML diagrams in the folder UML (.uml and .png files)
+  * Inside you can find:
+    + Connection UML
+    + Model UML
+    + Controller UML
+    + Initial UML

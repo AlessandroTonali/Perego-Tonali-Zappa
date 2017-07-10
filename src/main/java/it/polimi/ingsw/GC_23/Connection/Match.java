@@ -31,6 +31,9 @@ public class Match implements Runnable{
         this.playerCounter = 0;
     }
 
+    /**
+     * start match thread: create the board and start setting
+     */
     @Override
     public void run(){
 
@@ -55,6 +58,14 @@ public class Match implements Runnable{
         }
     }
 
+    /**
+     * Life cycle of the match:
+     * starts the setup of the user (username, type of connection and type of the interface)
+     * starts the cli or the gui according to the choice made
+     * at the end of the match close the socket or the rmi connection of all users
+     * @throws RemoteException
+     * @throws IOException
+     */
     private void setting() throws IOException, RemoteException{
         for(UserHandler u: userHandlers){
             if(!u.isGuiInterface()) {
@@ -83,6 +94,11 @@ public class Match implements Runnable{
         System.out.println("Match ended");
     }
 
+    /**
+     * Add the userhandler in the list of userhandlers and update the counter
+     * @param userHandler to add
+     * @throws RemoteException
+     */
     public void setUserHandler(UserHandler userHandler) throws RemoteException{
         this.userHandlers.add(userHandler);
         playerCounter++;
@@ -101,6 +117,15 @@ public class Match implements Runnable{
         return this.playerCounter;
     }
 
+    /**
+     * Cli setup of the user
+     * It is possibile to choose to play with basic or advanced rules (in the match the majority of votes will be considered)
+     * and the player color
+     * @param playerController: the map of the current association of players and colors
+     * @param userHandler: the userhandler of the user to set
+     * @throws RemoteException
+     * @throws IOException
+     */
     public void setup(PlayerController playerController, UserHandler userHandler) throws IOException, RemoteException {
         StringBuilder stringBuilder = new StringBuilder();
         Map<Player, String> association = playerController.getAssociation();
@@ -172,7 +197,12 @@ public class Match implements Runnable{
         }
     }
 
-        public void guiSetup(UserHandler userHandler) throws RemoteException{
+    /**
+     * Gui setup of the player (player color + basic/advanced rules)
+     * @param userHandler userhandler of the user to set
+     * @throws RemoteException
+     */
+    public void guiSetup(UserHandler userHandler) throws RemoteException{
         userHandler.messageToUser("start");
         for (Map.Entry<Player, String> entry : playerController.getAssociation().entrySet()) {
             try {
